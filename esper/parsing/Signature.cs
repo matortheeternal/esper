@@ -1,57 +1,16 @@
-﻿using System;
-using System.Linq;
-using System.Runtime.InteropServices;
+﻿using System.Runtime.InteropServices;
 
-namespace esper {
+namespace esper.parsing {
     [StructLayout(LayoutKind.Sequential, Pack = 1)]
-    public class Signature {
-        static SignatureEncoding encoding = new SignatureEncoding();
+    public class Signature : Byte4 {
+        static readonly SignatureEncoding encoding = new SignatureEncoding();
 
-        [MarshalAs(UnmanagedType.U1, SizeConst = 1)]
-        public byte b0;
+        public Signature(byte b0, byte b1, byte b2, byte b3) 
+            : base(b0, b1, b2, b3) {}
 
-        [MarshalAs(UnmanagedType.U1, SizeConst = 1)]
-        public byte b1;
-
-        [MarshalAs(UnmanagedType.U1, SizeConst = 1)]
-        public byte b2;
-
-        [MarshalAs(UnmanagedType.U1, SizeConst = 1)]
-        public byte b3;
-
-        public byte[] bytes {
-            get {
-                byte[] b = new byte[4];
-                b[0] = b0;
-                b[1] = b1;
-                b[2] = b2;
-                b[3] = b3;
-                return b;
-            }
-            set {
-                b0 = value[0];
-                b1 = value[1];
-                b2 = value[2];
-                b3 = value[3];
-            }
-        }
-
-        public Signature(string str) {
-            bytes = encoding.Encode(str);
-        }
-
-        public static bool operator ==(Signature a, Signature b) =>
-            a.bytes.SequenceEqual(b.bytes);
-
-        public static bool operator !=(Signature a, Signature b) =>
-            !(a == b);
-
-        public override bool Equals(object obj) {
-            if ((obj == null) || !GetType().Equals(obj.GetType())) return false;
-            return this == (Signature)obj;
-        }
-        public override int GetHashCode() {
-            return Convert.ToInt32(bytes);
+        public static Signature FromString(string str) {
+            byte[] bytes = encoding.Encode(str);
+            return new Signature(bytes[0], bytes[1], bytes[2], bytes[3]);
         }
 
         public override string ToString() {
