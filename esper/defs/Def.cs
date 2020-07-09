@@ -1,4 +1,5 @@
 ﻿using esper.parsing;
+using esper.setup;
 using Newtonsoft.Json.Linq;
 
 namespace esper {
@@ -21,7 +22,7 @@ namespace esper {
             throw new System.Exception("Unimplemented");
         }
 
-        public string getName() {
+        public string GetName() {
             return src.Value<string>("name");
         }
     }
