@@ -1,6 +1,8 @@
-﻿using esper.parsing;
+﻿using esper.elements;
+using esper.parsing;
 using esper.setup;
 using Newtonsoft.Json.Linq;
+using System;
 
 namespace esper {
     public class Def {
@@ -19,11 +21,33 @@ namespace esper {
         }
 
         public bool HasPrimarySignature(Signature signature) {
-            throw new System.Exception("Unimplemented");
+            return false;
+        }
+
+        public void SubrecordFound(Element element, Subrecord subrecord) {
+            throw new NotImplementedException();
+        }
+
+        public void DataFound(Element element, ReadOnlySpan<byte> ptr) {
+            throw new NotImplementedException();
+        }
+
+        public Element Build(Container container) {
+            throw new NotImplementedException();
         }
 
         public string GetName() {
             return src.Value<string>("name");
+        }
+
+        public string GetSignature() {
+            if (!src.ContainsKey("signature")) return null;
+            return src.Value<string>("signature");
+        }
+
+        public ushort GetSize() {
+            if (!src.ContainsKey("size")) return 0;
+            return src.Value<ushort>("size");
         }
     }
 }

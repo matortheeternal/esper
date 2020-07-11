@@ -1,15 +1,20 @@
 ﻿using esper.helpers;
+using esper.parsing;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 
 namespace esper.setup {
     public class DefinitionManager {
+        public Game game;
+        public Session session;
         private JObject definitions;
         private Dictionary<string, Def> recordDefs;
         private Dictionary<string, Type> defClasses;
 
-        public DefinitionManager(Game game) {
+        public DefinitionManager(Game game, Session session) {
+            this.game = game;
+            this.session = session;
             ReadDefs(game);
             InitDefClasses(game);
             BuildRecordDefs();
@@ -65,6 +70,11 @@ namespace esper.setup {
             if (!metaDefs.ContainsKey(key))
                 throw new Exception("Unknown meta def: " + key);
             return metaDefs.Value<JObject>(key);
+        }
+
+        public Def GetRecordDef(Signature signature) {
+            // TODO: lookup by signature maybe?
+            return recordDefs[signature.ToString()];
         }
     }
 }

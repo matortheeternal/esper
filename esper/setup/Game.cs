@@ -1,4 +1,7 @@
-﻿namespace esper {
+﻿using System;
+using System.Linq;
+
+namespace esper {
     public class Game {
         public int xeditId;
         public string name;
@@ -17,5 +20,9 @@
         public string[] pluginExtensions;
         public string[] hardcodedPlugins;
         public int[] steamAppIds;
+
+        public bool SupportsLightPlugins() {
+            return pluginExtensions.Contains(".esl");
+        }
     }
 }

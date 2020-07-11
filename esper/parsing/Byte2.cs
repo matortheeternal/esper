@@ -2,7 +2,7 @@
 
 namespace esper.parsing {
     [StructLayout(LayoutKind.Sequential, Pack = 1)]
-    public struct Byte2 {
+    public class Byte2 {
         public readonly byte b0;
         public readonly byte b1;
 
