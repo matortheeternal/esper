@@ -6,9 +6,9 @@ using System;
 
 namespace esper {
     public class Def {
-        DefinitionManager manager;
-        JObject src;
-        Def parent = null;
+        internal DefinitionManager manager;
+        internal JObject src;
+        internal Def parent = null;
 
         public Def(DefinitionManager manager, JObject src, Def parent = null) {
             this.manager = manager;

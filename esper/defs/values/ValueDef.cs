@@ -1,6 +1,8 @@
-﻿using esper.elements;
+﻿using esper.data;
+using esper.elements;
 using esper.setup;
 using Newtonsoft.Json.Linq;
+using System;
 
 namespace esper.defs {
     public class ValueDef : Def {
@@ -8,7 +10,7 @@ namespace esper.defs {
             : base(manager, src, parent) {
         }
 
-        public Element Build(Container container) {
+        public new Element Build(Container container) {
             return new ValueElement(container, this);
         }
 
@@ -23,6 +25,10 @@ namespace esper.defs {
 
         public string GetValue(ValueElement element) {
             return element.data.ToString();
+        }
+
+        public void SetValue(ValueElement element, string value) {
+            throw new NotImplementedException();
         }
     }
 }

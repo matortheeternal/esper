@@ -1,8 +1,12 @@
 ﻿using esper.defs;
 using esper.setup;
+using esper.plugins;
+using esper.parsing;
+using System;
+using esper.resolution;
 
 namespace esper.elements {
-    public class Element {
+    public class Element : ResolutionInterface {
         public readonly Def def;
         public readonly Container container;
         public readonly PluginFile file;
@@ -10,6 +14,18 @@ namespace esper.elements {
         public DefinitionManager manager {
             get {
                 return file.manager;
+            }
+        }
+        public Signature signature {
+            get {
+                MaybeSubrecordDef d = (MaybeSubrecordDef)def;
+                if (d == null || !d.IsSubrecord()) return null;
+                return d.signature;
+            }
+        }
+        public MainRecord referencedRecord {
+            get {
+                throw new Exception("Element does not reference records.");
             }
         }
 
@@ -27,13 +43,5 @@ namespace esper.elements {
         public void ClearState(ElementState state) {
             this.state ^= state;
         }
-
-        public string GetSignature() {
-            MaybeSubrecordDef d = (MaybeSubrecordDef)def;
-            if (d == null || !d.IsSubrecord()) return null;
-            return d.signature.ToString();
-            
-        }
-
     }
 }
