@@ -1,4 +1,4 @@
-﻿using esper.elements;
+﻿using esper.plugins;
 
 namespace esper.setup {
     public class LightPluginSlot : PluginSlot {

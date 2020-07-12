@@ -4,19 +4,23 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.IO.MemoryMappedFiles;
+using System.Text;
+using esper.setup;
 
 namespace esper.parsing {
-
     public class PluginFileSource {
         private readonly Signature GRUP = Signature.FromString("GRUP");
 
         private readonly MemoryMappedFile file;
         private readonly MemoryMappedViewStream stream;
+        public readonly PluginFile plugin;
         public readonly BinaryReader reader;
         public string filePath;
+        public Encoding stringEncoding { get => plugin.stringEncoding; }
 
-        public PluginFileSource(string filePath) {
+        public PluginFileSource(string filePath, PluginFile plugin) {
             this.filePath = filePath;
+            this.plugin = plugin;
             file = MemoryMappedFile.CreateFromFile(filePath, FileMode.Open, filePath);
             stream = file.CreateViewStream();
             reader = new BinaryReader(stream);
@@ -33,6 +37,11 @@ namespace esper.parsing {
         public void ReadFileHeader(PluginFile file) {
             var tes4 = Signature.FromString("TES4");
             file.header = MainRecord.Read(stream, file, tes4);
+        }
+
+        public string ReadString(int size) {
+            byte[] bytes = reader.ReadBytes(size);
+            return stringEncoding.GetString(bytes);
         }
 
         public IntPtr GetIntPtr() {

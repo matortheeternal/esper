@@ -1,7 +1,8 @@
-﻿using esper.elements;
-using esper.parsing;
+﻿using esper.parsing;
+using esper.plugins;
 using System;
 using System.Collections.Generic;
+using System.IO;
 
 namespace esper.setup {
     public class PluginManager {
@@ -80,10 +81,11 @@ namespace esper.setup {
 
         public List<string> GetMasterFileNames(string filePath) {
             PluginFileOptions options = new PluginFileOptions {
-                temporary = true,
-                autoload = true
+                temporary = true
             };
-            PluginFile plugin = new PluginFile(session, filePath, options);
+            var filename = Path.GetFileName(filePath);
+            PluginFile plugin = new PluginFile(session, filename, options);
+            new PluginFileSource(filePath, plugin);
             plugin.ReadFileHeader();
             return plugin.GetMasterFileNames();
         }

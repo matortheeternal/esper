@@ -3,6 +3,7 @@ using System;
 
 namespace esper.data {
     public class IntData<T> : DataContainer {
+        public T data;
         public readonly static Func<PluginFileSource, T> Read;
 
         static IntData() {
@@ -23,10 +24,10 @@ namespace esper.data {
             }
         }
 
-        public T data;
         public IntData(T data) {
             this.data = data;
         }
+
         public IntData(PluginFileSource source) {
             data = Read(source);
         }

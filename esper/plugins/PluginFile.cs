@@ -1,6 +1,7 @@
 ﻿using esper.parsing;
 using esper.setup;
 using esper.elements;
+using System.Text;
 
 namespace esper.plugins {
     public class PluginFile : Container {
@@ -9,6 +10,7 @@ namespace esper.plugins {
         public string filename;
         public PluginFileOptions options;
         public PluginFileSource source;
+        public Encoding stringEncoding { get => session.options.encoding; }
 
         public string filePath {
             get {
