@@ -3,46 +3,36 @@ using System;
 
 namespace esper.data {
     public class IntData<T> : DataContainer {
+        public readonly static Func<PluginFileSource, T> Read;
+
+        static IntData() {
+            if (typeof(T) == typeof(byte)) {
+                Read = (PluginFileSource source) => (T)(object)source.reader.ReadByte();
+            } else if (typeof(T) == typeof(UInt16)) {
+                Read = (PluginFileSource source) => (T)(object)source.reader.ReadUInt16();
+            } else if (typeof(T) == typeof(UInt32)) {
+                Read = (PluginFileSource source) => (T)(object)source.reader.ReadUInt32();
+            } else if (typeof(T) == typeof(sbyte)) {
+                Read = (PluginFileSource source) => (T)(object)source.reader.ReadSByte();
+            } else if (typeof(T) == typeof(Int16)) {
+                Read = (PluginFileSource source) => (T)(object)source.reader.ReadInt16();
+            } else if (typeof(T) == typeof(Int32)) {
+                Read = (PluginFileSource source) => (T)(object)source.reader.ReadInt32();
+            } else {
+                throw new Exception("Unsupported IntData type");
+            }
+        }
+
         public T data;
+        public IntData(T data) {
+            this.data = data;
+        }
+        public IntData(PluginFileSource source) {
+            data = Read(source);
+        }
 
         public override string ToString() {
             return data.ToString();
-        }
-    }
-
-    public class Int32Data : IntData<Int32> {
-        public Int32Data(PluginFileSource source) {
-            data = source.reader.ReadInt32();
-        }
-    }
-
-    public class Int16Data : IntData<Int16> {
-        public Int16Data(PluginFileSource source) {
-            data = source.reader.ReadInt16();
-        }
-    }
-
-    public class Int8Data : IntData<sbyte> {
-        public Int8Data(PluginFileSource source) {
-            data = source.reader.ReadSByte();
-        }
-    }
-
-    public class UInt32Data : IntData<UInt32> {
-        public UInt32Data(PluginFileSource source) {
-            data = source.reader.ReadUInt32();
-        }
-    }
-
-    public class UInt16Data : IntData<UInt16> {
-        public UInt16Data(PluginFileSource source) {
-            data = source.reader.ReadUInt16();
-        }
-    }
-
-    public class UInt8Data : IntData<byte> {
-        public UInt8Data(PluginFileSource source) {
-            data = source.reader.ReadByte();
         }
     }
 }

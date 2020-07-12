@@ -18,7 +18,8 @@ namespace esper.defs {
         }
 
         public new void SetValue(ValueElement element, string value) {
-            element.data = new UserFloatData(value);
+            float data = ParseFloat(value);
+            element.data = new FloatData(data);
         }
     }
 }

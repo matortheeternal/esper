@@ -1,4 +1,5 @@
 ﻿using esper.data;
+using esper.elements;
 using esper.parsing;
 using esper.setup;
 using Newtonsoft.Json.Linq;
@@ -22,6 +23,13 @@ namespace esper.defs {
 
         public DataContainer ReadData(PluginFileSource source) {
             return new BytesData(source, size);
+        }
+
+        public new void SetValue(ValueElement element, string value) {
+            byte[] data = ParseBytes(value);
+            if (data.Length != size) 
+                throw new Exception("Bytes size mismatch");
+            element.data = new BytesData(data);
         }
     }
 }
