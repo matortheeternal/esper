@@ -36,7 +36,7 @@ namespace esper.resolution {
             return null;
         }
 
-        public Element GetElement(string path) {
+        public Element GetElement(string path = "") {
             string pathPart;
             Element element = (Element) this;
             while (path.Length > 0) {
@@ -48,14 +48,14 @@ namespace esper.resolution {
             return element;
         }
 
-        public List<Element> GetElements(string path) {
+        public List<Element> GetElements(string path = "") {
             Container container = (Container) GetElement(path);
             if (container == null) 
                 throw new Exception("Element does not have child elements.");
             return container.elements;
         }
 
-        public string GetValue(string path) {
+        public string GetValue(string path = "") {
             ValueElement valueElement = (ValueElement)GetElement(path);
             if (valueElement == null)
                 throw new Exception("Element does not have a value.");
