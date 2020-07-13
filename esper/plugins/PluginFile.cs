@@ -2,15 +2,22 @@
 using esper.setup;
 using esper.elements;
 using System.Text;
+using System.Collections.Generic;
 
 namespace esper.plugins {
-    public class PluginFile : Container {
+    public class PluginFile : Container, IMasterManager {
         public MainRecord header;
         public Session session;
         public string filename;
         public PluginFileOptions options;
         public PluginFileSource source;
         public Encoding stringEncoding { get => session.options.encoding; }
+
+        PluginFile IMasterManager.file => this;
+        List<PluginFile> IMasterManager.originalMasters { get; }
+        List<PluginFile> IMasterManager.masters { get; }
+        Dictionary<string, byte> IMasterManager.originalMasterIndices { get; }
+        Dictionary<string, byte> IMasterManager.masterIndices { get; }
 
         public string filePath {
             get {
@@ -22,12 +29,6 @@ namespace esper.plugins {
         public new DefinitionManager manager {
             get {
                 return session.definitionManager;
-            }
-        }
-
-        public new PluginFile file {
-            get {
-                return this;
             }
         }
 
@@ -49,8 +50,8 @@ namespace esper.plugins {
         public void ReadFileHeader() {
             if (header != null) return;
             source.ReadFileHeader(this);
-            InitMasters();
-            InitMasterIndexes();
+            this.InitMasters();
+            this.InitMasterIndexes();
         }
     }
 }
