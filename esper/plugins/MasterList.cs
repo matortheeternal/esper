@@ -1,0 +1,56 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+
+namespace esper.plugins {
+    public class MasterList {
+        private List<PluginFile> _files;
+        public ReadOnlyCollection<PluginFile> files {
+            get => _files.AsReadOnly();
+        }
+        public List<string> filenames {
+            get => files.Select(f => f.filename).ToList();
+        }
+        public PluginFile parentFile;
+
+        public MasterList(PluginFile parentFile, List<PluginFile> files = null) {
+            this.parentFile = parentFile;
+            _files = files != null 
+                ? new List<PluginFile>(files) 
+                : new List<PluginFile>();
+        }
+
+        public PluginFile OrdinalToFile(byte ordinal) {
+            return files[ordinal];
+        }
+
+        public byte FileToOrdinal(PluginFile file) {
+            return (byte)files.IndexOf(file);
+        }
+
+        public void Add(PluginFile file) {
+            _files.Add(file);
+        }
+
+        public void Remove(PluginFile file) {
+            _files.RemoveAll(p => p == file);
+        }
+
+        public bool Contains(PluginFile file) {
+            return _files.Contains(file);
+        }
+    }
+    public class ReadOnlyMasterList : MasterList {
+        public ReadOnlyMasterList(PluginFile parentFile, List<PluginFile> files)
+            : base(parentFile, files) {}
+
+        public new void Add(PluginFile file) {
+            throw new Exception("Cannot add files to a ReadOnlyMasterList.");
+        }
+
+        public new void Remove(PluginFile file) {
+            throw new Exception("Cannot remove files from a ReadOnlyMasterList.");
+        }
+    }
+}

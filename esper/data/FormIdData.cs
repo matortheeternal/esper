@@ -15,7 +15,7 @@ namespace esper.data {
         public FormIdData(PluginFileSource source) {
             UInt32 data = source.reader.ReadUInt32();
             byte ordinal = (byte) (data >> 24);
-            targetPlugin = source.plugin.OrdinalToFile(ordinal);
+            targetPlugin = source.plugin.OrdinalToFile(ordinal, false);
             formId = data & 0xFFFFFF;
         }
     }
