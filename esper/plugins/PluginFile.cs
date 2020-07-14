@@ -4,7 +4,7 @@ using esper.elements;
 using System.Text;
 
 namespace esper.plugins {
-    public class PluginFile : Container, IMasterManager {
+    public class PluginFile : Container, IMasterManager, IRecordManager {
         public MainRecord header;
         public Session session;
         public string filename;
@@ -16,6 +16,10 @@ namespace esper.plugins {
         PluginFile IMasterManager.file => this;
         ReadOnlyMasterList IMasterManager.originalMasters { get; set; }
         MasterList IMasterManager.masters { get; set; }
+
+        PluginFile IRecordManager.file => this;
+        RecordMap<ulong> IRecordManager.localRecordsByFormID { get; set; }
+        PluginRecordMap<ulong> IRecordManager.remoteRecordsByFormId { get; set; }
 
         public string filePath {
             get {
