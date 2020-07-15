@@ -1,8 +1,10 @@
-﻿using esper.helpers;
+﻿using esper.defs;
+using esper.helpers;
 using esper.parsing;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace esper.setup {
     public class DefinitionManager {
@@ -42,9 +44,15 @@ namespace esper.setup {
             definitions = IOHelpers.LoadResource(filename);
         }
 
-        public Def BuildDef(JObject src) {
+        public Def BuildDef(JObject src, Def parent = null) {
             var defClass = defClasses[src.Value<string>("type")];
-            return (Def) Activator.CreateInstance(defClass);
+            var args = new object[] { this, src, parent };
+            return (Def) Activator.CreateInstance(defClass, args);
+        }
+
+        public List<Def> BuildDefs(JArray sources, Def parent) {
+            if (sources == null) throw new Exception("No def sources found.");
+            return sources.Select(src => BuildDef((JObject)src, parent)).ToList();
         }
 
         private void ApplyFlagsFormat(JObject headerDef, JObject src) {

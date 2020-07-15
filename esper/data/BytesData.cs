@@ -8,6 +8,10 @@ namespace esper.data {
             get => data.Length;
         }
 
+        public BytesData(byte[] data) {
+            this.data = data;
+        }
+
         public BytesData(PluginFileSource source, int size) {
             data = source.reader.ReadBytes(size);
         }

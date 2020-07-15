@@ -36,7 +36,7 @@ namespace esper.parsing {
 
         public void ReadFileHeader(PluginFile file) {
             var tes4 = Signature.FromString("TES4");
-            file.header = MainRecord.Read(stream, file, tes4);
+            file.header = MainRecord.Read(this, file, tes4);
         }
 
         public string ReadString(int size) {
@@ -55,9 +55,9 @@ namespace esper.parsing {
                     Span<byte> span = new Span<byte>(ptr, 4);
                     var signature = new Signature(span[0], span[1], span[2], span[3]);
                     if (signature == GRUP) {
-                        GroupRecord.Read(stream, file);
+                        GroupRecord.Read(this, file);
                     } else {
-                        MainRecord.Read(stream, file, signature);
+                        MainRecord.Read(this, file, signature);
                     }
                 }
             }

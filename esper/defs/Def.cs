@@ -32,7 +32,7 @@ namespace esper {
             throw new NotImplementedException();
         }
 
-        public Element Build(Container container) {
+        public Element ReadElement(Container container, PluginFileSource source) {
             throw new NotImplementedException();
         }
 

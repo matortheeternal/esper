@@ -8,17 +8,17 @@ namespace esper.data {
 
         static IntData() {
             if (typeof(T) == typeof(byte)) {
-                Read = (PluginFileSource source) => (T)(object)source.reader.ReadByte();
+                Read = (PluginFileSource source) => (dynamic)source.reader.ReadByte();
             } else if (typeof(T) == typeof(UInt16)) {
-                Read = (PluginFileSource source) => (T)(object)source.reader.ReadUInt16();
+                Read = (PluginFileSource source) => (dynamic)source.reader.ReadUInt16();
             } else if (typeof(T) == typeof(UInt32)) {
-                Read = (PluginFileSource source) => (T)(object)source.reader.ReadUInt32();
+                Read = (PluginFileSource source) => (dynamic)source.reader.ReadUInt32();
             } else if (typeof(T) == typeof(sbyte)) {
-                Read = (PluginFileSource source) => (T)(object)source.reader.ReadSByte();
+                Read = (PluginFileSource source) => (dynamic)source.reader.ReadSByte();
             } else if (typeof(T) == typeof(Int16)) {
-                Read = (PluginFileSource source) => (T)(object)source.reader.ReadInt16();
+                Read = (PluginFileSource source) => (dynamic)source.reader.ReadInt16();
             } else if (typeof(T) == typeof(Int32)) {
-                Read = (PluginFileSource source) => (T)(object)source.reader.ReadInt32();
+                Read = (PluginFileSource source) => (dynamic)source.reader.ReadInt32();
             } else {
                 throw new Exception("Unsupported IntData type");
             }

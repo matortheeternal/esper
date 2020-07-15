@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json.Linq;
 using esper.helpers;
+using esper.setup;
 
 namespace esper.defs {
     public class ArrayDef : MaybeSubrecordDef {

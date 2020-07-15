@@ -1,5 +1,4 @@
 ﻿using esper.parsing;
-using System.Runtime.InteropServices;
 
 namespace esper.data {
     public class FloatData : DataContainer {
@@ -7,6 +6,10 @@ namespace esper.data {
 
         public FloatData(PluginFileSource source) {
             data = source.reader.ReadSingle();
+        }
+
+        public FloatData(float data) {
+            this.data = data;
         }
 
         public override string ToString() {

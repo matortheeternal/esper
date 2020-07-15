@@ -3,8 +3,10 @@
 namespace esper.data {
     public class StringData : DataContainer {
         public readonly string data;
-        public int size {
-            get => data.Length;
+        public int size { get => data.Length; }
+
+        public StringData(string data) {
+            this.data = data;
         }
 
         public StringData(PluginFileSource source, int size) {
