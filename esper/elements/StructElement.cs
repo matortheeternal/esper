@@ -1,4 +1,4 @@
 ﻿namespace esper.elements {
-    public class StructElement {
+    public class StructElement : Container {
     }
 }

@@ -18,7 +18,7 @@ namespace esper.plugins {
         MasterList IMasterManager.masters { get; set; }
 
         PluginFile IRecordManager.file => this;
-        RecordMap<ulong> IRecordManager.localRecordsByFormID { get; set; }
+        RecordMap<ulong> IRecordManager.localRecordsByFormId { get; set; }
         PluginRecordMap<ulong> IRecordManager.remoteRecordsByFormId { get; set; }
 
         public string filePath {

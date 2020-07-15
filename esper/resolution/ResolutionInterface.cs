@@ -1,4 +1,5 @@
-﻿using esper.elements;
+﻿using esper.data;
+using esper.elements;
 using esper.resolution.strategies;
 using System;
 using System.Collections.Generic;
@@ -60,6 +61,13 @@ namespace esper.resolution {
             if (valueElement == null)
                 throw new Exception("Element does not have a value.");
             return valueElement.value;
+        }
+
+        public T GetData<T>(string path = "") where T : DataContainer {
+            ValueElement valueElement = (ValueElement)GetElement(path);
+            if (valueElement == null)
+                throw new Exception("Element does not have a value.");
+            return (T) valueElement.data;
         }
     }
 }
