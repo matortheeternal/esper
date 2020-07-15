@@ -15,7 +15,8 @@ namespace esper.defs {
             : base(manager, src, parent) {}
 
         public new DataContainer ReadData(PluginFileSource source) {
-            return new FloatData(source);
+            var data = source.reader.ReadSingle();
+            return new FloatData(data);
         }
 
         public new DataContainer DefaultData() {

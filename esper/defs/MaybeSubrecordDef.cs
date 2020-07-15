@@ -8,7 +8,7 @@ namespace esper.defs {
     public class MaybeSubrecordDef : Def {
         public Signature signature;
 
-        public MaybeSubrecordDef(DefinitionManager manager, JObject src, Def parent = null) 
+        public MaybeSubrecordDef(DefinitionManager manager, JObject src, Def parent) 
             : base(manager, src, parent) {
         }
 

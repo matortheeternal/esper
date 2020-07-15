@@ -10,7 +10,7 @@ namespace esper.defs {
         public static readonly string defType = "uint16";
         public new int size { get => 2; }
 
-        public UInt16Def(DefinitionManager manager, JObject src, Def parent = null)
+        public UInt16Def(DefinitionManager manager, JObject src, Def parent)
             : base(manager, src, parent) { }
 
         public new DataContainer ReadData(PluginFileSource source) {

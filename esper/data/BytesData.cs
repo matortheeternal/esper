@@ -12,10 +12,6 @@ namespace esper.data {
             this.data = data;
         }
 
-        public BytesData(PluginFileSource source, int size) {
-            data = source.reader.ReadBytes(size);
-        }
-
         public override string ToString() {
             return StringHelpers.FormatBytes(data);
         }

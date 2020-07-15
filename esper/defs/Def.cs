@@ -8,9 +8,9 @@ namespace esper {
     public class Def {
         internal DefinitionManager manager;
         internal JObject src;
-        internal Def parent = null;
+        internal Def parent;
 
-        public Def(DefinitionManager manager, JObject src, Def parent = null) {
+        public Def(DefinitionManager manager, JObject src, Def parent) {
             this.manager = manager;
             this.src = src;
             if (parent != null) this.parent = parent;

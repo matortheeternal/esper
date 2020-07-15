@@ -15,7 +15,7 @@ namespace esper.defs {
         }
         public bool isVariableSize { get => size == 0; }
 
-        public ValueDef(DefinitionManager manager, JObject src, Def parent = null)
+        public ValueDef(DefinitionManager manager, JObject src, Def parent)
             : base(manager, src, parent) {
         }
 

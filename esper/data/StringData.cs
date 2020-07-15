@@ -9,10 +9,6 @@ namespace esper.data {
             this.data = data;
         }
 
-        public StringData(PluginFileSource source, int size) {
-            data = source.ReadString(size);
-        }
-
         public override string ToString() {
             return data;
         }

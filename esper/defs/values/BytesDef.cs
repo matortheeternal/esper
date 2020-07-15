@@ -16,7 +16,8 @@ namespace esper.defs {
         }
 
         public new DataContainer ReadData(PluginFileSource source) {
-            return new BytesData(source, size);
+            var data = source.reader.ReadBytes(size);
+            return new BytesData(data);
         }
 
         public new DataContainer DefaultData() {

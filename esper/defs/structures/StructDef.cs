@@ -10,7 +10,7 @@ namespace esper.defs {
         public readonly static string defType = "struct";
         public ReadOnlyCollection<Def> elementDefs;
 
-        public StructDef(DefinitionManager manager, JObject src, Def parent = null)
+        public StructDef(DefinitionManager manager, JObject src, Def parent)
             : base(manager, src, parent) {
             ErrorHelpers.CheckDefProperty(src, "elements");
             elementDefs = manager.BuildDefs(src.Value<JArray>("elements"), this);

@@ -3,32 +3,35 @@ using esper.helpers;
 using esper.parsing;
 using Newtonsoft.Json.Linq;
 using System;
+using System.Linq;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
 
 namespace esper.setup {
+    using DefMap = Dictionary<string, Def>;
+    using DefClassMap = Dictionary<string, Type>;
+
     public class DefinitionManager {
         public Game game;
         public Session session;
         private JObject definitions;
-        private Dictionary<string, Def> recordDefs;
-        private Dictionary<string, Type> defClasses;
+        private readonly DefMap recordDefs = new DefMap();
+        private readonly DefClassMap defClasses = new DefClassMap();
+        private string defsFileName { get => game.abbreviation + ".json"; }
 
         public DefinitionManager(Game game, Session session) {
             this.game = game;
             this.session = session;
-            ReadDefs(game);
+            definitions = IOHelpers.LoadResource(defsFileName);
             InitDefClasses(game);
             BuildRecordDefs();
         }
 
         private void BuildRecordDefs() {
-            recordDefs = new Dictionary<string, Def>();
             var defs = definitions.Value<JObject>("defs");
             foreach (var (key, def) in defs) {
                 if (def.Value<string>("type") != "record") continue;
-                recordDefs[key] = BuildDef((JObject)def);
+                recordDefs[key] = BuildDef((JObject)def, null);
             }
         }
 
@@ -40,12 +43,7 @@ namespace esper.setup {
             });
         }
 
-        private void ReadDefs(Game game) {
-            var filename = game.abbreviation + ".json";
-            definitions = IOHelpers.LoadResource(filename);
-        }
-
-        public Def BuildDef(JObject src, Def parent = null) {
+        public Def BuildDef(JObject src, Def parent) {
             var defClass = defClasses[src.Value<string>("type")];
             var args = new object[] { this, src, parent };
             return (Def) Activator.CreateInstance(defClass, args);
@@ -63,10 +61,10 @@ namespace esper.setup {
             headerDef["elements"][2]["format"] = src["flags"];
         }
 
-        public Def BuildMainRecordHeaderDef(JObject src) {
+        public StructDef BuildMainRecordHeaderDef(JObject src, Def recordDef) {
             JObject def = (JObject) ResolveMetaDef("MainRecordHeader").DeepClone();
             ApplyFlagsFormat(def, src);
-            return BuildDef(def);
+            return (StructDef) BuildDef(def, recordDef);
         }
 
         public JObject ResolveDef(string key) {

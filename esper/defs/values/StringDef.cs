@@ -13,7 +13,8 @@ namespace esper.defs {
             : base(manager, src, parent) {}
 
         public new DataContainer ReadData(PluginFileSource source) {
-            return new StringData(source, size);
+            var data = source.ReadString(size);
+            return new StringData(data);
         }
 
         public new DataContainer DefaultData() {
