@@ -4,7 +4,7 @@ using esper.parsing;
 using esper.setup;
 using Newtonsoft.Json.Linq;
 
-namespace esper.defs.values {
+namespace esper.defs {
     public class Int8Def : ValueDef {
         public static readonly string defType = "int8";
         public new int size { get => 1; }

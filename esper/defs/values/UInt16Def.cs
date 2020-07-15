@@ -5,7 +5,7 @@ using esper.setup;
 using System;
 using Newtonsoft.Json.Linq;
 
-namespace esper.defs.values {
+namespace esper.defs {
     public class UInt16Def : ValueDef {
         public static readonly string defType = "uint16";
         public new int size { get => 2; }

@@ -1,7 +1,4 @@
-﻿using esper.parsing;
-using System;
-
-namespace esper.data {
+﻿namespace esper.data {
     public class IntData<T> : DataContainer {
         public T data;
 

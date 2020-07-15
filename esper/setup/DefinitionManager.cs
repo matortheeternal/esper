@@ -4,6 +4,7 @@ using esper.parsing;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 
 namespace esper.setup {
@@ -50,9 +51,11 @@ namespace esper.setup {
             return (Def) Activator.CreateInstance(defClass, args);
         }
 
-        public List<Def> BuildDefs(JArray sources, Def parent) {
+        public ReadOnlyCollection<Def> BuildDefs(JArray sources, Def parent) {
             if (sources == null) throw new Exception("No def sources found.");
-            return sources.Select(src => BuildDef((JObject)src, parent)).ToList();
+            return sources.Select(
+                src => BuildDef((JObject)src, parent)
+            ).ToList().AsReadOnly();
         }
 
         private void ApplyFlagsFormat(JObject headerDef, JObject src) {
