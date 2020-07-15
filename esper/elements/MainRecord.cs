@@ -21,7 +21,7 @@ namespace esper.elements {
             Signature signature
         ) {
             var def = container.manager.GetRecordDef(signature);
-            var record = new MainRecord(container, );
+            var record = new MainRecord(container, def);
             return record;
         }
 

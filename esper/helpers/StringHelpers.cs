@@ -25,5 +25,18 @@ namespace esper.helpers {
             }
             return new string(chars, 0, len);
         }
+
+        public static void SplitPath(
+            string path, out string pathPart, out string remainingPath
+        ) {
+            int separatorIndex = path.IndexOf(@"\");
+            if (separatorIndex == -1) {
+                pathPart = path;
+                remainingPath = "";
+                return;
+            }
+            pathPart = path.Substring(0, separatorIndex);
+            remainingPath = path.Substring(separatorIndex + 1, path.Length);
+        }
     }
 }

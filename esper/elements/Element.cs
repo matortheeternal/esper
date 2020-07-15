@@ -6,7 +6,7 @@ using System;
 using esper.resolution;
 
 namespace esper.elements {
-    public class Element : ResolutionInterface {
+    public class Element : IResolution {
         public readonly Def def;
         public readonly Container container;
         public readonly PluginFile file;

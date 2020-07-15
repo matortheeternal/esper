@@ -3,9 +3,12 @@ using esper.elements;
 using esper.resolution.strategies;
 using System;
 using System.Collections.Generic;
+using esper.helpers;
 
 namespace esper.resolution {
-    public class ResolutionInterface {
+    public interface IResolution {}
+
+    public static class ResolutionExtensions {
         public static List<Type> strategies = new List<Type> {
             typeof(ResolveParent),
             typeof(ResolveReference),
@@ -14,19 +17,8 @@ namespace esper.resolution {
             typeof(ResolveByName)
         };
 
-        private void SplitPath(string path, out string pathPart, out string remainingPath) {
-            int separatorIndex = path.IndexOf(@"\");
-            if (separatorIndex == -1) {
-                pathPart = path;
-                remainingPath = "";
-                return;
-            }
-            pathPart = path.Substring(0, separatorIndex);
-            remainingPath = path.Substring(separatorIndex + 1, path.Length);
-        }
-
-        public Element ResolveElement(string pathPart) {
-            var parameters = new object[] { this, pathPart };
+        public static Element ResolveElement(this IResolution r, string pathPart) {
+            var parameters = new object[] { r, pathPart };
             foreach (var strategy in strategies) {
                 var matchMethod = strategy.GetMethod("Match");
                 MatchData match = (MatchData)matchMethod.Invoke(null, parameters);
@@ -37,34 +29,36 @@ namespace esper.resolution {
             return null;
         }
 
-        public Element GetElement(string path = "") {
+        public static Element GetElement(this IResolution r, string path = "") {
             string pathPart;
-            Element element = (Element) this;
+            Element element = (Element) r;
             while (path.Length > 0) {
                 if (element == null)
                     throw new Exception("Cannot resolve element from null.");
-                SplitPath(path, out pathPart, out path);
+                StringHelpers.SplitPath(path, out pathPart, out path);
                 element = element.ResolveElement(pathPart);
             }
             return element;
         }
 
-        public List<Element> GetElements(string path = "") {
-            Container container = (Container) GetElement(path);
+        public static List<Element> GetElements(this IResolution r, string path = "") {
+            Container container = (Container) r.GetElement(path);
             if (container == null) 
                 throw new Exception("Element does not have child elements.");
             return container.elements;
         }
 
-        public string GetValue(string path = "") {
-            ValueElement valueElement = (ValueElement)GetElement(path);
+        public static string GetValue(this IResolution r, string path = "") {
+            ValueElement valueElement = (ValueElement) r.GetElement(path);
             if (valueElement == null)
                 throw new Exception("Element does not have a value.");
             return valueElement.value;
         }
 
-        public T GetData<T>(string path = "") where T : DataContainer {
-            ValueElement valueElement = (ValueElement)GetElement(path);
+        public static T GetData<T>(
+            this IResolution r, string path = ""
+        ) where T : DataContainer {
+            ValueElement valueElement = (ValueElement) r.GetElement(path);
             if (valueElement == null)
                 throw new Exception("Element does not have a value.");
             return (T) valueElement.data;
