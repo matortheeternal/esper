@@ -1,5 +1,4 @@
-﻿using esper.data;
-using esper.elements;
+﻿using esper.elements;
 using esper.helpers;
 using esper.parsing;
 using esper.setup;
@@ -15,20 +14,24 @@ namespace esper.defs {
             if (size < 0) throw new Exception("Def source has invalid size" + size);
         }
 
-        public new DataContainer ReadData(PluginFileSource source) {
-            var data = source.reader.ReadBytes(size);
-            return new BytesData(data);
+        public new byte[] ReadData(PluginFileSource source) {
+            return source.reader.ReadBytes(size);
         }
 
-        public new DataContainer DefaultData() {
-            return new BytesData(new byte[size]);
+        public new byte[] DefaultData() {
+            return new byte[size];
+        }
+
+        public new string GetValue(ValueElement element) {
+            byte[] data = element.data;
+            return StringHelpers.FormatBytes(data);
         }
 
         public new void SetValue(ValueElement element, string value) {
             byte[] data = StringHelpers.ParseBytes(value);
             if (data.Length != size)
                 throw new Exception("Bytes size mismatch");
-            element.data = new BytesData(data);
+            element.data = data;
         }
     }
 }

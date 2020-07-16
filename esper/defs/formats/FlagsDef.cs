@@ -1,5 +1,4 @@
-﻿using esper.data;
-using esper.elements;
+﻿using esper.elements;
 using esper.setup;
 using Newtonsoft.Json.Linq;
 using System;
@@ -39,7 +38,7 @@ namespace esper.defs {
             var a = new List<string>();
             var numBits = 8 * element.valueDef.size;
             for (int i = 0; i < numBits; i++)
-                if ((data & 1 << i) != 0) a.Add(GetFlagValue(i));
+                if ((data & (1 << i)) != 0) a.Add(GetFlagValue(i));
             return a;
         }
 

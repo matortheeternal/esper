@@ -1,5 +1,4 @@
-﻿using esper.data;
-using esper.elements;
+﻿using esper.elements;
 using esper.parsing;
 using esper.setup;
 using System;
@@ -13,17 +12,21 @@ namespace esper.defs {
         public UInt16Def(DefinitionManager manager, JObject src, Def parent)
             : base(manager, src, parent) { }
 
-        public new DataContainer ReadData(PluginFileSource source) {
-            UInt16 data = source.reader.ReadUInt16();
-            return new IntData<UInt16>(data);
+        public new UInt16 ReadData(PluginFileSource source) {
+            return source.reader.ReadUInt16();
         }
 
-        public new DataContainer DefaultData() {
-            return new IntData<UInt16>(0);
+        public new UInt16 DefaultData() {
+            return 0;
+        }
+
+        public new string GetValue(ValueElement element) {
+            UInt16 data = element.data;
+            return data.ToString();
         }
 
         public new void SetValue(ValueElement element, string value) {
-            element.data = new IntData<UInt16>(UInt16.Parse(value));
+            element.data = UInt16.Parse(value);
         }
     }
 }

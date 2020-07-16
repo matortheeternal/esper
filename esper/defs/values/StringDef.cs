@@ -1,5 +1,4 @@
 ﻿using Newtonsoft.Json.Linq;
-using esper.data;
 using esper.elements;
 using esper.parsing;
 using esper.setup;
@@ -12,17 +11,21 @@ namespace esper.defs {
         public StringDef(DefinitionManager manager, JObject src, Def parent)
             : base(manager, src, parent) {}
 
-        public new DataContainer ReadData(PluginFileSource source) {
-            var data = source.ReadString(size);
-            return new StringData(data);
+        public new string ReadData(PluginFileSource source) {
+            return source.ReadString(size);
         }
 
-        public new DataContainer DefaultData() {
-            return new StringData("");
+        public new string DefaultData() {
+            return "";
+        }
+
+        public new string GetValue(ValueElement element) {
+            string data = element.data;
+            return data;
         }
 
         public new void SetValue(ValueElement element, string value) {
-            element.data = new StringData(value);
+            element.data = value;
         }
     }
 }

@@ -1,5 +1,4 @@
-﻿using esper.data;
-using esper.defs;
+﻿using esper.defs;
 using esper.parsing;
 using esper.resolution;
 
@@ -8,7 +7,7 @@ namespace esper.elements {
         public readonly StructElement header;
         public MainRecordDef mrDef { get => (MainRecordDef) def; }
         public ulong formId {
-            get => header.GetData<IntData<ulong>>("Form ID").data;
+            get => header.GetData("Form ID");
         }
         public ulong localFormId {
             get => formId & 0xFFFFFF;

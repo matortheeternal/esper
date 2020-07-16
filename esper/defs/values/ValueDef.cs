@@ -1,5 +1,4 @@
-﻿using esper.data;
-using esper.elements;
+﻿using esper.elements;
 using esper.parsing;
 using esper.setup;
 using Newtonsoft.Json.Linq;
@@ -27,28 +26,28 @@ namespace esper.defs {
             return new ValueElement(container, this);
         }
 
-        public DataContainer GetData(ValueElement element) {
+        public dynamic GetData(ValueElement element) {
             return element.data;
         }
 
-        public void SetData(ValueElement element, DataContainer data) {
+        public void SetData(ValueElement element, dynamic data) {
             element.data = data;
             element.SetState(ElementState.Modified);
         }
 
         public string GetValue(ValueElement element) {
-            return element.data.ToString();
+            throw new NotImplementedException();
         }
 
         public void SetValue(ValueElement element, string value) {
             throw new NotImplementedException();
         }
 
-        public DataContainer DefaultData() {
+        public dynamic DefaultData() {
             throw new NotImplementedException();
         }
 
-        public DataContainer ReadData(PluginFileSource source) {
+        public dynamic ReadData(PluginFileSource source) {
             throw new NotImplementedException();
         }
     }
