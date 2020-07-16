@@ -8,7 +8,7 @@ namespace esper.elements {
         public ValueDef valueDef { get => (ValueDef)def; }
 
         public string value {
-            get => data.ToString();
+            get => valueDef.GetValue(this);
             set => valueDef.SetValue(this, value);
         }
 

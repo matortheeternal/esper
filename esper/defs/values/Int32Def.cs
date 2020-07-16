@@ -10,7 +10,7 @@ namespace esper.defs {
         public static readonly string defType = "int32";
         public new int size { get => 4; }
 
-        public Int32Def(DefinitionManager manager, JObject src, Def parent = null)
+        public Int32Def(DefinitionManager manager, JObject src, Def parent)
             : base(manager, src, parent) { }
 
         public new DataContainer ReadData(PluginFileSource source) {

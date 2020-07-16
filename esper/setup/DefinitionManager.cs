@@ -14,7 +14,7 @@ namespace esper.setup {
     public class DefinitionManager {
         public Game game;
         public Session session;
-        private JObject definitions;
+        private readonly JObject definitions;
         private readonly DefMap recordDefs = new DefMap();
         private readonly DefClassMap defClasses = new DefClassMap();
         private string defsFileName { get => game.abbreviation + ".json"; }
@@ -36,7 +36,7 @@ namespace esper.setup {
         }
 
         private void InitDefClasses(Game game) {
-            var gameDefsNamespace = "esper.defs" + game.abbreviation;
+            var gameDefsNamespace = "esper.defs." + game.abbreviation;
             ReflectionHelpers.BuildClassDictionary(defClasses, "defType", (Type t) => {
                 return t.Namespace == "esper.defs" ||
                     t.Namespace == gameDefsNamespace;

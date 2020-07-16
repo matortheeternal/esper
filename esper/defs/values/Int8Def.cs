@@ -9,7 +9,7 @@ namespace esper.defs {
         public static readonly string defType = "int8";
         public new int size { get => 1; }
 
-        public Int8Def(DefinitionManager manager, JObject src, Def parent = null)
+        public Int8Def(DefinitionManager manager, JObject src, Def parent)
             : base(manager, src, parent) { }
 
         public new DataContainer ReadData(PluginFileSource source) {
