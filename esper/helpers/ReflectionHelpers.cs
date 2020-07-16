@@ -19,9 +19,9 @@ namespace esper.helpers {
         ) {
             var types = GetClasses(typeFilter);
             foreach (var type in types) {
-                PropertyInfo pInfo = type.GetProperty(propKey);
-                if (pInfo == null) continue;
-                string key = (string)pInfo.GetValue(null);
+                var info= type.GetField(propKey);
+                if (info == null) continue;
+                string key = (string)info.GetValue(null);
                 dict[key] = type;
             }
         }

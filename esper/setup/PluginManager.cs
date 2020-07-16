@@ -79,15 +79,28 @@ namespace esper.setup {
             return CreateDummyPlugin(filename);
         }
 
-        public List<string> GetMasterFileNames(string filePath) {
-            PluginFileOptions options = new PluginFileOptions {
-                temporary = true
-            };
+        public PluginFile LoadPluginHeader(string filePath) {
+            var options = new PluginFileOptions { temporary = true };
             var filename = Path.GetFileName(filePath);
             PluginFile plugin = new PluginFile(session, filename, options);
             new PluginFileSource(filePath, plugin);
             plugin.ReadFileHeader();
-            return plugin.GetMasterFileNames();
+            return plugin;
+        }
+
+        public PluginFile LoadPlugin(string filePath) {
+            var options = new PluginFileOptions();
+            var filename = Path.GetFileName(filePath);
+            PluginFile plugin = new PluginFile(session, filename, options);
+            new PluginFileSource(filePath, plugin);
+            plugin.ReadFileHeader();
+            plugin.ReadGroups();
+            return plugin;
+        }
+
+        public List<string> GetMasterFileNames(string filePath) {
+            var plugin = LoadPluginHeader(filePath);
+            return (plugin as IMasterManager).masters.filenames;
         }
     }
 }

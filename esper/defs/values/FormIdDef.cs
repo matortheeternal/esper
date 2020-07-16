@@ -11,7 +11,7 @@ namespace esper.defs.values {
         public static string defType = "formId";
         public new int size { get => 4; }
 
-        public FormIdDef(DefinitionManager manager, JObject src, Def parent = null)
+        public FormIdDef(DefinitionManager manager, JObject src, Def parent)
             : base(manager, src, parent) { }
 
         public new DataContainer ReadData(PluginFileSource source) {

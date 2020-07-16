@@ -11,7 +11,7 @@ namespace esper.defs {
 
         public new int size { get => 4; }
 
-        public FloatDef(DefinitionManager manager, JObject src, Def parent = null)
+        public FloatDef(DefinitionManager manager, JObject src, Def parent)
             : base(manager, src, parent) {}
 
         public new DataContainer ReadData(PluginFileSource source) {

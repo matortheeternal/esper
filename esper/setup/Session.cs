@@ -1,4 +1,7 @@
-﻿namespace esper.setup {
+﻿using esper.plugins;
+using System;
+
+namespace esper.setup {
     public class Session {
         public Game game;
         public SessionOptions options;

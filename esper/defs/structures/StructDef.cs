@@ -16,9 +16,22 @@ namespace esper.defs {
             elementDefs = manager.BuildDefs(src.Value<JArray>("elements"), this);
         }
 
-        public void Read(StructElement element, PluginFileSource source) {
+        public new Element ReadElement(Container container, PluginFileSource source) {
+            return new StructElement(container, this, source);
+        }
+
+        public new Element InitElement(Container container) {
+            return new StructElement(container, this);
+        }
+
+        public void InitChildElements(StructElement element) {
+            foreach (var def in elementDefs)
+                def.InitElement(element);
+        }
+
+        public void ReadChildElements(StructElement element, PluginFileSource source) {
             foreach (var def in elementDefs)
                 def.ReadElement(element, source);
-        } 
+        }
     }
 }

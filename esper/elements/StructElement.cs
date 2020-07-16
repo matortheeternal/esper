@@ -6,14 +6,13 @@ namespace esper.elements {
         public StructDef structDef { get => (StructDef)def; }
 
         public StructElement(Container container, Def def)
-            : base(container, def) { }
+            : base(container, def) {
+            structDef.InitChildElements(this);
+        }
 
-        public static StructElement Read(
-            Container container, Def def, PluginFileSource source
-        ) {
-            var element = new StructElement(container, def);
-            element.structDef.Read(element, source);
-            return element;
+        public StructElement(Container container, Def def, PluginFileSource source)
+            : base(container, def) {
+            structDef.ReadChildElements(this, source);
         }
     }
 }

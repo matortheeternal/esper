@@ -10,7 +10,7 @@ namespace esper.defs {
     public class BytesDef : ValueDef {
         public static string defType = "bytes";
 
-        public BytesDef(DefinitionManager manager, JObject src, Def parent = null)
+        public BytesDef(DefinitionManager manager, JObject src, Def parent)
             : base(manager, src, parent) {
             if (size < 0) throw new Exception("Def source has invalid size" + size);
         }

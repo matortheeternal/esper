@@ -9,7 +9,12 @@ namespace esper.elements {
     public class Element : IResolution {
         public readonly Def def;
         public readonly Container container;
-        public readonly PluginFile file;
+        public PluginFile file { 
+            get {
+                if (this is PluginFile asFile) return asFile;
+                return container.file;
+            }
+        }
         public ElementState state;
         public DefinitionManager manager {
             get {
@@ -33,7 +38,7 @@ namespace esper.elements {
             this.def = def;
             this.container = container;
             if (container == null) return;
-            file = container.file;
+            container.elements.Add(this);
         }
 
         public void SetState(ElementState state) {

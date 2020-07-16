@@ -21,7 +21,8 @@ namespace esper.parsing {
         public PluginFileSource(string filePath, PluginFile plugin) {
             this.filePath = filePath;
             this.plugin = plugin;
-            file = MemoryMappedFile.CreateFromFile(filePath, FileMode.Open, filePath);
+            plugin.source = this;
+            file = MemoryMappedFile.CreateFromFile(filePath, FileMode.Open);
             stream = file.CreateViewStream();
             reader = new BinaryReader(stream);
         }

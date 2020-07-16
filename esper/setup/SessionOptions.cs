@@ -12,6 +12,8 @@ namespace esper.setup {
         public bool allowLightPlugins = true;
         public bool emulateGlobalLoadOrder = true;
         public string language = "English";
+        public bool buildDefsOnDemand = false;
+
         public Encoding encoding { get => encodings[language]; }
     }
 }

@@ -27,12 +27,5 @@ namespace esper.helpers {
                 bytes[offset + 3]
             );
         }
-
-        public static Byte2 ReadByte2(ReadOnlySpan<byte> bytes, int offset) {
-            return new Byte2(
-                bytes[offset],
-                bytes[offset + 1]
-            );
-        }
     }
 }

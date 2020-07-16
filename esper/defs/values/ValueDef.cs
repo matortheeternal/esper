@@ -23,6 +23,10 @@ namespace esper.defs {
             return new ValueElement(container, this, source);
         }
 
+        public new Element InitElement(Container container) {
+            return new ValueElement(container, this);
+        }
+
         public DataContainer GetData(ValueElement element) {
             return element.data;
         }

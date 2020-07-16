@@ -19,7 +19,7 @@ namespace esper.elements {
 
         public MainRecord(Container container, Def def, PluginFileSource source)
             : base(container, def) {
-            header = StructElement.Read(this, mrDef.headerDef, source);
+            header = (StructElement) mrDef.headerDef.ReadElement(this, source);
         }
 
         public static MainRecord Read(

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using esper.resolution;
+using System.Collections.Generic;
 
 namespace esper.elements {
     public class Container : Element {

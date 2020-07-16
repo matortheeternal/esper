@@ -7,14 +7,14 @@ namespace esper.elements {
 
         public GroupRecord(Container container, PluginFileSource source)
             : base(container) {
-            header = StructElement.Read(this, groupRecordHeaderDef, source);
-            header.SetState(ElementState.Protected);
+            //header = groupRecordHeaderDef.ReadElement(this, source);
+           // header.SetState(ElementState.Protected);
         }
 
         public static GroupRecord Read(PluginFileSource source, PluginFile file) {
             var group = new GroupRecord(file, source);
-            group.ReadRecords();
-
+            //group.ReadRecords();
+            return group;
         }
     }
 }

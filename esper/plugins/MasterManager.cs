@@ -1,5 +1,6 @@
 ﻿using esper.elements;
 using esper.setup;
+using esper.resolution;
 using System.Collections.Generic;
 
 namespace esper.plugins {

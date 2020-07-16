@@ -24,6 +24,7 @@ namespace esper.setup {
             this.session = session;
             definitions = IOHelpers.LoadResource(defsFileName);
             InitDefClasses(game);
+            if (session.options.buildDefsOnDemand) return;
             BuildRecordDefs();
         }
 
@@ -33,6 +34,16 @@ namespace esper.setup {
                 if (def.Value<string>("type") != "record") continue;
                 recordDefs[key] = BuildDef((JObject)def, null);
             }
+        }
+
+        public void BuildRecordDef(string key) {
+            var defs = definitions.Value<JObject>("defs");
+            if (!defs.ContainsKey(key))
+                throw new Exception("Def " + key + " not found.");
+            var def = defs[key];
+            if (def.Value<string>("type") != "record") 
+                throw new Exception("Target def is not a record def.");
+            recordDefs[key] = BuildDef((JObject)def, null);
         }
 
         private void InitDefClasses(Game game) {
@@ -83,7 +94,10 @@ namespace esper.setup {
 
         public Def GetRecordDef(Signature signature) {
             // TODO: lookup by signature maybe?
-            return recordDefs[signature.ToString()];
+            var sig = signature.ToString();
+            if (session.options.buildDefsOnDemand && !recordDefs.ContainsKey(sig))
+                BuildRecordDef(sig);
+            return recordDefs[sig];
         }
     }
 }

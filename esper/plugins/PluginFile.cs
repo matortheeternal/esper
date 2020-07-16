@@ -2,6 +2,7 @@
 using esper.setup;
 using esper.elements;
 using System.Text;
+using System;
 
 namespace esper.plugins {
     public class PluginFile : Container, IMasterManager, IRecordManager {
@@ -11,7 +12,6 @@ namespace esper.plugins {
         public PluginFileOptions options;
         public PluginFileSource source;
         public Encoding stringEncoding { get => session.options.encoding; }
-        public new PluginFile file { get => this; }
 
         PluginFile IMasterManager.file => this;
         ReadOnlyMasterList IMasterManager.originalMasters { get; set; }
@@ -49,10 +49,14 @@ namespace esper.plugins {
             return source == null;
         }
 
-        public void ReadFileHeader() {
+        internal void ReadFileHeader() {
             if (header != null) return;
             source.ReadFileHeader(this);
             this.InitMasters();
+        }
+
+        internal void ReadGroups() {
+            throw new NotImplementedException();
         }
     }
 }
