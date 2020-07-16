@@ -35,16 +35,19 @@ namespace esper.defs {
             return int.Parse(match.Captures[0].Value);
         }
 
-        public List<string> DataToArray(Element element, DataContainer data) {
-            // TODO
-            throw new NotImplementedException();
+        public List<string> DataToArray(ValueElement element, dynamic data) {
+            var a = new List<string>();
+            var numBits = 8 * element.valueDef.size;
+            for (int i = 0; i < numBits; i++)
+                if ((data & 1 << i) != 0) a.Add(GetFlagValue(i));
+            return a;
         }
 
-        public new string DataToValue(Element element, DataContainer data) {
+        public new string DataToValue(ValueElement element, dynamic data) {
             return string.Join(", ", DataToArray(element, data));
         }
 
-        public new DataContainer ValueToData(Element element, string value) {
+        public new dynamic ValueToData(ValueElement element, string value) {
             // TODO
             throw new NotImplementedException();
         }
