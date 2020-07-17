@@ -31,7 +31,6 @@ namespace esper.defs {
         }
 
         public new dynamic ValueToData(ValueElement element, string value) {
-            // TODO: some kind of parse helper that uses UInt64 or Int64
             var options = this.options;
             foreach (var (key, option) in options)
                 if (option.Value<string>() == value) 

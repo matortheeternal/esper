@@ -11,7 +11,7 @@
   </ItemGroup>
 
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="XCOPY &quot;$(SolutionDir)..\data&quot; &quot;$(TargetDir)\data\&quot; /S /Y" />
+    <Exec Command="XCOPY &quot;$(SolutionDir)data&quot; &quot;$(TargetDir)\data\&quot; /S /Y" />
   </Target>
 
 </Project>
