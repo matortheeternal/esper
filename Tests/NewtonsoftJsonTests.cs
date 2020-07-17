@@ -29,7 +29,7 @@ namespace Tests {
             definitions = JObject.Parse(json);
             stopwatch.Stop();
 
-            Assert.IsTrue(definitions.ContainsKey("ARMO"));
+            Assert.IsTrue(definitions.Value<JObject>("defs").ContainsKey("ARMO"));
             TestContext.Out.WriteLine("Loaded definitions in {0} ms", stopwatch.ElapsedMilliseconds);
             Assert.Pass();
         }
