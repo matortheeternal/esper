@@ -59,5 +59,11 @@ namespace esper.helpers {
             pathPart = path.Substring(0, separatorIndex);
             remainingPath = path.Substring(separatorIndex + 1, path.Length);
         }
+
+        public static dynamic DynamicParse(string value) {
+            if (Int64.TryParse(value, out long n)) return n;
+            if (UInt64.TryParse(value, out ulong m)) return m;
+            throw new Exception("Could not parse " + value);
+        }
     }
 }

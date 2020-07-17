@@ -5,7 +5,7 @@ using esper.setup;
 using System;
 using Newtonsoft.Json.Linq;
 
-namespace esper.defs.values {
+namespace esper.defs {
     public class FormIdDef : ValueDef {
         public static string defType = "formId";
         public new int size { get => 4; }
