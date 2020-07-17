@@ -1,5 +1,4 @@
-﻿using esper.plugins;
-using System;
+﻿using System.Text;
 
 namespace esper.setup {
     public class Session {
@@ -14,6 +13,7 @@ namespace esper.setup {
             this.options = options;
             definitionManager = new DefinitionManager(game, this);
             pluginManager = new PluginManager(game, this);
+            Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
         }
     }
 }

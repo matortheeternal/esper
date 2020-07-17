@@ -16,7 +16,7 @@ namespace esper.parsing {
 
         public override string ToString() {
             return string.Format(
-                "{{0}:{1}}",
+                "{{{0}:{1}}}",
                 targetFileName,
                 localFormId.ToString("X6")
             );

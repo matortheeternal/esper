@@ -11,7 +11,10 @@ namespace esper.resolution.strategies {
         }
 
         public static Element Resolve(MatchData match) {
-            throw new NotImplementedException();
+            var c = (ContainerMatch)match;
+            foreach (var element in c.container.elements)
+                if (element.name == c.match.Value) return element;
+            return null;
         }
 
         public static Element Create(MatchData match) {

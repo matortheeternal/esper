@@ -5,7 +5,7 @@ namespace esper.setup {
     public class SessionOptions {
         private static Dictionary<string, Encoding> encodings =
             new Dictionary<string, Encoding> {
-                { "English", Encoding.GetEncoding("windows-1251") }
+                { "English", Encoding.GetEncoding(1252) }
             };
 
         public bool keepMasterElementsUpdated = false;

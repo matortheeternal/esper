@@ -12,7 +12,7 @@ namespace esper.defs {
             : base(manager, src, parent) {
         }
 
-        public new void SubrecordFound(Element element, Subrecord subrecord) {
+        public override void SubrecordFound(Element element, Subrecord subrecord) {
             if (subrecord.signature != signature)
                 throw new Exception("Subrecord signature mismatch.");
             //DataFound(element, subrecord.GetData());

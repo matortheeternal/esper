@@ -13,7 +13,7 @@ namespace esper.defs {
         public FormIdDef(DefinitionManager manager, JObject src, Def parent)
             : base(manager, src, parent) { }
 
-        public new FormId ReadData(PluginFileSource source) {
+        public override dynamic ReadData(PluginFileSource source) {
             UInt32 data = source.reader.ReadUInt32();
             byte ordinal = (byte)(data >> 24);
             var targetPlugin = source.plugin.OrdinalToFile(ordinal, false);
@@ -21,16 +21,16 @@ namespace esper.defs {
             return new FormId(targetPlugin, formId);
         }
 
-        public new FormId DefaultData() {
+        public override dynamic DefaultData() {
             return new FormId(null, 0);
         }
 
-        public new string GetValue(ValueElement element) {
+        public override string GetValue(ValueElement element) {
             FormId data = element.data;
             return data.ToString();
         }
 
-        public new void SetValue(ValueElement element, string value) {
+        public override void SetValue(ValueElement element, string value) {
             // TODO: make form ID parsers
         }
     }

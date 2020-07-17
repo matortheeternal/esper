@@ -17,14 +17,15 @@ namespace esper.helpers {
 
         public static string FormatBytes(byte[] bytes) {
             int len = bytes.Length * 3;
-            char[] chars = new char[len];
+            char[] chars = new char[len - 1];
             for (int i = 0; i < bytes.Length; i++) {
                 byte value = bytes[i];
                 chars[3 * i] = digits[value >> 4];
                 chars[3 * i + 1] = digits[value & 0xF];
+                if (i == bytes.Length - 1) break;
                 chars[3 * i + 2] = ' ';
             }
-            return new string(chars, 0, len);
+            return new string(chars, 0, len - 1);
         }
 
         private static int ParseHexChar(char c) {
@@ -57,7 +58,7 @@ namespace esper.helpers {
                 return;
             }
             pathPart = path.Substring(0, separatorIndex);
-            remainingPath = path.Substring(separatorIndex + 1, path.Length);
+            remainingPath = path.Substring(separatorIndex + 1);
         }
 
         public static dynamic DynamicParse(string value) {

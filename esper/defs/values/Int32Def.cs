@@ -12,20 +12,20 @@ namespace esper.defs {
         public Int32Def(DefinitionManager manager, JObject src, Def parent)
             : base(manager, src, parent) {}
 
-        public new Int32 ReadData(PluginFileSource source) {
+        public override dynamic ReadData(PluginFileSource source) {
             return source.reader.ReadInt32();
         }
 
-        public new Int32 DefaultData() {
+        public override dynamic DefaultData() {
             return 0;
         }
 
-        public new string GetValue(ValueElement element) {
+        public override string GetValue(ValueElement element) {
             Int32 data = element.data;
             return data.ToString();
         }
 
-        public new void SetValue(ValueElement element, string value) {
+        public override void SetValue(ValueElement element, string value) {
             element.data = Int32.Parse(value);
         }
     }

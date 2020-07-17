@@ -11,20 +11,20 @@ namespace esper.defs {
         public Int8Def(DefinitionManager manager, JObject src, Def parent)
             : base(manager, src, parent) { }
 
-        public new sbyte ReadData(PluginFileSource source) {
+        public override dynamic ReadData(PluginFileSource source) {
             return source.reader.ReadSByte();
         }
 
-        public new sbyte DefaultData() {
+        public override dynamic DefaultData() {
             return 0;
         }
 
-        public new string GetValue(ValueElement element) {
+        public override string GetValue(ValueElement element) {
             sbyte data = element.data;
             return data.ToString();
         }
 
-        public new void SetValue(ValueElement element, string value) {
+        public override void SetValue(ValueElement element, string value) {
             element.data = sbyte.Parse(value);
         }
     }

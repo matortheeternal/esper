@@ -30,7 +30,7 @@ namespace esper.defs {
             foreach (var (key, value) in flags)
                 if (value.Value<string>() == flag) return int.Parse(key);
             Match match = unknownFlagExpr.Match(flag);
-            if (match == null) throw new Exception("Invalid flag " + flag);
+            if (!match.Success) throw new Exception("Invalid flag " + flag);
             return int.Parse(match.Captures[0].Value);
         }
 

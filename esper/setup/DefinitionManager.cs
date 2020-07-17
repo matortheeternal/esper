@@ -54,7 +54,16 @@ namespace esper.setup {
             });
         }
 
+        public JObject MergeDef(JObject src) {
+            var target = ResolveDef(src.Value<string>("id"));
+            var result = new JObject();
+            result.Merge(target);
+            result.Merge(src);
+            return result;
+        }
+
         public Def BuildDef(JObject src, Def parent) {
+            if (src.ContainsKey("id")) src = MergeDef(src);
             var defClass = defClasses[src.Value<string>("type")];
             var args = new object[] { this, src, parent };
             return (Def) Activator.CreateInstance(defClass, args);

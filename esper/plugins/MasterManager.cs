@@ -41,6 +41,7 @@ namespace esper.plugins {
         public static PluginFile OrdinalToFile(
             this IMasterManager m, byte ordinal, bool useCurrentMasters
         ) {
+            if (m.masters == null) return null;
             return useCurrentMasters
                 ? m.masters.OrdinalToFile(ordinal)
                 : m.originalMasters.OrdinalToFile(ordinal);

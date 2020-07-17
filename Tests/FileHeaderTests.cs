@@ -28,11 +28,11 @@ namespace Tests {
             var sig = fileHeader.GetValue(@"Record Header\Signature");
             Assert.AreEqual(sig, "TES4");
             var dataSize = fileHeader.GetValue(@"Record Header\Data Size");
-            Assert.AreEqual(dataSize, "54");
+            Assert.AreEqual(dataSize, "30");
             var flags = fileHeader.GetValue(@"Record Header\Record Flags");
-            Assert.AreEqual(flags, "");
+            Assert.AreEqual(flags, "0"); // ""
             var formId = fileHeader.GetValue(@"Record Header\FormID");
-            Assert.AreEqual(formId, "NULL - Null Reference [00000000]");
+            Assert.AreEqual(formId, "{Hardcoded:000000}"); // "NULL - Null Reference [00000000]"
             var vc1 = fileHeader.GetValue(@"Record Header\Version Control Info 1");
             Assert.AreEqual(vc1, "00 00 00 00");
             var formVersion = fileHeader.GetValue(@"Record Header\Form Version");

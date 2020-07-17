@@ -16,7 +16,7 @@ namespace esper.resolution {
             Regex expr
         ) {
             Match m = expr.Match(pathPart);
-            if (m == null) return null;
+            if (!m.Success) return null;
             Container container = (Container)element;
             if (container == null) return null;
             return new ContainerMatch(container, m);

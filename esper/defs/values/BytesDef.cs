@@ -14,20 +14,20 @@ namespace esper.defs {
             if (size < 0) throw new Exception("Def source has invalid size" + size);
         }
 
-        public new byte[] ReadData(PluginFileSource source) {
+        public override dynamic ReadData(PluginFileSource source) {
             return source.reader.ReadBytes(size);
         }
 
-        public new byte[] DefaultData() {
+        public override dynamic DefaultData() {
             return new byte[size];
         }
 
-        public new string GetValue(ValueElement element) {
+        public override string GetValue(ValueElement element) {
             byte[] data = element.data;
             return StringHelpers.FormatBytes(data);
         }
 
-        public new void SetValue(ValueElement element, string value) {
+        public override void SetValue(ValueElement element, string value) {
             byte[] data = StringHelpers.ParseBytes(value);
             if (data.Length != size)
                 throw new Exception("Bytes size mismatch");

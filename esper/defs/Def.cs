@@ -16,40 +16,40 @@ namespace esper {
             if (parent != null) this.parent = parent;
         }
 
-        public bool ContainsSignature(Signature signature) {
+        public virtual bool ContainsSignature(Signature signature) {
             return false;
         }
 
-        public bool HasPrimarySignature(Signature signature) {
+        public virtual bool HasPrimarySignature(Signature signature) {
             return false;
         }
 
-        public void SubrecordFound(Element element, Subrecord subrecord) {
+        public virtual void SubrecordFound(Element element, Subrecord subrecord) {
             throw new NotImplementedException();
         }
 
-        public void DataFound(Element element, ReadOnlySpan<byte> ptr) {
+        public virtual void DataFound(Element element, ReadOnlySpan<byte> ptr) {
             throw new NotImplementedException();
         }
 
-        public Element InitElement(Container container) {
+        public virtual Element InitElement(Container container) {
             throw new NotImplementedException();
         }
 
-        public Element ReadElement(Container container, PluginFileSource source) {
+        public virtual Element ReadElement(Container container, PluginFileSource source) {
             throw new NotImplementedException();
         }
 
-        public string GetName() {
+        public virtual string GetName() {
             return src.Value<string>("name");
         }
 
-        public string GetSignature() {
+        public virtual string GetSignature() {
             if (!src.ContainsKey("signature")) return null;
             return src.Value<string>("signature");
         }
 
-        public ushort GetSize() {
+        public virtual ushort GetSize() {
             if (!src.ContainsKey("size")) return 0;
             return src.Value<ushort>("size");
         }

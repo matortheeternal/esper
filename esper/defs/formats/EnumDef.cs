@@ -8,7 +8,7 @@ using System.Text.RegularExpressions;
 namespace esper.defs {
     public class EnumDef : FormatDef {
         public static Regex unknownOptionExpr = new Regex(@"^<(?:Unknown )?(-?\d+)>$");
-
+         
         public JObject options {
             get => src.Value<JObject>("options");
         }
@@ -36,7 +36,7 @@ namespace esper.defs {
                 if (option.Value<string>() == value) 
                     return StringHelpers.DynamicParse(key);
             var match = unknownOptionExpr.Match(value);
-            if (match == null) throw new Exception("Invalid option " + value);
+            if (!match.Success) throw new Exception("Invalid option " + value);
             return StringHelpers.DynamicParse(match.Captures[1].Value);
         }
     }

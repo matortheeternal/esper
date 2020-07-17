@@ -18,36 +18,36 @@ namespace esper.defs {
             : base(manager, src, parent) {
         }
 
-        public new Element ReadElement(Container container, PluginFileSource source) {
+        public override Element ReadElement(Container container, PluginFileSource source) {
             return new ValueElement(container, this, source);
         }
 
-        public new Element InitElement(Container container) {
+        public override Element InitElement(Container container) {
             return new ValueElement(container, this);
         }
 
-        public dynamic GetData(ValueElement element) {
+        public virtual dynamic GetData(ValueElement element) {
             return element.data;
         }
 
-        public void SetData(ValueElement element, dynamic data) {
+        public virtual void SetData(ValueElement element, dynamic data) {
             element.data = data;
             element.SetState(ElementState.Modified);
         }
 
-        public string GetValue(ValueElement element) {
+        public virtual string GetValue(ValueElement element) {
             throw new NotImplementedException();
         }
 
-        public void SetValue(ValueElement element, string value) {
+        public virtual void SetValue(ValueElement element, string value) {
             throw new NotImplementedException();
         }
 
-        public dynamic DefaultData() {
+        public virtual dynamic DefaultData() {
             throw new NotImplementedException();
         }
 
-        public dynamic ReadData(PluginFileSource source) {
+        public virtual dynamic ReadData(PluginFileSource source) {
             throw new NotImplementedException();
         }
     }

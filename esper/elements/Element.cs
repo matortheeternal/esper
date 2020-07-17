@@ -16,11 +16,7 @@ namespace esper.elements {
             }
         }
         public ElementState state;
-        public DefinitionManager manager {
-            get {
-                return file.manager;
-            }
-        }
+        public DefinitionManager manager => file.manager;
         public Signature signature {
             get {
                 MaybeSubrecordDef d = (MaybeSubrecordDef)def;
@@ -33,6 +29,7 @@ namespace esper.elements {
                 throw new Exception("Element does not reference records.");
             }
         }
+        public string name => def.GetName();
 
         public Element(Container container = null, Def def = null) {
             this.def = def;

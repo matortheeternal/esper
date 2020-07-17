@@ -11,20 +11,20 @@ namespace esper.defs {
         public StringDef(DefinitionManager manager, JObject src, Def parent)
             : base(manager, src, parent) {}
 
-        public new string ReadData(PluginFileSource source) {
+        public override dynamic ReadData(PluginFileSource source) {
             return source.ReadString(size);
         }
 
-        public new string DefaultData() {
+        public override dynamic DefaultData() {
             return "";
         }
 
-        public new string GetValue(ValueElement element) {
+        public override string GetValue(ValueElement element) {
             string data = element.data;
             return data;
         }
 
-        public new void SetValue(ValueElement element, string value) {
+        public override void SetValue(ValueElement element, string value) {
             element.data = value;
         }
     }
