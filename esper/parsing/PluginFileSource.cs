@@ -12,10 +12,11 @@ namespace esper.parsing {
         private readonly Signature GRUP = Signature.FromString("GRUP");
 
         private readonly MemoryMappedFile file;
-        private readonly MemoryMappedViewStream stream;
+        public readonly MemoryMappedViewStream stream;
         public readonly PluginFile plugin;
         public readonly BinaryReader reader;
         public string filePath;
+        public bool localized => plugin.localized;
         public Encoding stringEncoding { get => plugin.stringEncoding; }
 
         public PluginFileSource(string filePath, PluginFile plugin) {
@@ -40,8 +41,19 @@ namespace esper.parsing {
             file.header = MainRecord.Read(this, file, tes4);
         }
 
-        public string ReadString(int size) {
-            byte[] bytes = reader.ReadBytes(size);
+        public LocalizedString ReadLocalizedString() {
+            var id = reader.ReadUInt32();
+            return new LocalizedString(plugin, id);
+        }
+
+        public string ReadString() {
+            // TODO: read until null terminator
+            return "";
+        }
+
+        public string ReadString(int? size) {
+            if (size == null) return ReadString();
+            byte[] bytes = reader.ReadBytes((int) size);
             return stringEncoding.GetString(bytes);
         }
 

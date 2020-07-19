@@ -3,6 +3,7 @@ using esper.setup;
 using esper.elements;
 using System.Text;
 using System;
+using esper.resolution;
 
 namespace esper.plugins {
     public class PluginFile : Container, IMasterManager, IRecordManager {
@@ -21,18 +22,9 @@ namespace esper.plugins {
         RecordMap<ulong> IRecordManager.localRecordsByFormId { get; set; }
         PluginRecordMap<ulong> IRecordManager.remoteRecordsByFormId { get; set; }
 
-        public string filePath {
-            get {
-                if (source == null) return null;
-                return source.filePath;
-            }
-        }
-
-        public new DefinitionManager manager {
-            get {
-                return session.definitionManager;
-            }
-        }
+        public string filePath => source?.filePath;
+        public new DefinitionManager manager => session.definitionManager;
+        public bool localized => header.GetRecordFlag("Localized");
 
         public PluginFile(Session session, string filename, PluginFileOptions options)
             : base() {
@@ -56,6 +48,10 @@ namespace esper.plugins {
         }
 
         internal void ReadGroups() {
+            throw new NotImplementedException();
+        }
+
+        internal string GetString(uint id) {
             throw new NotImplementedException();
         }
     }

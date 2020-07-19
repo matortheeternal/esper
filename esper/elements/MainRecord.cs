@@ -1,17 +1,16 @@
 ﻿using esper.defs;
 using esper.parsing;
 using esper.resolution;
+using System;
 
 namespace esper.elements {
-    public class MainRecord : Container {
+    public class MainRecord : Container, IMainRecord {
         public readonly StructElement header;
         public MainRecordDef mrDef { get => (MainRecordDef) def; }
-        public ulong formId {
-            get => header.GetData("Form ID");
-        }
-        public ulong localFormId {
-            get => formId & 0xFFFFFF;
-        }
+        private long bodyOffset;
+        public ulong formId => header.GetData("Form ID");
+        public ulong localFormId => formId & 0xFFFFFF;
+        public long dataSize => header.GetData("Data Size");
 
         public MainRecord(Container container, Def def) 
             : base(container, def) { }
