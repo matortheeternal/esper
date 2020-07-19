@@ -1,8 +1,10 @@
 ﻿using esper;
+using esper.parsing;
 using esper.plugins;
 using esper.resolution;
 using esper.setup;
 using NUnit.Framework;
+using System;
 
 namespace Tests {
     public class FileHeaderTests {
@@ -21,7 +23,7 @@ namespace Tests {
         }
 
         [Test]
-        public void TestRecordHeader() {
+        public void TestRecordHeaderValues() {
             var fileHeader = plugin.header;
             Assert.IsNotNull(fileHeader);
             Assert.IsNotNull(fileHeader.header);
@@ -39,6 +41,27 @@ namespace Tests {
             Assert.AreEqual(formVersion, "43");
             var vc2 = fileHeader.GetValue(@"Record Header\Version Control Info 2");
             Assert.AreEqual(vc2, "00 00");
+        }
+
+        [Test]
+        public void TestRecordHeaderData() {
+            var fileHeader = plugin.header;
+            Assert.IsNotNull(fileHeader);
+            Assert.IsNotNull(fileHeader.header);
+            string sig = fileHeader.GetData(@"Record Header\Signature");
+            Assert.AreEqual(sig, "TES4");
+            UInt32 dataSize = fileHeader.GetData(@"Record Header\Data Size");
+            Assert.AreEqual(dataSize, 30);
+            UInt32 flags = fileHeader.GetData(@"Record Header\Record Flags");
+            Assert.AreEqual(flags, 0);
+            FormId formId = fileHeader.GetData(@"Record Header\FormID");
+            Assert.AreEqual(formId.localFormId, 0);
+            byte[] vc1 = fileHeader.GetData(@"Record Header\Version Control Info 1");
+            Assert.AreEqual(vc1[0], 0);
+            UInt16 formVersion = fileHeader.GetData(@"Record Header\Form Version");
+            Assert.AreEqual(formVersion, 43);
+            byte[] vc2 = fileHeader.GetData(@"Record Header\Version Control Info 2");
+            Assert.AreEqual(vc2[0], 0);
         }
     }
 }

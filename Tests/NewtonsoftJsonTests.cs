@@ -50,5 +50,13 @@ namespace Tests {
             Assert.AreEqual(obj.Value<int>("d"), 6);
             Assert.Pass();
         }
+
+        [Test]
+        public void TestMissingProperties() {
+            var obj = JObject.Parse("{ a: 1, b: 2 }");
+            Assert.IsNull(obj.Value<int?>("test"));
+            Assert.IsNull(obj.Value<string>("test"));
+            Assert.IsFalse(obj.Value<bool>("test"));
+        }
     }
 }

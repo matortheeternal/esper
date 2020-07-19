@@ -15,11 +15,11 @@ namespace esper.defs {
         }
 
         public override dynamic ReadData(PluginFileSource source) {
-            return source.reader.ReadBytes(size);
+            return source.reader.ReadBytes((int)size);
         }
 
         public override dynamic DefaultData() {
-            return new byte[size];
+            return new byte[(int)size];
         }
 
         public override string GetValue(ValueElement element) {

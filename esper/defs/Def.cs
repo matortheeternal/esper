@@ -9,6 +9,11 @@ namespace esper {
         internal DefinitionManager manager;
         internal JObject src;
         internal Def parent;
+        internal int sortOrder;
+
+        public virtual string signature => src.Value<string>("signature");
+        public virtual string name => src.Value<string>("name");
+        public virtual int? size => src.Value<int?>("size");
 
         public Def(DefinitionManager manager, JObject src, Def parent) {
             this.manager = manager;
@@ -16,11 +21,11 @@ namespace esper {
             if (parent != null) this.parent = parent;
         }
 
-        public virtual bool ContainsSignature(Signature signature) {
+        public virtual bool ContainsSignature(string signature) {
             return false;
         }
 
-        public virtual bool HasPrimarySignature(Signature signature) {
+        public virtual bool HasPrimarySignature(string signature) {
             return false;
         }
 
@@ -38,20 +43,6 @@ namespace esper {
 
         public virtual Element ReadElement(Container container, PluginFileSource source) {
             throw new NotImplementedException();
-        }
-
-        public virtual string GetName() {
-            return src.Value<string>("name");
-        }
-
-        public virtual string GetSignature() {
-            if (!src.ContainsKey("signature")) return null;
-            return src.Value<string>("signature");
-        }
-
-        public virtual ushort GetSize() {
-            if (!src.ContainsKey("size")) return 0;
-            return src.Value<ushort>("size");
         }
     }
 }

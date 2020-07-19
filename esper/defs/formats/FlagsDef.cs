@@ -11,9 +11,7 @@ namespace esper.defs {
 
         public static string defType = "flags";
 
-        public JObject flags {
-            get => src.Value<JObject>("flags");
-        }
+        public JObject flags => src.Value<JObject>("flags");
 
         public FlagsDef(DefinitionManager manager, JObject src, Def parent)
             : base(manager, src, parent) {}
@@ -44,6 +42,11 @@ namespace esper.defs {
 
         public new string DataToValue(ValueElement element, dynamic data) {
             return string.Join(", ", DataToArray(element, data));
+        }
+
+        public bool FlagIsSet(dynamic data, string flag) {
+            var flagIndex = GetFlagIndex(flag);
+            return (data & (1 << flagIndex)) != 0;
         }
 
         public new dynamic ValueToData(ValueElement element, string value) {

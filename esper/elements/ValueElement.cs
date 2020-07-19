@@ -5,6 +5,7 @@ namespace esper.elements {
     public class ValueElement : Element {
         public dynamic data { get; set; }
         public ValueDef valueDef { get => (ValueDef)def; }
+        public FormatDef formatDef { get => valueDef.formatDef; }
 
         public string value {
             get => valueDef.GetValue(this);

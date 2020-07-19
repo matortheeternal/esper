@@ -6,16 +6,15 @@ using System;
 
 namespace esper.defs {
     public class ValueDef : Def {
-        public int size {
-            get {
-                if (!src.ContainsKey("size")) return 0;
-                return src.Value<int>("size");
-            }
-        }
-        public bool isVariableSize { get => size == 0; }
+        public FormatDef formatDef;
+        public override int? size => src.Value<int?>("size");
+        protected bool isVariableSize { get => size == null; }
 
         public ValueDef(DefinitionManager manager, JObject src, Def parent)
             : base(manager, src, parent) {
+            var format = src.Value<JObject>("format");
+            if (format == null) return;
+            formatDef = (FormatDef) manager.BuildDef(format, this);
         }
 
         public override Element ReadElement(Container container, PluginFileSource source) {

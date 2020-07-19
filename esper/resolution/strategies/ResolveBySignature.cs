@@ -13,7 +13,7 @@ namespace esper.resolution.strategies {
 
         public static Element Resolve(MatchData match) {
             ContainerMatch c = (ContainerMatch)match;
-            Signature sig = Signature.FromString(c.match.Groups[0].Value);
+            var sig = c.match.Groups[0].Value;
             foreach (Element element in c.container.elements)
                 if (element.signature == sig) return element;
             return null;

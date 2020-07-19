@@ -6,6 +6,7 @@ using System;
 using System.Linq;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.IO.Compression;
 
 namespace esper.setup {
     using DefMap = Dictionary<string, Def>;
@@ -71,9 +72,12 @@ namespace esper.setup {
 
         public ReadOnlyCollection<Def> BuildDefs(JArray sources, Def parent) {
             if (sources == null) throw new Exception("No def sources found.");
-            return sources.Select(
-                src => BuildDef((JObject)src, parent)
-            ).ToList().AsReadOnly();
+            int sortOrder = 0;
+            return sources.Select(src => {
+                var def = BuildDef((JObject)src, parent);
+                def.sortOrder = sortOrder++;
+                return def;
+            }).ToList().AsReadOnly();
         }
 
         private void ApplyFlagsFormat(JObject headerDef, JObject src) {

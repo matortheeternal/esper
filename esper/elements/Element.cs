@@ -12,24 +12,18 @@ namespace esper.elements {
         public PluginFile file { 
             get {
                 if (this is PluginFile asFile) return asFile;
-                return container.file;
+                return container?.file;
             }
         }
         public ElementState state;
         public DefinitionManager manager => file.manager;
-        public Signature signature {
-            get {
-                MaybeSubrecordDef d = (MaybeSubrecordDef)def;
-                if (d == null || !d.IsSubrecord()) return null;
-                return d.signature;
-            }
-        }
+        public string signature => def.signature;
         public MainRecord referencedRecord {
             get {
                 throw new Exception("Element does not reference records.");
             }
         }
-        public string name => def.GetName();
+        public string name => def.name;
 
         public Element(Container container = null, Def def = null) {
             this.def = def;

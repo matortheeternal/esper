@@ -18,6 +18,7 @@ namespace esper.elements {
         public MainRecord(Container container, Def def, PluginFileSource source)
             : base(container, def) {
             header = (StructElement) mrDef.headerDef.ReadElement(this, source);
+            bodyOffset = source.stream.Position;
         }
 
         public static MainRecord Read(
@@ -28,6 +29,14 @@ namespace esper.elements {
             var def = container.manager.GetRecordDef(signature);
             var record = new MainRecord(container, def, source);
             return record;
+        }
+
+        public void ReadElements(PluginFileSource source) {
+            source.stream.Position = bodyOffset;
+            var endOffset = bodyOffset + dataSize;
+            while (source.stream.Position < endOffset) {
+                break; // TODO
+            }
         }
 
         public bool IsLocal() {

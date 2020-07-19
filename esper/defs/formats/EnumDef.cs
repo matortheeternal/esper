@@ -9,15 +9,8 @@ namespace esper.defs {
     public class EnumDef : FormatDef {
         public static Regex unknownOptionExpr = new Regex(@"^<(?:Unknown )?(-?\d+)>$");
          
-        public JObject options {
-            get => src.Value<JObject>("options");
-        }
-        public string unknownOption {
-            get {
-                if (!src.ContainsKey("unknownOption")) return null;
-                return src.Value<string>("unknownOption");
-            }
-        }
+        public JObject options => src.Value<JObject>("options");
+        public string unknownOption => src.Value<string>("unknownOption");
 
         public EnumDef(DefinitionManager manager, JObject src, Def parent)
             : base(manager, src, parent) {}
