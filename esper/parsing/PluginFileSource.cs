@@ -5,40 +5,46 @@ using System.Collections.Generic;
 using System.IO;
 using System.IO.MemoryMappedFiles;
 using System.Text;
-using esper.setup;
 
 namespace esper.parsing {
     public class PluginFileSource {
         private readonly Signature GRUP = Signature.FromString("GRUP");
+        private readonly Signature TES4 = Signature.FromString("TES4");
 
         private readonly MemoryMappedFile file;
-        public readonly MemoryMappedViewStream stream;
+        private readonly MemoryMappedViewStream fileStream;
+        private readonly BinaryReader fileReader;
+        private UnmanagedMemoryStream decompressedStream;
+        private BinaryReader decompressedReader;
+
         public readonly PluginFile plugin;
-        public readonly BinaryReader reader;
         public string filePath;
+
         public bool localized => plugin.localized;
         public Encoding stringEncoding { get => plugin.stringEncoding; }
+        public UnmanagedMemoryStream stream { 
+            get => decompressedStream ?? fileStream;
+        }
+        public BinaryReader reader {
+            get => decompressedReader ?? fileReader;
+        }
 
         public PluginFileSource(string filePath, PluginFile plugin) {
             this.filePath = filePath;
             this.plugin = plugin;
             plugin.source = this;
             file = MemoryMappedFile.CreateFromFile(filePath, FileMode.Open);
-            stream = file.CreateViewStream();
-            reader = new BinaryReader(stream);
+            fileStream = file.CreateViewStream();
+            fileReader = new BinaryReader(stream);
         }
 
-        public List<Subrecord> ReadSubrecords(long dataSize) {
-            var subrecords = new List<Subrecord>();
-            long endPos = stream.Position + dataSize;
-            while (stream.Position < endPos)
-                subrecords.Add(Subrecord.Read(stream));
-            return subrecords;
+        public Signature ReadSignature() {
+            byte[] bytes = reader.ReadBytes(4);
+            return new Signature(bytes[0], bytes[1], bytes[2], bytes[3]);
         }
 
         public void ReadFileHeader(PluginFile file) {
-            var tes4 = Signature.FromString("TES4");
-            file.header = MainRecord.Read(this, file, tes4);
+            file.header = MainRecord.Read(this, file, TES4);
         }
 
         public LocalizedString ReadLocalizedString() {
@@ -64,9 +70,7 @@ namespace esper.parsing {
         public void ReadRecords(PluginFile file) {
             while (stream.Position <= stream.Length) {
                 unsafe {
-                    void* ptr = (void*)stream.PositionPointer;
-                    Span<byte> span = new Span<byte>(ptr, 4);
-                    var signature = new Signature(span[0], span[1], span[2], span[3]);
+                    var signature = ReadSignature();
                     if (signature == GRUP) {
                         GroupRecord.Read(this, file);
                     } else {
@@ -74,7 +78,30 @@ namespace esper.parsing {
                     }
                 }
             }
-                
+        }
+
+        public void Decompress(UInt32 dataSize) {
+            // TODO
+        }
+
+        public void DiscardDecompressedStream() {
+            decompressedStream = null;
+            decompressedReader = null;
+        }
+
+        public long GetOffset(UInt32 dataSize) {
+            if (decompressedStream != null) 
+                return decompressedStream.Length - 1;
+            return stream.Position + dataSize;
+        }
+
+        public void ReadMultiple(UInt32 dataSize, Action readEntity) {
+            var endOffset = GetOffset(dataSize);
+            try {
+                while (stream.Position < endOffset) readEntity();
+            } finally {
+                DiscardDecompressedStream();
+            }
         }
     }
 }

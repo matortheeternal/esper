@@ -2,15 +2,18 @@
 using esper.parsing;
 using esper.resolution;
 using System;
+using System.Collections.Generic;
 
 namespace esper.elements {
     public class MainRecord : Container, IMainRecord {
         public readonly StructElement header;
-        public MainRecordDef mrDef { get => (MainRecordDef) def; }
+        public MainRecordDef mrDef { get => def as MainRecordDef; }
         private long bodyOffset;
-        public ulong formId => header.GetData("Form ID");
-        public ulong localFormId => formId & 0xFFFFFF;
-        public long dataSize => header.GetData("Data Size");
+        public UInt32 formId => header.GetData("Form ID");
+        public UInt32 localFormId => formId & 0xFFFFFF;
+        public UInt32 dataSize => header.GetData("Data Size");
+        public bool compressed => header.GetFlag("Record Flags", "Compressed");
+        public List<Subrecord> unexpectedSubrecords;
 
         public MainRecord(Container container, Def def) 
             : base(container, def) { }
@@ -19,6 +22,7 @@ namespace esper.elements {
             : base(container, def) {
             header = (StructElement) mrDef.headerDef.ReadElement(this, source);
             bodyOffset = source.stream.Position;
+            unexpectedSubrecords = new List<Subrecord>();
         }
 
         public static MainRecord Read(
@@ -31,12 +35,26 @@ namespace esper.elements {
             return record;
         }
 
+        private void UnexpectedSubrecord(
+            Signature sig, UInt16 size, PluginFileSource source
+        ) {
+            var subrecord = new Subrecord(sig, size, source);
+            unexpectedSubrecords.Add(subrecord);
+        }
+
         public void ReadElements(PluginFileSource source) {
             source.stream.Position = bodyOffset;
-            var endOffset = bodyOffset + dataSize;
-            while (source.stream.Position < endOffset) {
-                break; // TODO
-            }
+            if (compressed) source.Decompress(dataSize);
+            source.ReadMultiple(dataSize, () => {
+                var sig = source.ReadSignature();
+                var size = source.reader.ReadUInt16();
+                var def = mrDef.GetMemberDef(sig.ToString());
+                if (def == null) {
+                    UnexpectedSubrecord(sig, size, source);
+                } else {
+                    def.ReadSubrecord(this, source, sig, size);
+                }
+           });
         }
 
         public bool IsLocal() {

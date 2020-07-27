@@ -10,10 +10,12 @@ namespace esper.defs {
             : base(manager, src, parent) {
         }
 
-        public override void SubrecordFound(Element element, Subrecord subrecord) {
-            if (subrecord.signature.ToString() != signature)
-                throw new Exception("Subrecord signature mismatch.");
-            //DataFound(element, subrecord.GetData());
+        public override void ReadSubrecord(
+            Container container, PluginFileSource source, Signature signature, UInt16 size
+        ) {
+            if (this.signature != signature.ToString())
+                throw new Exception("Def signature mismatch.");
+            ReadElement(container, source, size);
         }
 
         public override bool ContainsSignature(string signature) {

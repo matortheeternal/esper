@@ -3,6 +3,7 @@ using esper.helpers;
 using esper.parsing;
 using esper.setup;
 using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.ObjectModel;
 
 namespace esper.defs {
@@ -16,11 +17,15 @@ namespace esper.defs {
             elementDefs = manager.BuildDefs(src.Value<JArray>("elements"), this);
         }
 
-        public new Element ReadElement(Container container, PluginFileSource source) {
-            return new StructElement(container, this, source);
+        public override Element ReadElement(
+            Container container, PluginFileSource source, UInt16? dataSize = null
+        ) {
+            var e = new StructElement(container, this, true);
+            ReadChildElements(e, source);
+            return e;
         }
 
-        public new Element InitElement(Container container) {
+        public override Element InitElement(Container container) {
             return new StructElement(container, this);
         }
 

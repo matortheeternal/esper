@@ -11,14 +11,18 @@ namespace esper.defs {
 
         public BytesDef(DefinitionManager manager, JObject src, Def parent)
             : base(manager, src, parent) {
-            if (size < 0) throw new Exception("Def source has invalid size" + size);
+            if (!isVariableSize && size < 0) 
+                throw new Exception("Def source has invalid size" + size);
         }
 
-        public override dynamic ReadData(PluginFileSource source) {
-            return source.reader.ReadBytes((int)size);
+        public override dynamic ReadData(PluginFileSource source, UInt16? dataSize) {
+            if (isVariableSize && dataSize == null) 
+                throw new Exception("Cannot read data of unknown size.");
+            return source.reader.ReadBytes((int) (size ?? dataSize));
         }
 
         public override dynamic DefaultData() {
+            if (isVariableSize) return new byte[0];
             return new byte[(int)size];
         }
 
@@ -29,7 +33,7 @@ namespace esper.defs {
 
         public override void SetValue(ValueElement element, string value) {
             byte[] data = StringHelpers.ParseBytes(value);
-            if (data.Length != size)
+            if (!isVariableSize && data.Length != size)
                 throw new Exception("Bytes size mismatch");
             element.data = data;
         }

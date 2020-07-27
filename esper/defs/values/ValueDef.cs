@@ -17,8 +17,12 @@ namespace esper.defs {
             formatDef = (FormatDef) manager.BuildDef(format, this);
         }
 
-        public override Element ReadElement(Container container, PluginFileSource source) {
-            return new ValueElement(container, this, source);
+        public override Element ReadElement(
+            Container container, PluginFileSource source, UInt16? size = null
+        ) {
+            return new ValueElement(container, this, true) {
+                data = ReadData(source, size)
+            };
         }
 
         public override Element InitElement(Container container) {
@@ -46,7 +50,7 @@ namespace esper.defs {
             throw new NotImplementedException();
         }
 
-        public virtual dynamic ReadData(PluginFileSource source) {
+        public virtual dynamic ReadData(PluginFileSource source, UInt16? dataSize) {
             throw new NotImplementedException();
         }
     }

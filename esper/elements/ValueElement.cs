@@ -1,5 +1,4 @@
 ﻿using esper.defs;
-using esper.parsing;
 
 namespace esper.elements {
     public class ValueElement : Element {
@@ -12,14 +11,10 @@ namespace esper.elements {
             set => valueDef.SetValue(this, value);
         }
 
-        public ValueElement(Container container, Def def)
+        public ValueElement(Container container, Def def, bool skipInit = false)
             : base(container, def) {
+            if (skipInit) return;
             data = valueDef.DefaultData();
-        }
-
-        public ValueElement(Container container, Def def, PluginFileSource source)
-            : base(container, def) {
-            data = valueDef.ReadData(source);
         }
     }
 }

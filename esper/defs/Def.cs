@@ -29,11 +29,9 @@ namespace esper {
             return false;
         }
 
-        public virtual void SubrecordFound(Element element, Subrecord subrecord) {
-            throw new NotImplementedException();
-        }
-
-        public virtual void DataFound(Element element, ReadOnlySpan<byte> ptr) {
+        public virtual void ReadSubrecord(
+            Container container, PluginFileSource source, Signature sig, UInt16 size
+        ) {
             throw new NotImplementedException();
         }
 
@@ -41,7 +39,13 @@ namespace esper {
             throw new NotImplementedException();
         }
 
-        public virtual Element ReadElement(Container container, PluginFileSource source) {
+        public virtual Element ReadElement(
+            Container container, PluginFileSource source, UInt16? size = null
+        ) {
+            throw new NotImplementedException();
+        }
+
+        public virtual Element PrepareElement(Container container) {
             throw new NotImplementedException();
         }
     }

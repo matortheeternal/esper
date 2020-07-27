@@ -2,6 +2,7 @@
 using esper.elements;
 using esper.parsing;
 using esper.setup;
+using System;
 
 namespace esper.defs {
     public class StringDef : ValueDef {
@@ -31,10 +32,10 @@ namespace esper.defs {
             return size;
         }
 
-        public override dynamic ReadData(PluginFileSource source) {
+        public override dynamic ReadData(PluginFileSource source, UInt16? dataSize) {
             if (localized && source.localized)
                 return source.ReadLocalizedString();
-            var size = GetStringSize(source);
+            var size = GetStringSize(source) ?? dataSize;
             return source.ReadString(size);
         }
 

@@ -1,5 +1,8 @@
-﻿using esper.setup;
+﻿using esper.elements;
+using esper.parsing;
+using esper.setup;
 using Newtonsoft.Json.Linq;
+using System;
 
 namespace esper.defs {
     public class MainRecordDef : MembersDef {

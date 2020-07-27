@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 
 namespace esper.plugins {
-    public class RecordMap<T> : Dictionary<T, MainRecord> {
+    public class RecordMap<T> : SortedDictionary<T, MainRecord> {
         readonly Func<MainRecord, T> GetKey;
 
         public RecordMap(Func<MainRecord, T> GetKey) {

@@ -8,11 +8,11 @@ namespace esper.defs {
         public FormatDef(DefinitionManager manager, JObject src, Def parent)
             : base(manager, src, parent) {}
 
-        public string DataToValue(ValueElement element, dynamic data) {
+        public virtual string DataToValue(ValueElement element, dynamic data) {
             throw new NotImplementedException();
         }
 
-        public dynamic ValueToData(ValueElement element, string value) {
+        public virtual dynamic ValueToData(ValueElement element, string value) {
             throw new NotImplementedException();
         }
     }

@@ -1,5 +1,4 @@
-﻿using esper.defs;
-using esper.setup;
+﻿using esper.setup;
 using esper.plugins;
 using esper.parsing;
 using System;
@@ -38,6 +37,10 @@ namespace esper.elements {
 
         public void ClearState(ElementState state) {
             this.state ^= state;
+        }
+
+        public bool HasSubrecord(Signature sig) {
+            return signature == sig.ToString();
         }
     }
 }
