@@ -28,7 +28,7 @@ namespace esper.defs {
             foreach (var (key, value) in flags)
                 if (value.Value<string>() == flag) return int.Parse(key);
             Match match = unknownFlagExpr.Match(flag);
-            if (!match.Success) throw new Exception("Invalid flag " + flag);
+            if (!match.Success) return -1;
             return int.Parse(match.Captures[0].Value);
         }
 
@@ -40,7 +40,7 @@ namespace esper.defs {
             return list;
         }
 
-        public new string DataToValue(ValueElement element, dynamic data) {
+        public override string DataToValue(ValueElement element, dynamic data) {
             return string.Join(", ", DataToArray(element, data));
         }
 
@@ -50,7 +50,7 @@ namespace esper.defs {
             return (data & (1 << flagIndex)) != 0;
         }
 
-        public new dynamic ValueToData(ValueElement element, string value) {
+        public override dynamic ValueToData(ValueElement element, string value) {
             // TODO
             throw new NotImplementedException();
         }

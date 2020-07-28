@@ -22,7 +22,8 @@ namespace esper.defs {
 
         public override string GetValue(ValueElement element) {
             UInt32 data = element.data;
-            return data.ToString();
+            if (formatDef == null) return data.ToString();
+            return formatDef.DataToValue(element, data);
         }
 
         public override void SetValue(ValueElement element, string value) {

@@ -5,7 +5,7 @@ using Newtonsoft.Json.Linq;
 using System;
 
 namespace esper.defs {
-    public class ValueDef : Def {
+    public class ValueDef : MaybeSubrecordDef {
         public FormatDef formatDef;
         public override int? size => src.Value<int?>("size");
         protected bool isVariableSize { get => size == null; }

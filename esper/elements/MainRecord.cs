@@ -3,6 +3,7 @@ using esper.parsing;
 using esper.resolution;
 using System;
 using System.Collections.Generic;
+using System.IO;
 
 namespace esper.elements {
     public class MainRecord : Container, IMainRecord {
@@ -43,7 +44,7 @@ namespace esper.elements {
         }
 
         public void ReadElements(PluginFileSource source) {
-            source.stream.Position = bodyOffset;
+            source.stream.Seek(bodyOffset, SeekOrigin.Begin);
             if (compressed) source.Decompress(dataSize);
             source.ReadMultiple(dataSize, () => {
                 var sig = source.ReadSignature().ToString();
@@ -51,6 +52,8 @@ namespace esper.elements {
                 var def = mrDef.GetMemberDef(sig.ToString());
                 if (def == null) {
                     UnexpectedSubrecord(sig, size, source);
+                } else if (def.IsSubrecord()) {
+                    def.ReadElement(this, source, size);
                 } else {
                     def.SubrecordFound(this, source, sig, size);
                 }

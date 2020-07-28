@@ -45,6 +45,7 @@ namespace esper.parsing {
 
         public void ReadFileHeader(PluginFile file) {
             file.header = MainRecord.Read(this, file, TES4);
+            file.header.ReadElements(this);
         }
 
         public LocalizedString ReadLocalizedString() {
