@@ -14,6 +14,7 @@ namespace esper {
         public virtual string signature => src.Value<string>("signature");
         public virtual string name => src.Value<string>("name");
         public virtual int? size => src.Value<int?>("size");
+        public bool required => src.Value<bool>("required");
 
         public Def(DefinitionManager manager, JObject src, Def parent) {
             this.manager = manager;
@@ -29,8 +30,8 @@ namespace esper {
             return false;
         }
 
-        public virtual void ReadSubrecord(
-            Container container, PluginFileSource source, Signature sig, UInt16 size
+        public virtual void SubrecordFound(
+            Container container, PluginFileSource source, string sig, UInt16 size
         ) {
             throw new NotImplementedException();
         }
@@ -47,6 +48,10 @@ namespace esper {
 
         public virtual Element PrepareElement(Container container) {
             throw new NotImplementedException();
+        }
+
+        public bool IsSubrecord() {
+            return signature != null;
         }
     }
 }

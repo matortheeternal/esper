@@ -13,7 +13,7 @@ namespace esper.defs {
         public FloatDef(DefinitionManager manager, JObject src, Def parent)
             : base(manager, src, parent) {}
 
-        public override dynamic ReadData(PluginFileSource source) {
+        public override dynamic ReadData(PluginFileSource source, UInt16? dataSize) {
             return source.reader.ReadSingle();
         }
 

@@ -12,7 +12,7 @@ namespace esper.defs {
         public UInt16Def(DefinitionManager manager, JObject src, Def parent)
             : base(manager, src, parent) { }
 
-        public override dynamic ReadData(PluginFileSource source) {
+        public override dynamic ReadData(PluginFileSource source, UInt16? size) {
             return source.reader.ReadUInt16();
         }
 

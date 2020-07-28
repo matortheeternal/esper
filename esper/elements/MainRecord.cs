@@ -36,7 +36,7 @@ namespace esper.elements {
         }
 
         private void UnexpectedSubrecord(
-            Signature sig, UInt16 size, PluginFileSource source
+            string sig, UInt16 size, PluginFileSource source
         ) {
             var subrecord = new Subrecord(sig, size, source);
             unexpectedSubrecords.Add(subrecord);
@@ -46,13 +46,13 @@ namespace esper.elements {
             source.stream.Position = bodyOffset;
             if (compressed) source.Decompress(dataSize);
             source.ReadMultiple(dataSize, () => {
-                var sig = source.ReadSignature();
+                var sig = source.ReadSignature().ToString();
                 var size = source.reader.ReadUInt16();
                 var def = mrDef.GetMemberDef(sig.ToString());
                 if (def == null) {
                     UnexpectedSubrecord(sig, size, source);
                 } else {
-                    def.ReadSubrecord(this, source, sig, size);
+                    def.SubrecordFound(this, source, sig, size);
                 }
            });
         }

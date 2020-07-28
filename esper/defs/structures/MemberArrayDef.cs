@@ -22,13 +22,17 @@ namespace esper.defs {
                 new MemberArrayElement(container, this, true);
         }
 
-        public override void ReadSubrecord(
-            Container container, PluginFileSource source, Signature sig, UInt16 size
+        public override void SubrecordFound(
+            Container container, PluginFileSource source, string sig, UInt16 size
         ) {
-            var e = container.elements.Last();
-            if (e == null || e.HasSubrecord(sig))
-                e = memberDef.PrepareElement(container);
-            memberDef.ReadSubrecord((Container)e, source, sig, size);
+            if (memberDef.IsSubrecord()) {
+                memberDef.ReadElement(container, source, size);
+            } else {
+                var e = container.elements.Last();
+                if (e == null || e.HasSubrecord(sig))
+                    e = memberDef.PrepareElement(container);
+                memberDef.SubrecordFound(e as Container, source, sig, size);
+            }
         }
 
         public override Element InitElement(Container container) {

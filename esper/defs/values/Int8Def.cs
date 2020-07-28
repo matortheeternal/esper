@@ -2,6 +2,7 @@
 using esper.parsing;
 using esper.setup;
 using Newtonsoft.Json.Linq;
+using System;
 
 namespace esper.defs {
     public class Int8Def : ValueDef {
@@ -11,7 +12,7 @@ namespace esper.defs {
         public Int8Def(DefinitionManager manager, JObject src, Def parent)
             : base(manager, src, parent) { }
 
-        public override dynamic ReadData(PluginFileSource source) {
+        public override dynamic ReadData(PluginFileSource source, UInt16? dataSize) {
             return source.reader.ReadSByte();
         }
 

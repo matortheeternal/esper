@@ -7,8 +7,8 @@ namespace esper.parsing {
         public UInt16 size;
         public byte[] data;
 
-        public Subrecord(Signature signature, UInt16 size, PluginFileSource source) {
-            this.signature = signature;
+        public Subrecord(string signature, UInt16 size, PluginFileSource source) {
+            this.signature = Signature.FromString(signature);
             this.size = size;
             source.stream.Seek(size, SeekOrigin.Current);
         }

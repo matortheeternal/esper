@@ -13,7 +13,7 @@ namespace esper.defs {
         public FormIdDef(DefinitionManager manager, JObject src, Def parent)
             : base(manager, src, parent) { }
 
-        public override dynamic ReadData(PluginFileSource source) {
+        public override dynamic ReadData(PluginFileSource source, UInt16? dataSize) {
             UInt32 data = source.reader.ReadUInt32();
             byte ordinal = (byte)(data >> 24);
             var targetPlugin = source.plugin.OrdinalToFile(ordinal, false);

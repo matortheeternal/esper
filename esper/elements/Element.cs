@@ -39,8 +39,8 @@ namespace esper.elements {
             this.state ^= state;
         }
 
-        public bool HasSubrecord(Signature sig) {
-            return signature == sig.ToString();
+        public bool HasSubrecord(string sig) {
+            return signature == sig;
         }
     }
 }

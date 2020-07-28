@@ -16,14 +16,21 @@ namespace esper.defs {
                 new MemberStructElement(container, this, true);
         }
 
-        public override void ReadSubrecord(
-            Container container, PluginFileSource source, Signature sig, UInt16 size
+        public override void SubrecordFound(
+            Container container, PluginFileSource source, string sig, UInt16 size
         ) {
-            // TODO
+            var memberDef = GetMemberDef(sig.ToString());
+            if (memberDef.IsSubrecord()) {
+                memberDef.ReadElement(container, source, size);
+            } else {
+                var e = memberDef.PrepareElement(container);
+                memberDef.SubrecordFound(e as Container, source, sig, size);
+            }
         }
 
         public void InitChildElements(Container container) {
-            // TODO
+            foreach (var memberDef in memberDefs)
+                if (memberDef.required) memberDef.InitElement(container);
         }
     }
 }
