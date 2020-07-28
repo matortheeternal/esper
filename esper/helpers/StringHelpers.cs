@@ -16,6 +16,7 @@ namespace esper.helpers {
         }
 
         public static string FormatBytes(byte[] bytes) {
+            if (bytes.Length == 0) return "";
             int len = bytes.Length * 3;
             char[] chars = new char[len - 1];
             for (int i = 0; i < bytes.Length; i++) {

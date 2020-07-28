@@ -12,7 +12,7 @@ namespace esper.resolution.strategies {
 
         public static Element Resolve(MatchData match) {
             ContainerMatch c = (ContainerMatch)match;
-            int index = int.Parse(c.match.Captures[0].Value);
+            int index = int.Parse(c.match.Groups[1].Value);
             return c.container.elements[index];
         }
 

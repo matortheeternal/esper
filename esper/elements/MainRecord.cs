@@ -49,14 +49,17 @@ namespace esper.elements {
             source.ReadMultiple(dataSize, () => {
                 var sig = source.ReadSignature().ToString();
                 var size = source.reader.ReadUInt16();
+                var endPos = source.stream.Position + size;
                 var def = mrDef.GetMemberDef(sig.ToString());
                 if (def == null) {
                     UnexpectedSubrecord(sig, size, source);
                 } else if (def.IsSubrecord()) {
                     def.ReadElement(this, source, size);
                 } else {
-                    def.SubrecordFound(this, source, sig, size);
+                    var container = (Container) def.PrepareElement(this);
+                    def.SubrecordFound(container, source, sig, size);
                 }
+                source.stream.Position = endPos;
            });
         }
 

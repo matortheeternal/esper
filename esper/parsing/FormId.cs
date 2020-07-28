@@ -6,7 +6,11 @@ namespace esper.parsing {
         public PluginFile targetPlugin;
         public UInt32 localFormId;
         public string targetFileName {
-            get => targetPlugin != null ? targetPlugin.filename : "Hardcoded";
+            get {
+                if (localFormId < 0x800) return "Hardcoded";
+                if (targetPlugin != null) return targetPlugin.filename;
+                return "Error";
+            }
         }
 
         public FormId(PluginFile targetPlugin, UInt32 localFormId) {
@@ -15,6 +19,7 @@ namespace esper.parsing {
         }
 
         public override string ToString() {
+            if (localFormId == 0) return "{Null:000000}";
             return string.Format(
                 "{{{0}:{1}}}",
                 targetFileName,

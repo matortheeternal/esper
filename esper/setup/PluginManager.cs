@@ -40,6 +40,9 @@ namespace esper.setup {
                 game.SupportsLightPlugins();
             maxLightPluginIndex = usingLightPlugins ? 4095 : 0;
             maxFullPluginIndex = usingLightPlugins ? 253 : 254;
+            plugins = new List<PluginFile>();
+            fullPluginSlots = new List<FullPluginSlot>();
+            lightPluginSlots = new List<LightPluginSlot>();
         }
 
         public bool ShouldUseLightPluginSlot(PluginFile plugin) {

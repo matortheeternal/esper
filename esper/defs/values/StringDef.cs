@@ -35,7 +35,8 @@ namespace esper.defs {
         public override dynamic ReadData(PluginFileSource source, UInt16? dataSize) {
             if (localized && source.localized)
                 return source.ReadLocalizedString();
-            var size = GetStringSize(source) ?? dataSize;
+            // dataSize - 1 because null terminator
+            var size = GetStringSize(source) ?? dataSize - 1;
             return source.ReadString(size);
         }
 

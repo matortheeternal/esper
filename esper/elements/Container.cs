@@ -12,7 +12,12 @@ namespace esper.elements {
         }
 
         public Element FindElementForDef(Def def) {
-            return elements.Last((element) => element.def == def);
+            for (int i = elements.Count - 1; i >= 0; i--) {
+                var element = elements[i];
+                if (element.def == def) return element;
+            }
+            return null;
+            //return elements.LastOrDefault((element) => element.def == def);
         }
     }
 }

@@ -17,6 +17,10 @@ namespace esper.defs {
             memberDef = manager.BuildDef(src.Value<JObject>("member"), this);
         }
 
+        public override bool ContainsSignature(string signature) {
+            return memberDef.ContainsSignature(signature);
+        }
+
         public override Element PrepareElement(Container container) {
             return container.FindElementForDef(this) ??
                 new MemberArrayElement(container, this, true);
@@ -28,7 +32,7 @@ namespace esper.defs {
             if (memberDef.IsSubrecord()) {
                 memberDef.ReadElement(container, source, size);
             } else {
-                var e = container.elements.Last();
+                var e = container.elements.LastOrDefault();
                 if (e == null || e.HasSubrecord(sig))
                     e = memberDef.PrepareElement(container);
                 memberDef.SubrecordFound(e as Container, source, sig, size);

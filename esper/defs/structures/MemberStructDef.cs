@@ -19,7 +19,7 @@ namespace esper.defs {
         public override void SubrecordFound(
             Container container, PluginFileSource source, string sig, UInt16 size
         ) {
-            var memberDef = GetMemberDef(sig.ToString());
+            var memberDef = GetMemberDef(sig);
             if (memberDef.IsSubrecord()) {
                 memberDef.ReadElement(container, source, size);
             } else {

@@ -34,7 +34,8 @@ namespace Tests {
             var flags = fileHeader.GetValue(@"Record Header\Record Flags");
             Assert.AreEqual(flags, "");
             var formId = fileHeader.GetValue(@"Record Header\FormID");
-            Assert.AreEqual(formId, "{Hardcoded:000000}"); // "NULL - Null Reference [00000000]"
+            // "NULL - Null Reference [00000000]"
+            Assert.AreEqual(formId, "{Null:000000}");
             var vc1 = fileHeader.GetValue(@"Record Header\Version Control Info 1");
             Assert.AreEqual(vc1, "00 00 00 00");
             var formVersion = fileHeader.GetValue(@"Record Header\Form Version");
@@ -71,6 +72,22 @@ namespace Tests {
             Assert.AreEqual(numRecords, "0");
             string nextId = fileHeader.GetValue(@"HEDR\Next Object ID");
             Assert.AreEqual(nextId, "000800");
+            string dele = fileHeader.GetValue(@"DELE");
+            Assert.AreEqual(dele, "");
+            string author = fileHeader.GetValue(@"CNAM");
+            Assert.AreEqual(author, "Mator");
+            string description = fileHeader.GetValue(@"SNAM");
+            Assert.AreEqual(description, "An empty test plugin.");
+            string mast = fileHeader.GetValue(@"Master Files\[0]\MAST");
+            Assert.AreEqual(mast, "Skyrim.esm");
+            string data = fileHeader.GetValue(@"Master Files\[0]\DATA");
+            Assert.AreEqual(data, "00 00 00 00 00 00 00 00");
+            string scrn = fileHeader.GetValue(@"SCRN");
+            Assert.AreEqual(scrn, "");
+            string intv = fileHeader.GetValue(@"INTV");
+            Assert.AreEqual(intv, "");
+            string incc = fileHeader.GetValue(@"INCC");
+            Assert.AreEqual(incc, "");
         }
 
     }
