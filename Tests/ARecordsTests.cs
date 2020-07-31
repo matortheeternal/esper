@@ -64,9 +64,26 @@ namespace Tests {
 
         [Test]
         public void TestIngestibleRecord() {
-            /*var rec = plugin.GetElement(@"ALCH\[0]");
+            var rec = plugin.GetElement(@"ALCH\[0]");
             Assert.IsNotNull(rec);
-            TestHelpers.TestValue(rec, "EDID", "TestIngestible");*/
+            TestHelpers.TestValue(rec, "EDID", "TestIngestible");
+            TestHelpers.TestObjectBounds(rec);
+            TestHelpers.TestValue(rec, "FULL", "Test");
+            TestHelpers.TestKeywords(rec);
+            TestHelpers.TestValue(rec, "DESC", "Test description.");
+            TestHelpers.TestModel(rec);
+            TestHelpers.TestDestructible(rec);
+            TestHelpers.TestIcon(rec);
+            TestHelpers.TestFormId(rec, "YNAM");
+            TestHelpers.TestFormId(rec, "ZNAM");
+            TestHelpers.TestFormId(rec, "ETYP");
+            TestHelpers.TestValue(rec, "DATA", "1.23400");
+            TestHelpers.TestValue(rec, @"ENIT\Value", "0");
+            TestHelpers.TestValue(rec, @"ENIT\Flags", "Food Item");
+            TestHelpers.TestFormId(rec, @"ENIT\Addiction");
+            TestHelpers.TestValue(rec, @"ENIT\Addiction Chance", "0.00000");
+            TestHelpers.TestFormId(rec, @"ENIT\Sound - Consume");
+            TestHelpers.TestEffects(rec);
         }
 
         [Test]

@@ -109,6 +109,17 @@ namespace Tests {
             });
         }
 
+        public static void TestEffects(Element rec) {
+            var effects = rec.GetElements("Effects");
+            Assert.IsNotNull(effects);
+            Assert.AreEqual(1, effects.Count);
+            TestFormId(effects[0], "EFID");
+            var efit = effects[0].GetElement("EFIT");
+            Assert.AreEqual("0.00000", efit.GetValue("Magnitude"));
+            Assert.AreEqual("0", efit.GetValue("Area"));
+            Assert.AreEqual("0", efit.GetValue("Duration"));
+        }
+
         public static void TestObjectBounds(Element rec) {
             var obnd = rec.GetElement("OBND");
             Assert.IsNotNull(obnd);

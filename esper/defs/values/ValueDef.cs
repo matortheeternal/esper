@@ -14,7 +14,7 @@ namespace esper.defs {
             : base(manager, src, parent) {
             var format = src.Value<JObject>("format");
             if (format == null) return;
-            formatDef = (FormatDef) manager.BuildDef(format, this);
+            formatDef = (FormatDef)manager.BuildDef(format, this);
         }
 
         public override Element ReadElement(

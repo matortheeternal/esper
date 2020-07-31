@@ -16,6 +16,7 @@ namespace esper.defs {
             : base(manager, src, parent) {
             ErrorHelpers.CheckDefProperty(src, "elements");
             elementDefs = manager.BuildDefs(src.Value<JArray>("elements"), this);
+            ErrorHelpers.CheckDefProperty(src, "decider");
             decider = manager.GetDecider(src.Value<string>("decider"));
         }
 

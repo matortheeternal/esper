@@ -89,9 +89,11 @@ namespace esper.setup {
 
         public Def BuildDef(JObject src, Def parent) {
             if (src.ContainsKey("id")) src = MergeDef(src);
-            var defClass = defClasses[src.Value<string>("type")];
+            var defType = src.Value<string>("type");
+            if (!defClasses.ContainsKey(defType))
+                throw new Exception($"Def type not implemented: {defType}");
             var args = new object[] { this, src, parent };
-            return (Def) Activator.CreateInstance(defClass, args);
+            return (Def) Activator.CreateInstance(defClasses[defType], args);
         }
 
         public ReadOnlyCollection<Def> BuildDefs(JArray sources, Def parent) {

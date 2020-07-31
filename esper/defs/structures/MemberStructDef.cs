@@ -9,7 +9,7 @@ namespace esper.defs {
         public static string defType = "memberStruct";
 
         public MemberStructDef(DefinitionManager manager, JObject src, Def parent)
-            : base(manager, src, parent) { }
+            : base(manager, src, parent) {}
 
         public override Element PrepareElement(Container container) {
             return container.FindElementForDef(this) ??
