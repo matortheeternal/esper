@@ -7,7 +7,7 @@ using Newtonsoft.Json.Linq;
 namespace esper.defs {
     public class UInt16Def : ValueDef {
         public static readonly string defType = "uint16";
-        public new int size { get => 2; }
+        public override int? size => 2;
 
         public UInt16Def(DefinitionManager manager, JObject src, Def parent)
             : base(manager, src, parent) { }
@@ -22,7 +22,8 @@ namespace esper.defs {
 
         public override string GetValue(ValueElement element) {
             UInt16 data = element.data;
-            return data.ToString();
+            if (formatDef == null) return data.ToString();
+            return formatDef.DataToValue(element, data);
         }
 
         public override void SetValue(ValueElement element, string value) {

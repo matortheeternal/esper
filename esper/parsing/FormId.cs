@@ -18,6 +18,13 @@ namespace esper.parsing {
             this.localFormId = localFormId;
         }
 
+        public static FormId FromSource(PluginFile sourcePlugin, UInt32 fileFormId) {
+            byte ordinal = (byte)(fileFormId >> 24);
+            var targetPlugin = sourcePlugin.OrdinalToFile(ordinal, false);
+            var formId = fileFormId & 0xFFFFFF;
+            return new FormId(targetPlugin, formId);
+        }
+
         public override string ToString() {
             if (localFormId == 0) return "{Null:000000}";
             return string.Format(

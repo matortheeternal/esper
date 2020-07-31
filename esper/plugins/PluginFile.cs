@@ -48,7 +48,9 @@ namespace esper.plugins {
         }
 
         internal void ReadGroups() {
-            throw new NotImplementedException();
+            var endOffset = source.fileSize - 1;
+            while (source.stream.Position < endOffset)
+                GroupRecord.Read(this, source);
         }
 
         internal string GetString(uint id) {

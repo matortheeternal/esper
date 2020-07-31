@@ -8,17 +8,14 @@ using Newtonsoft.Json.Linq;
 namespace esper.defs {
     public class FormIdDef : ValueDef {
         public static string defType = "formId";
-        public new int size { get => 4; }
+        public override int? size => 4;
 
         public FormIdDef(DefinitionManager manager, JObject src, Def parent)
             : base(manager, src, parent) { }
 
         public override dynamic ReadData(PluginFileSource source, UInt16? dataSize) {
             UInt32 data = source.reader.ReadUInt32();
-            byte ordinal = (byte)(data >> 24);
-            var targetPlugin = source.plugin.OrdinalToFile(ordinal, false);
-            var formId = data & 0xFFFFFF;
-            return new FormId(targetPlugin, formId);
+            return FormId.FromSource(source.plugin, data);
         }
 
         public override dynamic DefaultData() {

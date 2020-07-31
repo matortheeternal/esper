@@ -6,27 +6,30 @@ using System;
 using System.Linq;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.IO.Compression;
 
 namespace esper.setup {
     using DefMap = Dictionary<string, Def>;
-    using DefClassMap = Dictionary<string, Type>;
+    using ClassMap = Dictionary<string, Type>;
+    using DeciderMap = Dictionary<string, Decider>;
 
     public class DefinitionManager {
         public Game game;
         public Session session;
+        internal Def groupHeaderDef;
         private readonly JObject definitions;
         private readonly DefMap recordDefs = new DefMap();
-        private readonly DefClassMap defClasses = new DefClassMap();
+        private readonly ClassMap defClasses = new ClassMap();
+        private readonly DeciderMap deciders = new DeciderMap();
         private string defsFileName { get => game.abbreviation + ".json"; }
 
         public DefinitionManager(Game game, Session session) {
             this.game = game;
             this.session = session;
             definitions = IOHelpers.LoadResource(defsFileName);
-            InitDefClasses(game);
-            if (session.options.buildDefsOnDemand) return;
-            BuildRecordDefs();
+            LoadClasses(game);
+            if (!session.options.buildDefsOnDemand) BuildRecordDefs();
+            var src = ResolveMetaDef("GroupRecordHeader");
+            groupHeaderDef = BuildDef(src, null);
         }
 
         private void BuildRecordDefs() {
@@ -47,12 +50,33 @@ namespace esper.setup {
             recordDefs[key] = BuildDef((JObject)def, null);
         }
 
-        private void InitDefClasses(Game game) {
+        private void LoadDefClass(Type type) {
+            var info = type.GetField("defType");
+            if (info == null) return;
+            string key = (string)info.GetValue(null);
+            defClasses[key] = type;
+        }
+
+        private void LoadDecider(Type type) {
+            string key = type.Name;
+            deciders[key] = (Decider) Activator.CreateInstance(type);
+        }
+        
+        private void LoadClass(Type type) {
+            if (typeof(Def).IsAssignableFrom(type)) {
+                LoadDefClass(type);
+            } else if (typeof(Decider).IsAssignableFrom(type)) {
+                LoadDecider(type);
+            }
+        }
+
+        private void LoadClasses(Game game) {
             var gameDefsNamespace = "esper.defs." + game.abbreviation;
-            ReflectionHelpers.BuildClassDictionary(defClasses, "defType", (Type t) => {
+            var types = ReflectionHelpers.GetClasses((Type t) => {
                 return t.Namespace == "esper.defs" ||
                     t.Namespace == gameDefsNamespace;
             });
+            foreach (var type in types) LoadClass(type);
         }
 
         public JObject MergeDef(JObject src) {
@@ -111,6 +135,12 @@ namespace esper.setup {
             if (session.options.buildDefsOnDemand && !recordDefs.ContainsKey(sig))
                 BuildRecordDef(sig);
             return recordDefs[sig];
+        }
+
+        public Decider GetDecider(string key) {
+            if (!deciders.ContainsKey(key))
+                throw new Exception("Unknown decider: " + key);
+            return deciders[key];
         }
     }
 }

@@ -4,7 +4,6 @@ using esper.plugins;
 using esper.resolution;
 using esper.setup;
 using NUnit.Framework;
-using System;
 
 namespace Tests {
     public class FileHeaderTests {
@@ -26,68 +25,51 @@ namespace Tests {
         public void TestRecordHeaderValues() {
             var fileHeader = plugin.header;
             Assert.IsNotNull(fileHeader);
-            Assert.IsNotNull(fileHeader.header);
-            var sig = fileHeader.GetValue(@"Record Header\Signature");
-            Assert.AreEqual(sig, "TES4");
-            var dataSize = fileHeader.GetValue(@"Record Header\Data Size");
-            Assert.AreEqual(dataSize, "30");
-            var flags = fileHeader.GetValue(@"Record Header\Record Flags");
-            Assert.AreEqual(flags, "");
-            var formId = fileHeader.GetValue(@"Record Header\FormID");
+            var rh = fileHeader.GetElement("Record Header");
+            Assert.IsNotNull(rh);
+            Assert.AreEqual("TES4", rh.GetValue("Signature"));
+            Assert.AreEqual("113", rh.GetValue("Data Size"));
+            Assert.AreEqual("", rh.GetValue("Record Flags"));
             // "NULL - Null Reference [00000000]"
-            Assert.AreEqual(formId, "{Null:000000}");
-            var vc1 = fileHeader.GetValue(@"Record Header\Version Control Info 1");
-            Assert.AreEqual(vc1, "00 00 00 00");
-            var formVersion = fileHeader.GetValue(@"Record Header\Form Version");
-            Assert.AreEqual(formVersion, "43");
-            var vc2 = fileHeader.GetValue(@"Record Header\Version Control Info 2");
-            Assert.AreEqual(vc2, "00 00");
+            Assert.AreEqual("{Null:000000}", rh.GetValue("FormID"));
+            var vc1 = rh.GetValue("Version Control Info 1");
+            Assert.AreEqual("00 00 00 00", vc1);
+            Assert.AreEqual("44", rh.GetValue("Form Version"));
+            Assert.AreEqual("00 00", rh.GetValue("Version Control Info 2"));
         }
 
         [Test]
         public void TestRecordHeaderData() {
             var fileHeader = plugin.header;
-            string sig = fileHeader.GetData(@"Record Header\Signature");
-            Assert.AreEqual(sig, "TES4");
-            UInt32 dataSize = fileHeader.GetData(@"Record Header\Data Size");
-            Assert.AreEqual(dataSize, 30);
-            UInt32 flags = fileHeader.GetData(@"Record Header\Record Flags");
-            Assert.AreEqual(flags, 0);
-            FormId formId = fileHeader.GetData(@"Record Header\FormID");
+            var rh = fileHeader.GetElement("Record Header");
+            Assert.AreEqual("TES4", rh.GetData("Signature"));
+            Assert.AreEqual(113, rh.GetData("Data Size"));
+            Assert.AreEqual(0, rh.GetData("Record Flags"));
+            FormId formId = rh.GetData("FormID");
             Assert.AreEqual(formId.localFormId, 0);
-            byte[] vc1 = fileHeader.GetData(@"Record Header\Version Control Info 1");
+            byte[] vc1 = rh.GetData("Version Control Info 1");
             Assert.AreEqual(vc1[0], 0);
-            UInt16 formVersion = fileHeader.GetData(@"Record Header\Form Version");
-            Assert.AreEqual(formVersion, 43);
-            byte[] vc2 = fileHeader.GetData(@"Record Header\Version Control Info 2");
+            Assert.AreEqual(44, rh.GetData("Form Version"));
+            byte[] vc2 = rh.GetData("Version Control Info 2");
             Assert.AreEqual(vc2[0], 0);
         }
 
         [Test]
         public void TestSubrecordValues() {
-            var fileHeader = plugin.header;
-            string version = fileHeader.GetValue(@"HEDR\Version");
-            Assert.AreEqual(version, "1.70000");
-            string numRecords = fileHeader.GetValue(@"HEDR\Number of Records");
-            Assert.AreEqual(numRecords, "0");
-            string nextId = fileHeader.GetValue(@"HEDR\Next Object ID");
-            Assert.AreEqual(nextId, "000800");
-            string dele = fileHeader.GetValue(@"DELE");
-            Assert.AreEqual(dele, "");
-            string author = fileHeader.GetValue(@"CNAM");
-            Assert.AreEqual(author, "Mator");
-            string description = fileHeader.GetValue(@"SNAM");
-            Assert.AreEqual(description, "An empty test plugin.");
-            string mast = fileHeader.GetValue(@"Master Files\[0]\MAST");
-            Assert.AreEqual(mast, "Skyrim.esm");
-            string data = fileHeader.GetValue(@"Master Files\[0]\DATA");
-            Assert.AreEqual(data, "00 00 00 00 00 00 00 00");
-            string scrn = fileHeader.GetValue(@"SCRN");
-            Assert.AreEqual(scrn, "");
-            string intv = fileHeader.GetValue(@"INTV");
-            Assert.AreEqual(intv, "");
-            string incc = fileHeader.GetValue(@"INCC");
-            Assert.AreEqual(incc, "");
+            var fh = plugin.header;
+            var hedr = fh.GetElement("HEDR");
+            Assert.AreEqual("1.70000", hedr.GetValue("Version"));
+            Assert.AreEqual("0", hedr.GetValue("Number of Records"));
+            Assert.AreEqual("000800", hedr.GetValue("Next Object ID"));
+            Assert.AreEqual("", fh.GetValue("DELE"));
+            Assert.AreEqual("Mator", fh.GetValue("CNAM"));
+            Assert.AreEqual("An empty test plugin.", fh.GetValue("SNAM"));
+            var ma = fh.GetElement(@"Master Files\[0]");
+            Assert.AreEqual("Skyrim.esm", ma.GetValue("MAST"));
+            Assert.AreEqual("00 00 00 00 00 00 00 00", ma.GetValue("DATA"));
+            Assert.AreEqual("", fh.GetValue("SCRN"));
+            Assert.AreEqual("", fh.GetValue("INTV"));
+            Assert.AreEqual("", fh.GetValue("INCC"));
         }
 
     }

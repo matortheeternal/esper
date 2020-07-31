@@ -13,6 +13,7 @@ namespace esper.setup {
         public bool emulateGlobalLoadOrder = true;
         public string language = "English";
         public bool buildDefsOnDemand = false;
+        public bool readAllSubrecords = true;
 
         public Encoding encoding { get => encodings[language]; }
     }

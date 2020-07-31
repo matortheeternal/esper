@@ -8,6 +8,9 @@ namespace esper.parsing {
         public Signature(byte b0, byte b1, byte b2, byte b3) 
             : base(b0, b1, b2, b3) {}
 
+        public Signature(byte[] b)
+            : base(b[0], b[1], b[2], b[3]) {}
+
         public static Signature FromString(string str) {
             byte[] bytes = encoding.Encode(str);
             return new Signature(bytes[0], bytes[1], bytes[2], bytes[3]);

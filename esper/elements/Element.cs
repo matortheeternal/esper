@@ -1,13 +1,12 @@
 ﻿using esper.setup;
 using esper.plugins;
-using esper.parsing;
 using System;
 using esper.resolution;
 
 namespace esper.elements {
     public class Element : IResolution {
         public readonly Def def;
-        public readonly Container container;
+        public Container container { get; internal set; }
         public PluginFile file { 
             get {
                 if (this is PluginFile asFile) return asFile;
@@ -16,13 +15,15 @@ namespace esper.elements {
         }
         public ElementState state;
         public DefinitionManager manager => file.manager;
-        public string signature => def.signature;
+        public virtual string signature => def.signature;
         public MainRecord referencedRecord {
             get {
                 throw new Exception("Element does not reference records.");
             }
         }
-        public string name => def.name;
+        public virtual string name => def.name;
+        public SessionOptions sessionOptions => manager.session.options;
+
 
         public Element(Container container = null, Def def = null) {
             this.def = def;

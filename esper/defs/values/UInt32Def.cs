@@ -7,7 +7,7 @@ using Newtonsoft.Json.Linq;
 namespace esper.defs {
     public class UInt32Def : ValueDef {
         public static readonly string defType = "uint32";
-        public new int size { get => 4; }
+        public override int? size => 4;
 
         public UInt32Def(DefinitionManager manager, JObject src, Def parent)
             : base(manager, src, parent) { }

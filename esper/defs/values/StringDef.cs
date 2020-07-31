@@ -16,27 +16,13 @@ namespace esper.defs {
         public StringDef(DefinitionManager manager, JObject src, Def parent)
             : base(manager, src, parent) {}
 
-        private int ReadPrefixSize(PluginFileSource source) {
-            int size = 0;
-            switch(prefix) {
-                case 1: size = source.reader.ReadByte(); break;
-                case 2: size = source.reader.ReadUInt16(); break;
-                case 4: size = (int)source.reader.ReadUInt32(); break;
-            }
-            if (padding != null) source.reader.ReadBytes((int)padding);
-            return size;
-        }
-
-        private int? GetStringSize(PluginFileSource source) {
-            if (prefix != null) return ReadPrefixSize(source);
-            return size;
-        }
-
         public override dynamic ReadData(PluginFileSource source, UInt16? dataSize) {
             if (localized && source.localized)
                 return source.ReadLocalizedString();
             // dataSize - 1 because null terminator
-            var size = GetStringSize(source) ?? dataSize - 1;
+            int? size = this.size ?? 
+                (int?) source.ReadPrefix(prefix, padding) ?? 
+                (dataSize != null ? dataSize - 1 : null);
             return source.ReadString(size);
         }
 

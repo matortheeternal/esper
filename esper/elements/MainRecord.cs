@@ -17,18 +17,23 @@ namespace esper.elements {
         public List<Subrecord> unexpectedSubrecords;
 
         public MainRecord(Container container, Def def) 
-            : base(container, def) { }
+            : base(container, def) {}
 
         public MainRecord(Container container, Def def, PluginFileSource source)
             : base(container, def) {
             header = (StructElement) mrDef.headerDef.ReadElement(this, source);
             bodyOffset = source.stream.Position;
             unexpectedSubrecords = new List<Subrecord>();
+            if (sessionOptions.readAllSubrecords) {
+                ReadElements(source);
+            } else {
+                source.stream.Seek(dataSize, SeekOrigin.Current);
+            }
         }
 
         public static MainRecord Read(
-            PluginFileSource source, 
-            Container container, 
+            Container container,
+            PluginFileSource source,
             Signature signature
         ) {
             var def = container.manager.GetRecordDef(signature);

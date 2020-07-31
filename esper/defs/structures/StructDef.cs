@@ -5,11 +5,13 @@ using esper.setup;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.ObjectModel;
+using System.Linq;
 
 namespace esper.defs {
     public class StructDef : MaybeSubrecordDef {
         public readonly static string defType = "struct";
         public ReadOnlyCollection<Def> elementDefs;
+        public override int? size => elementDefs.Sum(def => def.size);
 
         public StructDef(DefinitionManager manager, JObject src, Def parent)
             : base(manager, src, parent) {

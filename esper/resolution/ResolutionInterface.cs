@@ -6,13 +6,16 @@ using esper.helpers;
 using esper.defs;
 
 namespace esper.resolution {
-    public interface IResolution {}
+    public interface IResolution {
+        public Container container { get; }
+    }
 
     public static class ResolutionExtensions {
         public static List<Type> strategies = new List<Type> {
             typeof(ResolveParent),
             typeof(ResolveReference),
             typeof(ResolveByIndex),
+            typeof(ResolveGroupBySignature),
             typeof(ResolveBySignature),
             typeof(ResolveByName)
         };
@@ -69,6 +72,17 @@ namespace esper.resolution {
             if (flagsDef == null)
                 throw new Exception("Element does not have flags.");
             return flagsDef.FlagIsSet(valueElement.data, flag);
+        }
+
+        public static Element GetParentElement(
+            this IResolution r, Func<Element, bool> test
+        ) {
+            var parent = r.container;
+            while (parent != null) {
+                if (test(parent)) return parent;
+                parent = parent.container;
+            }
+            return null;
         }
     }
 }

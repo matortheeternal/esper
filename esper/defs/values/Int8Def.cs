@@ -7,7 +7,7 @@ using System;
 namespace esper.defs {
     public class Int8Def : ValueDef {
         public static readonly string defType = "int8";
-        public new int size { get => 1; }
+        public override int? size => 1;
 
         public Int8Def(DefinitionManager manager, JObject src, Def parent)
             : base(manager, src, parent) { }
@@ -22,7 +22,8 @@ namespace esper.defs {
 
         public override string GetValue(ValueElement element) {
             sbyte data = element.data;
-            return data.ToString();
+            if (formatDef == null) return data.ToString();
+            return formatDef.DataToValue(element, data);
         }
 
         public override void SetValue(ValueElement element, string value) {
