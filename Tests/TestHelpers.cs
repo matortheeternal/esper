@@ -134,6 +134,13 @@ namespace Tests {
             Assert.AreEqual("1", alt.GetValue("3D Index"));
         }
 
+        public static void TestIcon(Element rec) {
+            var icon = rec.GetElement("Icon");
+            Assert.IsNotNull(icon);
+            Assert.AreEqual(@"large\icon\path", icon.GetValue("ICON"));
+            Assert.AreEqual(@"small\icon\path", icon.GetValue("MICO"));
+        }
+
         public static void TestDestructible(Element rec) {
             var destructible = rec.GetElement(@"Destructible\DEST");
             Assert.IsNotNull(destructible);

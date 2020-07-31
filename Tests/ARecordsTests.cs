@@ -13,7 +13,7 @@ namespace Tests {
 
         [OneTimeSetUp]
         public void SetUp() {
-            session = new Session(Games.TES5, new SessionOptions {
+            session = new Session(Games.SSE, new SessionOptions {
                 buildDefsOnDemand = true
             });
             var pluginPath = TestHelpers.FixturePath("ARecords.esp");
@@ -51,37 +51,81 @@ namespace Tests {
 
         [Test]
         public void TestAddonNodeRecord() {
-            // TODO
+            var rec = plugin.GetElement(@"ADDN\[0]");
+            Assert.IsNotNull(rec);
+            TestHelpers.TestValue(rec, "EDID", "TestAddonNode");
+            TestHelpers.TestObjectBounds(rec);
+            TestHelpers.TestModel(rec);
+            TestHelpers.TestValue(rec, "DATA", "2");
+            TestHelpers.TestFormId(rec, "SNAM");
+            TestHelpers.TestValue(rec, @"DNAM\[0]", "1");
+            TestHelpers.TestValue(rec, @"DNAM\Flags", "<Unknown 0>");
         }
 
         [Test]
         public void TestIngestibleRecord() {
-            // TODO
+            /*var rec = plugin.GetElement(@"ALCH\[0]");
+            Assert.IsNotNull(rec);
+            TestHelpers.TestValue(rec, "EDID", "TestIngestible");*/
         }
 
         [Test]
         public void TestAmmunitionRecord() {
-            // TODO
+            var rec = plugin.GetElement(@"AMMO\[0]");
+            Assert.IsNotNull(rec);
+            TestHelpers.TestValue(rec, "EDID", "TestAmmunition");
+            TestHelpers.TestObjectBounds(rec);
+            TestHelpers.TestModel(rec);
+            TestHelpers.TestIcon(rec);
+            TestHelpers.TestDestructible(rec);
+            TestHelpers.TestFormId(rec, "YNAM");
+            TestHelpers.TestFormId(rec, "ZNAM");
+            TestHelpers.TestValue(rec, "DESC", "Test description.");
+            TestHelpers.TestKeywords(rec);
+            TestHelpers.TestFormId(rec, @"DATA\Projectile");
+            TestHelpers.TestValue(rec, @"DATA\Flags", "Non-Bolt");
+            TestHelpers.TestValue(rec, @"DATA\Damage", "12.00000");
+            TestHelpers.TestValue(rec, @"DATA\Value", "43");
+            TestHelpers.TestValue(rec, @"DATA\Weight", "0.10000");
+            TestHelpers.TestValue(rec, "ONAM", "t");
         }
 
         [Test]
         public void TestAnimatedObjectRecord() {
-            // TODO
+            var rec = plugin.GetElement(@"ANIO\[0]");
+            Assert.IsNotNull(rec);
+            TestHelpers.TestValue(rec, "EDID", "TestAnimatedObject");
+            TestHelpers.TestModel(rec);
+            TestHelpers.TestValue(rec, "BNAM", "testEvent");
         }
 
         [Test]
         public void TestApparatusRecord() {
-            // TODO
+            var rec = plugin.GetElement(@"APPA\[0]");
+            Assert.IsNotNull(rec);
+            TestHelpers.TestValue(rec, "EDID", "TestAlchemicalApparatus");
+            TestHelpers.TestObjectBounds(rec);
+            TestHelpers.TestValue(rec, "FULL", "Test");
+            TestHelpers.TestModel(rec);
+            TestHelpers.TestIcon(rec);
+            TestHelpers.TestValue(rec, "QUAL", "Novice");
+            TestHelpers.TestValue(rec, "DESC", "Test description.");
+            TestHelpers.TestValue(rec, @"DATA\Value", "0");
+            TestHelpers.TestValue(rec, @"DATA\Weight", "0.00000");
         }
 
         [Test]
         public void TestArmatureRecord() {
-            // TODO
+            /*var rec = plugin.GetElement(@"ARMA\[0]");
+            Assert.IsNotNull(rec);
+            TestHelpers.TestValue(rec, "EDID", "TestArmorAddon"); */
         }
 
         [Test]
         public void TestArmorRecord() {
-            // TODO
+            /*var rec = plugin.GetElement(@"ARMO\[0]");
+            Assert.IsNotNull(rec);
+            TestHelpers.TestValue(rec, "EDID", "TestArmor");*/
         }
 
         [Test]

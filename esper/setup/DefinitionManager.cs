@@ -71,7 +71,7 @@ namespace esper.setup {
         }
 
         private void LoadClasses(Game game) {
-            var gameDefsNamespace = "esper.defs." + game.abbreviation;
+            var gameDefsNamespace = "esper.defs." + game.defsNamespace;
             var types = ReflectionHelpers.GetClasses((Type t) => {
                 return t.Namespace == "esper.defs" ||
                     t.Namespace == gameDefsNamespace;

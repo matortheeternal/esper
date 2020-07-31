@@ -8,6 +8,7 @@ namespace esper {
         public string baseName;
         public string fullName;
         public string abbreviation;
+        public string defsNamespace;
         public string registryName;
         public string myGamesFolderName;
         public string appDataFolderName;
