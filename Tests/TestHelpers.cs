@@ -1,6 +1,5 @@
 ﻿using esper.elements;
 using esper.resolution;
-using Microsoft.VisualStudio.TestPlatform.ObjectModel;
 using NUnit.Framework;
 using System;
 using System.IO;

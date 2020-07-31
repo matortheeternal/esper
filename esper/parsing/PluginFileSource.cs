@@ -29,7 +29,7 @@ namespace esper.parsing {
             get => decompressedReader ?? fileReader;
         }
 
-        public UInt32? ReadPrefix(int? prefix, int? padding) {
+        internal UInt32? ReadPrefix(int? prefix, int? padding) {
             UInt32? size = prefix switch {
                 1 => reader.ReadByte(),
                 2 => reader.ReadUInt16(),
