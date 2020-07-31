@@ -1,3 +1,3 @@
 # esper-cs
 
-Plugin parsing library ting!!!!
+WIP Bethesda Plugin File parsing library.
