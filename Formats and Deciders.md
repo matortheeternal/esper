@@ -1,0 +1,31 @@
+# Formats and Deciders
+
+1. `TintLayerFormat` (L4897, L4860)
+2. `REFRRecordFlagsDecider` (L4747)
+3. `TypeDecider` (L4574)
+4. `PubPackCNAMDecider` (L4558)
+5. `BOOKTeachesDecider` (L2998)
+6. `EPFDDecider` (L2782)
+7. `PerkDATADecider` (L2767)
+8. `GMSTUnionDecider` (L2730)
+9. `COEDOwnerDecider` (L2710)
+10. `NVNMParentDecider` (L2654)
+11. `NAVIParentDecider` (L2631)
+12. `NAVIIslandDataDecider` (L2609)
+13. `MGEFAssocItemDecider` (L2448)
+14. `NPCLevelDecider` (L2433)
+15. `AtxtPositionFormat` (L2244)
+16. `HideFFFFFormat` (L2232)
+17. `CloudSpeedFormat` (L2198)
+18. `ClmtTimeFormat` (L1786)
+19. `ClmtMoonsPhaseLengthFormat` (L1759)
+20. `QuestExternalAliasFormat` (L1682)
+21. `QuestAliasFormat` (L1654)
+22. `PackageLocationAliasFormat` (L1626)
+23. `Edge2Format` (L1476)
+24. `Edge1Format` (L1466)
+25. `Edge0Format` (L1456)
+26. `Vertex2Format` (L1435)
+27. `Vertex1Format`
+28. `Vertex0Format`
+

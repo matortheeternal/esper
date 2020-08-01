@@ -11,6 +11,7 @@ namespace esper {
         internal Def parent;
         internal int sortOrder;
 
+        internal SessionOptions sessionOptions => manager.session.options;
         public virtual string signature => src.Value<string>("signature");
         public virtual string name => src.Value<string>("name");
         public virtual int? size => src.Value<int?>("size");

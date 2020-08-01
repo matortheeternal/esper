@@ -3,6 +3,7 @@ using esper.parsing;
 using esper.setup;
 using System;
 using Newtonsoft.Json.Linq;
+using esper.helpers;
 
 namespace esper.defs {
     public class UInt16Def : ValueDef {
@@ -17,17 +18,14 @@ namespace esper.defs {
         }
 
         public override dynamic DefaultData() {
-            return 0;
+            return (UInt16)0;
         }
 
-        public override string GetValue(ValueElement element) {
-            UInt16 data = element.data;
-            if (formatDef == null) return data.ToString();
-            return formatDef.DataToValue(element, data);
-        }
-
-        public override void SetValue(ValueElement element, string value) {
-            element.data = UInt16.Parse(value);
+        public override void SetData(ValueElement element, dynamic data) {
+            element.data = sessionOptions.clampIntegerValues
+                ? DataHelpers.ClampToUInt16(data)
+                : (UInt16)data;
+            element.SetState(ElementState.Modified);
         }
     }
 }

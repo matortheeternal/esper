@@ -133,16 +133,60 @@ namespace Tests {
 
         [Test]
         public void TestArmatureRecord() {
-            /*var rec = plugin.GetElement(@"ARMA\[0]");
+            var rec = plugin.GetElement(@"ARMA\[0]");
             Assert.IsNotNull(rec);
-            TestHelpers.TestValue(rec, "EDID", "TestArmorAddon"); */
+            TestHelpers.TestValue(rec, "EDID", "TestArmorAddon");
+            TestHelpers.TestBodyTemplate(rec);
+            TestHelpers.TestFormId(rec, "RNAM");
+            TestHelpers.TestValue(rec, @"DNAM\[0]", "0");
+            TestHelpers.TestValue(rec, @"DNAM\[1]", "0");
+            TestHelpers.TestValue(rec, @"DNAM\[2]", "Enabled");
+            TestHelpers.TestValue(rec, @"DNAM\[3]", "Enabled");
+            TestHelpers.TestValue(rec, @"DNAM\[4]", "00 00");
+            TestHelpers.TestValue(rec, @"DNAM\[5]", "0");
+            TestHelpers.TestValue(rec, @"DNAM\[6]", "00");
+            TestHelpers.TestValue(rec, @"DNAM\[7]", "0.00000");
+            TestHelpers.TestModel(rec, "Male world model");
+            TestHelpers.TestModel(rec, "Female world model");
+            TestHelpers.TestModel(rec, "Male 1st Person");
+            TestHelpers.TestModel(rec, "Female 1st Person");
+            TestHelpers.TestFormId(rec, "NAM0");
+            TestHelpers.TestFormId(rec, "NAM1");
+            TestHelpers.TestFormId(rec, "NAM2");
+            TestHelpers.TestFormId(rec, "NAM3");
+            TestHelpers.TestFormId(rec, @"Additional Races\[0]");
+            TestHelpers.TestFormId(rec, "SNDD");
+            TestHelpers.TestFormId(rec, "ONAM");
         }
 
         [Test]
         public void TestArmorRecord() {
-            /*var rec = plugin.GetElement(@"ARMO\[0]");
+            var rec = plugin.GetElement(@"ARMO\[0]");
             Assert.IsNotNull(rec);
-            TestHelpers.TestValue(rec, "EDID", "TestArmor");*/
+            TestHelpers.TestValue(rec, "EDID", "TestArmor");
+            TestHelpers.TestObjectBounds(rec);
+            TestHelpers.TestValue(rec, "FULL", "Test");
+            TestHelpers.TestFormId(rec, "EITM");
+            TestHelpers.TestValue(rec, "EAMT", "0");
+            TestHelpers.TestModel(rec, "Male world model");
+            TestHelpers.TestIcon(rec);
+            TestHelpers.TestModel(rec, "Female world model");
+            TestHelpers.TestBodyTemplate(rec);
+            TestHelpers.TestDestructible(rec);
+            TestHelpers.TestFormId(rec, "YNAM");
+            TestHelpers.TestFormId(rec, "ZNAM");
+            TestHelpers.TestValue(rec, "BMCT", "testTemplate");
+            TestHelpers.TestFormId(rec, "ETYP");
+            TestHelpers.TestFormId(rec, "BIDS");
+            TestHelpers.TestFormId(rec, "BAMT");
+            TestHelpers.TestFormId(rec, "RNAM");
+            TestHelpers.TestKeywords(rec);
+            TestHelpers.TestValue(rec, "DESC", "Test description.");
+            TestHelpers.TestFormId(rec, @"Armature\[0]");
+            TestHelpers.TestValue(rec, @"DATA\Value", "234");
+            TestHelpers.TestValue(rec, @"DATA\Weight", "49.00000");
+            TestHelpers.TestValue(rec, @"DNAM", "100.00000");
+            TestHelpers.TestFormId(rec, "TNAM");
         }
 
         [Test]

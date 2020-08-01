@@ -1,4 +1,5 @@
 ﻿using esper.elements;
+using esper.helpers;
 using esper.parsing;
 using esper.setup;
 using Newtonsoft.Json.Linq;
@@ -17,17 +18,14 @@ namespace esper.defs {
         }
 
         public override dynamic DefaultData() {
-            return 0;
+            return (sbyte)0;
         }
 
-        public override string GetValue(ValueElement element) {
-            sbyte data = element.data;
-            if (formatDef == null) return data.ToString();
-            return formatDef.DataToValue(element, data);
-        }
-
-        public override void SetValue(ValueElement element, string value) {
-            element.data = sbyte.Parse(value);
+        public override void SetData(ValueElement element, dynamic data) {
+            element.data = sessionOptions.clampIntegerValues
+                ? DataHelpers.ClampToInt8(data)
+                : (sbyte)data;
+            element.SetState(ElementState.Modified);
         }
     }
 }

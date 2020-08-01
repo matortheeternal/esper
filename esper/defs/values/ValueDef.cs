@@ -29,6 +29,14 @@ namespace esper.defs {
             return new ValueElement(container, this);
         }
 
+        public virtual dynamic ReadData(PluginFileSource source, UInt16? dataSize) {
+            throw new NotImplementedException();
+        }
+
+        public virtual dynamic DefaultData() {
+            throw new NotImplementedException();
+        }
+
         public virtual dynamic GetData(ValueElement element) {
             return element.data;
         }
@@ -39,19 +47,14 @@ namespace esper.defs {
         }
 
         public virtual string GetValue(ValueElement element) {
-            throw new NotImplementedException();
+            if (formatDef == null) return element.data.ToString();
+            return formatDef.DataToValue(element, element.data);
         }
 
         public virtual void SetValue(ValueElement element, string value) {
-            throw new NotImplementedException();
-        }
-
-        public virtual dynamic DefaultData() {
-            throw new NotImplementedException();
-        }
-
-        public virtual dynamic ReadData(PluginFileSource source, UInt16? dataSize) {
-            throw new NotImplementedException();
+            SetData(element, formatDef == null
+                ? Int64.Parse(value)
+                : formatDef.ValueToData(element, value));
         }
     }
 }

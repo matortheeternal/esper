@@ -7,8 +7,7 @@ namespace esper.elements {
         public MemberUnionElement(Container container, Def def, bool skipInit = false)
             : base(container, def) {
             if (skipInit) return;
-            var resolvedDef = unionDef.ResolveDef(container);
-            resolvedDef.InitElement(this);
+            unionDef.defaultDef.InitElement(this);
         }
     }
 }

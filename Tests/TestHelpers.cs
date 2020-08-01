@@ -136,13 +136,26 @@ namespace Tests {
         ) {
             var model = rec.GetElement(path);
             Assert.IsNotNull(model);
-            Assert.AreEqual(@"test\model\path", model.GetValue("MODL"));
+            Assert.AreEqual(@"test\model\path", model.GetValue("[0]"));
             if (!testMODS) return;
-            var alt = model.GetElement(@"MODS\[0]");
+            var n = (model as Container).elements.Count - 1;
+            var alt = model.GetElement(@$"[{n}]\[0]");
             Assert.IsNotNull(alt);
             Assert.AreEqual("Test", alt.GetValue("3D Name"));
             TestFormId(alt, "New Texture");
             Assert.AreEqual("1", alt.GetValue("3D Index"));
+        }
+
+        public static void TestBodyTemplate(
+            Element rec, 
+            string fpFlags = "30 - Head, 31 - Hair",
+            string armorType = "Light Armor"
+        ) {
+            var bt = rec.GetElement("Biped Body Template");
+            Assert.IsNotNull(bt);
+            Assert.AreEqual(fpFlags, bt.GetValue("First Person Flags"));
+            Assert.AreEqual("", bt.GetValue("General Flags"));
+            Assert.AreEqual(armorType, bt.GetValue("Armor Type"));
         }
 
         public static void TestIcon(Element rec) {

@@ -1,5 +1,4 @@
 ﻿using esper.elements;
-using esper.helpers;
 using esper.parsing;
 using esper.setup;
 using Newtonsoft.Json.Linq;
@@ -8,41 +7,32 @@ using System;
 namespace esper.defs {
     public class MemberUnionDef : MembersDef {
         public static string defType = "memberUnion";
-        private readonly Decider decider;
+        public Def defaultDef => memberDefs[0];
 
         public MemberUnionDef(DefinitionManager manager, JObject src, Def parent)
-            : base(manager, src, parent) {
-            ErrorHelpers.CheckDefProperty(src, "decider");
-            decider = manager.GetDecider(src.Value<string>("decider"));
-        }
+            : base(manager, src, parent) {}
 
         public override Element PrepareElement(Container container) {
+            if (defaultDef.IsSubrecord()) return container;
             return container.FindElementForDef(this) ??
                 new MemberUnionElement(container, this, true);
         }
 
-        public Def ResolveDef(Container container) {
-            var index = decider.Decide(container);
-            return memberDefs[index];
-        }
-
-        public override Element ReadElement(
-            Container container, PluginFileSource source, UInt16? dataSize = null
+        public override void SubrecordFound(
+            Container container, PluginFileSource source, string sig, UInt16 size
         ) {
-            var resolvedDef = ResolveDef(container);
-            if (resolvedDef.IsSubrecord()) {
-                return resolvedDef.ReadElement(container, source, dataSize);
+            var memberDef = GetMemberDef(sig);
+            if (memberDef.IsSubrecord()) {
+                memberDef.ReadElement(container, source, size);
             } else {
-                var e = new MemberUnionElement(container, this, true);
-                resolvedDef.ReadElement(e, source);
-                return e;
+                memberDef.SubrecordFound(container, source, sig, size);
             }
         }
 
         public override Element InitElement(Container container) {
-            var resolvedDef = ResolveDef(container);
-            if (resolvedDef.IsSubrecord())
-                return resolvedDef.InitElement(container);
+            var defaultDef = this.defaultDef;
+            if (defaultDef.IsSubrecord())
+                return defaultDef.InitElement(container);
             return new MemberUnionElement(container, this);
         }
     }
