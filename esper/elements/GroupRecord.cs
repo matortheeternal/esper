@@ -1,5 +1,6 @@
 ﻿using esper.defs;
 using esper.parsing;
+using esper.plugins;
 using esper.resolution;
 using System;
 using System.IO;
@@ -15,19 +16,25 @@ namespace esper.elements {
         CellChildren = 6,
         TopicChildren = 7,
         CellPersistentChildren = 8,
-        CellTemporaryChildren = 9
+        CellTemporaryChildren = 9,
+        NonChildGroups = Top | InteriorCellBlock | InteriorCellSubBlock,
+        AllChildGroups = ~NonChildGroups,
+        ChildGroupChild = ExteriorCellBlock | ExteriorCellSubBlock
     };
 
     public class GroupRecord : Container {
         private static readonly Signature GRUP = Signature.FromString("GRUP");
 
         public readonly StructElement header;
+
         private StructDef groupHeaderDef => manager.groupHeaderDef as StructDef;
         public override string signature => header.GetValue("Signature");
         public UInt32 groupSize => header.GetData("Group Size");
         public GroupType groupType => (GroupType)header.GetData("Group Type");
         public byte[] label => header.GetData("Label");
         public UInt32 dataSize => (UInt32)(groupSize - groupHeaderDef.size);
+        public bool isChildGroup => (groupType & GroupType.AllChildGroups) > 0;
+        public bool isChildGroupChild => (groupType & GroupType.ChildGroupChild) > 0;
 
         private Signature labelAsSignature => new Signature(label);
         private Int32 labelAsInt32 => BitConverter.ToInt32(label);
@@ -81,6 +88,13 @@ namespace esper.elements {
                 GroupType.CellTemporaryChildren => labelAsFormId,
                 _ => throw new Exception("Unknown group type.")
             };
+        }
+
+        public MainRecord GetParentRecord() {
+            if (isChildGroupChild && container is GroupRecord group)
+                return group.GetParentRecord();
+            if (!isChildGroup) return null;
+            return file.GetRecordByFormId(labelAsUInt32);
         }
     }
 }

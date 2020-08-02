@@ -12,6 +12,8 @@ namespace esper.resolution.strategies {
 
         public static Element Resolve(MatchData match) {
             ElementMatch e = (ElementMatch)match;
+            if (e.element is GroupRecord group && group.isChildGroup)
+                return group.GetParentRecord();
             return e.element.container;
         }
 
