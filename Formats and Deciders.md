@@ -18,14 +18,4 @@
 16. `HideFFFFFormat` (L2232)
 17. `CloudSpeedFormat` (L2198)
 18. `ClmtTimeFormat` (L1786)
-19. `ClmtMoonsPhaseLengthFormat` (L1759)
-20. `QuestExternalAliasFormat` (L1682)
-21. `QuestAliasFormat` (L1654)
-22. `PackageLocationAliasFormat` (L1626)
-23. `Edge2Format` (L1476)
-24. `Edge1Format` (L1466)
-25. `Edge0Format` (L1456)
-26. `Vertex2Format` (L1435)
-27. `Vertex1Format`
-28. `Vertex0Format`
 

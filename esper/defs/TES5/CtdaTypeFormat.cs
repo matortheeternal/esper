@@ -4,12 +4,12 @@ using Newtonsoft.Json.Linq;
 using System;
 
 namespace esper.defs.TES5 {
-    public class CtdaTypeFormat : FormatDef {
+    public class CTDATypeFormat : FormatDef {
         public static string defType = "CtdaTypeFormat";
 
         private static FlagsDef ctdaTypeFlags;
 
-        public CtdaTypeFormat(DefinitionManager manager, JObject src, Def parent)
+        public CTDATypeFormat(DefinitionManager manager, JObject src, Def parent)
             : base(manager, src, parent) {
             var flagsSrc = manager.ResolveDef("CtdaTypeFlags");
             ctdaTypeFlags = (FlagsDef) manager.BuildDef(flagsSrc, this);

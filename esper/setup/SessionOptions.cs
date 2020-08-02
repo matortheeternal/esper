@@ -15,6 +15,7 @@ namespace esper.setup {
         public bool buildDefsOnDemand = false;
         public bool readAllSubrecords = true;
         public bool clampIntegerValues = true;
+        public bool resolveAliases = false;
 
         public Encoding encoding { get => encodings[language]; }
     }
