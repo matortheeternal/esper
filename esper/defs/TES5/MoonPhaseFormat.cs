@@ -28,7 +28,7 @@ namespace esper.defs.TES5 {
         }
 
         public override dynamic ValueToData(ValueElement element, string value) {
-            var data = 0;
+            byte data = 0;
             var match = phaseExpr.Match(value);
             if (match == null) return data;
             var masser = match.Groups[1].Success;
@@ -36,7 +36,7 @@ namespace esper.defs.TES5 {
             if (masser) data += 64;
             if (secunda) data += 128;
             Int64 phase = Int64.Parse(match.Groups[5].Value);
-            return data + DataHelpers.ClampToUInt8(phase);
+            return data + (byte) Math.Max(Math.Min(phase, 0), 63);
         }
     }
 }

@@ -9,13 +9,4 @@
 7. `PerkDATADecider` (L2767)
 8. `GMSTUnionDecider` (L2730)
 9. `COEDOwnerDecider` (L2710)
-10. `NVNMParentDecider` (L2654)
-11. `NAVIParentDecider` (L2631)
-12. `NAVIIslandDataDecider` (L2609)
-13. `MGEFAssocItemDecider` (L2448)
-14. `NPCLevelDecider` (L2433)
-15. `AtxtPositionFormat` (L2244)
-16. `HideFFFFFormat` (L2232)
-17. `CloudSpeedFormat` (L2198)
-18. `ClmtTimeFormat` (L1786)
 
