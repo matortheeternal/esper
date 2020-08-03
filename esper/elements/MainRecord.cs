@@ -9,12 +9,13 @@ namespace esper.elements {
     public class MainRecord : Container, IMainRecord {
         public readonly StructElement header;
         public MainRecordDef mrDef { get => def as MainRecordDef; }
-        private long bodyOffset;
+        private readonly long bodyOffset;
         public UInt32 formId => header.GetData("Form ID");
         public UInt32 localFormId => formId & 0xFFFFFF;
         public UInt32 dataSize => header.GetData("Data Size");
         public bool compressed => header.GetFlag("Record Flags", "Compressed");
         public List<Subrecord> unexpectedSubrecords;
+        public string editorId => this.GetValue("EDID");
 
         public MainRecord(Container container, Def def) 
             : base(container, def) {}

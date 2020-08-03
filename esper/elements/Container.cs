@@ -3,6 +3,7 @@
 namespace esper.elements {
     public class Container : Element {
         public List<Element> elements { get; protected set; }
+        public int count => elements.Count;
 
         public Container(Container container = null, Def def = null) 
             : base(container, def) {
