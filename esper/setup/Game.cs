@@ -1,5 +1,5 @@
-﻿using System;
-using System.Linq;
+﻿using esper.defs.TES5;
+using System.Collections.Generic;
 
 namespace esper {
     public class Game {
@@ -15,15 +15,54 @@ namespace esper {
         public string exeName;
         public string esmName;
         public string iniName;
-        public string cccName;
-        public string pluginsTxtType;
-        public string archiveExtension;
-        public string[] pluginExtensions;
-        public string[] hardcodedPlugins;
-        public int[] steamAppIds;
+        public string cccName = null;
+        public string pluginsTxtType = "plain";
+        public string archiveExtension = ".bsa";
+        public List<string> pluginExtensions = new List<string> { 
+            ".esp", ".esm" 
+        };
+        public List<string> hardcodedPlugins = new List<string>();
+        public List<string> cellChildSignatures = new List<string> {
+            "NAVM", "PGRD", "LAND", "REFR", 
+            "PGRE", "PMIS", "ACRE", "ACHR"
+        };
+        public List<int> steamAppIds = new List<int>();
+
+        public Game(
+            string nameOverride = null, string baseNameOverride = null
+        ) {
+            if (nameOverride != null) {
+                registryName = nameOverride;
+                myGamesFolderName = nameOverride;
+                appDataFolderName = nameOverride;
+            }
+            if (baseNameOverride != null) {
+                exeName = $"{baseNameOverride}.exe";
+                esmName = $"{baseNameOverride}.esm";
+                iniName = $"{baseNameOverride}.ini";
+            }
+            hardcodedPlugins.Add(esmName);
+        }
+
+        public Game InitDefaults() {
+            if (baseName == null) baseName = name.Replace(" ", string.Empty);
+            if (fullName == null) fullName = name;
+            if (defsNamespace == null) defsNamespace = abbreviation;
+            if (registryName == null) registryName = name;
+            if (myGamesFolderName == null) myGamesFolderName = name;
+            if (appDataFolderName == null) appDataFolderName = name;
+            if (exeName == null) exeName = $"{baseName}.exe";
+            if (esmName == null) esmName = $"{baseName}.esm";
+            if (iniName == null) iniName = $"{baseName}.ini";
+            return this;
+        }
 
         public bool SupportsLightPlugins() {
             return pluginExtensions.Contains(".esl");
+        }
+
+        public bool CellSupports(string sig) {
+            return cellChildSignatures.Contains(sig);
         }
     }
 }
