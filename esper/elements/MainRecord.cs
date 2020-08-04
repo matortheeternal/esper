@@ -4,6 +4,7 @@ using esper.resolution;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 
 namespace esper.elements {
     public class MainRecord : Container, IMainRecord {
@@ -72,6 +73,10 @@ namespace esper.elements {
         public bool IsLocal() {
             // TODO
             return true;
+        }
+
+        public override bool SupportsSignature(string sig) {
+            return mrDef.memberDefs.Any(d => d.HasSignature(sig));
         }
     }
 }

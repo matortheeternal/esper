@@ -54,5 +54,9 @@ namespace esper {
         public bool IsSubrecord() {
             return signature != null;
         }
+
+        public virtual bool HasSignature(string sig) {
+            return signature == sig;
+        }
     }
 }

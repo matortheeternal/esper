@@ -31,7 +31,6 @@ namespace Tests {
 
             Assert.IsTrue(definitions.Value<JObject>("defs").ContainsKey("ARMO"));
             TestContext.Out.WriteLine("Loaded definitions in {0} ms", stopwatch.ElapsedMilliseconds);
-            Assert.Pass();
         }
 
         [Test]
@@ -48,7 +47,6 @@ namespace Tests {
             Assert.AreEqual(obj.Value<int>("b"), 2);
             Assert.AreEqual(obj.Value<int>("c"), 5);
             Assert.AreEqual(obj.Value<int>("d"), 6);
-            Assert.Pass();
         }
 
         [Test]

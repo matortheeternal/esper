@@ -3,6 +3,7 @@ using esper.parsing;
 using esper.setup;
 using Newtonsoft.Json.Linq;
 using System;
+using System.Linq;
 
 namespace esper.defs {
     public class MemberUnionDef : MembersDef {
@@ -34,6 +35,11 @@ namespace esper.defs {
             if (defaultDef.IsSubrecord())
                 return defaultDef.InitElement(container);
             return new MemberUnionElement(container, this);
+        }
+
+        public override bool HasSignature(string sig) {
+            return defaultDef.IsSubrecord() && 
+                memberDefs.Any(d => d.HasSignature(sig));
         }
     }
 }

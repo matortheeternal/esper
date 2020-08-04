@@ -20,7 +20,8 @@ namespace esper.setup {
         private readonly DefMap recordDefs = new DefMap();
         private readonly ClassMap defClasses = new ClassMap();
         private readonly DeciderMap deciders = new DeciderMap();
-        private string defsFileName { get => game.abbreviation + ".json"; }
+        private string defsFileName => game.abbreviation + ".json";
+        public JArray groupOrder => definitions.Value<JArray>("groupOrder");
 
         public DefinitionManager(Game game, Session session) {
             this.game = game;
@@ -32,12 +33,18 @@ namespace esper.setup {
             groupHeaderDef = BuildDef(src, null);
         }
 
-        private void BuildRecordDefs() {
+        private void ForEachRecordDef(Action<string, JToken> action) {
             var defs = definitions.Value<JObject>("defs");
             foreach (var (key, def) in defs) {
                 if (def.Value<string>("type") != "record") continue;
-                recordDefs[key] = BuildDef((JObject)def, null);
+                action(key, def);
             }
+        }
+
+        private void BuildRecordDefs() {
+            ForEachRecordDef((key, def) => {
+                recordDefs[key] = BuildDef((JObject)def, null);
+            });
         }
 
         public void BuildRecordDef(string key) {
@@ -55,6 +62,12 @@ namespace esper.setup {
             if (info == null) return;
             string key = (string)info.GetValue(null);
             defClasses[key] = type;
+        }
+
+        public bool IsTopGroup(string sig) {
+            foreach (var entry in groupOrder)
+                if (entry.Value<string>() == sig) return true;
+            return false;
         }
 
         private void LoadDecider(Type type) {

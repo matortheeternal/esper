@@ -96,5 +96,19 @@ namespace esper.elements {
             if (!isChildGroup) return null;
             return file.GetRecordByFormId(labelAsUInt32);
         }
+
+        public override bool SupportsSignature(string sig) {
+            return groupType switch {
+                GroupType.Top => sig == labelAsSignature.ToString(),
+                GroupType.WorldChildren => sig == "WRLD",
+                GroupType.InteriorCellSubBlock => sig == "CELL",
+                GroupType.ExteriorCellSubBlock => sig == "CELL",
+                GroupType.TopicChildren => sig == "INFO",
+                GroupType.CellChildren => game.CellSupports(sig),
+                GroupType.CellPersistentChildren => game.CellSupports(sig),
+                GroupType.CellTemporaryChildren => game.CellSupports(sig),
+                _ => false
+            };
+        }
     }
 }

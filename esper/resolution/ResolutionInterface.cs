@@ -12,10 +12,10 @@ namespace esper.resolution {
 
     public static class ResolutionExtensions {
         public static List<Type> strategies = new List<Type> {
+            typeof(ResolveContainer),
             typeof(ResolveParent),
             typeof(ResolveReference),
             typeof(ResolveByIndex),
-            typeof(ResolveGroupBySignature),
             typeof(ResolveBySignature),
             typeof(ResolveByName)
         };

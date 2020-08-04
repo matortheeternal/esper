@@ -36,8 +36,7 @@ namespace esper.defs.TES5 {
             foreach (Element entry in tintMasks.elements) {
                 var textureElement = entry.GetElement(@"Tint Layer\Texture");
                 var index = textureElement.GetData("TINI");
-                var name = GetTintName(textureElement);
-                entries[index] = name;
+                entries[index] = GetTintName(textureElement);
             }
         }
 
@@ -48,7 +47,7 @@ namespace esper.defs.TES5 {
     }
 
     internal class TintCache {
-        private List<TintEntries> cache = new List<TintEntries>();
+        private readonly List<TintEntries> cache = new List<TintEntries>();
 
         public TintEntries Get(MainRecord race, bool? female) {
             if (race == null || female == null) return null;

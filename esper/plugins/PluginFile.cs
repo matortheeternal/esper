@@ -56,5 +56,8 @@ namespace esper.plugins {
         internal string GetString(uint id) {
             throw new NotImplementedException();
         }
+        public override bool SupportsSignature(string sig) {
+            return manager.IsTopGroup(sig);
+        }
     }
 }
