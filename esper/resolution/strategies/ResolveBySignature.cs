@@ -1,11 +1,10 @@
-﻿using esper.defs.TES5;
-using esper.elements;
+﻿using esper.elements;
 using System;
 using System.Text.RegularExpressions;
 
 namespace esper.resolution.strategies {
     public static class ResolveBySignature {
-        private static readonly Regex signatureExpr = new Regex(@"^([^\\s]{4})($| - )");
+        private static readonly Regex signatureExpr = new Regex(@"^([^\s]{4})($| - )");
 
         public static MatchData Match(Element element, string pathPart) {
             var c = ContainerMatch.From(element, pathPart, signatureExpr);

@@ -9,8 +9,7 @@ namespace esper.resolution.strategies {
 
         public static bool Valid(Element element) {
             return !(element is GroupRecord)
-                && !(element is PluginFile)
-                && !(element is MainRecord);
+                && !(element is PluginFile);
         }
 
         public static MatchData Match(Element element, string pathPart) {
@@ -20,13 +19,13 @@ namespace esper.resolution.strategies {
 
         public static Element Resolve(MatchData match) {
             ContainerMatch c = (ContainerMatch)match;
-            string pathPart = c.match.Groups[0].Value;
-            Element element = c.container.GetElement(pathPart);
-            return element.referencedRecord;
+            string path = c.match.Groups[1].Value;
+            Element element = c.container.ResolveElement(path);
+            return element?.referencedRecord;
         }
 
         public static Element Create(MatchData match) {
-            throw new NotImplementedException();
+            return Resolve(match);
         }
     }
 }
