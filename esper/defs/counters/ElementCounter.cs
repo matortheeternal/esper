@@ -27,7 +27,7 @@ namespace esper.defs {
 
         public override UInt32 GetCount(Container container) {
             var e = (ValueElement)container.GetElement(path);
-            return e == null ? 0 : e.data;
+            return (UInt32) (e == null ? 0 : e.data);
         }
     }
 }

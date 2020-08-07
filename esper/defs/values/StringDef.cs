@@ -31,7 +31,7 @@ namespace esper.defs {
         }
 
         public override void SetData(ValueElement element, dynamic data) {
-            string s = data;
+            string s = (string) data;
             if (s == null) 
                 throw new Exception("Data must be a string");
             if (size != null && s.Length != size)
@@ -40,11 +40,14 @@ namespace esper.defs {
         }
 
         public override string GetValue(ValueElement element) {
-            return element.data;
+            if (element.data is string str) return str;
+            if (element.data is LocalizedString lstring)
+                return lstring.ToString();
+            return null;
         }
 
         public override void SetValue(ValueElement element, string value) {
-            element.data = value;
+            SetData(element, value);
         }
     }
 }
