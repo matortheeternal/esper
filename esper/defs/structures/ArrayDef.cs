@@ -25,8 +25,9 @@ namespace esper.defs {
         }
 
         public UInt32? GetCount(Container container, PluginFileSource source) {
-            if (counterDef != null) return counterDef.GetCount(container);
-            return count ?? source.ReadPrefix(prefix, padding);
+            return count ?? 
+                source.ReadPrefix(prefix, padding) ?? 
+                counterDef?.GetCount(container);
         }
 
         public override Element ReadElement(
