@@ -10,7 +10,7 @@ namespace esper.defs {
         public static string defType = "elementCounter";
         public override bool canSetCount => true;
 
-        public string path => src.Value<string>("path");
+        public virtual string path => src.Value<string>("path");
 
         public ElementCounter(DefinitionManager manager, JObject src, Def parent)
             : base(manager, src, parent) {

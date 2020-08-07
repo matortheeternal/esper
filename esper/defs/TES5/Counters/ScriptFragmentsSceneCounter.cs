@@ -1,4 +1,5 @@
 ﻿using esper.elements;
+using esper.resolution;
 using esper.setup;
 using Newtonsoft.Json.Linq;
 using System;
@@ -11,12 +12,17 @@ namespace esper.defs.TES5 {
             DefinitionManager manager, JObject src, Def parent
         ) : base(manager, src, parent) {}
 
-        public override void SetCount(Container container, UInt32 count) {
-            throw new NotImplementedException();
-        }
+        // TODO: SetCount?
 
         public override UInt32 GetCount(Container container) {
-            throw new NotImplementedException();
+            UInt32 count = 0;
+            var flags = container.GetData("Flags");
+            for (int i = 0; i < 8; i++) {
+                if (flags & (1 << i) != 1) continue;
+                count++;
+                // TODO: warn when i >= 3
+            }
+            return count;
         }
     }
 }
