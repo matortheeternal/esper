@@ -22,11 +22,13 @@ namespace esper.plugins {
         }
 
         public PluginFile OrdinalToFile(byte ordinal) {
+            if (ordinal >= files.Count) return parentFile;
             return files[ordinal];
         }
 
         public byte FileToOrdinal(PluginFile file) {
-            return (byte)files.IndexOf(file);
+            int index = files.IndexOf(file);
+            return (byte) (index < 0 ? files.Count : index);
         }
 
         public void Add(PluginFile file) {

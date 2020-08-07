@@ -5,6 +5,16 @@ namespace esper.elements {
         public ValueDef valueDef => (ValueDef)def;
         public FormatDef formatDef => valueDef.formatDef;
 
+        public FlagsDef flagsDef {
+            get {
+                var formatDef = this.formatDef;
+                if (formatDef is FormatUnion u)
+                    formatDef = u.ResolveDef(container);
+                if (formatDef is FlagsDef f) return f;
+                return null;
+            }
+        }
+
         internal dynamic _data;
 
         public dynamic data {

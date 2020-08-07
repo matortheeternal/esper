@@ -2,7 +2,7 @@ using Newtonsoft.Json.Linq;
 using NUnit.Framework;
 using System.Diagnostics;
 using System.IO;
-using esper;
+using esper.helpers;
 
 namespace Tests {
     public class NewtonsoftJsonTests {

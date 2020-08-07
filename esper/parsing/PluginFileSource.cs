@@ -98,11 +98,9 @@ namespace esper.parsing {
 
         internal void ReadMultiple(UInt32 dataSize, Action readEntity) {
             var endOffset = GetOffset(dataSize);
-            try {
-                while (stream.Position < endOffset) readEntity();
-            } finally {
-                DiscardDecompressedStream();
-            }
+            while (stream.Position < endOffset) readEntity();
+            if (stream.Position > endOffset)
+                throw new Exception("Critical error parsing file, read past end offset.");
         }
     }
 }

@@ -109,18 +109,6 @@ namespace esper.setup {
             return (Def) Activator.CreateInstance(defClasses[defType], args);
         }
 
-        public ReadOnlyCollection<ElementDef> BuildDefs(
-            JArray sources, Def parent
-        ) {
-            if (sources == null) throw new Exception("No def sources found.");
-            int sortOrder = 0;
-            return sources.Select(src => {
-                var def = (ElementDef) BuildDef((JObject)src, parent);
-                def.sortOrder = sortOrder++;
-                return def;
-            }).ToList().AsReadOnly();
-        }
-
         private void ApplyFlagsFormat(JObject headerDef, JObject src) {
             if (!src.ContainsKey("flags")) return;
             headerDef["elements"][2]["format"] = src["flags"];

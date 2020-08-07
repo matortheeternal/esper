@@ -15,8 +15,7 @@ namespace esper.defs {
 
         public StructDef(DefinitionManager manager, JObject src, Def parent)
             : base(manager, src, parent) {
-            ErrorHelpers.CheckDefProperty(src, "elements");
-            elementDefs = manager.BuildDefs(src.Value<JArray>("elements"), this);
+            elementDefs = JsonHelpers.ElementDefs(src, "elements", this);
         }
 
         public override Element ReadElement(

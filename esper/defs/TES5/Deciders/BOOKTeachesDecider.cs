@@ -6,7 +6,7 @@ namespace esper.defs.TES5 {
         public override int Decide(Container container) {
             var flags = container?.GetData("Flags");
             if (flags == null) return 0;
-            return (flags & 0x4 != 0) ? 1 : 0;
+            return ((flags & 0x4) != 0) ? 1 : 0;
         }
     }
 }

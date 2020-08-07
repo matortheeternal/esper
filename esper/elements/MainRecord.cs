@@ -30,11 +30,8 @@ namespace esper.elements {
             header = (StructElement) mrDef.headerDef.ReadElement(this, source);
             bodyOffset = source.stream.Position;
             unexpectedSubrecords = new List<Subrecord>();
-            if (sessionOptions.readAllSubrecords) {
-                ReadElements(source);
-            } else {
-                source.stream.Seek(dataSize, SeekOrigin.Current);
-            }
+            if (sessionOptions.readAllSubrecords) ReadElements(source);
+            source.stream.Seek(bodyOffset + dataSize, SeekOrigin.Begin);
         }
 
         public static MainRecord Read(
@@ -54,24 +51,33 @@ namespace esper.elements {
             unexpectedSubrecords.Add(subrecord);
         }
 
+        private void ReadSubrecord(PluginFileSource source) {
+            var sig = source.ReadSignature().ToString();
+            var size = source.reader.ReadUInt16();
+            var endPos = source.stream.Position + size;
+            var def = mrDef.GetMemberDef(sig.ToString());
+            if (def == null) {
+                UnexpectedSubrecord(sig, size, source);
+            } else if (def.IsSubrecord()) {
+                def.ReadElement(this, source, size);
+            } else {
+                var container = (Container)def.PrepareElement(this);
+                def.SubrecordFound(container, source, sig, size);
+            }
+            source.stream.Position = endPos;
+        }
+
         public void ReadElements(PluginFileSource source) {
             source.stream.Seek(bodyOffset, SeekOrigin.Begin);
-            if (compressed) source.Decompress(dataSize);
-            source.ReadMultiple(dataSize, () => {
-                var sig = source.ReadSignature().ToString();
-                var size = source.reader.ReadUInt16();
-                var endPos = source.stream.Position + size;
-                var def = mrDef.GetMemberDef(sig.ToString());
-                if (def == null) {
-                    UnexpectedSubrecord(sig, size, source);
-                } else if (def.IsSubrecord()) {
-                    def.ReadElement(this, source, size);
-                } else {
-                    var container = (Container) def.PrepareElement(this);
-                    def.SubrecordFound(container, source, sig, size);
-                }
-                source.stream.Position = endPos;
-           });
+            if (compressed && !source.Decompress(dataSize)) {
+                // Warn("Skipping compressed content");
+                return;
+            }
+            try {
+                source.ReadMultiple(dataSize, () => ReadSubrecord(source));
+            } finally {
+                source.DiscardDecompressedStream();
+            }
         }
 
         public bool IsLocal() {

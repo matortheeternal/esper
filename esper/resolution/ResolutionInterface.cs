@@ -93,7 +93,7 @@ namespace esper.resolution {
 
         public static bool GetFlag(this IResolution r, string flagsPath, string flag) {
             ValueElement valueElement = (ValueElement)r.GetElement(flagsPath);
-            FlagsDef flagsDef = (FlagsDef)valueElement?.formatDef;
+            FlagsDef flagsDef = valueElement?.flagsDef;
             if (flagsDef == null) return false;
             return flagsDef.FlagIsSet(valueElement.data, flag);
         }
@@ -102,7 +102,7 @@ namespace esper.resolution {
             ValueElement valueElement = (ValueElement)r.GetElementEx(flagsPath);
             if (valueElement == null)
                 throw new Exception("Element does not have a value.");
-            FlagsDef flagsDef = (FlagsDef) valueElement.formatDef;
+            FlagsDef flagsDef = valueElement.flagsDef;
             if (flagsDef == null)
                 throw new Exception("Element does not have flags.");
             return flagsDef.FlagIsSet(valueElement.data, flag);

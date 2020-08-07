@@ -4,6 +4,7 @@ using esper.setup;
 using esper.elements;
 using esper.parsing;
 using System;
+using System.Collections.Generic;
 
 namespace esper.defs {
     public class ArrayDef : MaybeSubrecordDef {
@@ -18,10 +19,8 @@ namespace esper.defs {
 
         public ArrayDef(DefinitionManager manager, JObject src, Def parent)
             : base(manager, src, parent) {
-            ErrorHelpers.CheckDefProperty(src, "element");
-            elementDef = (ElementDef) manager.BuildDef(src.Value<JObject>("element"), this);
-            if (!src.ContainsKey("counter")) return;
-            counterDef = (CounterDef)manager.BuildDef(src.Value<JObject>("counter"), this);
+            elementDef = JsonHelpers.ElementDef(src, "element", this);
+            counterDef = (CounterDef)JsonHelpers.Def(src, "counter", this);
         }
 
         public UInt32? GetCount(Container container, PluginFileSource source) {

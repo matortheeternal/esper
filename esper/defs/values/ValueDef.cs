@@ -1,6 +1,7 @@
 ﻿using esper.elements;
 using esper.parsing;
 using esper.setup;
+using esper.helpers;
 using Newtonsoft.Json.Linq;
 using System;
 
@@ -12,16 +13,14 @@ namespace esper.defs {
 
         public ValueDef(DefinitionManager manager, JObject src, Def parent)
             : base(manager, src, parent) {
-            var format = src.Value<JObject>("format");
-            if (format == null) return;
-            formatDef = (FormatDef)manager.BuildDef(format, this);
+            formatDef = JsonHelpers.FormatDef(src, this);
         }
 
         public override Element ReadElement(
             Container container, PluginFileSource source, UInt16? size = null
         ) {
             return new ValueElement(container, this, true) {
-                data = ReadData(source, size)
+                _data = ReadData(source, size)
             };
         }
 

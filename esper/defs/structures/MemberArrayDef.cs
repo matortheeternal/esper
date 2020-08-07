@@ -15,10 +15,8 @@ namespace esper.defs {
 
         public MemberArrayDef(DefinitionManager manager, JObject src, Def parent)
             : base(manager, src, parent) {
-            ErrorHelpers.CheckDefProperty(src, "member");
-            memberDef = (ElementDef) manager.BuildDef(src.Value<JObject>("member"), this);
-            if (!src.ContainsKey("counter")) return;
-            counterDef = (CounterDef) manager.BuildDef(src.Value<JObject>("counter"), this);
+            memberDef = JsonHelpers.ElementDef(src, "member", this);
+            counterDef = (CounterDef)JsonHelpers.Def(src, "counter", this);
         }
 
         public override bool ContainsSignature(string signature) {

@@ -9,8 +9,7 @@ namespace esper.defs {
 
         public MembersDef(DefinitionManager manager, JObject src, Def parent)
             : base(manager, src, parent) {
-            ErrorHelpers.CheckDefProperty(src, "members");
-            memberDefs = manager.BuildDefs(src.Value<JArray>("members"), this);
+            memberDefs = JsonHelpers.ElementDefs(src, "members", this);
         }
 
         public ElementDef GetMemberDef(string signature) {

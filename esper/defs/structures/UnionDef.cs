@@ -14,10 +14,8 @@ namespace esper.defs {
 
         public UnionDef(DefinitionManager manager, JObject src, Def parent) 
             : base(manager, src, parent) {
-            ErrorHelpers.CheckDefProperty(src, "elements");
-            elementDefs = manager.BuildDefs(src.Value<JArray>("elements"), this);
-            ErrorHelpers.CheckDefProperty(src, "decider");
-            decider = manager.GetDecider(src.Value<string>("decider"));
+            elementDefs = JsonHelpers.ElementDefs(src, "elements", this);
+            decider = JsonHelpers.Decider(src, this);
         }
 
         public ElementDef ResolveDef(Container container) {
@@ -31,7 +29,7 @@ namespace esper.defs {
             var resolvedDef = ResolveDef(container);
             if (resolvedDef is ValueDef valueDef) {
                 return new UnionValueElement(container, valueDef, true) {
-                    data = valueDef.ReadData(source, dataSize)
+                    _data = valueDef.ReadData(source, dataSize)
                 };
             } else {
                 var e = new UnionElement(container, this, true);
