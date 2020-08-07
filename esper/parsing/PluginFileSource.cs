@@ -12,8 +12,9 @@ namespace esper.parsing {
         private readonly MemoryMappedFile file;
         private readonly MemoryMappedViewStream fileStream;
         private readonly BinaryReader fileReader;
-        private UnmanagedMemoryStream decompressedStream;
+        private Stream decompressedStream;
         private BinaryReader decompressedReader;
+        private UInt32 decompressedDataSize;
         private readonly FileInfo fileInfo;
 
         public readonly PluginFile plugin;
@@ -22,8 +23,8 @@ namespace esper.parsing {
 
         internal bool localized => plugin.localized;
         internal Encoding stringEncoding { get => plugin.stringEncoding; }
-        internal UnmanagedMemoryStream stream { 
-            get => decompressedStream ?? fileStream;
+        internal Stream stream { 
+            get => decompressedStream ?? (Stream) fileStream;
         }
         internal BinaryReader reader {
             get => decompressedReader ?? fileReader;
@@ -77,12 +78,8 @@ namespace esper.parsing {
             return stringEncoding.GetString(bytes);
         }
 
-        internal IntPtr GetIntPtr() {
-            unsafe { return (IntPtr)stream.PositionPointer; }
-        }
-
-        internal void Decompress(UInt32 dataSize) {
-            // TODO
+        internal bool Decompress(UInt32 dataSize) {
+            return false;
         }
 
         internal void DiscardDecompressedStream() {
@@ -92,7 +89,7 @@ namespace esper.parsing {
 
         internal long GetOffset(UInt32 dataSize) {
             if (decompressedStream != null) 
-                return decompressedStream.Length - 1;
+                return decompressedDataSize;
             return stream.Position + dataSize;
         }
 
