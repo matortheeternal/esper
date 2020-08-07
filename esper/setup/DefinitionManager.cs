@@ -109,11 +109,13 @@ namespace esper.setup {
             return (Def) Activator.CreateInstance(defClasses[defType], args);
         }
 
-        public ReadOnlyCollection<Def> BuildDefs(JArray sources, Def parent) {
+        public ReadOnlyCollection<ElementDef> BuildDefs(
+            JArray sources, Def parent
+        ) {
             if (sources == null) throw new Exception("No def sources found.");
             int sortOrder = 0;
             return sources.Select(src => {
-                var def = BuildDef((JObject)src, parent);
+                var def = (ElementDef) BuildDef((JObject)src, parent);
                 def.sortOrder = sortOrder++;
                 return def;
             }).ToList().AsReadOnly();
@@ -124,7 +126,7 @@ namespace esper.setup {
             headerDef["elements"][2]["format"] = src["flags"];
         }
 
-        public StructDef BuildMainRecordHeaderDef(JObject src, Def recordDef) {
+        public StructDef BuildMainRecordHeaderDef(JObject src, ElementDef recordDef) {
             JObject def = (JObject) ResolveMetaDef("MainRecordHeader").DeepClone();
             ApplyFlagsFormat(def, src);
             return (StructDef) BuildDef(def, recordDef);

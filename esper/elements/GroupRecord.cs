@@ -26,6 +26,7 @@ namespace esper.elements {
         private static readonly Signature GRUP = Signature.FromString("GRUP");
 
         public readonly StructElement header;
+        public override GroupRecord group => this;
 
         private StructDef groupHeaderDef => manager.groupHeaderDef as StructDef;
         public override string signature => header.GetValue("Signature");

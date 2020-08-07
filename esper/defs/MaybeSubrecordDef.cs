@@ -2,7 +2,7 @@
 using Newtonsoft.Json.Linq;
 
 namespace esper.defs {
-    public class MaybeSubrecordDef : Def {
+    public class MaybeSubrecordDef : ElementDef {
         public MaybeSubrecordDef(DefinitionManager manager, JObject src, Def parent) 
             : base(manager, src, parent) {
         }

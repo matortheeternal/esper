@@ -118,5 +118,11 @@ namespace esper.resolution {
             }
             return null;
         }
+
+        public static void SetData(this IResolution r, string path, dynamic data) {
+            ValueElement valueElement = (ValueElement)r.GetElement(path);
+            if (valueElement == null) return;
+            valueElement.data = data;
+        }
     }
 }

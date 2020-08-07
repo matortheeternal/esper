@@ -7,14 +7,17 @@ using System;
 using System.Linq;
 
 namespace esper.defs {
-    public class MemberArrayDef : Def {
+    public class MemberArrayDef : ElementDef {
         public static string defType = "memberArray";
-        public Def memberDef;
+        public ElementDef memberDef;
+        public CounterDef counterDef;
 
         public MemberArrayDef(DefinitionManager manager, JObject src, Def parent)
             : base(manager, src, parent) {
             ErrorHelpers.CheckDefProperty(src, "member");
-            memberDef = manager.BuildDef(src.Value<JObject>("member"), this);
+            memberDef = (ElementDef) manager.BuildDef(src.Value<JObject>("member"), this);
+            if (!src.ContainsKey("counter")) return;
+            counterDef = (CounterDef) manager.BuildDef(src.Value<JObject>("counter"), this);
         }
 
         public override bool ContainsSignature(string signature) {

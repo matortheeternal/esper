@@ -22,7 +22,7 @@ namespace esper.defs {
         }
 
         public override void SetData(ValueElement element, dynamic data) {
-            element.data = sessionOptions.clampIntegerValues
+            element._data = sessionOptions.clampIntegerValues
                 ? DataHelpers.ClampToInt32(data)
                 : (Int32)data;
             element.SetState(ElementState.Modified);

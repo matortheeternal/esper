@@ -3,11 +3,10 @@ using esper.plugins;
 using esper.resolution;
 using esper.defs;
 using System;
-using System.Linq;
 
 namespace esper.elements {
     public class Element : IResolution {
-        public readonly Def def;
+        public readonly ElementDef def;
         public ElementState state;
         public Container container { get; internal set; }
         public DefinitionManager manager => file.manager;
@@ -20,36 +19,17 @@ namespace esper.elements {
             get => throw new Exception("Element does not reference records.");
         }
 
-        public PluginFile file {
+        public virtual PluginFile file => container?.file;
+        public virtual GroupRecord group => container?.group;
+        public virtual MainRecord record => container?.record;
+        public virtual Element subrecord {
             get {
-                if (this is PluginFile asFile) return asFile;
-                return container?.file;
+                if (def == null) return null;
+                return def.IsSubrecord() ? this : container?.subrecord;
             }
         }
 
-        public GroupRecord group {
-            get {
-                if (this is GroupRecord asGroup) return asGroup;
-                return container?.group;
-            }
-        }
-
-        public MainRecord record {
-            get {
-                if (this is MainRecord asRecord) return asRecord;
-                return container?.record;
-            }
-        }
-
-        public Element subrecord {
-            get {
-                if (def.IsSubrecord()) return this;
-                return container?.subrecord;
-            }
-        }
-
-
-        public Element(Container container = null, Def def = null) {
+        public Element(Container container = null, ElementDef def = null) {
             this.def = def;
             this.container = container;
             if (container == null) return;

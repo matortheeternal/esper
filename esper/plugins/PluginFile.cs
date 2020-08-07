@@ -22,6 +22,7 @@ namespace esper.plugins {
         RecordMap<UInt32> IRecordManager.localRecordsByFormId { get; set; }
         PluginRecordMap<UInt32> IRecordManager.remoteRecordsByFormId { get; set; }
 
+        public override PluginFile file => this;
         public string filePath => source?.filePath;
         public new DefinitionManager manager => session.definitionManager;
         public bool localized => header.GetRecordFlag("Localized");

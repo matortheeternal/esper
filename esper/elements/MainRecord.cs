@@ -9,19 +9,23 @@ using System.Linq;
 namespace esper.elements {
     public class MainRecord : Container, IMainRecord {
         public readonly StructElement header;
-        public MainRecordDef mrDef { get => def as MainRecordDef; }
         private readonly long bodyOffset;
+        public List<Subrecord> unexpectedSubrecords;
+
+        public MainRecordDef mrDef => def as MainRecordDef;
+        public override MainRecord record => this;
+
         public UInt32 formId => header.GetData("Form ID");
         public UInt32 localFormId => formId & 0xFFFFFF;
         public UInt32 dataSize => header.GetData("Data Size");
         public bool compressed => header.GetFlag("Record Flags", "Compressed");
-        public List<Subrecord> unexpectedSubrecords;
+
         public string editorId => this.GetValue("EDID");
 
-        public MainRecord(Container container, Def def) 
+        public MainRecord(Container container, ElementDef def) 
             : base(container, def) {}
 
-        public MainRecord(Container container, Def def, PluginFileSource source)
+        public MainRecord(Container container, ElementDef def, PluginFileSource source)
             : base(container, def) {
             header = (StructElement) mrDef.headerDef.ReadElement(this, source);
             bodyOffset = source.stream.Position;
@@ -38,7 +42,7 @@ namespace esper.elements {
             PluginFileSource source,
             Signature signature
         ) {
-            var def = container.manager.GetRecordDef(signature);
+            var def = (ElementDef) container.manager.GetRecordDef(signature);
             var record = new MainRecord(container, def, source);
             return record;
         }

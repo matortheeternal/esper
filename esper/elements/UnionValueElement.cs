@@ -5,7 +5,7 @@ namespace esper.elements {
         public override string name => unionDef.name;
         public UnionDef unionDef => def.parent as UnionDef;
 
-        public UnionValueElement(Container container, Def def, bool skipInit = false)
+        public UnionValueElement(Container container, ElementDef def, bool skipInit = false)
             : base(container, def, skipInit) {}
     }
 }

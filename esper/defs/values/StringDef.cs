@@ -30,9 +30,17 @@ namespace esper.defs {
             return "";
         }
 
+        public override void SetData(ValueElement element, dynamic data) {
+            string s = data;
+            if (s == null) 
+                throw new Exception("Data must be a string");
+            if (size != null && s.Length != size)
+                throw new Exception("String length does not match");
+            element._data = data;
+        }
+
         public override string GetValue(ValueElement element) {
-            string data = element.data;
-            return data;
+            return element.data;
         }
 
         public override void SetValue(ValueElement element, string value) {

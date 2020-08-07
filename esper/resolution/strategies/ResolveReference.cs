@@ -1,6 +1,5 @@
 ﻿using esper.elements;
 using esper.plugins;
-using System;
 using System.Text.RegularExpressions;
 
 namespace esper.resolution.strategies {

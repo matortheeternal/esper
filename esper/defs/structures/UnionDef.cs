@@ -9,7 +9,7 @@ using System.Collections.ObjectModel;
 namespace esper.defs {
     public class UnionDef : MaybeSubrecordDef {
         public static string defType = "union";
-        public ReadOnlyCollection<Def> elementDefs;
+        public ReadOnlyCollection<ElementDef> elementDefs;
         private readonly Decider decider;
 
         public UnionDef(DefinitionManager manager, JObject src, Def parent) 
@@ -20,7 +20,7 @@ namespace esper.defs {
             decider = manager.GetDecider(src.Value<string>("decider"));
         }
 
-        public Def ResolveDef(Container container) {
+        public ElementDef ResolveDef(Container container) {
             var index = decider.Decide(container);
             return elementDefs[index];
         }

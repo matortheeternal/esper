@@ -37,12 +37,8 @@ namespace esper.defs {
             throw new NotImplementedException();
         }
 
-        public virtual dynamic GetData(ValueElement element) {
-            return element.data;
-        }
-
         public virtual void SetData(ValueElement element, dynamic data) {
-            element.data = data;
+            element._data = data;
             element.SetState(ElementState.Modified);
         }
 

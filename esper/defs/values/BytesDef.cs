@@ -26,16 +26,19 @@ namespace esper.defs {
             return new byte[(int)size];
         }
 
+        public override void SetData(ValueElement element, dynamic data) {
+            if (!isVariableSize && data.Length != size)
+                throw new Exception("Bytes size mismatch");
+            element._data = data;
+        }
+
         public override string GetValue(ValueElement element) {
             byte[] data = element.data;
             return StringHelpers.FormatBytes(data);
         }
 
         public override void SetValue(ValueElement element, string value) {
-            byte[] data = StringHelpers.ParseBytes(value);
-            if (!isVariableSize && data.Length != size)
-                throw new Exception("Bytes size mismatch");
-            element.data = data;
+            SetData(element, StringHelpers.ParseBytes(value));
         }
     }
 }

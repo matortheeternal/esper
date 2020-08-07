@@ -25,7 +25,7 @@ namespace esper.defs {
         }
 
         public override void SetValue(ValueElement element, string value) {
-            element.data = null;
+            element._data = null;
         }
     }
 }
