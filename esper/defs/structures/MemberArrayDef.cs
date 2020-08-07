@@ -9,6 +9,7 @@ using System.Linq;
 namespace esper.defs {
     public class MemberArrayDef : ElementDef {
         public static string defType = "memberArray";
+
         public ElementDef memberDef;
         public CounterDef counterDef;
 
