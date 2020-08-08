@@ -2,26 +2,29 @@
 using esper.plugins;
 using esper.setup;
 using NUnit.Framework;
+using System.IO;
 
 namespace Tests {
-    public class AllRecordsTest {
+    public class SkyrimEsmTest {
         public Session session;
         public PluginManager pluginManager => session.pluginManager;
         public PluginFile plugin;
 
         [OneTimeSetUp]
         public void SetUp() {
-            session = new Session(Games.SSE, new SessionOptions {
+            session = new Session(Games.TES5, new SessionOptions {
                 readAllSubrecords = false
             });
         }
 
         [Test]
-        public void TestGroups() {
-            var pluginPath = TestHelpers.FixturePath("AllRecords.esp");
+        public void TestLoad() {
+            var pluginPath = TestHelpers.FixturePath("Skyrim.esm");
+            Assert.IsTrue(File.Exists(pluginPath), 
+                "Put Skyrim.esm in the fixtures directory to run this test."
+            );
             plugin = pluginManager.LoadPlugin(pluginPath);
             Assert.IsNotNull(plugin);
-            Assert.AreEqual(112, plugin.elements.Count);
         }
     }
 }
