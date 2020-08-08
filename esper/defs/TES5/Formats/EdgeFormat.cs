@@ -26,14 +26,14 @@ namespace esper.defs.TES5 {
     }
 
     public class Edge0Format : EdgeFormat {
-        public static string defType = "Vertex0Format";
+        public static string defType = "Edge0Format";
 
         public Edge0Format(DefinitionManager manager, JObject src, Def parent)
             : base(manager, src, parent) { }
     }
 
     public class Edge1Format : EdgeFormat {
-        public static string defType = "Vertex1Format";
+        public static string defType = "Edge1Format";
         protected override int edge => 1;
 
         public Edge1Format(DefinitionManager manager, JObject src, Def parent)
@@ -41,7 +41,7 @@ namespace esper.defs.TES5 {
     }
 
     public class Edge2Format : EdgeFormat {
-        public static string defType = "Vertex2Format";
+        public static string defType = "Edge2Format";
         protected override int edge => 2;
 
         public Edge2Format(DefinitionManager manager, JObject src, Def parent)

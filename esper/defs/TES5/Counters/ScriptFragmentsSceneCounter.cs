@@ -18,7 +18,7 @@ namespace esper.defs.TES5 {
             UInt32 count = 0;
             var flags = container.GetData("Flags");
             for (int i = 0; i < 8; i++) {
-                if (flags & (1 << i) != 1) continue;
+                if ((flags & (1 << i)) != 1) continue;
                 count++;
                 // TODO: warn when i >= 3
             }

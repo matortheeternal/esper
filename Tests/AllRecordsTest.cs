@@ -21,7 +21,7 @@ namespace Tests {
 
         [Test]
         public void TestGroups() {
-            Assert.AreEqual(57, plugin.elements.Count);
+            Assert.AreEqual(112, plugin.elements.Count);
         }
     }
 }

@@ -81,6 +81,9 @@ namespace esper.elements {
             source.stream.Seek(bodyOffset, SeekOrigin.Begin);
             if (compressed && !Decompress(source)) return;
             try {
+                var dataSize = compressed 
+                    ? (uint) decompressedData.Length 
+                    : this.dataSize;
                 source.ReadMultiple(dataSize, () => ReadSubrecord(source));
             } finally {
                 source.DiscardDecompressedStream();

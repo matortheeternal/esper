@@ -87,14 +87,8 @@ namespace esper.parsing {
             return zreader.ReadBytes((int) decompressedDataSize);
         }
 
-        internal long GetOffset(UInt32 dataSize) {
-            return usingDecompressedStream 
-                ? decompressedDataSize
-                : stream.Position + dataSize;
-        }
-
         internal void ReadMultiple(UInt32 dataSize, Action readEntity) {
-            var endOffset = GetOffset(dataSize);
+            var endOffset = stream.Position + dataSize;
             while (stream.Position < endOffset) readEntity();
             if (stream.Position > endOffset)
                 throw new Exception("Critical error parsing file, read past end offset.");

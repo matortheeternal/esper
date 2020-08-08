@@ -14,7 +14,7 @@ namespace esper.defs {
 
         public ElementCounter(DefinitionManager manager, JObject src, Def parent)
             : base(manager, src, parent) {
-            ErrorHelpers.CheckDefProperty(src, "path");
+            if (path == null) throw new Exception("Path property is null.");
         }
 
         public override void SetCount(Container container, UInt32 count) {

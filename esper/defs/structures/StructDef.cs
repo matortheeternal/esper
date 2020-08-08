@@ -22,7 +22,7 @@ namespace esper.defs {
             Container container, PluginFileSource source, UInt16? dataSize = null
         ) {
             var e = new StructElement(container, this, true);
-            ReadChildElements(e, source);
+            ReadChildElements(e, source, dataSize);
             return e;
         }
 
@@ -35,9 +35,21 @@ namespace esper.defs {
                 def.InitElement(element);
         }
 
-        public void ReadChildElements(StructElement element, PluginFileSource source) {
-            foreach (var def in elementDefs)
-                def.ReadElement(element, source);
+        public void ReadChildElements(
+            StructElement element, PluginFileSource source, UInt16? dataSize
+        ) {
+            var remainingSize = dataSize;
+            var pos = source.stream.Position;
+            foreach (var def in elementDefs) {
+                var e = def.ReadElement(element, source, remainingSize);
+                if (remainingSize == 0) return; // early struct termination
+                if (dataSize != null) {
+                    var newPos = source.stream.Position;
+                    var diff = newPos - pos;
+                    pos = newPos;
+                    remainingSize -= (UInt16) diff;
+                }
+            }
         }
     }
 }
