@@ -4,6 +4,7 @@ using System;
 using System.IO;
 using System.IO.MemoryMappedFiles;
 using System.Text;
+using Ionic.Zlib;
 
 namespace esper.parsing {
     public class PluginFileSource {
@@ -21,10 +22,11 @@ namespace esper.parsing {
         public string filePath;
         public long fileSize => fileInfo.Length;
 
+        public bool usingDecompressedStream => decompressedStream != null;
         internal bool localized => plugin.localized;
         internal Encoding stringEncoding { get => plugin.stringEncoding; }
         internal Stream stream { 
-            get => decompressedStream ?? (Stream) fileStream;
+            get => decompressedStream ?? fileStream;
         }
         internal BinaryReader reader {
             get => decompressedReader ?? fileReader;
@@ -78,19 +80,17 @@ namespace esper.parsing {
             return stringEncoding.GetString(bytes);
         }
 
-        internal bool Decompress(UInt32 dataSize) {
-            return false;
-        }
-
-        internal void DiscardDecompressedStream() {
-            decompressedStream = null;
-            decompressedReader = null;
+        internal byte[] Decompress(UInt32 dataSize) {
+            decompressedDataSize = reader.ReadUInt32();
+            var zstream = new ZlibStream(fileStream, CompressionMode.Decompress);
+            var zreader = new BinaryReader(zstream);
+            return zreader.ReadBytes((int) decompressedDataSize);
         }
 
         internal long GetOffset(UInt32 dataSize) {
-            if (decompressedStream != null) 
-                return decompressedDataSize;
-            return stream.Position + dataSize;
+            return usingDecompressedStream 
+                ? decompressedDataSize
+                : stream.Position + dataSize;
         }
 
         internal void ReadMultiple(UInt32 dataSize, Action readEntity) {
@@ -98,6 +98,17 @@ namespace esper.parsing {
             while (stream.Position < endOffset) readEntity();
             if (stream.Position > endOffset)
                 throw new Exception("Critical error parsing file, read past end offset.");
+        }
+
+        internal void SetDecompressedStream(byte[] decompressedData) {
+            if (decompressedData == null) return;
+            decompressedStream = new MemoryStream(decompressedData);
+            decompressedReader = new BinaryReader(decompressedStream);
+        }
+
+        internal void DiscardDecompressedStream() {
+            decompressedStream = null;
+            decompressedReader = null;
         }
     }
 }

@@ -11,6 +11,7 @@ namespace esper.elements {
         public readonly StructElement header;
         private readonly long bodyOffset;
         public List<Subrecord> unexpectedSubrecords;
+        private byte[] decompressedData;
 
         public MainRecordDef mrDef => def as MainRecordDef;
         public override MainRecord record => this;
@@ -67,12 +68,18 @@ namespace esper.elements {
             source.stream.Position = endPos;
         }
 
+        private bool Decompress(PluginFileSource source) {
+            if (decompressedData == null)
+                decompressedData = source.Decompress(dataSize);
+            source.SetDecompressedStream(decompressedData);
+            if (decompressedData != null) return true;
+            // Warn("Failed to decompress content");
+            return false;
+        }
+
         public void ReadElements(PluginFileSource source) {
             source.stream.Seek(bodyOffset, SeekOrigin.Begin);
-            if (compressed && !source.Decompress(dataSize)) {
-                // Warn("Skipping compressed content");
-                return;
-            }
+            if (compressed && !Decompress(source)) return;
             try {
                 source.ReadMultiple(dataSize, () => ReadSubrecord(source));
             } finally {
