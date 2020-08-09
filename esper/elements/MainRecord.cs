@@ -10,9 +10,10 @@ using System.Linq;
 namespace esper.elements {
     public class MainRecord : Container, IMainRecord {
         public readonly TES4RecordHeader header;
+        public List<Subrecord> unexpectedSubrecords;
+
         private readonly PluginFile _file;
         private readonly long bodyOffset;
-        public List<Subrecord> unexpectedSubrecords;
         private byte[] decompressedData;
 
         public MainRecordDef mrDef => def as MainRecordDef;
@@ -22,7 +23,6 @@ namespace esper.elements {
         public UInt32 formId => header.formId;
         public UInt32 localFormId => formId & 0xFFFFFF;
         public UInt32 dataSize => header.dataSize;
-
         public string editorId => this.GetValue("EDID");
 
         public override List<Element> elements {
@@ -82,18 +82,18 @@ namespace esper.elements {
                 decompressedData = source.Decompress(dataSize);
             source.SetDecompressedStream(decompressedData);
             if (decompressedData != null) return true;
-            // Warn("Failed to decompress content");
             return false;
         }
 
         public void ReadElements(PluginFileSource source) {
-            // TODO: get this offset from source somehow
             _elements = new List<Element>();
-            source.stream.Position = bodyOffset - 24;
             unexpectedSubrecords = new List<Subrecord>();
+            // TODO: get this offset from definition manager
+            source.stream.Position = bodyOffset - 24;
             var h = header.ToStructElement(this, source);
             var compressed = h.GetFlag("Record Flags", "Compressed");
-            if (compressed && !Decompress(source)) return;
+            if (compressed && !Decompress(source)) 
+                throw new Exception("Failed to decompress content.");
             try {
                 var dataSize = compressed 
                     ? (uint) decompressedData.Length 
