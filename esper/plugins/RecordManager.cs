@@ -1,6 +1,5 @@
 ﻿using esper.elements;
 using System;
-using System.Linq;
 
 namespace esper.plugins {
     public interface IRecordManager {

@@ -10,12 +10,14 @@ using System.Linq;
 namespace esper.elements {
     public class MainRecord : Container, IMainRecord {
         public readonly TES4RecordHeader header;
+        private readonly PluginFile _file;
         private readonly long bodyOffset;
         public List<Subrecord> unexpectedSubrecords;
         private byte[] decompressedData;
 
         public MainRecordDef mrDef => def as MainRecordDef;
         public override MainRecord record => this;
+        public override PluginFile file => _file;
 
         public UInt32 formId => header.formId;
         public UInt32 localFormId => formId & 0xFFFFFF;
@@ -28,6 +30,7 @@ namespace esper.elements {
 
         public MainRecord(Container container, ElementDef def, PluginFileSource source)
             : base(container, def) {
+            _file = container.file;
             header = new TES4RecordHeader(source);
             bodyOffset = source.stream.Position;
             if (sessionOptions.readAllSubrecords) ReadElements(source);
@@ -94,9 +97,8 @@ namespace esper.elements {
         }
 
         public bool IsLocal() {
-            var ord = formId >> 24;
-            var file = this.file;
-            return ord >= file.FileToOrdinal(file, false);
+            var file = (_file as IMasterManager);
+            return (formId >> 24) >= file.originalMasters.Count;
         }
 
         public override bool SupportsSignature(string sig) {
