@@ -15,26 +15,21 @@ namespace esper.elements {
         CellChildren = 6,
         TopicChildren = 7,
         CellPersistentChildren = 8,
-        CellTemporaryChildren = 9,
-        NonChildGroups = Top | InteriorCellBlock | InteriorCellSubBlock,
-        AllChildGroups = ~NonChildGroups,
-        ChildGroupChild = ExteriorCellBlock | ExteriorCellSubBlock
+        CellTemporaryChildren = 9
     };
 
     public class GroupRecord : Container {
         private static readonly Signature GRUP = Signature.FromString("GRUP");
 
         public readonly TES4GroupHeader header;
-        public override GroupRecord group => this;
 
+        public override GroupRecord group => this;
         private StructDef groupHeaderDef => manager.groupHeaderDef as StructDef;
         public override string signature => header.signature.ToString();
         public UInt32 groupSize => header.groupSize;
         public GroupType groupType => (GroupType)header.groupType;
         public byte[] label => header.label;
         public UInt32 dataSize => (UInt32)(groupSize - groupHeaderDef.size);
-        public bool isChildGroup => (groupType & GroupType.AllChildGroups) > 0;
-        public bool isChildGroupChild => (groupType & GroupType.ChildGroupChild) > 0;
 
         private Signature labelAsSignature => new Signature(label);
         private Int32 labelAsInt32 => BitConverter.ToInt32(label);
@@ -44,6 +39,13 @@ namespace esper.elements {
             BitConverter.ToInt16(label),
             BitConverter.ToInt16(label, 2)
         };
+
+        public bool isChildGroup {
+            get => header.groupType == 1 || header.groupType >= 4;
+        }
+        public bool isChildGroupChild {
+            get => header.groupType == 8 || header.groupType == 9;
+        }
 
         public GroupRecord(Container container, PluginFileSource source)
             : base(container) {

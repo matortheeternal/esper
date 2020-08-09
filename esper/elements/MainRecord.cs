@@ -77,10 +77,11 @@ namespace esper.elements {
         }
 
         public void ReadElements(PluginFileSource source) {
+            // TODO: get this offset from source somehow
+            source.stream.Position = bodyOffset - 24;
             unexpectedSubrecords = new List<Subrecord>();
-            source.stream.Seek(bodyOffset - 24, SeekOrigin.Begin);
-            var header = mrDef.headerDef.ReadElement(this, source, 24);
-            var compressed = header.GetFlag("Record Flags", "Compressed");
+            var h = header.ToStructElement(this, source);
+            var compressed = h.GetFlag("Record Flags", "Compressed");
             if (compressed && !Decompress(source)) return;
             try {
                 var dataSize = compressed 

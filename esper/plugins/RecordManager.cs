@@ -38,7 +38,7 @@ namespace esper.plugins {
             var file = (m.file as IMasterManager);
             var newOrd = file.originalMasters.Count;
             if (ord >= newOrd) {
-                m.localRecordsByFormId.Add(rec.localFormId, rec);
+                m.localRecordsByFormId.Add(rec);
             } else {
                 var plugin = file.OrdinalToFile((byte) ord, false);
                 m.remoteRecordsByFormId.Add(plugin, rec);

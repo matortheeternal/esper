@@ -27,6 +27,14 @@ namespace esper.elements {
             set => valueDef.SetValue(this, value);
         }
 
+        public static ValueElement Init(
+            Container container, ElementDef def, dynamic data
+        ) {
+            return new ValueElement(container, def, true) {
+                _data = data
+            };
+        }
+
         public ValueElement(Container container, ElementDef def, bool skipInit = false)
             : base(container, def) {
             if (skipInit) return;
