@@ -3,6 +3,7 @@ using esper.parsing;
 using esper.setup;
 using Newtonsoft.Json.Linq;
 using System;
+using System.Collections.Generic;
 
 namespace esper.defs {
     public class ElementDef : Def {
@@ -20,8 +21,8 @@ namespace esper.defs {
             return false;
         }
 
-        public virtual bool HasPrimarySignature(string signature) {
-            return false;
+        public virtual List<string> GetSignatures(List<string> sigs = null) {
+            throw new NotImplementedException();
         }
 
         public virtual void SubrecordFound(

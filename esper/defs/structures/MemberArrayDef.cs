@@ -4,6 +4,7 @@ using esper.parsing;
 using esper.setup;
 using Newtonsoft.Json.Linq;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace esper.defs {
@@ -43,6 +44,10 @@ namespace esper.defs {
 
         public override Element InitElement(Container container) {
             return new MemberArrayElement(container, this);
+        }
+
+        public override List<string> GetSignatures(List<string> sigs = null) {
+            return memberDef.GetSignatures(sigs);
         }
     }
 }
