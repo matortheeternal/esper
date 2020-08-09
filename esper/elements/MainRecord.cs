@@ -25,6 +25,13 @@ namespace esper.elements {
 
         public string editorId => this.GetValue("EDID");
 
+        public override List<Element> elements {
+            get {
+                if (_elements == null) ReadElements(file.source);
+                return _elements;
+            }
+        }
+
         public MainRecord(Container container, ElementDef def) 
             : base(container, def) {}
 
@@ -81,6 +88,7 @@ namespace esper.elements {
 
         public void ReadElements(PluginFileSource source) {
             // TODO: get this offset from source somehow
+            _elements = new List<Element>();
             source.stream.Position = bodyOffset - 24;
             unexpectedSubrecords = new List<Subrecord>();
             var h = header.ToStructElement(this, source);

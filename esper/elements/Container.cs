@@ -1,16 +1,20 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using esper.defs;
 
 namespace esper.elements {
     public class Container : Element {
-        public List<Element> elements { get; protected set; }
+        protected List<Element> _elements;
+
+        public virtual List<Element> elements {
+            get {
+                if (_elements == null) _elements = new List<Element>();
+                return _elements;
+            }
+        }
         public int count => elements.Count;
 
         public Container(Container container = null, ElementDef def = null) 
-            : base(container, def) {
-            elements = new List<Element>();
-        }
+            : base(container, def) {}
 
         public Element FindElementForDef(ElementDef def) {
             for (int i = elements.Count - 1; i >= 0; i--) {
@@ -18,7 +22,6 @@ namespace esper.elements {
                 if (element.def == def) return element;
             }
             return null;
-            //return elements.LastOrDefault((element) => element.def == def);
         }
     }
 }
