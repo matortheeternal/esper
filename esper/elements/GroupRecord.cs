@@ -22,6 +22,7 @@ namespace esper.elements {
         private static readonly Signature GRUP = Signature.FromString("GRUP");
 
         public readonly TES4GroupHeader header;
+        public EditorIdMap recordsByEditorID;
 
         public override GroupRecord group => this;
         private StructDef groupHeaderDef => manager.groupHeaderDef as StructDef;
@@ -105,6 +106,13 @@ namespace esper.elements {
                 GroupType.CellTemporaryChildren => game.CellSupports(sig),
                 _ => false
             };
+        }
+
+        public void IndexRecordsByEditorId() {
+            recordsByEditorID = new EditorIdMap();
+            foreach (var element in elements)
+                if (element is MainRecord rec) 
+                    recordsByEditorID.Add(rec);
         }
     }
 }

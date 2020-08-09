@@ -14,7 +14,9 @@ namespace esper.plugins {
         }
 
         public void Add(MainRecord rec) {
-            _map[rec.editorId] = rec;
+            var editorId = rec.editorId;
+            if (editorId == null) return;
+            _map[editorId] = rec;
         }
     }
 }
