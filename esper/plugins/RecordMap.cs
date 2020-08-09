@@ -1,34 +1,45 @@
 ﻿using esper.elements;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace esper.plugins {
-    public class RecordMap<T> : SortedDictionary<T, MainRecord> {
-        readonly Func<MainRecord, T> GetKey;
+    public class FormIdMap {
+        private readonly SortedDictionary<UInt32, MainRecord> _map;
 
-        public RecordMap(Func<MainRecord, T> GetKey) {
-            this.GetKey = GetKey;
+        public UInt32 highObjectId => _map.Keys.Last();
+
+        public FormIdMap() {
+            _map = new SortedDictionary<uint, MainRecord>();
         }
 
-        public void Add(MainRecord record) {
-            this[GetKey(record)] = record;
+        public MainRecord Get(UInt32 formId) {
+            return _map[formId];
+        }
+
+        public void Add(UInt32 formId, MainRecord rec) {
+            _map[formId] = rec;
         }
     }
 
-    public class PluginRecordMap<T> : Dictionary<PluginFile, RecordMap<T>> {
-        readonly Func<MainRecord, T> GetKey;
+    public class PluginRecordMap {
+        private readonly Dictionary<PluginFile, FormIdMap> _plugins;
 
-        public PluginRecordMap(Func<MainRecord, T> GetKey) {
-            this.GetKey = GetKey;
+        public PluginRecordMap() {
+            _plugins = new Dictionary<PluginFile, FormIdMap>();
         }
 
         public void AddMap(PluginFile file) {
-            this[file] = new RecordMap<T>(GetKey);
+            _plugins[file] = new FormIdMap();
         }
 
-        public void Add(MainRecord record) {
-            if (!ContainsKey(record.file)) AddMap(record.file);
-            this[record.file].Add(record);
+        public FormIdMap GetMap(PluginFile file) {
+            return _plugins[file];
+        }
+
+        public void Add(PluginFile file, MainRecord record) {
+            if (!_plugins.ContainsKey(file)) AddMap(file);
+            _plugins[file].Add(record.localFormId, record);
         }
     }
 }

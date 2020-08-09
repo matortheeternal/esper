@@ -1,7 +1,6 @@
 ﻿using esper.defs;
 using esper.parsing;
 using esper.plugins;
-using esper.resolution;
 using System;
 using System.IO;
 
@@ -25,14 +24,14 @@ namespace esper.elements {
     public class GroupRecord : Container {
         private static readonly Signature GRUP = Signature.FromString("GRUP");
 
-        public readonly StructElement header;
+        public readonly TES4GroupHeader header;
         public override GroupRecord group => this;
 
         private StructDef groupHeaderDef => manager.groupHeaderDef as StructDef;
-        public override string signature => header.GetValue("Signature");
-        public UInt32 groupSize => header.GetData("Group Size");
-        public GroupType groupType => (GroupType)header.GetData("Group Type");
-        public byte[] label => header.GetData("Label");
+        public override string signature => header.signature.ToString();
+        public UInt32 groupSize => header.groupSize;
+        public GroupType groupType => (GroupType)header.groupType;
+        public byte[] label => header.label;
         public UInt32 dataSize => (UInt32)(groupSize - groupHeaderDef.size);
         public bool isChildGroup => (groupType & GroupType.AllChildGroups) > 0;
         public bool isChildGroupChild => (groupType & GroupType.ChildGroupChild) > 0;
@@ -46,30 +45,24 @@ namespace esper.elements {
             BitConverter.ToInt16(label, 2)
         };
 
-        public GroupRecord(Container container)
-            : base(container) {
-            header = (StructElement)groupHeaderDef.InitElement(null);
-            header.container = this;
-        }
-
         public GroupRecord(Container container, PluginFileSource source)
             : base(container) {
-            header = (StructElement)groupHeaderDef.ReadElement(null, source);
-            header.container = this;
-            header.SetState(ElementState.Protected);
+            header = new TES4GroupHeader(source);
             if (signature != "GRUP")
                 throw new Exception("Expected GRUP record");
         }
 
         public static GroupRecord Read(Container container, PluginFileSource source) {
             var group = new GroupRecord(container, source);
+            var file = group.file;
             source.ReadMultiple(group.dataSize, () => {
                 var sig = source.ReadSignature();
                 source.stream.Seek(-4, SeekOrigin.Current);
                 if (sig == GRUP) {
                     Read(group, source);
                 } else {
-                    MainRecord.Read(group, source, sig);
+                    var rec = MainRecord.Read(group, source, sig);
+                    file.IndexRecord(rec);
                 }
             });
             return group;

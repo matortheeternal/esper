@@ -6,6 +6,9 @@ using System.Linq;
 namespace esper.plugins {
     public class MasterList {
         private List<PluginFile> _files;
+
+        public int Count => _files.Count;
+
         public ReadOnlyCollection<PluginFile> files {
             get => _files.AsReadOnly();
         }

@@ -19,8 +19,8 @@ namespace esper.plugins {
         MasterList IMasterManager.masters { get; set; }
 
         PluginFile IRecordManager.file => this;
-        RecordMap<UInt32> IRecordManager.localRecordsByFormId { get; set; }
-        PluginRecordMap<UInt32> IRecordManager.remoteRecordsByFormId { get; set; }
+        FormIdMap IRecordManager.localRecordsByFormId { get; set; }
+        PluginRecordMap IRecordManager.remoteRecordsByFormId { get; set; }
 
         public override PluginFile file => this;
         public string filePath => source?.filePath;
@@ -46,6 +46,7 @@ namespace esper.plugins {
             if (header != null) return;
             source.ReadFileHeader(this);
             this.InitMasters();
+            this.InitRecordMaps();
         }
 
         internal void ReadGroups() {

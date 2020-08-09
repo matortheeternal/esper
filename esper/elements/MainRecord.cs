@@ -1,5 +1,6 @@
 ﻿using esper.defs;
 using esper.parsing;
+using esper.plugins;
 using esper.resolution;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Linq;
 
 namespace esper.elements {
     public class MainRecord : Container, IMainRecord {
-        public readonly StructElement header;
+        public readonly TES4RecordHeader header;
         private readonly long bodyOffset;
         public List<Subrecord> unexpectedSubrecords;
         private byte[] decompressedData;
@@ -16,10 +17,9 @@ namespace esper.elements {
         public MainRecordDef mrDef => def as MainRecordDef;
         public override MainRecord record => this;
 
-        public UInt32 formId => header.GetData("Form ID");
+        public UInt32 formId => header.formId;
         public UInt32 localFormId => formId & 0xFFFFFF;
-        public UInt32 dataSize => header.GetData("Data Size");
-        public bool compressed => header.GetFlag("Record Flags", "Compressed");
+        public UInt32 dataSize => header.dataSize;
 
         public string editorId => this.GetValue("EDID");
 
@@ -28,9 +28,8 @@ namespace esper.elements {
 
         public MainRecord(Container container, ElementDef def, PluginFileSource source)
             : base(container, def) {
-            header = (StructElement) mrDef.headerDef.ReadElement(this, source);
+            header = new TES4RecordHeader(source);
             bodyOffset = source.stream.Position;
-            unexpectedSubrecords = new List<Subrecord>();
             if (sessionOptions.readAllSubrecords) ReadElements(source);
             source.stream.Seek(bodyOffset + dataSize, SeekOrigin.Begin);
         }
@@ -78,7 +77,10 @@ namespace esper.elements {
         }
 
         public void ReadElements(PluginFileSource source) {
-            source.stream.Seek(bodyOffset, SeekOrigin.Begin);
+            unexpectedSubrecords = new List<Subrecord>();
+            source.stream.Seek(bodyOffset - 24, SeekOrigin.Begin);
+            var header = mrDef.headerDef.ReadElement(this, source, 24);
+            var compressed = header.GetFlag("Record Flags", "Compressed");
             if (compressed && !Decompress(source)) return;
             try {
                 var dataSize = compressed 
@@ -91,8 +93,9 @@ namespace esper.elements {
         }
 
         public bool IsLocal() {
-            // TODO
-            return true;
+            var ord = formId >> 24;
+            var file = this.file;
+            return ord >= file.FileToOrdinal(file, false);
         }
 
         public override bool SupportsSignature(string sig) {

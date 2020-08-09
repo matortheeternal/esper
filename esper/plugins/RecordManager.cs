@@ -4,16 +4,15 @@ using System.Linq;
 
 namespace esper.plugins {
     public interface IRecordManager {
-        internal RecordMap<UInt32> localRecordsByFormId { get; set; }
-        internal PluginRecordMap<UInt32> remoteRecordsByFormId { get; set; }
+        internal FormIdMap localRecordsByFormId { get; set; }
+        internal PluginRecordMap remoteRecordsByFormId { get; set; }
         internal PluginFile file { get; }
     }
 
     public static class RecordManagerExtensions {
         public static void InitRecordMaps(this IRecordManager m) {
-            static UInt32 GetLocalFormId(MainRecord rec) => rec.localFormId;
-            m.localRecordsByFormId = new RecordMap<UInt32>(GetLocalFormId);
-            m.remoteRecordsByFormId = new PluginRecordMap<UInt32>(GetLocalFormId);
+            m.localRecordsByFormId = new FormIdMap();
+            m.remoteRecordsByFormId = new PluginRecordMap();
         }
 
         public static MainRecord GetRecordByFormId(
@@ -24,27 +23,31 @@ namespace esper.plugins {
             UInt32 localFormId = formId & 0xFFFFFF;
             if (targetFile == m.file) 
                 return m.GetLocalRecordByFormId(localFormId);
-            var map = m.remoteRecordsByFormId[targetFile];
-            return map[localFormId];
+            var map = m.remoteRecordsByFormId.GetMap(targetFile);
+            return map.Get(localFormId);
         }
 
         public static MainRecord GetLocalRecordByFormId(
             this IRecordManager m, UInt32 localFormId
         ) {
-            return m.localRecordsByFormId[localFormId];
+            return m.localRecordsByFormId.Get(localFormId);
         }
 
         public static void IndexRecord(this IRecordManager m, MainRecord rec) {
-            if (rec.IsLocal()) {
-                m.localRecordsByFormId.Add(rec);
+            var ord = rec.formId >> 24;
+            var file = (m.file as IMasterManager);
+            var newOrd = file.originalMasters.Count;
+            if (ord >= newOrd) {
+                m.localRecordsByFormId.Add(rec.localFormId, rec);
             } else {
-                m.remoteRecordsByFormId.Add(rec);
+                var plugin = file.OrdinalToFile((byte) ord, false);
+                m.remoteRecordsByFormId.Add(plugin, rec);
             }
         }
 
         public static UInt32 GetHighObjectID(this IRecordManager m) {
             if (m.localRecordsByFormId == null) return 0;
-            return m.localRecordsByFormId.Last().Key;
+            return m.localRecordsByFormId.highObjectId;
         }
     }
 }

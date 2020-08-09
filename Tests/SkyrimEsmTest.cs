@@ -8,6 +8,7 @@ namespace Tests {
     public class SkyrimEsmTest {
         public Session session;
         public PluginManager pluginManager => session.pluginManager;
+        public string pluginPath;
         public PluginFile plugin;
 
         [OneTimeSetUp]
@@ -15,14 +16,14 @@ namespace Tests {
             session = new Session(Games.TES5, new SessionOptions {
                 readAllSubrecords = false
             });
+            pluginPath = TestHelpers.FixturePath("Skyrim.esm");
+            Assert.IsTrue(File.Exists(pluginPath),
+                "Put Skyrim.esm in the fixtures directory to run these tests."
+            );
         }
 
         [Test]
         public void TestLoad() {
-            var pluginPath = TestHelpers.FixturePath("Skyrim.esm");
-            Assert.IsTrue(File.Exists(pluginPath), 
-                "Put Skyrim.esm in the fixtures directory to run this test."
-            );
             plugin = pluginManager.LoadPlugin(pluginPath);
             Assert.IsNotNull(plugin);
         }

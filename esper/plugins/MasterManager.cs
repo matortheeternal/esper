@@ -18,16 +18,21 @@ namespace esper.plugins {
             return m.file.header.GetElement("Master Files");
         }
 
-        public static void InitMasters(this IMasterManager m) {
+        private static List<PluginFile> GetMasterFiles(this IMasterManager m) {
             var masterFiles = new List<PluginFile>();
             Element masterFilesElement = m.GetMastersElement();
-            if (masterFilesElement == null) return;
+            if (masterFilesElement == null) return masterFiles;
             PluginManager manager = m.file.session.pluginManager;
-            List<Element> masterElements = masterFilesElement.GetElements();
+            var masterElements = masterFilesElement.GetElements();
             foreach (var element in masterElements) {
                 string filename = element.GetValue("MAST");
                 masterFiles.Add(manager.GetFileByName(filename, true));
             }
+            return masterFiles;
+        }
+
+        public static void InitMasters(this IMasterManager m) {
+            var masterFiles = GetMasterFiles(m);
             m.originalMasters = new ReadOnlyMasterList(m.file, masterFiles);
             m.masters = new MasterList(m.file, masterFiles);
         }
