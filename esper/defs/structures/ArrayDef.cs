@@ -9,18 +9,21 @@ namespace esper.defs {
     public class ArrayDef : MaybeSubrecordDef {
         public static string defType = "array";
 
-        public ElementDef elementDef;
-        public CounterDef counterDef;
-
-        public uint? count => src.Value<uint?>("count");
-        public int? prefix => src.Value<int?>("prefix");
-        private int? padding => src.Value<int?>("padding");
-        public bool sorted => src.Value<bool>("sorted");
+        public readonly ElementDef elementDef;
+        public readonly CounterDef counterDef;
+        public readonly uint? count;
+        public readonly int? prefix;
+        public readonly int? padding;
+        public readonly bool sorted;
 
         public ArrayDef(DefinitionManager manager, JObject src, Def parent)
             : base(manager, src, parent) {
             elementDef = JsonHelpers.ElementDef(src, "element", this);
             counterDef = (CounterDef)JsonHelpers.Def(src, "counter", this);
+            count = src.Value<uint?>("count");
+            prefix = src.Value<int?>("prefix");
+            padding = src.Value<int?>("padding");
+            sorted = src.Value<bool>("sorted");
         }
 
         public UInt32? GetCount(Container container, PluginFileSource source) {

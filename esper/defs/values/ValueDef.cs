@@ -8,14 +8,17 @@ using System;
 namespace esper.defs {
     public class ValueDef : MaybeSubrecordDef {
         public FormatDef formatDef;
+        public int? fixedSize;
+        private readonly bool zeroSortKey;
 
-        public override int? size => src.Value<int?>("size");
-        public bool zeroSortKey => src.Value<bool>("zeroSortKey");
-        protected bool isVariableSize => size == null;
+        public override int? size => fixedSize;
+        protected virtual bool isVariableSize => fixedSize == null;
 
         public ValueDef(DefinitionManager manager, JObject src, Def parent)
             : base(manager, src, parent) {
             formatDef = JsonHelpers.FormatDef(src, this);
+            fixedSize = src.Value<int?>("size");
+            zeroSortKey = src.Value<bool>("zeroSortKey");
         }
 
         public override Element ReadElement(
@@ -48,7 +51,7 @@ namespace esper.defs {
         }
 
         public virtual string DataToSortKey(dynamic data) {
-            return data.ToString($"X{2 * size}");
+            return data.ToString($"X{2 * fixedSize}");
         }
 
         public virtual string GetValue(ValueElement element) {

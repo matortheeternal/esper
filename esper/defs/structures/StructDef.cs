@@ -13,8 +13,9 @@ namespace esper.defs {
         public readonly static string defType = "struct";
 
         public ReadOnlyCollection<ElementDef> elementDefs;
-        public override int? size => elementDefs.Sum(def => def.size);
         private readonly List<int> sortKeyIndices;
+
+        public override int? size => elementDefs.Sum(def => def.size);
 
         public StructDef(DefinitionManager manager, JObject src, Def parent)
             : base(manager, src, parent) {

@@ -20,6 +20,11 @@ namespace esper.helpers {
             return src.Value<JArray>(key).ToObject<List<T>>();
         }
 
+        public static Dictionary<T1, T2> Dictionary<T1, T2>(JObject src, string key) {
+            if (!src.ContainsKey(key)) return null;
+            return src.Value<JObject>(key).ToObject<Dictionary<T1, T2>>();
+        }
+
         public static ElementDef ElementDef(
             JObject src, string key, Def parent
         ) {

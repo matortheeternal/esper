@@ -8,6 +8,7 @@ using System.Linq;
 namespace esper.defs {
     public class MemberUnionDef : MembersDef {
         public static string defType = "memberUnion";
+
         public ElementDef defaultDef => memberDefs[0];
 
         public MemberUnionDef(DefinitionManager manager, JObject src, Def parent)

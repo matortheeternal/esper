@@ -7,7 +7,7 @@ using System;
 namespace esper.defs {
     public class FloatDef : ValueDef {
         public static string defType = "float";
-        public static float epsilon = 0.000009999999999f;
+        private static float epsilon = 0.000009999999999f;
 
         public override int? size => 4;
 

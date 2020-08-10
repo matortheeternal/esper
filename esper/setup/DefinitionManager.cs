@@ -3,9 +3,7 @@ using esper.helpers;
 using esper.data;
 using Newtonsoft.Json.Linq;
 using System;
-using System.Linq;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 
 namespace esper.setup {
     using DefMap = Dictionary<string, Def>;
@@ -33,18 +31,14 @@ namespace esper.setup {
             groupHeaderDef = BuildDef(src, null);
         }
 
-        private void ForEachRecordDef(Action<string, JToken> action) {
+        private void BuildRecordDefs() {
             var defs = definitions.Value<JObject>("defs");
             foreach (var (key, def) in defs) {
                 if (def.Value<string>("type") != "record") continue;
-                action(key, def);
-            }
-        }
-
-        private void BuildRecordDefs() {
-            ForEachRecordDef((key, def) => {
                 recordDefs[key] = BuildDef((JObject)def, null);
-            });
+            }
+            definitions.Remove("defs");
+            GC.Collect();
         }
 
         public void BuildRecordDef(string key) {

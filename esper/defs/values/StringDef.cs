@@ -8,20 +8,27 @@ using System;
 namespace esper.defs {
     public class StringDef : ValueDef {
         public static string defType = "string";
-        private int? prefix => src.Value<int?>("prefix");
-        private int? padding => src.Value<int?>("padding");
-        private bool localized => src.Value<bool>("localized");
-        private bool keepCase => src.Value<bool>("keepCase");
-        protected new bool isVariableSize => prefix == null && size == null;
+
+        private readonly int? prefix;
+        private readonly int? padding;
+        private readonly bool localized;
+        private readonly bool keepCase;
+
+        protected override bool isVariableSize => prefix == null && fixedSize == null;
 
         public StringDef(DefinitionManager manager, JObject src, Def parent)
-            : base(manager, src, parent) {}
+            : base(manager, src, parent) {
+            prefix = src.Value<int?>("prefix");
+            padding = src.Value<int?>("padding");
+            localized = src.Value<bool>("localized");
+            keepCase = src.Value<bool>("keepCase");
+    }
 
         public override dynamic ReadData(PluginFileSource source, UInt16? dataSize) {
             if (localized && source.localized)
                 return source.ReadLocalizedString();
             // dataSize - 1 because null terminator
-            int? size = this.size ?? 
+            int? size = this.fixedSize ?? 
                 (int?) source.ReadPrefix(prefix, padding) ?? 
                 (dataSize != null ? dataSize - 1 : null);
             return source.ReadString(size);
@@ -35,7 +42,7 @@ namespace esper.defs {
             string str = (string) data;
             if (str == null) 
                 throw new Exception("Data must be a string");
-            if (!isVariableSize && str.Length != size)
+            if (!isVariableSize && str.Length != fixedSize)
                 throw new Exception("String length does not match");
             element._data = str;
         }

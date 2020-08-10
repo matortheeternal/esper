@@ -9,13 +9,18 @@ namespace esper.defs {
     public class ElementDef : Def {
         internal int sortOrder;
 
-        public virtual string signature => src.Value<string>("signature");
-        public virtual string name => src.Value<string>("name");
-        public virtual int? size => src.Value<int?>("size");
-        public bool required => src.Value<bool>("required");
+        public readonly string signature;
+        public readonly string name;
+        public readonly bool required;
+
+        public virtual int? size => 0;
 
         public ElementDef(DefinitionManager manager, JObject src, Def parent)
-            : base(manager, src, parent) {}
+            : base(manager, src, parent) {
+            signature = src.Value<string>("signature");
+            name = src.Value<string>("name");
+            required = src.Value<bool>("required");
+        }
 
         public virtual bool ContainsSignature(string signature) {
             return false;

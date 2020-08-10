@@ -3,6 +3,7 @@ using esper.helpers;
 using esper.setup;
 using Newtonsoft.Json.Linq;
 using System;
+using System.Collections.Generic;
 using System.Text.RegularExpressions;
 
 namespace esper.defs {
@@ -10,24 +11,27 @@ namespace esper.defs {
         public static Regex unknownOptionExpr = new Regex(@"^<(?:Unknown )?(-?\d+)>$");
         public static string defType = "enum"; 
 
-        public JObject options => src.Value<JObject>("options");
-        public string unknownOption => src.Value<string>("unknownOption");
+        public Dictionary<string, string> options;
+        public string unknownOption;
 
         public EnumDef(DefinitionManager manager, JObject src, Def parent)
-            : base(manager, src, parent) {}
+            : base(manager, src, parent) {
+            options = JsonHelpers.Dictionary<string, string>(src, "options");
+            unknownOption = src.Value<string>("unknownOption");
+        }
 
         public override string DataToValue(ValueElement element, dynamic data) {
             var options = this.options;
             var indexKey = data.ToString();
             if (!options.ContainsKey(indexKey)) 
                 return unknownOption ?? string.Format("<Unknown {0}>", indexKey);
-            return options.Value<string>(indexKey);
+            return options[indexKey];
         }
 
         public override dynamic ValueToData(ValueElement element, string value) {
             var options = this.options;
             foreach (var (key, option) in options)
-                if (option.Value<string>() == value) 
+                if (option == value) 
                     return StringHelpers.DynamicParse(key);
             var match = unknownOptionExpr.Match(value);
             if (!match.Success) throw new Exception("Invalid option " + value);

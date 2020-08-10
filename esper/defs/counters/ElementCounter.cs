@@ -1,5 +1,4 @@
 ﻿using esper.elements;
-using esper.helpers;
 using esper.resolution;
 using esper.setup;
 using Newtonsoft.Json.Linq;
@@ -8,12 +7,15 @@ using System;
 namespace esper.defs {
     public class ElementCounter : CounterDef {
         public static string defType = "elementCounter";
-        public override bool canSetCount => true;
 
-        public virtual string path => src.Value<string>("path");
+        private readonly string _path;
+
+        public override bool canSetCount => true;
+        public virtual string path => _path;
 
         public ElementCounter(DefinitionManager manager, JObject src, Def parent)
             : base(manager, src, parent) {
+            _path = src.Value<string>("path");
             if (path == null) throw new Exception("Path property is null.");
         }
 

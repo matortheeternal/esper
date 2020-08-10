@@ -1,4 +1,5 @@
 ﻿using esper.elements;
+using esper.helpers;
 using esper.setup;
 using Newtonsoft.Json.Linq;
 using System;
@@ -8,25 +9,24 @@ using System.Text.RegularExpressions;
 namespace esper.defs {
     public class FlagsDef : FormatDef {
         public static Regex unknownFlagExpr = new Regex(@"^Unknown (\d+)$");
-
         public static string defType = "flags";
 
-        public JObject flags => src.Value<JObject>("flags");
+        public Dictionary<string, string> flags;
 
         public FlagsDef(DefinitionManager manager, JObject src, Def parent)
-            : base(manager, src, parent) {}
+            : base(manager, src, parent) {
+            flags = JsonHelpers.Dictionary<string, string>(src, "flags");
+        }
 
         public string GetFlagValue(int index) {
-            var flags = this.flags;
             var indexKey = index.ToString();
             if (!flags.ContainsKey(indexKey)) return "Unknown " + index;
-            return flags.Value<string>(indexKey);
+            return flags[indexKey];
         }
 
         public int GetFlagIndex(string flag) {
-            var flags = this.flags;
             foreach (var (key, value) in flags)
-                if (value.Value<string>() == flag) return int.Parse(key);
+                if (value == flag) return int.Parse(key);
             Match match = unknownFlagExpr.Match(flag);
             if (!match.Success) return -1;
             return int.Parse(match.Captures[0].Value);
@@ -34,7 +34,7 @@ namespace esper.defs {
 
         public List<string> DataToArray(ValueElement element, dynamic data) {
             var list = new List<string>();
-            var numBits = 8 * element.valueDef.size;
+            var numBits = 8 * element.valueDef.fixedSize;
             for (int i = 0; i < numBits; i++)
                 if ((data & (1 << i)) != 0) list.Add(GetFlagValue(i));
             return list;

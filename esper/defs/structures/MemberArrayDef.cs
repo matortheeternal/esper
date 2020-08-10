@@ -11,15 +11,15 @@ namespace esper.defs {
     public class MemberArrayDef : ElementDef {
         public static string defType = "memberArray";
 
-        public ElementDef memberDef;
-        public CounterDef counterDef;
-
-        public bool sorted => src.Value<bool>("sorted");
+        public readonly ElementDef memberDef;
+        public readonly CounterDef counterDef;
+        public readonly bool sorted;
 
         public MemberArrayDef(DefinitionManager manager, JObject src, Def parent)
             : base(manager, src, parent) {
             memberDef = JsonHelpers.ElementDef(src, "member", this);
             counterDef = (CounterDef)JsonHelpers.Def(src, "counter", this);
+            sorted = src.Value<bool>("sorted");
         }
 
         public override bool ContainsSignature(string signature) {
