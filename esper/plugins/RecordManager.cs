@@ -18,7 +18,7 @@ namespace esper.plugins {
             this IRecordManager m, UInt32 formId
         ) {
             return CollectionHelpers.BinarySearch(m.records, rec => {
-                return rec.formId.CompareTo(formId);
+                return formId.CompareTo(rec.formId);
             });
         }
 
