@@ -31,7 +31,8 @@ namespace esper.data {
             ValueElement.Init(structElement, defs[i++], sig);
             ValueElement.Init(structElement, defs[i++], dataSize);
             ValueElement.Init(structElement, defs[i++], flags);
-            var fid = new FormId(null, formId & 0xFFFFFF);
+            var targetFile = rec.file.OrdinalToFile((byte) (formId >> 24), false);
+            var fid = new FormId(targetFile, formId & 0xFFFFFF);
             ValueElement.Init(structElement, defs[i++], fid);
             source.stream.Position += 16;
             for (; i < defs.Count; i++)
