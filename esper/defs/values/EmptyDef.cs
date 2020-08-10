@@ -10,8 +10,8 @@ namespace esper.defs {
 
         public override int? size => 0;
 
-        public EmptyDef(DefinitionManager manager, JObject src, Def parent)
-            : base(manager, src, parent) { }
+        public EmptyDef(DefinitionManager manager, JObject src)
+            : base(manager, src) { }
 
         public override string GetValue(ValueElement element) {
             return "";

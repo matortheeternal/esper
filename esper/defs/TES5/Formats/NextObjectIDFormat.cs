@@ -8,8 +8,8 @@ namespace esper.defs.TES5 {
     public class NextObjectIDFormat : FormatDef {
         public static string defType = "NextObjectIDFormat";
 
-        public NextObjectIDFormat(DefinitionManager manager, JObject src, Def parent)
-            : base(manager, src, parent) { }
+        public NextObjectIDFormat(DefinitionManager manager, JObject src)
+            : base(manager, src) { }
 
         public override string DataToValue(ValueElement element, dynamic data) {
             return data.ToString("X6");

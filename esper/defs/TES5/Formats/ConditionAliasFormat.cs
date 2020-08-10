@@ -7,8 +7,8 @@ namespace esper.defs.TES5 {
     public class ConditionAliasFormat : AliasFormat {
         public static string defType = "ConditionAliasFormat";
 
-        public ConditionAliasFormat(DefinitionManager manager, JObject src, Def parent)
-            : base(manager, src, parent) { }
+        public ConditionAliasFormat(DefinitionManager manager, JObject src)
+            : base(manager, src) { }
 
         public override MainRecord ResolveQuestRec(ValueElement element) {
             var rec = element.GetParentElement(e => e is MainRecord);

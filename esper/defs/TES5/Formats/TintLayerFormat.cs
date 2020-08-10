@@ -67,8 +67,8 @@ namespace esper.defs.TES5 {
         public static string defType = "TintLayerFormat";
         private static readonly TintCache tintCache = new TintCache();
 
-        public TintLayerFormat(DefinitionManager manager, JObject src, Def parent)
-            : base(manager, src, parent) {}
+        public TintLayerFormat(DefinitionManager manager, JObject src)
+            : base(manager, src) {}
 
         // TODO: sortKey, warnings
 

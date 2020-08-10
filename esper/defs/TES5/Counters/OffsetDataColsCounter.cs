@@ -9,8 +9,8 @@ namespace esper.defs.TES5 {
         public static string defType = "OffsetDataColsCounter";
 
         public OffsetDataColsCounter(
-            DefinitionManager manager, JObject src, Def parent
-        ) : base(manager, src, parent) {}
+            DefinitionManager manager, JObject src
+        ) : base(manager, src) {}
 
         public override UInt32 GetCount(Container container) {
             var bounds = container.GetElement(@"..\Object Bounds");

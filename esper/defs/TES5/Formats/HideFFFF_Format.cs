@@ -7,8 +7,8 @@ namespace esper.defs.TES5 {
     public class HideFFFF_Format : FormatDef {
         public static string defType = "HideFFFF_Format";
 
-        public HideFFFF_Format(DefinitionManager manager, JObject src, Def parent)
-            : base(manager, src, parent) {}
+        public HideFFFF_Format(DefinitionManager manager, JObject src)
+            : base(manager, src) {}
 
         public override string DataToValue(ValueElement element, dynamic data) {
             if (data == 0xFFFF) return "None";

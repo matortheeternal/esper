@@ -8,8 +8,8 @@ namespace esper.defs.TES5 {
         public static string defType = "PackageLocationAliasFormat";
 
         public PackageLocationAliasFormat(
-            DefinitionManager manager, JObject src, Def parent
-        ) : base(manager, src, parent) {}
+            DefinitionManager manager, JObject src
+        ) : base(manager, src) {}
 
         public override MainRecord ResolveQuestRec(ValueElement element) {
             var rec = element.GetParentElement(e => e is MainRecord);

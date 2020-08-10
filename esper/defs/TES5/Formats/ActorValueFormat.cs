@@ -9,10 +9,10 @@ namespace esper.defs.TES5 {
 
         private static EnumDef actorValueEnum;
 
-        public ActorValueFormat(DefinitionManager manager, JObject src, Def parent)
-            : base(manager, src, parent) {
-            var enumSrc = manager.ResolveDef("ActorValueEnum");
-            actorValueEnum = (EnumDef) manager.BuildDef(enumSrc, this);
+        public ActorValueFormat(DefinitionManager manager, JObject src)
+            : base(manager, src) {
+            var enumSrc = manager.ResolveDefSource("ActorValueEnum");
+            actorValueEnum = (EnumDef) manager.BuildDef(enumSrc);
         }
 
         public override string DataToValue(ValueElement element, dynamic data) {

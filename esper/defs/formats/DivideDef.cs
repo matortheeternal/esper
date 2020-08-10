@@ -7,8 +7,8 @@ namespace esper.defs {
         public static string defType = "divide";
         public int divisionValue;
 
-        public DivideDef(DefinitionManager manager, JObject src, Def parent)
-            : base(manager, src, parent) {
+        public DivideDef(DefinitionManager manager, JObject src)
+            : base(manager, src) {
             divisionValue = src.Value<int>("value");
         }
 

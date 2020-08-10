@@ -30,7 +30,7 @@ namespace esper.helpers {
         ) {
             ErrorHelpers.CheckDefProperty(src, key);
             var defSrc = src.Value<JObject>(key);
-            return (ElementDef) parent.manager.BuildDef(defSrc, parent);
+            return (ElementDef) parent.manager.BuildDef(defSrc);
         }
 
         public static ReadOnlyCollection<ElementDef> ElementDefs(
@@ -41,7 +41,7 @@ namespace esper.helpers {
             if (sources == null) throw new Exception("No def sources found.");
             int sortOrder = 0;
             return sources.Select(src => {
-                var def = (ElementDef)parent.manager.BuildDef((JObject)src, parent);
+                var def = (ElementDef)parent.manager.BuildDef((JObject)src);
                 def.sortOrder = sortOrder++;
                 return def;
             }).ToList().AsReadOnly();
@@ -54,20 +54,20 @@ namespace esper.helpers {
             var sources = src.Value<JArray>("formats");
             if (sources == null) throw new Exception("No def sources found.");
             return sources.Select(src => {
-                return (FormatDef) parent.manager.BuildDef((JObject)src, parent);
+                return (FormatDef) parent.manager.BuildDef((JObject)src);
             }).ToList().AsReadOnly();
         }
 
         public static Def Def(JObject src, string key, Def parent) {
             if (!src.ContainsKey(key)) return null;
             var defSrc = src.Value<JObject>(key);
-            return parent.manager.BuildDef(defSrc, parent);
+            return parent.manager.BuildDef(defSrc);
         }
 
         public static FormatDef FormatDef(JObject src, Def parent) {
             if (!src.ContainsKey("format")) return null;
             var formatSrc = src.Value<JObject>("format");
-            return (FormatDef)parent.manager.BuildDef(formatSrc, parent);
+            return (FormatDef)parent.manager.BuildDef(formatSrc);
         }
 
         public static Decider Decider(JObject src, Def parent) {

@@ -13,8 +13,8 @@ namespace esper.defs {
         public ReadOnlyCollection<ElementDef> elementDefs;
         private readonly Decider decider;
 
-        public UnionDef(DefinitionManager manager, JObject src, Def parent) 
-            : base(manager, src, parent) {
+        public UnionDef(DefinitionManager manager, JObject src) 
+            : base(manager, src) {
             elementDefs = JsonHelpers.ElementDefs(src, "elements", this);
             decider = JsonHelpers.Decider(src, this);
         }
@@ -29,7 +29,7 @@ namespace esper.defs {
         ) {
             var resolvedDef = ResolveDef(container);
             if (resolvedDef is ValueDef valueDef) {
-                return new UnionValueElement(container, valueDef, true) {
+                return new UnionValueElement(container, valueDef, this, true) {
                     _data = valueDef.ReadData(source, dataSize)
                 };
             } else {
@@ -42,7 +42,7 @@ namespace esper.defs {
         public override Element InitElement(Container container) {
             var resolvedDef = ResolveDef(container);
             if (resolvedDef is ValueDef)
-                return new UnionValueElement(container, this);
+                return new UnionValueElement(container, resolvedDef, this);
             return new UnionElement(container, this);
         }
     }

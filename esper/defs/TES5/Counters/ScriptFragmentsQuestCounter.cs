@@ -8,7 +8,7 @@ namespace esper.defs.TES5 {
         public override string path => "FragmentCount";
 
         public ScriptFragmentsQuestCounter(
-            DefinitionManager manager, JObject src, Def parent
-        ) : base(manager, src, parent) {}
+            DefinitionManager manager, JObject src
+        ) : base(manager, src) {}
     }
 }

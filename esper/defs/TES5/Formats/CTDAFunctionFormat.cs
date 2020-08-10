@@ -8,8 +8,8 @@ namespace esper.defs.TES5 {
 
         public static string defType = "CTDAFunctionFormat";
 
-        public CTDAFunctionFormat(DefinitionManager manager, JObject src, Def parent)
-            : base(manager, src, parent) {}
+        public CTDAFunctionFormat(DefinitionManager manager, JObject src)
+            : base(manager, src) {}
 
         public override string DataToValue(ValueElement element, dynamic data) {
             // TODO

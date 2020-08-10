@@ -13,8 +13,8 @@ namespace esper.defs.TES5 {
 
         public static string defType = "ClmtMoonsPhaseLengthFormat";
 
-        public MoonPhaseFormat(DefinitionManager manager, JObject src, Def parent)
-            : base(manager, src, parent) {}
+        public MoonPhaseFormat(DefinitionManager manager, JObject src)
+            : base(manager, src) {}
 
         public override string DataToValue(ValueElement element, dynamic data) {
             Int64 n = data;

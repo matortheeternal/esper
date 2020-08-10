@@ -7,8 +7,8 @@ namespace esper.defs.TES5 {
     public class _180DivPiFormat : FormatDef {
         public static string defType = "180DivPiFormat";
 
-        public _180DivPiFormat(DefinitionManager manager, JObject src, Def parent)
-            : base(manager, src, parent) { }
+        public _180DivPiFormat(DefinitionManager manager, JObject src)
+            : base(manager, src) { }
 
         public override string DataToValue(ValueElement element, dynamic data) {
             // TODO

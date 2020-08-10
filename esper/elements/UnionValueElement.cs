@@ -2,10 +2,15 @@
 
 namespace esper.elements {
     public class UnionValueElement : ValueElement {
-        public override string name => unionDef.name;
-        public UnionDef unionDef => def.parent as UnionDef;
+        public UnionDef unionDef;
 
-        public UnionValueElement(Container container, ElementDef def, bool skipInit = false)
-            : base(container, def, skipInit) {}
+        public override string name => unionDef.name;
+
+        public UnionValueElement(
+            Container container, ElementDef def, UnionDef unionDef, 
+            bool skipInit = false
+        ) : base(container, def, skipInit) {
+            this.unionDef = unionDef;
+        }
     }
 }

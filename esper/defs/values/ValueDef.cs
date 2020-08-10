@@ -14,8 +14,8 @@ namespace esper.defs {
         public override int? size => fixedSize;
         protected virtual bool isVariableSize => fixedSize == null;
 
-        public ValueDef(DefinitionManager manager, JObject src, Def parent)
-            : base(manager, src, parent) {
+        public ValueDef(DefinitionManager manager, JObject src)
+            : base(manager, src) {
             formatDef = JsonHelpers.FormatDef(src, this);
             fixedSize = src.Value<int?>("size");
             zeroSortKey = src.Value<bool>("zeroSortKey");

@@ -9,8 +9,8 @@ namespace esper.defs.TES5 {
 
         public static string defType = "CTDAParam1StringFormat";
 
-        public CTDAParam1StringFormat(DefinitionManager manager, JObject src, Def parent)
-            : base(manager, src, parent) {}
+        public CTDAParam1StringFormat(DefinitionManager manager, JObject src)
+            : base(manager, src) {}
 
         public override string DataToValue(ValueElement element, dynamic data) {
             if (element == null) return "";

@@ -11,8 +11,8 @@ namespace esper.defs {
 
         public ElementDef defaultDef => memberDefs[0];
 
-        public MemberUnionDef(DefinitionManager manager, JObject src, Def parent)
-            : base(manager, src, parent) {}
+        public MemberUnionDef(DefinitionManager manager, JObject src)
+            : base(manager, src) {}
 
         public override Element PrepareElement(Container container) {
             if (defaultDef.IsSubrecord()) return container;

@@ -9,8 +9,8 @@ namespace esper.defs.TES5 {
         public static string defType = "ScriptFragmentsSceneCounter";
 
         public ScriptFragmentsSceneCounter(
-            DefinitionManager manager, JObject src, Def parent
-        ) : base(manager, src, parent) {}
+            DefinitionManager manager, JObject src
+        ) : base(manager, src) {}
 
         // TODO: SetCount?
 

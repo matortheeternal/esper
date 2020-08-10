@@ -10,8 +10,8 @@ namespace esper.defs {
         public static string defType = "formId";
         public override int? size => 4;
 
-        public FormIdDef(DefinitionManager manager, JObject src, Def parent)
-            : base(manager, src, parent) { }
+        public FormIdDef(DefinitionManager manager, JObject src)
+            : base(manager, src) { }
 
         public override dynamic ReadData(PluginFileSource source, UInt16? dataSize) {
             UInt32 data = source.reader.ReadUInt32();

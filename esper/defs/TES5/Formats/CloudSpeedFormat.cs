@@ -7,8 +7,8 @@ namespace esper.defs.TES5 {
     public class CloudSpeedFormat : FormatDef {
         public static string defType = "CloudSpeedFormat";
 
-        public CloudSpeedFormat(DefinitionManager manager, JObject src, Def parent)
-            : base(manager, src, parent) {}
+        public CloudSpeedFormat(DefinitionManager manager, JObject src)
+            : base(manager, src) {}
 
         public override string DataToValue(ValueElement element, dynamic data) {
             float v = (data - 127) / 1270;

@@ -13,8 +13,8 @@ namespace esper.defs {
         public override bool canSetCount => true;
         public virtual string path => _path;
 
-        public ElementCounter(DefinitionManager manager, JObject src, Def parent)
-            : base(manager, src, parent) {
+        public ElementCounter(DefinitionManager manager, JObject src)
+            : base(manager, src) {
             _path = src.Value<string>("path");
             if (path == null) throw new Exception("Path property is null.");
         }

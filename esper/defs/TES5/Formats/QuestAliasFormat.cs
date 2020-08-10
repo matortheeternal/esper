@@ -8,8 +8,8 @@ namespace esper.defs.TES5 {
         public static string defType = "QuestAliasFormat";
 
         public QuestAliasFormat(
-            DefinitionManager manager, JObject src, Def parent
-        ) : base(manager, src, parent) {}
+            DefinitionManager manager, JObject src
+        ) : base(manager, src) {}
 
         public override MainRecord ResolveQuestRec(ValueElement element) {
             return (MainRecord) element.GetParentElement(e => e is MainRecord);

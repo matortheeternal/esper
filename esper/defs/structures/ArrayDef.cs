@@ -16,8 +16,8 @@ namespace esper.defs {
         public readonly int? padding;
         public readonly bool sorted;
 
-        public ArrayDef(DefinitionManager manager, JObject src, Def parent)
-            : base(manager, src, parent) {
+        public ArrayDef(DefinitionManager manager, JObject src)
+            : base(manager, src) {
             elementDef = JsonHelpers.ElementDef(src, "element", this);
             counterDef = (CounterDef)JsonHelpers.Def(src, "counter", this);
             count = src.Value<uint?>("count");

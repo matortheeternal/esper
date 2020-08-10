@@ -4,8 +4,8 @@ using System.Collections.Generic;
 
 namespace esper.defs {
     public class MaybeSubrecordDef : ElementDef {
-        public MaybeSubrecordDef(DefinitionManager manager, JObject src, Def parent) 
-            : base(manager, src, parent) {
+        public MaybeSubrecordDef(DefinitionManager manager, JObject src) 
+            : base(manager, src) {
         }
 
         public override bool ContainsSignature(string signature) {

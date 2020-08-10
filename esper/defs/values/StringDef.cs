@@ -16,8 +16,8 @@ namespace esper.defs {
 
         protected override bool isVariableSize => prefix == null && fixedSize == null;
 
-        public StringDef(DefinitionManager manager, JObject src, Def parent)
-            : base(manager, src, parent) {
+        public StringDef(DefinitionManager manager, JObject src)
+            : base(manager, src) {
             prefix = src.Value<int?>("prefix");
             padding = src.Value<int?>("padding");
             localized = src.Value<bool>("localized");
@@ -28,7 +28,7 @@ namespace esper.defs {
             if (localized && source.localized)
                 return source.ReadLocalizedString();
             // dataSize - 1 because null terminator
-            int? size = this.fixedSize ?? 
+            int? size = fixedSize ?? 
                 (int?) source.ReadPrefix(prefix, padding) ?? 
                 (dataSize != null ? dataSize - 1 : null);
             return source.ReadString(size);

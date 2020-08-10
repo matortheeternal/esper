@@ -12,8 +12,8 @@ namespace esper.defs {
 
         private readonly List<int> sortKeyIndices;
 
-        public MemberStructDef(DefinitionManager manager, JObject src, Def parent)
-            : base(manager, src, parent) {
+        public MemberStructDef(DefinitionManager manager, JObject src)
+            : base(manager, src) {
             sortKeyIndices = JsonHelpers.List<int>(src, "sortKey");
         }
 

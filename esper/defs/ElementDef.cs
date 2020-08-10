@@ -15,8 +15,8 @@ namespace esper.defs {
 
         public virtual int? size => 0;
 
-        public ElementDef(DefinitionManager manager, JObject src, Def parent)
-            : base(manager, src, parent) {
+        public ElementDef(DefinitionManager manager, JObject src)
+            : base(manager, src) {
             signature = src.Value<string>("signature");
             name = src.Value<string>("name");
             required = src.Value<bool>("required");

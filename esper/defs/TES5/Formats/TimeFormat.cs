@@ -12,8 +12,8 @@ namespace esper.defs.TES5 {
 
         public static string defType = "ClmtTimeFormat";
 
-        public TimeFormat(DefinitionManager manager, JObject src, Def parent)
-            : base(manager, src, parent) {}
+        public TimeFormat(DefinitionManager manager, JObject src)
+            : base(manager, src) {}
 
         public override string DataToValue(ValueElement element, dynamic data) {
             Int64 time = data;

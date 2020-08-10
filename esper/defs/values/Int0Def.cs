@@ -9,8 +9,8 @@ namespace esper.defs {
         public static readonly string defType = "int0";
         public override int? size => 0;
 
-        public Int0Def(DefinitionManager manager, JObject src, Def parent)
-            : base(manager, src, parent) { }
+        public Int0Def(DefinitionManager manager, JObject src)
+            : base(manager, src) { }
 
         public override dynamic ReadData(PluginFileSource source, UInt16? dataSize) {
             return null;

@@ -4,6 +4,7 @@ using esper.data;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace esper.setup {
     using DefMap = Dictionary<string, Def>;
@@ -15,7 +16,7 @@ namespace esper.setup {
         public Session session;
         internal Def groupHeaderDef;
         private readonly JObject definitions;
-        private readonly DefMap recordDefs = new DefMap();
+        private readonly DefMap defMap = new DefMap();
         private readonly ClassMap defClasses = new ClassMap();
         private readonly DeciderMap deciders = new DeciderMap();
         private string defsFileName => game.abbreviation + ".json";
@@ -26,17 +27,15 @@ namespace esper.setup {
             this.session = session;
             definitions = IOHelpers.LoadResource(defsFileName);
             LoadClasses(game);
-            if (!session.options.buildDefsOnDemand) BuildRecordDefs();
+            if (!session.options.buildDefsOnDemand) BuildDefs();
             var src = ResolveMetaDef("GroupRecordHeader");
-            groupHeaderDef = BuildDef(src, null);
+            groupHeaderDef = BuildDef(src);
         }
 
-        private void BuildRecordDefs() {
+        private void BuildDefs() {
             var defs = definitions.Value<JObject>("defs");
-            foreach (var (key, def) in defs) {
-                if (def.Value<string>("type") != "record") continue;
-                recordDefs[key] = BuildDef((JObject)def, null);
-            }
+            foreach (var (key, src) in defs)
+                defMap[key] = BuildDef((JObject)src);
             definitions.Remove("defs");
             GC.Collect();
         }
@@ -45,10 +44,10 @@ namespace esper.setup {
             var defs = definitions.Value<JObject>("defs");
             if (!defs.ContainsKey(key))
                 throw new Exception("Def " + key + " not found.");
-            var def = defs[key];
-            if (def.Value<string>("type") != "record") 
+            var src = defs[key];
+            if (src.Value<string>("type") != "record") 
                 throw new Exception("Target def is not a record def.");
-            recordDefs[key] = BuildDef((JObject)def, null);
+            defMap[key] = BuildDef((JObject)src);
         }
 
         private void LoadDefClass(Type type) {
@@ -86,21 +85,34 @@ namespace esper.setup {
             foreach (var type in types) LoadClass(type);
         }
 
-        public JObject MergeDef(JObject src) {
-            var target = ResolveDef(src.Value<string>("id"));
+        public JObject MergeDef(JObject target, JObject src) {
             var result = new JObject();
             result.Merge(target);
             result.Merge(src);
             return result;
         }
 
-        public Def BuildDef(JObject src, Def parent) {
-            if (src.ContainsKey("id")) src = MergeDef(src);
+        public Def BuildBaseDef(JObject src) {
             var defType = src.Value<string>("type");
             if (!defClasses.ContainsKey(defType))
                 throw new Exception($"Def type not implemented: {defType}");
-            var args = new object[] { this, src, parent };
-            return (Def) Activator.CreateInstance(defClasses[defType], args);
+            var args = new object[] { this, src };
+            var def = (Def)Activator.CreateInstance(defClasses[defType], args);
+            return def;
+        }
+
+        public Def BuildDef(JObject src) {
+            if (!src.ContainsKey("id")) 
+                return BuildBaseDef(src);
+            var id = src.Value<string>("id");
+            var target = ResolveDefSource(id);
+            if (src.Properties().Count() == 1) {
+                if (!defMap.ContainsKey(id))
+                    defMap[id] = BuildDef(target);
+                return defMap[id];
+            }
+            src = MergeDef(target, src);
+            return BuildBaseDef(src);
         }
 
         private void ApplyFlagsFormat(JObject headerDef, JObject src) {
@@ -111,10 +123,10 @@ namespace esper.setup {
         public StructDef BuildMainRecordHeaderDef(JObject src, ElementDef recordDef) {
             JObject def = (JObject) ResolveMetaDef("MainRecordHeader").DeepClone();
             ApplyFlagsFormat(def, src);
-            return (StructDef) BuildDef(def, recordDef);
+            return (StructDef) BuildDef(def);
         }
 
-        public JObject ResolveDef(string key) {
+        public JObject ResolveDefSource(string key) {
             var defs = definitions.Value<JObject>("defs");
             if (!defs.ContainsKey(key))
                 throw new Exception("Unknown def: " + key);
@@ -131,9 +143,9 @@ namespace esper.setup {
         public Def GetRecordDef(Signature signature) {
             // TODO: lookup by signature maybe?
             var sig = signature.ToString();
-            if (session.options.buildDefsOnDemand && !recordDefs.ContainsKey(sig))
+            if (session.options.buildDefsOnDemand && !defMap.ContainsKey(sig))
                 BuildRecordDef(sig);
-            return recordDefs[sig];
+            return defMap[sig];
         }
 
         public Decider GetDecider(string key) {

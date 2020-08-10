@@ -13,8 +13,8 @@ namespace esper.defs {
 
         public Dictionary<string, string> flags;
 
-        public FlagsDef(DefinitionManager manager, JObject src, Def parent)
-            : base(manager, src, parent) {
+        public FlagsDef(DefinitionManager manager, JObject src)
+            : base(manager, src) {
             flags = JsonHelpers.Dictionary<string, string>(src, "flags");
         }
 
@@ -34,7 +34,7 @@ namespace esper.defs {
 
         public List<string> DataToArray(ValueElement element, dynamic data) {
             var list = new List<string>();
-            var numBits = 8 * element.valueDef.fixedSize;
+            var numBits = 8 * element.valueDef.size;
             for (int i = 0; i < numBits; i++)
                 if ((data & (1 << i)) != 0) list.Add(GetFlagValue(i));
             return list;

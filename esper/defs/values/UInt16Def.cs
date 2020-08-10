@@ -10,8 +10,8 @@ namespace esper.defs {
         public static readonly string defType = "uint16";
         public override int? size => 2;
 
-        public UInt16Def(DefinitionManager manager, JObject src, Def parent)
-            : base(manager, src, parent) { }
+        public UInt16Def(DefinitionManager manager, JObject src)
+            : base(manager, src) { }
 
         public override dynamic ReadData(PluginFileSource source, UInt16? size) {
             return source.reader.ReadUInt16();

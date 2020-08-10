@@ -7,8 +7,8 @@ namespace esper.defs.TES5 {
     public class PerkDATAQuestStageFormat : FormatDef {
         public static string defType = "PerkDATAQuestStageFormat";
 
-        public PerkDATAQuestStageFormat(DefinitionManager manager, JObject src, Def parent)
-            : base(manager, src, parent) { }
+        public PerkDATAQuestStageFormat(DefinitionManager manager, JObject src)
+            : base(manager, src) { }
 
         public override string DataToValue(ValueElement element, dynamic data) {
             // TODO

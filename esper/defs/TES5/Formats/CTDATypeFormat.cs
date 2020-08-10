@@ -9,10 +9,10 @@ namespace esper.defs.TES5 {
 
         private static FlagsDef ctdaTypeFlags;
 
-        public CTDATypeFormat(DefinitionManager manager, JObject src, Def parent)
-            : base(manager, src, parent) {
-            var flagsSrc = manager.ResolveDef("CtdaTypeFlags");
-            ctdaTypeFlags = (FlagsDef) manager.BuildDef(flagsSrc, this);
+        public CTDATypeFormat(DefinitionManager manager, JObject src)
+            : base(manager, src) {
+            var flagsSrc = manager.ResolveDefSource("CtdaTypeFlags");
+            ctdaTypeFlags = (FlagsDef) manager.BuildDef(flagsSrc);
         }
 
         public override string DataToValue(ValueElement element, dynamic data) {

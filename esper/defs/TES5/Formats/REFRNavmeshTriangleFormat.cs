@@ -10,8 +10,8 @@ namespace esper.defs.TES5 {
     public class REFRNavmeshTriangleFormat : FormatDef {
         public static string defType = "REFRNavmeshTriangleFormat";
 
-        public REFRNavmeshTriangleFormat(DefinitionManager manager, JObject src, Def parent)
-            : base(manager, src, parent) {}
+        public REFRNavmeshTriangleFormat(DefinitionManager manager, JObject src)
+            : base(manager, src) {}
 
         private MainRecord ResolveNavmesh(ValueElement element) {
             return element?.container?.elements?[0].referencedRecord;

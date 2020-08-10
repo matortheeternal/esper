@@ -5,8 +5,8 @@ using System;
 
 namespace esper.defs {
     public class FormatDef : Def {
-        public FormatDef(DefinitionManager manager, JObject src, Def parent)
-            : base(manager, src, parent) {}
+        public FormatDef(DefinitionManager manager, JObject src)
+            : base(manager, src) {}
 
         public virtual string DataToValue(ValueElement element, dynamic data) {
             throw new NotImplementedException();

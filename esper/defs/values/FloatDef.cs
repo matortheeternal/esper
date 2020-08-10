@@ -11,8 +11,8 @@ namespace esper.defs {
 
         public override int? size => 4;
 
-        public FloatDef(DefinitionManager manager, JObject src, Def parent)
-            : base(manager, src, parent) {}
+        public FloatDef(DefinitionManager manager, JObject src)
+            : base(manager, src) {}
 
         public override dynamic ReadData(PluginFileSource source, UInt16? dataSize) {
             return source.reader.ReadSingle();

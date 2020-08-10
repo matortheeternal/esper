@@ -13,8 +13,8 @@ namespace esper.defs {
         public ReadOnlyCollection<FormatDef> formatDefs;
 
         public FormatUnion(
-            DefinitionManager manager, JObject src, Def parent
-        ) : base(manager, src, parent) {
+            DefinitionManager manager, JObject src
+        ) : base(manager, src) {
             decider = JsonHelpers.Decider(src, this);
             formatDefs = JsonHelpers.FormatDefs(src, this);
         }

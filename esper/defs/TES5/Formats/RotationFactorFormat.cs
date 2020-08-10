@@ -8,8 +8,8 @@ namespace esper.defs.TES5 {
         public static string defType = "RotationFactorFormat";
 
         public RotationFactorFormat(
-            DefinitionManager manager, JObject src, Def parent
-        ) : base(manager, src, parent) {}
+            DefinitionManager manager, JObject src
+        ) : base(manager, src) {}
 
         // TODO: normalize
         public override string DataToValue(ValueElement element, dynamic data) {

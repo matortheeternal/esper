@@ -9,8 +9,8 @@ namespace esper.defs {
         public ReadOnlyCollection<ElementDef> memberDefs;
         private readonly Dictionary<string, ElementDef> sigDefMap;
 
-        public MembersDef(DefinitionManager manager, JObject src, Def parent)
-            : base(manager, src, parent) {
+        public MembersDef(DefinitionManager manager, JObject src)
+            : base(manager, src) {
             memberDefs = JsonHelpers.ElementDefs(src, "members", this);
             sigDefMap = new Dictionary<string, ElementDef>();
             foreach (var def in memberDefs)

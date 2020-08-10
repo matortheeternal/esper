@@ -9,8 +9,8 @@ namespace esper.defs {
     public class BytesDef : ValueDef {
         public static string defType = "bytes";
 
-        public BytesDef(DefinitionManager manager, JObject src, Def parent)
-            : base(manager, src, parent) {
+        public BytesDef(DefinitionManager manager, JObject src)
+            : base(manager, src) {
             if (!isVariableSize && fixedSize < 0) 
                 throw new Exception("Def source has invalid size" + fixedSize);
         }

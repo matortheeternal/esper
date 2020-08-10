@@ -17,8 +17,8 @@ namespace esper.defs {
 
         public override int? size => elementDefs.Sum(def => def.size);
 
-        public StructDef(DefinitionManager manager, JObject src, Def parent)
-            : base(manager, src, parent) {
+        public StructDef(DefinitionManager manager, JObject src)
+            : base(manager, src) {
             elementDefs = JsonHelpers.ElementDefs(src, "elements", this);
             sortKeyIndices = JsonHelpers.List<int>(src, "sortKey");
         }

@@ -15,8 +15,8 @@ namespace esper.defs {
         public readonly CounterDef counterDef;
         public readonly bool sorted;
 
-        public MemberArrayDef(DefinitionManager manager, JObject src, Def parent)
-            : base(manager, src, parent) {
+        public MemberArrayDef(DefinitionManager manager, JObject src)
+            : base(manager, src) {
             memberDef = JsonHelpers.ElementDef(src, "member", this);
             counterDef = (CounterDef)JsonHelpers.Def(src, "counter", this);
             sorted = src.Value<bool>("sorted");

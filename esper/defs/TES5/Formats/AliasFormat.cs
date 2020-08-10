@@ -8,8 +8,8 @@ using System.Collections.Generic;
 
 namespace esper.defs.TES5 {
     public class AliasFormat : FormatDef {
-        public AliasFormat(DefinitionManager manager, JObject src, Def parent) 
-            : base(manager, src, parent) { }
+        public AliasFormat(DefinitionManager manager, JObject src) 
+            : base(manager, src) { }
 
         public virtual MainRecord ResolveQuestRec(ValueElement element) {
             throw new NotImplementedException();
