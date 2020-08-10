@@ -67,9 +67,9 @@ namespace esper.defs {
 
         public override string GetSortKey(Element element) {
             var v = (ValueElement)element;
-            string sortKey = formatDef == null
-                ? DataToSortKey(v.data)
-                : formatDef.GetSortKey(v, v.data);
+            string sortKey = formatDef != null && formatDef.customSortKey
+                ? formatDef.GetSortKey(v, v.data)
+                : DataToSortKey(v.data);
             return zeroSortKey
                 ? new string('0', sortKey.Length)
                 : sortKey;

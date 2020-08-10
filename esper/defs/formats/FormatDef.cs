@@ -5,6 +5,8 @@ using System;
 
 namespace esper.defs {
     public class FormatDef : Def {
+        public virtual bool customSortKey => false;
+
         public FormatDef(DefinitionManager manager, JObject src)
             : base(manager, src) {}
 

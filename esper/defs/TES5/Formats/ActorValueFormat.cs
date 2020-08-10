@@ -6,6 +6,7 @@ using System;
 namespace esper.defs.TES5 {
     public class ActorValueFormat : FormatDef {
         public static string defType = "EPFDActorValueFormat";
+        public override bool customSortKey => true;
 
         private static EnumDef actorValueEnum;
 
@@ -15,10 +16,14 @@ namespace esper.defs.TES5 {
             actorValueEnum = (EnumDef) manager.BuildDef(enumSrc);
         }
 
-        public override string DataToValue(ValueElement element, dynamic data) {
+        private long GetIndex(dynamic data) {
             byte[] bytes = BitConverter.GetBytes(data);
             float fData = BitConverter.ToSingle(bytes);
-            long index = (long)Math.Round(fData);
+            return (long)Math.Round(fData);
+        }
+
+        public override string DataToValue(ValueElement element, dynamic data) {
+            long index = GetIndex(data);
             return actorValueEnum.DataToValue(element, index);
         }
 
@@ -26,6 +31,11 @@ namespace esper.defs.TES5 {
             float fData = actorValueEnum.ValueToData(element, value);
             byte[] bytes = BitConverter.GetBytes(fData);
             return BitConverter.ToUInt32(bytes);
+        }
+
+        public override string GetSortKey(ValueElement element, dynamic data) {
+            long index = GetIndex(data);
+            return actorValueEnum.GetSortKey(element, index);
         }
     }
 }

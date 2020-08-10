@@ -6,11 +6,12 @@ using System;
 namespace esper.defs.TES5 {
     public class VertexFormat : FormatDef {
         protected virtual int vertex => 0;
+        public override bool customSortKey => true;
 
         public VertexFormat(DefinitionManager manager, JObject src)
             : base(manager, src) {}
 
-        // TODO: sortKey
+        // TODO: resolve vertex
         // TODO: warnings?
         // TODO: display value?
 
@@ -20,6 +21,11 @@ namespace esper.defs.TES5 {
 
         public override dynamic ValueToData(ValueElement element, string value) {
             return Int64.Parse(value);
+        }
+
+        public override string GetSortKey(ValueElement element, dynamic data) {
+            UInt16 v = data;
+            return $"{v:X4}";
         }
     }
 

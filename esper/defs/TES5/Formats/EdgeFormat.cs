@@ -6,13 +6,13 @@ using System;
 namespace esper.defs.TES5 {
     public class EdgeFormat : FormatDef {
         protected virtual int edge => 0;
+        public override bool customSortKey => true;
 
         public EdgeFormat(DefinitionManager manager, JObject src)
             : base(manager, src) { }
 
-        // TODO: sortKey
+        // TODO: resolve edge link
         // TODO: warnings?
-        // TODO: display value?
 
         public override string DataToValue(ValueElement element, dynamic data) {
             if (data < 0) return "";
@@ -22,6 +22,11 @@ namespace esper.defs.TES5 {
         public override dynamic ValueToData(ValueElement element, string value) {
             if (value == "" || value == "None") return -1;
             return Int64.Parse(value);
+        }
+
+        public override string GetSortKey(ValueElement element, dynamic data) {
+            UInt16 v = data;
+            return $"00000000{v:X4}";
         }
     }
 
