@@ -15,6 +15,11 @@ namespace esper.helpers {
             return target;
         }
 
+        public static List<T> List<T>(JObject src, string key) {
+            if (!src.ContainsKey(key)) return null;
+            return src.Value<JArray>(key).ToObject<List<T>>();
+        }
+
         public static ElementDef ElementDef(
             JObject src, string key, Def parent
         ) {
@@ -58,11 +63,6 @@ namespace esper.helpers {
             if (!src.ContainsKey("format")) return null;
             var formatSrc = src.Value<JObject>("format");
             return (FormatDef)parent.manager.BuildDef(formatSrc, parent);
-        }
-
-        public static List<string> Strings(JObject src, string key) {
-            if (!src.ContainsKey(key)) return null;
-            return src.Value<JArray>(key).ToObject<List<string>>();
         }
 
         public static Decider Decider(JObject src, Def parent) {

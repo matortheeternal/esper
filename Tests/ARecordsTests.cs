@@ -188,10 +188,5 @@ namespace Tests {
             TestHelpers.TestValue(rec, @"DNAM", "100.00000");
             TestHelpers.TestFormId(rec, "TNAM");
         }
-
-        [Test]
-        public void TestArtObjectRecord() {
-            // TODO
-        }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json.Linq;
 using esper.elements;
-using esper.parsing;
+using esper.data;
+using esper.plugins;
 using esper.setup;
 using System;
 
@@ -27,16 +28,16 @@ namespace esper.defs {
         }
 
         public override dynamic DefaultData() {
-            return "";
+            return string.Empty;
         }
 
         public override void SetData(ValueElement element, dynamic data) {
-            string s = (string) data;
-            if (s == null) 
+            string str = (string) data;
+            if (str == null) 
                 throw new Exception("Data must be a string");
-            if (size != null && s.Length != size)
+            if (!isVariableSize && str.Length != size)
                 throw new Exception("String length does not match");
-            element._data = data;
+            element._data = str;
         }
 
         public override string GetValue(ValueElement element) {
@@ -48,6 +49,14 @@ namespace esper.defs {
 
         public override void SetValue(ValueElement element, string value) {
             SetData(element, value);
+        }
+
+        public override string DataToSortKey(dynamic data) {
+            string str = data is LocalizedString lstring
+                ? lstring.ToString()
+                : (string) data;
+            if (str == null) return string.Empty;
+            return keepCase ? str : str.ToUpper();
         }
     }
 }

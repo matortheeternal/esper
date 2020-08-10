@@ -1,6 +1,6 @@
 ﻿using System.Runtime.InteropServices;
 
-namespace esper.parsing {
+namespace esper.data {
     [StructLayout(LayoutKind.Sequential, Pack = 1)]
     public class Signature : Byte4 {
         static readonly SignatureEncoding encoding = new SignatureEncoding();

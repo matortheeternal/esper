@@ -1,5 +1,5 @@
 ﻿using esper.elements;
-using esper.parsing;
+using esper.plugins;
 using esper.setup;
 using Newtonsoft.Json.Linq;
 using System;
@@ -51,6 +51,10 @@ namespace esper.defs {
 
         public virtual bool HasSignature(string sig) {
             return signature == sig;
+        }
+
+        public virtual string GetSortKey(Element element) {
+            throw new NotImplementedException();
         }
     }
 }

@@ -1,5 +1,5 @@
 ﻿using esper.elements;
-using esper.parsing;
+using esper.plugins;
 using esper.setup;
 using Newtonsoft.Json.Linq;
 using System;
@@ -13,7 +13,6 @@ namespace esper.defs {
         public EmptyDef(DefinitionManager manager, JObject src, Def parent)
             : base(manager, src, parent) { }
 
-
         public override string GetValue(ValueElement element) {
             return "";
         }
@@ -26,6 +25,10 @@ namespace esper.defs {
 
         public override dynamic ReadData(PluginFileSource source, UInt16? dataSize) {
             return null;
+        }
+
+        public override string GetSortKey(Element element) {
+            return "";
         }
     }
 }

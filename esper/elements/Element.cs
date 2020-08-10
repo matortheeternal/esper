@@ -11,6 +11,7 @@ namespace esper.elements {
         public Container container { get; internal set; }
         public DefinitionManager manager => file.manager;
         public virtual string signature => def.signature;
+        public string sortKey => def.GetSortKey(this);
         public virtual string name => def.name;
         public SessionOptions sessionOptions => manager.session.options;
         public Game game => manager.session.game;
@@ -51,5 +52,7 @@ namespace esper.elements {
         public virtual bool SupportsSignature(string sig) {
             return false;
         }
+
+        internal virtual void ElementsReady() {}
     }
 }

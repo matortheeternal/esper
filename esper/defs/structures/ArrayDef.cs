@@ -2,9 +2,8 @@
 using esper.helpers;
 using esper.setup;
 using esper.elements;
-using esper.parsing;
+using esper.plugins;
 using System;
-using System.Collections.Generic;
 
 namespace esper.defs {
     public class ArrayDef : MaybeSubrecordDef {
@@ -16,6 +15,7 @@ namespace esper.defs {
         public uint? count => src.Value<uint?>("count");
         public int? prefix => src.Value<int?>("prefix");
         private int? padding => src.Value<int?>("padding");
+        public bool sorted => src.Value<bool>("sorted");
 
         public ArrayDef(DefinitionManager manager, JObject src, Def parent)
             : base(manager, src, parent) {

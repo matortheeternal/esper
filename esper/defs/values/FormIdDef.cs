@@ -1,6 +1,6 @@
 ﻿using esper.elements;
+using esper.data;
 using esper.plugins;
-using esper.parsing;
 using esper.setup;
 using System;
 using Newtonsoft.Json.Linq;
@@ -28,7 +28,13 @@ namespace esper.defs {
         }
 
         public override void SetValue(ValueElement element, string value) {
-            // TODO: make form ID parsers
+            SetData(element, FormId.Parse(element, value));
+        }
+
+        public override string DataToSortKey(dynamic data) {
+            var fid = (FormId)data;
+            if (fid == null) return new string('0', 8);
+            return fid.fileFormId.ToString("X8");
         }
     }
 }

@@ -1,8 +1,9 @@
 ﻿using esper.elements;
+using esper.plugins;
 using System;
 using System.IO;
 
-namespace esper.parsing {
+namespace esper.data {
     public class TES4RecordHeader {
         public Signature signature;
         public UInt32 dataSize;

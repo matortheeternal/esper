@@ -1,7 +1,7 @@
 ﻿using esper.plugins;
 using System;
 
-namespace esper.parsing {
+namespace esper.data {
     public class LocalizedString {
         public PluginFile plugin;
         public UInt32 id;

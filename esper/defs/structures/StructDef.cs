@@ -1,21 +1,25 @@
 ﻿using esper.elements;
 using esper.helpers;
-using esper.parsing;
+using esper.plugins;
 using esper.setup;
 using Newtonsoft.Json.Linq;
 using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 
 namespace esper.defs {
     public class StructDef : MaybeSubrecordDef {
         public readonly static string defType = "struct";
+
         public ReadOnlyCollection<ElementDef> elementDefs;
         public override int? size => elementDefs.Sum(def => def.size);
+        private readonly List<int> sortKeyIndices;
 
         public StructDef(DefinitionManager manager, JObject src, Def parent)
             : base(manager, src, parent) {
             elementDefs = JsonHelpers.ElementDefs(src, "elements", this);
+            sortKeyIndices = JsonHelpers.List<int>(src, "sortKey");
         }
 
         public override Element ReadElement(
@@ -50,6 +54,10 @@ namespace esper.defs {
                     remainingSize -= (UInt16) diff;
                 }
             }
+        }
+
+        public override string GetSortKey(Element element) {
+            return ElementHelpers.StructSortKey(element, sortKeyIndices);
         }
     }
 }

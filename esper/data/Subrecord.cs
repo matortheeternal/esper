@@ -1,7 +1,8 @@
 ﻿using System;
 using System.IO;
+using esper.plugins;
 
-namespace esper.parsing {
+namespace esper.data {
     public class Subrecord {
         public Signature signature;
         public UInt16 size;

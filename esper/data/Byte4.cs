@@ -1,6 +1,6 @@
 ﻿using System.Runtime.InteropServices;
 
-namespace esper.parsing {
+namespace esper.data {
     [StructLayout(LayoutKind.Sequential, Pack = 1)]
     public class Byte4 {
         public readonly byte b0;

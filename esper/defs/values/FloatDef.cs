@@ -1,5 +1,5 @@
 ﻿using esper.elements;
-using esper.parsing;
+using esper.plugins;
 using esper.setup;
 using Newtonsoft.Json.Linq;
 using System;
@@ -7,6 +7,7 @@ using System;
 namespace esper.defs {
     public class FloatDef : ValueDef {
         public static string defType = "float";
+        public static float epsilon = 0.000009999999999f;
 
         public override int? size => 4;
 
@@ -21,8 +22,15 @@ namespace esper.defs {
             return 0.0f;
         }
 
-        public override string GetValue(ValueElement element) {
-            float data = element.data;
+        public override string DataToSortKey(dynamic data) {
+            if (Single.IsNaN(data)) return new string(' ', 23);
+            if (data == Single.MaxValue) return "+" + new string('9', 22);
+            string sortKey = Math.Abs(data).ToString("99N5").PadLeft(22, '0');
+            bool isNegative = (data < 0) && (Math.Abs(data) > epsilon);
+            return (isNegative ? '-' : '+') + sortKey;
+        }
+
+        public override string DataToString(dynamic data) {
             return data.ToString("N5");
         }
 

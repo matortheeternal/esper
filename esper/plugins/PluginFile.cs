@@ -1,5 +1,4 @@
-﻿using esper.parsing;
-using esper.setup;
+﻿using esper.setup;
 using esper.elements;
 using System.Text;
 using System;
@@ -12,7 +11,8 @@ namespace esper.plugins {
         public string filename;
         public PluginFileOptions options;
         public PluginFileSource source;
-        public Encoding stringEncoding { get => session.options.encoding; }
+
+        public Encoding stringEncoding => session.options.encoding;
 
         PluginFile IMasterManager.file => this;
         ReadOnlyMasterList IMasterManager.originalMasters { get; set; }
@@ -53,6 +53,7 @@ namespace esper.plugins {
             var endOffset = source.fileSize - 1;
             while (source.stream.Position < endOffset)
                 GroupRecord.Read(this, source);
+            _elements.TrimExcess();
         }
 
         internal string GetString(uint id) {

@@ -1,5 +1,5 @@
 ﻿using esper.defs;
-using esper.parsing;
+using esper.data;
 using esper.plugins;
 using System;
 using System.IO;
@@ -68,6 +68,7 @@ namespace esper.elements {
                     file.IndexRecord(rec);
                 }
             });
+            if (group._elements != null) group._elements.TrimExcess();
             return group;
         }
 

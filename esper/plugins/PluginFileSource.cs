@@ -1,4 +1,4 @@
-﻿using esper.plugins;
+﻿using esper.data;
 using esper.elements;
 using System;
 using System.IO;
@@ -6,7 +6,7 @@ using System.IO.MemoryMappedFiles;
 using System.Text;
 using Ionic.Zlib;
 
-namespace esper.parsing {
+namespace esper.plugins {
     public class PluginFileSource {
         private readonly Signature TES4 = Signature.FromString("TES4");
 

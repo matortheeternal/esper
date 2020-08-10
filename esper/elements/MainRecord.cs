@@ -1,5 +1,5 @@
 ﻿using esper.defs;
-using esper.parsing;
+using esper.data;
 using esper.plugins;
 using esper.resolution;
 using System;
@@ -100,6 +100,7 @@ namespace esper.elements {
                     : this.dataSize;
                 source.ReadMultiple(dataSize, () => ReadSubrecord(source));
             } finally {
+                ElementsReady();
                 source.DiscardDecompressedStream();
             }
         }

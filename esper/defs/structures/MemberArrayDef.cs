@@ -1,6 +1,6 @@
 ﻿using esper.elements;
 using esper.helpers;
-using esper.parsing;
+using esper.plugins;
 using esper.setup;
 using Newtonsoft.Json.Linq;
 using System;
@@ -13,6 +13,8 @@ namespace esper.defs {
 
         public ElementDef memberDef;
         public CounterDef counterDef;
+
+        public bool sorted => src.Value<bool>("sorted");
 
         public MemberArrayDef(DefinitionManager manager, JObject src, Def parent)
             : base(manager, src, parent) {

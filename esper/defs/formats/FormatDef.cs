@@ -15,5 +15,9 @@ namespace esper.defs {
         public virtual dynamic ValueToData(ValueElement element, string value) {
             throw new NotImplementedException();
         }
+
+        public virtual string GetSortKey(ValueElement element, dynamic data) {
+            return DataToValue(element, data);
+        }
     }
 }

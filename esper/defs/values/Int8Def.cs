@@ -1,6 +1,6 @@
 ﻿using esper.elements;
 using esper.helpers;
-using esper.parsing;
+using esper.plugins;
 using esper.setup;
 using Newtonsoft.Json.Linq;
 using System;
@@ -19,6 +19,12 @@ namespace esper.defs {
 
         public override dynamic DefaultData() {
             return (sbyte)0;
+        }
+
+        public override string DataToSortKey(dynamic data) {
+            UInt32 v = (UInt32)data;
+            v += (UInt32)Math.Abs(sbyte.MinValue);
+            return v.ToString("X2");
         }
 
         public override void SetData(ValueElement element, dynamic data) {
