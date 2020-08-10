@@ -3,7 +3,7 @@ using System;
 using System.IO;
 
 namespace esper.data {
-    public class TES4GroupHeader {
+    public struct TES4GroupHeader {
         public Signature signature;
         public UInt32 groupSize;
         public byte[] label;

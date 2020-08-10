@@ -4,7 +4,7 @@ using System;
 using System.IO;
 
 namespace esper.data {
-    public class TES4RecordHeader {
+    public struct TES4RecordHeader {
         public Signature signature;
         public UInt32 dataSize;
         public UInt32 flags;
