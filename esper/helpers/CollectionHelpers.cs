@@ -9,20 +9,22 @@ namespace esper.helpers {
             int low = 0;
             int high = list.Count;
             int test = high / 2;
-            while (high - low > 0) {
-                T1 entry = list[test];
+            T1 entry;
+            while (high > low) {
+                entry = list[test];
                 int comparison = compare(entry);
                 if (comparison < 0) {
-                    high = test;
+                    high = test - 1;
                     test = low + (high - low) / 2;
                 } else if (comparison > 0) {
-                    low = test;
+                    low = test + 1;
                     test = low + (high - low) / 2;
                 } else {
                     return entry;
                 }
             }
-            return returnLast ? list[test] : default;
+            entry = list[test];
+            return returnLast || compare(entry) == 0 ? entry : default;
         }
     }
 }

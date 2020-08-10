@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace esper.plugins {
     public interface IRecordManager {
-        internal List<MainRecord> records { get; set; }
+        public List<MainRecord> records { get; set; }
         internal PluginFile file { get; }
     }
 
@@ -35,7 +35,7 @@ namespace esper.plugins {
 
         public static void SortRecords(this IRecordManager m) {
             m.records.Sort((rec1, rec2) => {
-                return rec1.formId > rec2.formId ? 1 : -1;
+                return rec1.formId.CompareTo(rec2.formId);
             });
         }
     }
