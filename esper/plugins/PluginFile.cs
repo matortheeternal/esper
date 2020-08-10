@@ -3,6 +3,7 @@ using esper.elements;
 using System.Text;
 using System;
 using esper.resolution;
+using System.Collections.Generic;
 
 namespace esper.plugins {
     public class PluginFile : Container, IMasterManager, IRecordManager {
@@ -12,6 +13,7 @@ namespace esper.plugins {
         public PluginFileOptions options;
         public PluginFileSource source;
 
+        public uint recordCount => header.GetData(@"HEDR\Number of Records");
         public Encoding stringEncoding => session.options.encoding;
 
         PluginFile IMasterManager.file => this;
@@ -19,8 +21,7 @@ namespace esper.plugins {
         MasterList IMasterManager.masters { get; set; }
 
         PluginFile IRecordManager.file => this;
-        FormIdMap IRecordManager.localRecordsByFormId { get; set; }
-        PluginRecordMap IRecordManager.remoteRecordsByFormId { get; set; }
+        List<MainRecord> IRecordManager.records { get; set; }
 
         public override PluginFile file => this;
         public string filePath => source?.filePath;
@@ -54,6 +55,7 @@ namespace esper.plugins {
             while (source.stream.Position < endOffset)
                 GroupRecord.Read(this, source);
             _elements.TrimExcess();
+            this.SortRecords();
         }
 
         internal string GetString(uint id) {
