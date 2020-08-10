@@ -3,6 +3,7 @@ using NUnit.Framework;
 using System.Diagnostics;
 using System.IO;
 using esper.helpers;
+using System.Collections.Generic;
 
 namespace Tests {
     public class NewtonsoftJsonTests {
@@ -55,6 +56,21 @@ namespace Tests {
             Assert.IsNull(obj.Value<int?>("test"));
             Assert.IsNull(obj.Value<string>("test"));
             Assert.IsFalse(obj.Value<bool>("test"));
+        }
+
+        [Test]
+        public void TestListValues() {
+            var obj = JObject.Parse("{ a: [0], b: [\"a\", \"b\", \"c\"] }");
+            var numbers = obj.Value<JToken>("a").ToObject<List<int>>();
+            Assert.IsNotNull(numbers);
+            Assert.AreEqual(1, numbers.Count);
+            Assert.AreEqual(0, numbers[0]);
+            var strings = obj.Value<JToken>("b").ToObject<List<string>>();
+            Assert.IsNotNull(strings);
+            Assert.AreEqual(3, strings.Count);
+            Assert.AreEqual("a", strings[0]);
+            Assert.AreEqual("b", strings[1]);
+            Assert.AreEqual("c", strings[2]);
         }
     }
 }
