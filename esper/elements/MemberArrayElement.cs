@@ -18,10 +18,8 @@ namespace esper.elements {
         internal override void ElementsReady() {
             base.ElementsReady();
             if (!maDef.sorted) return;
-            var sortKeys = _elements.ToDictionary(e => e, e => e.sortKey);
-            _elements.Sort((e1, e2) => {
-                return sortKeys[e1].CompareTo(sortKeys[e2]);
-            });
+            // we use OrderBy so sortKey is called only once per entry
+            _elements = _elements.OrderBy(e => e.sortKey).ToList();
         }
     }
 }
