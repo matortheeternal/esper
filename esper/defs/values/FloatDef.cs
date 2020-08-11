@@ -7,7 +7,6 @@ using System;
 namespace esper.defs {
     public class FloatDef : ValueDef {
         public static string defType = "float";
-        private static float epsilon = 0.000009999999999f;
 
         public override int? size => 4;
 
@@ -25,13 +24,15 @@ namespace esper.defs {
         public override string DataToSortKey(dynamic data) {
             if (Single.IsNaN(data)) return new string(' ', 23);
             if (data == Single.MaxValue) return "+" + new string('9', 22);
-            string sortKey = Math.Abs(data).ToString("99N5").PadLeft(22, '0');
-            bool isNegative = (data < 0) && (Math.Abs(data) > epsilon);
+            string sortKey = Math.Abs(data)
+                .ToString($"99N{sessionOptions.floatDigits}")
+                .PadLeft(22, '0');
+            bool isNegative = (data < 0) && (Math.Abs(data) > sessionOptions.epsilon);
             return (isNegative ? '-' : '+') + sortKey;
         }
 
         public override string DataToString(dynamic data) {
-            return data.ToString("N5");
+            return data.ToString($"N{sessionOptions.floatDigits}");
         }
 
         public override void SetValue(ValueElement element, string value) {

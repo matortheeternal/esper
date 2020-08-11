@@ -14,7 +14,7 @@ namespace esper.defs {
 
         public override string DataToValue(ValueElement element, dynamic data) {
             float f = data / divisionValue;
-            return f.ToString("N5");
+            return f.ToString($"N{sessionOptions.floatDigits}");
         }
 
         public override dynamic ValueToData(ValueElement element, string value) {

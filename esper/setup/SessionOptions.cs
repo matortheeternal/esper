@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Text;
 
 namespace esper.setup {
@@ -8,6 +9,11 @@ namespace esper.setup {
                 { "English", Encoding.GetEncoding(1252) }
             };
 
+        private static float GetEpsilon(uint digits) {
+            float shift = (float)Math.Pow(10, 0 - digits - 1);
+            return 9999999999 * shift;
+        }
+
         public bool keepMasterElementsUpdated = false;
         public bool allowLightPlugins = true;
         public bool emulateGlobalLoadOrder = true;
@@ -16,7 +22,17 @@ namespace esper.setup {
         public bool readAllSubrecords = true;
         public bool clampIntegerValues = true;
         public bool resolveAliases = false;
+        private uint _floatDigits = 6;
+        public float epsilon = GetEpsilon(6);
 
-        public Encoding encoding { get => encodings[language]; }
+        public uint floatDigits {
+            get => _floatDigits;
+            set {
+                _floatDigits = value;
+                epsilon = GetEpsilon(value);
+            }
+        }
+
+        public Encoding encoding => encodings[language];
     }
 }
