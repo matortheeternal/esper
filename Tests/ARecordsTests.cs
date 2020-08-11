@@ -1,5 +1,4 @@
 ﻿using esper;
-using esper.elements;
 using esper.plugins;
 using esper.resolution;
 using esper.setup;
@@ -13,9 +12,7 @@ namespace Tests {
 
         [OneTimeSetUp]
         public void SetUp() {
-            session = new Session(Games.SSE, new SessionOptions {
-                buildDefsOnDemand = true
-            });
+            session = new Session(Games.SSE, new SessionOptions {});
             var pluginPath = TestHelpers.FixturePath("ARecords.esp");
             plugin = pluginManager.LoadPlugin(pluginPath);
             Assert.IsNotNull(plugin);
@@ -77,11 +74,11 @@ namespace Tests {
             TestHelpers.TestFormId(rec, "YNAM");
             TestHelpers.TestFormId(rec, "ZNAM");
             TestHelpers.TestFormId(rec, "ETYP");
-            TestHelpers.TestValue(rec, "DATA", "1.23400");
+            TestHelpers.TestValue(rec, "DATA", "1.234000");
             TestHelpers.TestValue(rec, @"ENIT\Value", "0");
             TestHelpers.TestValue(rec, @"ENIT\Flags", "Food Item");
             TestHelpers.TestFormId(rec, @"ENIT\Addiction");
-            TestHelpers.TestValue(rec, @"ENIT\Addiction Chance", "0.00000");
+            TestHelpers.TestValue(rec, @"ENIT\Addiction Chance", "0.000000");
             TestHelpers.TestFormId(rec, @"ENIT\Sound - Consume");
             TestHelpers.TestEffects(rec);
         }
@@ -101,9 +98,9 @@ namespace Tests {
             TestHelpers.TestKeywords(rec);
             TestHelpers.TestFormId(rec, @"DATA\Projectile");
             TestHelpers.TestValue(rec, @"DATA\Flags", "Non-Bolt");
-            TestHelpers.TestValue(rec, @"DATA\Damage", "12.00000");
+            TestHelpers.TestValue(rec, @"DATA\Damage", "12.000000");
             TestHelpers.TestValue(rec, @"DATA\Value", "43");
-            TestHelpers.TestValue(rec, @"DATA\Weight", "0.10000");
+            TestHelpers.TestValue(rec, @"DATA\Weight", "0.100000");
             TestHelpers.TestValue(rec, "ONAM", "t");
         }
 
@@ -128,7 +125,7 @@ namespace Tests {
             TestHelpers.TestValue(rec, "QUAL", "Novice");
             TestHelpers.TestValue(rec, "DESC", "Test description.");
             TestHelpers.TestValue(rec, @"DATA\Value", "0");
-            TestHelpers.TestValue(rec, @"DATA\Weight", "0.00000");
+            TestHelpers.TestValue(rec, @"DATA\Weight", "0.000000");
         }
 
         [Test]
@@ -145,7 +142,7 @@ namespace Tests {
             TestHelpers.TestValue(rec, @"DNAM\[4]", "00 00");
             TestHelpers.TestValue(rec, @"DNAM\[5]", "0");
             TestHelpers.TestValue(rec, @"DNAM\[6]", "00");
-            TestHelpers.TestValue(rec, @"DNAM\[7]", "0.00000");
+            TestHelpers.TestValue(rec, @"DNAM\[7]", "0.000000");
             TestHelpers.TestModel(rec, "Male world model");
             TestHelpers.TestModel(rec, "Female world model");
             TestHelpers.TestModel(rec, "Male 1st Person");
@@ -184,8 +181,8 @@ namespace Tests {
             TestHelpers.TestValue(rec, "DESC", "Test description.");
             TestHelpers.TestFormId(rec, @"Armature\[0]");
             TestHelpers.TestValue(rec, @"DATA\Value", "234");
-            TestHelpers.TestValue(rec, @"DATA\Weight", "49.00000");
-            TestHelpers.TestValue(rec, @"DNAM", "100.00000");
+            TestHelpers.TestValue(rec, @"DATA\Weight", "49.000000");
+            TestHelpers.TestValue(rec, @"DNAM", "100.000000");
             TestHelpers.TestFormId(rec, "TNAM");
         }
     }

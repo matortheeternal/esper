@@ -19,7 +19,7 @@ namespace esper.setup {
         public bool emulateGlobalLoadOrder = true;
         public string language = "English";
         public bool buildDefsOnDemand = false;
-        public bool readAllSubrecords = true;
+        public bool readAllSubrecords = false;
         public bool clampIntegerValues = true;
         public bool resolveAliases = false;
         private uint _floatDigits = 6;

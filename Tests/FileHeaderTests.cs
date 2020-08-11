@@ -58,7 +58,7 @@ namespace Tests {
         public void TestSubrecordValues() {
             var fh = plugin.header;
             var hedr = fh.GetElement("HEDR");
-            Assert.AreEqual("1.70000", hedr.GetValue("Version"));
+            Assert.AreEqual("1.700000", hedr.GetValue("Version"));
             Assert.AreEqual("0", hedr.GetValue("Number of Records"));
             Assert.AreEqual("000800", hedr.GetValue("Next Object ID"));
             Assert.AreEqual("", fh.GetValue("DELE"));

@@ -17,9 +17,7 @@ namespace Tests {
 
         [OneTimeSetUp]
         public void SetUp() {
-            session = new Session(Games.TES5, new SessionOptions {
-                readAllSubrecords = false
-            });
+            session = new Session(Games.TES5, new SessionOptions());
             pluginPath = TestHelpers.FixturePath("Skyrim.esm");
             Assert.IsTrue(File.Exists(pluginPath),
                 "Put Skyrim.esm in the fixtures directory to run these tests."

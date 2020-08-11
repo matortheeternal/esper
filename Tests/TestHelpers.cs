@@ -62,6 +62,30 @@ namespace Tests {
             Assert.IsNotNull(props);
             Assert.AreEqual(11, props.Count);
             uint n = 0;
+            TestProp(script, n++, "PropBool", "Bool", v => {
+                Assert.AreEqual("True", v.GetValue());
+            });
+            TestProp(script, n++, "PropBoolArray", "Array of Bool", v => {
+                var a = v.GetElement("[0]");
+                Assert.AreEqual("True", a.GetValue("[0]"));
+                Assert.AreEqual("False", a.GetValue("[1]"));
+            });
+            TestProp(script, n++, "PropFloat", "Float", v => {
+                Assert.AreEqual("1.234000", v.GetValue());
+            });
+            TestProp(script, n++, "PropFloatArray", "Array of Float", v => {
+                var a = v.GetElement("[0]");
+                Assert.AreEqual("6.543000", a.GetValue("[0]"));
+                Assert.AreEqual("-0.100000", a.GetValue("[1]"));
+            });
+            TestProp(script, n++, "PropInt32", "Int32", v => {
+                Assert.AreEqual("3", v.GetValue());
+            });
+            TestProp(script, n++, "PropInt32Array", "Array of Int32", v => {
+                var a = v.GetElement("[0]");
+                Assert.AreEqual("123", a.GetValue("[0]"));
+                Assert.AreEqual("-5", a.GetValue("[1]"));
+            });
             TestProp(script, n++, "PropNone", "None", v => {
                 Assert.AreEqual("", v.GetValue());
             });
@@ -70,42 +94,18 @@ namespace Tests {
                 TestFormId(o, "FormID");
                 Assert.AreEqual("0", o.GetValue("Alias"));
             });
-            TestProp(script, n++, "PropString", "String", v => {
-                Assert.AreEqual("Test", v.GetValue());
-            });
-            TestProp(script, n++, "PropInt32", "Int32", v => {
-                Assert.AreEqual("3", v.GetValue());
-            });
-            TestProp(script, n++, "PropFloat", "Float", v => {
-                Assert.AreEqual("1.23400", v.GetValue());
-            });
-            TestProp(script, n++, "PropBool", "Bool", v => {
-                Assert.AreEqual("True", v.GetValue());
-            });
             TestProp(script, n++, "PropObjectArray", "Array of Object", v => {
                 var o = v.GetElement(@"[0]\[0]\[0]");
                 TestFormId(o, "FormID");
                 Assert.AreEqual("0", o.GetValue("Alias"));
             });
+            TestProp(script, n++, "PropString", "String", v => {
+                Assert.AreEqual("Test", v.GetValue());
+            });
             TestProp(script, n++, "PropStringArray", "Array of String", v => {
                 var a = v.GetElement("[0]");
                 Assert.AreEqual("Test", a.GetValue("[0]"));
                 Assert.AreEqual("abcd", a.GetValue("[1]"));
-            });
-            TestProp(script, n++, "PropInt32Array", "Array of Int32", v => {
-                var a = v.GetElement("[0]");
-                Assert.AreEqual("123", a.GetValue("[0]"));
-                Assert.AreEqual("-5", a.GetValue("[1]"));
-            });
-            TestProp(script, n++, "PropFloatArray", "Array of Float", v => {
-                var a = v.GetElement("[0]");
-                Assert.AreEqual("6.54300", a.GetValue("[0]"));
-                Assert.AreEqual("-0.10000", a.GetValue("[1]"));
-            });
-            TestProp(script, n++, "PropBoolArray", "Array of Bool", v => {
-                var a = v.GetElement("[0]");
-                Assert.AreEqual("True", a.GetValue("[0]"));
-                Assert.AreEqual("False", a.GetValue("[1]"));
             });
         }
 
@@ -115,7 +115,7 @@ namespace Tests {
             Assert.AreEqual(1, effects.Count);
             TestFormId(effects[0], "EFID");
             var efit = effects[0].GetElement("EFIT");
-            Assert.AreEqual("0.00000", efit.GetValue("Magnitude"));
+            Assert.AreEqual("0.000000", efit.GetValue("Magnitude"));
             Assert.AreEqual("0", efit.GetValue("Area"));
             Assert.AreEqual("0", efit.GetValue("Duration"));
         }

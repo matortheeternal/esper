@@ -11,9 +11,7 @@ namespace Tests {
 
         [OneTimeSetUp]
         public void SetUp() {
-            session = new Session(Games.SSE, new SessionOptions {
-                readAllSubrecords = false
-            });
+            session = new Session(Games.SSE, new SessionOptions());
         }
 
         [Test]
