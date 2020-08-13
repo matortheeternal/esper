@@ -18,7 +18,9 @@ namespace esper.defs {
         public override dynamic ReadData(PluginFileSource source, UInt16? dataSize) {
             if (isVariableSize && dataSize == null) 
                 throw new Exception("Cannot read data of unknown size.");
-            return source.reader.ReadBytes((int) (fixedSize ?? dataSize));
+            // if fixedSize is not null and is not 0, use it
+            var numBytes = fixedSize != null && fixedSize > 0 ? fixedSize : dataSize;
+            return source.reader.ReadBytes((int) numBytes);
         }
 
         public override dynamic DefaultData() {
