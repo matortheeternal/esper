@@ -1,1 +1,20 @@
-{"0010FE00":{"Record Header":{"Signature":"DLVW","Data Size":"59","Record Flags":"","FormID":"{Skyrim.esm:10FE00}","Version Control Info 1":"00 00 00 00","Form Version":"40","Version Control Info 2":"00 00"},"EDID - Editor ID":"WIAddItem03VIew","QNAM - Quest":"{Skyrim.esm:035B5A}","Branches":["{Skyrim.esm:10FE02}"],"ENAM - Unknown":"00 00 00 00","DNAM - Unknown":"00"}}
+{
+  "0010FE00": {
+    "Record Header": {
+      "Signature": "DLVW",
+      "Data Size": "59",
+      "Record Flags": "",
+      "FormID": "{Skyrim.esm:10FE00}",
+      "Version Control Info 1": "00 00 00 00",
+      "Form Version": "40",
+      "Version Control Info 2": "00 00"
+    },
+    "EDID - Editor ID": "WIAddItem03VIew",
+    "QNAM - Quest": "{Skyrim.esm:035B5A}",
+    "Branches": [
+      "{Skyrim.esm:10FE02}"
+    ],
+    "ENAM - Unknown": "00 00 00 00",
+    "DNAM - Unknown": "00"
+  }
+}

@@ -1,1 +1,18 @@
-{"0010FE02":{"Record Header":{"Signature":"DLBR","Data Size":"67","Record Flags":"","FormID":"{Skyrim.esm:10FE02}","Version Control Info 1":"00 00 00 00","Form Version":"40","Version Control Info 2":"00 00"},"EDID - Editor ID":"WIAddItem03SayBranch","QNAM - Quest":"{Skyrim.esm:035B5A}","TNAM - Unknown":"0","DNAM - Flags":"","SNAM - Starting Topic":"{Skyrim.esm:10FDFD}"}}
+{
+  "0010FE02": {
+    "Record Header": {
+      "Signature": "DLBR",
+      "Data Size": "67",
+      "Record Flags": "",
+      "FormID": "{Skyrim.esm:10FE02}",
+      "Version Control Info 1": "00 00 00 00",
+      "Form Version": "40",
+      "Version Control Info 2": "00 00"
+    },
+    "EDID - Editor ID": "WIAddItem03SayBranch",
+    "QNAM - Quest": "{Skyrim.esm:035B5A}",
+    "TNAM - Unknown": "0",
+    "DNAM - Flags": "",
+    "SNAM - Starting Topic": "{Skyrim.esm:10FDFD}"
+  }
+}

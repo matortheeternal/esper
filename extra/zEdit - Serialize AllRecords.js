@@ -10,6 +10,8 @@ let serializeStruct = function(struct) {
   let output = {};
   xelib.GetElements(struct).forEach(element => {
     let path = xelib.Name(element);
+    if (path.includes("Filename")) 
+      path = path.replace("Filename", "FileName");
     output[path] = serializeElement(element);
   });
   return output;
@@ -23,6 +25,8 @@ let serializeElement = function(element) {
     return serializeStruct(element);
   } else if (vt === xelib.vtFlags) {
     return xelib.GetEnabledFlags(element).join(', ');
+  } else if (xelib.ElementCount(element) > 0) {
+    return serializeStruct(element);
   } else if (vt === xelib.vtReference) {
     let localFid = xelib.GetUIntValue(element) & 0xFFFFFF;
     if (localFid === 0) return '{Null:000000}';
@@ -72,6 +76,7 @@ let serializePlugin = function(plugin) {
       output["File Header"] = serializeRecord(element);
     } else if (et === xelib.etGroupRecord) {
       let label = xelib.Signature(element);
+      if (label === 'NAVI') return;
       output[label] = serializeGroup(element);
     }
   });
@@ -85,5 +90,5 @@ let folderPath = fh.jetpack.path('AllRecords.esp');
 Object.keys(output).forEach(key => {
   let filename = `${key}.json`;
   let outputPath = fh.jetpack.path(folderPath, filename);
-  fh.saveJsonFile(outputPath, output[key], true);
+  fh.saveJsonFile(outputPath, output[key]);
 });

@@ -1,1 +1,106 @@
-{"0010FDE6":{"Record Header":{"Signature":"CONT","Data Size":"317","Record Flags":"NavMesh Generation - Bounding Box","FormID":"{Skyrim.esm:10FDE6}","Version Control Info 1":"00 00 00 00","Form Version":"44","Version Control Info 2":"00 00"},"EDID - Editor ID":"MerchantWhiterunEorlundChest","OBND - Object Bounds":{"X1":"-48","Y1":"-25","Z1":"0","X2":"48","Y2":"24","Z2":"48"},"FULL - Name":"Chest","Model":{"MODL - Model Filename":"Clutter\\Containers\\Chest01\\Chest01.nif","MODT - Texture Files Hashes":"02 00 00 00 00 00 00 00 00 00 00 00"},"COCT - Count":"12","Items":[{"CNTO - Item":{"Item":"{Skyrim.esm:0173D3}","Count":"3"}},{"CNTO - Item":{"Item":"{Skyrim.esm:072AE9}","Count":"1"}},{"CNTO - Item":{"Item":"{Skyrim.esm:09BC2E}","Count":"3"}},{"CNTO - Item":{"Item":"{Skyrim.esm:09BC2F}","Count":"5"}},{"CNTO - Item":{"Item":"{Skyrim.esm:09BC30}","Count":"3"}},{"CNTO - Item":{"Item":"{Skyrim.esm:09BC31}","Count":"7"}},{"CNTO - Item":{"Item":"{Skyrim.esm:09BC32}","Count":"5"}},{"CNTO - Item":{"Item":"{Skyrim.esm:09BC33}","Count":"1"}},{"CNTO - Item":{"Item":"{Skyrim.esm:0FFE9F}","Count":"25"}},{"CNTO - Item":{"Item":"{Skyrim.esm:10C1CC}","Count":"1"}},{"CNTO - Item":{"Item":"{Skyrim.esm:10FDE9}","Count":"1"}},{"CNTO - Item":{"Item":"{Skyrim.esm:10FDEB}","Count":"1"}}],"DATA - ":{"Flags":"Respawns","Weight":"0.000000"}}}
+{
+  "0010FDE6": {
+    "Record Header": {
+      "Signature": "CONT",
+      "Data Size": "317",
+      "Record Flags": "NavMesh Generation - Bounding Box",
+      "FormID": "{Skyrim.esm:10FDE6}",
+      "Version Control Info 1": "00 00 00 00",
+      "Form Version": "44",
+      "Version Control Info 2": "00 00"
+    },
+    "EDID - Editor ID": "MerchantWhiterunEorlundChest",
+    "OBND - Object Bounds": {
+      "X1": "-48",
+      "Y1": "-25",
+      "Z1": "0",
+      "X2": "48",
+      "Y2": "24",
+      "Z2": "48"
+    },
+    "FULL - Name": "Chest",
+    "Model": {
+      "MODL - Model FileName": "Clutter\\Containers\\Chest01\\Chest01.nif",
+      "MODT - Texture Files Hashes": "02 00 00 00 00 00 00 00 00 00 00 00"
+    },
+    "COCT - Count": "12",
+    "Items": [
+      {
+        "CNTO - Item": {
+          "Item": "{Skyrim.esm:0173D3}",
+          "Count": "3"
+        }
+      },
+      {
+        "CNTO - Item": {
+          "Item": "{Skyrim.esm:072AE9}",
+          "Count": "1"
+        }
+      },
+      {
+        "CNTO - Item": {
+          "Item": "{Skyrim.esm:09BC2E}",
+          "Count": "3"
+        }
+      },
+      {
+        "CNTO - Item": {
+          "Item": "{Skyrim.esm:09BC2F}",
+          "Count": "5"
+        }
+      },
+      {
+        "CNTO - Item": {
+          "Item": "{Skyrim.esm:09BC30}",
+          "Count": "3"
+        }
+      },
+      {
+        "CNTO - Item": {
+          "Item": "{Skyrim.esm:09BC31}",
+          "Count": "7"
+        }
+      },
+      {
+        "CNTO - Item": {
+          "Item": "{Skyrim.esm:09BC32}",
+          "Count": "5"
+        }
+      },
+      {
+        "CNTO - Item": {
+          "Item": "{Skyrim.esm:09BC33}",
+          "Count": "1"
+        }
+      },
+      {
+        "CNTO - Item": {
+          "Item": "{Skyrim.esm:0FFE9F}",
+          "Count": "25"
+        }
+      },
+      {
+        "CNTO - Item": {
+          "Item": "{Skyrim.esm:10C1CC}",
+          "Count": "1"
+        }
+      },
+      {
+        "CNTO - Item": {
+          "Item": "{Skyrim.esm:10FDE9}",
+          "Count": "1"
+        }
+      },
+      {
+        "CNTO - Item": {
+          "Item": "{Skyrim.esm:10FDEB}",
+          "Count": "1"
+        }
+      }
+    ],
+    "DATA - ": {
+      "Flags": "Respawns",
+      "Weight": "0.000000"
+    }
+  }
+}

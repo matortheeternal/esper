@@ -1,1 +1,16 @@
-{"000172AA":{"Record Header":{"Signature":"FSTP","Data Size":"95","Record Flags":"","FormID":"{Skyrim.esm:0172AA}","Version Control Info 1":"00 00 00 00","Form Version":"40","Version Control Info 2":"00 00"},"EDID - Editor ID":"NPCDragonFlightRoarPaarthurnaxFootstep","DATA - Impact Data Set":"{Skyrim.esm:0172A8}","ANAM - Tag":"NPCDragonFlightRoarPaarthurnaxTag"}}
+{
+  "000172AA": {
+    "Record Header": {
+      "Signature": "FSTP",
+      "Data Size": "95",
+      "Record Flags": "",
+      "FormID": "{Skyrim.esm:0172AA}",
+      "Version Control Info 1": "00 00 00 00",
+      "Form Version": "40",
+      "Version Control Info 2": "00 00"
+    },
+    "EDID - Editor ID": "NPCDragonFlightRoarPaarthurnaxFootstep",
+    "DATA - Impact Data Set": "{Skyrim.esm:0172A8}",
+    "ANAM - Tag": "NPCDragonFlightRoarPaarthurnaxTag"
+  }
+}

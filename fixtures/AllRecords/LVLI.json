@@ -1,1 +1,187 @@
-{"00000F53":{"Record Header":{"Signature":"LVLI","Data Size":"443","Record Flags":"","FormID":"{Skyrim.esm:000F53}","Version Control Info 1":"00 00 00 00","Form Version":"40","Version Control Info 2":"00 00"},"EDID - Editor ID":"SublistEnchArmorShield06Dragonscale05","OBND - Object Bounds":{"X1":"0","Y1":"0","Z1":"0","X2":"0","Y2":"0","Z2":"0"},"LVLD - Chance None":"0","LVLF - Flags":"Calculate from all levels <= player's level, Calculate for each item in count","LLCT - Count":"20","Leveled List Entries":[{"LVLO - Base Data":{"Level":"1","Unknown":"00 00","Reference":"{Skyrim.esm:0FDA0D}","Count":"1"}},{"LVLO - Base Data":{"Level":"1","Unknown":"00 00","Reference":"{Skyrim.esm:0FDA17}","Count":"1"}},{"LVLO - Base Data":{"Level":"1","Unknown":"00 00","Reference":"{Skyrim.esm:0FDA17}","Count":"1"}},{"LVLO - Base Data":{"Level":"1","Unknown":"00 00","Reference":"{Skyrim.esm:0FDA17}","Count":"1"}},{"LVLO - Base Data":{"Level":"1","Unknown":"00 00","Reference":"{Skyrim.esm:0FDA17}","Count":"1"}},{"LVLO - Base Data":{"Level":"1","Unknown":"00 00","Reference":"{Skyrim.esm:0FDA17}","Count":"1"}},{"LVLO - Base Data":{"Level":"1","Unknown":"00 00","Reference":"{Skyrim.esm:0FDA17}","Count":"1"}},{"LVLO - Base Data":{"Level":"1","Unknown":"00 00","Reference":"{Skyrim.esm:0FDA17}","Count":"1"}},{"LVLO - Base Data":{"Level":"1","Unknown":"00 00","Reference":"{Skyrim.esm:0FDA17}","Count":"1"}},{"LVLO - Base Data":{"Level":"1","Unknown":"00 00","Reference":"{Skyrim.esm:0FDA17}","Count":"1"}},{"LVLO - Base Data":{"Level":"1","Unknown":"00 00","Reference":"{Skyrim.esm:0FDA17}","Count":"1"}},{"LVLO - Base Data":{"Level":"1","Unknown":"00 00","Reference":"{Skyrim.esm:0FDA17}","Count":"1"}},{"LVLO - Base Data":{"Level":"1","Unknown":"00 00","Reference":"{Skyrim.esm:0FDA17}","Count":"1"}},{"LVLO - Base Data":{"Level":"1","Unknown":"00 00","Reference":"{Skyrim.esm:0FDA17}","Count":"1"}},{"LVLO - Base Data":{"Level":"1","Unknown":"00 00","Reference":"{Skyrim.esm:0FDA17}","Count":"1"}},{"LVLO - Base Data":{"Level":"1","Unknown":"00 00","Reference":"{Skyrim.esm:0FDA17}","Count":"1"}},{"LVLO - Base Data":{"Level":"1","Unknown":"00 00","Reference":"{Skyrim.esm:0FDA17}","Count":"1"}},{"LVLO - Base Data":{"Level":"1","Unknown":"00 00","Reference":"{Skyrim.esm:0FDA17}","Count":"1"}},{"LVLO - Base Data":{"Level":"1","Unknown":"00 00","Reference":"{Skyrim.esm:0FDA17}","Count":"1"}},{"LVLO - Base Data":{"Level":"1","Unknown":"00 00","Reference":"{Skyrim.esm:0FDA17}","Count":"1"}}]}}
+{
+  "00000F53": {
+    "Record Header": {
+      "Signature": "LVLI",
+      "Data Size": "443",
+      "Record Flags": "",
+      "FormID": "{Skyrim.esm:000F53}",
+      "Version Control Info 1": "00 00 00 00",
+      "Form Version": "40",
+      "Version Control Info 2": "00 00"
+    },
+    "EDID - Editor ID": "SublistEnchArmorShield06Dragonscale05",
+    "OBND - Object Bounds": {
+      "X1": "0",
+      "Y1": "0",
+      "Z1": "0",
+      "X2": "0",
+      "Y2": "0",
+      "Z2": "0"
+    },
+    "LVLD - Chance None": "0",
+    "LVLF - Flags": "Calculate from all levels <= player's level, Calculate for each item in count",
+    "LLCT - Count": "20",
+    "Leveled List Entries": [
+      {
+        "LVLO - Base Data": {
+          "Level": "1",
+          "Unknown": "00 00",
+          "Reference": "{Skyrim.esm:0FDA0D}",
+          "Count": "1"
+        }
+      },
+      {
+        "LVLO - Base Data": {
+          "Level": "1",
+          "Unknown": "00 00",
+          "Reference": "{Skyrim.esm:0FDA17}",
+          "Count": "1"
+        }
+      },
+      {
+        "LVLO - Base Data": {
+          "Level": "1",
+          "Unknown": "00 00",
+          "Reference": "{Skyrim.esm:0FDA17}",
+          "Count": "1"
+        }
+      },
+      {
+        "LVLO - Base Data": {
+          "Level": "1",
+          "Unknown": "00 00",
+          "Reference": "{Skyrim.esm:0FDA17}",
+          "Count": "1"
+        }
+      },
+      {
+        "LVLO - Base Data": {
+          "Level": "1",
+          "Unknown": "00 00",
+          "Reference": "{Skyrim.esm:0FDA17}",
+          "Count": "1"
+        }
+      },
+      {
+        "LVLO - Base Data": {
+          "Level": "1",
+          "Unknown": "00 00",
+          "Reference": "{Skyrim.esm:0FDA17}",
+          "Count": "1"
+        }
+      },
+      {
+        "LVLO - Base Data": {
+          "Level": "1",
+          "Unknown": "00 00",
+          "Reference": "{Skyrim.esm:0FDA17}",
+          "Count": "1"
+        }
+      },
+      {
+        "LVLO - Base Data": {
+          "Level": "1",
+          "Unknown": "00 00",
+          "Reference": "{Skyrim.esm:0FDA17}",
+          "Count": "1"
+        }
+      },
+      {
+        "LVLO - Base Data": {
+          "Level": "1",
+          "Unknown": "00 00",
+          "Reference": "{Skyrim.esm:0FDA17}",
+          "Count": "1"
+        }
+      },
+      {
+        "LVLO - Base Data": {
+          "Level": "1",
+          "Unknown": "00 00",
+          "Reference": "{Skyrim.esm:0FDA17}",
+          "Count": "1"
+        }
+      },
+      {
+        "LVLO - Base Data": {
+          "Level": "1",
+          "Unknown": "00 00",
+          "Reference": "{Skyrim.esm:0FDA17}",
+          "Count": "1"
+        }
+      },
+      {
+        "LVLO - Base Data": {
+          "Level": "1",
+          "Unknown": "00 00",
+          "Reference": "{Skyrim.esm:0FDA17}",
+          "Count": "1"
+        }
+      },
+      {
+        "LVLO - Base Data": {
+          "Level": "1",
+          "Unknown": "00 00",
+          "Reference": "{Skyrim.esm:0FDA17}",
+          "Count": "1"
+        }
+      },
+      {
+        "LVLO - Base Data": {
+          "Level": "1",
+          "Unknown": "00 00",
+          "Reference": "{Skyrim.esm:0FDA17}",
+          "Count": "1"
+        }
+      },
+      {
+        "LVLO - Base Data": {
+          "Level": "1",
+          "Unknown": "00 00",
+          "Reference": "{Skyrim.esm:0FDA17}",
+          "Count": "1"
+        }
+      },
+      {
+        "LVLO - Base Data": {
+          "Level": "1",
+          "Unknown": "00 00",
+          "Reference": "{Skyrim.esm:0FDA17}",
+          "Count": "1"
+        }
+      },
+      {
+        "LVLO - Base Data": {
+          "Level": "1",
+          "Unknown": "00 00",
+          "Reference": "{Skyrim.esm:0FDA17}",
+          "Count": "1"
+        }
+      },
+      {
+        "LVLO - Base Data": {
+          "Level": "1",
+          "Unknown": "00 00",
+          "Reference": "{Skyrim.esm:0FDA17}",
+          "Count": "1"
+        }
+      },
+      {
+        "LVLO - Base Data": {
+          "Level": "1",
+          "Unknown": "00 00",
+          "Reference": "{Skyrim.esm:0FDA17}",
+          "Count": "1"
+        }
+      },
+      {
+        "LVLO - Base Data": {
+          "Level": "1",
+          "Unknown": "00 00",
+          "Reference": "{Skyrim.esm:0FDA17}",
+          "Count": "1"
+        }
+      }
+    ]
+  }
+}

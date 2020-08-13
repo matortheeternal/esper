@@ -1,1 +1,34 @@
-{"0010FDAD":{"Record Header":{"Signature":"CAMS","Data Size":"139","Record Flags":"","FormID":"{Skyrim.esm:10FDAD}","Version Control Info 1":"00 00 00 00","Form Version":"40","Version Control Info 2":"00 00"},"EDID - Editor ID":"DS04aDragonKillCamA01L","Model":{"MODL - Model Filename":"Cameras\\DragonKillCamA01L.nif","MODT - Texture Files Hashes":"02 00 00 00 00 00 00 00 00 00 00 00"},"DATA - Data":{"Action":"Shoot","Location":"Attacker","Target":"Attacker","Flags":"Position Follows Location, Rotation Follows Target, Don't Follow Bone, Start At Time Zero","Time Multipliers":{"Player":"1.000000","Target":"1.000000","Global":"1.000000"},"Max Time":"10.000000","Min Time":"4.000000","Target % Between Actors":"0.000000","Near Target Distance":""},"MNAM - Image Space Modifier":"{Skyrim.esm:035301}"}}
+{
+  "0010FDAD": {
+    "Record Header": {
+      "Signature": "CAMS",
+      "Data Size": "139",
+      "Record Flags": "",
+      "FormID": "{Skyrim.esm:10FDAD}",
+      "Version Control Info 1": "00 00 00 00",
+      "Form Version": "40",
+      "Version Control Info 2": "00 00"
+    },
+    "EDID - Editor ID": "DS04aDragonKillCamA01L",
+    "Model": {
+      "MODL - Model FileName": "Cameras\\DragonKillCamA01L.nif",
+      "MODT - Texture Files Hashes": "02 00 00 00 00 00 00 00 00 00 00 00"
+    },
+    "DATA - Data": {
+      "Action": "Shoot",
+      "Location": "Attacker",
+      "Target": "Attacker",
+      "Flags": "Position Follows Location, Rotation Follows Target, Don't Follow Bone, Start At Time Zero",
+      "Time Multipliers": {
+        "Player": "1.000000",
+        "Target": "1.000000",
+        "Global": "1.000000"
+      },
+      "Max Time": "10.000000",
+      "Min Time": "4.000000",
+      "Target % Between Actors": "0.000000",
+      "Near Target Distance": ""
+    },
+    "MNAM - Image Space Modifier": "{Skyrim.esm:035301}"
+  }
+}

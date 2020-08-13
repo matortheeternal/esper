@@ -1,1 +1,62 @@
-{"0010C3B5":{"Record Header":{"Signature":"FLOR","Data Size":"234","Record Flags":"","FormID":"{Skyrim.esm:10C3B5}","Version Control Info 1":"00 00 00 00","Form Version":"44","Version Control Info 2":"00 00"},"EDID - Editor ID":"DeadFXSalmon02","VMAD - Virtual Machine Adapter":{"Version":"5","Object Format":"2","Scripts":[{"scriptName":"FCaddIngrediantAndDeleteSCRIPT","Flags":"Local","Properties":[{"propertyName":"myFood","Type":"Object","Flags":"Edited","Value":""}]}]},"OBND - Object Bounds":{"X1":"0","Y1":"0","Z1":"0","X2":"0","Y2":"0","Z2":"0"},"FULL - Name":"Salmon","Model":{"MODL - Model Filename":"Effects\\DeadFXSalmon02.nif","MODT - Texture Files Hashes":"02 00 00 00 02 00 00 00 00 00 00 00 49 9A 1E BE 64 64 73 00 48 4A 40 BF CC 3D 48 A6 64 64 73 00 48 4A 40 BF"},"PNAM - Unknown":"00 00 00 00","RNAM - Activate Text Override":"Harvest","FNAM - Unknown":"00 00","PFPC - Seasonal ingredient production":{"Spring":"0","Summer ":"0","Fall":"0","Winter":"0"}}}
+{
+  "0010C3B5": {
+    "Record Header": {
+      "Signature": "FLOR",
+      "Data Size": "234",
+      "Record Flags": "",
+      "FormID": "{Skyrim.esm:10C3B5}",
+      "Version Control Info 1": "00 00 00 00",
+      "Form Version": "44",
+      "Version Control Info 2": "00 00"
+    },
+    "EDID - Editor ID": "DeadFXSalmon02",
+    "VMAD - Virtual Machine Adapter": {
+      "Version": "5",
+      "Object Format": "2",
+      "Scripts": [
+        {
+          "scriptName": "FCaddIngrediantAndDeleteSCRIPT",
+          "Flags": "Local",
+          "Properties": [
+            {
+              "propertyName": "myFood",
+              "Type": "Object",
+              "Flags": "Edited",
+              "Value": {
+                "Object Union": {
+                  "Object v2": {
+                    "FormID": "{Skyrim.esm:065C9F}",
+                    "Alias": "None",
+                    "Unused": "0"
+                  }
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "OBND - Object Bounds": {
+      "X1": "0",
+      "Y1": "0",
+      "Z1": "0",
+      "X2": "0",
+      "Y2": "0",
+      "Z2": "0"
+    },
+    "FULL - Name": "Salmon",
+    "Model": {
+      "MODL - Model FileName": "Effects\\DeadFXSalmon02.nif",
+      "MODT - Texture Files Hashes": "02 00 00 00 02 00 00 00 00 00 00 00 49 9A 1E BE 64 64 73 00 48 4A 40 BF CC 3D 48 A6 64 64 73 00 48 4A 40 BF"
+    },
+    "PNAM - Unknown": "00 00 00 00",
+    "RNAM - Activate Text Override": "Harvest",
+    "FNAM - Unknown": "00 00",
+    "PFPC - Seasonal ingredient production": {
+      "Spring": "0",
+      "Summer ": "0",
+      "Fall": "0",
+      "Winter": "0"
+    }
+  }
+}

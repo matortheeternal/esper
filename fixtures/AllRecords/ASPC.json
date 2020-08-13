@@ -1,1 +1,23 @@
-{"0010FE9E":{"Record Header":{"Signature":"ASPC","Data Size":"70","Record Flags":"","FormID":"{Skyrim.esm:10FE9E}","Version Control Info 1":"00 00 00 00","Form Version":"40","Version Control Info 2":"00 00"},"EDID - Editor ID":"ExtMQFlashbackInteriorAcousticSpace","OBND - Object Bounds":{"X1":"-1500","Y1":"-1500","Z1":"-423","X2":"1500","Y2":"1500","Z2":"423"},"BNAM - Environment Type (reverb)":"{Skyrim.esm:0FD92A}"}}
+{
+  "0010FE9E": {
+    "Record Header": {
+      "Signature": "ASPC",
+      "Data Size": "70",
+      "Record Flags": "",
+      "FormID": "{Skyrim.esm:10FE9E}",
+      "Version Control Info 1": "00 00 00 00",
+      "Form Version": "40",
+      "Version Control Info 2": "00 00"
+    },
+    "EDID - Editor ID": "ExtMQFlashbackInteriorAcousticSpace",
+    "OBND - Object Bounds": {
+      "X1": "-1500",
+      "Y1": "-1500",
+      "Z1": "-423",
+      "X2": "1500",
+      "Y2": "1500",
+      "Z2": "423"
+    },
+    "BNAM - Environment Type (reverb)": "{Skyrim.esm:0FD92A}"
+  }
+}

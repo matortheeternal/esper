@@ -1,1 +1,17 @@
-{"00081BA6":{"Record Header":{"Signature":"EYES","Data Size":"92","Record Flags":"","FormID":"{Skyrim.esm:081BA6}","Version Control Info 1":"00 00 00 00","Form Version":"44","Version Control Info 2":"00 00"},"EDID - Editor ID":"EyeKhajiitMale","FULL - Name":"EyeKhajiitMale","ICON - Texture":"Actors\\Character\\Eyes\\EyeKhajiit.dds","DATA - Flags":"Playable, Not Female"}}
+{
+  "00081BA6": {
+    "Record Header": {
+      "Signature": "EYES",
+      "Data Size": "92",
+      "Record Flags": "",
+      "FormID": "{Skyrim.esm:081BA6}",
+      "Version Control Info 1": "00 00 00 00",
+      "Form Version": "44",
+      "Version Control Info 2": "00 00"
+    },
+    "EDID - Editor ID": "EyeKhajiitMale",
+    "FULL - Name": "EyeKhajiitMale",
+    "ICON - Texture": "Actors\\Character\\Eyes\\EyeKhajiit.dds",
+    "DATA - Flags": "Playable, Not Female"
+  }
+}

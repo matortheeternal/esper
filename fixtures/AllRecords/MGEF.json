@@ -1,1 +1,94 @@
-{"000173DC":{"Record Header":{"Signature":"MGEF","Data Size":"307","Record Flags":"","FormID":"{Skyrim.esm:0173DC}","Version Control Info 1":"00 00 00 00","Form Version":"44","Version Control Info 2":"00 00"},"EDID - Editor ID":"BanishDmgHealthFFTargetActor","FULL - Name":"Banish - Damage Health","MDOB - Menu Display Object":"{Skyrim.esm:0435A5}","Magic Effect Data":{"DATA - Data":{"Flags":"Detrimental, FX Persist, Hide in UI, Power Affects Magnitude","Base Cost":"0.000000","Assoc. Item":"{Null:000000}","Magic Skill":"Destruction","Resist Value":"None","Counter Effect count":"0","Unused":"00 00","Casting Light":"{Skyrim.esm:0ABEFE}","Taper Weight":"1.000000","Hit Shader":"{Skyrim.esm:0ABEFF}","Enchant Shader":"{Null:000000}","Minimum Skill Level":"0","Spellmaking":{"Area":"0","Casting Time":"0.000000"},"Taper Curve":"0.000000","Taper Duration":"0.000000","Second AV Weight":"0.000000","Archtype":"Value Modifier","Actor Value":"Health","Projectile":"{Null:000000}","Explosion":"{Null:000000}","Casting Type":"Fire and Forget","Delivery":"Target Actor","Second Actor Value":"None","Casting Art":"{Skyrim.esm:0ABF02}","Hit Effect Art":"{Skyrim.esm:0ABF10}","Impact Data":"{Null:000000}","Skill Usage Multiplier":"0.000000","Dual Casting":{"Art":"{Null:000000}","Scale":"1.000000"},"Enchant Art":"{Null:000000}","Unknown":"{Null:000000}","Equip Ability":"{Null:000000}","Image Space Modifier":"{Null:000000}","Perk to Apply":"{Null:000000}","Casting Sound Level":"Loud","Script Effect AI":{"Score":"0.000000","Delay Time":"0.000000"}}},"SNDD - Sounds":[{"Type":"Sheathe/Draw","Sound":"{Skyrim.esm:05A017}"},{"Type":"Release","Sound":"{Skyrim.esm:057C61}"},{"Type":"Concentration Cast Loop","Sound":"{Skyrim.esm:03E958}"}],"DNAM - Magic Item Description":"","Conditions":[{"CTDA - ":{"Type":"10000000","Unused":"00 00","Comparison Value":"1.000000","Function":"HasKeyword","Parameter #1":"{Skyrim.esm:013797}","Parameter #2":"00 00 00 00","Run On":"Subject","Reference":"0","Parameter #3":"-1"}}]}}
+{
+  "000173DC": {
+    "Record Header": {
+      "Signature": "MGEF",
+      "Data Size": "307",
+      "Record Flags": "",
+      "FormID": "{Skyrim.esm:0173DC}",
+      "Version Control Info 1": "00 00 00 00",
+      "Form Version": "44",
+      "Version Control Info 2": "00 00"
+    },
+    "EDID - Editor ID": "BanishDmgHealthFFTargetActor",
+    "FULL - Name": "Banish - Damage Health",
+    "MDOB - Menu Display Object": "{Skyrim.esm:0435A5}",
+    "Magic Effect Data": {
+      "DATA - Data": {
+        "Flags": "Detrimental, FX Persist, Hide in UI, Power Affects Magnitude",
+        "Base Cost": "0.000000",
+        "Assoc. Item": "{Null:000000}",
+        "Magic Skill": "Destruction",
+        "Resist Value": "None",
+        "Counter Effect count": "0",
+        "Unused": "00 00",
+        "Casting Light": "{Skyrim.esm:0ABEFE}",
+        "Taper Weight": "1.000000",
+        "Hit Shader": "{Skyrim.esm:0ABEFF}",
+        "Enchant Shader": "{Null:000000}",
+        "Minimum Skill Level": "0",
+        "Spellmaking": {
+          "Area": "0",
+          "Casting Time": "0.000000"
+        },
+        "Taper Curve": "0.000000",
+        "Taper Duration": "0.000000",
+        "Second AV Weight": "0.000000",
+        "Archtype": "Value Modifier",
+        "Actor Value": "Health",
+        "Projectile": "{Null:000000}",
+        "Explosion": "{Null:000000}",
+        "Casting Type": "Fire and Forget",
+        "Delivery": "Target Actor",
+        "Second Actor Value": "None",
+        "Casting Art": "{Skyrim.esm:0ABF02}",
+        "Hit Effect Art": "{Skyrim.esm:0ABF10}",
+        "Impact Data": "{Null:000000}",
+        "Skill Usage Multiplier": "0.000000",
+        "Dual Casting": {
+          "Art": "{Null:000000}",
+          "Scale": "1.000000"
+        },
+        "Enchant Art": "{Null:000000}",
+        "Unknown": "{Null:000000}",
+        "Equip Ability": "{Null:000000}",
+        "Image Space Modifier": "{Null:000000}",
+        "Perk to Apply": "{Null:000000}",
+        "Casting Sound Level": "Loud",
+        "Script Effect AI": {
+          "Score": "0.000000",
+          "Delay Time": "0.000000"
+        }
+      }
+    },
+    "SNDD - Sounds": [
+      {
+        "Type": "Sheathe/Draw",
+        "Sound": "{Skyrim.esm:05A017}"
+      },
+      {
+        "Type": "Release",
+        "Sound": "{Skyrim.esm:057C61}"
+      },
+      {
+        "Type": "Concentration Cast Loop",
+        "Sound": "{Skyrim.esm:03E958}"
+      }
+    ],
+    "DNAM - Magic Item Description": "",
+    "Conditions": [
+      {
+        "CTDA - ": {
+          "Type": "10000000",
+          "Unused": "00 00",
+          "Comparison Value": "1.000000",
+          "Function": "HasKeyword",
+          "Parameter #1": "{Skyrim.esm:013797}",
+          "Parameter #2": "00 00 00 00",
+          "Run On": "Subject",
+          "Reference": "0",
+          "Parameter #3": "-1"
+        }
+      }
+    ]
+  }
+}

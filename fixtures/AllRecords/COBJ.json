@@ -1,1 +1,54 @@
-{"00000F61":{"Record Header":{"Signature":"COBJ","Data Size":"166","Record Flags":"","FormID":"{Skyrim.esm:000F61}","Version Control Info 1":"00 00 00 00","Form Version":"40","Version Control Info 2":"00 00"},"EDID - Editor ID":"TemperWeaponSkyforgeSteelWarAxe","COCT - Count":"1","Items":[{"CNTO - Item":{"Item":"{Skyrim.esm:05ACE5}","Count":"1"}}],"Conditions":[{"CTDA - ":{"Type":"00010000","Unused":"54 00","Comparison Value":"1.000000","Function":"EPTemperingItemIsEnchanted","Parameter #1":"00 00 00 00","Parameter #2":"00 00 00 00","Run On":"Subject","Reference":"0","Parameter #3":"-1"}},{"CTDA - ":{"Type":"10000000","Unused":"54 00","Comparison Value":"1.000000","Function":"HasPerk","Parameter #1":"{Skyrim.esm:05218E}","Parameter #2":"0","Run On":"Subject","Reference":"0","Parameter #3":"-1"}}],"CNAM - Created Object":"{Skyrim.esm:09F260}","BNAM - Workbench Keyword":"{Skyrim.esm:088108}","NAM1 - Created Object Count":"1"}}
+{
+  "00000F61": {
+    "Record Header": {
+      "Signature": "COBJ",
+      "Data Size": "166",
+      "Record Flags": "",
+      "FormID": "{Skyrim.esm:000F61}",
+      "Version Control Info 1": "00 00 00 00",
+      "Form Version": "40",
+      "Version Control Info 2": "00 00"
+    },
+    "EDID - Editor ID": "TemperWeaponSkyforgeSteelWarAxe",
+    "COCT - Count": "1",
+    "Items": [
+      {
+        "CNTO - Item": {
+          "Item": "{Skyrim.esm:05ACE5}",
+          "Count": "1"
+        }
+      }
+    ],
+    "Conditions": [
+      {
+        "CTDA - ": {
+          "Type": "00010000",
+          "Unused": "54 00",
+          "Comparison Value": "1.000000",
+          "Function": "EPTemperingItemIsEnchanted",
+          "Parameter #1": "00 00 00 00",
+          "Parameter #2": "00 00 00 00",
+          "Run On": "Subject",
+          "Reference": "0",
+          "Parameter #3": "-1"
+        }
+      },
+      {
+        "CTDA - ": {
+          "Type": "10000000",
+          "Unused": "54 00",
+          "Comparison Value": "1.000000",
+          "Function": "HasPerk",
+          "Parameter #1": "{Skyrim.esm:05218E}",
+          "Parameter #2": "0",
+          "Run On": "Subject",
+          "Reference": "0",
+          "Parameter #3": "-1"
+        }
+      }
+    ],
+    "CNAM - Created Object": "{Skyrim.esm:09F260}",
+    "BNAM - Workbench Keyword": "{Skyrim.esm:088108}",
+    "NAM1 - Created Object Count": "1"
+  }
+}

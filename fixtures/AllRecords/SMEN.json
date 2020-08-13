@@ -1,1 +1,19 @@
-{"00039D86":{"Record Header":{"Signature":"SMEN","Data Size":"60","Record Flags":"","FormID":"{Skyrim.esm:039D86}","Version Control Info 1":"00 00 00 00","Form Version":"35","Version Control Info 2":"00 00"},"PNAM - Parent ":"{Skyrim.esm:00005B}","SNAM - Child ":"{Null:000000}","CITC - Condition Count":"0","DNAM - Flags":"","XNAM - Unknown":"00 00 00 00","ENAM - Type":"CRFT"}}
+{
+  "00039D86": {
+    "Record Header": {
+      "Signature": "SMEN",
+      "Data Size": "60",
+      "Record Flags": "",
+      "FormID": "{Skyrim.esm:039D86}",
+      "Version Control Info 1": "00 00 00 00",
+      "Form Version": "35",
+      "Version Control Info 2": "00 00"
+    },
+    "PNAM - Parent ": "{Skyrim.esm:00005B}",
+    "SNAM - Child ": "{Null:000000}",
+    "CITC - Condition Count": "0",
+    "DNAM - Flags": "",
+    "XNAM - Unknown": "00 00 00 00",
+    "ENAM - Type": "CRFT"
+  }
+}

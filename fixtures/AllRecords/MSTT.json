@@ -1,1 +1,27 @@
-{"0010F7EA":{"Record Header":{"Signature":"MSTT","Data Size":"145","Record Flags":"","FormID":"{Skyrim.esm:10F7EA}","Version Control Info 1":"00 00 00 00","Form Version":"44","Version Control Info 2":"00 00"},"EDID - Editor ID":"GallusFXBody01","OBND - Object Bounds":{"X1":"-139","Y1":"-127","Z1":"-120","X2":"139","Y2":"152","Z2":"186"},"Model":{"MODL - Model Filename":"Effects\\GallusFXBody01.nif","MODT - Texture Files Hashes":"02 00 00 00 04 00 00 00 00 00 00 00 6C 6A C8 1F 64 64 73 00 38 97 3C EA 82 C7 A9 50 64 64 73 00 58 2C 55 33 7C A2 AE 13 64 64 73 00 38 97 3C EA A7 41 47 49 64 64 73 00 38 97 3C EA"},"DATA - Flags":"Unknown 2"}}
+{
+  "0010F7EA": {
+    "Record Header": {
+      "Signature": "MSTT",
+      "Data Size": "145",
+      "Record Flags": "",
+      "FormID": "{Skyrim.esm:10F7EA}",
+      "Version Control Info 1": "00 00 00 00",
+      "Form Version": "44",
+      "Version Control Info 2": "00 00"
+    },
+    "EDID - Editor ID": "GallusFXBody01",
+    "OBND - Object Bounds": {
+      "X1": "-139",
+      "Y1": "-127",
+      "Z1": "-120",
+      "X2": "139",
+      "Y2": "152",
+      "Z2": "186"
+    },
+    "Model": {
+      "MODL - Model FileName": "Effects\\GallusFXBody01.nif",
+      "MODT - Texture Files Hashes": "02 00 00 00 04 00 00 00 00 00 00 00 6C 6A C8 1F 64 64 73 00 38 97 3C EA 82 C7 A9 50 64 64 73 00 58 2C 55 33 7C A2 AE 13 64 64 73 00 38 97 3C EA A7 41 47 49 64 64 73 00 38 97 3C EA"
+    },
+    "DATA - Flags": "Unknown 2"
+  }
+}

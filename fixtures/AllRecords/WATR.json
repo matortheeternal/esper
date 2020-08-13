@@ -1,1 +1,94 @@
-{"0010CC8E":{"Record Header":{"Signature":"WATR","Data Size":"471","Record Flags":"","FormID":"{Skyrim.esm:10CC8E}","Version Control Info 1":"00 00 00 00","Form Version":"39","Version Control Info 2":"00 00"},"EDID - Editor ID":"DefaultWaterKatariahWorld","Unused":["Data\\Textures\\Water\\DefaultWater.dds","Data\\Textures\\Water\\DefaultWater.dds","Data\\Textures\\Water\\DefaultWater.dds"],"ANAM - Opacity":"30","FNAM - Flags":"","DATA - Damage Per Second":"0","DNAM - Visual Data":{"Unknown":"0.000000","Specular Properties - Sun Specular Power":"1021.000000","Water Properties - Reflectivity Amount":"1.000000","Water Properties - Fresnel Amount":"0.050000","Fog Properties - Above Water - Fog Distance - Near Plane":"0.000000","Fog Properties - Above Water - Fog Distance - Far Plane":"110.000000","Shallow Color":"","Deep Color":"","Reflection Color":"","Displacement Simulator - Starting Size":"0.700000","Displacement Simulator - Force":"0.100000","Displacement Simulator - Velocity":"0.850000","Displacement Simulator - Falloff":"0.800000","Displacement Simulator - Dampner":"0.980000","Noise Properties - Noise Falloff":"4007.000000","Noise Properties - Layer One - Wind Direction":"270.000000","Noise Properties - Layer Two - Wind Direction":"209.000000","Noise Properties - Layer Three - Wind Direction":"235.000000","Noise Properties - Layer One - Wind Speed":"0.025000","Noise Properties - Layer Two - Wind Speed":"0.014000","Noise Properties - Layer Three - Wind Speed":"0.135000","Fog Properties - Above Water - Fog Amount":"0.930000","Fog Properties - Under Water - Fog Amount":"1.000000","Fog Properties - Under Water - Fog Distance - Near Plane":"-1000.000000","Fog Properties - Under Water - Fog Distance - Far Plane":"1000.000000","Water Properties - Refraction Magnitude":"9.000000","Specular Properties - Specular Power":"500.000000","Specular Properties - Specular Radius":"10000.000000","Specular Properties - Specular Brightness":"10.000000","Noise Properties - Layer One - UV Scale":"1993.000000","Noise Properties - Layer Two - UV Scale":"6703.000000","Noise Properties - Layer Three - UV Scale":"500.000000","Noise Properties - Layer One - Amplitude Scale":"0.644800","Noise Properties - Layer Two - Amplitude Scale":"0.558000","Noise Properties - Layer Three - Amplitude Scale":"0.644900","Water Properties - Reflection Magnitude":"0.340000","Specular Properties - Sun Sparkle Magnitude":"1.400000","Specular Properties - Sun Specular Magnitude":"3.200000","Depth Properties - Reflections":"0.900000","Depth Properties - Refraction":"0.500000","Depth Properties - Normals":"0.100000","Depth Properties - Specular Lighting":"0.200000","Specular Properties - Sun Sparkle Power":"1480.000000","Noise Properties - Flowmap Scale":""},"GNAM - Unused":"00 00 00 00 00 00 00 00 00 00 00 00","NAM0 - Linear Velocity":{"X":"0.220000","Y":"0.220000","Z":"0.000000"},"NAM1 - Angular Velocity":{"X":"0.000000","Y":"0.000000","Z":"0.000000"}}}
+{
+  "0010CC8E": {
+    "Record Header": {
+      "Signature": "WATR",
+      "Data Size": "471",
+      "Record Flags": "",
+      "FormID": "{Skyrim.esm:10CC8E}",
+      "Version Control Info 1": "00 00 00 00",
+      "Form Version": "39",
+      "Version Control Info 2": "00 00"
+    },
+    "EDID - Editor ID": "DefaultWaterKatariahWorld",
+    "Unused": [
+      "Data\\Textures\\Water\\DefaultWater.dds",
+      "Data\\Textures\\Water\\DefaultWater.dds",
+      "Data\\Textures\\Water\\DefaultWater.dds"
+    ],
+    "ANAM - Opacity": "30",
+    "FNAM - Flags": "",
+    "DATA - Damage Per Second": "0",
+    "DNAM - Visual Data": {
+      "Unknown": "0.000000",
+      "Specular Properties - Sun Specular Power": "1021.000000",
+      "Water Properties - Reflectivity Amount": "1.000000",
+      "Water Properties - Fresnel Amount": "0.050000",
+      "Fog Properties - Above Water - Fog Distance - Near Plane": "0.000000",
+      "Fog Properties - Above Water - Fog Distance - Far Plane": "110.000000",
+      "Shallow Color": {
+        "Red": "37",
+        "Green": "52",
+        "Blue": "37",
+        "Unused": "00"
+      },
+      "Deep Color": {
+        "Red": "5",
+        "Green": "16",
+        "Blue": "5",
+        "Unused": "00"
+      },
+      "Reflection Color": {
+        "Red": "103",
+        "Green": "122",
+        "Blue": "117",
+        "Unused": "00"
+      },
+      "Displacement Simulator - Starting Size": "0.700000",
+      "Displacement Simulator - Force": "0.100000",
+      "Displacement Simulator - Velocity": "0.850000",
+      "Displacement Simulator - Falloff": "0.800000",
+      "Displacement Simulator - Dampner": "0.980000",
+      "Noise Properties - Noise Falloff": "4007.000000",
+      "Noise Properties - Layer One - Wind Direction": "270.000000",
+      "Noise Properties - Layer Two - Wind Direction": "209.000000",
+      "Noise Properties - Layer Three - Wind Direction": "235.000000",
+      "Noise Properties - Layer One - Wind Speed": "0.025000",
+      "Noise Properties - Layer Two - Wind Speed": "0.014000",
+      "Noise Properties - Layer Three - Wind Speed": "0.135000",
+      "Fog Properties - Above Water - Fog Amount": "0.930000",
+      "Fog Properties - Under Water - Fog Amount": "1.000000",
+      "Fog Properties - Under Water - Fog Distance - Near Plane": "-1000.000000",
+      "Fog Properties - Under Water - Fog Distance - Far Plane": "1000.000000",
+      "Water Properties - Refraction Magnitude": "9.000000",
+      "Specular Properties - Specular Power": "500.000000",
+      "Specular Properties - Specular Radius": "10000.000000",
+      "Specular Properties - Specular Brightness": "10.000000",
+      "Noise Properties - Layer One - UV Scale": "1993.000000",
+      "Noise Properties - Layer Two - UV Scale": "6703.000000",
+      "Noise Properties - Layer Three - UV Scale": "500.000000",
+      "Noise Properties - Layer One - Amplitude Scale": "0.644800",
+      "Noise Properties - Layer Two - Amplitude Scale": "0.558000",
+      "Noise Properties - Layer Three - Amplitude Scale": "0.644900",
+      "Water Properties - Reflection Magnitude": "0.340000",
+      "Specular Properties - Sun Sparkle Magnitude": "1.400000",
+      "Specular Properties - Sun Specular Magnitude": "3.200000",
+      "Depth Properties - Reflections": "0.900000",
+      "Depth Properties - Refraction": "0.500000",
+      "Depth Properties - Normals": "0.100000",
+      "Depth Properties - Specular Lighting": "0.200000",
+      "Specular Properties - Sun Sparkle Power": "1480.000000",
+      "Noise Properties - Flowmap Scale": ""
+    },
+    "GNAM - Unused": "00 00 00 00 00 00 00 00 00 00 00 00",
+    "NAM0 - Linear Velocity": {
+      "X": "0.220000",
+      "Y": "0.220000",
+      "Z": "0.000000"
+    },
+    "NAM1 - Angular Velocity": {
+      "X": "0.000000",
+      "Y": "0.000000",
+      "Z": "0.000000"
+    }
+  }
+}

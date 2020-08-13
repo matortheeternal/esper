@@ -1,1 +1,110 @@
-{"000A919E":{"Record Header":{"Signature":"BPTD","Data Size":"664","Record Flags":"","FormID":"{Skyrim.esm:0A919E}","Version Control Info 1":"00 00 00 00","Form Version":"44","Version Control Info 2":"00 00"},"EDID - Editor ID":"ChickenBodyPartData","Model":{"MODL - Model Filename":"Actors\\Ambient\\Chicken\\Character Assets\\Skeleton.nif","MODT - Texture Files Hashes":"02 00 00 00 00 00 00 00 00 00 00 00"},"Body Parts":[{"BPTN - Part Name":"Head","BPNN - Part Node":"HEAD","BPNT - VATS Target":"HEAD","BPNI - IK Data - Start Node":"BASE Meshes\\Actors\\Ambient\\Chicken\\Character Assets\\Skeleton.nif","BPND - ":{"Damage Mult":"1.000000","Flags":"","Part Type":"Head","Health Percent":"5","Actor Value":"None","To Hit Chance":"100","Explodable - Explosion Chance %":"0","Explodable - Debris Count":"0","Explodable - Debris":"{Null:000000}","Explodable - Explosion":"{Null:000000}","Tracking Max Angle":"0.000000","Explodable - Debris Scale":"1.000000","Severable - Debris Count":"0","Severable - Debris":"{Null:000000}","Severable - Explosion":"{Null:000000}","Severable - Debris Scale":"1.000000","Gore Effects Positioning":{"Translate":{"X":"0.000000","Y":"0.000000","Z":"0.000000"},"Rotation":{"X":"0.0000","Y":"0.0000","Z":"0.0000"}},"Severable - Impact DataSet":"{Null:000000}","Explodable - Impact DataSet":"{Null:000000}","Severable - Decal Count":"0","Explodable - Decal Count":"0","Unknown":"00 00","Limb Replacement Scale":"1.000000"},"NAM1 - Limb Replacement Model":"","NAM4 - Gore Effects - Target Bone":"BASE Meshes\\Actors\\Ambient\\Chicken\\Character Assets\\Skeleton.nif","NAM5 - Texture Files Hashes":""},{"BPTN - Part Name":"Torso","BPNN - Part Node":"Ribcage","BPNT - VATS Target":"Spine","BPNI - IK Data - Start Node":"BASE Meshes\\Actors\\Ambient\\Chicken\\Character Assets\\Skeleton.nif","BPND - ":{"Damage Mult":"1.000000","Flags":"","Part Type":"Torso","Health Percent":"5","Actor Value":"None","To Hit Chance":"100","Explodable - Explosion Chance %":"0","Explodable - Debris Count":"0","Explodable - Debris":"{Null:000000}","Explodable - Explosion":"{Null:000000}","Tracking Max Angle":"0.000000","Explodable - Debris Scale":"1.000000","Severable - Debris Count":"0","Severable - Debris":"{Null:000000}","Severable - Explosion":"{Null:000000}","Severable - Debris Scale":"1.000000","Gore Effects Positioning":{"Translate":{"X":"0.000000","Y":"0.000000","Z":"0.000000"},"Rotation":{"X":"0.0000","Y":"0.0000","Z":"0.0000"}},"Severable - Impact DataSet":"{Null:000000}","Explodable - Impact DataSet":"{Null:000000}","Severable - Decal Count":"0","Explodable - Decal Count":"0","Unknown":"00 00","Limb Replacement Scale":"1.000000"},"NAM1 - Limb Replacement Model":"","NAM4 - Gore Effects - Target Bone":"BASE Meshes\\Actors\\Ambient\\Chicken\\Character Assets\\Skeleton.nif","NAM5 - Texture Files Hashes":""}]}}
+{
+  "000A919E": {
+    "Record Header": {
+      "Signature": "BPTD",
+      "Data Size": "664",
+      "Record Flags": "",
+      "FormID": "{Skyrim.esm:0A919E}",
+      "Version Control Info 1": "00 00 00 00",
+      "Form Version": "44",
+      "Version Control Info 2": "00 00"
+    },
+    "EDID - Editor ID": "ChickenBodyPartData",
+    "Model": {
+      "MODL - Model FileName": "Actors\\Ambient\\Chicken\\Character Assets\\Skeleton.nif",
+      "MODT - Texture Files Hashes": "02 00 00 00 00 00 00 00 00 00 00 00"
+    },
+    "Body Parts": [
+      {
+        "BPTN - Part Name": "Head",
+        "BPNN - Part Node": "HEAD",
+        "BPNT - VATS Target": "HEAD",
+        "BPNI - IK Data - Start Node": "BASE Meshes\\Actors\\Ambient\\Chicken\\Character Assets\\Skeleton.nif",
+        "BPND - ": {
+          "Damage Mult": "1.000000",
+          "Flags": "",
+          "Part Type": "Head",
+          "Health Percent": "5",
+          "Actor Value": "None",
+          "To Hit Chance": "100",
+          "Explodable - Explosion Chance %": "0",
+          "Explodable - Debris Count": "0",
+          "Explodable - Debris": "{Null:000000}",
+          "Explodable - Explosion": "{Null:000000}",
+          "Tracking Max Angle": "0.000000",
+          "Explodable - Debris Scale": "1.000000",
+          "Severable - Debris Count": "0",
+          "Severable - Debris": "{Null:000000}",
+          "Severable - Explosion": "{Null:000000}",
+          "Severable - Debris Scale": "1.000000",
+          "Gore Effects Positioning": {
+            "Translate": {
+              "X": "0.000000",
+              "Y": "0.000000",
+              "Z": "0.000000"
+            },
+            "Rotation": {
+              "X": "0.0000",
+              "Y": "0.0000",
+              "Z": "0.0000"
+            }
+          },
+          "Severable - Impact DataSet": "{Null:000000}",
+          "Explodable - Impact DataSet": "{Null:000000}",
+          "Severable - Decal Count": "0",
+          "Explodable - Decal Count": "0",
+          "Unknown": "00 00",
+          "Limb Replacement Scale": "1.000000"
+        },
+        "NAM1 - Limb Replacement Model": "",
+        "NAM4 - Gore Effects - Target Bone": "BASE Meshes\\Actors\\Ambient\\Chicken\\Character Assets\\Skeleton.nif",
+        "NAM5 - Texture Files Hashes": ""
+      },
+      {
+        "BPTN - Part Name": "Torso",
+        "BPNN - Part Node": "Ribcage",
+        "BPNT - VATS Target": "Spine",
+        "BPNI - IK Data - Start Node": "BASE Meshes\\Actors\\Ambient\\Chicken\\Character Assets\\Skeleton.nif",
+        "BPND - ": {
+          "Damage Mult": "1.000000",
+          "Flags": "",
+          "Part Type": "Torso",
+          "Health Percent": "5",
+          "Actor Value": "None",
+          "To Hit Chance": "100",
+          "Explodable - Explosion Chance %": "0",
+          "Explodable - Debris Count": "0",
+          "Explodable - Debris": "{Null:000000}",
+          "Explodable - Explosion": "{Null:000000}",
+          "Tracking Max Angle": "0.000000",
+          "Explodable - Debris Scale": "1.000000",
+          "Severable - Debris Count": "0",
+          "Severable - Debris": "{Null:000000}",
+          "Severable - Explosion": "{Null:000000}",
+          "Severable - Debris Scale": "1.000000",
+          "Gore Effects Positioning": {
+            "Translate": {
+              "X": "0.000000",
+              "Y": "0.000000",
+              "Z": "0.000000"
+            },
+            "Rotation": {
+              "X": "0.0000",
+              "Y": "0.0000",
+              "Z": "0.0000"
+            }
+          },
+          "Severable - Impact DataSet": "{Null:000000}",
+          "Explodable - Impact DataSet": "{Null:000000}",
+          "Severable - Decal Count": "0",
+          "Explodable - Decal Count": "0",
+          "Unknown": "00 00",
+          "Limb Replacement Scale": "1.000000"
+        },
+        "NAM1 - Limb Replacement Model": "",
+        "NAM4 - Gore Effects - Target Bone": "BASE Meshes\\Actors\\Ambient\\Chicken\\Character Assets\\Skeleton.nif",
+        "NAM5 - Texture Files Hashes": ""
+      }
+    ]
+  }
+}

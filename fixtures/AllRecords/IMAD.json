@@ -1,1 +1,503 @@
-{"0010FDE4":{"Record Header":{"Signature":"IMAD","Data Size":"1598","Record Flags":"","FormID":"{Skyrim.esm:10FDE4}","Version Control Info 1":"00 00 00 00","Form Version":"40","Version Control Info 2":"00 00"},"EDID - Editor ID":"ChargenImod","DNAM - Data Count":{"Flags":"Animatable","Duration":"30.000000","HDR":{"Eye Adapt Speed Mult":"2","Eye Adapt Speed Add":"2","Bloom Blur Radius Mult":"2","Bloom Blur Radius Add":"2","Bloom Threshold Mult":"2","Bloom Threshold Add":"2","Bloom Scale Mult":"2","Bloom Scale Add":"2","Target Lum Min Mult":"2","Target Lum Min Add":"2","Target Lum Max Mult":"2","Target Lum Max Add":"2","Sunlight Scale Mult":"2","Sunlight Scale Add":"2","Sky Scale Mult":"2","Sky Scale Add":"2"},"Unknown08 Mult":"2","Unknown48 Add":"2","Unknown09 Mult":"2","Unknown49 Add":"2","Unknown0A Mult":"2","Unknown4A Add":"2","Unknown0B Mult":"2","Unknown4B Add":"2","Unknown0C Mult":"2","Unknown4C Add":"2","Unknown0D Mult":"2","Unknown4D Add":"2","Unknown0E Mult":"2","Unknown4E Add":"2","Unknown0F Mult":"2","Unknown4F Add":"2","Unknown10 Mult":"2","Unknown50 Add":"2","Cinematic":{"Saturation Mult":"2","Saturation Add":"2","Brightness Mult":"3","Brightness Add":"2","Contrast Mult":"2","Contrast Add":"2"},"Unknown14 Mult":"2","Unknown54 Add":"2","Tint Color":"2","Blur Radius":"4","Double Vision Strength":"2","Radial Blur Strength":"2","Radial Blur Ramp Up":"2","Radial Blur Start":"2","Radial Blur Flags":"","Radial Blur Center X":"0.500000","Radial Blur Center Y":"0.500000","DoF Strength":"4","DoF Distance":"4","DoF Range":"4","DoF Flags":"","Radial Blur Ramp Down":"2","Radial Blur Down Start":"2","Fade Color":"2","Motion Blur Strength":"2"},"BNAM - Blur Radius":[{"Time":"0.000000","Value":"3.000000"},{"Time":"0.220000","Value":"3.000000"},{"Time":"0.430000","Value":"0.000000"},{"Time":"1.000000","Value":"0.000000"}],"VNAM - Double Vision Strength":[{"Time":"0.000000","Value":"0.000000"},{"Time":"1.000000","Value":"0.000000"}],"TNAM - Tint Color":[{"Time":"0.000000","Red":"255","Green":"255","Blue":"255","Alpha":"0"},{"Time":"1.000000","Red":"255","Green":"255","Blue":"255","Alpha":"0"}],"NAM3 - Fade Color":[{"Time":"0.000000","Red":"255","Green":"255","Blue":"255","Alpha":"0"},{"Time":"1.000000","Red":"255","Green":"255","Blue":"255","Alpha":"0"}],"RNAM - Radial Blur Strength":[{"Time":"0.000000","Value":"0.000000"},{"Time":"1.000000","Value":"0.000000"}],"SNAM - Radial Blur Ramp Up":[{"Time":"0.000000","Value":"0.000000"},{"Time":"1.000000","Value":"0.000000"}],"UNAM - Radial Blur Start":[{"Time":"0.000000","Value":"0.000000"},{"Time":"1.000000","Value":"0.000000"}],"NAM1 - Radial Blur Ramp Down":[{"Time":"0.000000","Value":"0.000000"},{"Time":"1.000000","Value":"0.000000"}],"NAM2 - Radial Blur Down Start":[{"Time":"0.000000","Value":"0.000000"},{"Time":"1.000000","Value":"0.000000"}],"WNAM - DoF Strength":[{"Time":"0.000000","Value":"1.000000"},{"Time":"0.220000","Value":"1.000000"},{"Time":"0.430000","Value":"1.000000"},{"Time":"1.000000","Value":"0.000000"}],"XNAM - DoF Distance":[{"Time":"0.000000","Value":"300.000000"},{"Time":"0.220000","Value":"300.000000"},{"Time":"0.430000","Value":"50.000000"},{"Time":"1.000000","Value":"0.000000"}],"YNAM - DoF Range":[{"Time":"0.000000","Value":"200.000000"},{"Time":"0.220000","Value":"200.000000"},{"Time":"0.430000","Value":"250.000000"},{"Time":"1.000000","Value":"0.000000"}],"NAM4 - Motion Blur Strength":[{"Time":"0.000000","Value":"0.000000"},{"Time":"1.000000","Value":"0.000000"}],"HDR":{"aIAD - Eye Adapt Speed Mult":[{"Time":"0.000000","Value":"1.000000"},{"Time":"1.000000","Value":"1.000000"}],"@IAD - Eye Adapt Speed Add":[{"Time":"0.000000","Value":"0.000000"},{"Time":"1.000000","Value":"0.000000"}],"bIAD - Bloom Blur Radius Mult":[{"Time":"0.000000","Value":"1.000000"},{"Time":"1.000000","Value":"1.000000"}],"AIAD - Bloom Blur Radius Add":[{"Time":"0.000000","Value":"0.000000"},{"Time":"1.000000","Value":"0.000000"}],"cIAD - Bloom Threshold Mult":[{"Time":"0.000000","Value":"1.000000"},{"Time":"1.000000","Value":"1.000000"}],"BIAD - Bloom Threshold Add":[{"Time":"0.000000","Value":"0.000000"},{"Time":"1.000000","Value":"0.000000"}],"dIAD - Bloom Scale Mult":[{"Time":"0.000000","Value":"1.000000"},{"Time":"1.000000","Value":"1.000000"}],"CIAD - Bloom Scale Add":[{"Time":"0.000000","Value":"0.000000"},{"Time":"1.000000","Value":"0.000000"}],"eIAD - Target Lum Min Mult":[{"Time":"0.000000","Value":"1.000000"},{"Time":"1.000000","Value":"1.000000"}],"DIAD - Target Lum Min Add":[{"Time":"0.000000","Value":"0.000000"},{"Time":"1.000000","Value":"0.000000"}],"fIAD - Target Lum Max Mult":[{"Time":"0.000000","Value":"1.000000"},{"Time":"1.000000","Value":"1.000000"}],"EIAD - Target Lum Max Add":[{"Time":"0.000000","Value":"0.000000"},{"Time":"1.000000","Value":"0.000000"}],"gIAD - Sunlight Scale Mult":[{"Time":"0.000000","Value":"1.000000"},{"Time":"1.000000","Value":"1.000000"}],"FIAD - Sunlight Scale Add":[{"Time":"0.000000","Value":"0.000000"},{"Time":"1.000000","Value":"0.000000"}],"hIAD - Sky Scale Mult":[{"Time":"0.000000","Value":"1.000000"},{"Time":"1.000000","Value":"1.000000"}],"GIAD - Sky Scale Add":[{"Time":"0.000000","Value":"0.000000"},{"Time":"1.000000","Value":"0.000000"}]},"iIAD - Unknown":"00 00 00 00 00 00 80 3F 00 00 80 3F 00 00 80 3F","HIAD - Unknown":"00 00 00 00 00 00 00 00 00 00 80 3F 00 00 00 00","jIAD - Unknown":"00 00 00 00 00 00 80 3F 00 00 80 3F 00 00 80 3F","IIAD - Unknown":"00 00 00 00 00 00 00 00 00 00 80 3F 00 00 00 00","kIAD - Unknown":"00 00 00 00 00 00 80 3F 00 00 80 3F 00 00 80 3F","JIAD - Unknown":"00 00 00 00 00 00 00 00 00 00 80 3F 00 00 00 00","lIAD - Unknown":"00 00 00 00 00 00 80 3F 00 00 80 3F 00 00 80 3F","KIAD - Unknown":"00 00 00 00 00 00 00 00 00 00 80 3F 00 00 00 00","mIAD - Unknown":"00 00 00 00 00 00 80 3F 00 00 80 3F 00 00 80 3F","LIAD - Unknown":"00 00 00 00 00 00 00 00 00 00 80 3F 00 00 00 00","nIAD - Unknown":"00 00 00 00 00 00 80 3F 00 00 80 3F 00 00 80 3F","MIAD - Unknown":"00 00 00 00 00 00 00 00 00 00 80 3F 00 00 00 00","oIAD - Unknown":"00 00 00 00 00 00 80 3F 00 00 80 3F 00 00 80 3F","NIAD - Unknown":"00 00 00 00 00 00 00 00 00 00 80 3F 00 00 00 00","pIAD - Unknown":"00 00 00 00 00 00 80 3F 00 00 80 3F 00 00 80 3F","OIAD - Unknown":"00 00 00 00 00 00 00 00 00 00 80 3F 00 00 00 00","qIAD - Unknown":"00 00 00 00 00 00 80 3F 00 00 80 3F 00 00 80 3F","PIAD - Unknown":"00 00 00 00 00 00 00 00 00 00 80 3F 00 00 00 00","Cinematic":{"rIAD - Saturation Mult":[{"Time":"0.000000","Value":"1.000000"},{"Time":"1.000000","Value":"1.000000"}],"QIAD - Saturation Add":[{"Time":"0.000000","Value":"0.000000"},{"Time":"1.000000","Value":"0.000000"}],"sIAD - Brightness Mult":[{"Time":"0.000000","Value":"0.500000"},{"Time":"0.220000","Value":"1.000000"},{"Time":"1.000000","Value":"1.000000"}],"RIAD - Brightness Add":[{"Time":"0.000000","Value":"0.000000"},{"Time":"1.000000","Value":"0.000000"}],"tIAD - Contrast Mult":[{"Time":"0.000000","Value":"1.000000"},{"Time":"1.000000","Value":"1.000000"}],"SIAD - Contrast Add":[{"Time":"0.000000","Value":"0.000000"},{"Time":"1.000000","Value":"0.000000"}]},"uIAD - Unknown":"00 00 00 00 00 00 80 3F 00 00 80 3F 00 00 80 3F","TIAD - Unknown":"00 00 00 00 00 00 00 00 00 00 80 3F 00 00 00 00"}}
+{
+  "0010FDE4": {
+    "Record Header": {
+      "Signature": "IMAD",
+      "Data Size": "1598",
+      "Record Flags": "",
+      "FormID": "{Skyrim.esm:10FDE4}",
+      "Version Control Info 1": "00 00 00 00",
+      "Form Version": "40",
+      "Version Control Info 2": "00 00"
+    },
+    "EDID - Editor ID": "ChargenImod",
+    "DNAM - Data Count": {
+      "Flags": "Animatable",
+      "Duration": "30.000000",
+      "HDR": {
+        "Eye Adapt Speed Mult": "2",
+        "Eye Adapt Speed Add": "2",
+        "Bloom Blur Radius Mult": "2",
+        "Bloom Blur Radius Add": "2",
+        "Bloom Threshold Mult": "2",
+        "Bloom Threshold Add": "2",
+        "Bloom Scale Mult": "2",
+        "Bloom Scale Add": "2",
+        "Target Lum Min Mult": "2",
+        "Target Lum Min Add": "2",
+        "Target Lum Max Mult": "2",
+        "Target Lum Max Add": "2",
+        "Sunlight Scale Mult": "2",
+        "Sunlight Scale Add": "2",
+        "Sky Scale Mult": "2",
+        "Sky Scale Add": "2"
+      },
+      "Unknown08 Mult": "2",
+      "Unknown48 Add": "2",
+      "Unknown09 Mult": "2",
+      "Unknown49 Add": "2",
+      "Unknown0A Mult": "2",
+      "Unknown4A Add": "2",
+      "Unknown0B Mult": "2",
+      "Unknown4B Add": "2",
+      "Unknown0C Mult": "2",
+      "Unknown4C Add": "2",
+      "Unknown0D Mult": "2",
+      "Unknown4D Add": "2",
+      "Unknown0E Mult": "2",
+      "Unknown4E Add": "2",
+      "Unknown0F Mult": "2",
+      "Unknown4F Add": "2",
+      "Unknown10 Mult": "2",
+      "Unknown50 Add": "2",
+      "Cinematic": {
+        "Saturation Mult": "2",
+        "Saturation Add": "2",
+        "Brightness Mult": "3",
+        "Brightness Add": "2",
+        "Contrast Mult": "2",
+        "Contrast Add": "2"
+      },
+      "Unknown14 Mult": "2",
+      "Unknown54 Add": "2",
+      "Tint Color": "2",
+      "Blur Radius": "4",
+      "Double Vision Strength": "2",
+      "Radial Blur Strength": "2",
+      "Radial Blur Ramp Up": "2",
+      "Radial Blur Start": "2",
+      "Radial Blur Flags": "",
+      "Radial Blur Center X": "0.500000",
+      "Radial Blur Center Y": "0.500000",
+      "DoF Strength": "4",
+      "DoF Distance": "4",
+      "DoF Range": "4",
+      "DoF Flags": "",
+      "Radial Blur Ramp Down": "2",
+      "Radial Blur Down Start": "2",
+      "Fade Color": "2",
+      "Motion Blur Strength": "2"
+    },
+    "BNAM - Blur Radius": [
+      {
+        "Time": "0.000000",
+        "Value": "3.000000"
+      },
+      {
+        "Time": "0.220000",
+        "Value": "3.000000"
+      },
+      {
+        "Time": "0.430000",
+        "Value": "0.000000"
+      },
+      {
+        "Time": "1.000000",
+        "Value": "0.000000"
+      }
+    ],
+    "VNAM - Double Vision Strength": [
+      {
+        "Time": "0.000000",
+        "Value": "0.000000"
+      },
+      {
+        "Time": "1.000000",
+        "Value": "0.000000"
+      }
+    ],
+    "TNAM - Tint Color": [
+      {
+        "Time": "0.000000",
+        "Red": "255",
+        "Green": "255",
+        "Blue": "255",
+        "Alpha": "0"
+      },
+      {
+        "Time": "1.000000",
+        "Red": "255",
+        "Green": "255",
+        "Blue": "255",
+        "Alpha": "0"
+      }
+    ],
+    "NAM3 - Fade Color": [
+      {
+        "Time": "0.000000",
+        "Red": "255",
+        "Green": "255",
+        "Blue": "255",
+        "Alpha": "0"
+      },
+      {
+        "Time": "1.000000",
+        "Red": "255",
+        "Green": "255",
+        "Blue": "255",
+        "Alpha": "0"
+      }
+    ],
+    "RNAM - Radial Blur Strength": [
+      {
+        "Time": "0.000000",
+        "Value": "0.000000"
+      },
+      {
+        "Time": "1.000000",
+        "Value": "0.000000"
+      }
+    ],
+    "SNAM - Radial Blur Ramp Up": [
+      {
+        "Time": "0.000000",
+        "Value": "0.000000"
+      },
+      {
+        "Time": "1.000000",
+        "Value": "0.000000"
+      }
+    ],
+    "UNAM - Radial Blur Start": [
+      {
+        "Time": "0.000000",
+        "Value": "0.000000"
+      },
+      {
+        "Time": "1.000000",
+        "Value": "0.000000"
+      }
+    ],
+    "NAM1 - Radial Blur Ramp Down": [
+      {
+        "Time": "0.000000",
+        "Value": "0.000000"
+      },
+      {
+        "Time": "1.000000",
+        "Value": "0.000000"
+      }
+    ],
+    "NAM2 - Radial Blur Down Start": [
+      {
+        "Time": "0.000000",
+        "Value": "0.000000"
+      },
+      {
+        "Time": "1.000000",
+        "Value": "0.000000"
+      }
+    ],
+    "WNAM - DoF Strength": [
+      {
+        "Time": "0.000000",
+        "Value": "1.000000"
+      },
+      {
+        "Time": "0.220000",
+        "Value": "1.000000"
+      },
+      {
+        "Time": "0.430000",
+        "Value": "1.000000"
+      },
+      {
+        "Time": "1.000000",
+        "Value": "0.000000"
+      }
+    ],
+    "XNAM - DoF Distance": [
+      {
+        "Time": "0.000000",
+        "Value": "300.000000"
+      },
+      {
+        "Time": "0.220000",
+        "Value": "300.000000"
+      },
+      {
+        "Time": "0.430000",
+        "Value": "50.000000"
+      },
+      {
+        "Time": "1.000000",
+        "Value": "0.000000"
+      }
+    ],
+    "YNAM - DoF Range": [
+      {
+        "Time": "0.000000",
+        "Value": "200.000000"
+      },
+      {
+        "Time": "0.220000",
+        "Value": "200.000000"
+      },
+      {
+        "Time": "0.430000",
+        "Value": "250.000000"
+      },
+      {
+        "Time": "1.000000",
+        "Value": "0.000000"
+      }
+    ],
+    "NAM4 - Motion Blur Strength": [
+      {
+        "Time": "0.000000",
+        "Value": "0.000000"
+      },
+      {
+        "Time": "1.000000",
+        "Value": "0.000000"
+      }
+    ],
+    "HDR": {
+      "aIAD - Eye Adapt Speed Mult": [
+        {
+          "Time": "0.000000",
+          "Value": "1.000000"
+        },
+        {
+          "Time": "1.000000",
+          "Value": "1.000000"
+        }
+      ],
+      "@IAD - Eye Adapt Speed Add": [
+        {
+          "Time": "0.000000",
+          "Value": "0.000000"
+        },
+        {
+          "Time": "1.000000",
+          "Value": "0.000000"
+        }
+      ],
+      "bIAD - Bloom Blur Radius Mult": [
+        {
+          "Time": "0.000000",
+          "Value": "1.000000"
+        },
+        {
+          "Time": "1.000000",
+          "Value": "1.000000"
+        }
+      ],
+      "AIAD - Bloom Blur Radius Add": [
+        {
+          "Time": "0.000000",
+          "Value": "0.000000"
+        },
+        {
+          "Time": "1.000000",
+          "Value": "0.000000"
+        }
+      ],
+      "cIAD - Bloom Threshold Mult": [
+        {
+          "Time": "0.000000",
+          "Value": "1.000000"
+        },
+        {
+          "Time": "1.000000",
+          "Value": "1.000000"
+        }
+      ],
+      "BIAD - Bloom Threshold Add": [
+        {
+          "Time": "0.000000",
+          "Value": "0.000000"
+        },
+        {
+          "Time": "1.000000",
+          "Value": "0.000000"
+        }
+      ],
+      "dIAD - Bloom Scale Mult": [
+        {
+          "Time": "0.000000",
+          "Value": "1.000000"
+        },
+        {
+          "Time": "1.000000",
+          "Value": "1.000000"
+        }
+      ],
+      "CIAD - Bloom Scale Add": [
+        {
+          "Time": "0.000000",
+          "Value": "0.000000"
+        },
+        {
+          "Time": "1.000000",
+          "Value": "0.000000"
+        }
+      ],
+      "eIAD - Target Lum Min Mult": [
+        {
+          "Time": "0.000000",
+          "Value": "1.000000"
+        },
+        {
+          "Time": "1.000000",
+          "Value": "1.000000"
+        }
+      ],
+      "DIAD - Target Lum Min Add": [
+        {
+          "Time": "0.000000",
+          "Value": "0.000000"
+        },
+        {
+          "Time": "1.000000",
+          "Value": "0.000000"
+        }
+      ],
+      "fIAD - Target Lum Max Mult": [
+        {
+          "Time": "0.000000",
+          "Value": "1.000000"
+        },
+        {
+          "Time": "1.000000",
+          "Value": "1.000000"
+        }
+      ],
+      "EIAD - Target Lum Max Add": [
+        {
+          "Time": "0.000000",
+          "Value": "0.000000"
+        },
+        {
+          "Time": "1.000000",
+          "Value": "0.000000"
+        }
+      ],
+      "gIAD - Sunlight Scale Mult": [
+        {
+          "Time": "0.000000",
+          "Value": "1.000000"
+        },
+        {
+          "Time": "1.000000",
+          "Value": "1.000000"
+        }
+      ],
+      "FIAD - Sunlight Scale Add": [
+        {
+          "Time": "0.000000",
+          "Value": "0.000000"
+        },
+        {
+          "Time": "1.000000",
+          "Value": "0.000000"
+        }
+      ],
+      "hIAD - Sky Scale Mult": [
+        {
+          "Time": "0.000000",
+          "Value": "1.000000"
+        },
+        {
+          "Time": "1.000000",
+          "Value": "1.000000"
+        }
+      ],
+      "GIAD - Sky Scale Add": [
+        {
+          "Time": "0.000000",
+          "Value": "0.000000"
+        },
+        {
+          "Time": "1.000000",
+          "Value": "0.000000"
+        }
+      ]
+    },
+    "iIAD - Unknown": "00 00 00 00 00 00 80 3F 00 00 80 3F 00 00 80 3F",
+    "HIAD - Unknown": "00 00 00 00 00 00 00 00 00 00 80 3F 00 00 00 00",
+    "jIAD - Unknown": "00 00 00 00 00 00 80 3F 00 00 80 3F 00 00 80 3F",
+    "IIAD - Unknown": "00 00 00 00 00 00 00 00 00 00 80 3F 00 00 00 00",
+    "kIAD - Unknown": "00 00 00 00 00 00 80 3F 00 00 80 3F 00 00 80 3F",
+    "JIAD - Unknown": "00 00 00 00 00 00 00 00 00 00 80 3F 00 00 00 00",
+    "lIAD - Unknown": "00 00 00 00 00 00 80 3F 00 00 80 3F 00 00 80 3F",
+    "KIAD - Unknown": "00 00 00 00 00 00 00 00 00 00 80 3F 00 00 00 00",
+    "mIAD - Unknown": "00 00 00 00 00 00 80 3F 00 00 80 3F 00 00 80 3F",
+    "LIAD - Unknown": "00 00 00 00 00 00 00 00 00 00 80 3F 00 00 00 00",
+    "nIAD - Unknown": "00 00 00 00 00 00 80 3F 00 00 80 3F 00 00 80 3F",
+    "MIAD - Unknown": "00 00 00 00 00 00 00 00 00 00 80 3F 00 00 00 00",
+    "oIAD - Unknown": "00 00 00 00 00 00 80 3F 00 00 80 3F 00 00 80 3F",
+    "NIAD - Unknown": "00 00 00 00 00 00 00 00 00 00 80 3F 00 00 00 00",
+    "pIAD - Unknown": "00 00 00 00 00 00 80 3F 00 00 80 3F 00 00 80 3F",
+    "OIAD - Unknown": "00 00 00 00 00 00 00 00 00 00 80 3F 00 00 00 00",
+    "qIAD - Unknown": "00 00 00 00 00 00 80 3F 00 00 80 3F 00 00 80 3F",
+    "PIAD - Unknown": "00 00 00 00 00 00 00 00 00 00 80 3F 00 00 00 00",
+    "Cinematic": {
+      "rIAD - Saturation Mult": [
+        {
+          "Time": "0.000000",
+          "Value": "1.000000"
+        },
+        {
+          "Time": "1.000000",
+          "Value": "1.000000"
+        }
+      ],
+      "QIAD - Saturation Add": [
+        {
+          "Time": "0.000000",
+          "Value": "0.000000"
+        },
+        {
+          "Time": "1.000000",
+          "Value": "0.000000"
+        }
+      ],
+      "sIAD - Brightness Mult": [
+        {
+          "Time": "0.000000",
+          "Value": "0.500000"
+        },
+        {
+          "Time": "0.220000",
+          "Value": "1.000000"
+        },
+        {
+          "Time": "1.000000",
+          "Value": "1.000000"
+        }
+      ],
+      "RIAD - Brightness Add": [
+        {
+          "Time": "0.000000",
+          "Value": "0.000000"
+        },
+        {
+          "Time": "1.000000",
+          "Value": "0.000000"
+        }
+      ],
+      "tIAD - Contrast Mult": [
+        {
+          "Time": "0.000000",
+          "Value": "1.000000"
+        },
+        {
+          "Time": "1.000000",
+          "Value": "1.000000"
+        }
+      ],
+      "SIAD - Contrast Add": [
+        {
+          "Time": "0.000000",
+          "Value": "0.000000"
+        },
+        {
+          "Time": "1.000000",
+          "Value": "0.000000"
+        }
+      ]
+    },
+    "uIAD - Unknown": "00 00 00 00 00 00 80 3F 00 00 80 3F 00 00 80 3F",
+    "TIAD - Unknown": "00 00 00 00 00 00 00 00 00 00 80 3F 00 00 00 00"
+  }
+}

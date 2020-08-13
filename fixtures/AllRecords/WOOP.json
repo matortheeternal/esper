@@ -1,1 +1,15 @@
-{"00106ACB":{"Record Header":{"Signature":"WOOP","Data Size":"28","Record Flags":"","FormID":"{Skyrim.esm:106ACB}","Version Control Info 1":"00 00 00 00","Form Version":"44","Version Control Info 2":"00 00"},"EDID - Editor ID":"DragonFakeWord","TNAM - Translation":""}}
+{
+  "00106ACB": {
+    "Record Header": {
+      "Signature": "WOOP",
+      "Data Size": "28",
+      "Record Flags": "",
+      "FormID": "{Skyrim.esm:106ACB}",
+      "Version Control Info 1": "00 00 00 00",
+      "Form Version": "44",
+      "Version Control Info 2": "00 00"
+    },
+    "EDID - Editor ID": "DragonFakeWord",
+    "TNAM - Translation": ""
+  }
+}

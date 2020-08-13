@@ -1,1 +1,24 @@
-{"000F871F":{"Record Header":{"Signature":"LTEX","Data Size":"70","Record Flags":"","FormID":"{Skyrim.esm:0F871F}","Version Control Info 1":"00 00 00 00","Form Version":"36","Version Control Info 2":"00 00"},"EDID - Editor ID":"LSnowRocks01wGrass","TNAM - Texture Set":"{Skyrim.esm:06A1AE}","MNAM - Material Type":"{Skyrim.esm:012F45}","HNAM - Havok Data":{"Friction":"2","Restitution":"0"},"SNAM - Texture Specular Exponent":"30","Grasses":["{Skyrim.esm:0F871E}"]}}
+{
+  "000F871F": {
+    "Record Header": {
+      "Signature": "LTEX",
+      "Data Size": "70",
+      "Record Flags": "",
+      "FormID": "{Skyrim.esm:0F871F}",
+      "Version Control Info 1": "00 00 00 00",
+      "Form Version": "36",
+      "Version Control Info 2": "00 00"
+    },
+    "EDID - Editor ID": "LSnowRocks01wGrass",
+    "TNAM - Texture Set": "{Skyrim.esm:06A1AE}",
+    "MNAM - Material Type": "{Skyrim.esm:012F45}",
+    "HNAM - Havok Data": {
+      "Friction": "2",
+      "Restitution": "0"
+    },
+    "SNAM - Texture Specular Exponent": "30",
+    "Grasses": [
+      "{Skyrim.esm:0F871E}"
+    ]
+  }
+}

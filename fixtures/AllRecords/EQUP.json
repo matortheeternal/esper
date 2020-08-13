@@ -1,1 +1,15 @@
-{"00035698":{"Record Header":{"Signature":"EQUP","Data Size":"23","Record Flags":"","FormID":"{Skyrim.esm:035698}","Version Control Info 1":"00 00 00 00","Form Version":"19","Version Control Info 2":"00 00"},"EDID - Editor ID":"Potion","DATA - Use All Parents":"False"}}
+{
+  "00035698": {
+    "Record Header": {
+      "Signature": "EQUP",
+      "Data Size": "23",
+      "Record Flags": "",
+      "FormID": "{Skyrim.esm:035698}",
+      "Version Control Info 1": "00 00 00 00",
+      "Form Version": "19",
+      "Version Control Info 2": "00 00"
+    },
+    "EDID - Editor ID": "Potion",
+    "DATA - Use All Parents": "False"
+  }
+}

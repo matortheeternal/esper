@@ -1,1 +1,41 @@
-{"00000E46":{"Record Header":{"Signature":"QUST","Data Size":"134","Record Flags":"","FormID":"{Skyrim.esm:000E46}","Version Control Info 1":"00 00 00 00","Form Version":"44","Version Control Info 2":"00 00"},"EDID - Editor ID":"CreatureDialogueWerewolf","FULL - Name":"CreatureDialogueWerewolf","DNAM - General":{"Flags":"Start Game Enabled, Unknown 5","Priority":"0","Form Version":"0","Unknown":"00 00 00 00","Type":"None"},"Quest Dialogue Conditions":{"Conditions":[{"CTDA - ":{"Type":"10000000","Unused":"00 00","Comparison Value":"1.000000","Function":"GetIsVoiceType","Parameter #1":"{Skyrim.esm:01F2E6}","Parameter #2":"00 00 00 00","Run On":"Subject","Reference":"0","Parameter #3":"-1"}}]},"NEXT - Marker":"","ANAM - Next Alias ID":"0"}}
+{
+  "00000E46": {
+    "Record Header": {
+      "Signature": "QUST",
+      "Data Size": "134",
+      "Record Flags": "",
+      "FormID": "{Skyrim.esm:000E46}",
+      "Version Control Info 1": "00 00 00 00",
+      "Form Version": "44",
+      "Version Control Info 2": "00 00"
+    },
+    "EDID - Editor ID": "CreatureDialogueWerewolf",
+    "FULL - Name": "CreatureDialogueWerewolf",
+    "DNAM - General": {
+      "Flags": "Start Game Enabled, Unknown 5",
+      "Priority": "0",
+      "Form Version": "0",
+      "Unknown": "00 00 00 00",
+      "Type": "None"
+    },
+    "Quest Dialogue Conditions": {
+      "Conditions": [
+        {
+          "CTDA - ": {
+            "Type": "10000000",
+            "Unused": "00 00",
+            "Comparison Value": "1.000000",
+            "Function": "GetIsVoiceType",
+            "Parameter #1": "{Skyrim.esm:01F2E6}",
+            "Parameter #2": "00 00 00 00",
+            "Run On": "Subject",
+            "Reference": "0",
+            "Parameter #3": "-1"
+          }
+        }
+      ]
+    },
+    "NEXT - Marker": "",
+    "ANAM - Next Alias ID": "0"
+  }
+}

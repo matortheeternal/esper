@@ -1,1 +1,43 @@
-{"00017045":{"Record Header":{"Signature":"SMQN","Data Size":"136","Record Flags":"","FormID":"{Skyrim.esm:017045}","Version Control Info 1":"00 00 00 00","Form Version":"40","Version Control Info 2":"00 00"},"EDID - Editor ID":"SovngardeSparringNode","PNAM - Parent ":"{Skyrim.esm:01379A}","SNAM - Child ":"{Skyrim.esm:10C044}","CITC - Condition Count":"1","Conditions":[{"CTDA - ":{"Type":"10000000","Unused":"00 00","Comparison Value":"1.000000","Function":"GetEventData","Parameter #1":"GetIsID:Keyword","Parameter #2":"{Skyrim.esm:017044}","Run On":"Subject","Reference":"0","Parameter #3":"-1"}}],"DNAM - Flags":{"Node Flags":"","Quest Flags":""},"XNAM - Max concurrent quests":"0","QNAM - Quest Count":"1","Quests":[{"NNAM - Quest":"{Skyrim.esm:0F0A10}"}]}}
+{
+  "00017045": {
+    "Record Header": {
+      "Signature": "SMQN",
+      "Data Size": "136",
+      "Record Flags": "",
+      "FormID": "{Skyrim.esm:017045}",
+      "Version Control Info 1": "00 00 00 00",
+      "Form Version": "40",
+      "Version Control Info 2": "00 00"
+    },
+    "EDID - Editor ID": "SovngardeSparringNode",
+    "PNAM - Parent ": "{Skyrim.esm:01379A}",
+    "SNAM - Child ": "{Skyrim.esm:10C044}",
+    "CITC - Condition Count": "1",
+    "Conditions": [
+      {
+        "CTDA - ": {
+          "Type": "10000000",
+          "Unused": "00 00",
+          "Comparison Value": "1.000000",
+          "Function": "GetEventData",
+          "Parameter #1": "GetIsID:Keyword",
+          "Parameter #2": "{Skyrim.esm:017044}",
+          "Run On": "Subject",
+          "Reference": "0",
+          "Parameter #3": "-1"
+        }
+      }
+    ],
+    "DNAM - Flags": {
+      "Node Flags": "",
+      "Quest Flags": ""
+    },
+    "XNAM - Max concurrent quests": "0",
+    "QNAM - Quest Count": "1",
+    "Quests": [
+      {
+        "NNAM - Quest": "{Skyrim.esm:0F0A10}"
+      }
+    ]
+  }
+}

@@ -1,1 +1,39 @@
-{"00109716":{"Record Header":{"Signature":"TREE","Data Size":"230","Record Flags":"","FormID":"{Skyrim.esm:109716}","Version Control Info 1":"00 00 00 00","Form Version":"39","Version Control Info 2":"00 00"},"EDID - Editor ID":"TreeReachTree01Winterhold","OBND - Object Bounds":{"X1":"-243","Y1":"-274","Z1":"-32","X2":"346","Y2":"292","Z2":"676"},"Model":{"MODL - Model Filename":"Landscape\\Trees\\ReachTree01.nif","MODT - Texture Files Hashes":"86 CB C1 22 64 64 73 00 3B AC 5C 0A F0 0B 46 F6 64 64 73 00 3B AC 5C 0A 22 EE 7D E1 64 64 73 00 3B AC 5C 0A E6 65 29 77 64 64 73 00 3B AC 5C 0A 64 60 C6 0C 64 64 73 00 3B AC 5C 0A F9 CE 0A DB 64 64 73 00 3B AC 5C 0A"},"PFPC - Ingredient Production":{"Spring":"0","Summer":"0","Fall":"0","Winter":"0"},"CNAM - Tree Data":{"Trunk Flexibility":"1.000000","Branch Flexibility":"1.000000","Unknown":"1.000000","Leaf Amplitude":"2.000000","Leaf Frequency":"1.000000"}}}
+{
+  "00109716": {
+    "Record Header": {
+      "Signature": "TREE",
+      "Data Size": "230",
+      "Record Flags": "",
+      "FormID": "{Skyrim.esm:109716}",
+      "Version Control Info 1": "00 00 00 00",
+      "Form Version": "39",
+      "Version Control Info 2": "00 00"
+    },
+    "EDID - Editor ID": "TreeReachTree01Winterhold",
+    "OBND - Object Bounds": {
+      "X1": "-243",
+      "Y1": "-274",
+      "Z1": "-32",
+      "X2": "346",
+      "Y2": "292",
+      "Z2": "676"
+    },
+    "Model": {
+      "MODL - Model FileName": "Landscape\\Trees\\ReachTree01.nif",
+      "MODT - Texture Files Hashes": "86 CB C1 22 64 64 73 00 3B AC 5C 0A F0 0B 46 F6 64 64 73 00 3B AC 5C 0A 22 EE 7D E1 64 64 73 00 3B AC 5C 0A E6 65 29 77 64 64 73 00 3B AC 5C 0A 64 60 C6 0C 64 64 73 00 3B AC 5C 0A F9 CE 0A DB 64 64 73 00 3B AC 5C 0A"
+    },
+    "PFPC - Ingredient Production": {
+      "Spring": "0",
+      "Summer": "0",
+      "Fall": "0",
+      "Winter": "0"
+    },
+    "CNAM - Tree Data": {
+      "Trunk Flexibility": "1.000000",
+      "Branch Flexibility": "1.000000",
+      "Unknown": "1.000000",
+      "Leaf Amplitude": "2.000000",
+      "Leaf Frequency": "1.000000"
+    }
+  }
+}

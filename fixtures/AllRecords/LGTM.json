@@ -1,1 +1,147 @@
-{"0010ACD3":{"Record Header":{"Signature":"LGTM","Data Size":"161","Record Flags":"","FormID":"{Skyrim.esm:10ACD3}","Version Control Info 1":"00 00 00 00","Form Version":"37","Version Control Info 2":"00 00"},"EDID - Editor ID":"GreenCaveCloseDark","DATA - Lighting":{"Ambient Color":"","Directional Color":"","Fog Color Near":"","Fog Near":"750.000000","Fog Far":"3000.000000","Directional Rotation XY":"0","Directional Rotation Z":"270","Directional Fade":"0.500000","Fog Clip Dist":"0.000000","Fog Power":"0.700000","Ambient Colors":{"Directional":{"X+":"","X-":"","Y+":"","Y-":"","Z+":"","Z-":""},"Specular":"","Scale":"0.000000"},"Fog Color Far":"","Fog Max":"0.500000","Light Fade Distances":{"Start":"3000.000000","End":"4000.000000"},"Unknown":"00 00 00 00"},"DALC - Directional Ambient Lighting Colors":{"Directional":{"X+":"","X-":"","Y+":"","Y-":"","Z+":"","Z-":""},"Specular":"","Scale":"1.000000"}}}
+{
+  "0010ACD3": {
+    "Record Header": {
+      "Signature": "LGTM",
+      "Data Size": "161",
+      "Record Flags": "",
+      "FormID": "{Skyrim.esm:10ACD3}",
+      "Version Control Info 1": "00 00 00 00",
+      "Form Version": "37",
+      "Version Control Info 2": "00 00"
+    },
+    "EDID - Editor ID": "GreenCaveCloseDark",
+    "DATA - Lighting": {
+      "Ambient Color": {
+        "Red": "40",
+        "Green": "34",
+        "Blue": "23",
+        "Unused": "00"
+      },
+      "Directional Color": {
+        "Red": "71",
+        "Green": "77",
+        "Blue": "78",
+        "Unused": "00"
+      },
+      "Fog Color Near": {
+        "Red": "46",
+        "Green": "61",
+        "Blue": "60",
+        "Unused": "00"
+      },
+      "Fog Near": "750.000000",
+      "Fog Far": "3000.000000",
+      "Directional Rotation XY": "0",
+      "Directional Rotation Z": "270",
+      "Directional Fade": "0.500000",
+      "Fog Clip Dist": "0.000000",
+      "Fog Power": "0.700000",
+      "Ambient Colors": {
+        "Directional": {
+          "X+": {
+            "Red": "51",
+            "Green": "41",
+            "Blue": "29",
+            "Unused": "00"
+          },
+          "X-": {
+            "Red": "42",
+            "Green": "41",
+            "Blue": "26",
+            "Unused": "00"
+          },
+          "Y+": {
+            "Red": "47",
+            "Green": "42",
+            "Blue": "28",
+            "Unused": "00"
+          },
+          "Y-": {
+            "Red": "47",
+            "Green": "39",
+            "Blue": "28",
+            "Unused": "00"
+          },
+          "Z+": {
+            "Red": "22",
+            "Green": "19",
+            "Blue": "12",
+            "Unused": "00"
+          },
+          "Z-": {
+            "Red": "92",
+            "Green": "81",
+            "Blue": "56",
+            "Unused": "00"
+          }
+        },
+        "Specular": {
+          "Red": "136",
+          "Green": "227",
+          "Blue": "218",
+          "Unused": "00"
+        },
+        "Scale": "0.000000"
+      },
+      "Fog Color Far": {
+        "Red": "73",
+        "Green": "118",
+        "Blue": "114",
+        "Unused": "00"
+      },
+      "Fog Max": "0.500000",
+      "Light Fade Distances": {
+        "Start": "3000.000000",
+        "End": "4000.000000"
+      },
+      "Unknown": "00 00 00 00"
+    },
+    "DALC - Directional Ambient Lighting Colors": {
+      "Directional": {
+        "X+": {
+          "Red": "44",
+          "Green": "34",
+          "Blue": "24",
+          "Unused": "00"
+        },
+        "X-": {
+          "Red": "35",
+          "Green": "34",
+          "Blue": "21",
+          "Unused": "00"
+        },
+        "Y+": {
+          "Red": "40",
+          "Green": "35",
+          "Blue": "23",
+          "Unused": "00"
+        },
+        "Y-": {
+          "Red": "40",
+          "Green": "32",
+          "Blue": "23",
+          "Unused": "00"
+        },
+        "Z+": {
+          "Red": "19",
+          "Green": "16",
+          "Blue": "10",
+          "Unused": "00"
+        },
+        "Z-": {
+          "Red": "60",
+          "Green": "51",
+          "Blue": "35",
+          "Unused": "00"
+        }
+      },
+      "Specular": {
+        "Red": "0",
+        "Green": "0",
+        "Blue": "0",
+        "Unused": "00"
+      },
+      "Scale": "1.000000"
+    }
+  }
+}

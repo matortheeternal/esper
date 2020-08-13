@@ -1,1 +1,39 @@
-{"00000F91":{"Record Header":{"Signature":"CLMT","Data Size":"133","Record Flags":"","FormID":"{Skyrim.esm:000F91}","Version Control Info 1":"00 00 00 00","Form Version":"40","Version Control Info 2":"00 00"},"EDID - Editor ID":"KarthspireClimate","WLST - Weather Types":[{"Weather":"{Skyrim.esm:106635}","Chance":"100","Global":"{Null:000000}"}],"FNAM - Sun Texture":"Sky\\Sun.dds","GNAM - Sun Glare Texture":"Sky\\SunGlare.dds","Model":{"MODL - Model Filename":"Sky\\Stars.nif","MODT - Texture Files Hashes":"02 00 00 00 00 00 00 00 00 00 00 00"},"TNAM - Timing":{"Sunrise":{"Begin":"33","End":"60"},"Sunset":{"Begin":"96","End":"123"},"Volatility":"50","Moons / Phase Length":"195"}}}
+{
+  "00000F91": {
+    "Record Header": {
+      "Signature": "CLMT",
+      "Data Size": "133",
+      "Record Flags": "",
+      "FormID": "{Skyrim.esm:000F91}",
+      "Version Control Info 1": "00 00 00 00",
+      "Form Version": "40",
+      "Version Control Info 2": "00 00"
+    },
+    "EDID - Editor ID": "KarthspireClimate",
+    "WLST - Weather Types": [
+      {
+        "Weather": "{Skyrim.esm:106635}",
+        "Chance": "100",
+        "Global": "{Null:000000}"
+      }
+    ],
+    "FNAM - Sun Texture": "Sky\\Sun.dds",
+    "GNAM - Sun Glare Texture": "Sky\\SunGlare.dds",
+    "Model": {
+      "MODL - Model FileName": "Sky\\Stars.nif",
+      "MODT - Texture Files Hashes": "02 00 00 00 00 00 00 00 00 00 00 00"
+    },
+    "TNAM - Timing": {
+      "Sunrise": {
+        "Begin": "33",
+        "End": "60"
+      },
+      "Sunset": {
+        "Begin": "96",
+        "End": "123"
+      },
+      "Volatility": "50",
+      "Moons / Phase Length": "195"
+    }
+  }
+}

@@ -1,1 +1,28 @@
-{"001079E9":{"Record Header":{"Signature":"REVB","Data Size":"55","Record Flags":"","FormID":"{Skyrim.esm:1079E9}","Version Control Info 1":"00 00 00 00","Form Version":"37","Version Control Info 2":"00 00"},"EDID - Editor ID":"IntRoomStoneLargeExtraReverb","DATA - Data":{"Decay Time (ms)":"3710","HF Reference (Hz)":"2994","Room Filter":"-1","Room HF Filter":"-2","Reflections":"-4","Reverb Amp":"0","Decay HF Ratio":"1.000000","Reflect Delay (ms), scaled":"46","Reverb Delay (ms)":"63","Diffusion %":"83","Density %":"83","Unknown":"0"}}}
+{
+  "001079E9": {
+    "Record Header": {
+      "Signature": "REVB",
+      "Data Size": "55",
+      "Record Flags": "",
+      "FormID": "{Skyrim.esm:1079E9}",
+      "Version Control Info 1": "00 00 00 00",
+      "Form Version": "37",
+      "Version Control Info 2": "00 00"
+    },
+    "EDID - Editor ID": "IntRoomStoneLargeExtraReverb",
+    "DATA - Data": {
+      "Decay Time (ms)": "3710",
+      "HF Reference (Hz)": "2994",
+      "Room Filter": "-1",
+      "Room HF Filter": "-2",
+      "Reflections": "-4",
+      "Reverb Amp": "0",
+      "Decay HF Ratio": "1.000000",
+      "Reflect Delay (ms), scaled": "46",
+      "Reverb Delay (ms)": "63",
+      "Diffusion %": "83",
+      "Density %": "83",
+      "Unknown": "0"
+    }
+  }
+}

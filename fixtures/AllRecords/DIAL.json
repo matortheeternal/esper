@@ -1,1 +1,123 @@
-{"00000E3C":{"Child Group":{"00000E3D":{"Topic":"{Skyrim.esm:000E3C}","Record Header":{"Signature":"INFO","Data Size":"279","Record Flags":"","FormID":"{Skyrim.esm:000E3D}","Version Control Info 1":"00 00 00 00","Form Version":"44","Version Control Info 2":"00 00"},"ENAM - Response flags":{"Flags":"","Reset Hours":"0.000000"},"CNAM - Favor Level":"None","Responses":[{"TRDT - Response Data":{"Emotion Type":"Neutral","Emotion Value":"50","Unused":"00 00 00","Response number":"1","Sound":"{Skyrim.esm:03E5E9}","Flags":"Use Emotion Animation"},"NAM1 - Response Text":" ","NAM2 - Script Notes":"BLANK LINE- NO AUDIO","NAM3 - Edits":""}],"Conditions":[{"CTDA - ":{"Type":"00100000","Unused":"00 00","Comparison Value":"70.000000","Function":"GetStage","Parameter #1":"{Skyrim.esm:03372B}","Parameter #2":"00 00 00 00","Run On":"Subject","Reference":"0","Parameter #3":"-1"}},{"CTDA - ":{"Type":"10010000","Unused":"00 00","Comparison Value":"1.000000","Function":"GetIsID","Parameter #1":"{Skyrim.esm:000007}","Parameter #2":"00 00 00 00","Run On":"Subject","Reference":"0","Parameter #3":"-1"}},{"CTDA - ":{"Type":"10010000","Unused":"00 00","Comparison Value":"1.000000","Function":"GetInFaction","Parameter #1":"{Skyrim.esm:06491B}","Parameter #2":"00 00 00 00","Run On":"Subject","Reference":"0","Parameter #3":"-1"}},{"CTDA - ":{"Type":"10010000","Unused":"00 00","Comparison Value":"1.000000","Function":"GetInFaction","Parameter #1":"{Skyrim.esm:06491A}","Parameter #2":"00 00 00 00","Run On":"Subject","Reference":"0","Parameter #3":"-1"}},{"CTDA - ":{"Type":"10010000","Unused":"00 00","Comparison Value":"1.000000","Function":"GetIsID","Parameter #1":"{Skyrim.esm:01414D}","Parameter #2":"00 00 00 00","Run On":"Subject","Reference":"0","Parameter #3":"-1"}}]}},"Record Header":{"Signature":"DIAL","Data Size":"50","Record Flags":"","FormID":"{Skyrim.esm:000E3C}","Version Control Info 1":"00 00 00 00","Form Version":"40","Version Control Info 2":"00 00"},"PNAM - Priority":"50.000000","QNAM - Quest":"{Skyrim.esm:03372B}","DATA - Data":{"Topic Flags":"","Category":"Combat","Subtype":"FlyingMountRejectTarget"},"SNAM - Subtype Name":"HIT_","TIFC - Info Count":"1"}}
+{
+  "00000E3C": {
+    "Child Group": {
+      "00000E3D": {
+        "Topic": "{Skyrim.esm:000E3C}",
+        "Record Header": {
+          "Signature": "INFO",
+          "Data Size": "279",
+          "Record Flags": "",
+          "FormID": "{Skyrim.esm:000E3D}",
+          "Version Control Info 1": "00 00 00 00",
+          "Form Version": "44",
+          "Version Control Info 2": "00 00"
+        },
+        "ENAM - Response flags": {
+          "Flags": "",
+          "Reset Hours": "0.000000"
+        },
+        "CNAM - Favor Level": "None",
+        "Responses": [
+          {
+            "TRDT - Response Data": {
+              "Emotion Type": "Neutral",
+              "Emotion Value": "50",
+              "Unused": "00 00 00",
+              "Response number": "1",
+              "Sound": "{Skyrim.esm:03E5E9}",
+              "Flags": "Use Emotion Animation"
+            },
+            "NAM1 - Response Text": " ",
+            "NAM2 - Script Notes": "BLANK LINE- NO AUDIO",
+            "NAM3 - Edits": ""
+          }
+        ],
+        "Conditions": [
+          {
+            "CTDA - ": {
+              "Type": "00100000",
+              "Unused": "00 00",
+              "Comparison Value": "70.000000",
+              "Function": "GetStage",
+              "Parameter #1": "{Skyrim.esm:03372B}",
+              "Parameter #2": "00 00 00 00",
+              "Run On": "Subject",
+              "Reference": "0",
+              "Parameter #3": "-1"
+            }
+          },
+          {
+            "CTDA - ": {
+              "Type": "10010000",
+              "Unused": "00 00",
+              "Comparison Value": "1.000000",
+              "Function": "GetIsID",
+              "Parameter #1": "{Skyrim.esm:000007}",
+              "Parameter #2": "00 00 00 00",
+              "Run On": "Subject",
+              "Reference": "0",
+              "Parameter #3": "-1"
+            }
+          },
+          {
+            "CTDA - ": {
+              "Type": "10010000",
+              "Unused": "00 00",
+              "Comparison Value": "1.000000",
+              "Function": "GetInFaction",
+              "Parameter #1": "{Skyrim.esm:06491B}",
+              "Parameter #2": "00 00 00 00",
+              "Run On": "Subject",
+              "Reference": "0",
+              "Parameter #3": "-1"
+            }
+          },
+          {
+            "CTDA - ": {
+              "Type": "10010000",
+              "Unused": "00 00",
+              "Comparison Value": "1.000000",
+              "Function": "GetInFaction",
+              "Parameter #1": "{Skyrim.esm:06491A}",
+              "Parameter #2": "00 00 00 00",
+              "Run On": "Subject",
+              "Reference": "0",
+              "Parameter #3": "-1"
+            }
+          },
+          {
+            "CTDA - ": {
+              "Type": "10010000",
+              "Unused": "00 00",
+              "Comparison Value": "1.000000",
+              "Function": "GetIsID",
+              "Parameter #1": "{Skyrim.esm:01414D}",
+              "Parameter #2": "00 00 00 00",
+              "Run On": "Subject",
+              "Reference": "0",
+              "Parameter #3": "-1"
+            }
+          }
+        ]
+      }
+    },
+    "Record Header": {
+      "Signature": "DIAL",
+      "Data Size": "50",
+      "Record Flags": "",
+      "FormID": "{Skyrim.esm:000E3C}",
+      "Version Control Info 1": "00 00 00 00",
+      "Form Version": "40",
+      "Version Control Info 2": "00 00"
+    },
+    "PNAM - Priority": "50.000000",
+    "QNAM - Quest": "{Skyrim.esm:03372B}",
+    "DATA - Data": {
+      "Topic Flags": "",
+      "Category": "Combat",
+      "Subtype": "FlyingMountRejectTarget"
+    },
+    "SNAM - Subtype Name": "HIT_",
+    "TIFC - Info Count": "1"
+  }
+}

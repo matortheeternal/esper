@@ -1,1 +1,128 @@
-{"000DEDC9":{"Record Header":{"Signature":"DEBR","Data Size":"1786","Record Flags":"","FormID":"{Skyrim.esm:0DEDC9}","Version Control Info 1":"00 00 00 00","Form Version":"39","Version Control Info 2":"00 00"},"EDID - Editor ID":"IceFormDebris14","Models":[{"DATA - Data":{"Percentage":"100","Model Filename":"Magic\\ActorMeshesMag\\IceFormChunk01.nif","Flags":""},"MODT - Texture Files Hashes":"60 0F F3 85 64 64 73 00 38 97 3C EA 71 D5 35 C2 64 64 73 00 38 97 3C EA C1 0B FC 65 64 64 73 00 38 97 3C EA 2E 7C B2 C9 64 64 73 00 26 2C 33 3B E5 FC 6B 21 64 64 73 00 38 97 3C EA 06 E7 58 A1 64 64 73 00 58 2C 55 33"},{"DATA - Data":{"Percentage":"100","Model Filename":"Magic\\ActorMeshesMag\\IceFormChunk01.nif","Flags":""},"MODT - Texture Files Hashes":"60 0F F3 85 64 64 73 00 38 97 3C EA 71 D5 35 C2 64 64 73 00 38 97 3C EA C1 0B FC 65 64 64 73 00 38 97 3C EA 2E 7C B2 C9 64 64 73 00 26 2C 33 3B E5 FC 6B 21 64 64 73 00 38 97 3C EA 06 E7 58 A1 64 64 73 00 58 2C 55 33"},{"DATA - Data":{"Percentage":"100","Model Filename":"Magic\\ActorMeshesMag\\IceFormChunk01.nif","Flags":""},"MODT - Texture Files Hashes":"60 0F F3 85 64 64 73 00 38 97 3C EA 71 D5 35 C2 64 64 73 00 38 97 3C EA C1 0B FC 65 64 64 73 00 38 97 3C EA 2E 7C B2 C9 64 64 73 00 26 2C 33 3B E5 FC 6B 21 64 64 73 00 38 97 3C EA 06 E7 58 A1 64 64 73 00 58 2C 55 33"},{"DATA - Data":{"Percentage":"100","Model Filename":"Magic\\ActorMeshesMag\\IceFormChunk01.nif","Flags":""},"MODT - Texture Files Hashes":"60 0F F3 85 64 64 73 00 38 97 3C EA 71 D5 35 C2 64 64 73 00 38 97 3C EA C1 0B FC 65 64 64 73 00 38 97 3C EA 2E 7C B2 C9 64 64 73 00 26 2C 33 3B E5 FC 6B 21 64 64 73 00 38 97 3C EA 06 E7 58 A1 64 64 73 00 58 2C 55 33"},{"DATA - Data":{"Percentage":"100","Model Filename":"Magic\\ActorMeshesMag\\IceFormChunk02.nif","Flags":""},"MODT - Texture Files Hashes":"60 0F F3 85 64 64 73 00 38 97 3C EA 71 D5 35 C2 64 64 73 00 38 97 3C EA C1 0B FC 65 64 64 73 00 38 97 3C EA 2E 7C B2 C9 64 64 73 00 26 2C 33 3B E5 FC 6B 21 64 64 73 00 38 97 3C EA 06 E7 58 A1 64 64 73 00 58 2C 55 33"},{"DATA - Data":{"Percentage":"100","Model Filename":"Magic\\ActorMeshesMag\\IceFormChunk02.nif","Flags":""},"MODT - Texture Files Hashes":"60 0F F3 85 64 64 73 00 38 97 3C EA 71 D5 35 C2 64 64 73 00 38 97 3C EA C1 0B FC 65 64 64 73 00 38 97 3C EA 2E 7C B2 C9 64 64 73 00 26 2C 33 3B E5 FC 6B 21 64 64 73 00 38 97 3C EA 06 E7 58 A1 64 64 73 00 58 2C 55 33"},{"DATA - Data":{"Percentage":"100","Model Filename":"Magic\\ActorMeshesMag\\IceFormChunk02.nif","Flags":""},"MODT - Texture Files Hashes":"60 0F F3 85 64 64 73 00 38 97 3C EA 71 D5 35 C2 64 64 73 00 38 97 3C EA C1 0B FC 65 64 64 73 00 38 97 3C EA 2E 7C B2 C9 64 64 73 00 26 2C 33 3B E5 FC 6B 21 64 64 73 00 38 97 3C EA 06 E7 58 A1 64 64 73 00 58 2C 55 33"},{"DATA - Data":{"Percentage":"100","Model Filename":"Magic\\ActorMeshesMag\\IceFormChunk02.nif","Flags":""},"MODT - Texture Files Hashes":"60 0F F3 85 64 64 73 00 38 97 3C EA 71 D5 35 C2 64 64 73 00 38 97 3C EA C1 0B FC 65 64 64 73 00 38 97 3C EA 2E 7C B2 C9 64 64 73 00 26 2C 33 3B E5 FC 6B 21 64 64 73 00 38 97 3C EA 06 E7 58 A1 64 64 73 00 58 2C 55 33"},{"DATA - Data":{"Percentage":"100","Model Filename":"Magic\\ActorMeshesMag\\IceFormChunk03.nif","Flags":""},"MODT - Texture Files Hashes":"60 0F F3 85 64 64 73 00 38 97 3C EA 71 D5 35 C2 64 64 73 00 38 97 3C EA C1 0B FC 65 64 64 73 00 38 97 3C EA 2E 7C B2 C9 64 64 73 00 26 2C 33 3B E5 FC 6B 21 64 64 73 00 38 97 3C EA 06 E7 58 A1 64 64 73 00 58 2C 55 33"},{"DATA - Data":{"Percentage":"100","Model Filename":"Magic\\ActorMeshesMag\\IceFormChunk03.nif","Flags":""},"MODT - Texture Files Hashes":"60 0F F3 85 64 64 73 00 38 97 3C EA 71 D5 35 C2 64 64 73 00 38 97 3C EA C1 0B FC 65 64 64 73 00 38 97 3C EA 2E 7C B2 C9 64 64 73 00 26 2C 33 3B E5 FC 6B 21 64 64 73 00 38 97 3C EA 06 E7 58 A1 64 64 73 00 58 2C 55 33"},{"DATA - Data":{"Percentage":"100","Model Filename":"Magic\\ActorMeshesMag\\IceFormChunk03.nif","Flags":""},"MODT - Texture Files Hashes":"60 0F F3 85 64 64 73 00 38 97 3C EA 71 D5 35 C2 64 64 73 00 38 97 3C EA C1 0B FC 65 64 64 73 00 38 97 3C EA 2E 7C B2 C9 64 64 73 00 26 2C 33 3B E5 FC 6B 21 64 64 73 00 38 97 3C EA 06 E7 58 A1 64 64 73 00 58 2C 55 33"},{"DATA - Data":{"Percentage":"100","Model Filename":"Magic\\ActorMeshesMag\\IceFormChunk04.nif","Flags":""},"MODT - Texture Files Hashes":"60 0F F3 85 64 64 73 00 38 97 3C EA 71 D5 35 C2 64 64 73 00 38 97 3C EA C1 0B FC 65 64 64 73 00 38 97 3C EA 2E 7C B2 C9 64 64 73 00 26 2C 33 3B E5 FC 6B 21 64 64 73 00 38 97 3C EA 06 E7 58 A1 64 64 73 00 58 2C 55 33"},{"DATA - Data":{"Percentage":"100","Model Filename":"Magic\\ActorMeshesMag\\IceFormChunk04.nif","Flags":""},"MODT - Texture Files Hashes":"60 0F F3 85 64 64 73 00 38 97 3C EA 71 D5 35 C2 64 64 73 00 38 97 3C EA C1 0B FC 65 64 64 73 00 38 97 3C EA 2E 7C B2 C9 64 64 73 00 26 2C 33 3B E5 FC 6B 21 64 64 73 00 38 97 3C EA 06 E7 58 A1 64 64 73 00 58 2C 55 33"},{"DATA - Data":{"Percentage":"100","Model Filename":"Magic\\ActorMeshesMag\\IceFormChunk04.nif","Flags":""},"MODT - Texture Files Hashes":"60 0F F3 85 64 64 73 00 38 97 3C EA 71 D5 35 C2 64 64 73 00 38 97 3C EA C1 0B FC 65 64 64 73 00 38 97 3C EA 2E 7C B2 C9 64 64 73 00 26 2C 33 3B E5 FC 6B 21 64 64 73 00 38 97 3C EA 06 E7 58 A1 64 64 73 00 58 2C 55 33"}]}}
+{
+  "000DEDC9": {
+    "Record Header": {
+      "Signature": "DEBR",
+      "Data Size": "1786",
+      "Record Flags": "",
+      "FormID": "{Skyrim.esm:0DEDC9}",
+      "Version Control Info 1": "00 00 00 00",
+      "Form Version": "39",
+      "Version Control Info 2": "00 00"
+    },
+    "EDID - Editor ID": "IceFormDebris14",
+    "Models": [
+      {
+        "DATA - Data": {
+          "Percentage": "100",
+          "Model FileName": "Magic\\ActorMeshesMag\\IceFormChunk01.nif",
+          "Flags": ""
+        },
+        "MODT - Texture Files Hashes": "60 0F F3 85 64 64 73 00 38 97 3C EA 71 D5 35 C2 64 64 73 00 38 97 3C EA C1 0B FC 65 64 64 73 00 38 97 3C EA 2E 7C B2 C9 64 64 73 00 26 2C 33 3B E5 FC 6B 21 64 64 73 00 38 97 3C EA 06 E7 58 A1 64 64 73 00 58 2C 55 33"
+      },
+      {
+        "DATA - Data": {
+          "Percentage": "100",
+          "Model FileName": "Magic\\ActorMeshesMag\\IceFormChunk01.nif",
+          "Flags": ""
+        },
+        "MODT - Texture Files Hashes": "60 0F F3 85 64 64 73 00 38 97 3C EA 71 D5 35 C2 64 64 73 00 38 97 3C EA C1 0B FC 65 64 64 73 00 38 97 3C EA 2E 7C B2 C9 64 64 73 00 26 2C 33 3B E5 FC 6B 21 64 64 73 00 38 97 3C EA 06 E7 58 A1 64 64 73 00 58 2C 55 33"
+      },
+      {
+        "DATA - Data": {
+          "Percentage": "100",
+          "Model FileName": "Magic\\ActorMeshesMag\\IceFormChunk01.nif",
+          "Flags": ""
+        },
+        "MODT - Texture Files Hashes": "60 0F F3 85 64 64 73 00 38 97 3C EA 71 D5 35 C2 64 64 73 00 38 97 3C EA C1 0B FC 65 64 64 73 00 38 97 3C EA 2E 7C B2 C9 64 64 73 00 26 2C 33 3B E5 FC 6B 21 64 64 73 00 38 97 3C EA 06 E7 58 A1 64 64 73 00 58 2C 55 33"
+      },
+      {
+        "DATA - Data": {
+          "Percentage": "100",
+          "Model FileName": "Magic\\ActorMeshesMag\\IceFormChunk01.nif",
+          "Flags": ""
+        },
+        "MODT - Texture Files Hashes": "60 0F F3 85 64 64 73 00 38 97 3C EA 71 D5 35 C2 64 64 73 00 38 97 3C EA C1 0B FC 65 64 64 73 00 38 97 3C EA 2E 7C B2 C9 64 64 73 00 26 2C 33 3B E5 FC 6B 21 64 64 73 00 38 97 3C EA 06 E7 58 A1 64 64 73 00 58 2C 55 33"
+      },
+      {
+        "DATA - Data": {
+          "Percentage": "100",
+          "Model FileName": "Magic\\ActorMeshesMag\\IceFormChunk02.nif",
+          "Flags": ""
+        },
+        "MODT - Texture Files Hashes": "60 0F F3 85 64 64 73 00 38 97 3C EA 71 D5 35 C2 64 64 73 00 38 97 3C EA C1 0B FC 65 64 64 73 00 38 97 3C EA 2E 7C B2 C9 64 64 73 00 26 2C 33 3B E5 FC 6B 21 64 64 73 00 38 97 3C EA 06 E7 58 A1 64 64 73 00 58 2C 55 33"
+      },
+      {
+        "DATA - Data": {
+          "Percentage": "100",
+          "Model FileName": "Magic\\ActorMeshesMag\\IceFormChunk02.nif",
+          "Flags": ""
+        },
+        "MODT - Texture Files Hashes": "60 0F F3 85 64 64 73 00 38 97 3C EA 71 D5 35 C2 64 64 73 00 38 97 3C EA C1 0B FC 65 64 64 73 00 38 97 3C EA 2E 7C B2 C9 64 64 73 00 26 2C 33 3B E5 FC 6B 21 64 64 73 00 38 97 3C EA 06 E7 58 A1 64 64 73 00 58 2C 55 33"
+      },
+      {
+        "DATA - Data": {
+          "Percentage": "100",
+          "Model FileName": "Magic\\ActorMeshesMag\\IceFormChunk02.nif",
+          "Flags": ""
+        },
+        "MODT - Texture Files Hashes": "60 0F F3 85 64 64 73 00 38 97 3C EA 71 D5 35 C2 64 64 73 00 38 97 3C EA C1 0B FC 65 64 64 73 00 38 97 3C EA 2E 7C B2 C9 64 64 73 00 26 2C 33 3B E5 FC 6B 21 64 64 73 00 38 97 3C EA 06 E7 58 A1 64 64 73 00 58 2C 55 33"
+      },
+      {
+        "DATA - Data": {
+          "Percentage": "100",
+          "Model FileName": "Magic\\ActorMeshesMag\\IceFormChunk02.nif",
+          "Flags": ""
+        },
+        "MODT - Texture Files Hashes": "60 0F F3 85 64 64 73 00 38 97 3C EA 71 D5 35 C2 64 64 73 00 38 97 3C EA C1 0B FC 65 64 64 73 00 38 97 3C EA 2E 7C B2 C9 64 64 73 00 26 2C 33 3B E5 FC 6B 21 64 64 73 00 38 97 3C EA 06 E7 58 A1 64 64 73 00 58 2C 55 33"
+      },
+      {
+        "DATA - Data": {
+          "Percentage": "100",
+          "Model FileName": "Magic\\ActorMeshesMag\\IceFormChunk03.nif",
+          "Flags": ""
+        },
+        "MODT - Texture Files Hashes": "60 0F F3 85 64 64 73 00 38 97 3C EA 71 D5 35 C2 64 64 73 00 38 97 3C EA C1 0B FC 65 64 64 73 00 38 97 3C EA 2E 7C B2 C9 64 64 73 00 26 2C 33 3B E5 FC 6B 21 64 64 73 00 38 97 3C EA 06 E7 58 A1 64 64 73 00 58 2C 55 33"
+      },
+      {
+        "DATA - Data": {
+          "Percentage": "100",
+          "Model FileName": "Magic\\ActorMeshesMag\\IceFormChunk03.nif",
+          "Flags": ""
+        },
+        "MODT - Texture Files Hashes": "60 0F F3 85 64 64 73 00 38 97 3C EA 71 D5 35 C2 64 64 73 00 38 97 3C EA C1 0B FC 65 64 64 73 00 38 97 3C EA 2E 7C B2 C9 64 64 73 00 26 2C 33 3B E5 FC 6B 21 64 64 73 00 38 97 3C EA 06 E7 58 A1 64 64 73 00 58 2C 55 33"
+      },
+      {
+        "DATA - Data": {
+          "Percentage": "100",
+          "Model FileName": "Magic\\ActorMeshesMag\\IceFormChunk03.nif",
+          "Flags": ""
+        },
+        "MODT - Texture Files Hashes": "60 0F F3 85 64 64 73 00 38 97 3C EA 71 D5 35 C2 64 64 73 00 38 97 3C EA C1 0B FC 65 64 64 73 00 38 97 3C EA 2E 7C B2 C9 64 64 73 00 26 2C 33 3B E5 FC 6B 21 64 64 73 00 38 97 3C EA 06 E7 58 A1 64 64 73 00 58 2C 55 33"
+      },
+      {
+        "DATA - Data": {
+          "Percentage": "100",
+          "Model FileName": "Magic\\ActorMeshesMag\\IceFormChunk04.nif",
+          "Flags": ""
+        },
+        "MODT - Texture Files Hashes": "60 0F F3 85 64 64 73 00 38 97 3C EA 71 D5 35 C2 64 64 73 00 38 97 3C EA C1 0B FC 65 64 64 73 00 38 97 3C EA 2E 7C B2 C9 64 64 73 00 26 2C 33 3B E5 FC 6B 21 64 64 73 00 38 97 3C EA 06 E7 58 A1 64 64 73 00 58 2C 55 33"
+      },
+      {
+        "DATA - Data": {
+          "Percentage": "100",
+          "Model FileName": "Magic\\ActorMeshesMag\\IceFormChunk04.nif",
+          "Flags": ""
+        },
+        "MODT - Texture Files Hashes": "60 0F F3 85 64 64 73 00 38 97 3C EA 71 D5 35 C2 64 64 73 00 38 97 3C EA C1 0B FC 65 64 64 73 00 38 97 3C EA 2E 7C B2 C9 64 64 73 00 26 2C 33 3B E5 FC 6B 21 64 64 73 00 38 97 3C EA 06 E7 58 A1 64 64 73 00 58 2C 55 33"
+      },
+      {
+        "DATA - Data": {
+          "Percentage": "100",
+          "Model FileName": "Magic\\ActorMeshesMag\\IceFormChunk04.nif",
+          "Flags": ""
+        },
+        "MODT - Texture Files Hashes": "60 0F F3 85 64 64 73 00 38 97 3C EA 71 D5 35 C2 64 64 73 00 38 97 3C EA C1 0B FC 65 64 64 73 00 38 97 3C EA 2E 7C B2 C9 64 64 73 00 26 2C 33 3B E5 FC 6B 21 64 64 73 00 38 97 3C EA 06 E7 58 A1 64 64 73 00 58 2C 55 33"
+      }
+    ]
+  }
+}

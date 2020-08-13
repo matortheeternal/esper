@@ -1,1 +1,23 @@
-{"00000F59":{"Record Header":{"Signature":"SOUN","Data Size":"56","Record Flags":"","FormID":"{Skyrim.esm:000F59}","Version Control Info 1":"00 00 00 00","Form Version":"40","Version Control Info 2":"00 00"},"EDID - Editor ID":"OBJWindmillSolitudeLP","OBND - Object Bounds":{"X1":"-27","Y1":"-27","Z1":"-12","X2":"27","Y2":"27","Z2":"12"},"SDSC - Sound Descriptor":"{Skyrim.esm:000F58}"}}
+{
+  "00000F59": {
+    "Record Header": {
+      "Signature": "SOUN",
+      "Data Size": "56",
+      "Record Flags": "",
+      "FormID": "{Skyrim.esm:000F59}",
+      "Version Control Info 1": "00 00 00 00",
+      "Form Version": "40",
+      "Version Control Info 2": "00 00"
+    },
+    "EDID - Editor ID": "OBJWindmillSolitudeLP",
+    "OBND - Object Bounds": {
+      "X1": "-27",
+      "Y1": "-27",
+      "Z1": "-12",
+      "X2": "27",
+      "Y2": "27",
+      "Z2": "12"
+    },
+    "SDSC - Sound Descriptor": "{Skyrim.esm:000F58}"
+  }
+}

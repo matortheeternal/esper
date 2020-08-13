@@ -1,1 +1,27 @@
-{"0010FE5C":{"Record Header":{"Signature":"ARTO","Data Size":"134","Record Flags":"","FormID":"{Skyrim.esm:10FE5C}","Version Control Info 1":"00 00 00 00","Form Version":"40","Version Control Info 2":"00 00"},"EDID - Editor ID":"FXDragonsBaneSwordStreakObject","OBND - Object Bounds":{"X1":"0","Y1":"0","Z1":"0","X2":"0","Y2":"0","Z2":"0"},"Model":{"MODL - Model Filename":"Weapons\\Akaviri\\FXDragonsBaneSwordStreak.nif","MODT - Texture Files Hashes":"02 00 00 00 00 00 00 00 00 00 00 00"},"DNAM - Art Type":"Enchantment Effect"}}
+{
+  "0010FE5C": {
+    "Record Header": {
+      "Signature": "ARTO",
+      "Data Size": "134",
+      "Record Flags": "",
+      "FormID": "{Skyrim.esm:10FE5C}",
+      "Version Control Info 1": "00 00 00 00",
+      "Form Version": "40",
+      "Version Control Info 2": "00 00"
+    },
+    "EDID - Editor ID": "FXDragonsBaneSwordStreakObject",
+    "OBND - Object Bounds": {
+      "X1": "0",
+      "Y1": "0",
+      "Z1": "0",
+      "X2": "0",
+      "Y2": "0",
+      "Z2": "0"
+    },
+    "Model": {
+      "MODL - Model FileName": "Weapons\\Akaviri\\FXDragonsBaneSwordStreak.nif",
+      "MODT - Texture Files Hashes": "02 00 00 00 00 00 00 00 00 00 00 00"
+    },
+    "DNAM - Art Type": "Enchantment Effect"
+  }
+}

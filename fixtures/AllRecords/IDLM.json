@@ -1,1 +1,28 @@
-{"000173B7":{"Record Header":{"Signature":"IDLM","Data Size":"77","Record Flags":"","FormID":"{Skyrim.esm:0173B7}","Version Control Info 1":"00 00 00 00","Form Version":"40","Version Control Info 2":"00 00"},"EDID - Editor ID":"TG00IdleSellMarker","OBND - Object Bounds":{"X1":"-54","Y1":"-54","Z1":"0","X2":"54","Y2":"89","Z2":"13"},"IDLF - Flags":"Unknown 3, Ignored by Sandbox","IDLC - Animation Count":"1","IDLT - Idle Timer Setting":"0.000000","IDLA - Animations":["{Skyrim.esm:089974}"]}}
+{
+  "000173B7": {
+    "Record Header": {
+      "Signature": "IDLM",
+      "Data Size": "77",
+      "Record Flags": "",
+      "FormID": "{Skyrim.esm:0173B7}",
+      "Version Control Info 1": "00 00 00 00",
+      "Form Version": "40",
+      "Version Control Info 2": "00 00"
+    },
+    "EDID - Editor ID": "TG00IdleSellMarker",
+    "OBND - Object Bounds": {
+      "X1": "-54",
+      "Y1": "-54",
+      "Z1": "0",
+      "X2": "54",
+      "Y2": "89",
+      "Z2": "13"
+    },
+    "IDLF - Flags": "Unknown 3, Ignored by Sandbox",
+    "IDLC - Animation Count": "1",
+    "IDLT - Idle Timer Setting": "0.000000",
+    "IDLA - Animations": [
+      "{Skyrim.esm:089974}"
+    ]
+  }
+}

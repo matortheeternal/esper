@@ -1,1 +1,50 @@
-{"00017041":{"Record Header":{"Signature":"FURN","Data Size":"215","Record Flags":"Is Marker, Child Can Use","FormID":"{Skyrim.esm:017041}","Version Control Info 1":"00 00 00 00","Form Version":"44","Version Control Info 2":"00 00"},"EDID - Editor ID":"InvisibleChairMarkerFChild","OBND - Object Bounds":{"X1":"-32","Y1":"-21","Z1":"0","X2":"32","Y2":"73","Z2":"98"},"FULL - Name":"Invisible Chair Marker","Model":{"MODL - Model Filename":"Furniture\\ChairInvisibleSingle.nif","MODT - Texture Files Hashes":"02 00 00 00 00 00 00 00 00 00 00 00"},"PNAM - Unknown":"00 00 00 00","FNAM - Flags":"","KNAM - Interaction Keyword":"{Skyrim.esm:013794}","MNAM - Active Markers / Flags":"Sit 0, Unknown 31","WBDT - Workbench Data":{"Bench Type":"None","Uses Skill":"None"},"Markers":[{"ENAM - Marker Index":"0","NAM0 - Disabled Entry Points":{"Unknown":"00 00","Disabled Points":"Right, Left"}}],"Marker Entry Points":[{"Type":"Sit","Entry Points":"Front, Right, Left"}]}}
+{
+  "00017041": {
+    "Record Header": {
+      "Signature": "FURN",
+      "Data Size": "215",
+      "Record Flags": "Is Marker, Child Can Use",
+      "FormID": "{Skyrim.esm:017041}",
+      "Version Control Info 1": "00 00 00 00",
+      "Form Version": "44",
+      "Version Control Info 2": "00 00"
+    },
+    "EDID - Editor ID": "InvisibleChairMarkerFChild",
+    "OBND - Object Bounds": {
+      "X1": "-32",
+      "Y1": "-21",
+      "Z1": "0",
+      "X2": "32",
+      "Y2": "73",
+      "Z2": "98"
+    },
+    "FULL - Name": "Invisible Chair Marker",
+    "Model": {
+      "MODL - Model FileName": "Furniture\\ChairInvisibleSingle.nif",
+      "MODT - Texture Files Hashes": "02 00 00 00 00 00 00 00 00 00 00 00"
+    },
+    "PNAM - Unknown": "00 00 00 00",
+    "FNAM - Flags": "",
+    "KNAM - Interaction Keyword": "{Skyrim.esm:013794}",
+    "MNAM - Active Markers / Flags": "Sit 0, Unknown 31",
+    "WBDT - Workbench Data": {
+      "Bench Type": "None",
+      "Uses Skill": "None"
+    },
+    "Markers": [
+      {
+        "ENAM - Marker Index": "0",
+        "NAM0 - Disabled Entry Points": {
+          "Unknown": "00 00",
+          "Disabled Points": "Right, Left"
+        }
+      }
+    ],
+    "Marker Entry Points": [
+      {
+        "Type": "Sit",
+        "Entry Points": "Front, Right, Left"
+      }
+    ]
+  }
+}
