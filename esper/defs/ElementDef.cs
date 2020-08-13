@@ -8,16 +8,15 @@ using System.Collections.Generic;
 namespace esper.defs {
     public class ElementDef : Def {
         internal int sortOrder;
-
-        public readonly string signature;
         public readonly string name;
         public readonly bool required;
 
+        public virtual string signature => null;
+        public virtual string displayName => name;
         public virtual int? size => 0;
 
         public ElementDef(DefinitionManager manager, JObject src)
             : base(manager, src) {
-            signature = src.Value<string>("signature");
             name = src.Value<string>("name");
             required = src.Value<bool>("required");
         }
@@ -50,7 +49,7 @@ namespace esper.defs {
             throw new NotImplementedException();
         }
 
-        public bool IsSubrecord() {
+        public virtual bool IsSubrecord() {
             return signature != null;
         }
 

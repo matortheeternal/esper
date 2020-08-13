@@ -24,14 +24,17 @@ namespace esper.elements {
         public readonly TES4GroupHeader header;
         public EditorIdMap recordsByEditorID;
 
-        public override GroupRecord group => this;
-        private StructDef groupHeaderDef => manager.groupHeaderDef as StructDef;
+        public override string name => GetName();
+        public override string displayName => name;
         public override string signature => header.signature.ToString();
+        public override GroupRecord group => this;
+
         public UInt32 groupSize => header.groupSize;
         public GroupType groupType => (GroupType)header.groupType;
         public byte[] label => header.label;
         public UInt32 dataSize => (UInt32)(groupSize - groupHeaderDef.size);
 
+        private StructDef groupHeaderDef => manager.groupHeaderDef as StructDef;
         private Signature labelAsSignature => new Signature(label);
         private Int32 labelAsInt32 => BitConverter.ToInt32(label);
         private UInt32 labelAsUInt32 => BitConverter.ToUInt32(label);
@@ -40,6 +43,7 @@ namespace esper.elements {
             BitConverter.ToInt16(label),
             BitConverter.ToInt16(label, 2)
         };
+        private string coordinatesStr => string.Join(", ", labelAsInt16x2);
 
         public bool isChildGroup {
             get => header.groupType == 1 || header.groupType >= 4;
@@ -47,6 +51,7 @@ namespace esper.elements {
         public bool isChildGroupChild {
             get => header.groupType == 8 || header.groupType == 9;
         }
+
 
         public GroupRecord(Container container, PluginFileSource source)
             : base(container) {
@@ -70,6 +75,22 @@ namespace esper.elements {
             });
             if (group._elements != null) group._elements.TrimExcess();
             return group;
+        }
+
+        private string GetName() {
+            return groupType switch {
+                GroupType.Top => labelAsSignature.ToString(),
+                GroupType.WorldChildren => $"Children of {labelAsFormId:X8}",
+                GroupType.InteriorCellBlock => $"Block {labelAsInt32}",
+                GroupType.InteriorCellSubBlock => $"Subblock {labelAsInt32}",
+                GroupType.ExteriorCellBlock => $"Block {coordinatesStr}",
+                GroupType.ExteriorCellSubBlock => $"Subblock {coordinatesStr}",
+                GroupType.CellChildren => $"Children of {labelAsFormId:X8}",
+                GroupType.TopicChildren => $"Children of {labelAsFormId:X8}",
+                GroupType.CellPersistentChildren => "Persistent",
+                GroupType.CellTemporaryChildren => "Temporary",
+                _ => throw new Exception("Unknown group type.")
+            };
         }
 
         public dynamic GetLabel() {

@@ -10,9 +10,10 @@ namespace esper.elements {
         public ElementState state;
         public Container container { get; internal set; }
         public DefinitionManager manager => file.manager;
-        public virtual string signature => def.signature;
         public string sortKey => def.GetSortKey(this);
         public virtual string name => def.name;
+        public virtual string signature => def.signature;
+        public virtual string displayName => def.displayName;
         public SessionOptions sessionOptions => manager.session.options;
         public Game game => manager.session.game;
 
