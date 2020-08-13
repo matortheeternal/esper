@@ -1,39 +1,40 @@
 {
   "0010FCE4": {
-    "Record Header": {
-      "Signature": "ARMA",
-      "Data Size": "255",
-      "Record Flags": "",
-      "FormID": "{Skyrim.esm:10FCE4}",
-      "Version Control Info 1": "00 00 00 00",
-      "Form Version": "40",
-      "Version Control Info 2": "00 00"
-    },
+    "Record Header": [
+      "ARMA",
+      "255",
+      "",
+      "{Skyrim.esm:10FCE4}",
+      "00 00 00 00",
+      "40",
+      "00 00"
+    ],
     "EDID - Editor ID": "BoneCrownKhajiitAA",
-    "BODT - Body Template": {
-      "First Person Flags": "31 - Hair, 43 - Ears",
-      "General Flags": "",
-      "Unused": "A2 CB 00",
-      "Armor Type": "Clothing"
-    },
+    "BODT - Body Template": [
+      "31 - Hair, 43 - Ears",
+      "",
+      "A2 CB 00",
+      "Clothing"
+    ],
     "RNAM - Race": "{Skyrim.esm:013745}",
-    "DNAM - Data": {
-      "Male Priority": "10",
-      "Female Priority": "10",
-      "Weight slider - Male": "",
-      "Weight slider - Female": "",
-      "Unknown": "17",
-      "Detection Sound Value": "76",
-      "Weapon Adjust": "1.000000"
-    },
-    "Male world model": {
-      "MOD2 - Model FileName": "Armor\\BoneCrown\\BoneCrownKhajiit_M.nif",
-      "MO2T - Texture Files Hashes": "02 00 00 00 02 00 00 00 00 00 00 00 9D F8 B5 6E 64 64 73 00 A6 C6 6E 01 08 ED A0 E0 64 64 73 00 A6 C6 6E 01"
-    },
-    "Female world model": {
-      "MOD3 - Model FileName": "Armor\\BoneCrown\\BoneCrownKhajiit_F.nif",
-      "MO3T - Texture Files Hashes": "02 00 00 00 02 00 00 00 00 00 00 00 9D F8 B5 6E 64 64 73 00 A6 C6 6E 01 08 ED A0 E0 64 64 73 00 A6 C6 6E 01"
-    },
+    "DNAM - Data": [
+      "10",
+      "10",
+      "",
+      "",
+      "00 00",
+      "76",
+      "17",
+      "1.000000"
+    ],
+    "Male world model": [
+      "Armor\\BoneCrown\\BoneCrownKhajiit_M.nif",
+      "02 00 00 00 02 00 00 00 00 00 00 00 9D F8 B5 6E 64 64 73 00 A6 C6 6E 01 08 ED A0 E0 64 64 73 00 A6 C6 6E 01"
+    ],
+    "Female world model": [
+      "Armor\\BoneCrown\\BoneCrownKhajiit_F.nif",
+      "02 00 00 00 02 00 00 00 00 00 00 00 9D F8 B5 6E 64 64 73 00 A6 C6 6E 01 08 ED A0 E0 64 64 73 00 A6 C6 6E 01"
+    ],
     "Additional Races": [
       "{Skyrim.esm:088845}"
     ]

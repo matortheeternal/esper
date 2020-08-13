@@ -1,95 +1,96 @@
 {
   "00017043": {
-    "Record Header": {
-      "Signature": "SCEN",
-      "Data Size": "522",
-      "Record Flags": "",
-      "FormID": "{Skyrim.esm:017043}",
-      "Version Control Info 1": "00 00 00 00",
-      "Form Version": "40",
-      "Version Control Info 2": "00 00"
-    },
+    "Record Header": [
+      "SCEN",
+      "522",
+      "",
+      "{Skyrim.esm:017043}",
+      "00 00 00 00",
+      "40",
+      "00 00"
+    ],
     "EDID - Editor ID": "MQSovngardeConv2SceneStarter",
-    "VMAD - Virtual Machine Adapter": {
-      "Version": "5",
-      "Object Format": "2",
-      "Scripts": [
-        {
-          "scriptName": "SF_MQSovngardeConv2SceneStar_015A89D9",
-          "Flags": "Local",
-          "Properties": [
-            {
-              "propertyName": "MQSovngardeSparringKeyword",
-              "Type": "Object",
-              "Flags": "Edited",
-              "Value": {
-                "Object Union": {
-                  "Object v2": {
-                    "FormID": "{Skyrim.esm:017044}",
-                    "Alias": "None",
-                    "Unused": "0"
-                  }
-                }
-              }
-            }
+    "VMAD - Virtual Machine Adapter": [
+      "5",
+      "2",
+      [
+        [
+          "SF_MQSovngardeConv2SceneStar_015A89D9",
+          "Local",
+          [
+            [
+              "MQSovngardeSparringKeyword",
+              "Object",
+              "Edited",
+              [
+                [
+                  [
+                    "{Skyrim.esm:017044}",
+                    "None",
+                    "0"
+                  ]
+                ]
+              ]
+            ]
           ]
-        }
+        ]
       ],
-      "Script Fragments": ""
-    },
+      ""
+    ],
     "FNAM - Flags": "Begin on Quest Start, Stop on Quest End",
     "Phases": [
-      {
-        "HNAM - Marker Phase Start": "",
-        "NAM0 - Name": "",
-        "NEXT - Marker": "",
-        "WNAM - Editor Width": "200",
-        "HNAM - Marker Phase End": ""
-      }
+      [
+        "",
+        "",
+        "",
+        "",
+        "200",
+        ""
+      ]
     ],
     "Actors": [
-      {
-        "ALID - Actor ID": "5",
-        "LNAM - Flags": "",
-        "DNAM - Behaviour Flags": "Death End, Combat End, Dialogue Pause"
-      },
-      {
-        "ALID - Actor ID": "6",
-        "LNAM - Flags": "",
-        "DNAM - Behaviour Flags": "Death End, Combat End, Dialogue Pause"
-      }
+      [
+        "5",
+        "",
+        "Death End, Combat End, Dialogue Pause"
+      ],
+      [
+        "6",
+        "",
+        "Death End, Combat End, Dialogue Pause"
+      ]
     ],
     "Actions": [
-      {
-        "ANAM - Type": "Dialogue",
-        "NAM0 - Name": "",
-        "ALID - Actor ID": "5",
-        "INAM - Index": "1",
-        "SNAM - Start Phase": "0",
-        "ENAM - End Phase": "0",
-        "DATA - Topic": "{Null:000000}",
-        "HTID - Headtrack Actor ID": "6",
-        "DMAX - Looping - Max": "10.000000",
-        "DMIN - Looping - Min": "1.000000",
-        "DEMO - Emotion Type": "Neutral",
-        "DEVA - Emotion Value": "0",
-        "ANAM - End Marker": ""
-      },
-      {
-        "ANAM - Type": "Dialogue",
-        "NAM0 - Name": "",
-        "ALID - Actor ID": "6",
-        "INAM - Index": "2",
-        "SNAM - Start Phase": "0",
-        "ENAM - End Phase": "0",
-        "DATA - Topic": "{Null:000000}",
-        "HTID - Headtrack Actor ID": "5",
-        "DMAX - Looping - Max": "10.000000",
-        "DMIN - Looping - Min": "1.000000",
-        "DEMO - Emotion Type": "Neutral",
-        "DEVA - Emotion Value": "0",
-        "ANAM - End Marker": ""
-      }
+      [
+        "Dialogue",
+        "",
+        "5",
+        "1",
+        "0",
+        "0",
+        "{Null:000000}",
+        "6",
+        "10.000000",
+        "1.000000",
+        "Neutral",
+        "0",
+        ""
+      ],
+      [
+        "Dialogue",
+        "",
+        "6",
+        "2",
+        "0",
+        "0",
+        "{Null:000000}",
+        "5",
+        "10.000000",
+        "1.000000",
+        "Neutral",
+        "0",
+        ""
+      ]
     ],
     "PNAM - Quest": "{Skyrim.esm:017042}",
     "INAM - Last Action Index": "2",

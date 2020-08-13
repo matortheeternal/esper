@@ -1,20 +1,20 @@
 {
   "0010F63C": {
-    "Record Header": {
-      "Signature": "LCRT",
-      "Data Size": "33",
-      "Record Flags": "",
-      "FormID": "{Skyrim.esm:10F63C}",
-      "Version Control Info 1": "00 00 00 00",
-      "Form Version": "39",
-      "Version Control Info 2": "00 00"
-    },
+    "Record Header": [
+      "LCRT",
+      "33",
+      "",
+      "{Skyrim.esm:10F63C}",
+      "00 00 00 00",
+      "39",
+      "00 00"
+    ],
     "EDID - Editor ID": "MapMarkerRefType",
-    "CNAM - Color": {
-      "Red": "200",
-      "Green": "200",
-      "Blue": "200",
-      "Unknown": "00"
-    }
+    "CNAM - Color": [
+      "200",
+      "200",
+      "200",
+      "00"
+    ]
   }
 }

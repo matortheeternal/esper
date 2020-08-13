@@ -1,14 +1,14 @@
 {
   "00000F7E": {
-    "Record Header": {
-      "Signature": "MUST",
-      "Data Size": "265",
-      "Record Flags": "",
-      "FormID": "{Skyrim.esm:000F7E}",
-      "Version Control Info 1": "00 00 00 00",
-      "Form Version": "40",
-      "Version Control Info 2": "00 00"
-    },
+    "Record Header": [
+      "MUST",
+      "265",
+      "",
+      "{Skyrim.esm:000F7E}",
+      "00 00 00 00",
+      "40",
+      "00 00"
+    ],
     "EDID - Editor ID": "MUSCombatBoss03CG",
     "CNAM - Track Type": "Single Track",
     "ANAM - Track Filename": "Data\\Music\\Combat\\MUS_Combat_Boss_CG.wav",
@@ -36,19 +36,20 @@
     ],
     "CITC - Condition Count": "1",
     "Conditions": [
-      {
-        "CTDA - ": {
-          "Type": "10000000",
-          "Unused": "00 00",
-          "Comparison Value": "1.000000",
-          "Function": "GetCombatTargetHasKeyword",
-          "Parameter #1": "{Skyrim.esm:035D59}",
-          "Parameter #2": "00 00 00 00",
-          "Run On": "Reference",
-          "Reference": "{Null:000014}",
-          "Parameter #3": "-1"
-        }
-      }
+      [
+        [
+          "10000000",
+          "00 00 00",
+          "1.000000",
+          "GetCombatTargetHasKeyword",
+          "00 00",
+          "{Skyrim.esm:035D59}",
+          "00 00 00 00",
+          "Reference",
+          "{Null:000014}",
+          "-1"
+        ]
+      ]
     ]
   }
 }

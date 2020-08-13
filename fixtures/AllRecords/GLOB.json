@@ -1,14 +1,14 @@
 {
   "00000ECA": {
-    "Record Header": {
-      "Signature": "GLOB",
-      "Data Size": "42",
-      "Record Flags": "",
-      "FormID": "{Skyrim.esm:000ECA}",
-      "Version Control Info 1": "00 00 00 00",
-      "Form Version": "40",
-      "Version Control Info 2": "00 00"
-    },
+    "Record Header": [
+      "GLOB",
+      "42",
+      "",
+      "{Skyrim.esm:000ECA}",
+      "00 00 00 00",
+      "40",
+      "00 00"
+    ],
     "EDID - Editor ID": "DecapitationChance",
     "FNAM - Type": "Float",
     "FLTV - Value": "40.000000"

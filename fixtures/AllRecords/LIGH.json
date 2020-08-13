@@ -1,44 +1,44 @@
 {
   "0010FDA1": {
-    "Record Header": {
-      "Signature": "LIGH",
-      "Data Size": "107",
-      "Record Flags": "",
-      "FormID": "{Skyrim.esm:10FDA1}",
-      "Version Control Info 1": "00 00 00 00",
-      "Form Version": "40",
-      "Version Control Info 2": "00 00"
-    },
+    "Record Header": [
+      "LIGH",
+      "107",
+      "",
+      "{Skyrim.esm:10FDA1}",
+      "00 00 00 00",
+      "40",
+      "00 00"
+    ],
     "EDID - Editor ID": "MagicVoiceDismay03",
-    "OBND - Object Bounds": {
-      "X1": "0",
-      "Y1": "0",
-      "Z1": "0",
-      "X2": "0",
-      "Y2": "0",
-      "Z2": "0"
-    },
-    "DATA - ": {
-      "Time": "-1",
-      "Radius": "512",
-      "Color": {
-        "Red": "194",
-        "Green": "72",
-        "Blue": "58",
-        "Unused": "00"
-      },
-      "Flags": "",
-      "Falloff Exponent": "1.000000",
-      "FOV": "90.000000",
-      "Near Clip": "1.000000",
-      "Flicker Effect": {
-        "Period": "0.010000",
-        "Intensity Amplitude": "0.000000",
-        "Movement Amplitude": "0.000000"
-      },
-      "Value": "0",
-      "Weight": "0.000000"
-    },
+    "OBND - Object Bounds": [
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "DATA - ": [
+      "-1",
+      "512",
+      [
+        "194",
+        "72",
+        "58",
+        "00"
+      ],
+      "",
+      "1.000000",
+      "90.000000",
+      "1.000000",
+      [
+        "0.010000",
+        "0.000000",
+        "0.000000"
+      ],
+      "0",
+      "0.000000"
+    ],
     "FNAM - Fade value": "2.000000"
   }
 }

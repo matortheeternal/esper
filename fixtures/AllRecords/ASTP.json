@@ -1,14 +1,14 @@
 {
   "0003F4DA": {
-    "Record Header": {
-      "Signature": "ASTP",
-      "Data Size": "104",
-      "Record Flags": "",
-      "FormID": "{Skyrim.esm:03F4DA}",
-      "Version Control Info 1": "00 00 00 00",
-      "Form Version": "34",
-      "Version Control Info 2": "00 00"
-    },
+    "Record Header": [
+      "ASTP",
+      "104",
+      "",
+      "{Skyrim.esm:03F4DA}",
+      "00 00 00 00",
+      "34",
+      "00 00"
+    ],
     "EDID - Editor ID": "FavorTarget",
     "MPRT - Male Parent Title": "Acquaintance",
     "FPRT - Female Parent Title": "Acquaintance",

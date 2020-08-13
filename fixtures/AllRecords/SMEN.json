@@ -1,14 +1,14 @@
 {
   "00039D86": {
-    "Record Header": {
-      "Signature": "SMEN",
-      "Data Size": "60",
-      "Record Flags": "",
-      "FormID": "{Skyrim.esm:039D86}",
-      "Version Control Info 1": "00 00 00 00",
-      "Form Version": "35",
-      "Version Control Info 2": "00 00"
-    },
+    "Record Header": [
+      "SMEN",
+      "60",
+      "",
+      "{Skyrim.esm:039D86}",
+      "00 00 00 00",
+      "35",
+      "00 00"
+    ],
     "PNAM - Parent ": "{Skyrim.esm:00005B}",
     "SNAM - Child ": "{Null:000000}",
     "CITC - Condition Count": "0",

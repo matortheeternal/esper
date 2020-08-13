@@ -1,45 +1,45 @@
 {
   "0010D666": {
-    "Record Header": {
-      "Signature": "ALCH",
-      "Data Size": "177",
-      "Record Flags": "",
-      "FormID": "{Skyrim.esm:10D666}",
-      "Version Control Info 1": "00 00 00 00",
-      "Form Version": "44",
-      "Version Control Info 2": "00 00"
-    },
+    "Record Header": [
+      "ALCH",
+      "177",
+      "",
+      "{Skyrim.esm:10D666}",
+      "00 00 00 00",
+      "44",
+      "00 00"
+    ],
     "EDID - Editor ID": "FoodGourd",
-    "OBND - Object Bounds": {
-      "X1": "0",
-      "Y1": "0",
-      "Z1": "0",
-      "X2": "0",
-      "Y2": "0",
-      "Z2": "0"
-    },
+    "OBND - Object Bounds": [
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
     "FULL - Name": "Gourd",
-    "Model": {
-      "MODL - Model FileName": "Plants\\Gourd01.nif",
-      "MODT - Texture Files Hashes": "02 00 00 00 02 00 00 00 00 00 00 00 79 9D F1 86 64 64 73 00 13 4C 1E FA 73 A6 6A E7 64 64 73 00 13 4C 1E FA"
-    },
+    "Model": [
+      "Plants\\Gourd01.nif",
+      "02 00 00 00 02 00 00 00 00 00 00 00 79 9D F1 86 64 64 73 00 13 4C 1E FA 73 A6 6A E7 64 64 73 00 13 4C 1E FA"
+    ],
     "DATA - Weight": "0.200000",
-    "ENIT - Effect Data": {
-      "Value": "1",
-      "Flags": "Food Item",
-      "Addiction": "{Null:000000}",
-      "Addiction Chance": "0.000000",
-      "Sound - Consume": "{Null:000000}"
-    },
+    "ENIT - Effect Data": [
+      "1",
+      "Food Item",
+      "{Null:000000}",
+      "0.000000",
+      "{Null:000000}"
+    ],
     "Effects": [
-      {
-        "EFID - Base Effect": "{Skyrim.esm:0F33CB}",
-        "EFIT - ": {
-          "Magnitude": "1.000000",
-          "Area": "0",
-          "Duration": "0"
-        }
-      }
+      [
+        "{Skyrim.esm:0F33CB}",
+        [
+          "1.000000",
+          "0",
+          "0"
+        ]
+      ]
     ]
   }
 }

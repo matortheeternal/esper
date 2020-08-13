@@ -1,56 +1,56 @@
 {
   "0000003D": {
-    "Record Header": {
-      "Signature": "CSTY",
-      "Data Size": "173",
-      "Record Flags": "",
-      "FormID": "{Skyrim.esm:00003D}",
-      "Version Control Info 1": "00 00 00 00",
-      "Form Version": "27",
-      "Version Control Info 2": "00 00"
-    },
+    "Record Header": [
+      "CSTY",
+      "173",
+      "",
+      "{Skyrim.esm:00003D}",
+      "00 00 00 00",
+      "27",
+      "00 00"
+    ],
     "EDID - Editor ID": "DefaultCombatstyle",
-    "CSGD - General": {
-      "Offensive Mult": "0.240000",
-      "Defensive Mult": "0.240000",
-      "Group Offensive Mult": "0.510000",
-      "Equipment Score Mult - Melee": "1.000000",
-      "Equipment Score Mult - Magic": "1.000000",
-      "Equipment Score Mult - Ranged": "1.000000",
-      "Equipment Score Mult - Shout": "1.000000",
-      "Equipment Score Mult - Unarmed": "1.000000",
-      "Equipment Score Mult - Staff": "1.000000",
-      "Avoid Threat Chance": "0.200000"
-    },
-    "CSME - Melee": {
-      "Attack Staggered Mult": "0.380000",
-      "Power Attack Staggered Mult": "0.380000",
-      "Power Attack Blocking Mult": "0.720000",
-      "Bash Mult": "0.760000",
-      "Bash Recoil Mult": "0.760000",
-      "Bash Attack Mult": "0.380000",
-      "Bash Power Attack Mult": "0.380000",
-      "Special Attack Mult": ""
-    },
-    "CSCR - Close Range": {
-      "Circle Mult": "0.220000",
-      "Fallback Mult": "0.110000",
-      "Flank Distance": "0.200000",
-      "Stalk Time": "0.200000"
-    },
-    "CSLR - Long Range": {
-      "Strafe Mult": "0.200000"
-    },
-    "CSFL - Flight": {
-      "Hover Chance": "0.500000",
-      "Dive Bomb Chance": "1.000000",
-      "Ground Attack Chance": "0.500000",
-      "Hover Time": "0.500000",
-      "Ground Attack Time": "0.500000",
-      "Perch Attack Chance": "",
-      "Perch Attack Time": "",
-      "Flying Attack Chance": ""
-    },
+    "CSGD - General": [
+      "0.240000",
+      "0.240000",
+      "0.510000",
+      "1.000000",
+      "1.000000",
+      "1.000000",
+      "1.000000",
+      "1.000000",
+      "1.000000",
+      "0.200000"
+    ],
+    "CSME - Melee": [
+      "0.380000",
+      "0.380000",
+      "0.720000",
+      "0.760000",
+      "0.760000",
+      "0.380000",
+      "0.380000",
+      ""
+    ],
+    "CSCR - Close Range": [
+      "0.220000",
+      "0.110000",
+      "0.200000",
+      "0.200000"
+    ],
+    "CSLR - Long Range": [
+      "0.200000"
+    ],
+    "CSFL - Flight": [
+      "0.500000",
+      "1.000000",
+      "0.500000",
+      "0.500000",
+      "0.500000",
+      "",
+      "",
+      ""
+    ],
     "DATA - Flags": "Dueling"
   }
 }

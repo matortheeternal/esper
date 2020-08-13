@@ -1,58 +1,61 @@
 {
   "001092DE": {
-    "Record Header": {
-      "Signature": "SMBN",
-      "Data Size": "195",
-      "Record Flags": "",
-      "FormID": "{Skyrim.esm:1092DE}",
-      "Version Control Info 1": "00 00 00 00",
-      "Form Version": "37",
-      "Version Control Info 2": "00 00"
-    },
+    "Record Header": [
+      "SMBN",
+      "195",
+      "",
+      "{Skyrim.esm:1092DE}",
+      "00 00 00 00",
+      "37",
+      "00 00"
+    ],
     "EDID - Editor ID": "SkyHavenTempleScenesNode",
     "PNAM - Parent ": "{Skyrim.esm:015FCE}",
     "SNAM - Child ": "{Skyrim.esm:0A71AB}",
     "CITC - Condition Count": "3",
     "Conditions": [
-      {
-        "CTDA - ": {
-          "Type": "10000000",
-          "Unused": "00 00",
-          "Comparison Value": "1.000000",
-          "Function": "GetInCurrentLoc",
-          "Parameter #1": "{Skyrim.esm:018E42}",
-          "Parameter #2": "00 00 00 00",
-          "Run On": "Event Data",
-          "Reference": "0",
-          "Parameter #3": "12626"
-        }
-      },
-      {
-        "CTDA - ": {
-          "Type": "10000000",
-          "Unused": "00 00",
-          "Comparison Value": "1.000000",
-          "Function": "GetInCurrentLoc",
-          "Parameter #1": "{Skyrim.esm:018E42}",
-          "Parameter #2": "00 00 00 00",
-          "Run On": "Event Data",
-          "Reference": "0",
-          "Parameter #3": "12882"
-        }
-      },
-      {
-        "CTDA - ": {
-          "Type": "11000000",
-          "Unused": "00 00",
-          "Comparison Value": "20.000000",
-          "Function": "GetStage",
-          "Parameter #1": "{Skyrim.esm:02D515}",
-          "Parameter #2": "00 00 00 00",
-          "Run On": "Subject",
-          "Reference": "0",
-          "Parameter #3": "-1"
-        }
-      }
+      [
+        [
+          "10000000",
+          "06 85 1B",
+          "1.000000",
+          "GetInCurrentLoc",
+          "00 00",
+          "{Skyrim.esm:018E42}",
+          "00 00 00 00",
+          "Event Data",
+          "0",
+          "12626"
+        ]
+      ],
+      [
+        [
+          "10000000",
+          "06 85 1B",
+          "1.000000",
+          "GetInCurrentLoc",
+          "00 00",
+          "{Skyrim.esm:018E42}",
+          "00 00 00 00",
+          "Event Data",
+          "0",
+          "12882"
+        ]
+      ],
+      [
+        [
+          "11000000",
+          "06 85 1B",
+          "20.000000",
+          "GetStage",
+          "00 00",
+          "{Skyrim.esm:02D515}",
+          "00 00 00 00",
+          "Subject",
+          "0",
+          "-1"
+        ]
+      ]
     ],
     "DNAM - Flags": "",
     "XNAM - Unknown": "00 00 00 00"

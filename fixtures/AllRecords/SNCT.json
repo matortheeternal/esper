@@ -1,14 +1,14 @@
 {
   "00000F72": {
-    "Record Header": {
-      "Signature": "SNCT",
-      "Data Size": "74",
-      "Record Flags": "",
-      "FormID": "{Skyrim.esm:000F72}",
-      "Version Control Info 1": "00 00 00 00",
-      "Form Version": "44",
-      "Version Control Info 2": "00 00"
-    },
+    "Record Header": [
+      "SNCT",
+      "74",
+      "",
+      "{Skyrim.esm:000F72}",
+      "00 00 00 00",
+      "44",
+      "00 00"
+    ],
     "EDID - Editor ID": "AudioCategoryFSTnpc",
     "FULL - Name": "NPC Footsteps",
     "FNAM - Flags": "",

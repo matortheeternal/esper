@@ -1,23 +1,23 @@
 {
-  "Record Header": {
-    "Signature": "TES4",
-    "Data Size": "56",
-    "Record Flags": "",
-    "FormID": "{Null:000000}",
-    "Version Control Info 1": "00 00 00 00",
-    "Form Version": "44",
-    "Version Control Info 2": "00 00"
-  },
-  "HEDR - Header": {
-    "Version": "1.700000",
-    "Number of Records": "246",
-    "Next Object ID": "000800"
-  },
+  "Record Header": [
+    "TES4",
+    "56",
+    "",
+    "{Null:000000}",
+    "00 00 00 00",
+    "44",
+    "00 00"
+  ],
+  "HEDR - Header": [
+    "1.700000",
+    "246",
+    "000800"
+  ],
   "CNAM - Author": "",
   "Master Files": [
-    {
-      "MAST - FileName": "Skyrim.esm",
-      "DATA - Unknown": "00 00 00 00 00 00 00 00"
-    }
+    [
+      "Skyrim.esm",
+      "00 00 00 00 00 00 00 00"
+    ]
   ]
 }

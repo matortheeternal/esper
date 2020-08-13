@@ -1,97 +1,97 @@
 {
   "00000EB4": {
-    "Record Header": {
-      "Signature": "NPC_",
-      "Data Size": "229",
-      "Record Flags": "Compressed",
-      "FormID": "{Skyrim.esm:000EB4}",
-      "Version Control Info 1": "00 00 00 00",
-      "Form Version": "40",
-      "Version Control Info 2": "00 00"
-    },
+    "Record Header": [
+      "NPC_",
+      "229",
+      "Compressed",
+      "{Skyrim.esm:000EB4}",
+      "00 00 00 00",
+      "40",
+      "00 00"
+    ],
     "EDID - Editor ID": "dunTransmogrifyDremora",
-    "VMAD - Virtual Machine Adapter": {
-      "Version": "5",
-      "Object Format": "2",
-      "Scripts": [
-        {
-          "scriptName": "dunTransmogrifyAnimal",
-          "Flags": "Local",
-          "Properties": [
-            {
-              "propertyName": "appearExplosion",
-              "Type": "Object",
-              "Flags": "Edited",
-              "Value": {
-                "Object Union": {
-                  "Object v2": {
-                    "FormID": "{Skyrim.esm:04046D}",
-                    "Alias": "None",
-                    "Unused": "0"
-                  }
-                }
-              }
-            },
-            {
-              "propertyName": "shader",
-              "Type": "Object",
-              "Flags": "Edited",
-              "Value": {
-                "Object Union": {
-                  "Object v2": {
-                    "FormID": "{Skyrim.esm:074799}",
-                    "Alias": "None",
-                    "Unused": "0"
-                  }
-                }
-              }
-            }
+    "VMAD - Virtual Machine Adapter": [
+      "5",
+      "2",
+      [
+        [
+          "dunTransmogrifyAnimal",
+          "Local",
+          [
+            [
+              "appearExplosion",
+              "Object",
+              "Edited",
+              [
+                [
+                  [
+                    "{Skyrim.esm:04046D}",
+                    "None",
+                    "0"
+                  ]
+                ]
+              ]
+            ],
+            [
+              "shader",
+              "Object",
+              "Edited",
+              [
+                [
+                  [
+                    "{Skyrim.esm:074799}",
+                    "None",
+                    "0"
+                  ]
+                ]
+              ]
+            ]
           ]
-        }
+        ]
       ]
-    },
-    "OBND - Object Bounds": {
-      "X1": "0",
-      "Y1": "0",
-      "Z1": "0",
-      "X2": "0",
-      "Y2": "0",
-      "Z2": "0"
-    },
-    "ACBS - Configuration": {
-      "Flags": "Invulnerable",
-      "Magicka Offset": "0",
-      "Stamina Offset": "0",
-      "Level": "1",
-      "Calc min level": "0",
-      "Calc max level": "0",
-      "Speed Multiplier": "100",
-      "Disposition Base (unused)": "35",
-      "Template Flags": "Use Traits, Use Stats, Use Factions, Use Spell List, Use AI Data, Use AI Packages, Use Base Data, Use Inventory, Use Script, Use Def Pack List, Use Attack Data, Use Keywords",
-      "Health Offset": "0",
-      "Bleedout Override": "0"
-    },
+    ],
+    "OBND - Object Bounds": [
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "ACBS - Configuration": [
+      "Invulnerable",
+      "0",
+      "0",
+      "1",
+      "0",
+      "0",
+      "100",
+      "35",
+      "Use Traits, Use Stats, Use Factions, Use Spell List, Use AI Data, Use AI Packages, Use Base Data, Use Inventory, Use Script, Use Def Pack List, Use Attack Data, Use Keywords",
+      "0",
+      "0"
+    ],
     "TPLT - Template": "{Skyrim.esm:01E7AF}",
     "RNAM - Race": "{Skyrim.esm:000019}",
-    "AIDT - AI Data": {
-      "Aggression": "Unaggressive",
-      "Confidence": "Average",
-      "Energy Level": "50",
-      "Responsibility": "No crime",
-      "Mood": "Neutral",
-      "Assistance": "Helps Nobody",
-      "Aggro": {
-        "Aggro Radius Behavior": "False",
-        "Unknown": "0",
-        "Warn": "0",
-        "Warn/Attack": "0",
-        "Attack": "0"
-      }
-    },
+    "AIDT - AI Data": [
+      "Unaggressive",
+      "Average",
+      "50",
+      "No crime",
+      "Neutral",
+      "Helps Nobody",
+      [
+        "False",
+        "0",
+        "0",
+        "0",
+        "0"
+      ]
+    ],
     "CNAM - Class": "{Skyrim.esm:013176}",
     "DATA - Marker": "",
-    "DNAM - Player Skills": {
-      "Skill Values": [
+    "DNAM - Player Skills": [
+      [
         "5",
         "5",
         "5",
@@ -111,7 +111,7 @@
         "5",
         "5"
       ],
-      "Skill Offsets": [
+      [
         "0",
         "0",
         "0",
@@ -131,21 +131,22 @@
         "0",
         "0"
       ],
-      "Health": "25",
-      "Magicka": "65511",
-      "Stamina": "25",
-      "Unused": "7E 54 00",
-      "Far away model distance": "0.000000",
-      "Geared up weapons": "1"
-    },
+      "25",
+      "65511",
+      "25",
+      "00 00",
+      "0.000000",
+      "1",
+      "7E 54 00"
+    ],
     "NAM5 - Unknown": "FF 00",
     "NAM6 - Height": "1.000000",
     "NAM7 - Weight": "50.000000",
     "NAM8 - Sound Level": "Normal",
-    "QNAM - Texture lighting": {
-      "Red": "0",
-      "Green": "0",
-      "Blue": "0"
-    }
+    "QNAM - Texture lighting": [
+      "0",
+      "0",
+      "0"
+    ]
   }
 }

@@ -1,14 +1,14 @@
 {
   "0010F677": {
-    "Record Header": {
-      "Signature": "VTYP",
-      "Data Size": "24",
-      "Record Flags": "",
-      "FormID": "{Skyrim.esm:10F677}",
-      "Version Control Info 1": "00 00 00 00",
-      "Form Version": "39",
-      "Version Control Info 2": "00 00"
-    },
+    "Record Header": [
+      "VTYP",
+      "24",
+      "",
+      "{Skyrim.esm:10F677}",
+      "00 00 00 00",
+      "39",
+      "00 00"
+    ],
     "EDID - Editor ID": "CrFoxVoice",
     "DNAM - Flags": ""
   }

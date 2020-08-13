@@ -1,19 +1,19 @@
 {
   "0010FD00": {
-    "Record Header": {
-      "Signature": "ANIO",
-      "Data Size": "110",
-      "Record Flags": "Unknown 9",
-      "FormID": "{Skyrim.esm:10FD00}",
-      "Version Control Info 1": "00 00 00 00",
-      "Form Version": "40",
-      "Version Control Info 2": "00 00"
-    },
+    "Record Header": [
+      "ANIO",
+      "110",
+      "Unknown 9",
+      "{Skyrim.esm:10FD00}",
+      "00 00 00 00",
+      "40",
+      "00 00"
+    ],
     "EDID - Editor ID": "AnimObjectIronSword",
-    "Model": {
-      "MODL - Model FileName": "AnimObjects\\AnimObjectIronSword.nif",
-      "MODT - Texture Files Hashes": "02 00 00 00 00 00 00 00 00 00 00 00"
-    },
+    "Model": [
+      "AnimObjects\\AnimObjectIronSword.nif",
+      "02 00 00 00 00 00 00 00 00 00 00 00"
+    ],
     "BNAM - Unload Event": "AnimObjectUnequip"
   }
 }

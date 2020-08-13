@@ -1,45 +1,45 @@
 {
   "0010FEF7": {
-    "Record Header": {
-      "Signature": "IMGS",
-      "Data Size": "126",
-      "Record Flags": "",
-      "FormID": "{Skyrim.esm:10FEF7}",
-      "Version Control Info 1": "00 00 00 00",
-      "Form Version": "40",
-      "Version Control Info 2": "00 00"
-    },
+    "Record Header": [
+      "IMGS",
+      "126",
+      "",
+      "{Skyrim.esm:10FEF7}",
+      "00 00 00 00",
+      "40",
+      "00 00"
+    ],
     "EDID - Editor ID": "ISSovngardeDark",
-    "HNAM - HDR": {
-      "Eye Adapt Speed": "45.000000",
-      "Bloom Blur Radius": "7.000000",
-      "Bloom Threshold": "0.450000",
-      "Bloom Scale": "4.500000",
-      "Receive Bloom Threshold": "0.615000",
-      "White": "0.925000",
-      "Sunlight Scale": "3.850000",
-      "Sky Scale": "0.000000",
-      "Eye Adapt Strength": "2.500000"
-    },
-    "CNAM - Cinematic": {
-      "Saturation": "2.450000",
-      "Brightness": "1.040000",
-      "Contrast": "1.275000"
-    },
-    "TNAM - Tint": {
-      "Amount": "0.750000",
-      "Color": {
-        "Red": "164",
-        "Green": "156",
-        "Blue": "199"
-      }
-    },
-    "DNAM - Depth of Field": {
-      "Strength": "0.700000",
-      "Distance": "0.000000",
-      "Range": "15000.000000",
-      "Unknown": "00 00",
-      "Sky / Blur Radius": "No Sky, Radius 5"
-    }
+    "HNAM - HDR": [
+      "45.000000",
+      "7.000000",
+      "0.450000",
+      "4.500000",
+      "0.615000",
+      "0.925000",
+      "3.850000",
+      "0.000000",
+      "2.500000"
+    ],
+    "CNAM - Cinematic": [
+      "2.450000",
+      "1.040000",
+      "1.275000"
+    ],
+    "TNAM - Tint": [
+      "0.750000",
+      [
+        "164",
+        "156",
+        "199"
+      ]
+    ],
+    "DNAM - Depth of Field": [
+      "0.700000",
+      "0.000000",
+      "15000.000000",
+      "00 00",
+      "No Sky, Radius 5"
+    ]
   }
 }

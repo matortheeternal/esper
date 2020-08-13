@@ -22,11 +22,11 @@ let serializeElement = function(element) {
   if (vt === xelib.vtArray) {
     return serializeArray(element);
   } else if (vt === xelib.vtStruct) {
-    return serializeStruct(element);
+    return serializeArray(element);
   } else if (vt === xelib.vtFlags) {
     return xelib.GetEnabledFlags(element).join(', ');
   } else if (xelib.ElementCount(element) > 0) {
-    return serializeStruct(element);
+    return serializeArray(element);
   } else if (vt === xelib.vtReference) {
     let localFid = xelib.GetUIntValue(element) & 0xFFFFFF;
     if (localFid === 0) return '{Null:000000}';

@@ -1,20 +1,20 @@
 {
   "0010F79E": {
-    "Record Header": {
-      "Signature": "HDPT",
-      "Data Size": "186",
-      "Record Flags": "",
-      "FormID": "{Skyrim.esm:10F79E}",
-      "Version Control Info 1": "00 00 00 00",
-      "Form Version": "44",
-      "Version Control Info 2": "00 00"
-    },
+    "Record Header": [
+      "HDPT",
+      "186",
+      "",
+      "{Skyrim.esm:10F79E}",
+      "00 00 00 00",
+      "44",
+      "00 00"
+    ],
     "EDID - Editor ID": "HairFemaleImperial1",
     "FULL - Name": "HairFemaleImperial1",
-    "Model": {
-      "MODL - Model FileName": "Actors\\Character\\Character Assets\\Hair\\HairShortHumanF.nif",
-      "MODT - Texture Files Hashes": "02 00 00 00 02 00 00 00 00 00 00 00 98 54 36 90 64 64 73 00 BF 52 7B C5 0D 08 B7 42 64 64 73 00 BF 52 7B C5"
-    },
+    "Model": [
+      "Actors\\Character\\Character Assets\\Hair\\HairShortHumanF.nif",
+      "02 00 00 00 02 00 00 00 00 00 00 00 98 54 36 90 64 64 73 00 BF 52 7B C5 0D 08 B7 42 64 64 73 00 BF 52 7B C5"
+    ],
     "DATA - Flags": "Playable, Female",
     "PNAM - Type": "Hair",
     "RNAM - Valid Races": "{Skyrim.esm:0A8023}"

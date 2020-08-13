@@ -1,41 +1,41 @@
 {
   "00000E04": {
-    "Record Header": {
-      "Signature": "EXPL",
-      "Data Size": "164",
-      "Record Flags": "",
-      "FormID": "{Skyrim.esm:000E04}",
-      "Version Control Info 1": "00 00 00 00",
-      "Form Version": "40",
-      "Version Control Info 2": "00 00"
-    },
+    "Record Header": [
+      "EXPL",
+      "164",
+      "",
+      "{Skyrim.esm:000E04}",
+      "00 00 00 00",
+      "40",
+      "00 00"
+    ],
     "EDID - Editor ID": "PowerSerpentStoneExplosion",
-    "OBND - Object Bounds": {
-      "X1": "0",
-      "Y1": "0",
-      "Z1": "0",
-      "X2": "0",
-      "Y2": "0",
-      "Z2": "0"
-    },
-    "Model": {
-      "MODL - Model FileName": "Magic\\ShoutAreaExplosion01.nif",
-      "MODT - Texture Files Hashes": "02 00 00 00 00 00 00 00 00 00 00 00"
-    },
-    "DATA - Data": {
-      "Light": "{Null:000000}",
-      "Sound 1": "{Skyrim.esm:000E00}",
-      "Sound 2": "{Null:000000}",
-      "Impact Data Set": "{Null:000000}",
-      "Placed Object": "{Null:000000}",
-      "Spawn Projectile": "{Null:000000}",
-      "Force": "1.000000",
-      "Damage": "0.000000",
-      "Radius": "1.000000",
-      "IS Radius": "1.000000",
-      "Vertical Offset Mult": "0.800000",
-      "Flags": "Unknown 0, Ignore Image Space Swap",
-      "Sound Level": "Loud"
-    }
+    "OBND - Object Bounds": [
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "Model": [
+      "Magic\\ShoutAreaExplosion01.nif",
+      "02 00 00 00 00 00 00 00 00 00 00 00"
+    ],
+    "DATA - Data": [
+      "{Null:000000}",
+      "{Skyrim.esm:000E00}",
+      "{Null:000000}",
+      "{Null:000000}",
+      "{Null:000000}",
+      "{Null:000000}",
+      "1.000000",
+      "0.000000",
+      "1.000000",
+      "1.000000",
+      "0.800000",
+      "Unknown 0, Ignore Image Space Swap",
+      "Loud"
+    ]
   }
 }

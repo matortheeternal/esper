@@ -1,28 +1,28 @@
 {
   "001093D0": {
-    "Record Header": {
-      "Signature": "TACT",
-      "Data Size": "231",
-      "Record Flags": "",
-      "FormID": "{Skyrim.esm:1093D0}",
-      "Version Control Info 1": "00 00 00 00",
-      "Form Version": "44",
-      "Version Control Info 2": "00 00"
-    },
+    "Record Header": [
+      "TACT",
+      "231",
+      "",
+      "{Skyrim.esm:1093D0}",
+      "00 00 00 00",
+      "44",
+      "00 00"
+    ],
     "EDID - Editor ID": "MGAugurTalkingActivator",
-    "OBND - Object Bounds": {
-      "X1": "-327",
-      "Y1": "-503",
-      "Z1": "-307",
-      "X2": "327",
-      "Y2": "503",
-      "Z2": "359"
-    },
+    "OBND - Object Bounds": [
+      "-327",
+      "-503",
+      "-307",
+      "327",
+      "503",
+      "359"
+    ],
     "FULL - Name": "Augur of Dunlain",
-    "Model": {
-      "MODL - Model FileName": "Effects\\MGAugurFX01.nif",
-      "MODT - Texture Files Hashes": "02 00 00 00 07 00 00 00 00 00 00 00 6C 6A C8 1F 64 64 73 00 38 97 3C EA 87 89 0E FE 64 64 73 00 58 2C 55 33 F3 84 62 D9 64 64 73 00 58 2C 55 33 35 FC 8B 23 64 64 73 00 38 97 3C EA 77 7C 51 70 64 64 73 00 58 2C 55 33 CF 23 8B 7F 64 64 73 00 38 97 3C EA DF 71 81 B3 64 64 73 00 58 2C 55 33"
-    },
+    "Model": [
+      "Effects\\MGAugurFX01.nif",
+      "02 00 00 00 07 00 00 00 00 00 00 00 6C 6A C8 1F 64 64 73 00 38 97 3C EA 87 89 0E FE 64 64 73 00 58 2C 55 33 F3 84 62 D9 64 64 73 00 58 2C 55 33 35 FC 8B 23 64 64 73 00 38 97 3C EA 77 7C 51 70 64 64 73 00 58 2C 55 33 CF 23 8B 7F 64 64 73 00 38 97 3C EA DF 71 81 B3 64 64 73 00 58 2C 55 33"
+    ],
     "PNAM - Unknown": "00 00 00 00",
     "FNAM - Unknown": "00 00",
     "VNAM - Voice Type": "{Skyrim.esm:0411FB}"

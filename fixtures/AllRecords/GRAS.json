@@ -1,39 +1,41 @@
 {
   "001098CA": {
-    "Record Header": {
-      "Signature": "GRAS",
-      "Data Size": "151",
-      "Record Flags": "",
-      "FormID": "{Skyrim.esm:1098CA}",
-      "Version Control Info 1": "00 00 00 00",
-      "Form Version": "39",
-      "Version Control Info 2": "00 00"
-    },
+    "Record Header": [
+      "GRAS",
+      "151",
+      "",
+      "{Skyrim.esm:1098CA}",
+      "00 00 00 00",
+      "39",
+      "00 00"
+    ],
     "EDID - Editor ID": "FieldGrass02",
-    "OBND - Object Bounds": {
-      "X1": "0",
-      "Y1": "0",
-      "Z1": "0",
-      "X2": "0",
-      "Y2": "0",
-      "Z2": "0"
-    },
-    "Model": {
-      "MODL - Model FileName": "Landscape\\Grass\\FieldGrassFlowers02.nif",
-      "MODT - Texture Files Hashes": "31 5B 43 E5 64 64 73 00 62 5C 8D 36 0A 4C 87 9A 64 64 73 00 38 97 3C EA"
-    },
-    "DATA - ": {
-      "Density": "3",
-      "Min Slope": "0",
-      "Max Slope": "45",
-      "Unknown": "CD CD CD",
-      "Units From Water": "0",
-      "Units From Water Type": "Above - At Least",
-      "Position Range": "30.000000",
-      "Height Range": "0.300000",
-      "Color Range": "0.200000",
-      "Wave Period": "340.000000",
-      "Flags": "Uniform Scaling, Fit to Slope"
-    }
+    "OBND - Object Bounds": [
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "Model": [
+      "Landscape\\Grass\\FieldGrassFlowers02.nif",
+      "31 5B 43 E5 64 64 73 00 62 5C 8D 36 0A 4C 87 9A 64 64 73 00 38 97 3C EA"
+    ],
+    "DATA - ": [
+      "3",
+      "0",
+      "45",
+      "CD",
+      "0",
+      "CD CD",
+      "Above - At Least",
+      "30.000000",
+      "0.300000",
+      "0.200000",
+      "340.000000",
+      "Uniform Scaling, Fit to Slope",
+      "CD CD CD"
+    ]
   }
 }

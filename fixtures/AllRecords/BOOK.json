@@ -1,42 +1,42 @@
 {
   "0010FD60": {
-    "Record Header": {
-      "Signature": "BOOK",
-      "Data Size": "316",
-      "Record Flags": "",
-      "FormID": "{Skyrim.esm:10FD60}",
-      "Version Control Info 1": "00 00 00 00",
-      "Form Version": "44",
-      "Version Control Info 2": "00 00"
-    },
+    "Record Header": [
+      "BOOK",
+      "316",
+      "",
+      "{Skyrim.esm:10FD60}",
+      "00 00 00 00",
+      "44",
+      "00 00"
+    ],
     "EDID - Editor ID": "SpellTomeConjureDremoraLord",
-    "OBND - Object Bounds": {
-      "X1": "0",
-      "Y1": "0",
-      "Z1": "0",
-      "X2": "0",
-      "Y2": "0",
-      "Z2": "0"
-    },
+    "OBND - Object Bounds": [
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
     "FULL - Name": "Spell Tome: Conjure Dremora Lord",
-    "Model": {
-      "MODL - Model FileName": "Clutter\\Books\\SpellTomeConjurationLowPoly.nif",
-      "MODT - Texture Files Hashes": "02 00 00 00 00 00 00 00 00 00 00 00"
-    },
+    "Model": [
+      "Clutter\\Books\\SpellTomeConjurationLowPoly.nif",
+      "02 00 00 00 00 00 00 00 00 00 00 00"
+    ],
     "DESC - Book Text": "<font face'$HandwrittenFont'><font size='40'><p align='center'>\r\nConjure Dremora Lord",
     "KSIZ - Keyword Count": "2",
     "KWDA - Keywords": [
       "{Skyrim.esm:0937A2}",
       "{Skyrim.esm:0937A5}"
     ],
-    "DATA - Data": {
-      "Flags": "Teaches Spell",
-      "Type": "Book/Tome",
-      "Unused": "00 00",
-      "Teaches": "{Skyrim.esm:10DDEC}",
-      "Value": "730",
-      "Weight": "1.000000"
-    },
+    "DATA - Data": [
+      "Teaches Spell",
+      "Book/Tome",
+      "00 00",
+      "{Skyrim.esm:10DDEC}",
+      "730",
+      "1.000000"
+    ],
     "INAM - Inventory Art": "{Skyrim.esm:02FBB6}",
     "CNAM - Description": ""
   }

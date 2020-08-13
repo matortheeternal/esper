@@ -1,33 +1,33 @@
 {
   "00103273": {
-    "Record Header": {
-      "Signature": "MOVT",
-      "Data Size": "108",
-      "Record Flags": "",
-      "FormID": "{Skyrim.esm:103273}",
-      "Version Control Info 1": "00 00 00 00",
-      "Form Version": "37",
-      "Version Control Info 2": "00 00"
-    },
+    "Record Header": [
+      "MOVT",
+      "108",
+      "",
+      "{Skyrim.esm:103273}",
+      "00 00 00 00",
+      "37",
+      "00 00"
+    ],
     "EDID - Editor ID": "Falmer_1HM_Run",
     "MNAM - Name": "Falmer1HMRun",
-    "SPED - Default Data": {
-      "Left Walk": "106.919998",
-      "Left Run": "235.210006",
-      "Right Walk": "106.919998",
-      "Right Run": "235.210006",
-      "Forward Walk": "180.619996",
-      "Forward Run": "397.000000",
-      "Back Walk": "100.910004",
-      "Back Run": "222.000000",
-      "Rotate in Place Walk": "180.0000",
-      "Rotate in Place Run": "180.0000",
-      "Rotate while Moving Run": "180.0000"
-    },
-    "INAM - Anim Change Thresholds": {
-      "Directional": "Default",
-      "Movement Speed": "Default",
-      "Rotation Speed": "Default"
-    }
+    "SPED - Default Data": [
+      "106.919998",
+      "235.210006",
+      "106.919998",
+      "235.210006",
+      "180.619996",
+      "397.000000",
+      "100.910004",
+      "222.000000",
+      "180.0000",
+      "180.0000",
+      "180.0000"
+    ],
+    "INAM - Anim Change Thresholds": [
+      "Default",
+      "Default",
+      "Default"
+    ]
   }
 }

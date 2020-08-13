@@ -1,61 +1,61 @@
 {
   "0010FF20": {
-    "Record Header": {
-      "Signature": "REGN",
-      "Data Size": "126",
-      "Record Flags": "",
-      "FormID": "{Skyrim.esm:10FF20}",
-      "Version Control Info 1": "00 00 00 00",
-      "Form Version": "40",
-      "Version Control Info 2": "00 00"
-    },
+    "Record Header": [
+      "REGN",
+      "126",
+      "",
+      "{Skyrim.esm:10FF20}",
+      "00 00 00 00",
+      "40",
+      "00 00"
+    ],
     "EDID - Editor ID": "SovngardeIntWeather",
-    "RCLR - Map Color": {
-      "Red": "29",
-      "Green": "201",
-      "Blue": "10",
-      "Unknown": "00"
-    },
+    "RCLR - Map Color": [
+      "29",
+      "201",
+      "10",
+      "00"
+    ],
     "WNAM - Worldspace": "{Skyrim.esm:02EE41}",
     "Region Areas": [
-      {
-        "RPLI - Edge Fall-off": "1024",
-        "RPLD - Region Point List Data": [
-          {
-            "X": "-2980.167968",
-            "Y": "11296.921875"
-          },
-          {
-            "X": "-2702.945312",
-            "Y": "1594.044922"
-          },
-          {
-            "X": "6029.644531",
-            "Y": "1732.656250"
-          },
-          {
-            "X": "5891.031250",
-            "Y": "11158.308594"
-          }
+      [
+        "1024",
+        [
+          [
+            "-2980.167968",
+            "11296.921875"
+          ],
+          [
+            "-2702.945312",
+            "1594.044922"
+          ],
+          [
+            "6029.644531",
+            "1732.656250"
+          ],
+          [
+            "5891.031250",
+            "11158.308594"
+          ]
         ]
-      }
+      ]
     ],
     "Region Data Entries": [
-      {
-        "RDAT - Data Header": {
-          "Type": "Weather",
-          "Flags": "",
-          "Priority": "100",
-          "Unknown": "00 00"
-        },
-        "RDWT - Weather Types": [
-          {
-            "Weather": "{Skyrim.esm:10FEF8}",
-            "Chance": "100",
-            "Global": "{Null:000000}"
-          }
+      [
+        [
+          "Weather",
+          "",
+          "100",
+          "00 00"
+        ],
+        [
+          [
+            "{Skyrim.esm:10FEF8}",
+            "100",
+            "{Null:000000}"
+          ]
         ]
-      }
+      ]
     ]
   }
 }

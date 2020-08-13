@@ -1,29 +1,29 @@
 {
   "00000F55": {
-    "Record Header": {
-      "Signature": "ACTI",
-      "Data Size": "62",
-      "Record Flags": "",
-      "FormID": "{Skyrim.esm:000F55}",
-      "Version Control Info 1": "00 00 00 00",
-      "Form Version": "40",
-      "Version Control Info 2": "00 00"
-    },
+    "Record Header": [
+      "ACTI",
+      "62",
+      "",
+      "{Skyrim.esm:000F55}",
+      "00 00 00 00",
+      "40",
+      "00 00"
+    ],
     "EDID - Editor ID": "defaultBlankTrigger",
-    "OBND - Object Bounds": {
-      "X1": "-5230",
-      "Y1": "-5086",
-      "Z1": "-257",
-      "X2": "5230",
-      "Y2": "5086",
-      "Z2": "257"
-    },
-    "PNAM - Marker Color": {
-      "Red": "204",
-      "Green": "76",
-      "Blue": "51",
-      "Unused": "0"
-    },
+    "OBND - Object Bounds": [
+      "-5230",
+      "-5086",
+      "-257",
+      "5230",
+      "5086",
+      "257"
+    ],
+    "PNAM - Marker Color": [
+      "204",
+      "76",
+      "51",
+      "0"
+    ],
     "FNAM - Flags": ""
   }
 }

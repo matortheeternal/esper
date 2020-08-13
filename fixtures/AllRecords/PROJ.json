@@ -1,56 +1,56 @@
 {
   "0010FD9E": {
-    "Record Header": {
-      "Signature": "PROJ",
-      "Data Size": "218",
-      "Record Flags": "",
-      "FormID": "{Skyrim.esm:10FD9E}",
-      "Version Control Info 1": "00 00 00 00",
-      "Form Version": "40",
-      "Version Control Info 2": "00 00"
-    },
+    "Record Header": [
+      "PROJ",
+      "218",
+      "",
+      "{Skyrim.esm:10FD9E}",
+      "00 00 00 00",
+      "40",
+      "00 00"
+    ],
     "EDID - Editor ID": "VoiceDismayProjectile03",
-    "OBND - Object Bounds": {
-      "X1": "0",
-      "Y1": "0",
-      "Z1": "0",
-      "X2": "0",
-      "Y2": "0",
-      "Z2": "0"
-    },
-    "Model": {
-      "MODL - Model FileName": "Magic\\VoiceDismayProject03.nif",
-      "MODT - Texture Files Hashes": "02 00 00 00 00 00 00 00 00 00 00 00"
-    },
-    "DATA - Data": {
-      "Flags": "Pass Through Small Transparent",
-      "Type": "Cone",
-      "Gravity": "0.000000",
-      "Speed": "1600.000000",
-      "Range": "2400.000000",
-      "Light": "{Skyrim.esm:10FDA1}",
-      "Muzzle Flash - Light": "{Null:000000}",
-      "Tracer Chance": "0.000000",
-      "Explosion - Alt. Trigger - Proximity": "0.000000",
-      "Explosion - Alt. Trigger - Timer": "0.000000",
-      "Explosion": "{Null:000000}",
-      "Sound": "{Skyrim.esm:03C80F}",
-      "Muzzle Flash - Duration": "0.000000",
-      "Fade Duration": "0.500000",
-      "Impact Force": "10.000000",
-      "Sound - Countdown": "{Null:000000}",
-      "Sound - Disable": "{Null:000000}",
-      "Default Weapon Source": "{Null:000000}",
-      "Cone Spread": "20.000000",
-      "Collision Radius": "32.000000",
-      "Lifetime": "0.000000",
-      "Relaunch Interval": "0.250000",
-      "Decal Data": "{Null:000000}",
-      "Collision Layer": "{Null:000000}"
-    },
-    "Muzzle Flash Model": {
-      "NAM1 - Model FileName": ""
-    },
+    "OBND - Object Bounds": [
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "Model": [
+      "Magic\\VoiceDismayProject03.nif",
+      "02 00 00 00 00 00 00 00 00 00 00 00"
+    ],
+    "DATA - Data": [
+      "Pass Through Small Transparent",
+      "Cone",
+      "0.000000",
+      "1600.000000",
+      "2400.000000",
+      "{Skyrim.esm:10FDA1}",
+      "{Null:000000}",
+      "0.000000",
+      "0.000000",
+      "0.000000",
+      "{Null:000000}",
+      "{Skyrim.esm:03C80F}",
+      "0.000000",
+      "0.500000",
+      "10.000000",
+      "{Null:000000}",
+      "{Null:000000}",
+      "{Null:000000}",
+      "20.000000",
+      "32.000000",
+      "0.000000",
+      "0.250000",
+      "{Null:000000}",
+      "{Null:000000}"
+    ],
+    "Muzzle Flash Model": [
+      ""
+    ],
     "VNAM - Sound Level": "Normal"
   }
 }

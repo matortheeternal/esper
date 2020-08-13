@@ -1,22 +1,22 @@
 {
   "0010F67D": {
-    "Record Header": {
-      "Signature": "ECZN",
-      "Data Size": "41",
-      "Record Flags": "",
-      "FormID": "{Skyrim.esm:10F67D}",
-      "Version Control Info 1": "00 00 00 00",
-      "Form Version": "39",
-      "Version Control Info 2": "00 00"
-    },
+    "Record Header": [
+      "ECZN",
+      "41",
+      "",
+      "{Skyrim.esm:10F67D}",
+      "00 00 00 00",
+      "39",
+      "00 00"
+    ],
     "EDID - Editor ID": "TowerOfMzarkZone",
-    "DATA - ": {
-      "Owner": "{Null:000000}",
-      "Location": "{Skyrim.esm:02D51D}",
-      "Rank": "0",
-      "Min Level": "18",
-      "Flags": "Never Resets",
-      "Max Level": "0"
-    }
+    "DATA - ": [
+      "{Null:000000}",
+      "{Skyrim.esm:02D51D}",
+      "0",
+      "18",
+      "Never Resets",
+      "0"
+    ]
   }
 }

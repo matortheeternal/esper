@@ -1,37 +1,37 @@
 {
   "0010E7E6": {
-    "Record Header": {
-      "Signature": "KEYM",
-      "Data Size": "227",
-      "Record Flags": "",
-      "FormID": "{Skyrim.esm:10E7E6}",
-      "Version Control Info 1": "00 00 00 00",
-      "Form Version": "44",
-      "Version Control Info 2": "00 00"
-    },
+    "Record Header": [
+      "KEYM",
+      "227",
+      "",
+      "{Skyrim.esm:10E7E6}",
+      "00 00 00 00",
+      "44",
+      "00 00"
+    ],
     "EDID - Editor ID": "RiftenConfiscatedGoodsChestKey",
-    "OBND - Object Bounds": {
-      "X1": "0",
-      "Y1": "-12",
-      "Z1": "-2",
-      "X2": "0",
-      "Y2": "12",
-      "Z2": "2"
-    },
+    "OBND - Object Bounds": [
+      "0",
+      "-12",
+      "-2",
+      "0",
+      "12",
+      "2"
+    ],
     "FULL - Name": "Confiscated Goods Key",
-    "Model": {
-      "MODL - Model FileName": "Clutter\\Key01.nif",
-      "MODT - Texture Files Hashes": "02 00 00 00 04 00 00 00 00 00 00 00 7B 24 A2 37 64 64 73 00 BF FA 25 DA 8A 7E E1 67 64 64 73 00 BF FA 25 DA 6B BB 96 D1 64 64 73 00 26 2C 33 3B FA E0 BB A4 64 64 73 00 7F 66 A5 C0"
-    },
+    "Model": [
+      "Clutter\\Key01.nif",
+      "02 00 00 00 04 00 00 00 00 00 00 00 7B 24 A2 37 64 64 73 00 BF FA 25 DA 8A 7E E1 67 64 64 73 00 BF FA 25 DA 6B BB 96 D1 64 64 73 00 26 2C 33 3B FA E0 BB A4 64 64 73 00 7F 66 A5 C0"
+    ],
     "YNAM - Sound - Pick Up": "{Skyrim.esm:03ED75}",
     "ZNAM - Sound - Put Down": "{Skyrim.esm:03ED78}",
     "KSIZ - Keyword Count": "1",
     "KWDA - Keywords": [
       "{Skyrim.esm:0914EF}"
     ],
-    "DATA - ": {
-      "Value": "0",
-      "Weight": "0.000000"
-    }
+    "DATA - ": [
+      "0",
+      "0.000000"
+    ]
   }
 }

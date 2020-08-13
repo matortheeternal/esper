@@ -1,30 +1,30 @@
 {
   "000E5F62": {
-    "Record Header": {
-      "Signature": "DUAL",
-      "Data Size": "78",
-      "Record Flags": "",
-      "FormID": "{Skyrim.esm:0E5F62}",
-      "Version Control Info 1": "00 00 00 00",
-      "Form Version": "34",
-      "Version Control Info 2": "00 00"
-    },
+    "Record Header": [
+      "DUAL",
+      "78",
+      "",
+      "{Skyrim.esm:0E5F62}",
+      "00 00 00 00",
+      "34",
+      "00 00"
+    ],
     "EDID - Editor ID": "doomSerpentDualCastData",
-    "OBND - Object Bounds": {
-      "X1": "0",
-      "Y1": "0",
-      "Z1": "0",
-      "X2": "0",
-      "Y2": "0",
-      "Z2": "0"
-    },
-    "DATA - Data": {
-      "Projectile": "{Skyrim.esm:06EBC8}",
-      "Explosion": "{Skyrim.esm:031047}",
-      "Effect Shader": "{Skyrim.esm:06DE84}",
-      "Hit Effect Art": "{Skyrim.esm:06DE86}",
-      "Impact Data Set": "{Null:000000}",
-      "Inherit Scale": ""
-    }
+    "OBND - Object Bounds": [
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "DATA - Data": [
+      "{Skyrim.esm:06EBC8}",
+      "{Skyrim.esm:031047}",
+      "{Skyrim.esm:06DE84}",
+      "{Skyrim.esm:06DE86}",
+      "{Null:000000}",
+      ""
+    ]
   }
 }

@@ -1,147 +1,147 @@
 {
   "0010ACD3": {
-    "Record Header": {
-      "Signature": "LGTM",
-      "Data Size": "161",
-      "Record Flags": "",
-      "FormID": "{Skyrim.esm:10ACD3}",
-      "Version Control Info 1": "00 00 00 00",
-      "Form Version": "37",
-      "Version Control Info 2": "00 00"
-    },
+    "Record Header": [
+      "LGTM",
+      "161",
+      "",
+      "{Skyrim.esm:10ACD3}",
+      "00 00 00 00",
+      "37",
+      "00 00"
+    ],
     "EDID - Editor ID": "GreenCaveCloseDark",
-    "DATA - Lighting": {
-      "Ambient Color": {
-        "Red": "40",
-        "Green": "34",
-        "Blue": "23",
-        "Unused": "00"
-      },
-      "Directional Color": {
-        "Red": "71",
-        "Green": "77",
-        "Blue": "78",
-        "Unused": "00"
-      },
-      "Fog Color Near": {
-        "Red": "46",
-        "Green": "61",
-        "Blue": "60",
-        "Unused": "00"
-      },
-      "Fog Near": "750.000000",
-      "Fog Far": "3000.000000",
-      "Directional Rotation XY": "0",
-      "Directional Rotation Z": "270",
-      "Directional Fade": "0.500000",
-      "Fog Clip Dist": "0.000000",
-      "Fog Power": "0.700000",
-      "Ambient Colors": {
-        "Directional": {
-          "X+": {
-            "Red": "51",
-            "Green": "41",
-            "Blue": "29",
-            "Unused": "00"
-          },
-          "X-": {
-            "Red": "42",
-            "Green": "41",
-            "Blue": "26",
-            "Unused": "00"
-          },
-          "Y+": {
-            "Red": "47",
-            "Green": "42",
-            "Blue": "28",
-            "Unused": "00"
-          },
-          "Y-": {
-            "Red": "47",
-            "Green": "39",
-            "Blue": "28",
-            "Unused": "00"
-          },
-          "Z+": {
-            "Red": "22",
-            "Green": "19",
-            "Blue": "12",
-            "Unused": "00"
-          },
-          "Z-": {
-            "Red": "92",
-            "Green": "81",
-            "Blue": "56",
-            "Unused": "00"
-          }
-        },
-        "Specular": {
-          "Red": "136",
-          "Green": "227",
-          "Blue": "218",
-          "Unused": "00"
-        },
-        "Scale": "0.000000"
-      },
-      "Fog Color Far": {
-        "Red": "73",
-        "Green": "118",
-        "Blue": "114",
-        "Unused": "00"
-      },
-      "Fog Max": "0.500000",
-      "Light Fade Distances": {
-        "Start": "3000.000000",
-        "End": "4000.000000"
-      },
-      "Unknown": "00 00 00 00"
-    },
-    "DALC - Directional Ambient Lighting Colors": {
-      "Directional": {
-        "X+": {
-          "Red": "44",
-          "Green": "34",
-          "Blue": "24",
-          "Unused": "00"
-        },
-        "X-": {
-          "Red": "35",
-          "Green": "34",
-          "Blue": "21",
-          "Unused": "00"
-        },
-        "Y+": {
-          "Red": "40",
-          "Green": "35",
-          "Blue": "23",
-          "Unused": "00"
-        },
-        "Y-": {
-          "Red": "40",
-          "Green": "32",
-          "Blue": "23",
-          "Unused": "00"
-        },
-        "Z+": {
-          "Red": "19",
-          "Green": "16",
-          "Blue": "10",
-          "Unused": "00"
-        },
-        "Z-": {
-          "Red": "60",
-          "Green": "51",
-          "Blue": "35",
-          "Unused": "00"
-        }
-      },
-      "Specular": {
-        "Red": "0",
-        "Green": "0",
-        "Blue": "0",
-        "Unused": "00"
-      },
-      "Scale": "1.000000"
-    }
+    "DATA - Lighting": [
+      [
+        "40",
+        "34",
+        "23",
+        "00"
+      ],
+      [
+        "71",
+        "77",
+        "78",
+        "00"
+      ],
+      [
+        "46",
+        "61",
+        "60",
+        "00"
+      ],
+      "750.000000",
+      "3000.000000",
+      "0",
+      "270",
+      "0.500000",
+      "0.000000",
+      "0.700000",
+      [
+        [
+          [
+            "51",
+            "41",
+            "29",
+            "00"
+          ],
+          [
+            "42",
+            "41",
+            "26",
+            "00"
+          ],
+          [
+            "47",
+            "42",
+            "28",
+            "00"
+          ],
+          [
+            "47",
+            "39",
+            "28",
+            "00"
+          ],
+          [
+            "22",
+            "19",
+            "12",
+            "00"
+          ],
+          [
+            "92",
+            "81",
+            "56",
+            "00"
+          ]
+        ],
+        [
+          "136",
+          "227",
+          "218",
+          "00"
+        ],
+        "0.000000"
+      ],
+      [
+        "73",
+        "118",
+        "114",
+        "00"
+      ],
+      "0.500000",
+      [
+        "3000.000000",
+        "4000.000000"
+      ],
+      "00 00 00 00"
+    ],
+    "DALC - Directional Ambient Lighting Colors": [
+      [
+        [
+          "44",
+          "34",
+          "24",
+          "00"
+        ],
+        [
+          "35",
+          "34",
+          "21",
+          "00"
+        ],
+        [
+          "40",
+          "35",
+          "23",
+          "00"
+        ],
+        [
+          "40",
+          "32",
+          "23",
+          "00"
+        ],
+        [
+          "19",
+          "16",
+          "10",
+          "00"
+        ],
+        [
+          "60",
+          "51",
+          "35",
+          "00"
+        ]
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "00"
+      ],
+      "1.000000"
+    ]
   }
 }

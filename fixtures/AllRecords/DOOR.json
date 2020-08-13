@@ -1,23 +1,23 @@
 {
   "0010FCD9": {
-    "Record Header": {
-      "Signature": "DOOR",
-      "Data Size": "74",
-      "Record Flags": "",
-      "FormID": "{Skyrim.esm:10FCD9}",
-      "Version Control Info 1": "00 00 00 00",
-      "Form Version": "44",
-      "Version Control Info 2": "00 00"
-    },
+    "Record Header": [
+      "DOOR",
+      "74",
+      "",
+      "{Skyrim.esm:10FCD9}",
+      "00 00 00 00",
+      "44",
+      "00 00"
+    ],
     "EDID - Editor ID": "dunTwilightSepulcherDoor",
-    "OBND - Object Bounds": {
-      "X1": "0",
-      "Y1": "0",
-      "Z1": "0",
-      "X2": "0",
-      "Y2": "0",
-      "Z2": "0"
-    },
+    "OBND - Object Bounds": [
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
     "FULL - Name": ".",
     "SNAM - Sound - Open": "{Skyrim.esm:10FCDA}",
     "FNAM - Flags": "Hidden"

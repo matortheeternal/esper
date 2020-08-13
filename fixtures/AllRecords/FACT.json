@@ -1,45 +1,45 @@
 {
   "00000EA8": {
-    "Record Header": {
-      "Signature": "FACT",
-      "Data Size": "100",
-      "Record Flags": "",
-      "FormID": "{Skyrim.esm:000EA8}",
-      "Version Control Info 1": "00 00 00 00",
-      "Form Version": "40",
-      "Version Control Info 2": "00 00"
-    },
+    "Record Header": [
+      "FACT",
+      "100",
+      "",
+      "{Skyrim.esm:000EA8}",
+      "00 00 00 00",
+      "40",
+      "00 00"
+    ],
     "EDID - Editor ID": "WinterholdJailFaction",
     "Relations": [
-      {
-        "Faction": "{Skyrim.esm:000DB1}",
-        "Modifier": "0",
-        "Group Combat Reaction": "Ally"
-      }
+      [
+        "{Skyrim.esm:000DB1}",
+        "0",
+        "Ally"
+      ]
     ],
-    "DATA - Flags": {
-      "Flags": ""
-    },
-    "CRVA - Crime Values": {
-      "Arrest": "True",
-      "Attack On Sight": "True",
-      "Murder": "0",
-      "Assault": "0",
-      "Trespass": "0",
-      "Pickpocket": "0",
-      "Unknown": "0",
-      "Steal Multiplier": "0.000000",
-      "Escape": "0",
-      "Werewolf": "0"
-    },
-    "VENV - Vendor Values": {
-      "Start Hour": "0",
-      "End Hour": "0",
-      "Radius": "0",
-      "Unknown 1": "00 00",
-      "Only Buys Stolen Items": "False",
-      "Not/Sell Buy": "False",
-      "Unknown 2": "00 00"
-    }
+    "DATA - Flags": [
+      ""
+    ],
+    "CRVA - Crime Values": [
+      "True",
+      "True",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0.000000",
+      "0",
+      "0"
+    ],
+    "VENV - Vendor Values": [
+      "0",
+      "0",
+      "0",
+      "00 00",
+      "False",
+      "False",
+      "00 00"
+    ]
   }
 }

@@ -1,32 +1,33 @@
 {
   "00000F86": {
-    "Record Header": {
-      "Signature": "SOPM",
-      "Data Size": "75",
-      "Record Flags": "",
-      "FormID": "{Skyrim.esm:000F86}",
-      "Version Control Info 1": "00 00 00 00",
-      "Form Version": "40",
-      "Version Control Info 2": "00 00"
-    },
+    "Record Header": [
+      "SOPM",
+      "75",
+      "",
+      "{Skyrim.esm:000F86}",
+      "00 00 00 00",
+      "40",
+      "00 00"
+    ],
     "EDID - Editor ID": "SOMDialogue3D4000BARDS",
-    "NAM1 - Data": {
-      "Flags": "Attenuates With Distance",
-      "Unknown": "00 00",
-      "Reverb Send %": "35"
-    },
+    "NAM1 - Data": [
+      "Attenuates With Distance",
+      "00 00",
+      "35"
+    ],
     "MNAM - Type": "Uses HRTF",
-    "ANAM - Attenuation Values": {
-      "Unknown": "00 00 00",
-      "Min Distance": "300.000000",
-      "Max Distance": "4000.000000",
-      "Curve": [
+    "ANAM - Attenuation Values": [
+      "80 9D FA 00",
+      "300.000000",
+      "4000.000000",
+      [
         "100",
         "70",
         "35",
         "15",
         "0"
-      ]
-    }
+      ],
+      "00 00 00"
+    ]
   }
 }

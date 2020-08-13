@@ -1,22 +1,22 @@
 {
   "00107DB1": {
-    "Record Header": {
-      "Signature": "RELA",
-      "Data Size": "41",
-      "Record Flags": "",
-      "FormID": "{Skyrim.esm:107DB1}",
-      "Version Control Info 1": "00 00 00 00",
-      "Form Version": "37",
-      "Version Control Info 2": "00 00"
-    },
+    "Record Header": [
+      "RELA",
+      "41",
+      "",
+      "{Skyrim.esm:107DB1}",
+      "00 00 00 00",
+      "37",
+      "00 00"
+    ],
     "EDID - Editor ID": "IngeAtAfAlan",
-    "DATA - Data": {
-      "Parent": "{Skyrim.esm:01328A}",
-      "Child": "{Skyrim.esm:013295}",
-      "Rank": "Confidant",
-      "Unknown": "00",
-      "Flags": "",
-      "Association Type": "{Skyrim.esm:01E74F}"
-    }
+    "DATA - Data": [
+      "{Skyrim.esm:01328A}",
+      "{Skyrim.esm:013295}",
+      "Confidant",
+      "00",
+      "",
+      "{Skyrim.esm:01E74F}"
+    ]
   }
 }
