@@ -1,7 +1,7 @@
 ﻿using esper;
 using NUnit.Framework;
 
-namespace Tests {
+namespace Tests.data {
     public class SignatureEncodingTests {
         SignatureEncoding encoding;
 

@@ -5,7 +5,7 @@ using esper.resolution;
 using esper.setup;
 using NUnit.Framework;
 
-namespace Tests {
+namespace Tests.plugins {
     public class FileHeaderTests {
         public Session session;
         public PluginManager pluginManager => session.pluginManager;

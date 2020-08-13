@@ -4,7 +4,7 @@ using esper.resolution;
 using esper.setup;
 using NUnit.Framework;
 
-namespace Tests {
+namespace Tests.plugins {
     public class ARecordsTests {
         public Session session;
         public PluginManager pluginManager => session.pluginManager;

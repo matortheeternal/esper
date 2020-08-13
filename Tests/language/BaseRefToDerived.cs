@@ -1,6 +1,6 @@
 ﻿using NUnit.Framework;
 
-namespace Tests {
+namespace Tests.language {
     public class A {
         protected string message;
 

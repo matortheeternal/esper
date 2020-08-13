@@ -6,7 +6,7 @@ using System;
 using System.Diagnostics;
 using System.IO;
 
-namespace Tests {
+namespace Tests.plugins {
     public class SkyrimEsmTest {
         public Session session;
         public PluginManager pluginManager => session.pluginManager;

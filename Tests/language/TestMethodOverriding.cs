@@ -1,6 +1,6 @@
 ﻿using NUnit.Framework;
 
-namespace Tests {
+namespace Tests.language {
     public class Aaa {
         public virtual string GetMessage() {
             return "A";
