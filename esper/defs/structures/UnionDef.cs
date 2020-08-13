@@ -28,7 +28,7 @@ namespace esper.defs {
             Container container, PluginFileSource source, UInt16? dataSize = null
         ) {
             var resolvedDef = ResolveDef(container);
-            if (resolvedDef is ValueDef valueDef) {
+            if (!IsSubrecord() && resolvedDef is ValueDef valueDef) {
                 return new UnionValueElement(container, valueDef, this, true) {
                     _data = valueDef.ReadData(source, dataSize)
                 };
