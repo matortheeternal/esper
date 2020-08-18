@@ -1,17 +1,14 @@
-﻿using System;
-using System.IO;
-using esper.plugins;
+﻿using esper.plugins;
+using System;
 
 namespace esper.data {
-    public class Subrecord {
-        public Signature signature;
-        public UInt16 size;
-        public byte[] data;
+    public struct Subrecord {
+        public string signature;
+        public UInt16 dataSize;
 
-        public Subrecord(string signature, UInt16 size, PluginFileSource source) {
-            this.signature = Signature.FromString(signature);
-            this.size = size;
-            source.stream.Seek(size, SeekOrigin.Current);
+        public Subrecord(PluginFileSource source) {
+            signature = source.ReadSignature().ToString();
+            dataSize = source.reader.ReadUInt16();
         }
     }
 }
