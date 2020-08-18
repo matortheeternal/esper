@@ -25,14 +25,14 @@ namespace esper.defs {
             if (Single.IsNaN(data)) return new string(' ', 23);
             if (data == Single.MaxValue) return "+" + new string('9', 22);
             string sortKey = Math.Abs(data)
-                .ToString($"99N{sessionOptions.floatDigits}")
+                .ToString(sessionOptions.floatFormat)
                 .PadLeft(22, '0');
             bool isNegative = (data < 0) && (Math.Abs(data) > sessionOptions.epsilon);
             return (isNegative ? '-' : '+') + sortKey;
         }
 
         public override string DataToString(dynamic data) {
-            return data.ToString($"N{sessionOptions.floatDigits}");
+            return data.ToString(sessionOptions.floatFormat);
         }
 
         public override void SetValue(ValueElement element, string value) {

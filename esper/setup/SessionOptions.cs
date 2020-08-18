@@ -24,6 +24,7 @@ namespace esper.setup {
         public bool resolveAliases = false;
         private uint _floatDigits = 6;
         public float epsilon = GetEpsilon(6);
+        public string floatFormat => $"F{floatDigits}";
 
         public uint floatDigits {
             get => _floatDigits;

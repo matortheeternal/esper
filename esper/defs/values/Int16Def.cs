@@ -23,7 +23,7 @@ namespace esper.defs {
 
         public override string DataToSortKey(dynamic data) {
             UInt32 v = (UInt32)data;
-            v += (UInt32) Math.Abs(Int16.MinValue);
+            v += (UInt32)(data + Math.Abs((Int32) Int16.MinValue));
             return v.ToString("X4");
         }
 

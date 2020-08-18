@@ -14,7 +14,7 @@ namespace esper.defs.TES5 {
         // TODO: normalize
         public override string DataToValue(ValueElement element, dynamic data) {
             float fData = data;
-            return $"{fData * 180 / Math.PI : N4}";
+            return (fData * 180 / Math.PI).ToString("F4");
         }
 
         public override dynamic ValueToData(ValueElement element, string value) {

@@ -12,7 +12,7 @@ namespace esper.defs.TES5 {
 
         public override string DataToValue(ValueElement element, dynamic data) {
             float v = (data - 127) / 1270;
-            return v.ToString("N4");
+            return v.ToString("F4");
         }
 
         public override dynamic ValueToData(ValueElement element, string value) {

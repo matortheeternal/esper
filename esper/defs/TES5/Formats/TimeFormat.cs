@@ -20,7 +20,7 @@ namespace esper.defs.TES5 {
             var hours = time / 6;
             var minutes = (time % 6) * 10;
             if (hours > 23) return time.ToString();
-            return $"{hours}:{minutes}";
+            return $"{hours:00}:{minutes:00}";
         }
 
         public override dynamic ValueToData(ValueElement element, string value) {
