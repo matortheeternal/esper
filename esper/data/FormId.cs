@@ -16,8 +16,8 @@ namespace esper.data {
 
         public string targetFileName {
             get {
-                if (localFormId < 0x800) return "Hardcoded";
                 if (targetPlugin != null) return targetPlugin.filename;
+                if (localFormId < 0x800) return "Hardcoded";
                 return "Error";
             }
         }
