@@ -33,6 +33,7 @@ namespace esper.plugins {
             this.session = session;
             this.filename = filename;
             this.options = options;
+            session.pluginManager.AddFile(this);
         }
 
         public bool IsEsl() {
@@ -61,6 +62,7 @@ namespace esper.plugins {
         internal string GetString(uint id) {
             throw new NotImplementedException();
         }
+
         public override bool SupportsSignature(string sig) {
             return manager.IsTopGroup(sig);
         }
