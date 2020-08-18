@@ -5,10 +5,12 @@ namespace esper.elements {
     public class ArrayElement : Container {
         public ArrayDef arrayDef => def as ArrayDef;
 
-        public ArrayElement(Container container, ElementDef def, bool skipInit = false)
-            : base(container, def) {
-            if (skipInit) return;
-            arrayDef.elementDef.InitElement(this);
+        public ArrayElement(Container container, ElementDef def)
+            : base(container, def) {}
+
+        public override void Initialize() {
+            var e = arrayDef.elementDef.NewElement(this);
+            e.Initialize();
         }
 
         internal override void ElementsReady() {

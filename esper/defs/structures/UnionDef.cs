@@ -29,17 +29,17 @@ namespace esper.defs {
         ) {
             var resolvedDef = ResolveDef(container);
             if (!IsSubrecord() && resolvedDef is ValueDef valueDef) {
-                return new UnionValueElement(container, valueDef, this, true) {
+                return new UnionValueElement(container, valueDef, this) {
                     _data = valueDef.ReadData(source, dataSize)
                 };
             } else {
-                var e = new UnionElement(container, this, true);
+                var e = new UnionElement(container, this);
                 resolvedDef.ReadElement(e, source);
                 return e;
             }
         }
 
-        public override Element InitElement(Container container) {
+        public override Element NewElement(Container container) {
             var resolvedDef = ResolveDef(container);
             if (resolvedDef is ValueDef)
                 return new UnionValueElement(container, resolvedDef, this);

@@ -35,7 +35,7 @@ namespace esper.defs {
         public override Element ReadElement(
             Container container, PluginFileSource source, UInt16? dataSize = null
         ) {
-            var e = new ArrayElement(container, this, true);
+            var e = new ArrayElement(container, this);
             UInt32? count = GetCount(container, source);
             void readChild() => elementDef.ReadElement(e, source);
             if (count != null) {
@@ -48,7 +48,7 @@ namespace esper.defs {
             return e;
         }
 
-        public override Element InitElement(Container container) {
+        public override Element NewElement(Container container) {
             return new ArrayElement(container, this);
         }
     }

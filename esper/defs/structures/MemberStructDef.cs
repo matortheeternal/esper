@@ -35,8 +35,11 @@ namespace esper.defs {
         }
 
         public void InitChildElements(Container container) {
-            foreach (var memberDef in memberDefs)
-                if (memberDef.required) memberDef.InitElement(container);
+            foreach (var memberDef in memberDefs) {
+                if (!memberDef.required) continue;
+                var e = memberDef.NewElement(container);
+                e.Initialize();
+            }
         }
 
         public override string GetSortKey(Element element) {

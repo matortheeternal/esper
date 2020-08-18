@@ -8,14 +8,15 @@ namespace esper.elements {
     public class Element : IResolution {
         public readonly ElementDef def;
         public ElementState state;
-        public Container container { get; internal set; }
-        public DefinitionManager manager => file.manager;
-        public string sortKey => def.GetSortKey(this);
-        public virtual string name => def.name;
-        public virtual string signature => def.signature;
-        public virtual string displayName => def.displayName;
-        public SessionOptions sessionOptions => manager.session.options;
-        public Game game => manager.session.game;
+
+        public virtual Container container { get; internal set; }
+        public virtual DefinitionManager manager => file?.manager;
+        public string sortKey => def?.GetSortKey(this);
+        public virtual string name => def?.name;
+        public virtual string signature => def?.signature;
+        public virtual string displayName => def?.displayName;
+        public SessionOptions sessionOptions => manager?.session.options;
+        public Game game => manager?.session.game;
 
         public MainRecord referencedRecord {
             get => throw new Exception("Element does not reference records.");
@@ -37,6 +38,8 @@ namespace esper.elements {
             if (container == null) return;
             container.elements.Add(this);
         }
+
+        public virtual void Initialize() {}
 
         public void SetState(ElementState state) {
             this.state |= state;

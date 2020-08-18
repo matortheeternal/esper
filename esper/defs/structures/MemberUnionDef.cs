@@ -31,10 +31,10 @@ namespace esper.defs {
             }
         }
 
-        public override Element InitElement(Container container) {
+        public override Element NewElement(Container container) {
             var defaultDef = this.defaultDef;
             if (defaultDef.IsSubrecord())
-                return defaultDef.InitElement(container);
+                return defaultDef.NewElement(container);
             return new MemberUnionElement(container, this);
         }
 

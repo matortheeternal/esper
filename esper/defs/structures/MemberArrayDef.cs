@@ -44,7 +44,7 @@ namespace esper.defs {
             }
         }
 
-        public override Element InitElement(Container container) {
+        public override Element NewElement(Container container) {
             return new MemberArrayElement(container, this);
         }
 

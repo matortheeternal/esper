@@ -26,18 +26,20 @@ namespace esper.defs {
         public override Element ReadElement(
             Container container, PluginFileSource source, UInt16? dataSize = null
         ) {
-            var e = new StructElement(container, this, true);
+            var e = new StructElement(container, this);
             ReadChildElements(e, source, dataSize);
             return e;
         }
 
-        public override Element InitElement(Container container) {
+        public override Element NewElement(Container container) {
             return new StructElement(container, this);
         }
 
         public void InitChildElements(StructElement element) {
-            foreach (var def in elementDefs)
-                def.InitElement(element);
+            foreach (var def in elementDefs) {
+                var e = def.NewElement(element);
+                e.Initialize();
+            }
         }
 
         public void ReadChildElements(

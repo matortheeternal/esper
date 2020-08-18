@@ -6,9 +6,11 @@ namespace esper.elements {
         public MemberUnionDef unionDef => def as MemberUnionDef;
 
         public MemberUnionElement(Container container, ElementDef def, bool skipInit = false)
-            : base(container, def) {
-            if (skipInit) return;
-            unionDef.defaultDef.InitElement(this);
+            : base(container, def) {}
+
+        public override void Initialize() {
+            var e = unionDef.defaultDef.NewElement(this);
+            e.Initialize();
         }
 
         public override bool SupportsSignature(string sig) {

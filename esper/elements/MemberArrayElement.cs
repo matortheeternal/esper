@@ -5,10 +5,12 @@ namespace esper.elements {
     public class MemberArrayElement : Container {
         public MemberArrayDef maDef => def as MemberArrayDef;
 
-        public MemberArrayElement(Container container, ElementDef def, bool skipInit = false)
-            : base(container, def) {
-            if (skipInit) return;
-            maDef.memberDef.InitElement(this);
+        public MemberArrayElement(Container container, ElementDef def)
+            : base(container, def) {}
+
+        public override void Initialize() {
+            var e = maDef.memberDef.NewElement(this);
+            e.Initialize();
         }
 
         public override bool SupportsSignature(string sig) {

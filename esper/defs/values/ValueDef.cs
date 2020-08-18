@@ -24,12 +24,12 @@ namespace esper.defs {
         public override Element ReadElement(
             Container container, PluginFileSource source, UInt16? size = null
         ) {
-            return new ValueElement(container, this, true) {
+            return new ValueElement(container, this) {
                 _data = ReadData(source, size)
             };
         }
 
-        public override Element InitElement(Container container) {
+        public override Element NewElement(Container container) {
             return new ValueElement(container, this);
         }
 
@@ -55,6 +55,7 @@ namespace esper.defs {
         }
 
         public virtual string GetValue(ValueElement element) {
+            if (element.data == null) return "";
             if (formatDef == null) return DataToString(element.data);
             return formatDef.DataToValue(element, element.data);
         }
