@@ -16,7 +16,7 @@ namespace esper.defs {
             DefinitionManager manager, JObject src
         ) : base(manager, src) {
             decider = JsonHelpers.Decider(src, this);
-            formatDefs = JsonHelpers.FormatDefs(src, this);
+            formatDefs = JsonHelpers.Defs<FormatDef>(manager, src, "formats");
         }
 
         public FormatDef ResolveDef(Container container) {

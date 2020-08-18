@@ -19,7 +19,7 @@ namespace esper.defs {
 
         public StructDef(DefinitionManager manager, JObject src)
             : base(manager, src) {
-            elementDefs = JsonHelpers.ElementDefs(src, "elements", this);
+            elementDefs = JsonHelpers.Defs<ElementDef>(manager, src, "elements");
             sortKeyIndices = JsonHelpers.List<int>(src, "sortKey");
         }
 

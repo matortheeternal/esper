@@ -15,7 +15,7 @@ namespace esper.defs {
 
         public UnionDef(DefinitionManager manager, JObject src) 
             : base(manager, src) {
-            elementDefs = JsonHelpers.ElementDefs(src, "elements", this);
+            elementDefs = JsonHelpers.Defs<ElementDef>(manager, src, "elements");
             decider = JsonHelpers.Decider(src, this);
         }
 

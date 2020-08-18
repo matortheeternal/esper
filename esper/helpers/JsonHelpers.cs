@@ -1,4 +1,5 @@
 ﻿using esper.defs;
+using esper.setup;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
@@ -33,28 +34,14 @@ namespace esper.helpers {
             return (ElementDef) parent.manager.BuildDef(defSrc);
         }
 
-        public static ReadOnlyCollection<ElementDef> ElementDefs(
-            JObject src, string key, Def parent
-        ) {
+        public static ReadOnlyCollection<T> Defs<T>(
+            DefinitionManager manager, JObject src, string key
+        ) where T : Def {
             ErrorHelpers.CheckDefProperty(src, key);
             var sources = src.Value<JArray>(key);
             if (sources == null) throw new Exception("No def sources found.");
-            int sortOrder = 0;
             return sources.Select(src => {
-                var def = (ElementDef)parent.manager.BuildDef((JObject)src);
-                def.sortOrder = sortOrder++;
-                return def;
-            }).ToList().AsReadOnly();
-        }
-
-        public static ReadOnlyCollection<FormatDef> FormatDefs(
-            JObject src, Def parent
-        ) {
-            ErrorHelpers.CheckDefProperty(src, "formats");
-            var sources = src.Value<JArray>("formats");
-            if (sources == null) throw new Exception("No def sources found.");
-            return sources.Select(src => {
-                return (FormatDef) parent.manager.BuildDef((JObject)src);
+                return (T) manager.BuildDef((JObject)src);
             }).ToList().AsReadOnly();
         }
 

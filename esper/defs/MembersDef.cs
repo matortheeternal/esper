@@ -11,7 +11,7 @@ namespace esper.defs {
 
         public MembersDef(DefinitionManager manager, JObject src)
             : base(manager, src) {
-            memberDefs = JsonHelpers.ElementDefs(src, "members", this);
+            memberDefs = JsonHelpers.Defs<ElementDef>(manager, src, "members");
             signatures = GetSignatures();
         }
 
