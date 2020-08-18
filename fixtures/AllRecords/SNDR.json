@@ -1,35 +1,115 @@
 {
   "00000F8B": {
-    "Record Header": [
-      "SNDR",
-      "151",
-      "",
-      "{Skyrim.esm:000F8B}",
-      "00 00 00 00",
-      "40",
-      "00 00"
-    ],
-    "EDID - Editor ID": "VOCShoutFXThrowVoice",
-    "CNAM - Unknown": "0A 54 EF 1E",
-    "GNAM - Category": "{Skyrim.esm:0172A1}",
-    "Sounds": [
-      [
-        "Data\\Sound\\FX\\VOC\\Shout\\FX\\ThrowVoice\\VOC_Shout_FX_ThrowVoice.wav"
-      ]
-    ],
-    "ONAM - Output Model": "{Skyrim.esm:0ABF1A}",
-    "LNAM - Values": [
-      "00",
-      "None",
-      "00",
-      "0"
-    ],
-    "BNAM - Values": [
-      "0",
-      "0",
-      "64",
-      "0",
-      "1.760000"
+    "elements": [
+      {
+        "name": "Record Header",
+        "elements": [
+          {
+            "name": "Signature",
+            "value": "SNDR"
+          },
+          {
+            "name": "Data Size",
+            "value": "151"
+          },
+          {
+            "name": "Record Flags",
+            "value": ""
+          },
+          {
+            "name": "FormID",
+            "value": "{Skyrim.esm:000F8B}"
+          },
+          {
+            "name": "Version Control Info 1",
+            "value": "00 00 00 00"
+          },
+          {
+            "name": "Form Version",
+            "value": "40"
+          },
+          {
+            "name": "Version Control Info 2",
+            "value": "00 00"
+          }
+        ]
+      },
+      {
+        "name": "EDID - Editor ID",
+        "value": "VOCShoutFXThrowVoice"
+      },
+      {
+        "name": "CNAM - Unknown",
+        "value": "0A 54 EF 1E"
+      },
+      {
+        "name": "GNAM - Category",
+        "value": "{Skyrim.esm:0172A1}"
+      },
+      {
+        "name": "Sounds",
+        "elements": [
+          {
+            "name": "Sound Files",
+            "elements": [
+              {
+                "name": "ANAM - File Name",
+                "value": "Data\\Sound\\FX\\VOC\\Shout\\FX\\ThrowVoice\\VOC_Shout_FX_ThrowVoice.wav"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "ONAM - Output Model",
+        "value": "{Skyrim.esm:0ABF1A}"
+      },
+      {
+        "name": "LNAM - Values",
+        "elements": [
+          {
+            "name": "Unknown",
+            "value": "00"
+          },
+          {
+            "name": "Looping",
+            "value": "None"
+          },
+          {
+            "name": "Unknown",
+            "value": "00"
+          },
+          {
+            "name": "Rumble Send Value = (Small / 7) + ((Big / 7) * 16)",
+            "value": "0"
+          }
+        ]
+      },
+      {
+        "name": "BNAM - Values",
+        "elements": [
+          {
+            "name": "% Frequency Shift",
+            "value": "0"
+          },
+          {
+            "name": "% Frequency Variance",
+            "value": "0"
+          },
+          {
+            "name": "Priority",
+            "value": "64"
+          },
+          {
+            "name": "db Variance",
+            "value": "0"
+          },
+          {
+            "name": "Static Attenuation (db)",
+            "value": "1.760000"
+          }
+        ]
+      }
     ]
   }
 }

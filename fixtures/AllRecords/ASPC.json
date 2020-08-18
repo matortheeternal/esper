@@ -1,23 +1,76 @@
 {
   "0010FE9E": {
-    "Record Header": [
-      "ASPC",
-      "70",
-      "",
-      "{Skyrim.esm:10FE9E}",
-      "00 00 00 00",
-      "40",
-      "00 00"
-    ],
-    "EDID - Editor ID": "ExtMQFlashbackInteriorAcousticSpace",
-    "OBND - Object Bounds": [
-      "-1500",
-      "-1500",
-      "-423",
-      "1500",
-      "1500",
-      "423"
-    ],
-    "BNAM - Environment Type (reverb)": "{Skyrim.esm:0FD92A}"
+    "elements": [
+      {
+        "name": "Record Header",
+        "elements": [
+          {
+            "name": "Signature",
+            "value": "ASPC"
+          },
+          {
+            "name": "Data Size",
+            "value": "70"
+          },
+          {
+            "name": "Record Flags",
+            "value": ""
+          },
+          {
+            "name": "FormID",
+            "value": "{Skyrim.esm:10FE9E}"
+          },
+          {
+            "name": "Version Control Info 1",
+            "value": "00 00 00 00"
+          },
+          {
+            "name": "Form Version",
+            "value": "40"
+          },
+          {
+            "name": "Version Control Info 2",
+            "value": "00 00"
+          }
+        ]
+      },
+      {
+        "name": "EDID - Editor ID",
+        "value": "ExtMQFlashbackInteriorAcousticSpace"
+      },
+      {
+        "name": "OBND - Object Bounds",
+        "elements": [
+          {
+            "name": "X1",
+            "value": "-1500"
+          },
+          {
+            "name": "Y1",
+            "value": "-1500"
+          },
+          {
+            "name": "Z1",
+            "value": "-423"
+          },
+          {
+            "name": "X2",
+            "value": "1500"
+          },
+          {
+            "name": "Y2",
+            "value": "1500"
+          },
+          {
+            "name": "Z2",
+            "value": "423"
+          }
+        ]
+      },
+      {
+        "name": "BNAM - Environment Type (reverb)",
+        "value": "{Skyrim.esm:0FD92A}"
+      }
+    ]
   }
 }

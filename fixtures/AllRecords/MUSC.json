@@ -1,24 +1,77 @@
 {
   "00000F74": {
-    "Record Header": [
-      "MUSC",
-      "83",
-      "",
-      "{Skyrim.esm:000F74}",
-      "00 00 00 00",
-      "40",
-      "00 00"
-    ],
-    "EDID - Editor ID": "MUSExploreSovngardeChantExterior",
-    "FNAM - Flags": "Abrupt Transition",
-    "PNAM - Data": [
-      "3",
-      "0.000000"
-    ],
-    "WNAM - Fade Duration": "12.000000",
-    "TNAM - Music Tracks": [
-      "{Skyrim.esm:01713C}",
-      "{Skyrim.esm:01713C}"
+    "elements": [
+      {
+        "name": "Record Header",
+        "elements": [
+          {
+            "name": "Signature",
+            "value": "MUSC"
+          },
+          {
+            "name": "Data Size",
+            "value": "83"
+          },
+          {
+            "name": "Record Flags",
+            "value": ""
+          },
+          {
+            "name": "FormID",
+            "value": "{Skyrim.esm:000F74}"
+          },
+          {
+            "name": "Version Control Info 1",
+            "value": "00 00 00 00"
+          },
+          {
+            "name": "Form Version",
+            "value": "40"
+          },
+          {
+            "name": "Version Control Info 2",
+            "value": "00 00"
+          }
+        ]
+      },
+      {
+        "name": "EDID - Editor ID",
+        "value": "MUSExploreSovngardeChantExterior"
+      },
+      {
+        "name": "FNAM - Flags",
+        "value": "Abrupt Transition"
+      },
+      {
+        "name": "PNAM - Data",
+        "elements": [
+          {
+            "name": "Priority",
+            "value": "3"
+          },
+          {
+            "name": "Ducking (dB)",
+            "value": "0.000000"
+          }
+        ]
+      },
+      {
+        "name": "WNAM - Fade Duration",
+        "value": "12.000000"
+      },
+      {
+        "name": "TNAM - Music Tracks",
+        "elements": [
+          {
+            "name": "Track #0",
+            "value": "{Skyrim.esm:01713C}"
+          },
+          {
+            "name": "Track #1",
+            "value": "{Skyrim.esm:01713C}"
+          }
+        ]
+      }
     ]
   }
 }

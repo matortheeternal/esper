@@ -1,29 +1,97 @@
 {
   "000332BF": {
-    "Record Header": [
-      "APPA",
-      "94",
-      "",
-      "{Skyrim.esm:0332BF}",
-      "00 00 00 00",
-      "44",
-      "00 00"
-    ],
-    "EDID - Editor ID": "Grimoire05Master",
-    "OBND - Object Bounds": [
-      "0",
-      "0",
-      "0",
-      "0",
-      "0",
-      "0"
-    ],
-    "FULL - Name": "Master Grimoire",
-    "QUAL - Quality": "Master",
-    "DESC - Description": "",
-    "DATA - Data": [
-      "0",
-      "0.000000"
+    "elements": [
+      {
+        "name": "Record Header",
+        "elements": [
+          {
+            "name": "Signature",
+            "value": "APPA"
+          },
+          {
+            "name": "Data Size",
+            "value": "94"
+          },
+          {
+            "name": "Record Flags",
+            "value": ""
+          },
+          {
+            "name": "FormID",
+            "value": "{Skyrim.esm:0332BF}"
+          },
+          {
+            "name": "Version Control Info 1",
+            "value": "00 00 00 00"
+          },
+          {
+            "name": "Form Version",
+            "value": "44"
+          },
+          {
+            "name": "Version Control Info 2",
+            "value": "00 00"
+          }
+        ]
+      },
+      {
+        "name": "EDID - Editor ID",
+        "value": "Grimoire05Master"
+      },
+      {
+        "name": "OBND - Object Bounds",
+        "elements": [
+          {
+            "name": "X1",
+            "value": "0"
+          },
+          {
+            "name": "Y1",
+            "value": "0"
+          },
+          {
+            "name": "Z1",
+            "value": "0"
+          },
+          {
+            "name": "X2",
+            "value": "0"
+          },
+          {
+            "name": "Y2",
+            "value": "0"
+          },
+          {
+            "name": "Z2",
+            "value": "0"
+          }
+        ]
+      },
+      {
+        "name": "FULL - Name",
+        "value": "Master Grimoire"
+      },
+      {
+        "name": "QUAL - Quality",
+        "value": "Master"
+      },
+      {
+        "name": "DESC - Description",
+        "value": ""
+      },
+      {
+        "name": "DATA - Data",
+        "elements": [
+          {
+            "name": "Value",
+            "value": "0"
+          },
+          {
+            "name": "Weight",
+            "value": "0.000000"
+          }
+        ]
+      }
     ]
   }
 }

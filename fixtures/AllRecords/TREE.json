@@ -1,46 +1,159 @@
 {
   "00109716": {
-    "Record Header": [
-      "TREE",
-      "230",
-      "",
-      "{Skyrim.esm:109716}",
-      "00 00 00 00",
-      "39",
-      "00 00"
-    ],
-    "EDID - Editor ID": "TreeReachTree01Winterhold",
-    "OBND - Object Bounds": [
-      "-243",
-      "-274",
-      "-32",
-      "346",
-      "292",
-      "676"
-    ],
-    "Model": [
-      "Landscape\\Trees\\ReachTree01.nif",
-      "86 CB C1 22 64 64 73 00 3B AC 5C 0A F0 0B 46 F6 64 64 73 00 3B AC 5C 0A 22 EE 7D E1 64 64 73 00 3B AC 5C 0A E6 65 29 77 64 64 73 00 3B AC 5C 0A 64 60 C6 0C 64 64 73 00 3B AC 5C 0A F9 CE 0A DB 64 64 73 00 3B AC 5C 0A"
-    ],
-    "PFPC - Ingredient Production": [
-      "0",
-      "0",
-      "0",
-      "0"
-    ],
-    "CNAM - Tree Data": [
-      "1.000000",
-      "1.000000",
-      "0.040000",
-      "0.030000",
-      "0.040000",
-      "0.034000",
-      "0.500000",
-      "0.500000",
-      "0.400000",
-      "1.000000",
-      "2.000000",
-      "1.000000"
+    "elements": [
+      {
+        "name": "Record Header",
+        "elements": [
+          {
+            "name": "Signature",
+            "value": "TREE"
+          },
+          {
+            "name": "Data Size",
+            "value": "230"
+          },
+          {
+            "name": "Record Flags",
+            "value": ""
+          },
+          {
+            "name": "FormID",
+            "value": "{Skyrim.esm:109716}"
+          },
+          {
+            "name": "Version Control Info 1",
+            "value": "00 00 00 00"
+          },
+          {
+            "name": "Form Version",
+            "value": "39"
+          },
+          {
+            "name": "Version Control Info 2",
+            "value": "00 00"
+          }
+        ]
+      },
+      {
+        "name": "EDID - Editor ID",
+        "value": "TreeReachTree01Winterhold"
+      },
+      {
+        "name": "OBND - Object Bounds",
+        "elements": [
+          {
+            "name": "X1",
+            "value": "-243"
+          },
+          {
+            "name": "Y1",
+            "value": "-274"
+          },
+          {
+            "name": "Z1",
+            "value": "-32"
+          },
+          {
+            "name": "X2",
+            "value": "346"
+          },
+          {
+            "name": "Y2",
+            "value": "292"
+          },
+          {
+            "name": "Z2",
+            "value": "676"
+          }
+        ]
+      },
+      {
+        "name": "Model",
+        "elements": [
+          {
+            "name": "MODL - Model FileName",
+            "value": "Landscape\\Trees\\ReachTree01.nif"
+          },
+          {
+            "name": "MODT - Texture Files Hashes",
+            "value": "86 CB C1 22 64 64 73 00 3B AC 5C 0A F0 0B 46 F6 64 64 73 00 3B AC 5C 0A 22 EE 7D E1 64 64 73 00 3B AC 5C 0A E6 65 29 77 64 64 73 00 3B AC 5C 0A 64 60 C6 0C 64 64 73 00 3B AC 5C 0A F9 CE 0A DB 64 64 73 00 3B AC 5C 0A"
+          }
+        ]
+      },
+      {
+        "name": "PFPC - Ingredient Production",
+        "elements": [
+          {
+            "name": "Spring",
+            "value": "0"
+          },
+          {
+            "name": "Summer",
+            "value": "0"
+          },
+          {
+            "name": "Fall",
+            "value": "0"
+          },
+          {
+            "name": "Winter",
+            "value": "0"
+          }
+        ]
+      },
+      {
+        "name": "CNAM - Tree Data",
+        "elements": [
+          {
+            "name": "Trunk Flexibility",
+            "value": "1.000000"
+          },
+          {
+            "name": "Branch Flexibility",
+            "value": "1.000000"
+          },
+          {
+            "name": "Unknown",
+            "value": "0.040000"
+          },
+          {
+            "name": "Unknown",
+            "value": "0.030000"
+          },
+          {
+            "name": "Unknown",
+            "value": "0.040000"
+          },
+          {
+            "name": "Unknown",
+            "value": "0.034000"
+          },
+          {
+            "name": "Unknown",
+            "value": "0.500000"
+          },
+          {
+            "name": "Unknown",
+            "value": "0.500000"
+          },
+          {
+            "name": "Unknown",
+            "value": "0.400000"
+          },
+          {
+            "name": "Unknown",
+            "value": "1.000000"
+          },
+          {
+            "name": "Leaf Amplitude",
+            "value": "2.000000"
+          },
+          {
+            "name": "Leaf Frequency",
+            "value": "1.000000"
+          }
+        ]
+      }
     ]
   }
 }

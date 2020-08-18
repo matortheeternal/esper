@@ -1,147 +1,503 @@
 {
   "0010ACD3": {
-    "Record Header": [
-      "LGTM",
-      "161",
-      "",
-      "{Skyrim.esm:10ACD3}",
-      "00 00 00 00",
-      "37",
-      "00 00"
-    ],
-    "EDID - Editor ID": "GreenCaveCloseDark",
-    "DATA - Lighting": [
-      [
-        "40",
-        "34",
-        "23",
-        "00"
-      ],
-      [
-        "71",
-        "77",
-        "78",
-        "00"
-      ],
-      [
-        "46",
-        "61",
-        "60",
-        "00"
-      ],
-      "750.000000",
-      "3000.000000",
-      "0",
-      "270",
-      "0.500000",
-      "0.000000",
-      "0.700000",
-      [
-        [
-          [
-            "51",
-            "41",
-            "29",
-            "00"
-          ],
-          [
-            "42",
-            "41",
-            "26",
-            "00"
-          ],
-          [
-            "47",
-            "42",
-            "28",
-            "00"
-          ],
-          [
-            "47",
-            "39",
-            "28",
-            "00"
-          ],
-          [
-            "22",
-            "19",
-            "12",
-            "00"
-          ],
-          [
-            "92",
-            "81",
-            "56",
-            "00"
-          ]
-        ],
-        [
-          "136",
-          "227",
-          "218",
-          "00"
-        ],
-        "0.000000"
-      ],
-      [
-        "73",
-        "118",
-        "114",
-        "00"
-      ],
-      "0.500000",
-      [
-        "3000.000000",
-        "4000.000000"
-      ],
-      "00 00 00 00"
-    ],
-    "DALC - Directional Ambient Lighting Colors": [
-      [
-        [
-          "44",
-          "34",
-          "24",
-          "00"
-        ],
-        [
-          "35",
-          "34",
-          "21",
-          "00"
-        ],
-        [
-          "40",
-          "35",
-          "23",
-          "00"
-        ],
-        [
-          "40",
-          "32",
-          "23",
-          "00"
-        ],
-        [
-          "19",
-          "16",
-          "10",
-          "00"
-        ],
-        [
-          "60",
-          "51",
-          "35",
-          "00"
+    "elements": [
+      {
+        "name": "Record Header",
+        "elements": [
+          {
+            "name": "Signature",
+            "value": "LGTM"
+          },
+          {
+            "name": "Data Size",
+            "value": "161"
+          },
+          {
+            "name": "Record Flags",
+            "value": ""
+          },
+          {
+            "name": "FormID",
+            "value": "{Skyrim.esm:10ACD3}"
+          },
+          {
+            "name": "Version Control Info 1",
+            "value": "00 00 00 00"
+          },
+          {
+            "name": "Form Version",
+            "value": "37"
+          },
+          {
+            "name": "Version Control Info 2",
+            "value": "00 00"
+          }
         ]
-      ],
-      [
-        "0",
-        "0",
-        "0",
-        "00"
-      ],
-      "1.000000"
+      },
+      {
+        "name": "EDID - Editor ID",
+        "value": "GreenCaveCloseDark"
+      },
+      {
+        "name": "DATA - Lighting",
+        "elements": [
+          {
+            "name": "Ambient Color",
+            "elements": [
+              {
+                "name": "Red",
+                "value": "40"
+              },
+              {
+                "name": "Green",
+                "value": "34"
+              },
+              {
+                "name": "Blue",
+                "value": "23"
+              },
+              {
+                "name": "Unused",
+                "value": "00"
+              }
+            ]
+          },
+          {
+            "name": "Directional Color",
+            "elements": [
+              {
+                "name": "Red",
+                "value": "71"
+              },
+              {
+                "name": "Green",
+                "value": "77"
+              },
+              {
+                "name": "Blue",
+                "value": "78"
+              },
+              {
+                "name": "Unused",
+                "value": "00"
+              }
+            ]
+          },
+          {
+            "name": "Fog Color Near",
+            "elements": [
+              {
+                "name": "Red",
+                "value": "46"
+              },
+              {
+                "name": "Green",
+                "value": "61"
+              },
+              {
+                "name": "Blue",
+                "value": "60"
+              },
+              {
+                "name": "Unused",
+                "value": "00"
+              }
+            ]
+          },
+          {
+            "name": "Fog Near",
+            "value": "750.000000"
+          },
+          {
+            "name": "Fog Far",
+            "value": "3000.000000"
+          },
+          {
+            "name": "Directional Rotation XY",
+            "value": "0"
+          },
+          {
+            "name": "Directional Rotation Z",
+            "value": "270"
+          },
+          {
+            "name": "Directional Fade",
+            "value": "0.500000"
+          },
+          {
+            "name": "Fog Clip Dist",
+            "value": "0.000000"
+          },
+          {
+            "name": "Fog Power",
+            "value": "0.700000"
+          },
+          {
+            "name": "Ambient Colors",
+            "elements": [
+              {
+                "name": "Directional",
+                "elements": [
+                  {
+                    "name": "X+",
+                    "elements": [
+                      {
+                        "name": "Red",
+                        "value": "51"
+                      },
+                      {
+                        "name": "Green",
+                        "value": "41"
+                      },
+                      {
+                        "name": "Blue",
+                        "value": "29"
+                      },
+                      {
+                        "name": "Unused",
+                        "value": "00"
+                      }
+                    ]
+                  },
+                  {
+                    "name": "X-",
+                    "elements": [
+                      {
+                        "name": "Red",
+                        "value": "42"
+                      },
+                      {
+                        "name": "Green",
+                        "value": "41"
+                      },
+                      {
+                        "name": "Blue",
+                        "value": "26"
+                      },
+                      {
+                        "name": "Unused",
+                        "value": "00"
+                      }
+                    ]
+                  },
+                  {
+                    "name": "Y+",
+                    "elements": [
+                      {
+                        "name": "Red",
+                        "value": "47"
+                      },
+                      {
+                        "name": "Green",
+                        "value": "42"
+                      },
+                      {
+                        "name": "Blue",
+                        "value": "28"
+                      },
+                      {
+                        "name": "Unused",
+                        "value": "00"
+                      }
+                    ]
+                  },
+                  {
+                    "name": "Y-",
+                    "elements": [
+                      {
+                        "name": "Red",
+                        "value": "47"
+                      },
+                      {
+                        "name": "Green",
+                        "value": "39"
+                      },
+                      {
+                        "name": "Blue",
+                        "value": "28"
+                      },
+                      {
+                        "name": "Unused",
+                        "value": "00"
+                      }
+                    ]
+                  },
+                  {
+                    "name": "Z+",
+                    "elements": [
+                      {
+                        "name": "Red",
+                        "value": "22"
+                      },
+                      {
+                        "name": "Green",
+                        "value": "19"
+                      },
+                      {
+                        "name": "Blue",
+                        "value": "12"
+                      },
+                      {
+                        "name": "Unused",
+                        "value": "00"
+                      }
+                    ]
+                  },
+                  {
+                    "name": "Z-",
+                    "elements": [
+                      {
+                        "name": "Red",
+                        "value": "92"
+                      },
+                      {
+                        "name": "Green",
+                        "value": "81"
+                      },
+                      {
+                        "name": "Blue",
+                        "value": "56"
+                      },
+                      {
+                        "name": "Unused",
+                        "value": "00"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "Specular",
+                "elements": [
+                  {
+                    "name": "Red",
+                    "value": "136"
+                  },
+                  {
+                    "name": "Green",
+                    "value": "227"
+                  },
+                  {
+                    "name": "Blue",
+                    "value": "218"
+                  },
+                  {
+                    "name": "Unused",
+                    "value": "00"
+                  }
+                ]
+              },
+              {
+                "name": "Scale",
+                "value": "0.000000"
+              }
+            ]
+          },
+          {
+            "name": "Fog Color Far",
+            "elements": [
+              {
+                "name": "Red",
+                "value": "73"
+              },
+              {
+                "name": "Green",
+                "value": "118"
+              },
+              {
+                "name": "Blue",
+                "value": "114"
+              },
+              {
+                "name": "Unused",
+                "value": "00"
+              }
+            ]
+          },
+          {
+            "name": "Fog Max",
+            "value": "0.500000"
+          },
+          {
+            "name": "Light Fade Distances",
+            "elements": [
+              {
+                "name": "Start",
+                "value": "3000.000000"
+              },
+              {
+                "name": "End",
+                "value": "4000.000000"
+              }
+            ]
+          },
+          {
+            "name": "Unknown",
+            "value": "00 00 00 00"
+          }
+        ]
+      },
+      {
+        "name": "DALC - Directional Ambient Lighting Colors",
+        "elements": [
+          {
+            "name": "Directional",
+            "elements": [
+              {
+                "name": "X+",
+                "elements": [
+                  {
+                    "name": "Red",
+                    "value": "44"
+                  },
+                  {
+                    "name": "Green",
+                    "value": "34"
+                  },
+                  {
+                    "name": "Blue",
+                    "value": "24"
+                  },
+                  {
+                    "name": "Unused",
+                    "value": "00"
+                  }
+                ]
+              },
+              {
+                "name": "X-",
+                "elements": [
+                  {
+                    "name": "Red",
+                    "value": "35"
+                  },
+                  {
+                    "name": "Green",
+                    "value": "34"
+                  },
+                  {
+                    "name": "Blue",
+                    "value": "21"
+                  },
+                  {
+                    "name": "Unused",
+                    "value": "00"
+                  }
+                ]
+              },
+              {
+                "name": "Y+",
+                "elements": [
+                  {
+                    "name": "Red",
+                    "value": "40"
+                  },
+                  {
+                    "name": "Green",
+                    "value": "35"
+                  },
+                  {
+                    "name": "Blue",
+                    "value": "23"
+                  },
+                  {
+                    "name": "Unused",
+                    "value": "00"
+                  }
+                ]
+              },
+              {
+                "name": "Y-",
+                "elements": [
+                  {
+                    "name": "Red",
+                    "value": "40"
+                  },
+                  {
+                    "name": "Green",
+                    "value": "32"
+                  },
+                  {
+                    "name": "Blue",
+                    "value": "23"
+                  },
+                  {
+                    "name": "Unused",
+                    "value": "00"
+                  }
+                ]
+              },
+              {
+                "name": "Z+",
+                "elements": [
+                  {
+                    "name": "Red",
+                    "value": "19"
+                  },
+                  {
+                    "name": "Green",
+                    "value": "16"
+                  },
+                  {
+                    "name": "Blue",
+                    "value": "10"
+                  },
+                  {
+                    "name": "Unused",
+                    "value": "00"
+                  }
+                ]
+              },
+              {
+                "name": "Z-",
+                "elements": [
+                  {
+                    "name": "Red",
+                    "value": "60"
+                  },
+                  {
+                    "name": "Green",
+                    "value": "51"
+                  },
+                  {
+                    "name": "Blue",
+                    "value": "35"
+                  },
+                  {
+                    "name": "Unused",
+                    "value": "00"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "Specular",
+            "elements": [
+              {
+                "name": "Red",
+                "value": "0"
+              },
+              {
+                "name": "Green",
+                "value": "0"
+              },
+              {
+                "name": "Blue",
+                "value": "0"
+              },
+              {
+                "name": "Unused",
+                "value": "00"
+              }
+            ]
+          },
+          {
+            "name": "Scale",
+            "value": "1.000000"
+          }
+        ]
+      }
     ]
   }
 }

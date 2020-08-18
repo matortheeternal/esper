@@ -1,27 +1,89 @@
 {
   "0010F7EA": {
-    "Record Header": [
-      "MSTT",
-      "145",
-      "",
-      "{Skyrim.esm:10F7EA}",
-      "00 00 00 00",
-      "44",
-      "00 00"
-    ],
-    "EDID - Editor ID": "GallusFXBody01",
-    "OBND - Object Bounds": [
-      "-139",
-      "-127",
-      "-120",
-      "139",
-      "152",
-      "186"
-    ],
-    "Model": [
-      "Effects\\GallusFXBody01.nif",
-      "02 00 00 00 04 00 00 00 00 00 00 00 6C 6A C8 1F 64 64 73 00 38 97 3C EA 82 C7 A9 50 64 64 73 00 58 2C 55 33 7C A2 AE 13 64 64 73 00 38 97 3C EA A7 41 47 49 64 64 73 00 38 97 3C EA"
-    ],
-    "DATA - Flags": "Unknown 2"
+    "elements": [
+      {
+        "name": "Record Header",
+        "elements": [
+          {
+            "name": "Signature",
+            "value": "MSTT"
+          },
+          {
+            "name": "Data Size",
+            "value": "145"
+          },
+          {
+            "name": "Record Flags",
+            "value": ""
+          },
+          {
+            "name": "FormID",
+            "value": "{Skyrim.esm:10F7EA}"
+          },
+          {
+            "name": "Version Control Info 1",
+            "value": "00 00 00 00"
+          },
+          {
+            "name": "Form Version",
+            "value": "44"
+          },
+          {
+            "name": "Version Control Info 2",
+            "value": "00 00"
+          }
+        ]
+      },
+      {
+        "name": "EDID - Editor ID",
+        "value": "GallusFXBody01"
+      },
+      {
+        "name": "OBND - Object Bounds",
+        "elements": [
+          {
+            "name": "X1",
+            "value": "-139"
+          },
+          {
+            "name": "Y1",
+            "value": "-127"
+          },
+          {
+            "name": "Z1",
+            "value": "-120"
+          },
+          {
+            "name": "X2",
+            "value": "139"
+          },
+          {
+            "name": "Y2",
+            "value": "152"
+          },
+          {
+            "name": "Z2",
+            "value": "186"
+          }
+        ]
+      },
+      {
+        "name": "Model",
+        "elements": [
+          {
+            "name": "MODL - Model FileName",
+            "value": "Effects\\GallusFXBody01.nif"
+          },
+          {
+            "name": "MODT - Texture Files Hashes",
+            "value": "02 00 00 00 04 00 00 00 00 00 00 00 6C 6A C8 1F 64 64 73 00 38 97 3C EA 82 C7 A9 50 64 64 73 00 58 2C 55 33 7C A2 AE 13 64 64 73 00 38 97 3C EA A7 41 47 49 64 64 73 00 38 97 3C EA"
+          }
+        ]
+      },
+      {
+        "name": "DATA - Flags",
+        "value": "Unknown 2"
+      }
+    ]
   }
 }

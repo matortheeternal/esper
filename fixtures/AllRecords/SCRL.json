@@ -1,63 +1,212 @@
 {
   "001076EC": {
-    "Record Header": [
-      "SCRL",
-      "293",
-      "",
-      "{Skyrim.esm:1076EC}",
-      "00 00 00 00",
-      "44",
-      "00 00"
-    ],
-    "EDID - Editor ID": "MGR21ScrollMagicka",
-    "OBND - Object Bounds": [
-      "0",
-      "0",
-      "0",
-      "0",
-      "0",
-      "0"
-    ],
-    "FULL - Name": "Shalidor's Insights: Magicka",
-    "MDOB - Menu Display Object": "{Skyrim.esm:076E8F}",
-    "ETYP - Equipment Type": "{Skyrim.esm:013F44}",
-    "DESC - Description": "",
-    "Model": [
-      "Clutter\\Common\\Scroll01.nif",
-      "02 00 00 00 02 00 00 00 00 00 00 00 6B C0 AC 7B 64 64 73 00 8E AE A7 92 B4 06 44 8A 64 64 73 00 8E AE A7 92"
-    ],
-    "DATA - Item": [
-      "50",
-      "0.500000"
-    ],
-    "SPIT - Data": [
-      "12200",
-      "",
-      "Spell",
-      "0.000000",
-      "Scroll",
-      "Self",
-      "0.000000",
-      "0.000000",
-      "{Null:000000}"
-    ],
-    "Effects": [
-      [
-        "{Skyrim.esm:0FB98E}",
-        [
-          "100.000000",
-          "0",
-          "120"
+    "elements": [
+      {
+        "name": "Record Header",
+        "elements": [
+          {
+            "name": "Signature",
+            "value": "SCRL"
+          },
+          {
+            "name": "Data Size",
+            "value": "293"
+          },
+          {
+            "name": "Record Flags",
+            "value": ""
+          },
+          {
+            "name": "FormID",
+            "value": "{Skyrim.esm:1076EC}"
+          },
+          {
+            "name": "Version Control Info 1",
+            "value": "00 00 00 00"
+          },
+          {
+            "name": "Form Version",
+            "value": "44"
+          },
+          {
+            "name": "Version Control Info 2",
+            "value": "00 00"
+          }
         ]
-      ],
-      [
-        "{Skyrim.esm:1058A6}",
-        [
-          "1.000000",
-          "0",
-          "120"
+      },
+      {
+        "name": "EDID - Editor ID",
+        "value": "MGR21ScrollMagicka"
+      },
+      {
+        "name": "OBND - Object Bounds",
+        "elements": [
+          {
+            "name": "X1",
+            "value": "0"
+          },
+          {
+            "name": "Y1",
+            "value": "0"
+          },
+          {
+            "name": "Z1",
+            "value": "0"
+          },
+          {
+            "name": "X2",
+            "value": "0"
+          },
+          {
+            "name": "Y2",
+            "value": "0"
+          },
+          {
+            "name": "Z2",
+            "value": "0"
+          }
         ]
-      ]
+      },
+      {
+        "name": "FULL - Name",
+        "value": "Shalidor's Insights: Magicka"
+      },
+      {
+        "name": "MDOB - Menu Display Object",
+        "value": "{Skyrim.esm:076E8F}"
+      },
+      {
+        "name": "ETYP - Equipment Type",
+        "value": "{Skyrim.esm:013F44}"
+      },
+      {
+        "name": "DESC - Description",
+        "value": ""
+      },
+      {
+        "name": "Model",
+        "elements": [
+          {
+            "name": "MODL - Model FileName",
+            "value": "Clutter\\Common\\Scroll01.nif"
+          },
+          {
+            "name": "MODT - Texture Files Hashes",
+            "value": "02 00 00 00 02 00 00 00 00 00 00 00 6B C0 AC 7B 64 64 73 00 8E AE A7 92 B4 06 44 8A 64 64 73 00 8E AE A7 92"
+          }
+        ]
+      },
+      {
+        "name": "DATA - Item",
+        "elements": [
+          {
+            "name": "Value",
+            "value": "50"
+          },
+          {
+            "name": "Weight",
+            "value": "0.500000"
+          }
+        ]
+      },
+      {
+        "name": "SPIT - Data",
+        "elements": [
+          {
+            "name": "Base Cost",
+            "value": "12200"
+          },
+          {
+            "name": "Flags",
+            "value": ""
+          },
+          {
+            "name": "Type",
+            "value": "Spell"
+          },
+          {
+            "name": "Charge Time",
+            "value": "0.000000"
+          },
+          {
+            "name": "Cast Type",
+            "value": "Scroll"
+          },
+          {
+            "name": "Target Type",
+            "value": "Self"
+          },
+          {
+            "name": "Cast Duration",
+            "value": "0.000000"
+          },
+          {
+            "name": "Range",
+            "value": "0.000000"
+          },
+          {
+            "name": "Half-cost Perk",
+            "value": "{Null:000000}"
+          }
+        ]
+      },
+      {
+        "name": "Effects",
+        "elements": [
+          {
+            "name": "Effect",
+            "elements": [
+              {
+                "name": "EFID - Base Effect",
+                "value": "{Skyrim.esm:0FB98E}"
+              },
+              {
+                "name": "EFIT - ",
+                "elements": [
+                  {
+                    "name": "Magnitude",
+                    "value": "100.000000"
+                  },
+                  {
+                    "name": "Area",
+                    "value": "0"
+                  },
+                  {
+                    "name": "Duration",
+                    "value": "120"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "Effect",
+            "elements": [
+              {
+                "name": "EFID - Base Effect",
+                "value": "{Skyrim.esm:1058A6}"
+              },
+              {
+                "name": "EFIT - ",
+                "elements": [
+                  {
+                    "name": "Magnitude",
+                    "value": "1.000000"
+                  },
+                  {
+                    "name": "Area",
+                    "value": "0"
+                  },
+                  {
+                    "name": "Duration",
+                    "value": "120"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
     ]
   }
 }

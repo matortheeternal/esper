@@ -1,48 +1,161 @@
 {
   "00000E8A": {
-    "Record Header": [
-      "LSCR",
-      "381",
-      "",
-      "{Skyrim.esm:000E8A}",
-      "00 00 00 00",
-      "44",
-      "00 00"
-    ],
-    "EDID - Editor ID": "ChargenLoadScreen",
-    "DESC - Description": "And the Scrolls have foretold, of black wings in the cold, That when brothers wage war come unfurled! Alduin, Bane of Kings, ancient shadow unbound, With a hunger to swallow the world! -- Song of the Dragonborn",
-    "Conditions": [
-      [
-        [
-          "10000000",
-          "00 00 00",
-          "10.000000",
-          "GetStage",
-          "00 00",
-          "{Skyrim.esm:03372B}",
-          "00 00 00 00",
-          "Subject",
-          "0",
-          "-1"
+    "elements": [
+      {
+        "name": "Record Header",
+        "elements": [
+          {
+            "name": "Signature",
+            "value": "LSCR"
+          },
+          {
+            "name": "Data Size",
+            "value": "381"
+          },
+          {
+            "name": "Record Flags",
+            "value": ""
+          },
+          {
+            "name": "FormID",
+            "value": "{Skyrim.esm:000E8A}"
+          },
+          {
+            "name": "Version Control Info 1",
+            "value": "00 00 00 00"
+          },
+          {
+            "name": "Form Version",
+            "value": "44"
+          },
+          {
+            "name": "Version Control Info 2",
+            "value": "00 00"
+          }
         ]
-      ]
-    ],
-    "NNAM - Loading Screen NIF": "{Skyrim.esm:10A963}",
-    "SNAM - Initial Scale": "0.200000",
-    "RNAM - Initial Rotation": [
-      "0",
-      "0",
-      "120"
-    ],
-    "ONAM - Rotation Offset Constraints": [
-      "-180",
-      "180"
-    ],
-    "XNAM - Initial Translation Offset": [
-      "-25.000000",
-      "0.000000",
-      "-115.000000"
-    ],
-    "MOD2 - Camera Path": "Cameras\\LSCameraPanRGTZoomINBig.nif"
+      },
+      {
+        "name": "EDID - Editor ID",
+        "value": "ChargenLoadScreen"
+      },
+      {
+        "name": "DESC - Description",
+        "value": "And the Scrolls have foretold, of black wings in the cold, That when brothers wage war come unfurled! Alduin, Bane of Kings, ancient shadow unbound, With a hunger to swallow the world! -- Song of the Dragonborn"
+      },
+      {
+        "name": "Conditions",
+        "elements": [
+          {
+            "name": "Condition",
+            "elements": [
+              {
+                "name": "CTDA - ",
+                "elements": [
+                  {
+                    "name": "Type",
+                    "value": "10000000"
+                  },
+                  {
+                    "name": "Unused",
+                    "value": "00 00 00"
+                  },
+                  {
+                    "name": "Comparison Value",
+                    "value": "10.000000"
+                  },
+                  {
+                    "name": "Function",
+                    "value": "GetStage"
+                  },
+                  {
+                    "name": "Unused",
+                    "value": "00 00"
+                  },
+                  {
+                    "name": "Parameter #1",
+                    "value": "{Skyrim.esm:03372B}"
+                  },
+                  {
+                    "name": "Parameter #2",
+                    "value": "00 00 00 00"
+                  },
+                  {
+                    "name": "Run On",
+                    "value": "Subject"
+                  },
+                  {
+                    "name": "Reference",
+                    "value": "0"
+                  },
+                  {
+                    "name": "Parameter #3",
+                    "value": "-1"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "NNAM - Loading Screen NIF",
+        "value": "{Skyrim.esm:10A963}"
+      },
+      {
+        "name": "SNAM - Initial Scale",
+        "value": "0.200000"
+      },
+      {
+        "name": "RNAM - Initial Rotation",
+        "elements": [
+          {
+            "name": "X",
+            "value": "0"
+          },
+          {
+            "name": "Y",
+            "value": "0"
+          },
+          {
+            "name": "Z",
+            "value": "120"
+          }
+        ]
+      },
+      {
+        "name": "ONAM - Rotation Offset Constraints",
+        "elements": [
+          {
+            "name": "Min",
+            "value": "-180"
+          },
+          {
+            "name": "Max",
+            "value": "180"
+          }
+        ]
+      },
+      {
+        "name": "XNAM - Initial Translation Offset",
+        "elements": [
+          {
+            "name": "X",
+            "value": "-25.000000"
+          },
+          {
+            "name": "Y",
+            "value": "0.000000"
+          },
+          {
+            "name": "Z",
+            "value": "-115.000000"
+          }
+        ]
+      },
+      {
+        "name": "MOD2 - Camera Path",
+        "value": "Cameras\\LSCameraPanRGTZoomINBig.nif"
+      }
+    ]
   }
 }

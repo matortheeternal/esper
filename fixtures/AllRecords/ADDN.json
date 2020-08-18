@@ -1,31 +1,102 @@
 {
   "0010FBEF": {
-    "Record Header": [
-      "ADDN",
-      "150",
-      "",
-      "{Skyrim.esm:10FBEF}",
-      "00 00 00 00",
-      "40",
-      "00 00"
-    ],
-    "EDID - Editor ID": "MPSFrostMistSpiral",
-    "OBND - Object Bounds": [
-      "0",
-      "0",
-      "0",
-      "0",
-      "0",
-      "0"
-    ],
-    "Model": [
-      "MPS\\MPSFrostMistSpiral.nif",
-      "02 00 00 00 03 00 00 00 00 00 00 00 12 77 91 7C 64 64 73 00 38 97 3C EA E8 5F ED 05 64 64 73 00 58 2C 55 33 62 85 7D D2 64 64 73 00 38 97 3C EA"
-    ],
-    "DATA - Node Index": "88",
-    "DNAM - Data": [
-      "0",
-      "Unknown 1"
+    "elements": [
+      {
+        "name": "Record Header",
+        "elements": [
+          {
+            "name": "Signature",
+            "value": "ADDN"
+          },
+          {
+            "name": "Data Size",
+            "value": "150"
+          },
+          {
+            "name": "Record Flags",
+            "value": ""
+          },
+          {
+            "name": "FormID",
+            "value": "{Skyrim.esm:10FBEF}"
+          },
+          {
+            "name": "Version Control Info 1",
+            "value": "00 00 00 00"
+          },
+          {
+            "name": "Form Version",
+            "value": "40"
+          },
+          {
+            "name": "Version Control Info 2",
+            "value": "00 00"
+          }
+        ]
+      },
+      {
+        "name": "EDID - Editor ID",
+        "value": "MPSFrostMistSpiral"
+      },
+      {
+        "name": "OBND - Object Bounds",
+        "elements": [
+          {
+            "name": "X1",
+            "value": "0"
+          },
+          {
+            "name": "Y1",
+            "value": "0"
+          },
+          {
+            "name": "Z1",
+            "value": "0"
+          },
+          {
+            "name": "X2",
+            "value": "0"
+          },
+          {
+            "name": "Y2",
+            "value": "0"
+          },
+          {
+            "name": "Z2",
+            "value": "0"
+          }
+        ]
+      },
+      {
+        "name": "Model",
+        "elements": [
+          {
+            "name": "MODL - Model FileName",
+            "value": "MPS\\MPSFrostMistSpiral.nif"
+          },
+          {
+            "name": "MODT - Texture Files Hashes",
+            "value": "02 00 00 00 03 00 00 00 00 00 00 00 12 77 91 7C 64 64 73 00 38 97 3C EA E8 5F ED 05 64 64 73 00 58 2C 55 33 62 85 7D D2 64 64 73 00 38 97 3C EA"
+          }
+        ]
+      },
+      {
+        "name": "DATA - Node Index",
+        "value": "88"
+      },
+      {
+        "name": "DNAM - Data",
+        "elements": [
+          {
+            "name": "Master Particle System Cap",
+            "value": "0"
+          },
+          {
+            "name": "Flags",
+            "value": "Unknown 1"
+          }
+        ]
+      }
     ]
   }
 }

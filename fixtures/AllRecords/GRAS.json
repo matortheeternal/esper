@@ -1,41 +1,142 @@
 {
   "001098CA": {
-    "Record Header": [
-      "GRAS",
-      "151",
-      "",
-      "{Skyrim.esm:1098CA}",
-      "00 00 00 00",
-      "39",
-      "00 00"
-    ],
-    "EDID - Editor ID": "FieldGrass02",
-    "OBND - Object Bounds": [
-      "0",
-      "0",
-      "0",
-      "0",
-      "0",
-      "0"
-    ],
-    "Model": [
-      "Landscape\\Grass\\FieldGrassFlowers02.nif",
-      "31 5B 43 E5 64 64 73 00 62 5C 8D 36 0A 4C 87 9A 64 64 73 00 38 97 3C EA"
-    ],
-    "DATA - ": [
-      "3",
-      "0",
-      "45",
-      "CD",
-      "0",
-      "CD CD",
-      "Above - At Least",
-      "30.000000",
-      "0.300000",
-      "0.200000",
-      "340.000000",
-      "Uniform Scaling, Fit to Slope",
-      "CD CD CD"
+    "elements": [
+      {
+        "name": "Record Header",
+        "elements": [
+          {
+            "name": "Signature",
+            "value": "GRAS"
+          },
+          {
+            "name": "Data Size",
+            "value": "151"
+          },
+          {
+            "name": "Record Flags",
+            "value": ""
+          },
+          {
+            "name": "FormID",
+            "value": "{Skyrim.esm:1098CA}"
+          },
+          {
+            "name": "Version Control Info 1",
+            "value": "00 00 00 00"
+          },
+          {
+            "name": "Form Version",
+            "value": "39"
+          },
+          {
+            "name": "Version Control Info 2",
+            "value": "00 00"
+          }
+        ]
+      },
+      {
+        "name": "EDID - Editor ID",
+        "value": "FieldGrass02"
+      },
+      {
+        "name": "OBND - Object Bounds",
+        "elements": [
+          {
+            "name": "X1",
+            "value": "0"
+          },
+          {
+            "name": "Y1",
+            "value": "0"
+          },
+          {
+            "name": "Z1",
+            "value": "0"
+          },
+          {
+            "name": "X2",
+            "value": "0"
+          },
+          {
+            "name": "Y2",
+            "value": "0"
+          },
+          {
+            "name": "Z2",
+            "value": "0"
+          }
+        ]
+      },
+      {
+        "name": "Model",
+        "elements": [
+          {
+            "name": "MODL - Model FileName",
+            "value": "Landscape\\Grass\\FieldGrassFlowers02.nif"
+          },
+          {
+            "name": "MODT - Texture Files Hashes",
+            "value": "31 5B 43 E5 64 64 73 00 62 5C 8D 36 0A 4C 87 9A 64 64 73 00 38 97 3C EA"
+          }
+        ]
+      },
+      {
+        "name": "DATA - ",
+        "elements": [
+          {
+            "name": "Density",
+            "value": "3"
+          },
+          {
+            "name": "Min Slope",
+            "value": "0"
+          },
+          {
+            "name": "Max Slope",
+            "value": "45"
+          },
+          {
+            "name": "Unknown",
+            "value": "CD"
+          },
+          {
+            "name": "Units From Water",
+            "value": "0"
+          },
+          {
+            "name": "Unknown",
+            "value": "CD CD"
+          },
+          {
+            "name": "Units From Water Type",
+            "value": "Above - At Least"
+          },
+          {
+            "name": "Position Range",
+            "value": "30.000000"
+          },
+          {
+            "name": "Height Range",
+            "value": "0.300000"
+          },
+          {
+            "name": "Color Range",
+            "value": "0.200000"
+          },
+          {
+            "name": "Wave Period",
+            "value": "340.000000"
+          },
+          {
+            "name": "Flags",
+            "value": "Uniform Scaling, Fit to Slope"
+          },
+          {
+            "name": "Unknown",
+            "value": "CD CD CD"
+          }
+        ]
+      }
     ]
   }
 }

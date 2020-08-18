@@ -1,399 +1,1425 @@
 {
   "00109C7C": {
-    "Record Header": [
-      "RACE",
-      "2083",
-      "Critter?",
-      "{Skyrim.esm:109C7C}",
-      "00 00 00 00",
-      "44",
-      "00 00"
-    ],
-    "EDID - Editor ID": "FoxRace",
-    "FULL - Name": "Fox",
-    "DESC - Description": "",
-    "WNAM - Skin": "{Skyrim.esm:04E886}",
-    "BOD2 - Biped Body Template": [
-      "",
-      "",
-      "",
-      "Clothing"
-    ],
-    "KSIZ - Keyword Count": "3",
-    "KWDA - Keywords": [
-      "{Skyrim.esm:013795}",
-      "{Skyrim.esm:013798}",
-      "{Skyrim.esm:092A6C}"
-    ],
-    "DATA - ": [
-      [
-        [
-          "None",
-          "0"
-        ],
-        [
-          "None",
-          "0"
-        ],
-        [
-          "None",
-          "0"
-        ],
-        [
-          "None",
-          "0"
-        ],
-        [
-          "None",
-          "0"
-        ],
-        [
-          "None",
-          "0"
-        ],
-        [
-          "Sneak",
-          "15"
+    "elements": [
+      {
+        "name": "Record Header",
+        "elements": [
+          {
+            "name": "Signature",
+            "value": "RACE"
+          },
+          {
+            "name": "Data Size",
+            "value": "2083"
+          },
+          {
+            "name": "Record Flags",
+            "value": "Critter?"
+          },
+          {
+            "name": "FormID",
+            "value": "{Skyrim.esm:109C7C}"
+          },
+          {
+            "name": "Version Control Info 1",
+            "value": "00 00 00 00"
+          },
+          {
+            "name": "Form Version",
+            "value": "44"
+          },
+          {
+            "name": "Version Control Info 2",
+            "value": "00 00"
+          }
         ]
-      ],
-      "00 00",
-      "1.200000",
-      "1.000000",
-      "1.000000",
-      "1.000000",
-      "Tilt Front/Back, Swims, Walks, No Combat In Water, Uses Head Track Anims, Can't Open Doors",
-      "12.000000",
-      "0.000000",
-      "200.000000",
-      "200.000000",
-      "1.000000",
-      "0.600000",
-      "2.000000",
-      "Medium",
-      "None",
-      "None",
-      "0.000000",
-      "None",
-      "0.000000",
-      "10.000000",
-      "5.000000",
-      "5.000000",
-      "64.000000",
-      "None",
-      "0.000000",
-      "0.000000",
-      "0.300000",
-      "5.000000",
-      "Non-Hostile",
-      [
-        "-63.479000",
-        "0.000000",
-        "0.000000",
-        "-50.000000",
-        "0.000000",
-        "65.000000",
-        "0.000000",
-        "-300.000000",
-        "0.000000"
-      ]
-    ],
-    "MNAM - Male Marker": "",
-    "ANAM - Male Skeletal Model": "Actors\\Canine\\Character Assets Wolf\\skeleton.nif",
-    "MODT - Texture Files Hashes": "02 00 00 00 00 00 00 00 00 00 00 00",
-    "FNAM - Female Marker": "",
-    "ANAM - Female Skeletal Model": "Actors\\Canine\\Character Assets Wolf\\skeleton.nif",
-    "Movement Type Names": [
-      "BLDO",
-      "RUN1",
-      "SNEK",
-      "SWIM",
-      "WALK"
-    ],
-    "VTCK - Voices": [
-      "{Skyrim.esm:10F677}",
-      "{Skyrim.esm:10F677}"
-    ],
-    "PNAM - FaceGen - Main clamp": "5.000000",
-    "UNAM - FaceGen - Face clamp": "3.000000",
-    "Attacks": [
-      [
-        [
-          "1.000000",
-          "0.500000",
-          "{Null:000000}",
-          "",
-          "0.000000",
-          "35.000000",
-          "0.000000",
-          "{Null:000000}",
-          "0.000000",
-          "0.000000",
-          "1.000000"
-        ],
-        "attackStart_Attack1"
-      ],
-      [
-        [
-          "1.000000",
-          "0.500000",
-          "{Null:000000}",
-          "",
-          "0.000000",
-          "35.000000",
-          "0.000000",
-          "{Null:000000}",
-          "0.000000",
-          "0.000000",
-          "1.000000"
-        ],
-        "attackStart_Attack2"
-      ],
-      [
-        [
-          "1.000000",
-          "1.000000",
-          "{Null:000000}",
-          "",
-          "0.000000",
-          "35.000000",
-          "0.000000",
-          "{Null:000000}",
-          "0.000000",
-          "0.000000",
-          "1.000000"
-        ],
-        "attackStart_AttackLeft1"
-      ],
-      [
-        [
-          "1.000000",
-          "1.000000",
-          "{Null:000000}",
-          "",
-          "0.000000",
-          "35.000000",
-          "0.000000",
-          "{Null:000000}",
-          "0.000000",
-          "0.000000",
-          "1.000000"
-        ],
-        "attackStart_AttackLeft2"
-      ],
-      [
-        [
-          "1.000000",
-          "1.000000",
-          "{Null:000000}",
-          "",
-          "0.000000",
-          "35.000000",
-          "0.000000",
-          "{Null:000000}",
-          "0.000000",
-          "0.000000",
-          "1.000000"
-        ],
-        "attackStart_AttackRight1"
-      ],
-      [
-        [
-          "1.000000",
-          "1.000000",
-          "{Null:000000}",
-          "",
-          "0.000000",
-          "35.000000",
-          "0.000000",
-          "{Null:000000}",
-          "0.000000",
-          "0.000000",
-          "1.000000"
-        ],
-        "attackStart_AttackRight2"
-      ],
-      [
-        [
-          "2.000000",
-          "0.750000",
-          "{Skyrim.esm:0B8782}",
-          "Power Attack",
-          "0.000000",
-          "35.000000",
-          "0.250000",
-          "{Null:000000}",
-          "0.000000",
-          "2.000000",
-          "1.000000"
-        ],
-        "attackStart_ForwardPower"
-      ],
-      [
-        [
-          "2.000000",
-          "0.750000",
-          "{Skyrim.esm:0B8782}",
-          "Power Attack",
-          "0.000000",
-          "35.000000",
-          "0.250000",
-          "{Null:000000}",
-          "0.000000",
-          "2.000000",
-          "1.000000"
-        ],
-        "attackStart_ForwardPowerShort"
-      ],
-      [
-        [
-          "2.000000",
-          "0.000000",
-          "{Skyrim.esm:0B8782}",
-          "",
-          "0.000000",
-          "35.000000",
-          "0.250000",
-          "{Null:000000}",
-          "0.000000",
-          "0.000000",
-          "1.000000"
-        ],
-        "attackStart_SkeeverLungeLong"
-      ],
-      [
-        [
-          "1.000000",
-          "0.000000",
-          "{Skyrim.esm:0B8782}",
-          "",
-          "0.000000",
-          "35.000000",
-          "0.000000",
-          "{Null:000000}",
-          "0.000000",
-          "0.000000",
-          "1.000000"
-        ],
-        "attackStart_SkeeverLungeMedium"
-      ],
-      [
-        [
-          "2.000000",
-          "0.000000",
-          "{Skyrim.esm:0B8782}",
-          "",
-          "0.000000",
-          "35.000000",
-          "0.250000",
-          "{Null:000000}",
-          "0.000000",
-          "0.000000",
-          "1.000000"
-        ],
-        "attackStart_SkeeverLungeShort"
-      ],
-      [
-        [
-          "2.000000",
-          "0.250000",
-          "{Skyrim.esm:0B8782}",
-          "Power Attack",
-          "0.000000",
-          "35.000000",
-          "0.250000",
-          "{Null:000000}",
-          "0.000000",
-          "2.000000",
-          "1.000000"
-        ],
-        "attackStart_StandingPower"
-      ]
-    ],
-    "Body Data": [
-      "",
-      [
-        "",
-        [
-          [
-            "Body Texture",
-            [
-              "Actors\\Character\\UpperBodyHumanMale.egt",
-              "02 00 00 00 00 00 00 00 00 00 00 00"
+      },
+      {
+        "name": "EDID - Editor ID",
+        "value": "FoxRace"
+      },
+      {
+        "name": "FULL - Name",
+        "value": "Fox"
+      },
+      {
+        "name": "DESC - Description",
+        "value": ""
+      },
+      {
+        "name": "WNAM - Skin",
+        "value": "{Skyrim.esm:04E886}"
+      },
+      {
+        "name": "BOD2 - Biped Body Template",
+        "elements": [
+          {
+            "name": "First Person Flags",
+            "value": ""
+          },
+          {
+            "name": "General Flags",
+            "value": ""
+          },
+          {
+            "name": "Unused",
+            "value": ""
+          },
+          {
+            "name": "Armor Type",
+            "value": "Clothing"
+          }
+        ]
+      },
+      {
+        "name": "KSIZ - Keyword Count",
+        "value": "3"
+      },
+      {
+        "name": "KWDA - Keywords",
+        "elements": [
+          {
+            "name": "Keyword",
+            "value": "{Skyrim.esm:013795}"
+          },
+          {
+            "name": "Keyword",
+            "value": "{Skyrim.esm:013798}"
+          },
+          {
+            "name": "Keyword",
+            "value": "{Skyrim.esm:092A6C}"
+          }
+        ]
+      },
+      {
+        "name": "DATA - ",
+        "elements": [
+          {
+            "name": "Skill Boosts",
+            "elements": [
+              {
+                "name": "Skill Boost",
+                "elements": [
+                  {
+                    "name": "Skill",
+                    "value": "None"
+                  },
+                  {
+                    "name": "Boost",
+                    "value": "0"
+                  }
+                ]
+              },
+              {
+                "name": "Skill Boost",
+                "elements": [
+                  {
+                    "name": "Skill",
+                    "value": "None"
+                  },
+                  {
+                    "name": "Boost",
+                    "value": "0"
+                  }
+                ]
+              },
+              {
+                "name": "Skill Boost",
+                "elements": [
+                  {
+                    "name": "Skill",
+                    "value": "None"
+                  },
+                  {
+                    "name": "Boost",
+                    "value": "0"
+                  }
+                ]
+              },
+              {
+                "name": "Skill Boost",
+                "elements": [
+                  {
+                    "name": "Skill",
+                    "value": "None"
+                  },
+                  {
+                    "name": "Boost",
+                    "value": "0"
+                  }
+                ]
+              },
+              {
+                "name": "Skill Boost",
+                "elements": [
+                  {
+                    "name": "Skill",
+                    "value": "None"
+                  },
+                  {
+                    "name": "Boost",
+                    "value": "0"
+                  }
+                ]
+              },
+              {
+                "name": "Skill Boost",
+                "elements": [
+                  {
+                    "name": "Skill",
+                    "value": "None"
+                  },
+                  {
+                    "name": "Boost",
+                    "value": "0"
+                  }
+                ]
+              },
+              {
+                "name": "Skill Boost",
+                "elements": [
+                  {
+                    "name": "Skill",
+                    "value": "Sneak"
+                  },
+                  {
+                    "name": "Boost",
+                    "value": "15"
+                  }
+                ]
+              }
             ]
-          ]
-        ]
-      ],
-      [
-        "",
-        [
-          [
-            "Body Texture",
-            [
-              "Actors\\Character\\UpperBodyHumanFemale.egt",
-              "02 00 00 00 00 00 00 00 00 00 00 00"
+          },
+          {
+            "name": "Unknown",
+            "value": "00 00"
+          },
+          {
+            "name": "Male Height",
+            "value": "1.200000"
+          },
+          {
+            "name": "Female Height",
+            "value": "1.000000"
+          },
+          {
+            "name": "Male Weight",
+            "value": "1.000000"
+          },
+          {
+            "name": "Female Weight",
+            "value": "1.000000"
+          },
+          {
+            "name": "Flags",
+            "value": "Tilt Front/Back, Swims, Walks, No Combat In Water, Uses Head Track Anims, Can't Open Doors"
+          },
+          {
+            "name": "Starting Health",
+            "value": "12.000000"
+          },
+          {
+            "name": "Starting Magicka",
+            "value": "0.000000"
+          },
+          {
+            "name": "Starting Stamina",
+            "value": "200.000000"
+          },
+          {
+            "name": "Base Carry Weight",
+            "value": "200.000000"
+          },
+          {
+            "name": "Base Mass",
+            "value": "1.000000"
+          },
+          {
+            "name": "Acceleration rate",
+            "value": "0.600000"
+          },
+          {
+            "name": "Deceleration rate",
+            "value": "2.000000"
+          },
+          {
+            "name": "Size",
+            "value": "Medium"
+          },
+          {
+            "name": "Head Biped Object",
+            "value": "None"
+          },
+          {
+            "name": "Hair Biped Object",
+            "value": "None"
+          },
+          {
+            "name": "Injured Health Pct",
+            "value": "0.000000"
+          },
+          {
+            "name": "Shield Biped Object",
+            "value": "None"
+          },
+          {
+            "name": "Health Regen",
+            "value": "0.000000"
+          },
+          {
+            "name": "Magicka Regen",
+            "value": "10.000000"
+          },
+          {
+            "name": "Stamina Regen",
+            "value": "5.000000"
+          },
+          {
+            "name": "Unarmed Damage",
+            "value": "5.000000"
+          },
+          {
+            "name": "Unarmed Reach",
+            "value": "64.000000"
+          },
+          {
+            "name": "Body Biped Object",
+            "value": "None"
+          },
+          {
+            "name": "Aim Angle Tolerance",
+            "value": "0.000000"
+          },
+          {
+            "name": "Flight Radius",
+            "value": "0.000000"
+          },
+          {
+            "name": "Angular Acceleration Rate",
+            "value": "0.300000"
+          },
+          {
+            "name": "Angular Tolerance",
+            "value": "5.000000"
+          },
+          {
+            "name": "Flags 2",
+            "value": "Non-Hostile"
+          },
+          {
+            "name": "Mount Data",
+            "elements": [
+              {
+                "name": "Offset X",
+                "value": "-63.479000"
+              },
+              {
+                "name": "Offset Y",
+                "value": "0.000000"
+              },
+              {
+                "name": "Unknown",
+                "value": "0.000000"
+              },
+              {
+                "name": "Unknown",
+                "value": "-50.000000"
+              },
+              {
+                "name": "Unknown",
+                "value": "0.000000"
+              },
+              {
+                "name": "Unknown",
+                "value": "65.000000"
+              },
+              {
+                "name": "Unknown",
+                "value": "0.000000"
+              },
+              {
+                "name": "Unknown",
+                "value": "-300.000000"
+              },
+              {
+                "name": "Unknown",
+                "value": "0.000000"
+              }
             ]
-          ]
+          }
         ]
-      ]
-    ],
-    "GNAM - Body Part Data": "{Skyrim.esm:04FBF5}",
-    "NAM3 - Marker NAM3 #3": "",
-    "Male Behavior Graph": [
-      "",
-      [
-        "Actors\\Canine\\WolfProject.hkx",
-        "02 00 00 00 00 00 00 00 00 00 00 00"
-      ]
-    ],
-    "Female Behavior Graph": [
-      "",
-      [
-        "Actors\\Canine\\WolfProject.hkx",
-        "02 00 00 00 00 00 00 00 00 00 00 00"
-      ]
-    ],
-    "NAM4 - Material Type": "{Skyrim.esm:05A28F}",
-    "NAM5 - Impact Data Set": "{Skyrim.esm:0A956F}",
-    "ONAM - Open Loot Sound": "{Skyrim.esm:0A5013}",
-    "LNAM - Close Loot Sound": "{Skyrim.esm:0A5014}",
-    "Biped Object Names": [
-      "",
-      "",
-      "BODY",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      ""
-    ],
-    "VNAM - Equipment Flags": "Hand To Hand Melee",
-    "Equip Slots": [
-      "{Skyrim.esm:013F42}"
-    ],
-    "UNES - Unarmed Equip Slot": "{Skyrim.esm:013F42}"
+      },
+      {
+        "name": "MNAM - Male Marker",
+        "value": ""
+      },
+      {
+        "name": "ANAM - Male Skeletal Model",
+        "value": "Actors\\Canine\\Character Assets Wolf\\skeleton.nif"
+      },
+      {
+        "name": "MODT - Texture Files Hashes",
+        "value": "02 00 00 00 00 00 00 00 00 00 00 00"
+      },
+      {
+        "name": "FNAM - Female Marker",
+        "value": ""
+      },
+      {
+        "name": "ANAM - Female Skeletal Model",
+        "value": "Actors\\Canine\\Character Assets Wolf\\skeleton.nif"
+      },
+      {
+        "name": "MODT - Texture Files Hashes",
+        "value": "02 00 00 00 00 00 00 00 00 00 00 00"
+      },
+      {
+        "name": "Movement Type Names",
+        "elements": [
+          {
+            "name": "MTNM - Name",
+            "value": "BLDO"
+          },
+          {
+            "name": "MTNM - Name",
+            "value": "RUN1"
+          },
+          {
+            "name": "MTNM - Name",
+            "value": "SNEK"
+          },
+          {
+            "name": "MTNM - Name",
+            "value": "SWIM"
+          },
+          {
+            "name": "MTNM - Name",
+            "value": "WALK"
+          }
+        ]
+      },
+      {
+        "name": "VTCK - Voices",
+        "elements": [
+          {
+            "name": "Voice #0 (Male)",
+            "value": "{Skyrim.esm:10F677}"
+          },
+          {
+            "name": "Voice #1 (Female)",
+            "value": "{Skyrim.esm:10F677}"
+          }
+        ]
+      },
+      {
+        "name": "PNAM - FaceGen - Main clamp",
+        "value": "5.000000"
+      },
+      {
+        "name": "UNAM - FaceGen - Face clamp",
+        "value": "3.000000"
+      },
+      {
+        "name": "Attacks",
+        "elements": [
+          {
+            "name": "Attack",
+            "elements": [
+              {
+                "name": "ATKD - Attack Data",
+                "elements": [
+                  {
+                    "name": "Damage Mult",
+                    "value": "1.000000"
+                  },
+                  {
+                    "name": "Attack Chance",
+                    "value": "0.500000"
+                  },
+                  {
+                    "name": "Attack Spell",
+                    "value": "{Null:000000}"
+                  },
+                  {
+                    "name": "Attack Flags",
+                    "value": ""
+                  },
+                  {
+                    "name": "Attack Angle",
+                    "value": "0.000000"
+                  },
+                  {
+                    "name": "Strike Angle",
+                    "value": "35.000000"
+                  },
+                  {
+                    "name": "Stagger",
+                    "value": "0.000000"
+                  },
+                  {
+                    "name": "Attack Type",
+                    "value": "{Null:000000}"
+                  },
+                  {
+                    "name": "Knockdown",
+                    "value": "0.000000"
+                  },
+                  {
+                    "name": "Recovery Time",
+                    "value": "0.000000"
+                  },
+                  {
+                    "name": "Stamina Mult",
+                    "value": "1.000000"
+                  }
+                ]
+              },
+              {
+                "name": "ATKE - Attack Event",
+                "value": "attackStart_Attack1"
+              }
+            ]
+          },
+          {
+            "name": "Attack",
+            "elements": [
+              {
+                "name": "ATKD - Attack Data",
+                "elements": [
+                  {
+                    "name": "Damage Mult",
+                    "value": "1.000000"
+                  },
+                  {
+                    "name": "Attack Chance",
+                    "value": "0.500000"
+                  },
+                  {
+                    "name": "Attack Spell",
+                    "value": "{Null:000000}"
+                  },
+                  {
+                    "name": "Attack Flags",
+                    "value": ""
+                  },
+                  {
+                    "name": "Attack Angle",
+                    "value": "0.000000"
+                  },
+                  {
+                    "name": "Strike Angle",
+                    "value": "35.000000"
+                  },
+                  {
+                    "name": "Stagger",
+                    "value": "0.000000"
+                  },
+                  {
+                    "name": "Attack Type",
+                    "value": "{Null:000000}"
+                  },
+                  {
+                    "name": "Knockdown",
+                    "value": "0.000000"
+                  },
+                  {
+                    "name": "Recovery Time",
+                    "value": "0.000000"
+                  },
+                  {
+                    "name": "Stamina Mult",
+                    "value": "1.000000"
+                  }
+                ]
+              },
+              {
+                "name": "ATKE - Attack Event",
+                "value": "attackStart_Attack2"
+              }
+            ]
+          },
+          {
+            "name": "Attack",
+            "elements": [
+              {
+                "name": "ATKD - Attack Data",
+                "elements": [
+                  {
+                    "name": "Damage Mult",
+                    "value": "1.000000"
+                  },
+                  {
+                    "name": "Attack Chance",
+                    "value": "1.000000"
+                  },
+                  {
+                    "name": "Attack Spell",
+                    "value": "{Null:000000}"
+                  },
+                  {
+                    "name": "Attack Flags",
+                    "value": ""
+                  },
+                  {
+                    "name": "Attack Angle",
+                    "value": "0.000000"
+                  },
+                  {
+                    "name": "Strike Angle",
+                    "value": "35.000000"
+                  },
+                  {
+                    "name": "Stagger",
+                    "value": "0.000000"
+                  },
+                  {
+                    "name": "Attack Type",
+                    "value": "{Null:000000}"
+                  },
+                  {
+                    "name": "Knockdown",
+                    "value": "0.000000"
+                  },
+                  {
+                    "name": "Recovery Time",
+                    "value": "0.000000"
+                  },
+                  {
+                    "name": "Stamina Mult",
+                    "value": "1.000000"
+                  }
+                ]
+              },
+              {
+                "name": "ATKE - Attack Event",
+                "value": "attackStart_AttackLeft1"
+              }
+            ]
+          },
+          {
+            "name": "Attack",
+            "elements": [
+              {
+                "name": "ATKD - Attack Data",
+                "elements": [
+                  {
+                    "name": "Damage Mult",
+                    "value": "1.000000"
+                  },
+                  {
+                    "name": "Attack Chance",
+                    "value": "1.000000"
+                  },
+                  {
+                    "name": "Attack Spell",
+                    "value": "{Null:000000}"
+                  },
+                  {
+                    "name": "Attack Flags",
+                    "value": ""
+                  },
+                  {
+                    "name": "Attack Angle",
+                    "value": "0.000000"
+                  },
+                  {
+                    "name": "Strike Angle",
+                    "value": "35.000000"
+                  },
+                  {
+                    "name": "Stagger",
+                    "value": "0.000000"
+                  },
+                  {
+                    "name": "Attack Type",
+                    "value": "{Null:000000}"
+                  },
+                  {
+                    "name": "Knockdown",
+                    "value": "0.000000"
+                  },
+                  {
+                    "name": "Recovery Time",
+                    "value": "0.000000"
+                  },
+                  {
+                    "name": "Stamina Mult",
+                    "value": "1.000000"
+                  }
+                ]
+              },
+              {
+                "name": "ATKE - Attack Event",
+                "value": "attackStart_AttackLeft2"
+              }
+            ]
+          },
+          {
+            "name": "Attack",
+            "elements": [
+              {
+                "name": "ATKD - Attack Data",
+                "elements": [
+                  {
+                    "name": "Damage Mult",
+                    "value": "1.000000"
+                  },
+                  {
+                    "name": "Attack Chance",
+                    "value": "1.000000"
+                  },
+                  {
+                    "name": "Attack Spell",
+                    "value": "{Null:000000}"
+                  },
+                  {
+                    "name": "Attack Flags",
+                    "value": ""
+                  },
+                  {
+                    "name": "Attack Angle",
+                    "value": "0.000000"
+                  },
+                  {
+                    "name": "Strike Angle",
+                    "value": "35.000000"
+                  },
+                  {
+                    "name": "Stagger",
+                    "value": "0.000000"
+                  },
+                  {
+                    "name": "Attack Type",
+                    "value": "{Null:000000}"
+                  },
+                  {
+                    "name": "Knockdown",
+                    "value": "0.000000"
+                  },
+                  {
+                    "name": "Recovery Time",
+                    "value": "0.000000"
+                  },
+                  {
+                    "name": "Stamina Mult",
+                    "value": "1.000000"
+                  }
+                ]
+              },
+              {
+                "name": "ATKE - Attack Event",
+                "value": "attackStart_AttackRight1"
+              }
+            ]
+          },
+          {
+            "name": "Attack",
+            "elements": [
+              {
+                "name": "ATKD - Attack Data",
+                "elements": [
+                  {
+                    "name": "Damage Mult",
+                    "value": "1.000000"
+                  },
+                  {
+                    "name": "Attack Chance",
+                    "value": "1.000000"
+                  },
+                  {
+                    "name": "Attack Spell",
+                    "value": "{Null:000000}"
+                  },
+                  {
+                    "name": "Attack Flags",
+                    "value": ""
+                  },
+                  {
+                    "name": "Attack Angle",
+                    "value": "0.000000"
+                  },
+                  {
+                    "name": "Strike Angle",
+                    "value": "35.000000"
+                  },
+                  {
+                    "name": "Stagger",
+                    "value": "0.000000"
+                  },
+                  {
+                    "name": "Attack Type",
+                    "value": "{Null:000000}"
+                  },
+                  {
+                    "name": "Knockdown",
+                    "value": "0.000000"
+                  },
+                  {
+                    "name": "Recovery Time",
+                    "value": "0.000000"
+                  },
+                  {
+                    "name": "Stamina Mult",
+                    "value": "1.000000"
+                  }
+                ]
+              },
+              {
+                "name": "ATKE - Attack Event",
+                "value": "attackStart_AttackRight2"
+              }
+            ]
+          },
+          {
+            "name": "Attack",
+            "elements": [
+              {
+                "name": "ATKD - Attack Data",
+                "elements": [
+                  {
+                    "name": "Damage Mult",
+                    "value": "2.000000"
+                  },
+                  {
+                    "name": "Attack Chance",
+                    "value": "0.750000"
+                  },
+                  {
+                    "name": "Attack Spell",
+                    "value": "{Skyrim.esm:0B8782}"
+                  },
+                  {
+                    "name": "Attack Flags",
+                    "value": "Power Attack"
+                  },
+                  {
+                    "name": "Attack Angle",
+                    "value": "0.000000"
+                  },
+                  {
+                    "name": "Strike Angle",
+                    "value": "35.000000"
+                  },
+                  {
+                    "name": "Stagger",
+                    "value": "0.250000"
+                  },
+                  {
+                    "name": "Attack Type",
+                    "value": "{Null:000000}"
+                  },
+                  {
+                    "name": "Knockdown",
+                    "value": "0.000000"
+                  },
+                  {
+                    "name": "Recovery Time",
+                    "value": "2.000000"
+                  },
+                  {
+                    "name": "Stamina Mult",
+                    "value": "1.000000"
+                  }
+                ]
+              },
+              {
+                "name": "ATKE - Attack Event",
+                "value": "attackStart_ForwardPower"
+              }
+            ]
+          },
+          {
+            "name": "Attack",
+            "elements": [
+              {
+                "name": "ATKD - Attack Data",
+                "elements": [
+                  {
+                    "name": "Damage Mult",
+                    "value": "2.000000"
+                  },
+                  {
+                    "name": "Attack Chance",
+                    "value": "0.750000"
+                  },
+                  {
+                    "name": "Attack Spell",
+                    "value": "{Skyrim.esm:0B8782}"
+                  },
+                  {
+                    "name": "Attack Flags",
+                    "value": "Power Attack"
+                  },
+                  {
+                    "name": "Attack Angle",
+                    "value": "0.000000"
+                  },
+                  {
+                    "name": "Strike Angle",
+                    "value": "35.000000"
+                  },
+                  {
+                    "name": "Stagger",
+                    "value": "0.250000"
+                  },
+                  {
+                    "name": "Attack Type",
+                    "value": "{Null:000000}"
+                  },
+                  {
+                    "name": "Knockdown",
+                    "value": "0.000000"
+                  },
+                  {
+                    "name": "Recovery Time",
+                    "value": "2.000000"
+                  },
+                  {
+                    "name": "Stamina Mult",
+                    "value": "1.000000"
+                  }
+                ]
+              },
+              {
+                "name": "ATKE - Attack Event",
+                "value": "attackStart_ForwardPowerShort"
+              }
+            ]
+          },
+          {
+            "name": "Attack",
+            "elements": [
+              {
+                "name": "ATKD - Attack Data",
+                "elements": [
+                  {
+                    "name": "Damage Mult",
+                    "value": "2.000000"
+                  },
+                  {
+                    "name": "Attack Chance",
+                    "value": "0.000000"
+                  },
+                  {
+                    "name": "Attack Spell",
+                    "value": "{Skyrim.esm:0B8782}"
+                  },
+                  {
+                    "name": "Attack Flags",
+                    "value": ""
+                  },
+                  {
+                    "name": "Attack Angle",
+                    "value": "0.000000"
+                  },
+                  {
+                    "name": "Strike Angle",
+                    "value": "35.000000"
+                  },
+                  {
+                    "name": "Stagger",
+                    "value": "0.250000"
+                  },
+                  {
+                    "name": "Attack Type",
+                    "value": "{Null:000000}"
+                  },
+                  {
+                    "name": "Knockdown",
+                    "value": "0.000000"
+                  },
+                  {
+                    "name": "Recovery Time",
+                    "value": "0.000000"
+                  },
+                  {
+                    "name": "Stamina Mult",
+                    "value": "1.000000"
+                  }
+                ]
+              },
+              {
+                "name": "ATKE - Attack Event",
+                "value": "attackStart_SkeeverLungeLong"
+              }
+            ]
+          },
+          {
+            "name": "Attack",
+            "elements": [
+              {
+                "name": "ATKD - Attack Data",
+                "elements": [
+                  {
+                    "name": "Damage Mult",
+                    "value": "1.000000"
+                  },
+                  {
+                    "name": "Attack Chance",
+                    "value": "0.000000"
+                  },
+                  {
+                    "name": "Attack Spell",
+                    "value": "{Skyrim.esm:0B8782}"
+                  },
+                  {
+                    "name": "Attack Flags",
+                    "value": ""
+                  },
+                  {
+                    "name": "Attack Angle",
+                    "value": "0.000000"
+                  },
+                  {
+                    "name": "Strike Angle",
+                    "value": "35.000000"
+                  },
+                  {
+                    "name": "Stagger",
+                    "value": "0.000000"
+                  },
+                  {
+                    "name": "Attack Type",
+                    "value": "{Null:000000}"
+                  },
+                  {
+                    "name": "Knockdown",
+                    "value": "0.000000"
+                  },
+                  {
+                    "name": "Recovery Time",
+                    "value": "0.000000"
+                  },
+                  {
+                    "name": "Stamina Mult",
+                    "value": "1.000000"
+                  }
+                ]
+              },
+              {
+                "name": "ATKE - Attack Event",
+                "value": "attackStart_SkeeverLungeMedium"
+              }
+            ]
+          },
+          {
+            "name": "Attack",
+            "elements": [
+              {
+                "name": "ATKD - Attack Data",
+                "elements": [
+                  {
+                    "name": "Damage Mult",
+                    "value": "2.000000"
+                  },
+                  {
+                    "name": "Attack Chance",
+                    "value": "0.000000"
+                  },
+                  {
+                    "name": "Attack Spell",
+                    "value": "{Skyrim.esm:0B8782}"
+                  },
+                  {
+                    "name": "Attack Flags",
+                    "value": ""
+                  },
+                  {
+                    "name": "Attack Angle",
+                    "value": "0.000000"
+                  },
+                  {
+                    "name": "Strike Angle",
+                    "value": "35.000000"
+                  },
+                  {
+                    "name": "Stagger",
+                    "value": "0.250000"
+                  },
+                  {
+                    "name": "Attack Type",
+                    "value": "{Null:000000}"
+                  },
+                  {
+                    "name": "Knockdown",
+                    "value": "0.000000"
+                  },
+                  {
+                    "name": "Recovery Time",
+                    "value": "0.000000"
+                  },
+                  {
+                    "name": "Stamina Mult",
+                    "value": "1.000000"
+                  }
+                ]
+              },
+              {
+                "name": "ATKE - Attack Event",
+                "value": "attackStart_SkeeverLungeShort"
+              }
+            ]
+          },
+          {
+            "name": "Attack",
+            "elements": [
+              {
+                "name": "ATKD - Attack Data",
+                "elements": [
+                  {
+                    "name": "Damage Mult",
+                    "value": "2.000000"
+                  },
+                  {
+                    "name": "Attack Chance",
+                    "value": "0.250000"
+                  },
+                  {
+                    "name": "Attack Spell",
+                    "value": "{Skyrim.esm:0B8782}"
+                  },
+                  {
+                    "name": "Attack Flags",
+                    "value": "Power Attack"
+                  },
+                  {
+                    "name": "Attack Angle",
+                    "value": "0.000000"
+                  },
+                  {
+                    "name": "Strike Angle",
+                    "value": "35.000000"
+                  },
+                  {
+                    "name": "Stagger",
+                    "value": "0.250000"
+                  },
+                  {
+                    "name": "Attack Type",
+                    "value": "{Null:000000}"
+                  },
+                  {
+                    "name": "Knockdown",
+                    "value": "0.000000"
+                  },
+                  {
+                    "name": "Recovery Time",
+                    "value": "2.000000"
+                  },
+                  {
+                    "name": "Stamina Mult",
+                    "value": "1.000000"
+                  }
+                ]
+              },
+              {
+                "name": "ATKE - Attack Event",
+                "value": "attackStart_StandingPower"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Body Data",
+        "elements": [
+          {
+            "name": "NAM1 - Body Data Marker",
+            "value": ""
+          },
+          {
+            "name": "Male Body Data",
+            "elements": [
+              {
+                "name": "MNAM - Male Data Marker",
+                "value": ""
+              },
+              {
+                "name": "Parts",
+                "elements": [
+                  {
+                    "name": "Part",
+                    "elements": [
+                      {
+                        "name": "INDX - Index",
+                        "value": "Body Texture"
+                      },
+                      {
+                        "name": "Model",
+                        "elements": [
+                          {
+                            "name": "MODL - Model FileName",
+                            "value": "Actors\\Character\\UpperBodyHumanMale.egt"
+                          },
+                          {
+                            "name": "MODT - Texture Files Hashes",
+                            "value": "02 00 00 00 00 00 00 00 00 00 00 00"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "Female Body Data",
+            "elements": [
+              {
+                "name": "FNAM - Female Data Marker",
+                "value": ""
+              },
+              {
+                "name": "Parts",
+                "elements": [
+                  {
+                    "name": "Part",
+                    "elements": [
+                      {
+                        "name": "INDX - Index",
+                        "value": "Body Texture"
+                      },
+                      {
+                        "name": "Model",
+                        "elements": [
+                          {
+                            "name": "MODL - Model FileName",
+                            "value": "Actors\\Character\\UpperBodyHumanFemale.egt"
+                          },
+                          {
+                            "name": "MODT - Texture Files Hashes",
+                            "value": "02 00 00 00 00 00 00 00 00 00 00 00"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "GNAM - Body Part Data",
+        "value": "{Skyrim.esm:04FBF5}"
+      },
+      {
+        "name": "NAM3 - Marker NAM3 #3",
+        "value": ""
+      },
+      {
+        "name": "Male Behavior Graph",
+        "elements": [
+          {
+            "name": "MNAM - Male Data Marker",
+            "value": ""
+          },
+          {
+            "name": "Model",
+            "elements": [
+              {
+                "name": "MODL - Model FileName",
+                "value": "Actors\\Canine\\WolfProject.hkx"
+              },
+              {
+                "name": "MODT - Texture Files Hashes",
+                "value": "02 00 00 00 00 00 00 00 00 00 00 00"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Female Behavior Graph",
+        "elements": [
+          {
+            "name": "FNAM - Female Data Marker",
+            "value": ""
+          },
+          {
+            "name": "Model",
+            "elements": [
+              {
+                "name": "MODL - Model FileName",
+                "value": "Actors\\Canine\\WolfProject.hkx"
+              },
+              {
+                "name": "MODT - Texture Files Hashes",
+                "value": "02 00 00 00 00 00 00 00 00 00 00 00"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "NAM4 - Material Type",
+        "value": "{Skyrim.esm:05A28F}"
+      },
+      {
+        "name": "NAM5 - Impact Data Set",
+        "value": "{Skyrim.esm:0A956F}"
+      },
+      {
+        "name": "ONAM - Open Loot Sound",
+        "value": "{Skyrim.esm:0A5013}"
+      },
+      {
+        "name": "LNAM - Close Loot Sound",
+        "value": "{Skyrim.esm:0A5014}"
+      },
+      {
+        "name": "Biped Object Names",
+        "elements": [
+          {
+            "name": "NAME - Name",
+            "value": ""
+          },
+          {
+            "name": "NAME - Name",
+            "value": ""
+          },
+          {
+            "name": "NAME - Name",
+            "value": "BODY"
+          },
+          {
+            "name": "NAME - Name",
+            "value": ""
+          },
+          {
+            "name": "NAME - Name",
+            "value": ""
+          },
+          {
+            "name": "NAME - Name",
+            "value": ""
+          },
+          {
+            "name": "NAME - Name",
+            "value": ""
+          },
+          {
+            "name": "NAME - Name",
+            "value": ""
+          },
+          {
+            "name": "NAME - Name",
+            "value": ""
+          },
+          {
+            "name": "NAME - Name",
+            "value": ""
+          },
+          {
+            "name": "NAME - Name",
+            "value": ""
+          },
+          {
+            "name": "NAME - Name",
+            "value": ""
+          },
+          {
+            "name": "NAME - Name",
+            "value": ""
+          },
+          {
+            "name": "NAME - Name",
+            "value": ""
+          },
+          {
+            "name": "NAME - Name",
+            "value": ""
+          },
+          {
+            "name": "NAME - Name",
+            "value": ""
+          },
+          {
+            "name": "NAME - Name",
+            "value": ""
+          },
+          {
+            "name": "NAME - Name",
+            "value": ""
+          },
+          {
+            "name": "NAME - Name",
+            "value": ""
+          },
+          {
+            "name": "NAME - Name",
+            "value": ""
+          },
+          {
+            "name": "NAME - Name",
+            "value": ""
+          },
+          {
+            "name": "NAME - Name",
+            "value": ""
+          },
+          {
+            "name": "NAME - Name",
+            "value": ""
+          },
+          {
+            "name": "NAME - Name",
+            "value": ""
+          },
+          {
+            "name": "NAME - Name",
+            "value": ""
+          },
+          {
+            "name": "NAME - Name",
+            "value": ""
+          },
+          {
+            "name": "NAME - Name",
+            "value": ""
+          },
+          {
+            "name": "NAME - Name",
+            "value": ""
+          },
+          {
+            "name": "NAME - Name",
+            "value": ""
+          },
+          {
+            "name": "NAME - Name",
+            "value": ""
+          },
+          {
+            "name": "NAME - Name",
+            "value": ""
+          },
+          {
+            "name": "NAME - Name",
+            "value": ""
+          }
+        ]
+      },
+      {
+        "name": "VNAM - Equipment Flags",
+        "value": "Hand To Hand Melee"
+      },
+      {
+        "name": "Equip Slots",
+        "elements": [
+          {
+            "name": "QNAM - Equip Slot",
+            "value": "{Skyrim.esm:013F42}"
+          }
+        ]
+      },
+      {
+        "name": "UNES - Unarmed Equip Slot",
+        "value": "{Skyrim.esm:013F42}"
+      }
+    ]
   }
 }

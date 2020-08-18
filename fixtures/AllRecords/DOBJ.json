@@ -1,1227 +1,3983 @@
 {
   "00000031": {
-    "Record Header": [
-      "DOBJ",
-      "2430",
-      "",
-      "{Skyrim.esm:000031}",
-      "00 00 00 00",
-      "40",
-      "00 00"
-    ],
-    "DNAM - Objects": [
-      [
-        "Action Bleedout Start",
-        "{Skyrim.esm:013EC9}"
-      ],
-      [
-        "Action Fly Start",
-        "{Skyrim.esm:03B4E3}"
-      ],
-      [
-        "Action Hover Start",
-        "{Skyrim.esm:03B4E5}"
-      ],
-      [
-        "Action Stagger Start",
-        "{Skyrim.esm:0138D2}"
-      ],
-      [
-        "Keyword: Scale Actor To 1.0",
-        "{Skyrim.esm:0FD0E1}"
-      ],
-      [
-        "Action Bleedout Stop",
-        "{Skyrim.esm:013ECA}"
-      ],
-      [
-        "Action Fly Stop",
-        "{Skyrim.esm:03B4E4}"
-      ],
-      [
-        "Action Hover Stop",
-        "{Skyrim.esm:03B4E6}"
-      ],
-      [
-        "Dialogue Output Model (3D)",
-        "{Skyrim.esm:0B5184}"
-      ],
-      [
-        "Action Large Recoil",
-        "{Skyrim.esm:013EC8}"
-      ],
-      [
-        "Dialogue Output Model (2D)",
-        "{Skyrim.esm:0B5183}"
-      ],
-      [
-        "Action Block Anticipate",
-        "{Skyrim.esm:0193CE}"
-      ],
-      [
-        "Keyword - WeaponTypeBoundArrow",
-        "{Skyrim.esm:10D501}"
-      ],
-      [
-        "Commanded Actor Ability",
-        "{Null:000000}"
-      ],
-      [
-        "Every Actor Ability",
-        "{Null:000000}"
-      ],
-      [
-        "Action DualAttack",
-        "{Skyrim.esm:050C96}"
-      ],
-      [
-        "RADA (Unused)",
-        "{Null:000000}"
-      ],
-      [
-        "Keyword - Weapon Material Daedric",
-        "{Skyrim.esm:01E71F}"
-      ],
-      [
-        "Keyword - Armor Material Daedric",
-        "{Skyrim.esm:06BBD4}"
-      ],
-      [
-        "Action Fall",
-        "{Skyrim.esm:0937F4}"
-      ],
-      [
-        "Keyword - Weapon Material Falmer",
-        "{Skyrim.esm:0C5C03}"
-      ],
-      [
-        "Player Voice (Female)",
-        "{Null:000000}"
-      ],
-      [
-        "Action LeftAttack",
-        "{Skyrim.esm:013004}"
-      ],
-      [
-        "Player Voice (Male)",
-        "{Null:000000}"
-      ],
-      [
-        "Base Armor Enchantment",
-        "{Null:000000}"
-      ],
-      [
-        "Action Right Power Attack",
-        "{Skyrim.esm:013383}"
-      ],
-      [
-        "Action Dual Power Attack",
-        "{Skyrim.esm:02E2F7}"
-      ],
-      [
-        "Action Left Power Attack",
-        "{Skyrim.esm:02E2F6}"
-      ],
-      [
-        "Action RightAttack",
-        "{Skyrim.esm:013005}"
-      ],
-      [
-        "Help - Basic Smithing Armor",
-        "{Skyrim.esm:0F7C3D}"
-      ],
-      [
-        "Putdown Sound Armor",
-        "{Skyrim.esm:03E60B}"
-      ],
-      [
-        "Pickup Sound Armor",
-        "{Skyrim.esm:03E609}"
-      ],
-      [
-        "Help - Basic Tanning",
-        "{Skyrim.esm:10701D}"
-      ],
-      [
-        "Keyword - UpdateDuringArchery",
-        "{Skyrim.esm:10C443}"
-      ],
-      [
-        "Keyword - Weapon Material Ebony",
-        "{Skyrim.esm:01E71E}"
-      ],
-      [
-        "Keyword - Armor Material Ebony",
-        "{Skyrim.esm:06BBD8}"
-      ],
-      [
-        "Keyword - Armor Material IronBanded",
-        "{Skyrim.esm:06BBE4}"
-      ],
-      [
-        "Putdown Sound Book",
-        "{Skyrim.esm:03EE0C}"
-      ],
-      [
-        "Pickup Sound Book",
-        "{Skyrim.esm:03EDDE}"
-      ],
-      [
-        "LocRefType Boss",
-        "{Skyrim.esm:0130F7}"
-      ],
-      [
-        "Help Manual XBox",
-        "{Skyrim.esm:000165}"
-      ],
-      [
-        "Action Activate",
-        "{Skyrim.esm:013009}"
-      ],
-      [
-        "Guard Faction",
-        "{Skyrim.esm:086EEE}"
-      ],
-      [
-        "Player Faction",
-        "{Skyrim.esm:000DB1}"
-      ],
-      [
-        "SFX To Fade In Dialogue Category",
-        "{Skyrim.esm:000E9E}"
-      ],
-      [
-        "Help - Basic Enchanting",
-        "{Skyrim.esm:0F77ED}"
-      ],
-      [
-        "Player Voice (Female Child)",
-        "{Null:000000}"
-      ],
-      [
-        "Pause During Loading Menu Category",
-        "{Skyrim.esm:10AA60}"
-      ],
-      [
-        "Pause During Menu Category (Fade)",
-        "{Skyrim.esm:09F254}"
-      ],
-      [
-        "Pause During Menu Category (Immediate)",
-        "{Skyrim.esm:0DDDC5}"
-      ],
-      [
-        "Player Voice (Male Child)",
-        "{Null:000000}"
-      ],
-      [
-        "Help - Basic Object Creation",
-        "{Null:000000}"
-      ],
-      [
-        "PersistAll Location",
-        "{Skyrim.esm:0216A7}"
-      ],
-      [
-        "Virtual Location",
-        "{Skyrim.esm:018ED2}"
-      ],
-      [
-        "Help Manual PC",
-        "{Skyrim.esm:000163}"
-      ],
-      [
-        "Action Recoil",
-        "{Skyrim.esm:013AF5}"
-      ],
-      [
-        "Action Shield Change",
-        "{Skyrim.esm:094065}"
-      ],
-      [
-        "Dialogue Voice Category",
-        "{Skyrim.esm:0876BB}"
-      ],
-      [
-        "Music Sound Category",
-        "{Skyrim.esm:071E64}"
-      ],
-      [
-        "Non-Dialogue Voice Category",
-        "{Skyrim.esm:0876BC}"
-      ],
-      [
-        "Stats Mute Category",
-        "{Skyrim.esm:071E63}"
-      ],
-      [
-        "Keyword - Armor Material Scaled",
-        "{Skyrim.esm:06BBDE}"
-      ],
-      [
-        "Stats Music",
-        "{Skyrim.esm:01BA72}"
-      ],
-      [
-        "Time Sensitive Sound Category",
-        "{Skyrim.esm:0EA51F}"
-      ],
-      [
-        "Master Sound Category",
-        "{Null:000000}"
-      ],
-      [
-        "Action Voice",
-        "{Skyrim.esm:013008}"
-      ],
-      [
-        "Help - Weapon Charge",
-        "{Skyrim.esm:10F718}"
-      ],
-      [
-        "Keyword - Daedra",
-        "{Skyrim.esm:013797}"
-      ],
-      [
-        "Action Move Forward",
-        "{Skyrim.esm:05EDC9}"
-      ],
-      [
-        "Wait-For-Dialogue Package",
-        "{Skyrim.esm:01CC5A}"
-      ],
-      [
-        "Snow LOD Material (HD)",
-        "{Skyrim.esm:06AE38}"
-      ],
-      [
-        "Male Face Texture Set: Head",
-        "{Skyrim.esm:03B521}"
-      ],
-      [
-        "Action Idle",
-        "{Skyrim.esm:013002}"
-      ],
-      [
-        "ImageSpaceModifier for inventory menu.",
-        "{Skyrim.esm:0434BB}"
-      ],
-      [
-        "Action Idle Stop Instant",
-        "{Skyrim.esm:07F8E3}"
-      ],
-      [
-        "Action LeftReady",
-        "{Skyrim.esm:013452}"
-      ],
-      [
-        "Gold",
-        "{Skyrim.esm:00000F}"
-      ],
-      [
-        "Favor Gifts Per Day",
-        "{Null:000000}"
-      ],
-      [
-        "Action RightReady",
-        "{Skyrim.esm:013455}"
-      ],
-      [
-        "Road Marker",
-        "{Skyrim.esm:0F077B}"
-      ],
-      [
-        "LocRefType - Resource Destructible",
-        "{Skyrim.esm:01D4DF}"
-      ],
-      [
-        "No-Activation Sound",
-        "{Skyrim.esm:06D1C6}"
-      ],
-      [
-        "Soul Captured Sound",
-        "{Null:000000}"
-      ],
-      [
-        "Heartbeat Sound Fast",
-        "{Skyrim.esm:04DAAE}"
-      ],
-      [
-        "Map Menu Looping Sound",
-        "{Skyrim.esm:0C2936}"
-      ],
-      [
-        "Keyword - Armor Material Studded",
-        "{Skyrim.esm:06BBDF}"
-      ],
-      [
-        "Heartbeat Sound Slow",
-        "{Skyrim.esm:04DAAD}"
-      ],
-      [
-        "Action VoiceReady",
-        "{Skyrim.esm:013458}"
-      ],
-      [
-        "Action Death",
-        "{Skyrim.esm:0489ED}"
-      ],
-      [
-        "Keyword - Armor Material Iron",
-        "{Skyrim.esm:06BBE3}"
-      ],
-      [
-        "Keyword - UseGeometryEmitter",
-        "{Skyrim.esm:0FCD57}"
-      ],
-      [
-        "Action Turn Left",
-        "{Skyrim.esm:0959FD}"
-      ],
-      [
-        "Keyword - Civil War Neutral",
-        "{Skyrim.esm:0E0DAC}"
-      ],
-      [
-        "Action Path End",
-        "{Skyrim.esm:02EDB9}"
-      ],
-      [
-        "Art Object - Absorb Effect",
-        "{Skyrim.esm:0A6EF6}"
-      ],
-      [
-        "World Map Weather",
-        "{Skyrim.esm:0A6858}"
-      ],
-      [
-        "Eat Package Default Food",
-        "{Skyrim.esm:024048}"
-      ],
-      [
-        "Mages' Guild Faction",
-        "{Skyrim.esm:01F259}"
-      ],
-      [
-        "Fighters' Guild Faction",
-        "{Skyrim.esm:048362}"
-      ],
-      [
-        "Thieves' Guild Faction",
-        "{Skyrim.esm:029DA9}"
-      ],
-      [
-        "Dark Brotherhood Faction",
-        "{Skyrim.esm:01BDB3}"
-      ],
-      [
-        "Female Face Texture Set: Head",
-        "{Skyrim.esm:03B522}"
-      ],
-      [
-        "Jarl Faction",
-        "{Skyrim.esm:050920}"
-      ],
-      [
-        "Female Face Texture Set: Mouth",
-        "{Skyrim.esm:03B523}"
-      ],
-      [
-        "Female Face Texture Set: Eyes",
-        "{Null:000000}"
-      ],
-      [
-        "MYSF (Unused)",
-        "{Null:000000}"
-      ],
-      [
-        "Action Reset Animation Graph",
-        "{Skyrim.esm:0D1FDE}"
-      ],
-      [
-        "Help - Basic Forging",
-        "{Skyrim.esm:0F7C3F}"
-      ],
-      [
-        "Keyword - Type Ingredient",
-        "{Null:000000}"
-      ],
-      [
-        "Keyword: Forge",
-        "{Skyrim.esm:088105}"
-      ],
-      [
-        "Putdown Sound Generic",
-        "{Skyrim.esm:03C7B9}"
-      ],
-      [
-        "Keyword - Type SoulGem",
-        "{Null:000000}"
-      ],
-      [
-        "Pickup Sound Generic",
-        "{Skyrim.esm:03C7BA}"
-      ],
-      [
-        "Keyword - Reusable SoulGem",
-        "{Skyrim.esm:0ED2F1}"
-      ],
-      [
-        "Action Block Hit",
-        "{Skyrim.esm:013AF4}"
-      ],
-      [
-        "Keyword - Weapon Material DraugrHoned",
-        "{Skyrim.esm:0C5C02}"
-      ],
-      [
-        "Keyword - Weapon Material FalmerHoned",
-        "{Skyrim.esm:0C5C04}"
-      ],
-      [
-        "Keyword - Armor Material ImperialHeavy",
-        "{Skyrim.esm:06BBE2}"
-      ],
-      [
-        "Help - Low Health",
-        "{Skyrim.esm:10CC2A}"
-      ],
-      [
-        "Imagespace: Low Health",
-        "{Skyrim.esm:10C445}"
-      ],
-      [
-        "Action Sheath",
-        "{Skyrim.esm:046BAF}"
-      ],
-      [
-        "Allow Player Shout",
-        "{Skyrim.esm:0AFB80}"
-      ],
-      [
-        "Action Ward Hit",
-        "{Skyrim.esm:024B3A}"
-      ],
-      [
-        "Action Bumped Into",
-        "{Skyrim.esm:03DE4D}"
-      ],
-      [
-        "Action Ragdoll Instant",
-        "{Skyrim.esm:09BB4E}"
-      ],
-      [
-        "Keyword - Armor Material Hide",
-        "{Skyrim.esm:06BBDD}"
-      ],
-      [
-        "Action Talking Idle",
-        "{Skyrim.esm:0489F1}"
-      ],
-      [
-        "Action LeftInterrupt",
-        "{Skyrim.esm:013453}"
-      ],
-      [
-        "Action RightInterrupt",
-        "{Skyrim.esm:013456}"
-      ],
-      [
-        "Action Turn Right",
-        "{Skyrim.esm:0959FC}"
-      ],
-      [
-        "Putdown Sound Ingredient",
-        "{Skyrim.esm:03C7C3}"
-      ],
-      [
-        "Pickup Sound Ingredient",
-        "{Skyrim.esm:03C7C2}"
-      ],
-      [
-        "Action Listen Idle",
-        "{Skyrim.esm:0489F2}"
-      ],
-      [
-        "Action VoiceInterrupt",
-        "{Skyrim.esm:013459}"
-      ],
-      [
-        "Help - Jail",
-        "{Skyrim.esm:10E000}"
-      ],
-      [
-        "Keyword - Dragon",
-        "{Null:000000}"
-      ],
-      [
-        "Keyword - Type Book",
-        "{Null:000000}"
-      ],
-      [
-        "Action Move Backward",
-        "{Skyrim.esm:05EDCC}"
-      ],
-      [
-        "Keyword - NPC",
-        "{Skyrim.esm:013794}"
-      ],
-      [
-        "Keyword - Undead",
-        "{Skyrim.esm:013796}"
-      ],
-      [
-        "Keyword - Special Furniture",
-        "{Skyrim.esm:06E9C7}"
-      ],
-      [
-        "Action Look",
-        "{Skyrim.esm:01300A}"
-      ],
-      [
-        "Help - Basic Lockpicking (PC)",
-        "{Skyrim.esm:00017C}"
-      ],
-      [
-        "SkeletonKey",
-        "{Skyrim.esm:03A070}"
-      ],
-      [
-        "Keyword: Cooking Pot",
-        "{Skyrim.esm:0A5CB3}"
-      ],
-      [
-        "Keyword - Civil War Owner",
-        "{Skyrim.esm:02A456}"
-      ],
-      [
-        "Lockpick",
-        "{Skyrim.esm:00000A}"
-      ],
-      [
-        "Help - Skills Menu",
-        "{Skyrim.esm:000178}"
-      ],
-      [
-        "Keyword - Armor Material Stormcloak",
-        "{Skyrim.esm:0AC13A}"
-      ],
-      [
-        "Keyword - Horse",
-        "{Skyrim.esm:026110}"
-      ],
-      [
-        "Help - Basic Alchemy",
-        "{Skyrim.esm:0F7C3C}"
-      ],
-      [
-        "Keyword - Movable",
-        "{Skyrim.esm:0BCEF6}"
-      ],
-      [
-        "Main Menu Cell",
-        "{Skyrim.esm:06F3EB}"
-      ],
-      [
-        "Favor Cost Large",
-        "{Null:000000}"
-      ],
-      [
-        "Action DualRelease",
-        "{Skyrim.esm:050C97}"
-      ],
-      [
-        "Keyword - Weapon Material Elven",
-        "{Skyrim.esm:01E71B}"
-      ],
-      [
-        "Keyword - Armor Material Elven",
-        "{Skyrim.esm:06BBD9}"
-      ],
-      [
-        "Male Face Texture Set: Eyes",
-        "{Null:000000}"
-      ],
-      [
-        "Default MovementType: Fly",
-        "{Skyrim.esm:03580D}"
-      ],
-      [
-        "Keyword - Armor Material FullLeather",
-        "{Skyrim.esm:06BBDB}"
-      ],
-      [
-        "Keyword - Weapon Material Glass",
-        "{Skyrim.esm:01E71D}"
-      ],
-      [
-        "Keyword - Armor Material Glass",
-        "{Skyrim.esm:06BBDC}"
-      ],
-      [
-        "Help - Journal",
-        "{Skyrim.esm:0F7CB6}"
-      ],
-      [
-        "FormList - Hair Color List",
-        "{Skyrim.esm:0E7BED}"
-      ],
-      [
-        "Help - Basic Smelting",
-        "{Skyrim.esm:0FFCDD}"
-      ],
-      [
-        "Weapon Material List",
-        "{Skyrim.esm:0753D2}"
-      ],
-      [
-        "Keyword - Animal",
-        "{Skyrim.esm:013798}"
-      ],
-      [
-        "Favor travel marker location",
-        "{Null:000000}"
-      ],
-      [
-        "Armor Material List",
-        "{Skyrim.esm:0753D3}"
-      ],
-      [
-        "Default MovementType: Walk",
-        "{Skyrim.esm:03580D}"
-      ],
-      [
-        "Keyword - Type Ammo",
-        "{Null:000000}"
-      ],
-      [
-        "Favor Cost Medium",
-        "{Null:000000}"
-      ],
-      [
-        "Snow LOD Material",
-        "{Skyrim.esm:050372}"
-      ],
-      [
-        "Keyword - DummyObject",
-        "{Skyrim.esm:0F3E6C}"
-      ],
-      [
-        "Package template",
-        "{Skyrim.esm:016FAA}"
-      ],
-      [
-        "Keyword - Weapon Material Imperial",
-        "{Skyrim.esm:0C5C00}"
-      ],
-      [
-        "Keyword - Armor Material Imperial",
-        "{Skyrim.esm:06BBE0}"
-      ],
-      [
-        "Action Large Movement Delta",
-        "{Skyrim.esm:02E444}"
-      ],
-      [
-        "Help - Low Magicka",
-        "{Skyrim.esm:10CC2C}"
-      ],
-      [
-        "Help - Map Menu",
-        "{Skyrim.esm:0F7CB8}"
-      ],
-      [
-        "Player's Output Model (3rd Person)",
-        "{Skyrim.esm:0428B6}"
-      ],
-      [
-        "Interface Output Model",
-        "{Skyrim.esm:0B75FB}"
-      ],
-      [
-        "Player's Output Model (1st Person)",
-        "{Skyrim.esm:0B4058}"
-      ],
-      [
-        "Help - Basic Smithing Weapon",
-        "{Skyrim.esm:0F7C3E}"
-      ],
-      [
-        "Dragon Crash Zone Marker",
-        "{Skyrim.esm:03DF55}"
-      ],
-      [
-        "Dragon Land Zone Marker",
-        "{Skyrim.esm:0138C0}"
-      ],
-      [
-        "Action Knockdown",
-        "{Skyrim.esm:0D1FDC}"
-      ],
-      [
-        "Keyword - Disallow Enchanting",
-        "{Skyrim.esm:0C27BD}"
-      ],
-      [
-        "Action Land",
-        "{Skyrim.esm:0937F5}"
-      ],
-      [
-        "Keyword: Tanning Rack",
-        "{Skyrim.esm:07866A}"
-      ],
-      [
-        "Default MovementType: Run",
-        "{Skyrim.esm:03580D}"
-      ],
-      [
-        "Action Sneak",
-        "{Skyrim.esm:013007}"
-      ],
-      [
-        "Ward Absorb Sound",
-        "{Skyrim.esm:03D119}"
-      ],
-      [
-        "Ward Break Sound",
-        "{Skyrim.esm:03D11A}"
-      ],
-      [
-        "Ward Deflect Sound",
-        "{Skyrim.esm:03D11B}"
-      ],
-      [
-        "Magic Fail Sound",
-        "{Skyrim.esm:03D0D3}"
-      ],
-      [
-        "Shout Fail Sound",
-        "{Skyrim.esm:10FAE5}"
-      ],
-      [
-        "Default MovementType: Sneak",
-        "{Skyrim.esm:03580B}"
-      ],
-      [
-        "MYSN (Unused)",
-        "{Null:000000}"
-      ],
-      [
-        "Help - Basic Cooking",
-        "{Skyrim.esm:10D9A4}"
-      ],
-      [
-        "Keyword - ClearableLocation",
-        "{Skyrim.esm:0F5E80}"
-      ],
-      [
-        "Keyword - Hold Location",
-        "{Skyrim.esm:016771}"
-      ],
-      [
-        "Male Face Texture Set: Mouth",
-        "{Skyrim.esm:03B523}"
-      ],
-      [
-        "Base Potion",
-        "{Skyrim.esm:05661F}"
-      ],
-      [
-        "LocRefType - Civil War Soldier",
-        "{Skyrim.esm:01DA51}"
-      ],
-      [
-        "Keyword - Weapon Material Wood",
-        "{Skyrim.esm:01E717}"
-      ],
-      [
-        "Keyword - Armor Material Dragonplate",
-        "{Skyrim.esm:06BBD5}"
-      ],
-      [
-        "Keyword - Robot",
-        "{Skyrim.esm:01397A}"
-      ],
-      [
-        "Keyword - Furniture Forces 1st Person",
-        "{Skyrim.esm:0A56D7}"
-      ],
-      [
-        "Local Map Hide Plane",
-        "{Skyrim.esm:0F13C4}"
-      ],
-      [
-        "Action Jump",
-        "{Skyrim.esm:013006}"
-      ],
-      [
-        "Keyword: Vampire",
-        "{Skyrim.esm:0A82BB}"
-      ],
-      [
-        "Keyword - Activator Furniture No Player",
-        "{Skyrim.esm:0B7DB3}"
-      ],
-      [
-        "Pathing Test NPC",
-        "{Skyrim.esm:023AB5}"
-      ],
-      [
-        "MORP (Unused)",
-        "{Null:000000}"
-      ],
-      [
-        "Action Sprint Stop",
-        "{Skyrim.esm:013219}"
-      ],
-      [
-        "Action Move Stop",
-        "{Skyrim.esm:0959F9}"
-      ],
-      [
-        "Default MovementType: Sprint",
-        "{Skyrim.esm:0F3469}"
-      ],
-      [
-        "Keyword - Armor Material SteelPlate",
-        "{Skyrim.esm:06BBE7}"
-      ],
-      [
-        "Action Turn Stop",
-        "{Skyrim.esm:0959FE}"
-      ],
-      [
-        "Werewolf Spell",
-        "{Skyrim.esm:092C48}"
-      ],
-      [
-        "Keyword - Furniture Forces 3rd Person",
-        "{Skyrim.esm:0A56D8}"
-      ],
-      [
-        "Inventory Player",
-        "{Skyrim.esm:0361F3}"
-      ],
-      [
-        "Keyword - Type Weapon",
-        "{Null:000000}"
-      ],
-      [
-        "EitherHand Equip",
-        "{Skyrim.esm:013F44}"
-      ],
-      [
-        "LeftHand Equip",
-        "{Skyrim.esm:013F43}"
-      ],
-      [
-        "RightHand Equip",
-        "{Skyrim.esm:013F42}"
-      ],
-      [
-        "Potion Equip",
-        "{Skyrim.esm:035698}"
-      ],
-      [
-        "Voice Equip",
-        "{Skyrim.esm:025BEE}"
-      ],
-      [
-        "Action Force Equip",
-        "{Skyrim.esm:02ADF1}"
-      ],
-      [
-        "Keyword - Type Armor",
-        "{Null:000000}"
-      ],
-      [
-        "PPAR (Unused)",
-        "{Null:000000}"
-      ],
-      [
-        "Help - Barter",
-        "{Skyrim.esm:10705C}"
-      ],
-      [
-        "Keyword - BeastRace",
-        "{Skyrim.esm:0D61D1}"
-      ],
-      [
-        "Action Draw",
-        "{Skyrim.esm:0132AF}"
-      ],
-      [
-        "Keyword - Weapon Material Draugr",
-        "{Skyrim.esm:0C5C01}"
-      ],
-      [
-        "Keyword - Weapon Material Iron",
-        "{Skyrim.esm:01E718}"
-      ],
-      [
-        "Keyword - Armor Material ImperialReinforced",
-        "{Skyrim.esm:06BBE1}"
-      ],
-      [
-        "Action LeftRelease",
-        "{Skyrim.esm:013451}"
-      ],
-      [
-        "Keyword - Jewelry",
-        "{Skyrim.esm:06BBE9}"
-      ],
-      [
-        "Keyword - Weapon Material Orcish",
-        "{Skyrim.esm:01E71C}"
-      ],
-      [
-        "Keyword - Armor Material Orcish",
-        "{Skyrim.esm:06BBE5}"
-      ],
-      [
-        "Action RightRelease",
-        "{Skyrim.esm:013454}"
-      ],
-      [
-        "Action VoiceRelease",
-        "{Skyrim.esm:013457}"
-      ],
-      [
-        "Favor Cost Small",
-        "{Null:000000}"
-      ],
-      [
-        "Keyword - Armor Material Dragonscale",
-        "{Skyrim.esm:06BBD6}"
-      ],
-      [
-        "Keyword - Armor Material ElvenSplinted",
-        "{Skyrim.esm:06BBDA}"
-      ],
-      [
-        "Help - Favorites",
-        "{Skyrim.esm:10FE3D}"
-      ],
-      [
-        "Harvest Failed Sound",
-        "{Skyrim.esm:03C7C4}"
-      ],
-      [
-        "Telekinesis Grab Sound",
-        "{Skyrim.esm:053A5D}"
-      ],
-      [
-        "Action Idle Stop",
-        "{Skyrim.esm:018BA8}"
-      ],
-      [
-        "Drug Wears Off Image Space",
-        "{Null:000000}"
-      ],
-      [
-        "Imagespace: Load screen",
-        "{Skyrim.esm:0FF9DB}"
-      ],
-      [
-        "Help - Low Stamina",
-        "{Skyrim.esm:10CC2B}"
-      ],
-      [
-        "Underwater Loop Sound",
-        "{Skyrim.esm:044ED8}"
-      ],
-      [
-        "Dungeon Cleared Music",
-        "{Skyrim.esm:10963F}"
-      ],
-      [
-        "Success Music",
-        "{Skyrim.esm:03B565}"
-      ],
-      [
-        "Default Music",
-        "{Skyrim.esm:089A9C}"
-      ],
-      [
-        "Keyword - Type Misc",
-        "{Null:000000}"
-      ],
-      [
-        "Battle Music",
-        "{Skyrim.esm:03418E}"
-      ],
-      [
-        "Death Music",
-        "{Skyrim.esm:013686}"
-      ],
-      [
-        "Level Up Music",
-        "{Skyrim.esm:03B565}"
-      ],
-      [
-        "Keyword - MustStop",
-        "{Skyrim.esm:10805B}"
-      ],
-      [
-        "Action Path Start",
-        "{Skyrim.esm:02EDB8}"
-      ],
-      [
-        "Base Poison",
-        "{Skyrim.esm:05629E}"
-      ],
-      [
-        "Action Summoned Start",
-        "{Skyrim.esm:045B5B}"
-      ],
-      [
-        "Harvest Sound",
-        "{Null:000000}"
-      ],
-      [
-        "Footstep Set",
-        "{Skyrim.esm:012F16}"
-      ],
-      [
-        "Telekinesis Throw Sound",
-        "{Skyrim.esm:053A5E}"
-      ],
-      [
-        "Reverb Type",
-        "{Skyrim.esm:0C5B6E}"
-      ],
-      [
-        "Help - Teamate Favor",
-        "{Skyrim.esm:10E004}"
-      ],
-      [
-        "Sitting Angle Limit",
-        "{Skyrim.esm:07F8F0}"
-      ],
-      [
-        "Action Move Left",
-        "{Skyrim.esm:05EDCD}"
-      ],
-      [
-        "Keyword: Smelter",
-        "{Skyrim.esm:0A5CCE}"
-      ],
-      [
-        "Landscape Material",
-        "{Skyrim.esm:012F38}"
-      ],
-      [
-        "Keyword - Nirnroot",
-        "{Skyrim.esm:1010B1}"
-      ],
-      [
-        "Keyword - Type Potion",
-        "{Null:000000}"
-      ],
-      [
-        "Action Move Right",
-        "{Skyrim.esm:05EDCE}"
-      ],
-      [
-        "Action Sprint Start",
-        "{Skyrim.esm:03B4A7}"
-      ],
-      [
-        "Default Pack List",
-        "{Skyrim.esm:021E81}"
-      ],
-      [
-        "Action Move Start",
-        "{Skyrim.esm:0959F8}"
-      ],
-      [
-        "Keyword - Weapon Material Steel",
-        "{Skyrim.esm:01E719}"
-      ],
-      [
-        "Keyword - Armor Material Steel",
-        "{Skyrim.esm:06BBE6}"
-      ],
-      [
-        "Underwater Reverb Type",
-        "{Null:000000}"
-      ],
-      [
-        "Keyword - Cuirass",
-        "{Skyrim.esm:06C0EC}"
-      ],
-      [
-        "Action Get Up",
-        "{Skyrim.esm:0D1FDD}"
-      ],
-      [
-        "Help - Leveling up",
-        "{Skyrim.esm:000178}"
-      ],
-      [
-        "Player Is Vampire Variable",
-        "{Skyrim.esm:0ED06D}"
-      ],
-      [
-        "Player Is Werewolf Variable",
-        "{Skyrim.esm:0ED06C}"
-      ],
-      [
-        "Action Death Wait",
-        "{Skyrim.esm:05DD59}"
-      ],
-      [
-        "Action Idle Warn",
-        "{Skyrim.esm:098886}"
-      ],
-      [
-        "Keyword - Weapon Material Dwarven",
-        "{Skyrim.esm:01E71A}"
-      ],
-      [
-        "Keyword - Armor Material Dwarven",
-        "{Skyrim.esm:06BBD7}"
-      ],
-      [
-        "Base Weapon Enchantment",
-        "{Null:000000}"
-      ],
-      [
-        "Action Swim State Change",
-        "{Skyrim.esm:013003}"
-      ],
-      [
-        "Putdown Sound Weapon",
-        "{Skyrim.esm:03C7C0}"
-      ],
-      [
-        "Default MovementType: Swim",
-        "{Skyrim.esm:036D42}"
-      ],
-      [
-        "Pickup Sound Weapon",
-        "{Skyrim.esm:03C7BE}"
-      ],
-      [
-        "Bunny Faction",
-        "{Skyrim.esm:0A3087}"
-      ],
-      [
-        "Help - Basic Lockpicking (Console)",
-        "{Skyrim.esm:00017C}"
-      ],
-      [
-        "Complex Scene Object",
-        "{Skyrim.esm:01C035}"
-      ],
-      [
-        "Keyword - Type Key",
-        "{Null:000000}"
-      ],
-      [
-        "Combat Style",
-        "{Skyrim.esm:00003D}"
-      ]
+    "elements": [
+      {
+        "name": "Record Header",
+        "elements": [
+          {
+            "name": "Signature",
+            "value": "DOBJ"
+          },
+          {
+            "name": "Data Size",
+            "value": "2430"
+          },
+          {
+            "name": "Record Flags",
+            "value": ""
+          },
+          {
+            "name": "FormID",
+            "value": "{Skyrim.esm:000031}"
+          },
+          {
+            "name": "Version Control Info 1",
+            "value": "00 00 00 00"
+          },
+          {
+            "name": "Form Version",
+            "value": "40"
+          },
+          {
+            "name": "Version Control Info 2",
+            "value": "00 00"
+          }
+        ]
+      },
+      {
+        "name": "DNAM - Objects",
+        "elements": [
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Action Bleedout Start"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:013EC9}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Action Fly Start"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:03B4E3}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Action Hover Start"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:03B4E5}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Action Stagger Start"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:0138D2}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Keyword: Scale Actor To 1.0"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:0FD0E1}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Action Bleedout Stop"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:013ECA}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Action Fly Stop"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:03B4E4}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Action Hover Stop"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:03B4E6}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Dialogue Output Model (3D)"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:0B5184}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Action Large Recoil"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:013EC8}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Dialogue Output Model (2D)"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:0B5183}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Action Block Anticipate"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:0193CE}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Keyword - WeaponTypeBoundArrow"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:10D501}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Commanded Actor Ability"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Null:000000}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Every Actor Ability"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Null:000000}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Action DualAttack"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:050C96}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "RADA (Unused)"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Null:000000}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Keyword - Weapon Material Daedric"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:01E71F}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Keyword - Armor Material Daedric"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:06BBD4}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Action Fall"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:0937F4}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Keyword - Weapon Material Falmer"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:0C5C03}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Player Voice (Female)"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Null:000000}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Action LeftAttack"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:013004}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Player Voice (Male)"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Null:000000}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Base Armor Enchantment"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Null:000000}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Action Right Power Attack"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:013383}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Action Dual Power Attack"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:02E2F7}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Action Left Power Attack"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:02E2F6}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Action RightAttack"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:013005}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Help - Basic Smithing Armor"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:0F7C3D}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Putdown Sound Armor"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:03E60B}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Pickup Sound Armor"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:03E609}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Help - Basic Tanning"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:10701D}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Keyword - UpdateDuringArchery"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:10C443}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Keyword - Weapon Material Ebony"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:01E71E}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Keyword - Armor Material Ebony"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:06BBD8}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Keyword - Armor Material IronBanded"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:06BBE4}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Putdown Sound Book"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:03EE0C}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Pickup Sound Book"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:03EDDE}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "LocRefType Boss"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:0130F7}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Help Manual XBox"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:000165}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Action Activate"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:013009}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Guard Faction"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:086EEE}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Player Faction"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:000DB1}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "SFX To Fade In Dialogue Category"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:000E9E}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Help - Basic Enchanting"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:0F77ED}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Player Voice (Female Child)"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Null:000000}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Pause During Loading Menu Category"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:10AA60}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Pause During Menu Category (Fade)"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:09F254}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Pause During Menu Category (Immediate)"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:0DDDC5}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Player Voice (Male Child)"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Null:000000}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Help - Basic Object Creation"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Null:000000}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "PersistAll Location"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:0216A7}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Virtual Location"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:018ED2}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Help Manual PC"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:000163}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Action Recoil"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:013AF5}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Action Shield Change"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:094065}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Dialogue Voice Category"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:0876BB}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Music Sound Category"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:071E64}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Non-Dialogue Voice Category"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:0876BC}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Stats Mute Category"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:071E63}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Keyword - Armor Material Scaled"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:06BBDE}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Stats Music"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:01BA72}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Time Sensitive Sound Category"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:0EA51F}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Master Sound Category"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Null:000000}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Action Voice"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:013008}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Help - Weapon Charge"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:10F718}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Keyword - Daedra"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:013797}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Action Move Forward"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:05EDC9}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Wait-For-Dialogue Package"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:01CC5A}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Snow LOD Material (HD)"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:06AE38}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Male Face Texture Set: Head"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:03B521}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Action Idle"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:013002}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "ImageSpaceModifier for inventory menu."
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:0434BB}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Action Idle Stop Instant"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:07F8E3}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Action LeftReady"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:013452}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Gold"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:00000F}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Favor Gifts Per Day"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Null:000000}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Action RightReady"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:013455}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Road Marker"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:0F077B}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "LocRefType - Resource Destructible"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:01D4DF}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "No-Activation Sound"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:06D1C6}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Soul Captured Sound"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Null:000000}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Heartbeat Sound Fast"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:04DAAE}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Map Menu Looping Sound"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:0C2936}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Keyword - Armor Material Studded"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:06BBDF}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Heartbeat Sound Slow"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:04DAAD}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Action VoiceReady"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:013458}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Action Death"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:0489ED}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Keyword - Armor Material Iron"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:06BBE3}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Keyword - UseGeometryEmitter"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:0FCD57}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Action Turn Left"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:0959FD}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Keyword - Civil War Neutral"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:0E0DAC}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Action Path End"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:02EDB9}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Art Object - Absorb Effect"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:0A6EF6}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "World Map Weather"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:0A6858}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Eat Package Default Food"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:024048}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Mages' Guild Faction"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:01F259}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Fighters' Guild Faction"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:048362}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Thieves' Guild Faction"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:029DA9}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Dark Brotherhood Faction"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:01BDB3}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Female Face Texture Set: Head"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:03B522}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Jarl Faction"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:050920}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Female Face Texture Set: Mouth"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:03B523}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Female Face Texture Set: Eyes"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Null:000000}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "MYSF (Unused)"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Null:000000}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Action Reset Animation Graph"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:0D1FDE}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Help - Basic Forging"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:0F7C3F}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Keyword - Type Ingredient"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Null:000000}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Keyword: Forge"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:088105}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Putdown Sound Generic"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:03C7B9}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Keyword - Type SoulGem"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Null:000000}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Pickup Sound Generic"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:03C7BA}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Keyword - Reusable SoulGem"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:0ED2F1}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Action Block Hit"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:013AF4}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Keyword - Weapon Material DraugrHoned"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:0C5C02}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Keyword - Weapon Material FalmerHoned"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:0C5C04}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Keyword - Armor Material ImperialHeavy"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:06BBE2}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Help - Low Health"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:10CC2A}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Imagespace: Low Health"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:10C445}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Action Sheath"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:046BAF}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Allow Player Shout"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:0AFB80}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Action Ward Hit"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:024B3A}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Action Bumped Into"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:03DE4D}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Action Ragdoll Instant"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:09BB4E}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Keyword - Armor Material Hide"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:06BBDD}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Action Talking Idle"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:0489F1}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Action LeftInterrupt"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:013453}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Action RightInterrupt"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:013456}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Action Turn Right"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:0959FC}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Putdown Sound Ingredient"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:03C7C3}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Pickup Sound Ingredient"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:03C7C2}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Action Listen Idle"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:0489F2}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Action VoiceInterrupt"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:013459}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Help - Jail"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:10E000}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Keyword - Dragon"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Null:000000}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Keyword - Type Book"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Null:000000}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Action Move Backward"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:05EDCC}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Keyword - NPC"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:013794}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Keyword - Undead"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:013796}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Keyword - Special Furniture"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:06E9C7}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Action Look"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:01300A}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Help - Basic Lockpicking (PC)"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:00017C}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "SkeletonKey"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:03A070}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Keyword: Cooking Pot"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:0A5CB3}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Keyword - Civil War Owner"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:02A456}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Lockpick"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:00000A}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Help - Skills Menu"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:000178}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Keyword - Armor Material Stormcloak"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:0AC13A}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Keyword - Horse"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:026110}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Help - Basic Alchemy"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:0F7C3C}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Keyword - Movable"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:0BCEF6}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Main Menu Cell"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:06F3EB}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Favor Cost Large"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Null:000000}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Action DualRelease"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:050C97}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Keyword - Weapon Material Elven"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:01E71B}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Keyword - Armor Material Elven"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:06BBD9}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Male Face Texture Set: Eyes"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Null:000000}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Default MovementType: Fly"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:03580D}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Keyword - Armor Material FullLeather"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:06BBDB}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Keyword - Weapon Material Glass"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:01E71D}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Keyword - Armor Material Glass"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:06BBDC}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Help - Journal"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:0F7CB6}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "FormList - Hair Color List"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:0E7BED}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Help - Basic Smelting"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:0FFCDD}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Weapon Material List"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:0753D2}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Keyword - Animal"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:013798}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Favor travel marker location"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Null:000000}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Armor Material List"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:0753D3}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Default MovementType: Walk"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:03580D}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Keyword - Type Ammo"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Null:000000}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Favor Cost Medium"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Null:000000}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Snow LOD Material"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:050372}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Keyword - DummyObject"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:0F3E6C}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Package template"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:016FAA}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Keyword - Weapon Material Imperial"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:0C5C00}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Keyword - Armor Material Imperial"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:06BBE0}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Action Large Movement Delta"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:02E444}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Help - Low Magicka"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:10CC2C}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Help - Map Menu"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:0F7CB8}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Player's Output Model (3rd Person)"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:0428B6}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Interface Output Model"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:0B75FB}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Player's Output Model (1st Person)"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:0B4058}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Help - Basic Smithing Weapon"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:0F7C3E}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Dragon Crash Zone Marker"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:03DF55}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Dragon Land Zone Marker"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:0138C0}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Action Knockdown"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:0D1FDC}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Keyword - Disallow Enchanting"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:0C27BD}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Action Land"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:0937F5}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Keyword: Tanning Rack"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:07866A}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Default MovementType: Run"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:03580D}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Action Sneak"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:013007}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Ward Absorb Sound"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:03D119}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Ward Break Sound"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:03D11A}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Ward Deflect Sound"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:03D11B}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Magic Fail Sound"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:03D0D3}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Shout Fail Sound"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:10FAE5}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Default MovementType: Sneak"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:03580B}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "MYSN (Unused)"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Null:000000}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Help - Basic Cooking"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:10D9A4}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Keyword - ClearableLocation"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:0F5E80}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Keyword - Hold Location"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:016771}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Male Face Texture Set: Mouth"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:03B523}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Base Potion"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:05661F}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "LocRefType - Civil War Soldier"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:01DA51}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Keyword - Weapon Material Wood"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:01E717}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Keyword - Armor Material Dragonplate"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:06BBD5}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Keyword - Robot"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:01397A}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Keyword - Furniture Forces 1st Person"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:0A56D7}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Local Map Hide Plane"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:0F13C4}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Action Jump"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:013006}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Keyword: Vampire"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:0A82BB}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Keyword - Activator Furniture No Player"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:0B7DB3}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Pathing Test NPC"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:023AB5}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "MORP (Unused)"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Null:000000}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Action Sprint Stop"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:013219}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Action Move Stop"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:0959F9}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Default MovementType: Sprint"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:0F3469}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Keyword - Armor Material SteelPlate"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:06BBE7}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Action Turn Stop"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:0959FE}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Werewolf Spell"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:092C48}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Keyword - Furniture Forces 3rd Person"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:0A56D8}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Inventory Player"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:0361F3}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Keyword - Type Weapon"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Null:000000}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "EitherHand Equip"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:013F44}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "LeftHand Equip"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:013F43}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "RightHand Equip"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:013F42}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Potion Equip"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:035698}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Voice Equip"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:025BEE}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Action Force Equip"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:02ADF1}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Keyword - Type Armor"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Null:000000}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "PPAR (Unused)"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Null:000000}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Help - Barter"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:10705C}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Keyword - BeastRace"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:0D61D1}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Action Draw"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:0132AF}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Keyword - Weapon Material Draugr"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:0C5C01}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Keyword - Weapon Material Iron"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:01E718}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Keyword - Armor Material ImperialReinforced"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:06BBE1}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Action LeftRelease"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:013451}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Keyword - Jewelry"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:06BBE9}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Keyword - Weapon Material Orcish"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:01E71C}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Keyword - Armor Material Orcish"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:06BBE5}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Action RightRelease"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:013454}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Action VoiceRelease"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:013457}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Favor Cost Small"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Null:000000}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Keyword - Armor Material Dragonscale"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:06BBD6}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Keyword - Armor Material ElvenSplinted"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:06BBDA}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Help - Favorites"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:10FE3D}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Harvest Failed Sound"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:03C7C4}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Telekinesis Grab Sound"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:053A5D}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Action Idle Stop"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:018BA8}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Drug Wears Off Image Space"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Null:000000}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Imagespace: Load screen"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:0FF9DB}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Help - Low Stamina"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:10CC2B}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Underwater Loop Sound"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:044ED8}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Dungeon Cleared Music"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:10963F}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Success Music"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:03B565}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Default Music"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:089A9C}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Keyword - Type Misc"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Null:000000}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Battle Music"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:03418E}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Death Music"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:013686}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Level Up Music"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:03B565}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Keyword - MustStop"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:10805B}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Action Path Start"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:02EDB8}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Base Poison"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:05629E}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Action Summoned Start"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:045B5B}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Harvest Sound"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Null:000000}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Footstep Set"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:012F16}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Telekinesis Throw Sound"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:053A5E}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Reverb Type"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:0C5B6E}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Help - Teamate Favor"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:10E004}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Sitting Angle Limit"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:07F8F0}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Action Move Left"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:05EDCD}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Keyword: Smelter"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:0A5CCE}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Landscape Material"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:012F38}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Keyword - Nirnroot"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:1010B1}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Keyword - Type Potion"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Null:000000}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Action Move Right"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:05EDCE}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Action Sprint Start"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:03B4A7}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Default Pack List"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:021E81}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Action Move Start"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:0959F8}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Keyword - Weapon Material Steel"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:01E719}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Keyword - Armor Material Steel"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:06BBE6}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Underwater Reverb Type"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Null:000000}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Keyword - Cuirass"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:06C0EC}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Action Get Up"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:0D1FDD}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Help - Leveling up"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:000178}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Player Is Vampire Variable"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:0ED06D}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Player Is Werewolf Variable"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:0ED06C}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Action Death Wait"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:05DD59}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Action Idle Warn"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:098886}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Keyword - Weapon Material Dwarven"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:01E71A}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Keyword - Armor Material Dwarven"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:06BBD7}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Base Weapon Enchantment"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Null:000000}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Action Swim State Change"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:013003}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Putdown Sound Weapon"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:03C7C0}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Default MovementType: Swim"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:036D42}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Pickup Sound Weapon"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:03C7BE}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Bunny Faction"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:0A3087}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Help - Basic Lockpicking (Console)"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:00017C}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Complex Scene Object"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:01C035}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Keyword - Type Key"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Null:000000}"
+              }
+            ]
+          },
+          {
+            "name": "Object",
+            "elements": [
+              {
+                "name": "Use",
+                "value": "Combat Style"
+              },
+              {
+                "name": "Object ID",
+                "value": "{Skyrim.esm:00003D}"
+              }
+            ]
+          }
+        ]
+      }
     ]
   }
 }

@@ -1,45 +1,149 @@
 {
   "0010D666": {
-    "Record Header": [
-      "ALCH",
-      "177",
-      "",
-      "{Skyrim.esm:10D666}",
-      "00 00 00 00",
-      "44",
-      "00 00"
-    ],
-    "EDID - Editor ID": "FoodGourd",
-    "OBND - Object Bounds": [
-      "0",
-      "0",
-      "0",
-      "0",
-      "0",
-      "0"
-    ],
-    "FULL - Name": "Gourd",
-    "Model": [
-      "Plants\\Gourd01.nif",
-      "02 00 00 00 02 00 00 00 00 00 00 00 79 9D F1 86 64 64 73 00 13 4C 1E FA 73 A6 6A E7 64 64 73 00 13 4C 1E FA"
-    ],
-    "DATA - Weight": "0.200000",
-    "ENIT - Effect Data": [
-      "1",
-      "Food Item",
-      "{Null:000000}",
-      "0.000000",
-      "{Null:000000}"
-    ],
-    "Effects": [
-      [
-        "{Skyrim.esm:0F33CB}",
-        [
-          "1.000000",
-          "0",
-          "0"
+    "elements": [
+      {
+        "name": "Record Header",
+        "elements": [
+          {
+            "name": "Signature",
+            "value": "ALCH"
+          },
+          {
+            "name": "Data Size",
+            "value": "177"
+          },
+          {
+            "name": "Record Flags",
+            "value": ""
+          },
+          {
+            "name": "FormID",
+            "value": "{Skyrim.esm:10D666}"
+          },
+          {
+            "name": "Version Control Info 1",
+            "value": "00 00 00 00"
+          },
+          {
+            "name": "Form Version",
+            "value": "44"
+          },
+          {
+            "name": "Version Control Info 2",
+            "value": "00 00"
+          }
         ]
-      ]
+      },
+      {
+        "name": "EDID - Editor ID",
+        "value": "FoodGourd"
+      },
+      {
+        "name": "OBND - Object Bounds",
+        "elements": [
+          {
+            "name": "X1",
+            "value": "0"
+          },
+          {
+            "name": "Y1",
+            "value": "0"
+          },
+          {
+            "name": "Z1",
+            "value": "0"
+          },
+          {
+            "name": "X2",
+            "value": "0"
+          },
+          {
+            "name": "Y2",
+            "value": "0"
+          },
+          {
+            "name": "Z2",
+            "value": "0"
+          }
+        ]
+      },
+      {
+        "name": "FULL - Name",
+        "value": "Gourd"
+      },
+      {
+        "name": "Model",
+        "elements": [
+          {
+            "name": "MODL - Model FileName",
+            "value": "Plants\\Gourd01.nif"
+          },
+          {
+            "name": "MODT - Texture Files Hashes",
+            "value": "02 00 00 00 02 00 00 00 00 00 00 00 79 9D F1 86 64 64 73 00 13 4C 1E FA 73 A6 6A E7 64 64 73 00 13 4C 1E FA"
+          }
+        ]
+      },
+      {
+        "name": "DATA - Weight",
+        "value": "0.200000"
+      },
+      {
+        "name": "ENIT - Effect Data",
+        "elements": [
+          {
+            "name": "Value",
+            "value": "1"
+          },
+          {
+            "name": "Flags",
+            "value": "Food Item"
+          },
+          {
+            "name": "Addiction",
+            "value": "{Null:000000}"
+          },
+          {
+            "name": "Addiction Chance",
+            "value": "0.000000"
+          },
+          {
+            "name": "Sound - Consume",
+            "value": "{Null:000000}"
+          }
+        ]
+      },
+      {
+        "name": "Effects",
+        "elements": [
+          {
+            "name": "Effect",
+            "elements": [
+              {
+                "name": "EFID - Base Effect",
+                "value": "{Skyrim.esm:0F33CB}"
+              },
+              {
+                "name": "EFIT - ",
+                "elements": [
+                  {
+                    "name": "Magnitude",
+                    "value": "1.000000"
+                  },
+                  {
+                    "name": "Area",
+                    "value": "0"
+                  },
+                  {
+                    "name": "Duration",
+                    "value": "0"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
     ]
   }
 }

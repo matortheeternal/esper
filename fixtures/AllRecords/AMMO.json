@@ -1,37 +1,126 @@
 {
   "0010EC8C": {
-    "Record Header": [
-      "AMMO",
-      "135",
-      "",
-      "{Skyrim.esm:10EC8C}",
-      "00 00 00 00",
-      "44",
-      "00 00"
-    ],
-    "EDID - Editor ID": "DwarvenSphereBolt02",
-    "OBND - Object Bounds": [
-      "0",
-      "0",
-      "0",
-      "0",
-      "0",
-      "0"
-    ],
-    "FULL - Name": "Dwemer Bolt",
-    "YNAM - Sound - Pick Up": "{Skyrim.esm:03E7B7}",
-    "ZNAM - Sound - Put Down": "{Skyrim.esm:03E877}",
-    "DESC - Description": "",
-    "KSIZ - Keyword Count": "1",
-    "KWDA - Keywords": [
-      "{Skyrim.esm:0917E7}"
-    ],
-    "DATA - Data": [
-      "{Skyrim.esm:07B936}",
-      "Non-Playable, Non-Bolt",
-      "15.000000",
-      "0",
-      "0.100000"
+    "elements": [
+      {
+        "name": "Record Header",
+        "elements": [
+          {
+            "name": "Signature",
+            "value": "AMMO"
+          },
+          {
+            "name": "Data Size",
+            "value": "135"
+          },
+          {
+            "name": "Record Flags",
+            "value": ""
+          },
+          {
+            "name": "FormID",
+            "value": "{Skyrim.esm:10EC8C}"
+          },
+          {
+            "name": "Version Control Info 1",
+            "value": "00 00 00 00"
+          },
+          {
+            "name": "Form Version",
+            "value": "44"
+          },
+          {
+            "name": "Version Control Info 2",
+            "value": "00 00"
+          }
+        ]
+      },
+      {
+        "name": "EDID - Editor ID",
+        "value": "DwarvenSphereBolt02"
+      },
+      {
+        "name": "OBND - Object Bounds",
+        "elements": [
+          {
+            "name": "X1",
+            "value": "0"
+          },
+          {
+            "name": "Y1",
+            "value": "0"
+          },
+          {
+            "name": "Z1",
+            "value": "0"
+          },
+          {
+            "name": "X2",
+            "value": "0"
+          },
+          {
+            "name": "Y2",
+            "value": "0"
+          },
+          {
+            "name": "Z2",
+            "value": "0"
+          }
+        ]
+      },
+      {
+        "name": "FULL - Name",
+        "value": "Dwemer Bolt"
+      },
+      {
+        "name": "YNAM - Sound - Pick Up",
+        "value": "{Skyrim.esm:03E7B7}"
+      },
+      {
+        "name": "ZNAM - Sound - Put Down",
+        "value": "{Skyrim.esm:03E877}"
+      },
+      {
+        "name": "DESC - Description",
+        "value": ""
+      },
+      {
+        "name": "KSIZ - Keyword Count",
+        "value": "1"
+      },
+      {
+        "name": "KWDA - Keywords",
+        "elements": [
+          {
+            "name": "Keyword",
+            "value": "{Skyrim.esm:0917E7}"
+          }
+        ]
+      },
+      {
+        "name": "DATA - Data",
+        "elements": [
+          {
+            "name": "Projectile",
+            "value": "{Skyrim.esm:07B936}"
+          },
+          {
+            "name": "Flags",
+            "value": "Non-Playable, Non-Bolt"
+          },
+          {
+            "name": "Damage",
+            "value": "15.000000"
+          },
+          {
+            "name": "Value",
+            "value": "0"
+          },
+          {
+            "name": "Weight",
+            "value": "0.100000"
+          }
+        ]
+      }
     ]
   }
 }

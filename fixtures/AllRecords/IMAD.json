@@ -1,503 +1,1642 @@
 {
   "0010FDE4": {
-    "Record Header": [
-      "IMAD",
-      "1598",
-      "",
-      "{Skyrim.esm:10FDE4}",
-      "00 00 00 00",
-      "40",
-      "00 00"
-    ],
-    "EDID - Editor ID": "ChargenImod",
-    "DNAM - Data Count": [
-      "Animatable",
-      "30.000000",
-      [
-        "2",
-        "2",
-        "2",
-        "2",
-        "2",
-        "2",
-        "2",
-        "2",
-        "2",
-        "2",
-        "2",
-        "2",
-        "2",
-        "2",
-        "2",
-        "2"
-      ],
-      "2",
-      "2",
-      "2",
-      "2",
-      "2",
-      "2",
-      "2",
-      "2",
-      "2",
-      "2",
-      "2",
-      "2",
-      "2",
-      "2",
-      "2",
-      "2",
-      "2",
-      "2",
-      [
-        "2",
-        "2",
-        "3",
-        "2",
-        "2",
-        "2"
-      ],
-      "2",
-      "2",
-      "2",
-      "4",
-      "2",
-      "2",
-      "2",
-      "2",
-      "",
-      "0.500000",
-      "0.500000",
-      "4",
-      "4",
-      "4",
-      "",
-      "2",
-      "2",
-      "2",
-      "2"
-    ],
-    "BNAM - Blur Radius": [
-      [
-        "0.000000",
-        "3.000000"
-      ],
-      [
-        "0.220000",
-        "3.000000"
-      ],
-      [
-        "0.430000",
-        "0.000000"
-      ],
-      [
-        "1.000000",
-        "0.000000"
-      ]
-    ],
-    "VNAM - Double Vision Strength": [
-      [
-        "0.000000",
-        "0.000000"
-      ],
-      [
-        "1.000000",
-        "0.000000"
-      ]
-    ],
-    "TNAM - Tint Color": [
-      [
-        "0.000000",
-        "255",
-        "255",
-        "255",
-        "0"
-      ],
-      [
-        "1.000000",
-        "255",
-        "255",
-        "255",
-        "0"
-      ]
-    ],
-    "NAM3 - Fade Color": [
-      [
-        "0.000000",
-        "255",
-        "255",
-        "255",
-        "0"
-      ],
-      [
-        "1.000000",
-        "255",
-        "255",
-        "255",
-        "0"
-      ]
-    ],
-    "RNAM - Radial Blur Strength": [
-      [
-        "0.000000",
-        "0.000000"
-      ],
-      [
-        "1.000000",
-        "0.000000"
-      ]
-    ],
-    "SNAM - Radial Blur Ramp Up": [
-      [
-        "0.000000",
-        "0.000000"
-      ],
-      [
-        "1.000000",
-        "0.000000"
-      ]
-    ],
-    "UNAM - Radial Blur Start": [
-      [
-        "0.000000",
-        "0.000000"
-      ],
-      [
-        "1.000000",
-        "0.000000"
-      ]
-    ],
-    "NAM1 - Radial Blur Ramp Down": [
-      [
-        "0.000000",
-        "0.000000"
-      ],
-      [
-        "1.000000",
-        "0.000000"
-      ]
-    ],
-    "NAM2 - Radial Blur Down Start": [
-      [
-        "0.000000",
-        "0.000000"
-      ],
-      [
-        "1.000000",
-        "0.000000"
-      ]
-    ],
-    "WNAM - DoF Strength": [
-      [
-        "0.000000",
-        "1.000000"
-      ],
-      [
-        "0.220000",
-        "1.000000"
-      ],
-      [
-        "0.430000",
-        "1.000000"
-      ],
-      [
-        "1.000000",
-        "0.000000"
-      ]
-    ],
-    "XNAM - DoF Distance": [
-      [
-        "0.000000",
-        "300.000000"
-      ],
-      [
-        "0.220000",
-        "300.000000"
-      ],
-      [
-        "0.430000",
-        "50.000000"
-      ],
-      [
-        "1.000000",
-        "0.000000"
-      ]
-    ],
-    "YNAM - DoF Range": [
-      [
-        "0.000000",
-        "200.000000"
-      ],
-      [
-        "0.220000",
-        "200.000000"
-      ],
-      [
-        "0.430000",
-        "250.000000"
-      ],
-      [
-        "1.000000",
-        "0.000000"
-      ]
-    ],
-    "NAM4 - Motion Blur Strength": [
-      [
-        "0.000000",
-        "0.000000"
-      ],
-      [
-        "1.000000",
-        "0.000000"
-      ]
-    ],
-    "HDR": [
-      [
-        [
-          "0.000000",
-          "1.000000"
-        ],
-        [
-          "1.000000",
-          "1.000000"
+    "elements": [
+      {
+        "name": "Record Header",
+        "elements": [
+          {
+            "name": "Signature",
+            "value": "IMAD"
+          },
+          {
+            "name": "Data Size",
+            "value": "1598"
+          },
+          {
+            "name": "Record Flags",
+            "value": ""
+          },
+          {
+            "name": "FormID",
+            "value": "{Skyrim.esm:10FDE4}"
+          },
+          {
+            "name": "Version Control Info 1",
+            "value": "00 00 00 00"
+          },
+          {
+            "name": "Form Version",
+            "value": "40"
+          },
+          {
+            "name": "Version Control Info 2",
+            "value": "00 00"
+          }
         ]
-      ],
-      [
-        [
-          "0.000000",
-          "0.000000"
-        ],
-        [
-          "1.000000",
-          "0.000000"
+      },
+      {
+        "name": "EDID - Editor ID",
+        "value": "ChargenImod"
+      },
+      {
+        "name": "DNAM - Data Count",
+        "elements": [
+          {
+            "name": "Flags",
+            "value": "Animatable"
+          },
+          {
+            "name": "Duration",
+            "value": "30.000000"
+          },
+          {
+            "name": "HDR",
+            "elements": [
+              {
+                "name": "Eye Adapt Speed Mult",
+                "value": "2"
+              },
+              {
+                "name": "Eye Adapt Speed Add",
+                "value": "2"
+              },
+              {
+                "name": "Bloom Blur Radius Mult",
+                "value": "2"
+              },
+              {
+                "name": "Bloom Blur Radius Add",
+                "value": "2"
+              },
+              {
+                "name": "Bloom Threshold Mult",
+                "value": "2"
+              },
+              {
+                "name": "Bloom Threshold Add",
+                "value": "2"
+              },
+              {
+                "name": "Bloom Scale Mult",
+                "value": "2"
+              },
+              {
+                "name": "Bloom Scale Add",
+                "value": "2"
+              },
+              {
+                "name": "Target Lum Min Mult",
+                "value": "2"
+              },
+              {
+                "name": "Target Lum Min Add",
+                "value": "2"
+              },
+              {
+                "name": "Target Lum Max Mult",
+                "value": "2"
+              },
+              {
+                "name": "Target Lum Max Add",
+                "value": "2"
+              },
+              {
+                "name": "Sunlight Scale Mult",
+                "value": "2"
+              },
+              {
+                "name": "Sunlight Scale Add",
+                "value": "2"
+              },
+              {
+                "name": "Sky Scale Mult",
+                "value": "2"
+              },
+              {
+                "name": "Sky Scale Add",
+                "value": "2"
+              }
+            ]
+          },
+          {
+            "name": "Unknown08 Mult",
+            "value": "2"
+          },
+          {
+            "name": "Unknown48 Add",
+            "value": "2"
+          },
+          {
+            "name": "Unknown09 Mult",
+            "value": "2"
+          },
+          {
+            "name": "Unknown49 Add",
+            "value": "2"
+          },
+          {
+            "name": "Unknown0A Mult",
+            "value": "2"
+          },
+          {
+            "name": "Unknown4A Add",
+            "value": "2"
+          },
+          {
+            "name": "Unknown0B Mult",
+            "value": "2"
+          },
+          {
+            "name": "Unknown4B Add",
+            "value": "2"
+          },
+          {
+            "name": "Unknown0C Mult",
+            "value": "2"
+          },
+          {
+            "name": "Unknown4C Add",
+            "value": "2"
+          },
+          {
+            "name": "Unknown0D Mult",
+            "value": "2"
+          },
+          {
+            "name": "Unknown4D Add",
+            "value": "2"
+          },
+          {
+            "name": "Unknown0E Mult",
+            "value": "2"
+          },
+          {
+            "name": "Unknown4E Add",
+            "value": "2"
+          },
+          {
+            "name": "Unknown0F Mult",
+            "value": "2"
+          },
+          {
+            "name": "Unknown4F Add",
+            "value": "2"
+          },
+          {
+            "name": "Unknown10 Mult",
+            "value": "2"
+          },
+          {
+            "name": "Unknown50 Add",
+            "value": "2"
+          },
+          {
+            "name": "Cinematic",
+            "elements": [
+              {
+                "name": "Saturation Mult",
+                "value": "2"
+              },
+              {
+                "name": "Saturation Add",
+                "value": "2"
+              },
+              {
+                "name": "Brightness Mult",
+                "value": "3"
+              },
+              {
+                "name": "Brightness Add",
+                "value": "2"
+              },
+              {
+                "name": "Contrast Mult",
+                "value": "2"
+              },
+              {
+                "name": "Contrast Add",
+                "value": "2"
+              }
+            ]
+          },
+          {
+            "name": "Unknown14 Mult",
+            "value": "2"
+          },
+          {
+            "name": "Unknown54 Add",
+            "value": "2"
+          },
+          {
+            "name": "Tint Color",
+            "value": "2"
+          },
+          {
+            "name": "Blur Radius",
+            "value": "4"
+          },
+          {
+            "name": "Double Vision Strength",
+            "value": "2"
+          },
+          {
+            "name": "Radial Blur Strength",
+            "value": "2"
+          },
+          {
+            "name": "Radial Blur Ramp Up",
+            "value": "2"
+          },
+          {
+            "name": "Radial Blur Start",
+            "value": "2"
+          },
+          {
+            "name": "Radial Blur Flags",
+            "value": ""
+          },
+          {
+            "name": "Radial Blur Center X",
+            "value": "0.500000"
+          },
+          {
+            "name": "Radial Blur Center Y",
+            "value": "0.500000"
+          },
+          {
+            "name": "DoF Strength",
+            "value": "4"
+          },
+          {
+            "name": "DoF Distance",
+            "value": "4"
+          },
+          {
+            "name": "DoF Range",
+            "value": "4"
+          },
+          {
+            "name": "DoF Flags",
+            "value": ""
+          },
+          {
+            "name": "Radial Blur Ramp Down",
+            "value": "2"
+          },
+          {
+            "name": "Radial Blur Down Start",
+            "value": "2"
+          },
+          {
+            "name": "Fade Color",
+            "value": "2"
+          },
+          {
+            "name": "Motion Blur Strength",
+            "value": "2"
+          }
         ]
-      ],
-      [
-        [
-          "0.000000",
-          "1.000000"
-        ],
-        [
-          "1.000000",
-          "1.000000"
+      },
+      {
+        "name": "BNAM - Blur Radius",
+        "elements": [
+          {
+            "name": "Data #0",
+            "elements": [
+              {
+                "name": "Time",
+                "value": "0.000000"
+              },
+              {
+                "name": "Value",
+                "value": "3.000000"
+              }
+            ]
+          },
+          {
+            "name": "Data #1",
+            "elements": [
+              {
+                "name": "Time",
+                "value": "0.220000"
+              },
+              {
+                "name": "Value",
+                "value": "3.000000"
+              }
+            ]
+          },
+          {
+            "name": "Data #2",
+            "elements": [
+              {
+                "name": "Time",
+                "value": "0.430000"
+              },
+              {
+                "name": "Value",
+                "value": "0.000000"
+              }
+            ]
+          },
+          {
+            "name": "Data #3",
+            "elements": [
+              {
+                "name": "Time",
+                "value": "1.000000"
+              },
+              {
+                "name": "Value",
+                "value": "0.000000"
+              }
+            ]
+          }
         ]
-      ],
-      [
-        [
-          "0.000000",
-          "0.000000"
-        ],
-        [
-          "1.000000",
-          "0.000000"
+      },
+      {
+        "name": "VNAM - Double Vision Strength",
+        "elements": [
+          {
+            "name": "Data #0",
+            "elements": [
+              {
+                "name": "Time",
+                "value": "0.000000"
+              },
+              {
+                "name": "Value",
+                "value": "0.000000"
+              }
+            ]
+          },
+          {
+            "name": "Data #1",
+            "elements": [
+              {
+                "name": "Time",
+                "value": "1.000000"
+              },
+              {
+                "name": "Value",
+                "value": "0.000000"
+              }
+            ]
+          }
         ]
-      ],
-      [
-        [
-          "0.000000",
-          "1.000000"
-        ],
-        [
-          "1.000000",
-          "1.000000"
+      },
+      {
+        "name": "TNAM - Tint Color",
+        "elements": [
+          {
+            "name": "Data #0",
+            "elements": [
+              {
+                "name": "Time",
+                "value": "0.000000"
+              },
+              {
+                "name": "Red",
+                "value": "255"
+              },
+              {
+                "name": "Green",
+                "value": "255"
+              },
+              {
+                "name": "Blue",
+                "value": "255"
+              },
+              {
+                "name": "Alpha",
+                "value": "0"
+              }
+            ]
+          },
+          {
+            "name": "Data #1",
+            "elements": [
+              {
+                "name": "Time",
+                "value": "1.000000"
+              },
+              {
+                "name": "Red",
+                "value": "255"
+              },
+              {
+                "name": "Green",
+                "value": "255"
+              },
+              {
+                "name": "Blue",
+                "value": "255"
+              },
+              {
+                "name": "Alpha",
+                "value": "0"
+              }
+            ]
+          }
         ]
-      ],
-      [
-        [
-          "0.000000",
-          "0.000000"
-        ],
-        [
-          "1.000000",
-          "0.000000"
+      },
+      {
+        "name": "NAM3 - Fade Color",
+        "elements": [
+          {
+            "name": "Data #0",
+            "elements": [
+              {
+                "name": "Time",
+                "value": "0.000000"
+              },
+              {
+                "name": "Red",
+                "value": "255"
+              },
+              {
+                "name": "Green",
+                "value": "255"
+              },
+              {
+                "name": "Blue",
+                "value": "255"
+              },
+              {
+                "name": "Alpha",
+                "value": "0"
+              }
+            ]
+          },
+          {
+            "name": "Data #1",
+            "elements": [
+              {
+                "name": "Time",
+                "value": "1.000000"
+              },
+              {
+                "name": "Red",
+                "value": "255"
+              },
+              {
+                "name": "Green",
+                "value": "255"
+              },
+              {
+                "name": "Blue",
+                "value": "255"
+              },
+              {
+                "name": "Alpha",
+                "value": "0"
+              }
+            ]
+          }
         ]
-      ],
-      [
-        [
-          "0.000000",
-          "1.000000"
-        ],
-        [
-          "1.000000",
-          "1.000000"
+      },
+      {
+        "name": "RNAM - Radial Blur Strength",
+        "elements": [
+          {
+            "name": "Data #0",
+            "elements": [
+              {
+                "name": "Time",
+                "value": "0.000000"
+              },
+              {
+                "name": "Value",
+                "value": "0.000000"
+              }
+            ]
+          },
+          {
+            "name": "Data #1",
+            "elements": [
+              {
+                "name": "Time",
+                "value": "1.000000"
+              },
+              {
+                "name": "Value",
+                "value": "0.000000"
+              }
+            ]
+          }
         ]
-      ],
-      [
-        [
-          "0.000000",
-          "0.000000"
-        ],
-        [
-          "1.000000",
-          "0.000000"
+      },
+      {
+        "name": "SNAM - Radial Blur Ramp Up",
+        "elements": [
+          {
+            "name": "Data #0",
+            "elements": [
+              {
+                "name": "Time",
+                "value": "0.000000"
+              },
+              {
+                "name": "Value",
+                "value": "0.000000"
+              }
+            ]
+          },
+          {
+            "name": "Data #1",
+            "elements": [
+              {
+                "name": "Time",
+                "value": "1.000000"
+              },
+              {
+                "name": "Value",
+                "value": "0.000000"
+              }
+            ]
+          }
         ]
-      ],
-      [
-        [
-          "0.000000",
-          "1.000000"
-        ],
-        [
-          "1.000000",
-          "1.000000"
+      },
+      {
+        "name": "UNAM - Radial Blur Start",
+        "elements": [
+          {
+            "name": "Data #0",
+            "elements": [
+              {
+                "name": "Time",
+                "value": "0.000000"
+              },
+              {
+                "name": "Value",
+                "value": "0.000000"
+              }
+            ]
+          },
+          {
+            "name": "Data #1",
+            "elements": [
+              {
+                "name": "Time",
+                "value": "1.000000"
+              },
+              {
+                "name": "Value",
+                "value": "0.000000"
+              }
+            ]
+          }
         ]
-      ],
-      [
-        [
-          "0.000000",
-          "0.000000"
-        ],
-        [
-          "1.000000",
-          "0.000000"
+      },
+      {
+        "name": "NAM1 - Radial Blur Ramp Down",
+        "elements": [
+          {
+            "name": "Data #0",
+            "elements": [
+              {
+                "name": "Time",
+                "value": "0.000000"
+              },
+              {
+                "name": "Value",
+                "value": "0.000000"
+              }
+            ]
+          },
+          {
+            "name": "Data #1",
+            "elements": [
+              {
+                "name": "Time",
+                "value": "1.000000"
+              },
+              {
+                "name": "Value",
+                "value": "0.000000"
+              }
+            ]
+          }
         ]
-      ],
-      [
-        [
-          "0.000000",
-          "1.000000"
-        ],
-        [
-          "1.000000",
-          "1.000000"
+      },
+      {
+        "name": "NAM2 - Radial Blur Down Start",
+        "elements": [
+          {
+            "name": "Data #0",
+            "elements": [
+              {
+                "name": "Time",
+                "value": "0.000000"
+              },
+              {
+                "name": "Value",
+                "value": "0.000000"
+              }
+            ]
+          },
+          {
+            "name": "Data #1",
+            "elements": [
+              {
+                "name": "Time",
+                "value": "1.000000"
+              },
+              {
+                "name": "Value",
+                "value": "0.000000"
+              }
+            ]
+          }
         ]
-      ],
-      [
-        [
-          "0.000000",
-          "0.000000"
-        ],
-        [
-          "1.000000",
-          "0.000000"
+      },
+      {
+        "name": "WNAM - DoF Strength",
+        "elements": [
+          {
+            "name": "Data #0",
+            "elements": [
+              {
+                "name": "Time",
+                "value": "0.000000"
+              },
+              {
+                "name": "Value",
+                "value": "1.000000"
+              }
+            ]
+          },
+          {
+            "name": "Data #1",
+            "elements": [
+              {
+                "name": "Time",
+                "value": "0.220000"
+              },
+              {
+                "name": "Value",
+                "value": "1.000000"
+              }
+            ]
+          },
+          {
+            "name": "Data #2",
+            "elements": [
+              {
+                "name": "Time",
+                "value": "0.430000"
+              },
+              {
+                "name": "Value",
+                "value": "1.000000"
+              }
+            ]
+          },
+          {
+            "name": "Data #3",
+            "elements": [
+              {
+                "name": "Time",
+                "value": "1.000000"
+              },
+              {
+                "name": "Value",
+                "value": "0.000000"
+              }
+            ]
+          }
         ]
-      ],
-      [
-        [
-          "0.000000",
-          "1.000000"
-        ],
-        [
-          "1.000000",
-          "1.000000"
+      },
+      {
+        "name": "XNAM - DoF Distance",
+        "elements": [
+          {
+            "name": "Data #0",
+            "elements": [
+              {
+                "name": "Time",
+                "value": "0.000000"
+              },
+              {
+                "name": "Value",
+                "value": "300.000000"
+              }
+            ]
+          },
+          {
+            "name": "Data #1",
+            "elements": [
+              {
+                "name": "Time",
+                "value": "0.220000"
+              },
+              {
+                "name": "Value",
+                "value": "300.000000"
+              }
+            ]
+          },
+          {
+            "name": "Data #2",
+            "elements": [
+              {
+                "name": "Time",
+                "value": "0.430000"
+              },
+              {
+                "name": "Value",
+                "value": "50.000000"
+              }
+            ]
+          },
+          {
+            "name": "Data #3",
+            "elements": [
+              {
+                "name": "Time",
+                "value": "1.000000"
+              },
+              {
+                "name": "Value",
+                "value": "0.000000"
+              }
+            ]
+          }
         ]
-      ],
-      [
-        [
-          "0.000000",
-          "0.000000"
-        ],
-        [
-          "1.000000",
-          "0.000000"
+      },
+      {
+        "name": "YNAM - DoF Range",
+        "elements": [
+          {
+            "name": "Data #0",
+            "elements": [
+              {
+                "name": "Time",
+                "value": "0.000000"
+              },
+              {
+                "name": "Value",
+                "value": "200.000000"
+              }
+            ]
+          },
+          {
+            "name": "Data #1",
+            "elements": [
+              {
+                "name": "Time",
+                "value": "0.220000"
+              },
+              {
+                "name": "Value",
+                "value": "200.000000"
+              }
+            ]
+          },
+          {
+            "name": "Data #2",
+            "elements": [
+              {
+                "name": "Time",
+                "value": "0.430000"
+              },
+              {
+                "name": "Value",
+                "value": "250.000000"
+              }
+            ]
+          },
+          {
+            "name": "Data #3",
+            "elements": [
+              {
+                "name": "Time",
+                "value": "1.000000"
+              },
+              {
+                "name": "Value",
+                "value": "0.000000"
+              }
+            ]
+          }
         ]
-      ],
-      [
-        [
-          "0.000000",
-          "1.000000"
-        ],
-        [
-          "1.000000",
-          "1.000000"
+      },
+      {
+        "name": "NAM4 - Motion Blur Strength",
+        "elements": [
+          {
+            "name": "Data #0",
+            "elements": [
+              {
+                "name": "Time",
+                "value": "0.000000"
+              },
+              {
+                "name": "Value",
+                "value": "0.000000"
+              }
+            ]
+          },
+          {
+            "name": "Data #1",
+            "elements": [
+              {
+                "name": "Time",
+                "value": "1.000000"
+              },
+              {
+                "name": "Value",
+                "value": "0.000000"
+              }
+            ]
+          }
         ]
-      ],
-      [
-        [
-          "0.000000",
-          "0.000000"
-        ],
-        [
-          "1.000000",
-          "0.000000"
+      },
+      {
+        "name": "HDR",
+        "elements": [
+          {
+            "name": "aIAD - Eye Adapt Speed Mult",
+            "elements": [
+              {
+                "name": "Data #0",
+                "elements": [
+                  {
+                    "name": "Time",
+                    "value": "0.000000"
+                  },
+                  {
+                    "name": "Value",
+                    "value": "1.000000"
+                  }
+                ]
+              },
+              {
+                "name": "Data #1",
+                "elements": [
+                  {
+                    "name": "Time",
+                    "value": "1.000000"
+                  },
+                  {
+                    "name": "Value",
+                    "value": "1.000000"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "@IAD - Eye Adapt Speed Add",
+            "elements": [
+              {
+                "name": "Data #0",
+                "elements": [
+                  {
+                    "name": "Time",
+                    "value": "0.000000"
+                  },
+                  {
+                    "name": "Value",
+                    "value": "0.000000"
+                  }
+                ]
+              },
+              {
+                "name": "Data #1",
+                "elements": [
+                  {
+                    "name": "Time",
+                    "value": "1.000000"
+                  },
+                  {
+                    "name": "Value",
+                    "value": "0.000000"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "bIAD - Bloom Blur Radius Mult",
+            "elements": [
+              {
+                "name": "Data #0",
+                "elements": [
+                  {
+                    "name": "Time",
+                    "value": "0.000000"
+                  },
+                  {
+                    "name": "Value",
+                    "value": "1.000000"
+                  }
+                ]
+              },
+              {
+                "name": "Data #1",
+                "elements": [
+                  {
+                    "name": "Time",
+                    "value": "1.000000"
+                  },
+                  {
+                    "name": "Value",
+                    "value": "1.000000"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "AIAD - Bloom Blur Radius Add",
+            "elements": [
+              {
+                "name": "Data #0",
+                "elements": [
+                  {
+                    "name": "Time",
+                    "value": "0.000000"
+                  },
+                  {
+                    "name": "Value",
+                    "value": "0.000000"
+                  }
+                ]
+              },
+              {
+                "name": "Data #1",
+                "elements": [
+                  {
+                    "name": "Time",
+                    "value": "1.000000"
+                  },
+                  {
+                    "name": "Value",
+                    "value": "0.000000"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "cIAD - Bloom Threshold Mult",
+            "elements": [
+              {
+                "name": "Data #0",
+                "elements": [
+                  {
+                    "name": "Time",
+                    "value": "0.000000"
+                  },
+                  {
+                    "name": "Value",
+                    "value": "1.000000"
+                  }
+                ]
+              },
+              {
+                "name": "Data #1",
+                "elements": [
+                  {
+                    "name": "Time",
+                    "value": "1.000000"
+                  },
+                  {
+                    "name": "Value",
+                    "value": "1.000000"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "BIAD - Bloom Threshold Add",
+            "elements": [
+              {
+                "name": "Data #0",
+                "elements": [
+                  {
+                    "name": "Time",
+                    "value": "0.000000"
+                  },
+                  {
+                    "name": "Value",
+                    "value": "0.000000"
+                  }
+                ]
+              },
+              {
+                "name": "Data #1",
+                "elements": [
+                  {
+                    "name": "Time",
+                    "value": "1.000000"
+                  },
+                  {
+                    "name": "Value",
+                    "value": "0.000000"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "dIAD - Bloom Scale Mult",
+            "elements": [
+              {
+                "name": "Data #0",
+                "elements": [
+                  {
+                    "name": "Time",
+                    "value": "0.000000"
+                  },
+                  {
+                    "name": "Value",
+                    "value": "1.000000"
+                  }
+                ]
+              },
+              {
+                "name": "Data #1",
+                "elements": [
+                  {
+                    "name": "Time",
+                    "value": "1.000000"
+                  },
+                  {
+                    "name": "Value",
+                    "value": "1.000000"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "CIAD - Bloom Scale Add",
+            "elements": [
+              {
+                "name": "Data #0",
+                "elements": [
+                  {
+                    "name": "Time",
+                    "value": "0.000000"
+                  },
+                  {
+                    "name": "Value",
+                    "value": "0.000000"
+                  }
+                ]
+              },
+              {
+                "name": "Data #1",
+                "elements": [
+                  {
+                    "name": "Time",
+                    "value": "1.000000"
+                  },
+                  {
+                    "name": "Value",
+                    "value": "0.000000"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "eIAD - Target Lum Min Mult",
+            "elements": [
+              {
+                "name": "Data #0",
+                "elements": [
+                  {
+                    "name": "Time",
+                    "value": "0.000000"
+                  },
+                  {
+                    "name": "Value",
+                    "value": "1.000000"
+                  }
+                ]
+              },
+              {
+                "name": "Data #1",
+                "elements": [
+                  {
+                    "name": "Time",
+                    "value": "1.000000"
+                  },
+                  {
+                    "name": "Value",
+                    "value": "1.000000"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "DIAD - Target Lum Min Add",
+            "elements": [
+              {
+                "name": "Data #0",
+                "elements": [
+                  {
+                    "name": "Time",
+                    "value": "0.000000"
+                  },
+                  {
+                    "name": "Value",
+                    "value": "0.000000"
+                  }
+                ]
+              },
+              {
+                "name": "Data #1",
+                "elements": [
+                  {
+                    "name": "Time",
+                    "value": "1.000000"
+                  },
+                  {
+                    "name": "Value",
+                    "value": "0.000000"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "fIAD - Target Lum Max Mult",
+            "elements": [
+              {
+                "name": "Data #0",
+                "elements": [
+                  {
+                    "name": "Time",
+                    "value": "0.000000"
+                  },
+                  {
+                    "name": "Value",
+                    "value": "1.000000"
+                  }
+                ]
+              },
+              {
+                "name": "Data #1",
+                "elements": [
+                  {
+                    "name": "Time",
+                    "value": "1.000000"
+                  },
+                  {
+                    "name": "Value",
+                    "value": "1.000000"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "EIAD - Target Lum Max Add",
+            "elements": [
+              {
+                "name": "Data #0",
+                "elements": [
+                  {
+                    "name": "Time",
+                    "value": "0.000000"
+                  },
+                  {
+                    "name": "Value",
+                    "value": "0.000000"
+                  }
+                ]
+              },
+              {
+                "name": "Data #1",
+                "elements": [
+                  {
+                    "name": "Time",
+                    "value": "1.000000"
+                  },
+                  {
+                    "name": "Value",
+                    "value": "0.000000"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "gIAD - Sunlight Scale Mult",
+            "elements": [
+              {
+                "name": "Data #0",
+                "elements": [
+                  {
+                    "name": "Time",
+                    "value": "0.000000"
+                  },
+                  {
+                    "name": "Value",
+                    "value": "1.000000"
+                  }
+                ]
+              },
+              {
+                "name": "Data #1",
+                "elements": [
+                  {
+                    "name": "Time",
+                    "value": "1.000000"
+                  },
+                  {
+                    "name": "Value",
+                    "value": "1.000000"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "FIAD - Sunlight Scale Add",
+            "elements": [
+              {
+                "name": "Data #0",
+                "elements": [
+                  {
+                    "name": "Time",
+                    "value": "0.000000"
+                  },
+                  {
+                    "name": "Value",
+                    "value": "0.000000"
+                  }
+                ]
+              },
+              {
+                "name": "Data #1",
+                "elements": [
+                  {
+                    "name": "Time",
+                    "value": "1.000000"
+                  },
+                  {
+                    "name": "Value",
+                    "value": "0.000000"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "hIAD - Sky Scale Mult",
+            "elements": [
+              {
+                "name": "Data #0",
+                "elements": [
+                  {
+                    "name": "Time",
+                    "value": "0.000000"
+                  },
+                  {
+                    "name": "Value",
+                    "value": "1.000000"
+                  }
+                ]
+              },
+              {
+                "name": "Data #1",
+                "elements": [
+                  {
+                    "name": "Time",
+                    "value": "1.000000"
+                  },
+                  {
+                    "name": "Value",
+                    "value": "1.000000"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "GIAD - Sky Scale Add",
+            "elements": [
+              {
+                "name": "Data #0",
+                "elements": [
+                  {
+                    "name": "Time",
+                    "value": "0.000000"
+                  },
+                  {
+                    "name": "Value",
+                    "value": "0.000000"
+                  }
+                ]
+              },
+              {
+                "name": "Data #1",
+                "elements": [
+                  {
+                    "name": "Time",
+                    "value": "1.000000"
+                  },
+                  {
+                    "name": "Value",
+                    "value": "0.000000"
+                  }
+                ]
+              }
+            ]
+          }
         ]
-      ]
-    ],
-    "iIAD - Unknown": "00 00 00 00 00 00 80 3F 00 00 80 3F 00 00 80 3F",
-    "HIAD - Unknown": "00 00 00 00 00 00 00 00 00 00 80 3F 00 00 00 00",
-    "jIAD - Unknown": "00 00 00 00 00 00 80 3F 00 00 80 3F 00 00 80 3F",
-    "IIAD - Unknown": "00 00 00 00 00 00 00 00 00 00 80 3F 00 00 00 00",
-    "kIAD - Unknown": "00 00 00 00 00 00 80 3F 00 00 80 3F 00 00 80 3F",
-    "JIAD - Unknown": "00 00 00 00 00 00 00 00 00 00 80 3F 00 00 00 00",
-    "lIAD - Unknown": "00 00 00 00 00 00 80 3F 00 00 80 3F 00 00 80 3F",
-    "KIAD - Unknown": "00 00 00 00 00 00 00 00 00 00 80 3F 00 00 00 00",
-    "mIAD - Unknown": "00 00 00 00 00 00 80 3F 00 00 80 3F 00 00 80 3F",
-    "LIAD - Unknown": "00 00 00 00 00 00 00 00 00 00 80 3F 00 00 00 00",
-    "nIAD - Unknown": "00 00 00 00 00 00 80 3F 00 00 80 3F 00 00 80 3F",
-    "MIAD - Unknown": "00 00 00 00 00 00 00 00 00 00 80 3F 00 00 00 00",
-    "oIAD - Unknown": "00 00 00 00 00 00 80 3F 00 00 80 3F 00 00 80 3F",
-    "NIAD - Unknown": "00 00 00 00 00 00 00 00 00 00 80 3F 00 00 00 00",
-    "pIAD - Unknown": "00 00 00 00 00 00 80 3F 00 00 80 3F 00 00 80 3F",
-    "OIAD - Unknown": "00 00 00 00 00 00 00 00 00 00 80 3F 00 00 00 00",
-    "qIAD - Unknown": "00 00 00 00 00 00 80 3F 00 00 80 3F 00 00 80 3F",
-    "PIAD - Unknown": "00 00 00 00 00 00 00 00 00 00 80 3F 00 00 00 00",
-    "Cinematic": [
-      [
-        [
-          "0.000000",
-          "1.000000"
-        ],
-        [
-          "1.000000",
-          "1.000000"
+      },
+      {
+        "name": "iIAD - Unknown",
+        "value": "00 00 00 00 00 00 80 3F 00 00 80 3F 00 00 80 3F"
+      },
+      {
+        "name": "HIAD - Unknown",
+        "value": "00 00 00 00 00 00 00 00 00 00 80 3F 00 00 00 00"
+      },
+      {
+        "name": "jIAD - Unknown",
+        "value": "00 00 00 00 00 00 80 3F 00 00 80 3F 00 00 80 3F"
+      },
+      {
+        "name": "IIAD - Unknown",
+        "value": "00 00 00 00 00 00 00 00 00 00 80 3F 00 00 00 00"
+      },
+      {
+        "name": "kIAD - Unknown",
+        "value": "00 00 00 00 00 00 80 3F 00 00 80 3F 00 00 80 3F"
+      },
+      {
+        "name": "JIAD - Unknown",
+        "value": "00 00 00 00 00 00 00 00 00 00 80 3F 00 00 00 00"
+      },
+      {
+        "name": "lIAD - Unknown",
+        "value": "00 00 00 00 00 00 80 3F 00 00 80 3F 00 00 80 3F"
+      },
+      {
+        "name": "KIAD - Unknown",
+        "value": "00 00 00 00 00 00 00 00 00 00 80 3F 00 00 00 00"
+      },
+      {
+        "name": "mIAD - Unknown",
+        "value": "00 00 00 00 00 00 80 3F 00 00 80 3F 00 00 80 3F"
+      },
+      {
+        "name": "LIAD - Unknown",
+        "value": "00 00 00 00 00 00 00 00 00 00 80 3F 00 00 00 00"
+      },
+      {
+        "name": "nIAD - Unknown",
+        "value": "00 00 00 00 00 00 80 3F 00 00 80 3F 00 00 80 3F"
+      },
+      {
+        "name": "MIAD - Unknown",
+        "value": "00 00 00 00 00 00 00 00 00 00 80 3F 00 00 00 00"
+      },
+      {
+        "name": "oIAD - Unknown",
+        "value": "00 00 00 00 00 00 80 3F 00 00 80 3F 00 00 80 3F"
+      },
+      {
+        "name": "NIAD - Unknown",
+        "value": "00 00 00 00 00 00 00 00 00 00 80 3F 00 00 00 00"
+      },
+      {
+        "name": "pIAD - Unknown",
+        "value": "00 00 00 00 00 00 80 3F 00 00 80 3F 00 00 80 3F"
+      },
+      {
+        "name": "OIAD - Unknown",
+        "value": "00 00 00 00 00 00 00 00 00 00 80 3F 00 00 00 00"
+      },
+      {
+        "name": "qIAD - Unknown",
+        "value": "00 00 00 00 00 00 80 3F 00 00 80 3F 00 00 80 3F"
+      },
+      {
+        "name": "PIAD - Unknown",
+        "value": "00 00 00 00 00 00 00 00 00 00 80 3F 00 00 00 00"
+      },
+      {
+        "name": "Cinematic",
+        "elements": [
+          {
+            "name": "rIAD - Saturation Mult",
+            "elements": [
+              {
+                "name": "Data #0",
+                "elements": [
+                  {
+                    "name": "Time",
+                    "value": "0.000000"
+                  },
+                  {
+                    "name": "Value",
+                    "value": "1.000000"
+                  }
+                ]
+              },
+              {
+                "name": "Data #1",
+                "elements": [
+                  {
+                    "name": "Time",
+                    "value": "1.000000"
+                  },
+                  {
+                    "name": "Value",
+                    "value": "1.000000"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "QIAD - Saturation Add",
+            "elements": [
+              {
+                "name": "Data #0",
+                "elements": [
+                  {
+                    "name": "Time",
+                    "value": "0.000000"
+                  },
+                  {
+                    "name": "Value",
+                    "value": "0.000000"
+                  }
+                ]
+              },
+              {
+                "name": "Data #1",
+                "elements": [
+                  {
+                    "name": "Time",
+                    "value": "1.000000"
+                  },
+                  {
+                    "name": "Value",
+                    "value": "0.000000"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "sIAD - Brightness Mult",
+            "elements": [
+              {
+                "name": "Data #0",
+                "elements": [
+                  {
+                    "name": "Time",
+                    "value": "0.000000"
+                  },
+                  {
+                    "name": "Value",
+                    "value": "0.500000"
+                  }
+                ]
+              },
+              {
+                "name": "Data #1",
+                "elements": [
+                  {
+                    "name": "Time",
+                    "value": "0.220000"
+                  },
+                  {
+                    "name": "Value",
+                    "value": "1.000000"
+                  }
+                ]
+              },
+              {
+                "name": "Data #2",
+                "elements": [
+                  {
+                    "name": "Time",
+                    "value": "1.000000"
+                  },
+                  {
+                    "name": "Value",
+                    "value": "1.000000"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "RIAD - Brightness Add",
+            "elements": [
+              {
+                "name": "Data #0",
+                "elements": [
+                  {
+                    "name": "Time",
+                    "value": "0.000000"
+                  },
+                  {
+                    "name": "Value",
+                    "value": "0.000000"
+                  }
+                ]
+              },
+              {
+                "name": "Data #1",
+                "elements": [
+                  {
+                    "name": "Time",
+                    "value": "1.000000"
+                  },
+                  {
+                    "name": "Value",
+                    "value": "0.000000"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "tIAD - Contrast Mult",
+            "elements": [
+              {
+                "name": "Data #0",
+                "elements": [
+                  {
+                    "name": "Time",
+                    "value": "0.000000"
+                  },
+                  {
+                    "name": "Value",
+                    "value": "1.000000"
+                  }
+                ]
+              },
+              {
+                "name": "Data #1",
+                "elements": [
+                  {
+                    "name": "Time",
+                    "value": "1.000000"
+                  },
+                  {
+                    "name": "Value",
+                    "value": "1.000000"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "SIAD - Contrast Add",
+            "elements": [
+              {
+                "name": "Data #0",
+                "elements": [
+                  {
+                    "name": "Time",
+                    "value": "0.000000"
+                  },
+                  {
+                    "name": "Value",
+                    "value": "0.000000"
+                  }
+                ]
+              },
+              {
+                "name": "Data #1",
+                "elements": [
+                  {
+                    "name": "Time",
+                    "value": "1.000000"
+                  },
+                  {
+                    "name": "Value",
+                    "value": "0.000000"
+                  }
+                ]
+              }
+            ]
+          }
         ]
-      ],
-      [
-        [
-          "0.000000",
-          "0.000000"
-        ],
-        [
-          "1.000000",
-          "0.000000"
-        ]
-      ],
-      [
-        [
-          "0.000000",
-          "0.500000"
-        ],
-        [
-          "0.220000",
-          "1.000000"
-        ],
-        [
-          "1.000000",
-          "1.000000"
-        ]
-      ],
-      [
-        [
-          "0.000000",
-          "0.000000"
-        ],
-        [
-          "1.000000",
-          "0.000000"
-        ]
-      ],
-      [
-        [
-          "0.000000",
-          "1.000000"
-        ],
-        [
-          "1.000000",
-          "1.000000"
-        ]
-      ],
-      [
-        [
-          "0.000000",
-          "0.000000"
-        ],
-        [
-          "1.000000",
-          "0.000000"
-        ]
-      ]
-    ],
-    "uIAD - Unknown": "00 00 00 00 00 00 80 3F 00 00 80 3F 00 00 80 3F",
-    "TIAD - Unknown": "00 00 00 00 00 00 00 00 00 00 80 3F 00 00 00 00"
+      },
+      {
+        "name": "uIAD - Unknown",
+        "value": "00 00 00 00 00 00 80 3F 00 00 80 3F 00 00 80 3F"
+      },
+      {
+        "name": "TIAD - Unknown",
+        "value": "00 00 00 00 00 00 00 00 00 00 80 3F 00 00 00 00"
+      }
+    ]
   }
 }

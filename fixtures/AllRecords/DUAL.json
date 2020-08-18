@@ -1,30 +1,101 @@
 {
   "000E5F62": {
-    "Record Header": [
-      "DUAL",
-      "78",
-      "",
-      "{Skyrim.esm:0E5F62}",
-      "00 00 00 00",
-      "34",
-      "00 00"
-    ],
-    "EDID - Editor ID": "doomSerpentDualCastData",
-    "OBND - Object Bounds": [
-      "0",
-      "0",
-      "0",
-      "0",
-      "0",
-      "0"
-    ],
-    "DATA - Data": [
-      "{Skyrim.esm:06EBC8}",
-      "{Skyrim.esm:031047}",
-      "{Skyrim.esm:06DE84}",
-      "{Skyrim.esm:06DE86}",
-      "{Null:000000}",
-      ""
+    "elements": [
+      {
+        "name": "Record Header",
+        "elements": [
+          {
+            "name": "Signature",
+            "value": "DUAL"
+          },
+          {
+            "name": "Data Size",
+            "value": "78"
+          },
+          {
+            "name": "Record Flags",
+            "value": ""
+          },
+          {
+            "name": "FormID",
+            "value": "{Skyrim.esm:0E5F62}"
+          },
+          {
+            "name": "Version Control Info 1",
+            "value": "00 00 00 00"
+          },
+          {
+            "name": "Form Version",
+            "value": "34"
+          },
+          {
+            "name": "Version Control Info 2",
+            "value": "00 00"
+          }
+        ]
+      },
+      {
+        "name": "EDID - Editor ID",
+        "value": "doomSerpentDualCastData"
+      },
+      {
+        "name": "OBND - Object Bounds",
+        "elements": [
+          {
+            "name": "X1",
+            "value": "0"
+          },
+          {
+            "name": "Y1",
+            "value": "0"
+          },
+          {
+            "name": "Z1",
+            "value": "0"
+          },
+          {
+            "name": "X2",
+            "value": "0"
+          },
+          {
+            "name": "Y2",
+            "value": "0"
+          },
+          {
+            "name": "Z2",
+            "value": "0"
+          }
+        ]
+      },
+      {
+        "name": "DATA - Data",
+        "elements": [
+          {
+            "name": "Projectile",
+            "value": "{Skyrim.esm:06EBC8}"
+          },
+          {
+            "name": "Explosion",
+            "value": "{Skyrim.esm:031047}"
+          },
+          {
+            "name": "Effect Shader",
+            "value": "{Skyrim.esm:06DE84}"
+          },
+          {
+            "name": "Hit Effect Art",
+            "value": "{Skyrim.esm:06DE86}"
+          },
+          {
+            "name": "Impact Data Set",
+            "value": "{Null:000000}"
+          },
+          {
+            "name": "Inherit Scale",
+            "value": ""
+          }
+        ]
+      }
     ]
   }
 }

@@ -1,68 +1,232 @@
 {
   "0010FDAB": {
-    "Record Header": [
-      "CPTH",
-      "191",
-      "",
-      "{Skyrim.esm:10FDAB}",
-      "00 00 00 00",
-      "40",
-      "00 00"
-    ],
-    "EDID - Editor ID": "DragonKillCam02Lmid",
-    "Conditions": [
-      [
-        [
-          "01000000",
-          "EB 8D 00",
-          "200.000000",
-          "GetVATSRightAreaFree",
-          "2D 2E",
-          "{Null:000000}",
-          "00 00 00 00",
-          "Subject",
-          "0",
-          "-1"
+    "elements": [
+      {
+        "name": "Record Header",
+        "elements": [
+          {
+            "name": "Signature",
+            "value": "CPTH"
+          },
+          {
+            "name": "Data Size",
+            "value": "191"
+          },
+          {
+            "name": "Record Flags",
+            "value": ""
+          },
+          {
+            "name": "FormID",
+            "value": "{Skyrim.esm:10FDAB}"
+          },
+          {
+            "name": "Version Control Info 1",
+            "value": "00 00 00 00"
+          },
+          {
+            "name": "Form Version",
+            "value": "40"
+          },
+          {
+            "name": "Version Control Info 2",
+            "value": "00 00"
+          }
         ]
-      ],
-      [
-        [
-          "01000000",
-          "EB 8D 00",
-          "300.000000",
-          "GetVATSLeftAreaFree",
-          "2D 2E",
-          "{Null:000000}",
-          "00 00 00 00",
-          "Subject",
-          "0",
-          "-1"
+      },
+      {
+        "name": "EDID - Editor ID",
+        "value": "DragonKillCam02Lmid"
+      },
+      {
+        "name": "Conditions",
+        "elements": [
+          {
+            "name": "Condition",
+            "elements": [
+              {
+                "name": "CTDA - ",
+                "elements": [
+                  {
+                    "name": "Type",
+                    "value": "01000000"
+                  },
+                  {
+                    "name": "Unused",
+                    "value": "EB 8D 00"
+                  },
+                  {
+                    "name": "Comparison Value",
+                    "value": "200.000000"
+                  },
+                  {
+                    "name": "Function",
+                    "value": "GetVATSRightAreaFree"
+                  },
+                  {
+                    "name": "Unused",
+                    "value": "2D 2E"
+                  },
+                  {
+                    "name": "Parameter #1",
+                    "value": "{Null:000000}"
+                  },
+                  {
+                    "name": "Parameter #2",
+                    "value": "00 00 00 00"
+                  },
+                  {
+                    "name": "Run On",
+                    "value": "Subject"
+                  },
+                  {
+                    "name": "Reference",
+                    "value": "0"
+                  },
+                  {
+                    "name": "Parameter #3",
+                    "value": "-1"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "Condition",
+            "elements": [
+              {
+                "name": "CTDA - ",
+                "elements": [
+                  {
+                    "name": "Type",
+                    "value": "01000000"
+                  },
+                  {
+                    "name": "Unused",
+                    "value": "EB 8D 00"
+                  },
+                  {
+                    "name": "Comparison Value",
+                    "value": "300.000000"
+                  },
+                  {
+                    "name": "Function",
+                    "value": "GetVATSLeftAreaFree"
+                  },
+                  {
+                    "name": "Unused",
+                    "value": "2D 2E"
+                  },
+                  {
+                    "name": "Parameter #1",
+                    "value": "{Null:000000}"
+                  },
+                  {
+                    "name": "Parameter #2",
+                    "value": "00 00 00 00"
+                  },
+                  {
+                    "name": "Run On",
+                    "value": "Subject"
+                  },
+                  {
+                    "name": "Reference",
+                    "value": "0"
+                  },
+                  {
+                    "name": "Parameter #3",
+                    "value": "-1"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "Condition",
+            "elements": [
+              {
+                "name": "CTDA - ",
+                "elements": [
+                  {
+                    "name": "Type",
+                    "value": "01000000"
+                  },
+                  {
+                    "name": "Unused",
+                    "value": "EB 8D 00"
+                  },
+                  {
+                    "name": "Comparison Value",
+                    "value": "120.000000"
+                  },
+                  {
+                    "name": "Function",
+                    "value": "GetVATSBackAreaFree"
+                  },
+                  {
+                    "name": "Unused",
+                    "value": "2D 2E"
+                  },
+                  {
+                    "name": "Parameter #1",
+                    "value": "{Null:000000}"
+                  },
+                  {
+                    "name": "Parameter #2",
+                    "value": "00 00 00 00"
+                  },
+                  {
+                    "name": "Run On",
+                    "value": "Subject"
+                  },
+                  {
+                    "name": "Reference",
+                    "value": "0"
+                  },
+                  {
+                    "name": "Parameter #3",
+                    "value": "-1"
+                  }
+                ]
+              }
+            ]
+          }
         ]
-      ],
-      [
-        [
-          "01000000",
-          "EB 8D 00",
-          "120.000000",
-          "GetVATSBackAreaFree",
-          "2D 2E",
-          "{Null:000000}",
-          "00 00 00 00",
-          "Subject",
-          "0",
-          "-1"
+      },
+      {
+        "name": "ANAM - Related Camera Paths",
+        "elements": [
+          {
+            "name": "Related Camera Path #0 (Parent)",
+            "value": "{Skyrim.esm:10FDA9}"
+          },
+          {
+            "name": "Related Camera Path #1 (Previous Sibling)",
+            "value": "{Skyrim.esm:10FDAA}"
+          }
         ]
-      ]
-    ],
-    "ANAM - Related Camera Paths": [
-      "{Skyrim.esm:10FDA9}",
-      "{Skyrim.esm:10FDAA}"
-    ],
-    "DATA - Camera Zoom": "Default, Must Have Camera Shots",
-    "Camera Shots": [
-      "{Skyrim.esm:10F194}",
-      "{Skyrim.esm:10F195}",
-      "{Skyrim.esm:10F197}"
+      },
+      {
+        "name": "DATA - Camera Zoom",
+        "value": "Default, Must Have Camera Shots"
+      },
+      {
+        "name": "Camera Shots",
+        "elements": [
+          {
+            "name": "SNAM - Camera Shot",
+            "value": "{Skyrim.esm:10F194}"
+          },
+          {
+            "name": "SNAM - Camera Shot",
+            "value": "{Skyrim.esm:10F195}"
+          },
+          {
+            "name": "SNAM - Camera Shot",
+            "value": "{Skyrim.esm:10F197}"
+          }
+        ]
+      }
     ]
   }
 }

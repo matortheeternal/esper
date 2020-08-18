@@ -1,108 +1,398 @@
 {
   "0010CC8E": {
-    "Record Header": [
-      "WATR",
-      "471",
-      "",
-      "{Skyrim.esm:10CC8E}",
-      "00 00 00 00",
-      "39",
-      "00 00"
-    ],
-    "EDID - Editor ID": "DefaultWaterKatariahWorld",
-    "Unused": [
-      "Data\\Textures\\Water\\DefaultWater.dds",
-      "Data\\Textures\\Water\\DefaultWater.dds",
-      "Data\\Textures\\Water\\DefaultWater.dds"
-    ],
-    "ANAM - Opacity": "30",
-    "FNAM - Flags": "",
-    "DATA - Damage Per Second": "0",
-    "DNAM - Visual Data": [
-      "0.100000",
-      "90.000000",
-      "0.500000",
-      "1.000000",
-      "1021.000000",
-      "1.000000",
-      "0.050000",
-      "00 00 00 00",
-      "0.000000",
-      "110.000000",
-      [
-        "37",
-        "52",
-        "37",
-        "00"
-      ],
-      [
-        "5",
-        "16",
-        "5",
-        "00"
-      ],
-      [
-        "103",
-        "122",
-        "117",
-        "00"
-      ],
-      "32 CD CD CD",
-      "0.100000",
-      "0.600000",
-      "0.985000",
-      "2.000000",
-      "0.700000",
-      "0.100000",
-      "0.850000",
-      "0.800000",
-      "0.980000",
-      "0.050000",
-      "4007.000000",
-      "270.000000",
-      "209.000000",
-      "235.000000",
-      "0.025000",
-      "0.014000",
-      "0.135000",
-      "6200.000000",
-      "0.200000",
-      "0.930000",
-      "900.000000",
-      "1.000000",
-      "-1000.000000",
-      "1000.000000",
-      "9.000000",
-      "500.000000",
-      "0.000000",
-      "10000.000000",
-      "10.000000",
-      "1993.000000",
-      "6703.000000",
-      "500.000000",
-      "0.644800",
-      "0.558000",
-      "0.644900",
-      "0.340000",
-      "1.400000",
-      "3.200000",
-      "0.900000",
-      "0.500000",
-      "0.100000",
-      "0.200000",
-      "1480.000000",
-      ""
-    ],
-    "GNAM - Unused": "00 00 00 00 00 00 00 00 00 00 00 00",
-    "NAM0 - Linear Velocity": [
-      "0.220000",
-      "0.220000",
-      "0.000000"
-    ],
-    "NAM1 - Angular Velocity": [
-      "0.000000",
-      "0.000000",
-      "0.000000"
+    "elements": [
+      {
+        "name": "Record Header",
+        "elements": [
+          {
+            "name": "Signature",
+            "value": "WATR"
+          },
+          {
+            "name": "Data Size",
+            "value": "471"
+          },
+          {
+            "name": "Record Flags",
+            "value": ""
+          },
+          {
+            "name": "FormID",
+            "value": "{Skyrim.esm:10CC8E}"
+          },
+          {
+            "name": "Version Control Info 1",
+            "value": "00 00 00 00"
+          },
+          {
+            "name": "Form Version",
+            "value": "39"
+          },
+          {
+            "name": "Version Control Info 2",
+            "value": "00 00"
+          }
+        ]
+      },
+      {
+        "name": "EDID - Editor ID",
+        "value": "DefaultWaterKatariahWorld"
+      },
+      {
+        "name": "Unused",
+        "elements": [
+          {
+            "name": "NNAM - Noise Map",
+            "value": "Data\\Textures\\Water\\DefaultWater.dds"
+          },
+          {
+            "name": "NNAM - Noise Map",
+            "value": "Data\\Textures\\Water\\DefaultWater.dds"
+          },
+          {
+            "name": "NNAM - Noise Map",
+            "value": "Data\\Textures\\Water\\DefaultWater.dds"
+          }
+        ]
+      },
+      {
+        "name": "ANAM - Opacity",
+        "value": "30"
+      },
+      {
+        "name": "FNAM - Flags",
+        "value": ""
+      },
+      {
+        "name": "DATA - Damage Per Second",
+        "value": "0"
+      },
+      {
+        "name": "DNAM - Visual Data",
+        "elements": [
+          {
+            "name": "Unknown",
+            "value": "0.100000"
+          },
+          {
+            "name": "Unknown",
+            "value": "90.000000"
+          },
+          {
+            "name": "Unknown",
+            "value": "0.500000"
+          },
+          {
+            "name": "Unknown",
+            "value": "1.000000"
+          },
+          {
+            "name": "Specular Properties - Sun Specular Power",
+            "value": "1021.000000"
+          },
+          {
+            "name": "Water Properties - Reflectivity Amount",
+            "value": "1.000000"
+          },
+          {
+            "name": "Water Properties - Fresnel Amount",
+            "value": "0.050000"
+          },
+          {
+            "name": "Unknown",
+            "value": "00 00 00 00"
+          },
+          {
+            "name": "Fog Properties - Above Water - Fog Distance - Near Plane",
+            "value": "0.000000"
+          },
+          {
+            "name": "Fog Properties - Above Water - Fog Distance - Far Plane",
+            "value": "110.000000"
+          },
+          {
+            "name": "Shallow Color",
+            "elements": [
+              {
+                "name": "Red",
+                "value": "37"
+              },
+              {
+                "name": "Green",
+                "value": "52"
+              },
+              {
+                "name": "Blue",
+                "value": "37"
+              },
+              {
+                "name": "Unused",
+                "value": "00"
+              }
+            ]
+          },
+          {
+            "name": "Deep Color",
+            "elements": [
+              {
+                "name": "Red",
+                "value": "5"
+              },
+              {
+                "name": "Green",
+                "value": "16"
+              },
+              {
+                "name": "Blue",
+                "value": "5"
+              },
+              {
+                "name": "Unused",
+                "value": "00"
+              }
+            ]
+          },
+          {
+            "name": "Reflection Color",
+            "elements": [
+              {
+                "name": "Red",
+                "value": "103"
+              },
+              {
+                "name": "Green",
+                "value": "122"
+              },
+              {
+                "name": "Blue",
+                "value": "117"
+              },
+              {
+                "name": "Unused",
+                "value": "00"
+              }
+            ]
+          },
+          {
+            "name": "Unknown",
+            "value": "32 CD CD CD"
+          },
+          {
+            "name": "Unknown",
+            "value": "0.100000"
+          },
+          {
+            "name": "Unknown",
+            "value": "0.600000"
+          },
+          {
+            "name": "Unknown",
+            "value": "0.985000"
+          },
+          {
+            "name": "Unknown",
+            "value": "2.000000"
+          },
+          {
+            "name": "Displacement Simulator - Starting Size",
+            "value": "0.700000"
+          },
+          {
+            "name": "Displacement Simulator - Force",
+            "value": "0.100000"
+          },
+          {
+            "name": "Displacement Simulator - Velocity",
+            "value": "0.850000"
+          },
+          {
+            "name": "Displacement Simulator - Falloff",
+            "value": "0.800000"
+          },
+          {
+            "name": "Displacement Simulator - Dampner",
+            "value": "0.980000"
+          },
+          {
+            "name": "Unknown",
+            "value": "0.050000"
+          },
+          {
+            "name": "Noise Properties - Noise Falloff",
+            "value": "4007.000000"
+          },
+          {
+            "name": "Noise Properties - Layer One - Wind Direction",
+            "value": "270.000000"
+          },
+          {
+            "name": "Noise Properties - Layer Two - Wind Direction",
+            "value": "209.000000"
+          },
+          {
+            "name": "Noise Properties - Layer Three - Wind Direction",
+            "value": "235.000000"
+          },
+          {
+            "name": "Noise Properties - Layer One - Wind Speed",
+            "value": "0.025000"
+          },
+          {
+            "name": "Noise Properties - Layer Two - Wind Speed",
+            "value": "0.014000"
+          },
+          {
+            "name": "Noise Properties - Layer Three - Wind Speed",
+            "value": "0.135000"
+          },
+          {
+            "name": "Unknown",
+            "value": "6200.000000"
+          },
+          {
+            "name": "Unknown",
+            "value": "0.200000"
+          },
+          {
+            "name": "Fog Properties - Above Water - Fog Amount",
+            "value": "0.930000"
+          },
+          {
+            "name": "Unknown",
+            "value": "900.000000"
+          },
+          {
+            "name": "Fog Properties - Under Water - Fog Amount",
+            "value": "1.000000"
+          },
+          {
+            "name": "Fog Properties - Under Water - Fog Distance - Near Plane",
+            "value": "-1000.000000"
+          },
+          {
+            "name": "Fog Properties - Under Water - Fog Distance - Far Plane",
+            "value": "1000.000000"
+          },
+          {
+            "name": "Water Properties - Refraction Magnitude",
+            "value": "9.000000"
+          },
+          {
+            "name": "Specular Properties - Specular Power",
+            "value": "500.000000"
+          },
+          {
+            "name": "Unknown",
+            "value": "0.000000"
+          },
+          {
+            "name": "Specular Properties - Specular Radius",
+            "value": "10000.000000"
+          },
+          {
+            "name": "Specular Properties - Specular Brightness",
+            "value": "10.000000"
+          },
+          {
+            "name": "Noise Properties - Layer One - UV Scale",
+            "value": "1993.000000"
+          },
+          {
+            "name": "Noise Properties - Layer Two - UV Scale",
+            "value": "6703.000000"
+          },
+          {
+            "name": "Noise Properties - Layer Three - UV Scale",
+            "value": "500.000000"
+          },
+          {
+            "name": "Noise Properties - Layer One - Amplitude Scale",
+            "value": "0.644800"
+          },
+          {
+            "name": "Noise Properties - Layer Two - Amplitude Scale",
+            "value": "0.558000"
+          },
+          {
+            "name": "Noise Properties - Layer Three - Amplitude Scale",
+            "value": "0.644900"
+          },
+          {
+            "name": "Water Properties - Reflection Magnitude",
+            "value": "0.340000"
+          },
+          {
+            "name": "Specular Properties - Sun Sparkle Magnitude",
+            "value": "1.400000"
+          },
+          {
+            "name": "Specular Properties - Sun Specular Magnitude",
+            "value": "3.200000"
+          },
+          {
+            "name": "Depth Properties - Reflections",
+            "value": "0.900000"
+          },
+          {
+            "name": "Depth Properties - Refraction",
+            "value": "0.500000"
+          },
+          {
+            "name": "Depth Properties - Normals",
+            "value": "0.100000"
+          },
+          {
+            "name": "Depth Properties - Specular Lighting",
+            "value": "0.200000"
+          },
+          {
+            "name": "Specular Properties - Sun Sparkle Power",
+            "value": "1480.000000"
+          },
+          {
+            "name": "Noise Properties - Flowmap Scale",
+            "value": ""
+          }
+        ]
+      },
+      {
+        "name": "GNAM - Unused",
+        "value": "00 00 00 00 00 00 00 00 00 00 00 00"
+      },
+      {
+        "name": "NAM0 - Linear Velocity",
+        "elements": [
+          {
+            "name": "X",
+            "value": "0.220000"
+          },
+          {
+            "name": "Y",
+            "value": "0.220000"
+          },
+          {
+            "name": "Z",
+            "value": "0.000000"
+          }
+        ]
+      },
+      {
+        "name": "NAM1 - Angular Velocity",
+        "elements": [
+          {
+            "name": "X",
+            "value": "0.000000"
+          },
+          {
+            "name": "Y",
+            "value": "0.000000"
+          },
+          {
+            "name": "Z",
+            "value": "0.000000"
+          }
+        ]
+      }
     ]
   }
 }

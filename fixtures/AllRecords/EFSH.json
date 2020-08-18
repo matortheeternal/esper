@@ -1,165 +1,614 @@
 {
   "00000E5C": {
-    "Record Header": [
-      "EFSH",
-      "500",
-      "",
-      "{Skyrim.esm:000E5C}",
-      "00 00 00 00",
-      "40",
-      "00 00"
-    ],
-    "EDID - Editor ID": "InvisFXShaderNightingale",
-    "ICON - Fill Texture": "",
-    "ICO2 - Particle Shader Texture": "Effects\\MagicSquiggles01.dds",
-    "NAM7 - Holes Texture": "",
-    "NAM8 - Membrane Palette Texture": "",
-    "NAM9 - Particle Palette Texture": "",
-    "DATA - ": [
-      "00 35 20 52",
-      "Source Alpha",
-      "Add",
-      "Equal To",
-      [
-        "0",
-        "0",
-        "0",
-        "00"
-      ],
-      "0.100000",
-      "0.200000",
-      "0.200000",
-      "0.000000",
-      "0.000000",
-      "1.000000",
-      "0.000000",
-      "0.000000",
-      "1.000000",
-      [
-        "0",
-        "0",
-        "0",
-        "00"
-      ],
-      "0.000000",
-      "0.000000",
-      "0.000000",
-      "0.000000",
-      "0.000000",
-      "1.000000",
-      "0.010000",
-      "1.000000",
-      "Source Inverted Alpha",
-      "Source Alpha",
-      "Add",
-      "Normal",
-      "Source Inverted Alpha",
-      "0.010000",
-      "0.100000",
-      "0.030000",
-      "100.000000",
-      "0.000000",
-      "0.400000",
-      "0.100000",
-      "150.000000",
-      "-100.000000",
-      "0.000000",
-      "0.000000",
-      "0.000000",
-      "0.000000",
-      "0.000000",
-      "80.000000",
-      "20.000000",
-      "50.000000",
-      "0.000000",
-      "1.000000",
-      [
-        "5",
-        "11",
-        "54",
-        "00"
-      ],
-      [
-        "205",
-        "47",
-        "7",
-        "00"
-      ],
-      [
-        "6",
-        "15",
-        "72",
-        "00"
-      ],
-      "1.000000",
-      "0.900000",
-      "0.400000",
-      "0.100000",
-      "0.300000",
-      "0.700000",
-      "50.000000",
-      "0.000000",
-      "180.000000",
-      "0.000000",
-      "5.000000",
-      "{Null:000000}",
-      "0.000000",
-      "10.000000",
-      "255.000000",
-      "0.000000",
-      "0.000000",
-      [
-        "255",
-        "255",
-        "255",
-        "00"
-      ],
-      "0.000000",
-      "2",
-      "2",
-      "1.000000",
-      "1.000000",
-      "1.000000",
-      "1.000000",
-      "1.000000",
-      "1.000000",
-      "{Skyrim.esm:058E0E}",
-      [
-        "0",
-        "0",
-        "0",
-        "00"
-      ],
-      [
-        "0",
-        "0",
-        "0",
-        "00"
-      ],
-      [
-        "0.000000",
-        "0.000000",
-        "0.000000",
-        "0.000000",
-        "0.000000",
-        "0.000000"
-      ],
-      "1.000000",
-      "0.000000",
-      "0.000000",
-      [
-        "0",
-        "0",
-        "0",
-        "0",
-        "0",
-        "0",
-        "0"
-      ],
-      "",
-      "1.000000",
-      "1.000000",
-      "0"
+    "elements": [
+      {
+        "name": "Record Header",
+        "elements": [
+          {
+            "name": "Signature",
+            "value": "EFSH"
+          },
+          {
+            "name": "Data Size",
+            "value": "500"
+          },
+          {
+            "name": "Record Flags",
+            "value": ""
+          },
+          {
+            "name": "FormID",
+            "value": "{Skyrim.esm:000E5C}"
+          },
+          {
+            "name": "Version Control Info 1",
+            "value": "00 00 00 00"
+          },
+          {
+            "name": "Form Version",
+            "value": "40"
+          },
+          {
+            "name": "Version Control Info 2",
+            "value": "00 00"
+          }
+        ]
+      },
+      {
+        "name": "EDID - Editor ID",
+        "value": "InvisFXShaderNightingale"
+      },
+      {
+        "name": "ICON - Fill Texture",
+        "value": ""
+      },
+      {
+        "name": "ICO2 - Particle Shader Texture",
+        "value": "Effects\\MagicSquiggles01.dds"
+      },
+      {
+        "name": "NAM7 - Holes Texture",
+        "value": ""
+      },
+      {
+        "name": "NAM8 - Membrane Palette Texture",
+        "value": ""
+      },
+      {
+        "name": "NAM9 - Particle Palette Texture",
+        "value": ""
+      },
+      {
+        "name": "DATA - ",
+        "elements": [
+          {
+            "name": "Unknown",
+            "value": "00 35 20 52"
+          },
+          {
+            "name": "Membrane Shader - Source Blend Mode",
+            "value": "Source Alpha"
+          },
+          {
+            "name": "Membrane Shader - Blend Operation",
+            "value": "Add"
+          },
+          {
+            "name": "Membrane Shader - Z Test Function",
+            "value": "Equal To"
+          },
+          {
+            "name": "Fill/Texture Effect - Color Key 1",
+            "elements": [
+              {
+                "name": "Red",
+                "value": "0"
+              },
+              {
+                "name": "Green",
+                "value": "0"
+              },
+              {
+                "name": "Blue",
+                "value": "0"
+              },
+              {
+                "name": "Unused",
+                "value": "00"
+              }
+            ]
+          },
+          {
+            "name": "Fill/Texture Effect - Alpha Fade In Time",
+            "value": "0.100000"
+          },
+          {
+            "name": "Fill/Texture Effect - Full Alpha Time",
+            "value": "0.200000"
+          },
+          {
+            "name": "Fill/Texture Effect - Alpha Fade Out Time",
+            "value": "0.200000"
+          },
+          {
+            "name": "Fill/Texture Effect - Presistent Alpha Ratio",
+            "value": "0.000000"
+          },
+          {
+            "name": "Fill/Texture Effect - Alpha Pulse Amplitude",
+            "value": "0.000000"
+          },
+          {
+            "name": "Fill/Texture Effect - Alpha Pulse Frequency",
+            "value": "1.000000"
+          },
+          {
+            "name": "Fill/Texture Effect - Texture Animation Speed (U)",
+            "value": "0.000000"
+          },
+          {
+            "name": "Fill/Texture Effect - Texture Animation Speed (V)",
+            "value": "0.000000"
+          },
+          {
+            "name": "Edge Effect - Fall Off",
+            "value": "1.000000"
+          },
+          {
+            "name": "Edge Effect - Color",
+            "elements": [
+              {
+                "name": "Red",
+                "value": "0"
+              },
+              {
+                "name": "Green",
+                "value": "0"
+              },
+              {
+                "name": "Blue",
+                "value": "0"
+              },
+              {
+                "name": "Unused",
+                "value": "00"
+              }
+            ]
+          },
+          {
+            "name": "Edge Effect - Alpha Fade In Time",
+            "value": "0.000000"
+          },
+          {
+            "name": "Edge Effect - Full Alpha Time",
+            "value": "0.000000"
+          },
+          {
+            "name": "Edge Effect - Alpha Fade Out Time",
+            "value": "0.000000"
+          },
+          {
+            "name": "Edge Effect - Persistent Alpha Ratio",
+            "value": "0.000000"
+          },
+          {
+            "name": "Edge Effect - Alpha Pulse Amplitude",
+            "value": "0.000000"
+          },
+          {
+            "name": "Edge Effect - Alpha Pulse Frequency",
+            "value": "1.000000"
+          },
+          {
+            "name": "Fill/Texture Effect - Full Alpha Ratio",
+            "value": "0.010000"
+          },
+          {
+            "name": "Edge Effect - Full Alpha Ratio",
+            "value": "1.000000"
+          },
+          {
+            "name": "Membrane Shader - Dest Blend Mode",
+            "value": "Source Inverted Alpha"
+          },
+          {
+            "name": "Particle Shader - Source Blend Mode",
+            "value": "Source Alpha"
+          },
+          {
+            "name": "Particle Shader - Blend Operation",
+            "value": "Add"
+          },
+          {
+            "name": "Particle Shader - Z Test Function",
+            "value": "Normal"
+          },
+          {
+            "name": "Particle Shader - Dest Blend Mode",
+            "value": "Source Inverted Alpha"
+          },
+          {
+            "name": "Particle Shader - Particle Birth Ramp Up Time",
+            "value": "0.010000"
+          },
+          {
+            "name": "Particle Shader - Full Particle Birth Time",
+            "value": "0.100000"
+          },
+          {
+            "name": "Particle Shader - Particle Birth Ramp Down Time",
+            "value": "0.030000"
+          },
+          {
+            "name": "Particle Shader - Full Particle Birth Ratio",
+            "value": "100.000000"
+          },
+          {
+            "name": "Particle Shader - Persistant Particle Count",
+            "value": "0.000000"
+          },
+          {
+            "name": "Particle Shader - Particle Lifetime",
+            "value": "0.400000"
+          },
+          {
+            "name": "Particle Shader - Particle Lifetime +/-",
+            "value": "0.100000"
+          },
+          {
+            "name": "Particle Shader - Initial Speed Along Normal",
+            "value": "150.000000"
+          },
+          {
+            "name": "Particle Shader - Acceleration Along Normal",
+            "value": "-100.000000"
+          },
+          {
+            "name": "Particle Shader - Initial Velocity #1",
+            "value": "0.000000"
+          },
+          {
+            "name": "Particle Shader - Initial Velocity #2",
+            "value": "0.000000"
+          },
+          {
+            "name": "Particle Shader - Initial Velocity #3",
+            "value": "0.000000"
+          },
+          {
+            "name": "Particle Shader - Acceleration #1",
+            "value": "0.000000"
+          },
+          {
+            "name": "Particle Shader - Acceleration #2",
+            "value": "0.000000"
+          },
+          {
+            "name": "Particle Shader - Acceleration #3",
+            "value": "80.000000"
+          },
+          {
+            "name": "Particle Shader - Scale Key 1",
+            "value": "20.000000"
+          },
+          {
+            "name": "Particle Shader - Scale Key 2",
+            "value": "50.000000"
+          },
+          {
+            "name": "Particle Shader - Scale Key 1 Time",
+            "value": "0.000000"
+          },
+          {
+            "name": "Particle Shader - Scale Key 2 Time",
+            "value": "1.000000"
+          },
+          {
+            "name": "Color Key 1 - Color",
+            "elements": [
+              {
+                "name": "Red",
+                "value": "5"
+              },
+              {
+                "name": "Green",
+                "value": "11"
+              },
+              {
+                "name": "Blue",
+                "value": "54"
+              },
+              {
+                "name": "Unused",
+                "value": "00"
+              }
+            ]
+          },
+          {
+            "name": "Color Key 2 - Color",
+            "elements": [
+              {
+                "name": "Red",
+                "value": "205"
+              },
+              {
+                "name": "Green",
+                "value": "47"
+              },
+              {
+                "name": "Blue",
+                "value": "7"
+              },
+              {
+                "name": "Unused",
+                "value": "00"
+              }
+            ]
+          },
+          {
+            "name": "Color Key 3 - Color",
+            "elements": [
+              {
+                "name": "Red",
+                "value": "6"
+              },
+              {
+                "name": "Green",
+                "value": "15"
+              },
+              {
+                "name": "Blue",
+                "value": "72"
+              },
+              {
+                "name": "Unused",
+                "value": "00"
+              }
+            ]
+          },
+          {
+            "name": "Color Key 1 - Color Alpha",
+            "value": "1.000000"
+          },
+          {
+            "name": "Color Key 2 - Color Alpha",
+            "value": "0.900000"
+          },
+          {
+            "name": "Color Key 3 - Color Alpha",
+            "value": "0.400000"
+          },
+          {
+            "name": "Color Key 1 - Color Key Time",
+            "value": "0.100000"
+          },
+          {
+            "name": "Color Key 2 - Color Key Time",
+            "value": "0.300000"
+          },
+          {
+            "name": "Color Key 3 - Color Key Time",
+            "value": "0.700000"
+          },
+          {
+            "name": "Particle Shader - Initial Speed Along Normal +/-",
+            "value": "50.000000"
+          },
+          {
+            "name": "Particle Shader - Initial Rotation (deg)",
+            "value": "0.000000"
+          },
+          {
+            "name": "Particle Shader - Initial Rotation (deg) +/-",
+            "value": "180.000000"
+          },
+          {
+            "name": "Particle Shader - Rotation Speed (deg/sec)",
+            "value": "0.000000"
+          },
+          {
+            "name": "Particle Shader - Rotation Speed (deg/sec) +/-",
+            "value": "5.000000"
+          },
+          {
+            "name": "Addon Models",
+            "value": "{Null:000000}"
+          },
+          {
+            "name": "Holes - Start Time",
+            "value": "0.000000"
+          },
+          {
+            "name": "Holes - End Time",
+            "value": "10.000000"
+          },
+          {
+            "name": "Holes - Start Val",
+            "value": "255.000000"
+          },
+          {
+            "name": "Holes - End Val",
+            "value": "0.000000"
+          },
+          {
+            "name": "Edge Width (alpha units)",
+            "value": "0.000000"
+          },
+          {
+            "name": "Edge Color",
+            "elements": [
+              {
+                "name": "Red",
+                "value": "255"
+              },
+              {
+                "name": "Green",
+                "value": "255"
+              },
+              {
+                "name": "Blue",
+                "value": "255"
+              },
+              {
+                "name": "Unused",
+                "value": "00"
+              }
+            ]
+          },
+          {
+            "name": "Explosion Wind Speed",
+            "value": "0.000000"
+          },
+          {
+            "name": "Texture Count U",
+            "value": "2"
+          },
+          {
+            "name": "Texture Count V",
+            "value": "2"
+          },
+          {
+            "name": "Addon Models - Fade In Time",
+            "value": "1.000000"
+          },
+          {
+            "name": "Addon Models - Fade Out Time",
+            "value": "1.000000"
+          },
+          {
+            "name": "Addon Models - Scale Start",
+            "value": "1.000000"
+          },
+          {
+            "name": "Addon Models - Scale End",
+            "value": "1.000000"
+          },
+          {
+            "name": "Addon Models - Scale In Time",
+            "value": "1.000000"
+          },
+          {
+            "name": "Addon Models - Scale Out Time",
+            "value": "1.000000"
+          },
+          {
+            "name": "Ambient Sound",
+            "value": "{Skyrim.esm:058E0E}"
+          },
+          {
+            "name": "Fill/Texture Effect - Color Key 2",
+            "elements": [
+              {
+                "name": "Red",
+                "value": "0"
+              },
+              {
+                "name": "Green",
+                "value": "0"
+              },
+              {
+                "name": "Blue",
+                "value": "0"
+              },
+              {
+                "name": "Unused",
+                "value": "00"
+              }
+            ]
+          },
+          {
+            "name": "Fill/Texture Effect - Color Key 3",
+            "elements": [
+              {
+                "name": "Red",
+                "value": "0"
+              },
+              {
+                "name": "Green",
+                "value": "0"
+              },
+              {
+                "name": "Blue",
+                "value": "0"
+              },
+              {
+                "name": "Unused",
+                "value": "00"
+              }
+            ]
+          },
+          {
+            "name": "Fill/Texture Effect - Color Key Scale/Time",
+            "elements": [
+              {
+                "name": "Color Key 1 - Scale",
+                "value": "0.000000"
+              },
+              {
+                "name": "Color Key 2 - Scale",
+                "value": "0.000000"
+              },
+              {
+                "name": "Color Key 3 - Scale",
+                "value": "0.000000"
+              },
+              {
+                "name": "Color Key 1 - Time",
+                "value": "0.000000"
+              },
+              {
+                "name": "Color Key 2 - Time",
+                "value": "0.000000"
+              },
+              {
+                "name": "Color Key 3 - Time",
+                "value": "0.000000"
+              }
+            ]
+          },
+          {
+            "name": "Color Scale",
+            "value": "1.000000"
+          },
+          {
+            "name": "Birth Position Offset",
+            "value": "0.000000"
+          },
+          {
+            "name": "Birth Position Offset Range +/-",
+            "value": "0.000000"
+          },
+          {
+            "name": "Particle Shader Animated",
+            "elements": [
+              {
+                "name": "Start Frame",
+                "value": "0"
+              },
+              {
+                "name": "Start Frame Variation",
+                "value": "0"
+              },
+              {
+                "name": "End Frame",
+                "value": "0"
+              },
+              {
+                "name": "Loop Start Frame",
+                "value": "0"
+              },
+              {
+                "name": "Loop Start Variation",
+                "value": "0"
+              },
+              {
+                "name": "Frame Count",
+                "value": "0"
+              },
+              {
+                "name": "Frame Count Variation",
+                "value": "0"
+              }
+            ]
+          },
+          {
+            "name": "Flags",
+            "value": ""
+          },
+          {
+            "name": "Fill/Texture Effect - Texture Scale (U)",
+            "value": "1.000000"
+          },
+          {
+            "name": "Fill/Texture Effect - Texture Scale (V)",
+            "value": "1.000000"
+          },
+          {
+            "name": "Scene Graph Emit Depth Limit (unused)",
+            "value": "0"
+          }
+        ]
+      }
     ]
   }
 }

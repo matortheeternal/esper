@@ -1,38 +1,133 @@
 {
   "000172AB": {
-    "Record Header": [
-      "FSTS",
-      "138",
-      "",
-      "{Skyrim.esm:0172AB}",
-      "00 00 00 00",
-      "40",
-      "00 00"
-    ],
-    "EDID - Editor ID": "NPCDragonPaarthurnaxFootWalkFootstepSet",
-    "XCNT - Count": [
-      "3",
-      "3",
-      "3",
-      "3",
-      "3"
-    ],
-    "DATA - Footstep Sets": [
-      "{Skyrim.esm:0172AA}",
-      "{Skyrim.esm:01CB27}",
-      "{Skyrim.esm:01CB26}",
-      "{Skyrim.esm:0172AA}",
-      "{Skyrim.esm:01CB27}",
-      "{Skyrim.esm:01CB26}",
-      "{Skyrim.esm:0172AA}",
-      "{Skyrim.esm:01CB27}",
-      "{Skyrim.esm:01CB26}",
-      "{Skyrim.esm:0172AA}",
-      "{Skyrim.esm:01CB27}",
-      "{Skyrim.esm:01CB26}",
-      "{Skyrim.esm:0172AA}",
-      "{Skyrim.esm:01CB27}",
-      "{Skyrim.esm:01CB26}"
+    "elements": [
+      {
+        "name": "Record Header",
+        "elements": [
+          {
+            "name": "Signature",
+            "value": "FSTS"
+          },
+          {
+            "name": "Data Size",
+            "value": "138"
+          },
+          {
+            "name": "Record Flags",
+            "value": ""
+          },
+          {
+            "name": "FormID",
+            "value": "{Skyrim.esm:0172AB}"
+          },
+          {
+            "name": "Version Control Info 1",
+            "value": "00 00 00 00"
+          },
+          {
+            "name": "Form Version",
+            "value": "40"
+          },
+          {
+            "name": "Version Control Info 2",
+            "value": "00 00"
+          }
+        ]
+      },
+      {
+        "name": "EDID - Editor ID",
+        "value": "NPCDragonPaarthurnaxFootWalkFootstepSet"
+      },
+      {
+        "name": "XCNT - Count",
+        "elements": [
+          {
+            "name": "Walk Forward Sets",
+            "value": "3"
+          },
+          {
+            "name": "Run Forward Sets",
+            "value": "3"
+          },
+          {
+            "name": "Walk Forward Alternate Sets",
+            "value": "3"
+          },
+          {
+            "name": "Run Forward Alternate Sets",
+            "value": "3"
+          },
+          {
+            "name": "Walk Forward Alternate 2 Sets",
+            "value": "3"
+          }
+        ]
+      },
+      {
+        "name": "DATA - Footstep Sets",
+        "elements": [
+          {
+            "name": "Footstep #0",
+            "value": "{Skyrim.esm:0172AA}"
+          },
+          {
+            "name": "Footstep #1",
+            "value": "{Skyrim.esm:01CB27}"
+          },
+          {
+            "name": "Footstep #2",
+            "value": "{Skyrim.esm:01CB26}"
+          },
+          {
+            "name": "Footstep #3",
+            "value": "{Skyrim.esm:0172AA}"
+          },
+          {
+            "name": "Footstep #4",
+            "value": "{Skyrim.esm:01CB27}"
+          },
+          {
+            "name": "Footstep #5",
+            "value": "{Skyrim.esm:01CB26}"
+          },
+          {
+            "name": "Footstep #6",
+            "value": "{Skyrim.esm:0172AA}"
+          },
+          {
+            "name": "Footstep #7",
+            "value": "{Skyrim.esm:01CB27}"
+          },
+          {
+            "name": "Footstep #8",
+            "value": "{Skyrim.esm:01CB26}"
+          },
+          {
+            "name": "Footstep #9",
+            "value": "{Skyrim.esm:0172AA}"
+          },
+          {
+            "name": "Footstep #10",
+            "value": "{Skyrim.esm:01CB27}"
+          },
+          {
+            "name": "Footstep #11",
+            "value": "{Skyrim.esm:01CB26}"
+          },
+          {
+            "name": "Footstep #12",
+            "value": "{Skyrim.esm:0172AA}"
+          },
+          {
+            "name": "Footstep #13",
+            "value": "{Skyrim.esm:01CB27}"
+          },
+          {
+            "name": "Footstep #14",
+            "value": "{Skyrim.esm:01CB26}"
+          }
+        ]
+      }
     ]
   }
 }

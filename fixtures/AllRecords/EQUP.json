@@ -1,15 +1,47 @@
 {
   "00035698": {
-    "Record Header": [
-      "EQUP",
-      "23",
-      "",
-      "{Skyrim.esm:035698}",
-      "00 00 00 00",
-      "19",
-      "00 00"
-    ],
-    "EDID - Editor ID": "Potion",
-    "DATA - Use All Parents": "False"
+    "elements": [
+      {
+        "name": "Record Header",
+        "elements": [
+          {
+            "name": "Signature",
+            "value": "EQUP"
+          },
+          {
+            "name": "Data Size",
+            "value": "23"
+          },
+          {
+            "name": "Record Flags",
+            "value": ""
+          },
+          {
+            "name": "FormID",
+            "value": "{Skyrim.esm:035698}"
+          },
+          {
+            "name": "Version Control Info 1",
+            "value": "00 00 00 00"
+          },
+          {
+            "name": "Form Version",
+            "value": "19"
+          },
+          {
+            "name": "Version Control Info 2",
+            "value": "00 00"
+          }
+        ]
+      },
+      {
+        "name": "EDID - Editor ID",
+        "value": "Potion"
+      },
+      {
+        "name": "DATA - Use All Parents",
+        "value": "False"
+      }
+    ]
   }
 }

@@ -1,70 +1,231 @@
 {
   "0010E44B": {
-    "Record Header": [
-      "MISC",
-      "326",
-      "",
-      "{Skyrim.esm:10E44B}",
-      "00 00 00 00",
-      "44",
-      "00 00"
-    ],
-    "EDID - Editor ID": "MGRArniel04SoulGem",
-    "VMAD - Virtual Machine Adapter": [
-      "5",
-      "2",
-      [
-        [
-          "defaultBlockActivation",
-          "Local",
-          []
-        ],
-        [
-          "defaultDisableHavokOnLoad",
-          "Local",
-          [
-            [
-              "havokOnActivate",
-              "Bool",
-              "Edited",
-              "False"
-            ],
-            [
-              "havokOnHit",
-              "Bool",
-              "Edited",
-              "False"
-            ],
-            [
-              "havokOnZKey",
-              "Bool",
-              "Edited",
-              "False"
-            ]
-          ]
+    "elements": [
+      {
+        "name": "Record Header",
+        "elements": [
+          {
+            "name": "Signature",
+            "value": "MISC"
+          },
+          {
+            "name": "Data Size",
+            "value": "326"
+          },
+          {
+            "name": "Record Flags",
+            "value": ""
+          },
+          {
+            "name": "FormID",
+            "value": "{Skyrim.esm:10E44B}"
+          },
+          {
+            "name": "Version Control Info 1",
+            "value": "00 00 00 00"
+          },
+          {
+            "name": "Form Version",
+            "value": "44"
+          },
+          {
+            "name": "Version Control Info 2",
+            "value": "00 00"
+          }
         ]
-      ]
-    ],
-    "OBND - Object Bounds": [
-      "-8",
-      "-9",
-      "-12",
-      "8",
-      "9",
-      "12"
-    ],
-    "FULL - Name": "Warped Soul Gem",
-    "Model": [
-      "Clutter\\SoulGem\\SoulGemGrand01.nif",
-      "02 00 00 00 04 00 00 00 00 00 00 00 C7 5A 95 9F 64 64 73 00 F7 BB 84 5B 32 6B 2C 98 64 64 73 00 F7 BB 84 5B 8B 83 00 08 64 64 73 00 F7 BB 84 5B A8 37 08 C1 64 64 73 00 26 2C 33 3B"
-    ],
-    "KSIZ - Keyword Count": "1",
-    "KWDA - Keywords": [
-      "{Skyrim.esm:0914ED}"
-    ],
-    "DATA - Data": [
-      "0",
-      "0.500000"
+      },
+      {
+        "name": "EDID - Editor ID",
+        "value": "MGRArniel04SoulGem"
+      },
+      {
+        "name": "VMAD - Virtual Machine Adapter",
+        "elements": [
+          {
+            "name": "Version",
+            "value": "5"
+          },
+          {
+            "name": "Object Format",
+            "value": "2"
+          },
+          {
+            "name": "Scripts",
+            "elements": [
+              {
+                "name": "Script",
+                "elements": [
+                  {
+                    "name": "scriptName",
+                    "value": "defaultBlockActivation"
+                  },
+                  {
+                    "name": "Flags",
+                    "value": "Local"
+                  },
+                  {
+                    "name": "Properties",
+                    "elements": []
+                  }
+                ]
+              },
+              {
+                "name": "Script",
+                "elements": [
+                  {
+                    "name": "scriptName",
+                    "value": "defaultDisableHavokOnLoad"
+                  },
+                  {
+                    "name": "Flags",
+                    "value": "Local"
+                  },
+                  {
+                    "name": "Properties",
+                    "elements": [
+                      {
+                        "name": "Property",
+                        "elements": [
+                          {
+                            "name": "propertyName",
+                            "value": "havokOnActivate"
+                          },
+                          {
+                            "name": "Type",
+                            "value": "Bool"
+                          },
+                          {
+                            "name": "Flags",
+                            "value": "Edited"
+                          },
+                          {
+                            "name": "Value",
+                            "value": "False"
+                          }
+                        ]
+                      },
+                      {
+                        "name": "Property",
+                        "elements": [
+                          {
+                            "name": "propertyName",
+                            "value": "havokOnHit"
+                          },
+                          {
+                            "name": "Type",
+                            "value": "Bool"
+                          },
+                          {
+                            "name": "Flags",
+                            "value": "Edited"
+                          },
+                          {
+                            "name": "Value",
+                            "value": "False"
+                          }
+                        ]
+                      },
+                      {
+                        "name": "Property",
+                        "elements": [
+                          {
+                            "name": "propertyName",
+                            "value": "havokOnZKey"
+                          },
+                          {
+                            "name": "Type",
+                            "value": "Bool"
+                          },
+                          {
+                            "name": "Flags",
+                            "value": "Edited"
+                          },
+                          {
+                            "name": "Value",
+                            "value": "False"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "OBND - Object Bounds",
+        "elements": [
+          {
+            "name": "X1",
+            "value": "-8"
+          },
+          {
+            "name": "Y1",
+            "value": "-9"
+          },
+          {
+            "name": "Z1",
+            "value": "-12"
+          },
+          {
+            "name": "X2",
+            "value": "8"
+          },
+          {
+            "name": "Y2",
+            "value": "9"
+          },
+          {
+            "name": "Z2",
+            "value": "12"
+          }
+        ]
+      },
+      {
+        "name": "FULL - Name",
+        "value": "Warped Soul Gem"
+      },
+      {
+        "name": "Model",
+        "elements": [
+          {
+            "name": "MODL - Model FileName",
+            "value": "Clutter\\SoulGem\\SoulGemGrand01.nif"
+          },
+          {
+            "name": "MODT - Texture Files Hashes",
+            "value": "02 00 00 00 04 00 00 00 00 00 00 00 C7 5A 95 9F 64 64 73 00 F7 BB 84 5B 32 6B 2C 98 64 64 73 00 F7 BB 84 5B 8B 83 00 08 64 64 73 00 F7 BB 84 5B A8 37 08 C1 64 64 73 00 26 2C 33 3B"
+          }
+        ]
+      },
+      {
+        "name": "KSIZ - Keyword Count",
+        "value": "1"
+      },
+      {
+        "name": "KWDA - Keywords",
+        "elements": [
+          {
+            "name": "Keyword",
+            "value": "{Skyrim.esm:0914ED}"
+          }
+        ]
+      },
+      {
+        "name": "DATA - Data",
+        "elements": [
+          {
+            "name": "Value",
+            "value": "0"
+          },
+          {
+            "name": "Weight",
+            "value": "0.500000"
+          }
+        ]
+      }
     ]
   }
 }

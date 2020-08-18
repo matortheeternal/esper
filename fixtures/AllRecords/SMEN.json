@@ -1,19 +1,63 @@
 {
   "00039D86": {
-    "Record Header": [
-      "SMEN",
-      "60",
-      "",
-      "{Skyrim.esm:039D86}",
-      "00 00 00 00",
-      "35",
-      "00 00"
-    ],
-    "PNAM - Parent ": "{Skyrim.esm:00005B}",
-    "SNAM - Child ": "{Null:000000}",
-    "CITC - Condition Count": "0",
-    "DNAM - Flags": "",
-    "XNAM - Unknown": "00 00 00 00",
-    "ENAM - Type": "CRFT"
+    "elements": [
+      {
+        "name": "Record Header",
+        "elements": [
+          {
+            "name": "Signature",
+            "value": "SMEN"
+          },
+          {
+            "name": "Data Size",
+            "value": "60"
+          },
+          {
+            "name": "Record Flags",
+            "value": ""
+          },
+          {
+            "name": "FormID",
+            "value": "{Skyrim.esm:039D86}"
+          },
+          {
+            "name": "Version Control Info 1",
+            "value": "00 00 00 00"
+          },
+          {
+            "name": "Form Version",
+            "value": "35"
+          },
+          {
+            "name": "Version Control Info 2",
+            "value": "00 00"
+          }
+        ]
+      },
+      {
+        "name": "PNAM - Parent ",
+        "value": "{Skyrim.esm:00005B}"
+      },
+      {
+        "name": "SNAM - Child ",
+        "value": "{Null:000000}"
+      },
+      {
+        "name": "CITC - Condition Count",
+        "value": "0"
+      },
+      {
+        "name": "DNAM - Flags",
+        "value": ""
+      },
+      {
+        "name": "XNAM - Unknown",
+        "value": "00 00 00 00"
+      },
+      {
+        "name": "ENAM - Type",
+        "value": "CRFT"
+      }
+    ]
   }
 }

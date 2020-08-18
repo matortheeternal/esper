@@ -1,45 +1,155 @@
 {
   "00000E01": {
-    "Record Header": [
-      "IPCT",
-      "121",
-      "",
-      "{Skyrim.esm:000E01}",
-      "00 00 00 00",
-      "40",
-      "00 00"
-    ],
-    "EDID - Editor ID": "MAGPowerSerpentStoneImpactImpact",
-    "DATA - ": [
-      "0.250000",
-      "Projectile Reflection",
-      "15.000000",
-      "16.000000",
-      "Normal",
-      "",
-      "Default",
-      "00 00"
-    ],
-    "DODT - Decal Data": [
-      "8.000000",
-      "32.000000",
-      "8.000000",
-      "32.000000",
-      "32.000000",
-      "4.000000",
-      [
-        "1.000000",
-        "4"
-      ],
-      "",
-      "00 00",
-      [
-        "255",
-        "255",
-        "255",
-        "00"
-      ]
-    ],
-    "SNAM - Sound 1": "{Skyrim.esm:000DFF}"
+    "elements": [
+      {
+        "name": "Record Header",
+        "elements": [
+          {
+            "name": "Signature",
+            "value": "IPCT"
+          },
+          {
+            "name": "Data Size",
+            "value": "121"
+          },
+          {
+            "name": "Record Flags",
+            "value": ""
+          },
+          {
+            "name": "FormID",
+            "value": "{Skyrim.esm:000E01}"
+          },
+          {
+            "name": "Version Control Info 1",
+            "value": "00 00 00 00"
+          },
+          {
+            "name": "Form Version",
+            "value": "40"
+          },
+          {
+            "name": "Version Control Info 2",
+            "value": "00 00"
+          }
+        ]
+      },
+      {
+        "name": "EDID - Editor ID",
+        "value": "MAGPowerSerpentStoneImpactImpact"
+      },
+      {
+        "name": "DATA - ",
+        "elements": [
+          {
+            "name": "Effect - Duration",
+            "value": "0.250000"
+          },
+          {
+            "name": "Effect - Orientation",
+            "value": "Projectile Reflection"
+          },
+          {
+            "name": "Angle Threshold",
+            "value": "15.000000"
+          },
+          {
+            "name": "Placement Radius",
+            "value": "16.000000"
+          },
+          {
+            "name": "Sound Level",
+            "value": "Normal"
+          },
+          {
+            "name": "Flags",
+            "value": ""
+          },
+          {
+            "name": "Impact Result",
+            "value": "Default"
+          },
+          {
+            "name": "Unknown",
+            "value": "00 00"
+          }
+        ]
+      },
+      {
+        "name": "DODT - Decal Data",
+        "elements": [
+          {
+            "name": "Min Width",
+            "value": "8.000000"
+          },
+          {
+            "name": "Max Width",
+            "value": "32.000000"
+          },
+          {
+            "name": "Min Height",
+            "value": "8.000000"
+          },
+          {
+            "name": "Max Height",
+            "value": "32.000000"
+          },
+          {
+            "name": "Depth",
+            "value": "32.000000"
+          },
+          {
+            "name": "Shininess",
+            "value": "4.000000"
+          },
+          {
+            "name": "Parallax",
+            "elements": [
+              {
+                "name": "Scale",
+                "value": "1.000000"
+              },
+              {
+                "name": "Passes",
+                "value": "4"
+              }
+            ]
+          },
+          {
+            "name": "Flags",
+            "value": ""
+          },
+          {
+            "name": "Unknown",
+            "value": "00 00"
+          },
+          {
+            "name": "Color",
+            "elements": [
+              {
+                "name": "Red",
+                "value": "255"
+              },
+              {
+                "name": "Green",
+                "value": "255"
+              },
+              {
+                "name": "Blue",
+                "value": "255"
+              },
+              {
+                "name": "Unused",
+                "value": "00"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "SNAM - Sound 1",
+        "value": "{Skyrim.esm:000DFF}"
+      }
+    ]
   }
 }

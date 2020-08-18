@@ -1,39 +1,125 @@
 {
   "00000F91": {
-    "Record Header": [
-      "CLMT",
-      "133",
-      "",
-      "{Skyrim.esm:000F91}",
-      "00 00 00 00",
-      "40",
-      "00 00"
-    ],
-    "EDID - Editor ID": "KarthspireClimate",
-    "WLST - Weather Types": [
-      [
-        "{Skyrim.esm:106635}",
-        "100",
-        "{Null:000000}"
-      ]
-    ],
-    "FNAM - Sun Texture": "Sky\\Sun.dds",
-    "GNAM - Sun Glare Texture": "Sky\\SunGlare.dds",
-    "Model": [
-      "Sky\\Stars.nif",
-      "02 00 00 00 00 00 00 00 00 00 00 00"
-    ],
-    "TNAM - Timing": [
-      [
-        "33",
-        "60"
-      ],
-      [
-        "96",
-        "123"
-      ],
-      "50",
-      "195"
+    "elements": [
+      {
+        "name": "Record Header",
+        "elements": [
+          {
+            "name": "Signature",
+            "value": "CLMT"
+          },
+          {
+            "name": "Data Size",
+            "value": "133"
+          },
+          {
+            "name": "Record Flags",
+            "value": ""
+          },
+          {
+            "name": "FormID",
+            "value": "{Skyrim.esm:000F91}"
+          },
+          {
+            "name": "Version Control Info 1",
+            "value": "00 00 00 00"
+          },
+          {
+            "name": "Form Version",
+            "value": "40"
+          },
+          {
+            "name": "Version Control Info 2",
+            "value": "00 00"
+          }
+        ]
+      },
+      {
+        "name": "EDID - Editor ID",
+        "value": "KarthspireClimate"
+      },
+      {
+        "name": "WLST - Weather Types",
+        "elements": [
+          {
+            "name": "Weather Type",
+            "elements": [
+              {
+                "name": "Weather",
+                "value": "{Skyrim.esm:106635}"
+              },
+              {
+                "name": "Chance",
+                "value": "100"
+              },
+              {
+                "name": "Global",
+                "value": "{Null:000000}"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "FNAM - Sun Texture",
+        "value": "Sky\\Sun.dds"
+      },
+      {
+        "name": "GNAM - Sun Glare Texture",
+        "value": "Sky\\SunGlare.dds"
+      },
+      {
+        "name": "Model",
+        "elements": [
+          {
+            "name": "MODL - Model FileName",
+            "value": "Sky\\Stars.nif"
+          },
+          {
+            "name": "MODT - Texture Files Hashes",
+            "value": "02 00 00 00 00 00 00 00 00 00 00 00"
+          }
+        ]
+      },
+      {
+        "name": "TNAM - Timing",
+        "elements": [
+          {
+            "name": "Sunrise",
+            "elements": [
+              {
+                "name": "Begin",
+                "value": "05:30"
+              },
+              {
+                "name": "End",
+                "value": "10:00"
+              }
+            ]
+          },
+          {
+            "name": "Sunset",
+            "elements": [
+              {
+                "name": "Begin",
+                "value": "16:00"
+              },
+              {
+                "name": "End",
+                "value": "20:30"
+              }
+            ]
+          },
+          {
+            "name": "Volatility",
+            "value": "50"
+          },
+          {
+            "name": "Moons / Phase Length",
+            "value": "Masser, Secunda / 3"
+          }
+        ]
+      }
     ]
   }
 }

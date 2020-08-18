@@ -1,22 +1,72 @@
 {
   "0010F67D": {
-    "Record Header": [
-      "ECZN",
-      "41",
-      "",
-      "{Skyrim.esm:10F67D}",
-      "00 00 00 00",
-      "39",
-      "00 00"
-    ],
-    "EDID - Editor ID": "TowerOfMzarkZone",
-    "DATA - ": [
-      "{Null:000000}",
-      "{Skyrim.esm:02D51D}",
-      "0",
-      "18",
-      "Never Resets",
-      "0"
+    "elements": [
+      {
+        "name": "Record Header",
+        "elements": [
+          {
+            "name": "Signature",
+            "value": "ECZN"
+          },
+          {
+            "name": "Data Size",
+            "value": "41"
+          },
+          {
+            "name": "Record Flags",
+            "value": ""
+          },
+          {
+            "name": "FormID",
+            "value": "{Skyrim.esm:10F67D}"
+          },
+          {
+            "name": "Version Control Info 1",
+            "value": "00 00 00 00"
+          },
+          {
+            "name": "Form Version",
+            "value": "39"
+          },
+          {
+            "name": "Version Control Info 2",
+            "value": "00 00"
+          }
+        ]
+      },
+      {
+        "name": "EDID - Editor ID",
+        "value": "TowerOfMzarkZone"
+      },
+      {
+        "name": "DATA - ",
+        "elements": [
+          {
+            "name": "Owner",
+            "value": "{Null:000000}"
+          },
+          {
+            "name": "Location",
+            "value": "{Skyrim.esm:02D51D}"
+          },
+          {
+            "name": "Rank",
+            "value": "0"
+          },
+          {
+            "name": "Min Level",
+            "value": "18"
+          },
+          {
+            "name": "Flags",
+            "value": "Never Resets"
+          },
+          {
+            "name": "Max Level",
+            "value": "0"
+          }
+        ]
+      }
     ]
   }
 }

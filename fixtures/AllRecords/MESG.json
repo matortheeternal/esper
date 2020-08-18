@@ -1,18 +1,59 @@
 {
   "000170EF": {
-    "Record Header": [
-      "MESG",
-      "128",
-      "",
-      "{Skyrim.esm:0170EF}",
-      "00 00 00 00",
-      "44",
-      "00 00"
-    ],
-    "EDID - Editor ID": "HelpSprintLong",
-    "DESC - Description": "Hold down [Sprint] to sprint. Sprinting will drain your stamina.",
-    "FULL - Name": "Sprinting",
-    "INAM - Icon (unused)": "{Null:000000}",
-    "DNAM - Flags": "Message Box"
+    "elements": [
+      {
+        "name": "Record Header",
+        "elements": [
+          {
+            "name": "Signature",
+            "value": "MESG"
+          },
+          {
+            "name": "Data Size",
+            "value": "128"
+          },
+          {
+            "name": "Record Flags",
+            "value": ""
+          },
+          {
+            "name": "FormID",
+            "value": "{Skyrim.esm:0170EF}"
+          },
+          {
+            "name": "Version Control Info 1",
+            "value": "00 00 00 00"
+          },
+          {
+            "name": "Form Version",
+            "value": "44"
+          },
+          {
+            "name": "Version Control Info 2",
+            "value": "00 00"
+          }
+        ]
+      },
+      {
+        "name": "EDID - Editor ID",
+        "value": "HelpSprintLong"
+      },
+      {
+        "name": "DESC - Description",
+        "value": "Hold down [Sprint] to sprint. Sprinting will drain your stamina."
+      },
+      {
+        "name": "FULL - Name",
+        "value": "Sprinting"
+      },
+      {
+        "name": "INAM - Icon (unused)",
+        "value": "{Null:000000}"
+      },
+      {
+        "name": "DNAM - Flags",
+        "value": "Message Box"
+      }
+    ]
   }
 }

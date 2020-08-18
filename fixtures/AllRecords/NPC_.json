@@ -1,152 +1,535 @@
 {
   "00000EB4": {
-    "Record Header": [
-      "NPC_",
-      "229",
-      "Compressed",
-      "{Skyrim.esm:000EB4}",
-      "00 00 00 00",
-      "40",
-      "00 00"
-    ],
-    "EDID - Editor ID": "dunTransmogrifyDremora",
-    "VMAD - Virtual Machine Adapter": [
-      "5",
-      "2",
-      [
-        [
-          "dunTransmogrifyAnimal",
-          "Local",
-          [
-            [
-              "appearExplosion",
-              "Object",
-              "Edited",
-              [
-                [
-                  [
-                    "{Skyrim.esm:04046D}",
-                    "None",
-                    "0"
-                  ]
-                ]
-              ]
-            ],
-            [
-              "shader",
-              "Object",
-              "Edited",
-              [
-                [
-                  [
-                    "{Skyrim.esm:074799}",
-                    "None",
-                    "0"
-                  ]
-                ]
-              ]
-            ]
-          ]
+    "elements": [
+      {
+        "name": "Record Header",
+        "elements": [
+          {
+            "name": "Signature",
+            "value": "NPC_"
+          },
+          {
+            "name": "Data Size",
+            "value": "229"
+          },
+          {
+            "name": "Record Flags",
+            "value": "Compressed"
+          },
+          {
+            "name": "FormID",
+            "value": "{Skyrim.esm:000EB4}"
+          },
+          {
+            "name": "Version Control Info 1",
+            "value": "00 00 00 00"
+          },
+          {
+            "name": "Form Version",
+            "value": "40"
+          },
+          {
+            "name": "Version Control Info 2",
+            "value": "00 00"
+          }
         ]
-      ]
-    ],
-    "OBND - Object Bounds": [
-      "0",
-      "0",
-      "0",
-      "0",
-      "0",
-      "0"
-    ],
-    "ACBS - Configuration": [
-      "Invulnerable",
-      "0",
-      "0",
-      "1",
-      "0",
-      "0",
-      "100",
-      "35",
-      "Use Traits, Use Stats, Use Factions, Use Spell List, Use AI Data, Use AI Packages, Use Base Data, Use Inventory, Use Script, Use Def Pack List, Use Attack Data, Use Keywords",
-      "0",
-      "0"
-    ],
-    "TPLT - Template": "{Skyrim.esm:01E7AF}",
-    "RNAM - Race": "{Skyrim.esm:000019}",
-    "AIDT - AI Data": [
-      "Unaggressive",
-      "Average",
-      "50",
-      "No crime",
-      "Neutral",
-      "Helps Nobody",
-      [
-        "False",
-        "0",
-        "0",
-        "0",
-        "0"
-      ]
-    ],
-    "CNAM - Class": "{Skyrim.esm:013176}",
-    "DATA - Marker": "",
-    "DNAM - Player Skills": [
-      [
-        "5",
-        "5",
-        "5",
-        "5",
-        "5",
-        "5",
-        "5",
-        "5",
-        "5",
-        "5",
-        "5",
-        "5",
-        "5",
-        "5",
-        "5",
-        "5",
-        "5",
-        "5"
-      ],
-      [
-        "0",
-        "0",
-        "0",
-        "0",
-        "0",
-        "0",
-        "0",
-        "0",
-        "0",
-        "0",
-        "0",
-        "0",
-        "0",
-        "0",
-        "0",
-        "0",
-        "0",
-        "0"
-      ],
-      "25",
-      "65511",
-      "25",
-      "00 00",
-      "0.000000",
-      "1",
-      "7E 54 00"
-    ],
-    "NAM5 - Unknown": "FF 00",
-    "NAM6 - Height": "1.000000",
-    "NAM7 - Weight": "50.000000",
-    "NAM8 - Sound Level": "Normal",
-    "QNAM - Texture lighting": [
-      "0",
-      "0",
-      "0"
+      },
+      {
+        "name": "EDID - Editor ID",
+        "value": "dunTransmogrifyDremora"
+      },
+      {
+        "name": "VMAD - Virtual Machine Adapter",
+        "elements": [
+          {
+            "name": "Version",
+            "value": "5"
+          },
+          {
+            "name": "Object Format",
+            "value": "2"
+          },
+          {
+            "name": "Scripts",
+            "elements": [
+              {
+                "name": "Script",
+                "elements": [
+                  {
+                    "name": "scriptName",
+                    "value": "dunTransmogrifyAnimal"
+                  },
+                  {
+                    "name": "Flags",
+                    "value": "Local"
+                  },
+                  {
+                    "name": "Properties",
+                    "elements": [
+                      {
+                        "name": "Property",
+                        "elements": [
+                          {
+                            "name": "propertyName",
+                            "value": "appearExplosion"
+                          },
+                          {
+                            "name": "Type",
+                            "value": "Object"
+                          },
+                          {
+                            "name": "Flags",
+                            "value": "Edited"
+                          },
+                          {
+                            "name": "Value",
+                            "elements": [
+                              {
+                                "name": "Object Union",
+                                "elements": [
+                                  {
+                                    "name": "Object v2",
+                                    "elements": [
+                                      {
+                                        "name": "FormID",
+                                        "value": "{Skyrim.esm:04046D}"
+                                      },
+                                      {
+                                        "name": "Alias",
+                                        "value": "None"
+                                      },
+                                      {
+                                        "name": "Unused",
+                                        "value": "0"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "name": "Property",
+                        "elements": [
+                          {
+                            "name": "propertyName",
+                            "value": "shader"
+                          },
+                          {
+                            "name": "Type",
+                            "value": "Object"
+                          },
+                          {
+                            "name": "Flags",
+                            "value": "Edited"
+                          },
+                          {
+                            "name": "Value",
+                            "elements": [
+                              {
+                                "name": "Object Union",
+                                "elements": [
+                                  {
+                                    "name": "Object v2",
+                                    "elements": [
+                                      {
+                                        "name": "FormID",
+                                        "value": "{Skyrim.esm:074799}"
+                                      },
+                                      {
+                                        "name": "Alias",
+                                        "value": "None"
+                                      },
+                                      {
+                                        "name": "Unused",
+                                        "value": "0"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "OBND - Object Bounds",
+        "elements": [
+          {
+            "name": "X1",
+            "value": "0"
+          },
+          {
+            "name": "Y1",
+            "value": "0"
+          },
+          {
+            "name": "Z1",
+            "value": "0"
+          },
+          {
+            "name": "X2",
+            "value": "0"
+          },
+          {
+            "name": "Y2",
+            "value": "0"
+          },
+          {
+            "name": "Z2",
+            "value": "0"
+          }
+        ]
+      },
+      {
+        "name": "ACBS - Configuration",
+        "elements": [
+          {
+            "name": "Flags",
+            "value": "Invulnerable"
+          },
+          {
+            "name": "Magicka Offset",
+            "value": "0"
+          },
+          {
+            "name": "Stamina Offset",
+            "value": "0"
+          },
+          {
+            "name": "Level",
+            "value": "1"
+          },
+          {
+            "name": "Calc min level",
+            "value": "0"
+          },
+          {
+            "name": "Calc max level",
+            "value": "0"
+          },
+          {
+            "name": "Speed Multiplier",
+            "value": "100"
+          },
+          {
+            "name": "Disposition Base (unused)",
+            "value": "35"
+          },
+          {
+            "name": "Template Flags",
+            "value": "Use Traits, Use Stats, Use Factions, Use Spell List, Use AI Data, Use AI Packages, Use Base Data, Use Inventory, Use Script, Use Def Pack List, Use Attack Data, Use Keywords"
+          },
+          {
+            "name": "Health Offset",
+            "value": "0"
+          },
+          {
+            "name": "Bleedout Override",
+            "value": "0"
+          }
+        ]
+      },
+      {
+        "name": "TPLT - Template",
+        "value": "{Skyrim.esm:01E7AF}"
+      },
+      {
+        "name": "RNAM - Race",
+        "value": "{Skyrim.esm:000019}"
+      },
+      {
+        "name": "AIDT - AI Data",
+        "elements": [
+          {
+            "name": "Aggression",
+            "value": "Unaggressive"
+          },
+          {
+            "name": "Confidence",
+            "value": "Average"
+          },
+          {
+            "name": "Energy Level",
+            "value": "50"
+          },
+          {
+            "name": "Responsibility",
+            "value": "No crime"
+          },
+          {
+            "name": "Mood",
+            "value": "Neutral"
+          },
+          {
+            "name": "Assistance",
+            "value": "Helps Nobody"
+          },
+          {
+            "name": "Aggro",
+            "elements": [
+              {
+                "name": "Aggro Radius Behavior",
+                "value": "False"
+              },
+              {
+                "name": "Unknown",
+                "value": "0"
+              },
+              {
+                "name": "Warn",
+                "value": "0"
+              },
+              {
+                "name": "Warn/Attack",
+                "value": "0"
+              },
+              {
+                "name": "Attack",
+                "value": "0"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "CNAM - Class",
+        "value": "{Skyrim.esm:013176}"
+      },
+      {
+        "name": "DATA - Marker",
+        "value": ""
+      },
+      {
+        "name": "DNAM - Player Skills",
+        "elements": [
+          {
+            "name": "Skill Values",
+            "elements": [
+              {
+                "name": "Skill #0 (OneHanded)",
+                "value": "5"
+              },
+              {
+                "name": "Skill #1 (TwoHanded)",
+                "value": "5"
+              },
+              {
+                "name": "Skill #2 (Marksman)",
+                "value": "5"
+              },
+              {
+                "name": "Skill #3 (Block)",
+                "value": "5"
+              },
+              {
+                "name": "Skill #4 (Smithing)",
+                "value": "5"
+              },
+              {
+                "name": "Skill #5 (HeavyArmor)",
+                "value": "5"
+              },
+              {
+                "name": "Skill #6 (LightArmor)",
+                "value": "5"
+              },
+              {
+                "name": "Skill #7 (Pickpocket)",
+                "value": "5"
+              },
+              {
+                "name": "Skill #8 (Lockpicking)",
+                "value": "5"
+              },
+              {
+                "name": "Skill #9 (Sneak)",
+                "value": "5"
+              },
+              {
+                "name": "Skill #10 (Alchemy)",
+                "value": "5"
+              },
+              {
+                "name": "Skill #11 (Speechcraft)",
+                "value": "5"
+              },
+              {
+                "name": "Skill #12 (Alteration)",
+                "value": "5"
+              },
+              {
+                "name": "Skill #13 (Conjuration)",
+                "value": "5"
+              },
+              {
+                "name": "Skill #14 (Destruction)",
+                "value": "5"
+              },
+              {
+                "name": "Skill #15 (Illusion)",
+                "value": "5"
+              },
+              {
+                "name": "Skill #16 (Restoration)",
+                "value": "5"
+              },
+              {
+                "name": "Skill #17 (Enchanting)",
+                "value": "5"
+              }
+            ]
+          },
+          {
+            "name": "Skill Offsets",
+            "elements": [
+              {
+                "name": "Skill #0 (OneHanded)",
+                "value": "0"
+              },
+              {
+                "name": "Skill #1 (TwoHanded)",
+                "value": "0"
+              },
+              {
+                "name": "Skill #2 (Marksman)",
+                "value": "0"
+              },
+              {
+                "name": "Skill #3 (Block)",
+                "value": "0"
+              },
+              {
+                "name": "Skill #4 (Smithing)",
+                "value": "0"
+              },
+              {
+                "name": "Skill #5 (HeavyArmor)",
+                "value": "0"
+              },
+              {
+                "name": "Skill #6 (LightArmor)",
+                "value": "0"
+              },
+              {
+                "name": "Skill #7 (Pickpocket)",
+                "value": "0"
+              },
+              {
+                "name": "Skill #8 (Lockpicking)",
+                "value": "0"
+              },
+              {
+                "name": "Skill #9 (Sneak)",
+                "value": "0"
+              },
+              {
+                "name": "Skill #10 (Alchemy)",
+                "value": "0"
+              },
+              {
+                "name": "Skill #11 (Speechcraft)",
+                "value": "0"
+              },
+              {
+                "name": "Skill #12 (Alteration)",
+                "value": "0"
+              },
+              {
+                "name": "Skill #13 (Conjuration)",
+                "value": "0"
+              },
+              {
+                "name": "Skill #14 (Destruction)",
+                "value": "0"
+              },
+              {
+                "name": "Skill #15 (Illusion)",
+                "value": "0"
+              },
+              {
+                "name": "Skill #16 (Restoration)",
+                "value": "0"
+              },
+              {
+                "name": "Skill #17 (Enchanting)",
+                "value": "0"
+              }
+            ]
+          },
+          {
+            "name": "Health",
+            "value": "25"
+          },
+          {
+            "name": "Magicka",
+            "value": "65511"
+          },
+          {
+            "name": "Stamina",
+            "value": "25"
+          },
+          {
+            "name": "Unused",
+            "value": "00 00"
+          },
+          {
+            "name": "Far away model distance",
+            "value": "0.000000"
+          },
+          {
+            "name": "Geared up weapons",
+            "value": "1"
+          },
+          {
+            "name": "Unused",
+            "value": "7E 54 00"
+          }
+        ]
+      },
+      {
+        "name": "NAM5 - Unknown",
+        "value": "FF 00"
+      },
+      {
+        "name": "NAM6 - Height",
+        "value": "1.000000"
+      },
+      {
+        "name": "NAM7 - Weight",
+        "value": "50.000000"
+      },
+      {
+        "name": "NAM8 - Sound Level",
+        "value": "Normal"
+      },
+      {
+        "name": "QNAM - Texture lighting",
+        "elements": [
+          {
+            "name": "Red",
+            "value": "0"
+          },
+          {
+            "name": "Green",
+            "value": "0"
+          },
+          {
+            "name": "Blue",
+            "value": "0"
+          }
+        ]
+      }
     ]
   }
 }

@@ -1,44 +1,145 @@
 {
   "00000ED1": {
-    "Record Header": [
-      "IDLE",
-      "140",
-      "",
-      "{Skyrim.esm:000ED1}",
-      "00 00 00 00",
-      "40",
-      "00 00"
-    ],
-    "EDID - Editor ID": "ForceEquipWeaponsNotOut",
-    "Conditions": [
-      [
-        [
-          "10000000",
-          "57 91 00",
-          "0.000000",
-          "IsWeaponMagicOut",
-          "2C 34",
-          "00 00 00 00",
-          "00 00 00 00",
-          "Subject",
-          "0",
-          "-1"
+    "elements": [
+      {
+        "name": "Record Header",
+        "elements": [
+          {
+            "name": "Signature",
+            "value": "IDLE"
+          },
+          {
+            "name": "Data Size",
+            "value": "140"
+          },
+          {
+            "name": "Record Flags",
+            "value": ""
+          },
+          {
+            "name": "FormID",
+            "value": "{Skyrim.esm:000ED1}"
+          },
+          {
+            "name": "Version Control Info 1",
+            "value": "00 00 00 00"
+          },
+          {
+            "name": "Form Version",
+            "value": "40"
+          },
+          {
+            "name": "Version Control Info 2",
+            "value": "00 00"
+          }
         ]
-      ]
-    ],
-    "DNAM - Filename": "Actors\\Character\\Behaviors\\0_Master.hkx",
-    "ANAM - Related Idle Animations": [
-      "{Skyrim.esm:02ADF2}",
-      "{Null:000000}"
-    ],
-    "DATA - Data (unused)": [
-      [
-        "0",
-        "0"
-      ],
-      "",
-      "108",
-      "0"
+      },
+      {
+        "name": "EDID - Editor ID",
+        "value": "ForceEquipWeaponsNotOut"
+      },
+      {
+        "name": "Conditions",
+        "elements": [
+          {
+            "name": "Condition",
+            "elements": [
+              {
+                "name": "CTDA - ",
+                "elements": [
+                  {
+                    "name": "Type",
+                    "value": "10000000"
+                  },
+                  {
+                    "name": "Unused",
+                    "value": "57 91 00"
+                  },
+                  {
+                    "name": "Comparison Value",
+                    "value": "0.000000"
+                  },
+                  {
+                    "name": "Function",
+                    "value": "IsWeaponMagicOut"
+                  },
+                  {
+                    "name": "Unused",
+                    "value": "2C 34"
+                  },
+                  {
+                    "name": "Parameter #1",
+                    "value": "00 00 00 00"
+                  },
+                  {
+                    "name": "Parameter #2",
+                    "value": "00 00 00 00"
+                  },
+                  {
+                    "name": "Run On",
+                    "value": "Subject"
+                  },
+                  {
+                    "name": "Reference",
+                    "value": "0"
+                  },
+                  {
+                    "name": "Parameter #3",
+                    "value": "-1"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "DNAM - FileName",
+        "value": "Actors\\Character\\Behaviors\\0_Master.hkx"
+      },
+      {
+        "name": "ANAM - Related Idle Animations",
+        "elements": [
+          {
+            "name": "Related Idle Animation #0 (Parent)",
+            "value": "{Skyrim.esm:02ADF2}"
+          },
+          {
+            "name": "Related Idle Animation #1 (Previous Sibling)",
+            "value": "{Null:000000}"
+          }
+        ]
+      },
+      {
+        "name": "DATA - Data (unused)",
+        "elements": [
+          {
+            "name": "Looping seconds (both 255 forever)",
+            "elements": [
+              {
+                "name": "Min",
+                "value": "0"
+              },
+              {
+                "name": "Max",
+                "value": "0"
+              }
+            ]
+          },
+          {
+            "name": "Flags",
+            "value": ""
+          },
+          {
+            "name": "Animation Group Section",
+            "value": "108"
+          },
+          {
+            "name": "Replay Delay",
+            "value": "0"
+          }
+        ]
+      }
     ]
   }
 }

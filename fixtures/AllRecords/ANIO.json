@@ -1,19 +1,60 @@
 {
   "0010FD00": {
-    "Record Header": [
-      "ANIO",
-      "110",
-      "Unknown 9",
-      "{Skyrim.esm:10FD00}",
-      "00 00 00 00",
-      "40",
-      "00 00"
-    ],
-    "EDID - Editor ID": "AnimObjectIronSword",
-    "Model": [
-      "AnimObjects\\AnimObjectIronSword.nif",
-      "02 00 00 00 00 00 00 00 00 00 00 00"
-    ],
-    "BNAM - Unload Event": "AnimObjectUnequip"
+    "elements": [
+      {
+        "name": "Record Header",
+        "elements": [
+          {
+            "name": "Signature",
+            "value": "ANIO"
+          },
+          {
+            "name": "Data Size",
+            "value": "110"
+          },
+          {
+            "name": "Record Flags",
+            "value": "Unknown 9"
+          },
+          {
+            "name": "FormID",
+            "value": "{Skyrim.esm:10FD00}"
+          },
+          {
+            "name": "Version Control Info 1",
+            "value": "00 00 00 00"
+          },
+          {
+            "name": "Form Version",
+            "value": "40"
+          },
+          {
+            "name": "Version Control Info 2",
+            "value": "00 00"
+          }
+        ]
+      },
+      {
+        "name": "EDID - Editor ID",
+        "value": "AnimObjectIronSword"
+      },
+      {
+        "name": "Model",
+        "elements": [
+          {
+            "name": "MODL - Model FileName",
+            "value": "AnimObjects\\AnimObjectIronSword.nif"
+          },
+          {
+            "name": "MODT - Texture Files Hashes",
+            "value": "02 00 00 00 00 00 00 00 00 00 00 00"
+          }
+        ]
+      },
+      {
+        "name": "BNAM - Unload Event",
+        "value": "AnimObjectUnequip"
+      }
+    ]
   }
 }

@@ -1,45 +1,152 @@
 {
   "0010FEF7": {
-    "Record Header": [
-      "IMGS",
-      "126",
-      "",
-      "{Skyrim.esm:10FEF7}",
-      "00 00 00 00",
-      "40",
-      "00 00"
-    ],
-    "EDID - Editor ID": "ISSovngardeDark",
-    "HNAM - HDR": [
-      "45.000000",
-      "7.000000",
-      "0.450000",
-      "4.500000",
-      "0.615000",
-      "0.925000",
-      "3.850000",
-      "0.000000",
-      "2.500000"
-    ],
-    "CNAM - Cinematic": [
-      "2.450000",
-      "1.040000",
-      "1.275000"
-    ],
-    "TNAM - Tint": [
-      "0.750000",
-      [
-        "164",
-        "156",
-        "199"
-      ]
-    ],
-    "DNAM - Depth of Field": [
-      "0.700000",
-      "0.000000",
-      "15000.000000",
-      "00 00",
-      "No Sky, Radius 5"
+    "elements": [
+      {
+        "name": "Record Header",
+        "elements": [
+          {
+            "name": "Signature",
+            "value": "IMGS"
+          },
+          {
+            "name": "Data Size",
+            "value": "126"
+          },
+          {
+            "name": "Record Flags",
+            "value": ""
+          },
+          {
+            "name": "FormID",
+            "value": "{Skyrim.esm:10FEF7}"
+          },
+          {
+            "name": "Version Control Info 1",
+            "value": "00 00 00 00"
+          },
+          {
+            "name": "Form Version",
+            "value": "40"
+          },
+          {
+            "name": "Version Control Info 2",
+            "value": "00 00"
+          }
+        ]
+      },
+      {
+        "name": "EDID - Editor ID",
+        "value": "ISSovngardeDark"
+      },
+      {
+        "name": "HNAM - HDR",
+        "elements": [
+          {
+            "name": "Eye Adapt Speed",
+            "value": "45.000000"
+          },
+          {
+            "name": "Bloom Blur Radius",
+            "value": "7.000000"
+          },
+          {
+            "name": "Bloom Threshold",
+            "value": "0.450000"
+          },
+          {
+            "name": "Bloom Scale",
+            "value": "4.500000"
+          },
+          {
+            "name": "Receive Bloom Threshold",
+            "value": "0.615000"
+          },
+          {
+            "name": "White",
+            "value": "0.925000"
+          },
+          {
+            "name": "Sunlight Scale",
+            "value": "3.850000"
+          },
+          {
+            "name": "Sky Scale",
+            "value": "0.000000"
+          },
+          {
+            "name": "Eye Adapt Strength",
+            "value": "2.500000"
+          }
+        ]
+      },
+      {
+        "name": "CNAM - Cinematic",
+        "elements": [
+          {
+            "name": "Saturation",
+            "value": "2.450000"
+          },
+          {
+            "name": "Brightness",
+            "value": "1.040000"
+          },
+          {
+            "name": "Contrast",
+            "value": "1.275000"
+          }
+        ]
+      },
+      {
+        "name": "TNAM - Tint",
+        "elements": [
+          {
+            "name": "Amount",
+            "value": "0.750000"
+          },
+          {
+            "name": "Color",
+            "elements": [
+              {
+                "name": "Red",
+                "value": "164"
+              },
+              {
+                "name": "Green",
+                "value": "156"
+              },
+              {
+                "name": "Blue",
+                "value": "199"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "DNAM - Depth of Field",
+        "elements": [
+          {
+            "name": "Strength",
+            "value": "0.700000"
+          },
+          {
+            "name": "Distance",
+            "value": "0.000000"
+          },
+          {
+            "name": "Range",
+            "value": "15000.000000"
+          },
+          {
+            "name": "Unknown",
+            "value": "00 00"
+          },
+          {
+            "name": "Sky / Blur Radius",
+            "value": "No Sky, Radius 5"
+          }
+        ]
+      }
     ]
   }
 }

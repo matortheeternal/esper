@@ -1,33 +1,113 @@
 {
   "00103273": {
-    "Record Header": [
-      "MOVT",
-      "108",
-      "",
-      "{Skyrim.esm:103273}",
-      "00 00 00 00",
-      "37",
-      "00 00"
-    ],
-    "EDID - Editor ID": "Falmer_1HM_Run",
-    "MNAM - Name": "Falmer1HMRun",
-    "SPED - Default Data": [
-      "106.919998",
-      "235.210006",
-      "106.919998",
-      "235.210006",
-      "180.619996",
-      "397.000000",
-      "100.910004",
-      "222.000000",
-      "180.0000",
-      "180.0000",
-      "180.0000"
-    ],
-    "INAM - Anim Change Thresholds": [
-      "Default",
-      "Default",
-      "Default"
+    "elements": [
+      {
+        "name": "Record Header",
+        "elements": [
+          {
+            "name": "Signature",
+            "value": "MOVT"
+          },
+          {
+            "name": "Data Size",
+            "value": "108"
+          },
+          {
+            "name": "Record Flags",
+            "value": ""
+          },
+          {
+            "name": "FormID",
+            "value": "{Skyrim.esm:103273}"
+          },
+          {
+            "name": "Version Control Info 1",
+            "value": "00 00 00 00"
+          },
+          {
+            "name": "Form Version",
+            "value": "37"
+          },
+          {
+            "name": "Version Control Info 2",
+            "value": "00 00"
+          }
+        ]
+      },
+      {
+        "name": "EDID - Editor ID",
+        "value": "Falmer_1HM_Run"
+      },
+      {
+        "name": "MNAM - Name",
+        "value": "Falmer1HMRun"
+      },
+      {
+        "name": "SPED - Default Data",
+        "elements": [
+          {
+            "name": "Left Walk",
+            "value": "106.919998"
+          },
+          {
+            "name": "Left Run",
+            "value": "235.210006"
+          },
+          {
+            "name": "Right Walk",
+            "value": "106.919998"
+          },
+          {
+            "name": "Right Run",
+            "value": "235.210006"
+          },
+          {
+            "name": "Forward Walk",
+            "value": "180.619996"
+          },
+          {
+            "name": "Forward Run",
+            "value": "397.000000"
+          },
+          {
+            "name": "Back Walk",
+            "value": "100.910004"
+          },
+          {
+            "name": "Back Run",
+            "value": "222.000000"
+          },
+          {
+            "name": "Rotate in Place Walk",
+            "value": "180.0000"
+          },
+          {
+            "name": "Rotate in Place Run",
+            "value": "180.0000"
+          },
+          {
+            "name": "Rotate while Moving Run",
+            "value": "180.0000"
+          }
+        ]
+      },
+      {
+        "name": "INAM - Anim Change Thresholds",
+        "elements": [
+          {
+            "name": "Directional",
+            "value": "Default"
+          },
+          {
+            "name": "Movement Speed",
+            "value": "Default"
+          },
+          {
+            "name": "Rotation Speed",
+            "value": "Default"
+          }
+        ]
+      }
     ]
   }
 }

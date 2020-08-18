@@ -1,20 +1,64 @@
 {
   "0010FE00": {
-    "Record Header": [
-      "DLVW",
-      "59",
-      "",
-      "{Skyrim.esm:10FE00}",
-      "00 00 00 00",
-      "40",
-      "00 00"
-    ],
-    "EDID - Editor ID": "WIAddItem03VIew",
-    "QNAM - Quest": "{Skyrim.esm:035B5A}",
-    "Branches": [
-      "{Skyrim.esm:10FE02}"
-    ],
-    "ENAM - Unknown": "00 00 00 00",
-    "DNAM - Unknown": "00"
+    "elements": [
+      {
+        "name": "Record Header",
+        "elements": [
+          {
+            "name": "Signature",
+            "value": "DLVW"
+          },
+          {
+            "name": "Data Size",
+            "value": "59"
+          },
+          {
+            "name": "Record Flags",
+            "value": ""
+          },
+          {
+            "name": "FormID",
+            "value": "{Skyrim.esm:10FE00}"
+          },
+          {
+            "name": "Version Control Info 1",
+            "value": "00 00 00 00"
+          },
+          {
+            "name": "Form Version",
+            "value": "40"
+          },
+          {
+            "name": "Version Control Info 2",
+            "value": "00 00"
+          }
+        ]
+      },
+      {
+        "name": "EDID - Editor ID",
+        "value": "WIAddItem03VIew"
+      },
+      {
+        "name": "QNAM - Quest",
+        "value": "{Skyrim.esm:035B5A}"
+      },
+      {
+        "name": "Branches",
+        "elements": [
+          {
+            "name": "BNAM - Branch",
+            "value": "{Skyrim.esm:10FE02}"
+          }
+        ]
+      },
+      {
+        "name": "ENAM - Unknown",
+        "value": "00 00 00 00"
+      },
+      {
+        "name": "DNAM - Unknown",
+        "value": "00"
+      }
+    ]
   }
 }

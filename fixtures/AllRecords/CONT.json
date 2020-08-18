@@ -1,106 +1,327 @@
 {
   "0010FDE6": {
-    "Record Header": [
-      "CONT",
-      "317",
-      "NavMesh Generation - Bounding Box",
-      "{Skyrim.esm:10FDE6}",
-      "00 00 00 00",
-      "44",
-      "00 00"
-    ],
-    "EDID - Editor ID": "MerchantWhiterunEorlundChest",
-    "OBND - Object Bounds": [
-      "-48",
-      "-25",
-      "0",
-      "48",
-      "24",
-      "48"
-    ],
-    "FULL - Name": "Chest",
-    "Model": [
-      "Clutter\\Containers\\Chest01\\Chest01.nif",
-      "02 00 00 00 00 00 00 00 00 00 00 00"
-    ],
-    "COCT - Count": "12",
-    "Items": [
-      [
-        [
-          "{Skyrim.esm:0173D3}",
-          "3"
+    "elements": [
+      {
+        "name": "Record Header",
+        "elements": [
+          {
+            "name": "Signature",
+            "value": "CONT"
+          },
+          {
+            "name": "Data Size",
+            "value": "317"
+          },
+          {
+            "name": "Record Flags",
+            "value": "NavMesh Generation - Bounding Box"
+          },
+          {
+            "name": "FormID",
+            "value": "{Skyrim.esm:10FDE6}"
+          },
+          {
+            "name": "Version Control Info 1",
+            "value": "00 00 00 00"
+          },
+          {
+            "name": "Form Version",
+            "value": "44"
+          },
+          {
+            "name": "Version Control Info 2",
+            "value": "00 00"
+          }
         ]
-      ],
-      [
-        [
-          "{Skyrim.esm:072AE9}",
-          "1"
+      },
+      {
+        "name": "EDID - Editor ID",
+        "value": "MerchantWhiterunEorlundChest"
+      },
+      {
+        "name": "OBND - Object Bounds",
+        "elements": [
+          {
+            "name": "X1",
+            "value": "-48"
+          },
+          {
+            "name": "Y1",
+            "value": "-25"
+          },
+          {
+            "name": "Z1",
+            "value": "0"
+          },
+          {
+            "name": "X2",
+            "value": "48"
+          },
+          {
+            "name": "Y2",
+            "value": "24"
+          },
+          {
+            "name": "Z2",
+            "value": "48"
+          }
         ]
-      ],
-      [
-        [
-          "{Skyrim.esm:09BC2E}",
-          "3"
+      },
+      {
+        "name": "FULL - Name",
+        "value": "Chest"
+      },
+      {
+        "name": "Model",
+        "elements": [
+          {
+            "name": "MODL - Model FileName",
+            "value": "Clutter\\Containers\\Chest01\\Chest01.nif"
+          },
+          {
+            "name": "MODT - Texture Files Hashes",
+            "value": "02 00 00 00 00 00 00 00 00 00 00 00"
+          }
         ]
-      ],
-      [
-        [
-          "{Skyrim.esm:09BC2F}",
-          "5"
+      },
+      {
+        "name": "COCT - Count",
+        "value": "12"
+      },
+      {
+        "name": "Items",
+        "elements": [
+          {
+            "name": "Item",
+            "elements": [
+              {
+                "name": "CNTO - Item",
+                "elements": [
+                  {
+                    "name": "Item",
+                    "value": "{Skyrim.esm:0173D3}"
+                  },
+                  {
+                    "name": "Count",
+                    "value": "3"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "Item",
+            "elements": [
+              {
+                "name": "CNTO - Item",
+                "elements": [
+                  {
+                    "name": "Item",
+                    "value": "{Skyrim.esm:072AE9}"
+                  },
+                  {
+                    "name": "Count",
+                    "value": "1"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "Item",
+            "elements": [
+              {
+                "name": "CNTO - Item",
+                "elements": [
+                  {
+                    "name": "Item",
+                    "value": "{Skyrim.esm:09BC2E}"
+                  },
+                  {
+                    "name": "Count",
+                    "value": "3"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "Item",
+            "elements": [
+              {
+                "name": "CNTO - Item",
+                "elements": [
+                  {
+                    "name": "Item",
+                    "value": "{Skyrim.esm:09BC2F}"
+                  },
+                  {
+                    "name": "Count",
+                    "value": "5"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "Item",
+            "elements": [
+              {
+                "name": "CNTO - Item",
+                "elements": [
+                  {
+                    "name": "Item",
+                    "value": "{Skyrim.esm:09BC30}"
+                  },
+                  {
+                    "name": "Count",
+                    "value": "3"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "Item",
+            "elements": [
+              {
+                "name": "CNTO - Item",
+                "elements": [
+                  {
+                    "name": "Item",
+                    "value": "{Skyrim.esm:09BC31}"
+                  },
+                  {
+                    "name": "Count",
+                    "value": "7"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "Item",
+            "elements": [
+              {
+                "name": "CNTO - Item",
+                "elements": [
+                  {
+                    "name": "Item",
+                    "value": "{Skyrim.esm:09BC32}"
+                  },
+                  {
+                    "name": "Count",
+                    "value": "5"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "Item",
+            "elements": [
+              {
+                "name": "CNTO - Item",
+                "elements": [
+                  {
+                    "name": "Item",
+                    "value": "{Skyrim.esm:09BC33}"
+                  },
+                  {
+                    "name": "Count",
+                    "value": "1"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "Item",
+            "elements": [
+              {
+                "name": "CNTO - Item",
+                "elements": [
+                  {
+                    "name": "Item",
+                    "value": "{Skyrim.esm:0FFE9F}"
+                  },
+                  {
+                    "name": "Count",
+                    "value": "25"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "Item",
+            "elements": [
+              {
+                "name": "CNTO - Item",
+                "elements": [
+                  {
+                    "name": "Item",
+                    "value": "{Skyrim.esm:10C1CC}"
+                  },
+                  {
+                    "name": "Count",
+                    "value": "1"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "Item",
+            "elements": [
+              {
+                "name": "CNTO - Item",
+                "elements": [
+                  {
+                    "name": "Item",
+                    "value": "{Skyrim.esm:10FDE9}"
+                  },
+                  {
+                    "name": "Count",
+                    "value": "1"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "Item",
+            "elements": [
+              {
+                "name": "CNTO - Item",
+                "elements": [
+                  {
+                    "name": "Item",
+                    "value": "{Skyrim.esm:10FDEB}"
+                  },
+                  {
+                    "name": "Count",
+                    "value": "1"
+                  }
+                ]
+              }
+            ]
+          }
         ]
-      ],
-      [
-        [
-          "{Skyrim.esm:09BC30}",
-          "3"
+      },
+      {
+        "name": "DATA - ",
+        "elements": [
+          {
+            "name": "Flags",
+            "value": "Respawns"
+          },
+          {
+            "name": "Weight",
+            "value": "0.000000"
+          }
         ]
-      ],
-      [
-        [
-          "{Skyrim.esm:09BC31}",
-          "7"
-        ]
-      ],
-      [
-        [
-          "{Skyrim.esm:09BC32}",
-          "5"
-        ]
-      ],
-      [
-        [
-          "{Skyrim.esm:09BC33}",
-          "1"
-        ]
-      ],
-      [
-        [
-          "{Skyrim.esm:0FFE9F}",
-          "25"
-        ]
-      ],
-      [
-        [
-          "{Skyrim.esm:10C1CC}",
-          "1"
-        ]
-      ],
-      [
-        [
-          "{Skyrim.esm:10FDE9}",
-          "1"
-        ]
-      ],
-      [
-        [
-          "{Skyrim.esm:10FDEB}",
-          "1"
-        ]
-      ]
-    ],
-    "DATA - ": [
-      "Respawns",
-      "0.000000"
+      }
     ]
   }
 }

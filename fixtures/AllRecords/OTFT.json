@@ -1,18 +1,56 @@
 {
   "0001703A": {
-    "Record Header": [
-      "OTFT",
-      "44",
-      "",
-      "{Skyrim.esm:01703A}",
-      "00 00 00 00",
-      "40",
-      "00 00"
-    ],
-    "EDID - Editor ID": "MQ101MagePrisonerOutfit",
-    "INAM - Items": [
-      "{Skyrim.esm:10D667}",
-      "{Skyrim.esm:10DD3A}"
+    "elements": [
+      {
+        "name": "Record Header",
+        "elements": [
+          {
+            "name": "Signature",
+            "value": "OTFT"
+          },
+          {
+            "name": "Data Size",
+            "value": "44"
+          },
+          {
+            "name": "Record Flags",
+            "value": ""
+          },
+          {
+            "name": "FormID",
+            "value": "{Skyrim.esm:01703A}"
+          },
+          {
+            "name": "Version Control Info 1",
+            "value": "00 00 00 00"
+          },
+          {
+            "name": "Form Version",
+            "value": "40"
+          },
+          {
+            "name": "Version Control Info 2",
+            "value": "00 00"
+          }
+        ]
+      },
+      {
+        "name": "EDID - Editor ID",
+        "value": "MQ101MagePrisonerOutfit"
+      },
+      {
+        "name": "INAM - Items",
+        "elements": [
+          {
+            "name": "Item",
+            "value": "{Skyrim.esm:10D667}"
+          },
+          {
+            "name": "Item",
+            "value": "{Skyrim.esm:10DD3A}"
+          }
+        ]
+      }
     ]
   }
 }

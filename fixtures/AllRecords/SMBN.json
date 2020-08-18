@@ -1,63 +1,218 @@
 {
   "001092DE": {
-    "Record Header": [
-      "SMBN",
-      "195",
-      "",
-      "{Skyrim.esm:1092DE}",
-      "00 00 00 00",
-      "37",
-      "00 00"
-    ],
-    "EDID - Editor ID": "SkyHavenTempleScenesNode",
-    "PNAM - Parent ": "{Skyrim.esm:015FCE}",
-    "SNAM - Child ": "{Skyrim.esm:0A71AB}",
-    "CITC - Condition Count": "3",
-    "Conditions": [
-      [
-        [
-          "10000000",
-          "06 85 1B",
-          "1.000000",
-          "GetInCurrentLoc",
-          "00 00",
-          "{Skyrim.esm:018E42}",
-          "00 00 00 00",
-          "Event Data",
-          "0",
-          "12626"
+    "elements": [
+      {
+        "name": "Record Header",
+        "elements": [
+          {
+            "name": "Signature",
+            "value": "SMBN"
+          },
+          {
+            "name": "Data Size",
+            "value": "195"
+          },
+          {
+            "name": "Record Flags",
+            "value": ""
+          },
+          {
+            "name": "FormID",
+            "value": "{Skyrim.esm:1092DE}"
+          },
+          {
+            "name": "Version Control Info 1",
+            "value": "00 00 00 00"
+          },
+          {
+            "name": "Form Version",
+            "value": "37"
+          },
+          {
+            "name": "Version Control Info 2",
+            "value": "00 00"
+          }
         ]
-      ],
-      [
-        [
-          "10000000",
-          "06 85 1B",
-          "1.000000",
-          "GetInCurrentLoc",
-          "00 00",
-          "{Skyrim.esm:018E42}",
-          "00 00 00 00",
-          "Event Data",
-          "0",
-          "12882"
+      },
+      {
+        "name": "EDID - Editor ID",
+        "value": "SkyHavenTempleScenesNode"
+      },
+      {
+        "name": "PNAM - Parent ",
+        "value": "{Skyrim.esm:015FCE}"
+      },
+      {
+        "name": "SNAM - Child ",
+        "value": "{Skyrim.esm:0A71AB}"
+      },
+      {
+        "name": "CITC - Condition Count",
+        "value": "3"
+      },
+      {
+        "name": "Conditions",
+        "elements": [
+          {
+            "name": "Condition",
+            "elements": [
+              {
+                "name": "CTDA - ",
+                "elements": [
+                  {
+                    "name": "Type",
+                    "value": "10000000"
+                  },
+                  {
+                    "name": "Unused",
+                    "value": "06 85 1B"
+                  },
+                  {
+                    "name": "Comparison Value",
+                    "value": "1.000000"
+                  },
+                  {
+                    "name": "Function",
+                    "value": "GetInCurrentLoc"
+                  },
+                  {
+                    "name": "Unused",
+                    "value": "00 00"
+                  },
+                  {
+                    "name": "Parameter #1",
+                    "value": "{Skyrim.esm:018E42}"
+                  },
+                  {
+                    "name": "Parameter #2",
+                    "value": "00 00 00 00"
+                  },
+                  {
+                    "name": "Run On",
+                    "value": "Event Data"
+                  },
+                  {
+                    "name": "Reference",
+                    "value": "0"
+                  },
+                  {
+                    "name": "Parameter #3",
+                    "value": "12626"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "Condition",
+            "elements": [
+              {
+                "name": "CTDA - ",
+                "elements": [
+                  {
+                    "name": "Type",
+                    "value": "10000000"
+                  },
+                  {
+                    "name": "Unused",
+                    "value": "06 85 1B"
+                  },
+                  {
+                    "name": "Comparison Value",
+                    "value": "1.000000"
+                  },
+                  {
+                    "name": "Function",
+                    "value": "GetInCurrentLoc"
+                  },
+                  {
+                    "name": "Unused",
+                    "value": "00 00"
+                  },
+                  {
+                    "name": "Parameter #1",
+                    "value": "{Skyrim.esm:018E42}"
+                  },
+                  {
+                    "name": "Parameter #2",
+                    "value": "00 00 00 00"
+                  },
+                  {
+                    "name": "Run On",
+                    "value": "Event Data"
+                  },
+                  {
+                    "name": "Reference",
+                    "value": "0"
+                  },
+                  {
+                    "name": "Parameter #3",
+                    "value": "12882"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "Condition",
+            "elements": [
+              {
+                "name": "CTDA - ",
+                "elements": [
+                  {
+                    "name": "Type",
+                    "value": "11000000"
+                  },
+                  {
+                    "name": "Unused",
+                    "value": "06 85 1B"
+                  },
+                  {
+                    "name": "Comparison Value",
+                    "value": "20.000000"
+                  },
+                  {
+                    "name": "Function",
+                    "value": "GetStage"
+                  },
+                  {
+                    "name": "Unused",
+                    "value": "00 00"
+                  },
+                  {
+                    "name": "Parameter #1",
+                    "value": "{Skyrim.esm:02D515}"
+                  },
+                  {
+                    "name": "Parameter #2",
+                    "value": "00 00 00 00"
+                  },
+                  {
+                    "name": "Run On",
+                    "value": "Subject"
+                  },
+                  {
+                    "name": "Reference",
+                    "value": "0"
+                  },
+                  {
+                    "name": "Parameter #3",
+                    "value": "-1"
+                  }
+                ]
+              }
+            ]
+          }
         ]
-      ],
-      [
-        [
-          "11000000",
-          "06 85 1B",
-          "20.000000",
-          "GetStage",
-          "00 00",
-          "{Skyrim.esm:02D515}",
-          "00 00 00 00",
-          "Subject",
-          "0",
-          "-1"
-        ]
-      ]
-    ],
-    "DNAM - Flags": "",
-    "XNAM - Unknown": "00 00 00 00"
+      },
+      {
+        "name": "DNAM - Flags",
+        "value": ""
+      },
+      {
+        "name": "XNAM - Unknown",
+        "value": "00 00 00 00"
+      }
+    ]
   }
 }

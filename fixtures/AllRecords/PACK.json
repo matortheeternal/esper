@@ -1,327 +1,1016 @@
 {
   "00000F8D": {
-    "Record Header": [
-      "PACK",
-      "981",
-      "",
-      "{Skyrim.esm:000F8D}",
-      "00 00 00 00",
-      "40",
-      "00 00"
-    ],
-    "EDID - Editor ID": "ThievesGuildSapphireSandboxMultiPackage0x0",
-    "PKDT - Pack Data": [
-      "",
-      "Package",
-      "None",
-      "Run",
-      "41",
-      "Hellos to player, Random conversations, Observe combat behavior, Reaction to player actions, Friendly fire comments, Allow Idle Chatter, Unknown 11, Unknown 12, Unknown 13, Unknown 14, Unknown 15, Unknown 16",
-      "00 00"
-    ],
-    "PSDT - Schedule": [
-      "-1",
-      "Any",
-      "0",
-      "-1",
-      "-1",
-      "61 73 2C",
-      "0"
-    ],
-    "Conditions": [
-      [
-        [
-          "10000000",
-          "69 00 4E",
-          "1.000000",
-          "GetStageDone",
-          "00 00",
-          "{Skyrim.esm:0C19A8}",
-          "200",
-          "Subject",
-          "0",
-          "-1"
+    "elements": [
+      {
+        "name": "Record Header",
+        "elements": [
+          {
+            "name": "Signature",
+            "value": "PACK"
+          },
+          {
+            "name": "Data Size",
+            "value": "981"
+          },
+          {
+            "name": "Record Flags",
+            "value": ""
+          },
+          {
+            "name": "FormID",
+            "value": "{Skyrim.esm:000F8D}"
+          },
+          {
+            "name": "Version Control Info 1",
+            "value": "00 00 00 00"
+          },
+          {
+            "name": "Form Version",
+            "value": "40"
+          },
+          {
+            "name": "Version Control Info 2",
+            "value": "00 00"
+          }
         ]
-      ]
-    ],
-    "PKCU - Counter": [
-      "25",
-      "{Skyrim.esm:068B86}",
-      "17"
-    ],
-    "Package Data": [
-      [
-        [
-          "Bool",
-          [
-            "True"
-          ]
-        ],
-        [
-          "Location",
-          [
-            "Near reference",
-            "{Skyrim.esm:0B780E}",
-            "300"
-          ]
-        ],
-        [
-          "Float",
-          [
-            "30.000000"
-          ]
-        ],
-        [
-          "Location",
-          [
-            "Near reference",
-            "{Skyrim.esm:0B780D}",
-            "450"
-          ]
-        ],
-        [
-          "Float",
-          [
-            "60.000000"
-          ]
-        ],
-        [
-          "Location",
-          [
-            "Near reference",
-            "{Skyrim.esm:103850}",
-            "300"
-          ]
-        ],
-        [
-          "Float",
-          [
-            "60.000000"
-          ]
-        ],
-        [
-          "Location",
-          [
-            "Near editor location",
-            "00 00 00 00",
-            "0"
-          ]
-        ],
-        [
-          "Float",
-          [
-            "0.000000"
-          ]
-        ],
-        [
-          "Bool",
-          [
-            "False"
-          ]
-        ],
-        [
-          "Bool",
-          [
-            "True"
-          ]
-        ],
-        [
-          "Bool",
-          [
-            "False"
-          ]
-        ],
-        [
-          "Bool",
-          [
-            "True"
-          ]
-        ],
-        [
-          "Bool",
-          [
-            "True"
-          ]
-        ],
-        [
-          "Bool",
-          [
-            "True"
-          ]
-        ],
-        [
-          "Bool",
-          [
-            "True"
-          ]
-        ],
-        [
-          "Bool",
-          [
-            "False"
-          ]
-        ],
-        [
-          "Bool",
-          [
-            "False"
-          ]
-        ],
-        [
-          "Float",
-          [
-            "70.000000"
-          ]
-        ],
-        [
-          "Bool",
-          [
-            "False"
-          ]
-        ],
-        [
-          "Bool",
-          [
-            "False"
-          ]
-        ],
-        [
-          "Location",
-          [
-            "Near editor location",
-            "00 00 00 00",
-            "0"
-          ]
-        ],
-        [
-          "Float",
-          [
-            "0.000000"
-          ]
-        ],
-        [
-          "Location",
-          [
-            "Near editor location",
-            "00 00 00 00",
-            "0"
-          ]
-        ],
-        [
-          "Float",
-          [
-            "0.000000"
-          ]
+      },
+      {
+        "name": "EDID - Editor ID",
+        "value": "ThievesGuildSapphireSandboxMultiPackage0x0"
+      },
+      {
+        "name": "PKDT - Pack Data",
+        "elements": [
+          {
+            "name": "General Flags",
+            "value": ""
+          },
+          {
+            "name": "Type",
+            "value": "Package"
+          },
+          {
+            "name": "Interrupt Override",
+            "value": "None"
+          },
+          {
+            "name": "Preferred Speed",
+            "value": "Run"
+          },
+          {
+            "name": "Unknown",
+            "value": "41"
+          },
+          {
+            "name": "Interrupt Flags",
+            "value": "Hellos to player, Random conversations, Observe combat behavior, Reaction to player actions, Friendly fire comments, Allow Idle Chatter, Unknown 11, Unknown 12, Unknown 13, Unknown 14, Unknown 15, Unknown 16"
+          },
+          {
+            "name": "Unknown",
+            "value": "00 00"
+          }
         ]
-      ],
-      [
-        [
-          "92"
-        ],
-        [
-          "0"
-        ],
-        [
-          "32"
-        ],
-        [
-          "35"
-        ],
-        [
-          "41"
-        ],
-        [
-          "37"
-        ],
-        [
-          "43"
-        ],
-        [
-          "39"
-        ],
-        [
-          "45"
-        ],
-        [
-          "14"
-        ],
-        [
-          "1"
-        ],
-        [
-          "3"
-        ],
-        [
-          "4"
-        ],
-        [
-          "5"
-        ],
-        [
-          "6"
-        ],
-        [
-          "94"
-        ],
-        [
-          "7"
-        ],
-        [
-          "25"
-        ],
-        [
-          "29"
-        ],
-        [
-          "27"
-        ],
-        [
-          "33"
-        ],
-        [
-          "95"
-        ],
-        [
-          "97"
-        ],
-        [
-          "96"
-        ],
-        [
-          "98"
+      },
+      {
+        "name": "PSDT - Schedule",
+        "elements": [
+          {
+            "name": "Month",
+            "value": "-1"
+          },
+          {
+            "name": "Day of week",
+            "value": "Any"
+          },
+          {
+            "name": "Date",
+            "value": "0"
+          },
+          {
+            "name": "Hour",
+            "value": "-1"
+          },
+          {
+            "name": "Minute",
+            "value": "-1"
+          },
+          {
+            "name": "Unused",
+            "value": "61 73 2C"
+          },
+          {
+            "name": "Duration (minutes)",
+            "value": "0"
+          }
         ]
-      ]
-    ],
-    "XNAM - Marker": "5F",
-    "OnBegin": [
-      "",
-      "{Null:000000}",
-      [
-        [
-          "Topic Ref",
-          "{Null:000000}"
+      },
+      {
+        "name": "Conditions",
+        "elements": [
+          {
+            "name": "Condition",
+            "elements": [
+              {
+                "name": "CTDA - ",
+                "elements": [
+                  {
+                    "name": "Type",
+                    "value": "10000000"
+                  },
+                  {
+                    "name": "Unused",
+                    "value": "69 00 4E"
+                  },
+                  {
+                    "name": "Comparison Value",
+                    "value": "1.000000"
+                  },
+                  {
+                    "name": "Function",
+                    "value": "GetStageDone"
+                  },
+                  {
+                    "name": "Unused",
+                    "value": "00 00"
+                  },
+                  {
+                    "name": "Parameter #1",
+                    "value": "{Skyrim.esm:0C19A8}"
+                  },
+                  {
+                    "name": "Parameter #2",
+                    "value": "200"
+                  },
+                  {
+                    "name": "Run On",
+                    "value": "Subject"
+                  },
+                  {
+                    "name": "Reference",
+                    "value": "0"
+                  },
+                  {
+                    "name": "Parameter #3",
+                    "value": "-1"
+                  }
+                ]
+              }
+            ]
+          }
         ]
-      ]
-    ],
-    "OnEnd": [
-      "",
-      "{Null:000000}",
-      [
-        [
-          "Topic Ref",
-          "{Null:000000}"
+      },
+      {
+        "name": "PKCU - Counter",
+        "elements": [
+          {
+            "name": "Data Input Count",
+            "value": "25"
+          },
+          {
+            "name": "Package Template",
+            "value": "{Skyrim.esm:068B86}"
+          },
+          {
+            "name": "Version Counter (autoincremented)",
+            "value": "17"
+          }
         ]
-      ]
-    ],
-    "OnChange": [
-      "",
-      "{Null:000000}",
-      [
-        [
-          "Topic Ref",
-          "{Null:000000}"
+      },
+      {
+        "name": "Package Data",
+        "elements": [
+          {
+            "name": "Data Input Values",
+            "elements": [
+              {
+                "name": "Value",
+                "elements": [
+                  {
+                    "name": "ANAM - Type",
+                    "value": "Bool"
+                  },
+                  {
+                    "name": "CNAM - Value",
+                    "elements": [
+                      {
+                        "name": "Bool",
+                        "value": "True"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "Value",
+                "elements": [
+                  {
+                    "name": "ANAM - Type",
+                    "value": "Location"
+                  },
+                  {
+                    "name": "PLDT - Location",
+                    "elements": [
+                      {
+                        "name": "Type",
+                        "value": "Near reference"
+                      },
+                      {
+                        "name": "Location Value",
+                        "value": "{Skyrim.esm:0B780E}"
+                      },
+                      {
+                        "name": "Radius",
+                        "value": "300"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "Value",
+                "elements": [
+                  {
+                    "name": "ANAM - Type",
+                    "value": "Float"
+                  },
+                  {
+                    "name": "CNAM - Value",
+                    "elements": [
+                      {
+                        "name": "Float",
+                        "value": "30.000000"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "Value",
+                "elements": [
+                  {
+                    "name": "ANAM - Type",
+                    "value": "Location"
+                  },
+                  {
+                    "name": "PLDT - Location",
+                    "elements": [
+                      {
+                        "name": "Type",
+                        "value": "Near reference"
+                      },
+                      {
+                        "name": "Location Value",
+                        "value": "{Skyrim.esm:0B780D}"
+                      },
+                      {
+                        "name": "Radius",
+                        "value": "450"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "Value",
+                "elements": [
+                  {
+                    "name": "ANAM - Type",
+                    "value": "Float"
+                  },
+                  {
+                    "name": "CNAM - Value",
+                    "elements": [
+                      {
+                        "name": "Float",
+                        "value": "60.000000"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "Value",
+                "elements": [
+                  {
+                    "name": "ANAM - Type",
+                    "value": "Location"
+                  },
+                  {
+                    "name": "PLDT - Location",
+                    "elements": [
+                      {
+                        "name": "Type",
+                        "value": "Near reference"
+                      },
+                      {
+                        "name": "Location Value",
+                        "value": "{Skyrim.esm:103850}"
+                      },
+                      {
+                        "name": "Radius",
+                        "value": "300"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "Value",
+                "elements": [
+                  {
+                    "name": "ANAM - Type",
+                    "value": "Float"
+                  },
+                  {
+                    "name": "CNAM - Value",
+                    "elements": [
+                      {
+                        "name": "Float",
+                        "value": "60.000000"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "Value",
+                "elements": [
+                  {
+                    "name": "ANAM - Type",
+                    "value": "Location"
+                  },
+                  {
+                    "name": "PLDT - Location",
+                    "elements": [
+                      {
+                        "name": "Type",
+                        "value": "Near editor location"
+                      },
+                      {
+                        "name": "Location Value",
+                        "value": "00 00 00 00"
+                      },
+                      {
+                        "name": "Radius",
+                        "value": "0"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "Value",
+                "elements": [
+                  {
+                    "name": "ANAM - Type",
+                    "value": "Float"
+                  },
+                  {
+                    "name": "CNAM - Value",
+                    "elements": [
+                      {
+                        "name": "Float",
+                        "value": "0.000000"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "Value",
+                "elements": [
+                  {
+                    "name": "ANAM - Type",
+                    "value": "Bool"
+                  },
+                  {
+                    "name": "CNAM - Value",
+                    "elements": [
+                      {
+                        "name": "Bool",
+                        "value": "False"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "Value",
+                "elements": [
+                  {
+                    "name": "ANAM - Type",
+                    "value": "Bool"
+                  },
+                  {
+                    "name": "CNAM - Value",
+                    "elements": [
+                      {
+                        "name": "Bool",
+                        "value": "True"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "Value",
+                "elements": [
+                  {
+                    "name": "ANAM - Type",
+                    "value": "Bool"
+                  },
+                  {
+                    "name": "CNAM - Value",
+                    "elements": [
+                      {
+                        "name": "Bool",
+                        "value": "False"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "Value",
+                "elements": [
+                  {
+                    "name": "ANAM - Type",
+                    "value": "Bool"
+                  },
+                  {
+                    "name": "CNAM - Value",
+                    "elements": [
+                      {
+                        "name": "Bool",
+                        "value": "True"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "Value",
+                "elements": [
+                  {
+                    "name": "ANAM - Type",
+                    "value": "Bool"
+                  },
+                  {
+                    "name": "CNAM - Value",
+                    "elements": [
+                      {
+                        "name": "Bool",
+                        "value": "True"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "Value",
+                "elements": [
+                  {
+                    "name": "ANAM - Type",
+                    "value": "Bool"
+                  },
+                  {
+                    "name": "CNAM - Value",
+                    "elements": [
+                      {
+                        "name": "Bool",
+                        "value": "True"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "Value",
+                "elements": [
+                  {
+                    "name": "ANAM - Type",
+                    "value": "Bool"
+                  },
+                  {
+                    "name": "CNAM - Value",
+                    "elements": [
+                      {
+                        "name": "Bool",
+                        "value": "True"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "Value",
+                "elements": [
+                  {
+                    "name": "ANAM - Type",
+                    "value": "Bool"
+                  },
+                  {
+                    "name": "CNAM - Value",
+                    "elements": [
+                      {
+                        "name": "Bool",
+                        "value": "False"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "Value",
+                "elements": [
+                  {
+                    "name": "ANAM - Type",
+                    "value": "Bool"
+                  },
+                  {
+                    "name": "CNAM - Value",
+                    "elements": [
+                      {
+                        "name": "Bool",
+                        "value": "False"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "Value",
+                "elements": [
+                  {
+                    "name": "ANAM - Type",
+                    "value": "Float"
+                  },
+                  {
+                    "name": "CNAM - Value",
+                    "elements": [
+                      {
+                        "name": "Float",
+                        "value": "70.000000"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "Value",
+                "elements": [
+                  {
+                    "name": "ANAM - Type",
+                    "value": "Bool"
+                  },
+                  {
+                    "name": "CNAM - Value",
+                    "elements": [
+                      {
+                        "name": "Bool",
+                        "value": "False"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "Value",
+                "elements": [
+                  {
+                    "name": "ANAM - Type",
+                    "value": "Bool"
+                  },
+                  {
+                    "name": "CNAM - Value",
+                    "elements": [
+                      {
+                        "name": "Bool",
+                        "value": "False"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "Value",
+                "elements": [
+                  {
+                    "name": "ANAM - Type",
+                    "value": "Location"
+                  },
+                  {
+                    "name": "PLDT - Location",
+                    "elements": [
+                      {
+                        "name": "Type",
+                        "value": "Near editor location"
+                      },
+                      {
+                        "name": "Location Value",
+                        "value": "00 00 00 00"
+                      },
+                      {
+                        "name": "Radius",
+                        "value": "0"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "Value",
+                "elements": [
+                  {
+                    "name": "ANAM - Type",
+                    "value": "Float"
+                  },
+                  {
+                    "name": "CNAM - Value",
+                    "elements": [
+                      {
+                        "name": "Float",
+                        "value": "0.000000"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "Value",
+                "elements": [
+                  {
+                    "name": "ANAM - Type",
+                    "value": "Location"
+                  },
+                  {
+                    "name": "PLDT - Location",
+                    "elements": [
+                      {
+                        "name": "Type",
+                        "value": "Near editor location"
+                      },
+                      {
+                        "name": "Location Value",
+                        "value": "00 00 00 00"
+                      },
+                      {
+                        "name": "Radius",
+                        "value": "0"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "Value",
+                "elements": [
+                  {
+                    "name": "ANAM - Type",
+                    "value": "Float"
+                  },
+                  {
+                    "name": "CNAM - Value",
+                    "elements": [
+                      {
+                        "name": "Float",
+                        "value": "0.000000"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "Data Inputs",
+            "elements": [
+              {
+                "name": "Data Input",
+                "elements": [
+                  {
+                    "name": "UNAM - Index",
+                    "value": "92"
+                  }
+                ]
+              },
+              {
+                "name": "Data Input",
+                "elements": [
+                  {
+                    "name": "UNAM - Index",
+                    "value": "0"
+                  }
+                ]
+              },
+              {
+                "name": "Data Input",
+                "elements": [
+                  {
+                    "name": "UNAM - Index",
+                    "value": "32"
+                  }
+                ]
+              },
+              {
+                "name": "Data Input",
+                "elements": [
+                  {
+                    "name": "UNAM - Index",
+                    "value": "35"
+                  }
+                ]
+              },
+              {
+                "name": "Data Input",
+                "elements": [
+                  {
+                    "name": "UNAM - Index",
+                    "value": "41"
+                  }
+                ]
+              },
+              {
+                "name": "Data Input",
+                "elements": [
+                  {
+                    "name": "UNAM - Index",
+                    "value": "37"
+                  }
+                ]
+              },
+              {
+                "name": "Data Input",
+                "elements": [
+                  {
+                    "name": "UNAM - Index",
+                    "value": "43"
+                  }
+                ]
+              },
+              {
+                "name": "Data Input",
+                "elements": [
+                  {
+                    "name": "UNAM - Index",
+                    "value": "39"
+                  }
+                ]
+              },
+              {
+                "name": "Data Input",
+                "elements": [
+                  {
+                    "name": "UNAM - Index",
+                    "value": "45"
+                  }
+                ]
+              },
+              {
+                "name": "Data Input",
+                "elements": [
+                  {
+                    "name": "UNAM - Index",
+                    "value": "14"
+                  }
+                ]
+              },
+              {
+                "name": "Data Input",
+                "elements": [
+                  {
+                    "name": "UNAM - Index",
+                    "value": "1"
+                  }
+                ]
+              },
+              {
+                "name": "Data Input",
+                "elements": [
+                  {
+                    "name": "UNAM - Index",
+                    "value": "3"
+                  }
+                ]
+              },
+              {
+                "name": "Data Input",
+                "elements": [
+                  {
+                    "name": "UNAM - Index",
+                    "value": "4"
+                  }
+                ]
+              },
+              {
+                "name": "Data Input",
+                "elements": [
+                  {
+                    "name": "UNAM - Index",
+                    "value": "5"
+                  }
+                ]
+              },
+              {
+                "name": "Data Input",
+                "elements": [
+                  {
+                    "name": "UNAM - Index",
+                    "value": "6"
+                  }
+                ]
+              },
+              {
+                "name": "Data Input",
+                "elements": [
+                  {
+                    "name": "UNAM - Index",
+                    "value": "94"
+                  }
+                ]
+              },
+              {
+                "name": "Data Input",
+                "elements": [
+                  {
+                    "name": "UNAM - Index",
+                    "value": "7"
+                  }
+                ]
+              },
+              {
+                "name": "Data Input",
+                "elements": [
+                  {
+                    "name": "UNAM - Index",
+                    "value": "25"
+                  }
+                ]
+              },
+              {
+                "name": "Data Input",
+                "elements": [
+                  {
+                    "name": "UNAM - Index",
+                    "value": "29"
+                  }
+                ]
+              },
+              {
+                "name": "Data Input",
+                "elements": [
+                  {
+                    "name": "UNAM - Index",
+                    "value": "27"
+                  }
+                ]
+              },
+              {
+                "name": "Data Input",
+                "elements": [
+                  {
+                    "name": "UNAM - Index",
+                    "value": "33"
+                  }
+                ]
+              },
+              {
+                "name": "Data Input",
+                "elements": [
+                  {
+                    "name": "UNAM - Index",
+                    "value": "95"
+                  }
+                ]
+              },
+              {
+                "name": "Data Input",
+                "elements": [
+                  {
+                    "name": "UNAM - Index",
+                    "value": "97"
+                  }
+                ]
+              },
+              {
+                "name": "Data Input",
+                "elements": [
+                  {
+                    "name": "UNAM - Index",
+                    "value": "96"
+                  }
+                ]
+              },
+              {
+                "name": "Data Input",
+                "elements": [
+                  {
+                    "name": "UNAM - Index",
+                    "value": "98"
+                  }
+                ]
+              }
+            ]
+          }
         ]
-      ]
+      },
+      {
+        "name": "XNAM - Marker",
+        "value": "5F"
+      },
+      {
+        "name": "OnBegin",
+        "elements": [
+          {
+            "name": "POBA - OnBegin Marker",
+            "value": ""
+          },
+          {
+            "name": "INAM - Idle",
+            "value": "{Null:000000}"
+          },
+          {
+            "name": "Topic",
+            "elements": [
+              {
+                "name": "PDTO - Topic Data",
+                "elements": [
+                  {
+                    "name": "Type",
+                    "value": "Topic Ref"
+                  },
+                  {
+                    "name": "Data",
+                    "value": "{Null:000000}"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "OnEnd",
+        "elements": [
+          {
+            "name": "POEA - OnEnd Marker",
+            "value": ""
+          },
+          {
+            "name": "INAM - Idle",
+            "value": "{Null:000000}"
+          },
+          {
+            "name": "Topic",
+            "elements": [
+              {
+                "name": "PDTO - Topic Data",
+                "elements": [
+                  {
+                    "name": "Type",
+                    "value": "Topic Ref"
+                  },
+                  {
+                    "name": "Data",
+                    "value": "{Null:000000}"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "OnChange",
+        "elements": [
+          {
+            "name": "POCA - OnChange Marker",
+            "value": ""
+          },
+          {
+            "name": "INAM - Idle",
+            "value": "{Null:000000}"
+          },
+          {
+            "name": "Topic",
+            "elements": [
+              {
+                "name": "PDTO - Topic Data",
+                "elements": [
+                  {
+                    "name": "Type",
+                    "value": "Topic Ref"
+                  },
+                  {
+                    "name": "Data",
+                    "value": "{Null:000000}"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
     ]
   }
 }

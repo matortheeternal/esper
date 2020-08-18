@@ -1,92 +1,304 @@
 {
   "00017362": {
-    "Record Header": [
-      "ENCH",
-      "312",
-      "",
-      "{Skyrim.esm:017362}",
-      "00 00 00 00",
-      "44",
-      "00 00"
-    ],
-    "EDID - Editor ID": "MGArchMageRobeHoodedEnchant",
-    "OBND - Object Bounds": [
-      "0",
-      "0",
-      "0",
-      "0",
-      "0",
-      "0"
-    ],
-    "FULL - Name": "Skein of Magnus",
-    "ENIT - Effect Data": [
-      "3161",
-      "",
-      "Constant Effect",
-      "3161",
-      "Self",
-      "Enchantment",
-      "0.000000",
-      "{Null:000000}",
-      "{Null:000000}"
-    ],
-    "Effects": [
-      [
-        "{Skyrim.esm:07A0F2}",
-        [
-          "15.000000",
-          "0",
-          "0"
+    "elements": [
+      {
+        "name": "Record Header",
+        "elements": [
+          {
+            "name": "Signature",
+            "value": "ENCH"
+          },
+          {
+            "name": "Data Size",
+            "value": "312"
+          },
+          {
+            "name": "Record Flags",
+            "value": ""
+          },
+          {
+            "name": "FormID",
+            "value": "{Skyrim.esm:017362}"
+          },
+          {
+            "name": "Version Control Info 1",
+            "value": "00 00 00 00"
+          },
+          {
+            "name": "Form Version",
+            "value": "44"
+          },
+          {
+            "name": "Version Control Info 2",
+            "value": "00 00"
+          }
         ]
-      ],
-      [
-        "{Skyrim.esm:07A0F5}",
-        [
-          "15.000000",
-          "0",
-          "0"
+      },
+      {
+        "name": "EDID - Editor ID",
+        "value": "MGArchMageRobeHoodedEnchant"
+      },
+      {
+        "name": "OBND - Object Bounds",
+        "elements": [
+          {
+            "name": "X1",
+            "value": "0"
+          },
+          {
+            "name": "Y1",
+            "value": "0"
+          },
+          {
+            "name": "Z1",
+            "value": "0"
+          },
+          {
+            "name": "X2",
+            "value": "0"
+          },
+          {
+            "name": "Y2",
+            "value": "0"
+          },
+          {
+            "name": "Z2",
+            "value": "0"
+          }
         ]
-      ],
-      [
-        "{Skyrim.esm:07A0F6}",
-        [
-          "15.000000",
-          "0",
-          "0"
+      },
+      {
+        "name": "FULL - Name",
+        "value": "Skein of Magnus"
+      },
+      {
+        "name": "ENIT - Effect Data",
+        "elements": [
+          {
+            "name": "Enchantment Cost",
+            "value": "3161"
+          },
+          {
+            "name": "Flags",
+            "value": ""
+          },
+          {
+            "name": "Cast Type",
+            "value": "Constant Effect"
+          },
+          {
+            "name": "Enchantment Amount",
+            "value": "3161"
+          },
+          {
+            "name": "Target Type",
+            "value": "Self"
+          },
+          {
+            "name": "Enchant Type",
+            "value": "Enchantment"
+          },
+          {
+            "name": "Charge Time",
+            "value": "0.000000"
+          },
+          {
+            "name": "Base Enchantment",
+            "value": "{Null:000000}"
+          },
+          {
+            "name": "Worn Restrictions",
+            "value": "{Null:000000}"
+          }
         ]
-      ],
-      [
-        "{Skyrim.esm:07A101}",
-        [
-          "15.000000",
-          "0",
-          "0"
+      },
+      {
+        "name": "Effects",
+        "elements": [
+          {
+            "name": "Effect",
+            "elements": [
+              {
+                "name": "EFID - Base Effect",
+                "value": "{Skyrim.esm:07A0F2}"
+              },
+              {
+                "name": "EFIT - ",
+                "elements": [
+                  {
+                    "name": "Magnitude",
+                    "value": "15.000000"
+                  },
+                  {
+                    "name": "Area",
+                    "value": "0"
+                  },
+                  {
+                    "name": "Duration",
+                    "value": "0"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "Effect",
+            "elements": [
+              {
+                "name": "EFID - Base Effect",
+                "value": "{Skyrim.esm:07A0F5}"
+              },
+              {
+                "name": "EFIT - ",
+                "elements": [
+                  {
+                    "name": "Magnitude",
+                    "value": "15.000000"
+                  },
+                  {
+                    "name": "Area",
+                    "value": "0"
+                  },
+                  {
+                    "name": "Duration",
+                    "value": "0"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "Effect",
+            "elements": [
+              {
+                "name": "EFID - Base Effect",
+                "value": "{Skyrim.esm:07A0F6}"
+              },
+              {
+                "name": "EFIT - ",
+                "elements": [
+                  {
+                    "name": "Magnitude",
+                    "value": "15.000000"
+                  },
+                  {
+                    "name": "Area",
+                    "value": "0"
+                  },
+                  {
+                    "name": "Duration",
+                    "value": "0"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "Effect",
+            "elements": [
+              {
+                "name": "EFID - Base Effect",
+                "value": "{Skyrim.esm:07A101}"
+              },
+              {
+                "name": "EFIT - ",
+                "elements": [
+                  {
+                    "name": "Magnitude",
+                    "value": "15.000000"
+                  },
+                  {
+                    "name": "Area",
+                    "value": "0"
+                  },
+                  {
+                    "name": "Duration",
+                    "value": "0"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "Effect",
+            "elements": [
+              {
+                "name": "EFID - Base Effect",
+                "value": "{Skyrim.esm:07A0FA}"
+              },
+              {
+                "name": "EFIT - ",
+                "elements": [
+                  {
+                    "name": "Magnitude",
+                    "value": "15.000000"
+                  },
+                  {
+                    "name": "Area",
+                    "value": "0"
+                  },
+                  {
+                    "name": "Duration",
+                    "value": "0"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "Effect",
+            "elements": [
+              {
+                "name": "EFID - Base Effect",
+                "value": "{Skyrim.esm:07A0FD}"
+              },
+              {
+                "name": "EFIT - ",
+                "elements": [
+                  {
+                    "name": "Magnitude",
+                    "value": "100.000000"
+                  },
+                  {
+                    "name": "Area",
+                    "value": "0"
+                  },
+                  {
+                    "name": "Duration",
+                    "value": "0"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "Effect",
+            "elements": [
+              {
+                "name": "EFID - Base Effect",
+                "value": "{Skyrim.esm:049504}"
+              },
+              {
+                "name": "EFIT - ",
+                "elements": [
+                  {
+                    "name": "Magnitude",
+                    "value": "50.000000"
+                  },
+                  {
+                    "name": "Area",
+                    "value": "0"
+                  },
+                  {
+                    "name": "Duration",
+                    "value": "0"
+                  }
+                ]
+              }
+            ]
+          }
         ]
-      ],
-      [
-        "{Skyrim.esm:07A0FA}",
-        [
-          "15.000000",
-          "0",
-          "0"
-        ]
-      ],
-      [
-        "{Skyrim.esm:07A0FD}",
-        [
-          "100.000000",
-          "0",
-          "0"
-        ]
-      ],
-      [
-        "{Skyrim.esm:049504}",
-        [
-          "50.000000",
-          "0",
-          "0"
-        ]
-      ]
+      }
     ]
   }
 }

@@ -1,28 +1,96 @@
 {
   "001079E9": {
-    "Record Header": [
-      "REVB",
-      "55",
-      "",
-      "{Skyrim.esm:1079E9}",
-      "00 00 00 00",
-      "37",
-      "00 00"
-    ],
-    "EDID - Editor ID": "IntRoomStoneLargeExtraReverb",
-    "DATA - Data": [
-      "3710",
-      "2994",
-      "-1",
-      "-2",
-      "-4",
-      "0",
-      "1.000000",
-      "46",
-      "63",
-      "83",
-      "83",
-      "0"
+    "elements": [
+      {
+        "name": "Record Header",
+        "elements": [
+          {
+            "name": "Signature",
+            "value": "REVB"
+          },
+          {
+            "name": "Data Size",
+            "value": "55"
+          },
+          {
+            "name": "Record Flags",
+            "value": ""
+          },
+          {
+            "name": "FormID",
+            "value": "{Skyrim.esm:1079E9}"
+          },
+          {
+            "name": "Version Control Info 1",
+            "value": "00 00 00 00"
+          },
+          {
+            "name": "Form Version",
+            "value": "37"
+          },
+          {
+            "name": "Version Control Info 2",
+            "value": "00 00"
+          }
+        ]
+      },
+      {
+        "name": "EDID - Editor ID",
+        "value": "IntRoomStoneLargeExtraReverb"
+      },
+      {
+        "name": "DATA - Data",
+        "elements": [
+          {
+            "name": "Decay Time (ms)",
+            "value": "3710"
+          },
+          {
+            "name": "HF Reference (Hz)",
+            "value": "2994"
+          },
+          {
+            "name": "Room Filter",
+            "value": "-1"
+          },
+          {
+            "name": "Room HF Filter",
+            "value": "-2"
+          },
+          {
+            "name": "Reflections",
+            "value": "-4"
+          },
+          {
+            "name": "Reverb Amp",
+            "value": "0"
+          },
+          {
+            "name": "Decay HF Ratio",
+            "value": "1.000000"
+          },
+          {
+            "name": "Reflect Delay (ms), scaled",
+            "value": "46"
+          },
+          {
+            "name": "Reverb Delay (ms)",
+            "value": "63"
+          },
+          {
+            "name": "Diffusion %",
+            "value": "83"
+          },
+          {
+            "name": "Density %",
+            "value": "83"
+          },
+          {
+            "name": "Unknown",
+            "value": "0"
+          }
+        ]
+      }
     ]
   }
 }

@@ -1,29 +1,100 @@
 {
   "0010FDC4": {
-    "Record Header": [
-      "SPGD",
-      "108",
-      "",
-      "{Skyrim.esm:10FDC4}",
-      "00 00 00 00",
-      "40",
-      "00 00"
-    ],
-    "EDID - Editor ID": "SovngardeStardust",
-    "DATA - Data": [
-      "11.000000",
-      "400.000000",
-      "0.320000",
-      "0.320000",
-      "0.000000",
-      "0.200000",
-      "360.000000",
-      "4",
-      "4",
-      "Snow",
-      "700",
-      "90.000000"
-    ],
-    "ICON - Particle Texture": "Effects\\IceShards01.dds"
+    "elements": [
+      {
+        "name": "Record Header",
+        "elements": [
+          {
+            "name": "Signature",
+            "value": "SPGD"
+          },
+          {
+            "name": "Data Size",
+            "value": "108"
+          },
+          {
+            "name": "Record Flags",
+            "value": ""
+          },
+          {
+            "name": "FormID",
+            "value": "{Skyrim.esm:10FDC4}"
+          },
+          {
+            "name": "Version Control Info 1",
+            "value": "00 00 00 00"
+          },
+          {
+            "name": "Form Version",
+            "value": "40"
+          },
+          {
+            "name": "Version Control Info 2",
+            "value": "00 00"
+          }
+        ]
+      },
+      {
+        "name": "EDID - Editor ID",
+        "value": "SovngardeStardust"
+      },
+      {
+        "name": "DATA - Data",
+        "elements": [
+          {
+            "name": "Gravity Velocity",
+            "value": "11.000000"
+          },
+          {
+            "name": "Rotation Velocity",
+            "value": "400.000000"
+          },
+          {
+            "name": "Particle Size X",
+            "value": "0.320000"
+          },
+          {
+            "name": "Particle Size Y",
+            "value": "0.320000"
+          },
+          {
+            "name": "Center Offset Min",
+            "value": "0.000000"
+          },
+          {
+            "name": "Center Offset Max",
+            "value": "0.200000"
+          },
+          {
+            "name": "Initial Rotation Range",
+            "value": "360.000000"
+          },
+          {
+            "name": "# of Subtextures X",
+            "value": "4"
+          },
+          {
+            "name": "# of Subtextures Y",
+            "value": "4"
+          },
+          {
+            "name": "Type",
+            "value": "Snow"
+          },
+          {
+            "name": "Box Size",
+            "value": "700"
+          },
+          {
+            "name": "Particle Density",
+            "value": "90.000000"
+          }
+        ]
+      },
+      {
+        "name": "ICON - Particle Texture",
+        "value": "Effects\\IceShards01.dds"
+      }
+    ]
   }
 }

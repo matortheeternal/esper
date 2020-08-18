@@ -1,17 +1,52 @@
 {
   "00000F92": {
-    "Record Header": [
-      "GMST",
-      "33",
-      "",
-      "{Skyrim.esm:000F92}",
-      "00 00 00 00",
-      "43",
-      "00 00"
-    ],
-    "EDID - Editor ID": "fLargeRefMinSize",
-    "DATA - Value": [
-      "512.000000"
+    "elements": [
+      {
+        "name": "Record Header",
+        "elements": [
+          {
+            "name": "Signature",
+            "value": "GMST"
+          },
+          {
+            "name": "Data Size",
+            "value": "33"
+          },
+          {
+            "name": "Record Flags",
+            "value": ""
+          },
+          {
+            "name": "FormID",
+            "value": "{Skyrim.esm:000F92}"
+          },
+          {
+            "name": "Version Control Info 1",
+            "value": "00 00 00 00"
+          },
+          {
+            "name": "Form Version",
+            "value": "43"
+          },
+          {
+            "name": "Version Control Info 2",
+            "value": "00 00"
+          }
+        ]
+      },
+      {
+        "name": "EDID - Editor ID",
+        "value": "fLargeRefMinSize"
+      },
+      {
+        "name": "DATA - Value",
+        "elements": [
+          {
+            "name": "Float",
+            "value": "512.000000"
+          }
+        ]
+      }
     ]
   }
 }

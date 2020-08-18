@@ -1,34 +1,111 @@
 {
   "0010FE24": {
-    "Record Header": [
-      "SHOU",
-      "120",
-      "",
-      "{Skyrim.esm:10FE24}",
-      "00 00 00 00",
-      "44",
-      "00 00"
-    ],
-    "EDID - Editor ID": "L_DragonFrostIceStormShout",
-    "FULL - Name": "Ice Storm",
-    "MDOB - Menu Display Object": "{Skyrim.esm:0435A5}",
-    "DESC - Description": "",
-    "Words of Power": [
-      [
-        "{Skyrim.esm:0252C3}",
-        "{Skyrim.esm:10FE20}",
-        "5.000000"
-      ],
-      [
-        "{Skyrim.esm:0252C4}",
-        "{Skyrim.esm:10FE20}",
-        "5.000000"
-      ],
-      [
-        "{Skyrim.esm:0252C5}",
-        "{Skyrim.esm:10FE20}",
-        "5.000000"
-      ]
+    "elements": [
+      {
+        "name": "Record Header",
+        "elements": [
+          {
+            "name": "Signature",
+            "value": "SHOU"
+          },
+          {
+            "name": "Data Size",
+            "value": "120"
+          },
+          {
+            "name": "Record Flags",
+            "value": ""
+          },
+          {
+            "name": "FormID",
+            "value": "{Skyrim.esm:10FE24}"
+          },
+          {
+            "name": "Version Control Info 1",
+            "value": "00 00 00 00"
+          },
+          {
+            "name": "Form Version",
+            "value": "44"
+          },
+          {
+            "name": "Version Control Info 2",
+            "value": "00 00"
+          }
+        ]
+      },
+      {
+        "name": "EDID - Editor ID",
+        "value": "L_DragonFrostIceStormShout"
+      },
+      {
+        "name": "FULL - Name",
+        "value": "Ice Storm"
+      },
+      {
+        "name": "MDOB - Menu Display Object",
+        "value": "{Skyrim.esm:0435A5}"
+      },
+      {
+        "name": "DESC - Description",
+        "value": ""
+      },
+      {
+        "name": "Words of Power",
+        "elements": [
+          {
+            "name": "SNAM - ",
+            "elements": [
+              {
+                "name": "Word",
+                "value": "{Skyrim.esm:0252C3}"
+              },
+              {
+                "name": "Spell",
+                "value": "{Skyrim.esm:10FE20}"
+              },
+              {
+                "name": "Recovery Time",
+                "value": "5.000000"
+              }
+            ]
+          },
+          {
+            "name": "SNAM - ",
+            "elements": [
+              {
+                "name": "Word",
+                "value": "{Skyrim.esm:0252C4}"
+              },
+              {
+                "name": "Spell",
+                "value": "{Skyrim.esm:10FE20}"
+              },
+              {
+                "name": "Recovery Time",
+                "value": "5.000000"
+              }
+            ]
+          },
+          {
+            "name": "SNAM - ",
+            "elements": [
+              {
+                "name": "Word",
+                "value": "{Skyrim.esm:0252C5}"
+              },
+              {
+                "name": "Spell",
+                "value": "{Skyrim.esm:10FE20}"
+              },
+              {
+                "name": "Recovery Time",
+                "value": "5.000000"
+              }
+            ]
+          }
+        ]
+      }
     ]
   }
 }

@@ -1,62 +1,202 @@
 {
   "0010C3B5": {
-    "Record Header": [
-      "FLOR",
-      "234",
-      "",
-      "{Skyrim.esm:10C3B5}",
-      "00 00 00 00",
-      "44",
-      "00 00"
-    ],
-    "EDID - Editor ID": "DeadFXSalmon02",
-    "VMAD - Virtual Machine Adapter": [
-      "5",
-      "2",
-      [
-        [
-          "FCaddIngrediantAndDeleteSCRIPT",
-          "Local",
-          [
-            [
-              "myFood",
-              "Object",
-              "Edited",
-              [
-                [
-                  [
-                    "{Skyrim.esm:065C9F}",
-                    "None",
-                    "0"
-                  ]
-                ]
-              ]
-            ]
-          ]
+    "elements": [
+      {
+        "name": "Record Header",
+        "elements": [
+          {
+            "name": "Signature",
+            "value": "FLOR"
+          },
+          {
+            "name": "Data Size",
+            "value": "234"
+          },
+          {
+            "name": "Record Flags",
+            "value": ""
+          },
+          {
+            "name": "FormID",
+            "value": "{Skyrim.esm:10C3B5}"
+          },
+          {
+            "name": "Version Control Info 1",
+            "value": "00 00 00 00"
+          },
+          {
+            "name": "Form Version",
+            "value": "44"
+          },
+          {
+            "name": "Version Control Info 2",
+            "value": "00 00"
+          }
         ]
-      ]
-    ],
-    "OBND - Object Bounds": [
-      "0",
-      "0",
-      "0",
-      "0",
-      "0",
-      "0"
-    ],
-    "FULL - Name": "Salmon",
-    "Model": [
-      "Effects\\DeadFXSalmon02.nif",
-      "02 00 00 00 02 00 00 00 00 00 00 00 49 9A 1E BE 64 64 73 00 48 4A 40 BF CC 3D 48 A6 64 64 73 00 48 4A 40 BF"
-    ],
-    "PNAM - Unknown": "00 00 00 00",
-    "RNAM - Activate Text Override": "Harvest",
-    "FNAM - Unknown": "00 00",
-    "PFPC - Seasonal ingredient production": [
-      "0",
-      "0",
-      "0",
-      "0"
+      },
+      {
+        "name": "EDID - Editor ID",
+        "value": "DeadFXSalmon02"
+      },
+      {
+        "name": "VMAD - Virtual Machine Adapter",
+        "elements": [
+          {
+            "name": "Version",
+            "value": "5"
+          },
+          {
+            "name": "Object Format",
+            "value": "2"
+          },
+          {
+            "name": "Scripts",
+            "elements": [
+              {
+                "name": "Script",
+                "elements": [
+                  {
+                    "name": "scriptName",
+                    "value": "FCaddIngrediantAndDeleteSCRIPT"
+                  },
+                  {
+                    "name": "Flags",
+                    "value": "Local"
+                  },
+                  {
+                    "name": "Properties",
+                    "elements": [
+                      {
+                        "name": "Property",
+                        "elements": [
+                          {
+                            "name": "propertyName",
+                            "value": "myFood"
+                          },
+                          {
+                            "name": "Type",
+                            "value": "Object"
+                          },
+                          {
+                            "name": "Flags",
+                            "value": "Edited"
+                          },
+                          {
+                            "name": "Value",
+                            "elements": [
+                              {
+                                "name": "Object Union",
+                                "elements": [
+                                  {
+                                    "name": "Object v2",
+                                    "elements": [
+                                      {
+                                        "name": "FormID",
+                                        "value": "{Skyrim.esm:065C9F}"
+                                      },
+                                      {
+                                        "name": "Alias",
+                                        "value": "None"
+                                      },
+                                      {
+                                        "name": "Unused",
+                                        "value": "0"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "OBND - Object Bounds",
+        "elements": [
+          {
+            "name": "X1",
+            "value": "0"
+          },
+          {
+            "name": "Y1",
+            "value": "0"
+          },
+          {
+            "name": "Z1",
+            "value": "0"
+          },
+          {
+            "name": "X2",
+            "value": "0"
+          },
+          {
+            "name": "Y2",
+            "value": "0"
+          },
+          {
+            "name": "Z2",
+            "value": "0"
+          }
+        ]
+      },
+      {
+        "name": "FULL - Name",
+        "value": "Salmon"
+      },
+      {
+        "name": "Model",
+        "elements": [
+          {
+            "name": "MODL - Model FileName",
+            "value": "Effects\\DeadFXSalmon02.nif"
+          },
+          {
+            "name": "MODT - Texture Files Hashes",
+            "value": "02 00 00 00 02 00 00 00 00 00 00 00 49 9A 1E BE 64 64 73 00 48 4A 40 BF CC 3D 48 A6 64 64 73 00 48 4A 40 BF"
+          }
+        ]
+      },
+      {
+        "name": "PNAM - Unknown",
+        "value": "00 00 00 00"
+      },
+      {
+        "name": "RNAM - Activate Text Override",
+        "value": "Harvest"
+      },
+      {
+        "name": "FNAM - Unknown",
+        "value": "00 00"
+      },
+      {
+        "name": "PFPC - Seasonal ingredient production",
+        "elements": [
+          {
+            "name": "Spring",
+            "value": "0"
+          },
+          {
+            "name": "Summer ",
+            "value": "0"
+          },
+          {
+            "name": "Fall",
+            "value": "0"
+          },
+          {
+            "name": "Winter",
+            "value": "0"
+          }
+        ]
+      }
     ]
   }
 }

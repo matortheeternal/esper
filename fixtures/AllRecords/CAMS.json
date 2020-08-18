@@ -1,34 +1,114 @@
 {
   "0010FDAD": {
-    "Record Header": [
-      "CAMS",
-      "139",
-      "",
-      "{Skyrim.esm:10FDAD}",
-      "00 00 00 00",
-      "40",
-      "00 00"
-    ],
-    "EDID - Editor ID": "DS04aDragonKillCamA01L",
-    "Model": [
-      "Cameras\\DragonKillCamA01L.nif",
-      "02 00 00 00 00 00 00 00 00 00 00 00"
-    ],
-    "DATA - Data": [
-      "Shoot",
-      "Attacker",
-      "Attacker",
-      "Position Follows Location, Rotation Follows Target, Don't Follow Bone, Start At Time Zero",
-      [
-        "1.000000",
-        "1.000000",
-        "1.000000"
-      ],
-      "10.000000",
-      "4.000000",
-      "0.000000",
-      ""
-    ],
-    "MNAM - Image Space Modifier": "{Skyrim.esm:035301}"
+    "elements": [
+      {
+        "name": "Record Header",
+        "elements": [
+          {
+            "name": "Signature",
+            "value": "CAMS"
+          },
+          {
+            "name": "Data Size",
+            "value": "139"
+          },
+          {
+            "name": "Record Flags",
+            "value": ""
+          },
+          {
+            "name": "FormID",
+            "value": "{Skyrim.esm:10FDAD}"
+          },
+          {
+            "name": "Version Control Info 1",
+            "value": "00 00 00 00"
+          },
+          {
+            "name": "Form Version",
+            "value": "40"
+          },
+          {
+            "name": "Version Control Info 2",
+            "value": "00 00"
+          }
+        ]
+      },
+      {
+        "name": "EDID - Editor ID",
+        "value": "DS04aDragonKillCamA01L"
+      },
+      {
+        "name": "Model",
+        "elements": [
+          {
+            "name": "MODL - Model FileName",
+            "value": "Cameras\\DragonKillCamA01L.nif"
+          },
+          {
+            "name": "MODT - Texture Files Hashes",
+            "value": "02 00 00 00 00 00 00 00 00 00 00 00"
+          }
+        ]
+      },
+      {
+        "name": "DATA - Data",
+        "elements": [
+          {
+            "name": "Action",
+            "value": "Shoot"
+          },
+          {
+            "name": "Location",
+            "value": "Attacker"
+          },
+          {
+            "name": "Target",
+            "value": "Attacker"
+          },
+          {
+            "name": "Flags",
+            "value": "Position Follows Location, Rotation Follows Target, Don't Follow Bone, Start At Time Zero"
+          },
+          {
+            "name": "Time Multipliers",
+            "elements": [
+              {
+                "name": "Player",
+                "value": "1.000000"
+              },
+              {
+                "name": "Target",
+                "value": "1.000000"
+              },
+              {
+                "name": "Global",
+                "value": "1.000000"
+              }
+            ]
+          },
+          {
+            "name": "Max Time",
+            "value": "10.000000"
+          },
+          {
+            "name": "Min Time",
+            "value": "4.000000"
+          },
+          {
+            "name": "Target % Between Actors",
+            "value": "0.000000"
+          },
+          {
+            "name": "Near Target Distance",
+            "value": ""
+          }
+        ]
+      },
+      {
+        "name": "MNAM - Image Space Modifier",
+        "value": "{Skyrim.esm:035301}"
+      }
+    ]
   }
 }

@@ -1,43 +1,147 @@
 {
   "0010FD60": {
-    "Record Header": [
-      "BOOK",
-      "316",
-      "",
-      "{Skyrim.esm:10FD60}",
-      "00 00 00 00",
-      "44",
-      "00 00"
-    ],
-    "EDID - Editor ID": "SpellTomeConjureDremoraLord",
-    "OBND - Object Bounds": [
-      "0",
-      "0",
-      "0",
-      "0",
-      "0",
-      "0"
-    ],
-    "FULL - Name": "Spell Tome: Conjure Dremora Lord",
-    "Model": [
-      "Clutter\\Books\\SpellTomeConjurationLowPoly.nif",
-      "02 00 00 00 00 00 00 00 00 00 00 00"
-    ],
-    "DESC - Book Text": "<font face'$HandwrittenFont'><font size='40'><p align='center'>\r\nConjure Dremora Lord",
-    "KSIZ - Keyword Count": "2",
-    "KWDA - Keywords": [
-      "{Skyrim.esm:0937A2}",
-      "{Skyrim.esm:0937A5}"
-    ],
-    "DATA - Data": [
-      "Teaches Spell",
-      "Book/Tome",
-      "00 00",
-      "{Skyrim.esm:10DDEC}",
-      "730",
-      "1.000000"
-    ],
-    "INAM - Inventory Art": "{Skyrim.esm:02FBB6}",
-    "CNAM - Description": ""
+    "elements": [
+      {
+        "name": "Record Header",
+        "elements": [
+          {
+            "name": "Signature",
+            "value": "BOOK"
+          },
+          {
+            "name": "Data Size",
+            "value": "316"
+          },
+          {
+            "name": "Record Flags",
+            "value": ""
+          },
+          {
+            "name": "FormID",
+            "value": "{Skyrim.esm:10FD60}"
+          },
+          {
+            "name": "Version Control Info 1",
+            "value": "00 00 00 00"
+          },
+          {
+            "name": "Form Version",
+            "value": "44"
+          },
+          {
+            "name": "Version Control Info 2",
+            "value": "00 00"
+          }
+        ]
+      },
+      {
+        "name": "EDID - Editor ID",
+        "value": "SpellTomeConjureDremoraLord"
+      },
+      {
+        "name": "OBND - Object Bounds",
+        "elements": [
+          {
+            "name": "X1",
+            "value": "0"
+          },
+          {
+            "name": "Y1",
+            "value": "0"
+          },
+          {
+            "name": "Z1",
+            "value": "0"
+          },
+          {
+            "name": "X2",
+            "value": "0"
+          },
+          {
+            "name": "Y2",
+            "value": "0"
+          },
+          {
+            "name": "Z2",
+            "value": "0"
+          }
+        ]
+      },
+      {
+        "name": "FULL - Name",
+        "value": "Spell Tome: Conjure Dremora Lord"
+      },
+      {
+        "name": "Model",
+        "elements": [
+          {
+            "name": "MODL - Model FileName",
+            "value": "Clutter\\Books\\SpellTomeConjurationLowPoly.nif"
+          },
+          {
+            "name": "MODT - Texture Files Hashes",
+            "value": "02 00 00 00 00 00 00 00 00 00 00 00"
+          }
+        ]
+      },
+      {
+        "name": "DESC - Book Text",
+        "value": "<font face'$HandwrittenFont'><font size='40'><p align='center'>\r\nConjure Dremora Lord"
+      },
+      {
+        "name": "KSIZ - Keyword Count",
+        "value": "2"
+      },
+      {
+        "name": "KWDA - Keywords",
+        "elements": [
+          {
+            "name": "Keyword",
+            "value": "{Skyrim.esm:0937A2}"
+          },
+          {
+            "name": "Keyword",
+            "value": "{Skyrim.esm:0937A5}"
+          }
+        ]
+      },
+      {
+        "name": "DATA - Data",
+        "elements": [
+          {
+            "name": "Flags",
+            "value": "Teaches Spell"
+          },
+          {
+            "name": "Type",
+            "value": "Book/Tome"
+          },
+          {
+            "name": "Unused",
+            "value": "00 00"
+          },
+          {
+            "name": "Teaches",
+            "value": "{Skyrim.esm:10DDEC}"
+          },
+          {
+            "name": "Value",
+            "value": "730"
+          },
+          {
+            "name": "Weight",
+            "value": "1.000000"
+          }
+        ]
+      },
+      {
+        "name": "INAM - Inventory Art",
+        "value": "{Skyrim.esm:02FBB6}"
+      },
+      {
+        "name": "CNAM - Description",
+        "value": ""
+      }
+    ]
   }
 }

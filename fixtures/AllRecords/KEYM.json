@@ -1,37 +1,123 @@
 {
   "0010E7E6": {
-    "Record Header": [
-      "KEYM",
-      "227",
-      "",
-      "{Skyrim.esm:10E7E6}",
-      "00 00 00 00",
-      "44",
-      "00 00"
-    ],
-    "EDID - Editor ID": "RiftenConfiscatedGoodsChestKey",
-    "OBND - Object Bounds": [
-      "0",
-      "-12",
-      "-2",
-      "0",
-      "12",
-      "2"
-    ],
-    "FULL - Name": "Confiscated Goods Key",
-    "Model": [
-      "Clutter\\Key01.nif",
-      "02 00 00 00 04 00 00 00 00 00 00 00 7B 24 A2 37 64 64 73 00 BF FA 25 DA 8A 7E E1 67 64 64 73 00 BF FA 25 DA 6B BB 96 D1 64 64 73 00 26 2C 33 3B FA E0 BB A4 64 64 73 00 7F 66 A5 C0"
-    ],
-    "YNAM - Sound - Pick Up": "{Skyrim.esm:03ED75}",
-    "ZNAM - Sound - Put Down": "{Skyrim.esm:03ED78}",
-    "KSIZ - Keyword Count": "1",
-    "KWDA - Keywords": [
-      "{Skyrim.esm:0914EF}"
-    ],
-    "DATA - ": [
-      "0",
-      "0.000000"
+    "elements": [
+      {
+        "name": "Record Header",
+        "elements": [
+          {
+            "name": "Signature",
+            "value": "KEYM"
+          },
+          {
+            "name": "Data Size",
+            "value": "227"
+          },
+          {
+            "name": "Record Flags",
+            "value": ""
+          },
+          {
+            "name": "FormID",
+            "value": "{Skyrim.esm:10E7E6}"
+          },
+          {
+            "name": "Version Control Info 1",
+            "value": "00 00 00 00"
+          },
+          {
+            "name": "Form Version",
+            "value": "44"
+          },
+          {
+            "name": "Version Control Info 2",
+            "value": "00 00"
+          }
+        ]
+      },
+      {
+        "name": "EDID - Editor ID",
+        "value": "RiftenConfiscatedGoodsChestKey"
+      },
+      {
+        "name": "OBND - Object Bounds",
+        "elements": [
+          {
+            "name": "X1",
+            "value": "0"
+          },
+          {
+            "name": "Y1",
+            "value": "-12"
+          },
+          {
+            "name": "Z1",
+            "value": "-2"
+          },
+          {
+            "name": "X2",
+            "value": "0"
+          },
+          {
+            "name": "Y2",
+            "value": "12"
+          },
+          {
+            "name": "Z2",
+            "value": "2"
+          }
+        ]
+      },
+      {
+        "name": "FULL - Name",
+        "value": "Confiscated Goods Key"
+      },
+      {
+        "name": "Model",
+        "elements": [
+          {
+            "name": "MODL - Model FileName",
+            "value": "Clutter\\Key01.nif"
+          },
+          {
+            "name": "MODT - Texture Files Hashes",
+            "value": "02 00 00 00 04 00 00 00 00 00 00 00 7B 24 A2 37 64 64 73 00 BF FA 25 DA 8A 7E E1 67 64 64 73 00 BF FA 25 DA 6B BB 96 D1 64 64 73 00 26 2C 33 3B FA E0 BB A4 64 64 73 00 7F 66 A5 C0"
+          }
+        ]
+      },
+      {
+        "name": "YNAM - Sound - Pick Up",
+        "value": "{Skyrim.esm:03ED75}"
+      },
+      {
+        "name": "ZNAM - Sound - Put Down",
+        "value": "{Skyrim.esm:03ED78}"
+      },
+      {
+        "name": "KSIZ - Keyword Count",
+        "value": "1"
+      },
+      {
+        "name": "KWDA - Keywords",
+        "elements": [
+          {
+            "name": "Keyword",
+            "value": "{Skyrim.esm:0914EF}"
+          }
+        ]
+      },
+      {
+        "name": "DATA - ",
+        "elements": [
+          {
+            "name": "Value",
+            "value": "0"
+          },
+          {
+            "name": "Weight",
+            "value": "0.000000"
+          }
+        ]
+      }
     ]
   }
 }

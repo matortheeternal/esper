@@ -1,56 +1,187 @@
 {
   "00000F61": {
-    "Record Header": [
-      "COBJ",
-      "166",
-      "",
-      "{Skyrim.esm:000F61}",
-      "00 00 00 00",
-      "40",
-      "00 00"
-    ],
-    "EDID - Editor ID": "TemperWeaponSkyforgeSteelWarAxe",
-    "COCT - Count": "1",
-    "Items": [
-      [
-        [
-          "{Skyrim.esm:05ACE5}",
-          "1"
+    "elements": [
+      {
+        "name": "Record Header",
+        "elements": [
+          {
+            "name": "Signature",
+            "value": "COBJ"
+          },
+          {
+            "name": "Data Size",
+            "value": "166"
+          },
+          {
+            "name": "Record Flags",
+            "value": ""
+          },
+          {
+            "name": "FormID",
+            "value": "{Skyrim.esm:000F61}"
+          },
+          {
+            "name": "Version Control Info 1",
+            "value": "00 00 00 00"
+          },
+          {
+            "name": "Form Version",
+            "value": "40"
+          },
+          {
+            "name": "Version Control Info 2",
+            "value": "00 00"
+          }
         ]
-      ]
-    ],
-    "Conditions": [
-      [
-        [
-          "00010000",
-          "00 00 00",
-          "1.000000",
-          "EPTemperingItemIsEnchanted",
-          "54 00",
-          "00 00 00 00",
-          "00 00 00 00",
-          "Subject",
-          "0",
-          "-1"
+      },
+      {
+        "name": "EDID - Editor ID",
+        "value": "TemperWeaponSkyforgeSteelWarAxe"
+      },
+      {
+        "name": "COCT - Count",
+        "value": "1"
+      },
+      {
+        "name": "Items",
+        "elements": [
+          {
+            "name": "Item",
+            "elements": [
+              {
+                "name": "CNTO - Item",
+                "elements": [
+                  {
+                    "name": "Item",
+                    "value": "{Skyrim.esm:05ACE5}"
+                  },
+                  {
+                    "name": "Count",
+                    "value": "1"
+                  }
+                ]
+              }
+            ]
+          }
         ]
-      ],
-      [
-        [
-          "10000000",
-          "00 00 00",
-          "1.000000",
-          "HasPerk",
-          "54 00",
-          "{Skyrim.esm:05218E}",
-          "0",
-          "Subject",
-          "0",
-          "-1"
+      },
+      {
+        "name": "Conditions",
+        "elements": [
+          {
+            "name": "Condition",
+            "elements": [
+              {
+                "name": "CTDA - ",
+                "elements": [
+                  {
+                    "name": "Type",
+                    "value": "Not equal to / Or"
+                  },
+                  {
+                    "name": "Unused",
+                    "value": "00 00 00"
+                  },
+                  {
+                    "name": "Comparison Value",
+                    "value": "1.000000"
+                  },
+                  {
+                    "name": "Function",
+                    "value": "EPTemperingItemIsEnchanted"
+                  },
+                  {
+                    "name": "Unused",
+                    "value": "54 00"
+                  },
+                  {
+                    "name": "Parameter #1",
+                    "value": "00 00 00 00"
+                  },
+                  {
+                    "name": "Parameter #2",
+                    "value": "00 00 00 00"
+                  },
+                  {
+                    "name": "Run On",
+                    "value": "Subject"
+                  },
+                  {
+                    "name": "Reference",
+                    "value": "0"
+                  },
+                  {
+                    "name": "Parameter #3",
+                    "value": "-1"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "Condition",
+            "elements": [
+              {
+                "name": "CTDA - ",
+                "elements": [
+                  {
+                    "name": "Type",
+                    "value": "Equal to"
+                  },
+                  {
+                    "name": "Unused",
+                    "value": "00 00 00"
+                  },
+                  {
+                    "name": "Comparison Value",
+                    "value": "1.000000"
+                  },
+                  {
+                    "name": "Function",
+                    "value": "HasPerk"
+                  },
+                  {
+                    "name": "Unused",
+                    "value": "54 00"
+                  },
+                  {
+                    "name": "Parameter #1",
+                    "value": "{Skyrim.esm:05218E}"
+                  },
+                  {
+                    "name": "Parameter #2",
+                    "value": "0"
+                  },
+                  {
+                    "name": "Run On",
+                    "value": "Subject"
+                  },
+                  {
+                    "name": "Reference",
+                    "value": "0"
+                  },
+                  {
+                    "name": "Parameter #3",
+                    "value": "-1"
+                  }
+                ]
+              }
+            ]
+          }
         ]
-      ]
-    ],
-    "CNAM - Created Object": "{Skyrim.esm:09F260}",
-    "BNAM - Workbench Keyword": "{Skyrim.esm:088108}",
-    "NAM1 - Created Object Count": "1"
+      },
+      {
+        "name": "CNAM - Created Object",
+        "value": "{Skyrim.esm:09F260}"
+      },
+      {
+        "name": "BNAM - Workbench Keyword",
+        "value": "{Skyrim.esm:088108}"
+      },
+      {
+        "name": "NAM1 - Created Object Count",
+        "value": "1"
+      }
+    ]
   }
 }

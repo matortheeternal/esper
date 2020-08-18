@@ -1,39 +1,134 @@
 {
   "00109CE5": {
-    "Record Header": [
-      "HAZD",
-      "185",
-      "",
-      "{Skyrim.esm:109CE5}",
-      "00 00 00 00",
-      "44",
-      "00 00"
-    ],
-    "EDID - Editor ID": "TrapFirePlateFXHaz06",
-    "OBND - Object Bounds": [
-      "0",
-      "0",
-      "0",
-      "0",
-      "0",
-      "0"
-    ],
-    "FULL - Name": "Fire",
-    "Model": [
-      "Traps\\PressurePlateFire\\NorTrapFirePlateFX.nif",
-      "02 00 00 00 00 00 00 00 03 00 00 00 24 00 00 00 25 00 00 00 04 00 00 00"
-    ],
-    "DATA - Data": [
-      "0",
-      "4.300000",
-      "0.000000",
-      "0.000000",
-      "0.100000",
-      "",
-      "{Skyrim.esm:109CEB}",
-      "{Null:000000}",
-      "{Null:000000}",
-      "{Skyrim.esm:0F57E6}"
+    "elements": [
+      {
+        "name": "Record Header",
+        "elements": [
+          {
+            "name": "Signature",
+            "value": "HAZD"
+          },
+          {
+            "name": "Data Size",
+            "value": "185"
+          },
+          {
+            "name": "Record Flags",
+            "value": ""
+          },
+          {
+            "name": "FormID",
+            "value": "{Skyrim.esm:109CE5}"
+          },
+          {
+            "name": "Version Control Info 1",
+            "value": "00 00 00 00"
+          },
+          {
+            "name": "Form Version",
+            "value": "44"
+          },
+          {
+            "name": "Version Control Info 2",
+            "value": "00 00"
+          }
+        ]
+      },
+      {
+        "name": "EDID - Editor ID",
+        "value": "TrapFirePlateFXHaz06"
+      },
+      {
+        "name": "OBND - Object Bounds",
+        "elements": [
+          {
+            "name": "X1",
+            "value": "0"
+          },
+          {
+            "name": "Y1",
+            "value": "0"
+          },
+          {
+            "name": "Z1",
+            "value": "0"
+          },
+          {
+            "name": "X2",
+            "value": "0"
+          },
+          {
+            "name": "Y2",
+            "value": "0"
+          },
+          {
+            "name": "Z2",
+            "value": "0"
+          }
+        ]
+      },
+      {
+        "name": "FULL - Name",
+        "value": "Fire"
+      },
+      {
+        "name": "Model",
+        "elements": [
+          {
+            "name": "MODL - Model FileName",
+            "value": "Traps\\PressurePlateFire\\NorTrapFirePlateFX.nif"
+          },
+          {
+            "name": "MODT - Texture Files Hashes",
+            "value": "02 00 00 00 00 00 00 00 03 00 00 00 24 00 00 00 25 00 00 00 04 00 00 00"
+          }
+        ]
+      },
+      {
+        "name": "DATA - Data",
+        "elements": [
+          {
+            "name": "Limit",
+            "value": "0"
+          },
+          {
+            "name": "Radius",
+            "value": "4.300000"
+          },
+          {
+            "name": "Lifetime",
+            "value": "0.000000"
+          },
+          {
+            "name": "Image Space Radius",
+            "value": "0.000000"
+          },
+          {
+            "name": "Target Interval",
+            "value": "0.100000"
+          },
+          {
+            "name": "Flags",
+            "value": ""
+          },
+          {
+            "name": "Spell",
+            "value": "{Skyrim.esm:109CEB}"
+          },
+          {
+            "name": "Light",
+            "value": "{Null:000000}"
+          },
+          {
+            "name": "Impact Data Set",
+            "value": "{Null:000000}"
+          },
+          {
+            "name": "Sound",
+            "value": "{Skyrim.esm:0F57E6}"
+          }
+        ]
+      }
     ]
   }
 }

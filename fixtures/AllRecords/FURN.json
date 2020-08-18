@@ -1,50 +1,163 @@
 {
   "00017041": {
-    "Record Header": [
-      "FURN",
-      "215",
-      "Is Marker, Child Can Use",
-      "{Skyrim.esm:017041}",
-      "00 00 00 00",
-      "44",
-      "00 00"
-    ],
-    "EDID - Editor ID": "InvisibleChairMarkerFChild",
-    "OBND - Object Bounds": [
-      "-32",
-      "-21",
-      "0",
-      "32",
-      "73",
-      "98"
-    ],
-    "FULL - Name": "Invisible Chair Marker",
-    "Model": [
-      "Furniture\\ChairInvisibleSingle.nif",
-      "02 00 00 00 00 00 00 00 00 00 00 00"
-    ],
-    "PNAM - Unknown": "00 00 00 00",
-    "FNAM - Flags": "",
-    "KNAM - Interaction Keyword": "{Skyrim.esm:013794}",
-    "MNAM - Active Markers / Flags": "Sit 0, Unknown 31",
-    "WBDT - Workbench Data": [
-      "None",
-      "None"
-    ],
-    "Markers": [
-      [
-        "0",
-        [
-          "00 00",
-          "Right, Left"
+    "elements": [
+      {
+        "name": "Record Header",
+        "elements": [
+          {
+            "name": "Signature",
+            "value": "FURN"
+          },
+          {
+            "name": "Data Size",
+            "value": "215"
+          },
+          {
+            "name": "Record Flags",
+            "value": "Is Marker, Child Can Use"
+          },
+          {
+            "name": "FormID",
+            "value": "{Skyrim.esm:017041}"
+          },
+          {
+            "name": "Version Control Info 1",
+            "value": "00 00 00 00"
+          },
+          {
+            "name": "Form Version",
+            "value": "44"
+          },
+          {
+            "name": "Version Control Info 2",
+            "value": "00 00"
+          }
         ]
-      ]
-    ],
-    "Marker Entry Points": [
-      [
-        "Sit",
-        "Front, Right, Left"
-      ]
+      },
+      {
+        "name": "EDID - Editor ID",
+        "value": "InvisibleChairMarkerFChild"
+      },
+      {
+        "name": "OBND - Object Bounds",
+        "elements": [
+          {
+            "name": "X1",
+            "value": "-32"
+          },
+          {
+            "name": "Y1",
+            "value": "-21"
+          },
+          {
+            "name": "Z1",
+            "value": "0"
+          },
+          {
+            "name": "X2",
+            "value": "32"
+          },
+          {
+            "name": "Y2",
+            "value": "73"
+          },
+          {
+            "name": "Z2",
+            "value": "98"
+          }
+        ]
+      },
+      {
+        "name": "FULL - Name",
+        "value": "Invisible Chair Marker"
+      },
+      {
+        "name": "Model",
+        "elements": [
+          {
+            "name": "MODL - Model FileName",
+            "value": "Furniture\\ChairInvisibleSingle.nif"
+          },
+          {
+            "name": "MODT - Texture Files Hashes",
+            "value": "02 00 00 00 00 00 00 00 00 00 00 00"
+          }
+        ]
+      },
+      {
+        "name": "PNAM - Unknown",
+        "value": "00 00 00 00"
+      },
+      {
+        "name": "FNAM - Flags",
+        "value": ""
+      },
+      {
+        "name": "KNAM - Interaction Keyword",
+        "value": "{Skyrim.esm:013794}"
+      },
+      {
+        "name": "MNAM - Active Markers / Flags",
+        "value": "Sit 0, Unknown 31"
+      },
+      {
+        "name": "WBDT - Workbench Data",
+        "elements": [
+          {
+            "name": "Bench Type",
+            "value": "None"
+          },
+          {
+            "name": "Uses Skill",
+            "value": "None"
+          }
+        ]
+      },
+      {
+        "name": "Markers",
+        "elements": [
+          {
+            "name": "Marker",
+            "elements": [
+              {
+                "name": "ENAM - Marker Index",
+                "value": "0"
+              },
+              {
+                "name": "NAM0 - Disabled Entry Points",
+                "elements": [
+                  {
+                    "name": "Unknown",
+                    "value": "00 00"
+                  },
+                  {
+                    "name": "Disabled Points",
+                    "value": "Right, Left"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Marker Entry Points",
+        "elements": [
+          {
+            "name": "FNPR - Marker",
+            "elements": [
+              {
+                "name": "Type",
+                "value": "Sit"
+              },
+              {
+                "name": "Entry Points",
+                "value": "Front, Right, Left"
+              }
+            ]
+          }
+        ]
+      }
     ]
   }
 }

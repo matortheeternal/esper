@@ -1,56 +1,199 @@
 {
   "0010FD9E": {
-    "Record Header": [
-      "PROJ",
-      "218",
-      "",
-      "{Skyrim.esm:10FD9E}",
-      "00 00 00 00",
-      "40",
-      "00 00"
-    ],
-    "EDID - Editor ID": "VoiceDismayProjectile03",
-    "OBND - Object Bounds": [
-      "0",
-      "0",
-      "0",
-      "0",
-      "0",
-      "0"
-    ],
-    "Model": [
-      "Magic\\VoiceDismayProject03.nif",
-      "02 00 00 00 00 00 00 00 00 00 00 00"
-    ],
-    "DATA - Data": [
-      "Pass Through Small Transparent",
-      "Cone",
-      "0.000000",
-      "1600.000000",
-      "2400.000000",
-      "{Skyrim.esm:10FDA1}",
-      "{Null:000000}",
-      "0.000000",
-      "0.000000",
-      "0.000000",
-      "{Null:000000}",
-      "{Skyrim.esm:03C80F}",
-      "0.000000",
-      "0.500000",
-      "10.000000",
-      "{Null:000000}",
-      "{Null:000000}",
-      "{Null:000000}",
-      "20.000000",
-      "32.000000",
-      "0.000000",
-      "0.250000",
-      "{Null:000000}",
-      "{Null:000000}"
-    ],
-    "Muzzle Flash Model": [
-      ""
-    ],
-    "VNAM - Sound Level": "Normal"
+    "elements": [
+      {
+        "name": "Record Header",
+        "elements": [
+          {
+            "name": "Signature",
+            "value": "PROJ"
+          },
+          {
+            "name": "Data Size",
+            "value": "218"
+          },
+          {
+            "name": "Record Flags",
+            "value": ""
+          },
+          {
+            "name": "FormID",
+            "value": "{Skyrim.esm:10FD9E}"
+          },
+          {
+            "name": "Version Control Info 1",
+            "value": "00 00 00 00"
+          },
+          {
+            "name": "Form Version",
+            "value": "40"
+          },
+          {
+            "name": "Version Control Info 2",
+            "value": "00 00"
+          }
+        ]
+      },
+      {
+        "name": "EDID - Editor ID",
+        "value": "VoiceDismayProjectile03"
+      },
+      {
+        "name": "OBND - Object Bounds",
+        "elements": [
+          {
+            "name": "X1",
+            "value": "0"
+          },
+          {
+            "name": "Y1",
+            "value": "0"
+          },
+          {
+            "name": "Z1",
+            "value": "0"
+          },
+          {
+            "name": "X2",
+            "value": "0"
+          },
+          {
+            "name": "Y2",
+            "value": "0"
+          },
+          {
+            "name": "Z2",
+            "value": "0"
+          }
+        ]
+      },
+      {
+        "name": "Model",
+        "elements": [
+          {
+            "name": "MODL - Model FileName",
+            "value": "Magic\\VoiceDismayProject03.nif"
+          },
+          {
+            "name": "MODT - Texture Files Hashes",
+            "value": "02 00 00 00 00 00 00 00 00 00 00 00"
+          }
+        ]
+      },
+      {
+        "name": "DATA - Data",
+        "elements": [
+          {
+            "name": "Flags",
+            "value": "Pass Through Small Transparent"
+          },
+          {
+            "name": "Type",
+            "value": "Cone"
+          },
+          {
+            "name": "Gravity",
+            "value": "0.000000"
+          },
+          {
+            "name": "Speed",
+            "value": "1600.000000"
+          },
+          {
+            "name": "Range",
+            "value": "2400.000000"
+          },
+          {
+            "name": "Light",
+            "value": "{Skyrim.esm:10FDA1}"
+          },
+          {
+            "name": "Muzzle Flash - Light",
+            "value": "{Null:000000}"
+          },
+          {
+            "name": "Tracer Chance",
+            "value": "0.000000"
+          },
+          {
+            "name": "Explosion - Alt. Trigger - Proximity",
+            "value": "0.000000"
+          },
+          {
+            "name": "Explosion - Alt. Trigger - Timer",
+            "value": "0.000000"
+          },
+          {
+            "name": "Explosion",
+            "value": "{Null:000000}"
+          },
+          {
+            "name": "Sound",
+            "value": "{Skyrim.esm:03C80F}"
+          },
+          {
+            "name": "Muzzle Flash - Duration",
+            "value": "0.000000"
+          },
+          {
+            "name": "Fade Duration",
+            "value": "0.500000"
+          },
+          {
+            "name": "Impact Force",
+            "value": "10.000000"
+          },
+          {
+            "name": "Sound - Countdown",
+            "value": "{Null:000000}"
+          },
+          {
+            "name": "Sound - Disable",
+            "value": "{Null:000000}"
+          },
+          {
+            "name": "Default Weapon Source",
+            "value": "{Null:000000}"
+          },
+          {
+            "name": "Cone Spread",
+            "value": "20.000000"
+          },
+          {
+            "name": "Collision Radius",
+            "value": "32.000000"
+          },
+          {
+            "name": "Lifetime",
+            "value": "0.000000"
+          },
+          {
+            "name": "Relaunch Interval",
+            "value": "0.250000"
+          },
+          {
+            "name": "Decal Data",
+            "value": "{Null:000000}"
+          },
+          {
+            "name": "Collision Layer",
+            "value": "{Null:000000}"
+          }
+        ]
+      },
+      {
+        "name": "Muzzle Flash Model",
+        "elements": [
+          {
+            "name": "NAM1 - Model FileName",
+            "value": ""
+          }
+        ]
+      },
+      {
+        "name": "VNAM - Sound Level",
+        "value": "Normal"
+      }
+    ]
   }
 }

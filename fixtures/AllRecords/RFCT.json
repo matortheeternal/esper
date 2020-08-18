@@ -1,19 +1,60 @@
 {
   "0001733C": {
-    "Record Header": [
-      "RFCT",
-      "56",
-      "",
-      "{Skyrim.esm:01733C}",
-      "00 00 00 00",
-      "40",
-      "00 00"
-    ],
-    "EDID - Editor ID": "MGTeleportOutEffectNoRefraction",
-    "DATA - Effect Data": [
-      "{Null:000000}",
-      "{Skyrim.esm:0EC355}",
-      ""
+    "elements": [
+      {
+        "name": "Record Header",
+        "elements": [
+          {
+            "name": "Signature",
+            "value": "RFCT"
+          },
+          {
+            "name": "Data Size",
+            "value": "56"
+          },
+          {
+            "name": "Record Flags",
+            "value": ""
+          },
+          {
+            "name": "FormID",
+            "value": "{Skyrim.esm:01733C}"
+          },
+          {
+            "name": "Version Control Info 1",
+            "value": "00 00 00 00"
+          },
+          {
+            "name": "Form Version",
+            "value": "40"
+          },
+          {
+            "name": "Version Control Info 2",
+            "value": "00 00"
+          }
+        ]
+      },
+      {
+        "name": "EDID - Editor ID",
+        "value": "MGTeleportOutEffectNoRefraction"
+      },
+      {
+        "name": "DATA - Effect Data",
+        "elements": [
+          {
+            "name": "Effect Art",
+            "value": "{Null:000000}"
+          },
+          {
+            "name": "Shader",
+            "value": "{Skyrim.esm:0EC355}"
+          },
+          {
+            "name": "Flags",
+            "value": ""
+          }
+        ]
+      }
     ]
   }
 }

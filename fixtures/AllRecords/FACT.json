@@ -1,45 +1,152 @@
 {
   "00000EA8": {
-    "Record Header": [
-      "FACT",
-      "100",
-      "",
-      "{Skyrim.esm:000EA8}",
-      "00 00 00 00",
-      "40",
-      "00 00"
-    ],
-    "EDID - Editor ID": "WinterholdJailFaction",
-    "Relations": [
-      [
-        "{Skyrim.esm:000DB1}",
-        "0",
-        "Ally"
-      ]
-    ],
-    "DATA - Flags": [
-      ""
-    ],
-    "CRVA - Crime Values": [
-      "True",
-      "True",
-      "0",
-      "0",
-      "0",
-      "0",
-      "0",
-      "0.000000",
-      "0",
-      "0"
-    ],
-    "VENV - Vendor Values": [
-      "0",
-      "0",
-      "0",
-      "00 00",
-      "False",
-      "False",
-      "00 00"
+    "elements": [
+      {
+        "name": "Record Header",
+        "elements": [
+          {
+            "name": "Signature",
+            "value": "FACT"
+          },
+          {
+            "name": "Data Size",
+            "value": "100"
+          },
+          {
+            "name": "Record Flags",
+            "value": ""
+          },
+          {
+            "name": "FormID",
+            "value": "{Skyrim.esm:000EA8}"
+          },
+          {
+            "name": "Version Control Info 1",
+            "value": "00 00 00 00"
+          },
+          {
+            "name": "Form Version",
+            "value": "40"
+          },
+          {
+            "name": "Version Control Info 2",
+            "value": "00 00"
+          }
+        ]
+      },
+      {
+        "name": "EDID - Editor ID",
+        "value": "WinterholdJailFaction"
+      },
+      {
+        "name": "Relations",
+        "elements": [
+          {
+            "name": "XNAM - Relation",
+            "elements": [
+              {
+                "name": "Faction",
+                "value": "{Skyrim.esm:000DB1}"
+              },
+              {
+                "name": "Modifier",
+                "value": "0"
+              },
+              {
+                "name": "Group Combat Reaction",
+                "value": "Ally"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "DATA - Flags",
+        "elements": [
+          {
+            "name": "Flags",
+            "value": ""
+          }
+        ]
+      },
+      {
+        "name": "CRVA - Crime Values",
+        "elements": [
+          {
+            "name": "Arrest",
+            "value": "True"
+          },
+          {
+            "name": "Attack On Sight",
+            "value": "True"
+          },
+          {
+            "name": "Murder",
+            "value": "0"
+          },
+          {
+            "name": "Assault",
+            "value": "0"
+          },
+          {
+            "name": "Trespass",
+            "value": "0"
+          },
+          {
+            "name": "Pickpocket",
+            "value": "0"
+          },
+          {
+            "name": "Unknown",
+            "value": "0"
+          },
+          {
+            "name": "Steal Multiplier",
+            "value": "0.000000"
+          },
+          {
+            "name": "Escape",
+            "value": "0"
+          },
+          {
+            "name": "Werewolf",
+            "value": "0"
+          }
+        ]
+      },
+      {
+        "name": "VENV - Vendor Values",
+        "elements": [
+          {
+            "name": "Start Hour",
+            "value": "0"
+          },
+          {
+            "name": "End Hour",
+            "value": "0"
+          },
+          {
+            "name": "Radius",
+            "value": "0"
+          },
+          {
+            "name": "Unknown 1",
+            "value": "00 00"
+          },
+          {
+            "name": "Only Buys Stolen Items",
+            "value": "False"
+          },
+          {
+            "name": "Not/Sell Buy",
+            "value": "False"
+          },
+          {
+            "name": "Unknown 2",
+            "value": "00 00"
+          }
+        ]
+      }
     ]
   }
 }

@@ -2,129 +2,445 @@
   "00000E3C": {
     "Child Group": {
       "00000E3D": {
-        "Topic": "{Skyrim.esm:000E3C}",
-        "Record Header": [
-          "INFO",
-          "279",
-          "",
-          "{Skyrim.esm:000E3D}",
-          "00 00 00 00",
-          "44",
-          "00 00"
-        ],
-        "ENAM - Response flags": [
-          "",
-          "0.000000"
-        ],
-        "CNAM - Favor Level": "None",
-        "Responses": [
-          [
-            [
-              "Neutral",
-              "50",
-              "00 00 00 00",
-              "1",
-              "00 00 00",
-              "{Skyrim.esm:03E5E9}",
-              "Use Emotion Animation",
-              "00 00 00"
-            ],
-            " ",
-            "BLANK LINE- NO AUDIO",
-            ""
-          ]
-        ],
-        "Conditions": [
-          [
-            [
-              "00100000",
-              "00 00 00",
-              "70.000000",
-              "GetStage",
-              "00 00",
-              "{Skyrim.esm:03372B}",
-              "00 00 00 00",
-              "Subject",
-              "0",
-              "-1"
+        "elements": [
+          {
+            "name": "Topic",
+            "value": "{Skyrim.esm:000E3C}"
+          },
+          {
+            "name": "Record Header",
+            "elements": [
+              {
+                "name": "Signature",
+                "value": "INFO"
+              },
+              {
+                "name": "Data Size",
+                "value": "279"
+              },
+              {
+                "name": "Record Flags",
+                "value": ""
+              },
+              {
+                "name": "FormID",
+                "value": "{Skyrim.esm:000E3D}"
+              },
+              {
+                "name": "Version Control Info 1",
+                "value": "00 00 00 00"
+              },
+              {
+                "name": "Form Version",
+                "value": "44"
+              },
+              {
+                "name": "Version Control Info 2",
+                "value": "00 00"
+              }
             ]
-          ],
-          [
-            [
-              "10010000",
-              "00 00 00",
-              "1.000000",
-              "GetIsID",
-              "00 00",
-              "{Skyrim.esm:000007}",
-              "00 00 00 00",
-              "Subject",
-              "0",
-              "-1"
+          },
+          {
+            "name": "ENAM - Response flags",
+            "elements": [
+              {
+                "name": "Flags",
+                "value": ""
+              },
+              {
+                "name": "Reset Hours",
+                "value": "0.000000"
+              }
             ]
-          ],
-          [
-            [
-              "10010000",
-              "00 00 00",
-              "1.000000",
-              "GetInFaction",
-              "00 00",
-              "{Skyrim.esm:06491B}",
-              "00 00 00 00",
-              "Subject",
-              "0",
-              "-1"
+          },
+          {
+            "name": "CNAM - Favor Level",
+            "value": "None"
+          },
+          {
+            "name": "Responses",
+            "elements": [
+              {
+                "name": "Response",
+                "elements": [
+                  {
+                    "name": "TRDT - Response Data",
+                    "elements": [
+                      {
+                        "name": "Emotion Type",
+                        "value": "Neutral"
+                      },
+                      {
+                        "name": "Emotion Value",
+                        "value": "50"
+                      },
+                      {
+                        "name": "Unused",
+                        "value": "00 00 00 00"
+                      },
+                      {
+                        "name": "Response number",
+                        "value": "1"
+                      },
+                      {
+                        "name": "Unused",
+                        "value": "00 00 00"
+                      },
+                      {
+                        "name": "Sound",
+                        "value": "{Skyrim.esm:03E5E9}"
+                      },
+                      {
+                        "name": "Flags",
+                        "value": "Use Emotion Animation"
+                      },
+                      {
+                        "name": "Unused",
+                        "value": "00 00 00"
+                      }
+                    ]
+                  },
+                  {
+                    "name": "NAM1 - Response Text",
+                    "value": " "
+                  },
+                  {
+                    "name": "NAM2 - Script Notes",
+                    "value": "BLANK LINE- NO AUDIO"
+                  },
+                  {
+                    "name": "NAM3 - Edits",
+                    "value": ""
+                  }
+                ]
+              }
             ]
-          ],
-          [
-            [
-              "10010000",
-              "00 00 00",
-              "1.000000",
-              "GetInFaction",
-              "00 00",
-              "{Skyrim.esm:06491A}",
-              "00 00 00 00",
-              "Subject",
-              "0",
-              "-1"
+          },
+          {
+            "name": "Conditions",
+            "elements": [
+              {
+                "name": "Condition",
+                "elements": [
+                  {
+                    "name": "CTDA - ",
+                    "elements": [
+                      {
+                        "name": "Type",
+                        "value": "00100000"
+                      },
+                      {
+                        "name": "Unused",
+                        "value": "00 00 00"
+                      },
+                      {
+                        "name": "Comparison Value",
+                        "value": "70.000000"
+                      },
+                      {
+                        "name": "Function",
+                        "value": "GetStage"
+                      },
+                      {
+                        "name": "Unused",
+                        "value": "00 00"
+                      },
+                      {
+                        "name": "Parameter #1",
+                        "value": "{Skyrim.esm:03372B}"
+                      },
+                      {
+                        "name": "Parameter #2",
+                        "value": "00 00 00 00"
+                      },
+                      {
+                        "name": "Run On",
+                        "value": "Subject"
+                      },
+                      {
+                        "name": "Reference",
+                        "value": "0"
+                      },
+                      {
+                        "name": "Parameter #3",
+                        "value": "-1"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "Condition",
+                "elements": [
+                  {
+                    "name": "CTDA - ",
+                    "elements": [
+                      {
+                        "name": "Type",
+                        "value": "10010000"
+                      },
+                      {
+                        "name": "Unused",
+                        "value": "00 00 00"
+                      },
+                      {
+                        "name": "Comparison Value",
+                        "value": "1.000000"
+                      },
+                      {
+                        "name": "Function",
+                        "value": "GetIsID"
+                      },
+                      {
+                        "name": "Unused",
+                        "value": "00 00"
+                      },
+                      {
+                        "name": "Parameter #1",
+                        "value": "{Skyrim.esm:000007}"
+                      },
+                      {
+                        "name": "Parameter #2",
+                        "value": "00 00 00 00"
+                      },
+                      {
+                        "name": "Run On",
+                        "value": "Subject"
+                      },
+                      {
+                        "name": "Reference",
+                        "value": "0"
+                      },
+                      {
+                        "name": "Parameter #3",
+                        "value": "-1"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "Condition",
+                "elements": [
+                  {
+                    "name": "CTDA - ",
+                    "elements": [
+                      {
+                        "name": "Type",
+                        "value": "10010000"
+                      },
+                      {
+                        "name": "Unused",
+                        "value": "00 00 00"
+                      },
+                      {
+                        "name": "Comparison Value",
+                        "value": "1.000000"
+                      },
+                      {
+                        "name": "Function",
+                        "value": "GetInFaction"
+                      },
+                      {
+                        "name": "Unused",
+                        "value": "00 00"
+                      },
+                      {
+                        "name": "Parameter #1",
+                        "value": "{Skyrim.esm:06491B}"
+                      },
+                      {
+                        "name": "Parameter #2",
+                        "value": "00 00 00 00"
+                      },
+                      {
+                        "name": "Run On",
+                        "value": "Subject"
+                      },
+                      {
+                        "name": "Reference",
+                        "value": "0"
+                      },
+                      {
+                        "name": "Parameter #3",
+                        "value": "-1"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "Condition",
+                "elements": [
+                  {
+                    "name": "CTDA - ",
+                    "elements": [
+                      {
+                        "name": "Type",
+                        "value": "10010000"
+                      },
+                      {
+                        "name": "Unused",
+                        "value": "00 00 00"
+                      },
+                      {
+                        "name": "Comparison Value",
+                        "value": "1.000000"
+                      },
+                      {
+                        "name": "Function",
+                        "value": "GetInFaction"
+                      },
+                      {
+                        "name": "Unused",
+                        "value": "00 00"
+                      },
+                      {
+                        "name": "Parameter #1",
+                        "value": "{Skyrim.esm:06491A}"
+                      },
+                      {
+                        "name": "Parameter #2",
+                        "value": "00 00 00 00"
+                      },
+                      {
+                        "name": "Run On",
+                        "value": "Subject"
+                      },
+                      {
+                        "name": "Reference",
+                        "value": "0"
+                      },
+                      {
+                        "name": "Parameter #3",
+                        "value": "-1"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "Condition",
+                "elements": [
+                  {
+                    "name": "CTDA - ",
+                    "elements": [
+                      {
+                        "name": "Type",
+                        "value": "10010000"
+                      },
+                      {
+                        "name": "Unused",
+                        "value": "00 00 00"
+                      },
+                      {
+                        "name": "Comparison Value",
+                        "value": "1.000000"
+                      },
+                      {
+                        "name": "Function",
+                        "value": "GetIsID"
+                      },
+                      {
+                        "name": "Unused",
+                        "value": "00 00"
+                      },
+                      {
+                        "name": "Parameter #1",
+                        "value": "{Skyrim.esm:01414D}"
+                      },
+                      {
+                        "name": "Parameter #2",
+                        "value": "00 00 00 00"
+                      },
+                      {
+                        "name": "Run On",
+                        "value": "Subject"
+                      },
+                      {
+                        "name": "Reference",
+                        "value": "0"
+                      },
+                      {
+                        "name": "Parameter #3",
+                        "value": "-1"
+                      }
+                    ]
+                  }
+                ]
+              }
             ]
-          ],
-          [
-            [
-              "10010000",
-              "00 00 00",
-              "1.000000",
-              "GetIsID",
-              "00 00",
-              "{Skyrim.esm:01414D}",
-              "00 00 00 00",
-              "Subject",
-              "0",
-              "-1"
-            ]
-          ]
+          }
         ]
       }
     },
-    "Record Header": [
-      "DIAL",
-      "50",
-      "",
-      "{Skyrim.esm:000E3C}",
-      "00 00 00 00",
-      "40",
-      "00 00"
-    ],
-    "PNAM - Priority": "50.000000",
-    "QNAM - Quest": "{Skyrim.esm:03372B}",
-    "DATA - Data": [
-      "",
-      "Combat",
-      "FlyingMountRejectTarget"
-    ],
-    "SNAM - Subtype Name": "HIT_",
-    "TIFC - Info Count": "1"
+    "elements": [
+      {
+        "name": "Record Header",
+        "elements": [
+          {
+            "name": "Signature",
+            "value": "DIAL"
+          },
+          {
+            "name": "Data Size",
+            "value": "50"
+          },
+          {
+            "name": "Record Flags",
+            "value": ""
+          },
+          {
+            "name": "FormID",
+            "value": "{Skyrim.esm:000E3C}"
+          },
+          {
+            "name": "Version Control Info 1",
+            "value": "00 00 00 00"
+          },
+          {
+            "name": "Form Version",
+            "value": "40"
+          },
+          {
+            "name": "Version Control Info 2",
+            "value": "00 00"
+          }
+        ]
+      },
+      {
+        "name": "PNAM - Priority",
+        "value": "50.000000"
+      },
+      {
+        "name": "QNAM - Quest",
+        "value": "{Skyrim.esm:03372B}"
+      },
+      {
+        "name": "DATA - Data",
+        "elements": [
+          {
+            "name": "Topic Flags",
+            "value": ""
+          },
+          {
+            "name": "Category",
+            "value": "Combat"
+          },
+          {
+            "name": "Subtype",
+            "value": "FlyingMountRejectTarget"
+          }
+        ]
+      },
+      {
+        "name": "SNAM - Subtype Name",
+        "value": "HIT_"
+      },
+      {
+        "name": "TIFC - Info Count",
+        "value": "1"
+      }
+    ]
   }
 }

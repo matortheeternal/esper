@@ -1,32 +1,106 @@
 {
   "00000E87": {
-    "Record Header": [
-      "STAT",
-      "120",
-      "",
-      "{Skyrim.esm:000E87}",
-      "00 00 00 00",
-      "40",
-      "00 00"
-    ],
-    "EDID - Editor ID": "LoadScreenMRaltar01",
-    "OBND - Object Bounds": [
-      "0",
-      "0",
-      "0",
-      "0",
-      "0",
-      "0"
-    ],
-    "Model": [
-      "LoadScreenArt\\LoadScreenMRaltar01.nif",
-      "02 00 00 00 00 00 00 00 00 00 00 00"
-    ],
-    "DNAM - Direction Material": [
-      "90.000000",
-      "{Null:000000}",
-      "",
-      ""
+    "elements": [
+      {
+        "name": "Record Header",
+        "elements": [
+          {
+            "name": "Signature",
+            "value": "STAT"
+          },
+          {
+            "name": "Data Size",
+            "value": "120"
+          },
+          {
+            "name": "Record Flags",
+            "value": ""
+          },
+          {
+            "name": "FormID",
+            "value": "{Skyrim.esm:000E87}"
+          },
+          {
+            "name": "Version Control Info 1",
+            "value": "00 00 00 00"
+          },
+          {
+            "name": "Form Version",
+            "value": "40"
+          },
+          {
+            "name": "Version Control Info 2",
+            "value": "00 00"
+          }
+        ]
+      },
+      {
+        "name": "EDID - Editor ID",
+        "value": "LoadScreenMRaltar01"
+      },
+      {
+        "name": "OBND - Object Bounds",
+        "elements": [
+          {
+            "name": "X1",
+            "value": "0"
+          },
+          {
+            "name": "Y1",
+            "value": "0"
+          },
+          {
+            "name": "Z1",
+            "value": "0"
+          },
+          {
+            "name": "X2",
+            "value": "0"
+          },
+          {
+            "name": "Y2",
+            "value": "0"
+          },
+          {
+            "name": "Z2",
+            "value": "0"
+          }
+        ]
+      },
+      {
+        "name": "Model",
+        "elements": [
+          {
+            "name": "MODL - Model FileName",
+            "value": "LoadScreenArt\\LoadScreenMRaltar01.nif"
+          },
+          {
+            "name": "MODT - Texture Files Hashes",
+            "value": "02 00 00 00 00 00 00 00 00 00 00 00"
+          }
+        ]
+      },
+      {
+        "name": "DNAM - Direction Material",
+        "elements": [
+          {
+            "name": "Max Angle (30-120)",
+            "value": "90.000000"
+          },
+          {
+            "name": "Material",
+            "value": "{Null:000000}"
+          },
+          {
+            "name": "Flags",
+            "value": ""
+          },
+          {
+            "name": "Unused",
+            "value": ""
+          }
+        ]
+      }
     ]
   }
 }

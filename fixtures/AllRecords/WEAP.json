@@ -1,89 +1,325 @@
 {
   "00017288": {
-    "Record Header": [
-      "WEAP",
-      "445",
-      "",
-      "{Skyrim.esm:017288}",
-      "00 00 00 00",
-      "44",
-      "00 00"
-    ],
-    "EDID - Editor ID": "DA14DremoraGreatswordFire03",
-    "OBND - Object Bounds": [
-      "0",
-      "0",
-      "0",
-      "0",
-      "0",
-      "0"
-    ],
-    "FULL - Name": "Steel Greatsword of Scorching",
-    "Model": [
-      "Weapons\\Daedric\\DaedricGreatSword.nif",
-      "02 00 00 00 00 00 00 00 00 00 00 00"
-    ],
-    "EITM - Object Effect": "{Skyrim.esm:045C2C}",
-    "EAMT - Enchantment Amount": "1500",
-    "ETYP - Equipment Type": "{Skyrim.esm:013F45}",
-    "BIDS - Block Bash Impact Data Set": "{Skyrim.esm:0183FF}",
-    "BAMT - Alternate Block Material": "{Skyrim.esm:097786}",
-    "KSIZ - Keyword Count": "3",
-    "KWDA - Keywords": [
-      "{Skyrim.esm:01E71F}",
-      "{Skyrim.esm:06D931}",
-      "{Skyrim.esm:08F958}"
-    ],
-    "DESC - Description": "",
-    "INAM - Impact Data Set": "{Skyrim.esm:0949D5}",
-    "WNAM - 1st Person Model Object": "{Skyrim.esm:092505}",
-    "TNAM - Attack Fail Sound": "{Skyrim.esm:0E4CAC}",
-    "NAM9 - Equip Sound": "{Skyrim.esm:03C8A9}",
-    "NAM8 - Unequip Sound": "{Skyrim.esm:03C8AA}",
-    "DATA - Game Data": [
-      "90",
-      "17.000000",
-      "17"
-    ],
-    "DNAM - Data": [
-      "TwoHandSword",
-      "00 00 00",
-      "0.700000",
-      "1.300000",
-      "Can't Drop, Non-playable",
-      "00 00",
-      "0.000000",
-      "00 00 00 00",
-      "0",
-      " DEFAULT",
-      "1",
-      "0",
-      "0.000000",
-      "0.000000",
-      "No formula behaviour",
-      "",
-      "1.000000",
-      "1.300000",
-      "0.500000",
-      "1.000000",
-      "0.330000",
-      "00 00 00 00 00 00 00 00 00 00 00 00",
-      "Two Handed",
-      "00 00 00 00 00 00 00 00",
-      "None",
-      "00 00 00 00",
-      "1.100000"
-    ],
-    "CRDT - Critical Data": [
-      "8",
-      "12 00",
-      "1.000000",
-      "On Death",
-      "00 00 00",
-      "01 00 00 00",
-      "{Null:000000}",
-      "00 00 00 00"
-    ],
-    "VNAM - Detection Sound Level": "Loud"
+    "elements": [
+      {
+        "name": "Record Header",
+        "elements": [
+          {
+            "name": "Signature",
+            "value": "WEAP"
+          },
+          {
+            "name": "Data Size",
+            "value": "445"
+          },
+          {
+            "name": "Record Flags",
+            "value": ""
+          },
+          {
+            "name": "FormID",
+            "value": "{Skyrim.esm:017288}"
+          },
+          {
+            "name": "Version Control Info 1",
+            "value": "00 00 00 00"
+          },
+          {
+            "name": "Form Version",
+            "value": "44"
+          },
+          {
+            "name": "Version Control Info 2",
+            "value": "00 00"
+          }
+        ]
+      },
+      {
+        "name": "EDID - Editor ID",
+        "value": "DA14DremoraGreatswordFire03"
+      },
+      {
+        "name": "OBND - Object Bounds",
+        "elements": [
+          {
+            "name": "X1",
+            "value": "0"
+          },
+          {
+            "name": "Y1",
+            "value": "0"
+          },
+          {
+            "name": "Z1",
+            "value": "0"
+          },
+          {
+            "name": "X2",
+            "value": "0"
+          },
+          {
+            "name": "Y2",
+            "value": "0"
+          },
+          {
+            "name": "Z2",
+            "value": "0"
+          }
+        ]
+      },
+      {
+        "name": "FULL - Name",
+        "value": "Steel Greatsword of Scorching"
+      },
+      {
+        "name": "Model",
+        "elements": [
+          {
+            "name": "MODL - Model FileName",
+            "value": "Weapons\\Daedric\\DaedricGreatSword.nif"
+          },
+          {
+            "name": "MODT - Texture Files Hashes",
+            "value": "02 00 00 00 00 00 00 00 00 00 00 00"
+          }
+        ]
+      },
+      {
+        "name": "EITM - Object Effect",
+        "value": "{Skyrim.esm:045C2C}"
+      },
+      {
+        "name": "EAMT - Enchantment Amount",
+        "value": "1500"
+      },
+      {
+        "name": "ETYP - Equipment Type",
+        "value": "{Skyrim.esm:013F45}"
+      },
+      {
+        "name": "BIDS - Block Bash Impact Data Set",
+        "value": "{Skyrim.esm:0183FF}"
+      },
+      {
+        "name": "BAMT - Alternate Block Material",
+        "value": "{Skyrim.esm:097786}"
+      },
+      {
+        "name": "KSIZ - Keyword Count",
+        "value": "3"
+      },
+      {
+        "name": "KWDA - Keywords",
+        "elements": [
+          {
+            "name": "Keyword",
+            "value": "{Skyrim.esm:01E71F}"
+          },
+          {
+            "name": "Keyword",
+            "value": "{Skyrim.esm:06D931}"
+          },
+          {
+            "name": "Keyword",
+            "value": "{Skyrim.esm:08F958}"
+          }
+        ]
+      },
+      {
+        "name": "DESC - Description",
+        "value": ""
+      },
+      {
+        "name": "INAM - Impact Data Set",
+        "value": "{Skyrim.esm:0949D5}"
+      },
+      {
+        "name": "WNAM - 1st Person Model Object",
+        "value": "{Skyrim.esm:092505}"
+      },
+      {
+        "name": "TNAM - Attack Fail Sound",
+        "value": "{Skyrim.esm:0E4CAC}"
+      },
+      {
+        "name": "NAM9 - Equip Sound",
+        "value": "{Skyrim.esm:03C8A9}"
+      },
+      {
+        "name": "NAM8 - Unequip Sound",
+        "value": "{Skyrim.esm:03C8AA}"
+      },
+      {
+        "name": "DATA - Game Data",
+        "elements": [
+          {
+            "name": "Value",
+            "value": "90"
+          },
+          {
+            "name": "Weight",
+            "value": "17.000000"
+          },
+          {
+            "name": "Damage",
+            "value": "17"
+          }
+        ]
+      },
+      {
+        "name": "DNAM - Data",
+        "elements": [
+          {
+            "name": "Animation Type",
+            "value": "TwoHandSword"
+          },
+          {
+            "name": "Unused",
+            "value": "00 00 00"
+          },
+          {
+            "name": "Speed",
+            "value": "0.700000"
+          },
+          {
+            "name": "Reach",
+            "value": "1.300000"
+          },
+          {
+            "name": "Flags",
+            "value": "Can't Drop, Non-playable"
+          },
+          {
+            "name": "Unused",
+            "value": "00 00"
+          },
+          {
+            "name": "Sight FOV",
+            "value": "0.000000"
+          },
+          {
+            "name": "Unknown",
+            "value": "00 00 00 00"
+          },
+          {
+            "name": "Base VATS To-Hit Chance",
+            "value": "0"
+          },
+          {
+            "name": "Attack Animation",
+            "value": " DEFAULT"
+          },
+          {
+            "name": "# Projectiles",
+            "value": "1"
+          },
+          {
+            "name": "Embedded Weapon AV (unused)",
+            "value": "0"
+          },
+          {
+            "name": "Range Min",
+            "value": "0.000000"
+          },
+          {
+            "name": "Range Max",
+            "value": "0.000000"
+          },
+          {
+            "name": "On Hit",
+            "value": "No formula behaviour"
+          },
+          {
+            "name": "Flags2",
+            "value": ""
+          },
+          {
+            "name": "Animation Attack Mult",
+            "value": "1.000000"
+          },
+          {
+            "name": "Unknown",
+            "value": "1.300000"
+          },
+          {
+            "name": "Rumble - Left Motor Strength",
+            "value": "0.500000"
+          },
+          {
+            "name": "Rumble - Right Motor Strength",
+            "value": "1.000000"
+          },
+          {
+            "name": "Rumble - Duration",
+            "value": "0.330000"
+          },
+          {
+            "name": "Unknown",
+            "value": "00 00 00 00 00 00 00 00 00 00 00 00"
+          },
+          {
+            "name": "Skill",
+            "value": "Two Handed"
+          },
+          {
+            "name": "Unknown",
+            "value": "00 00 00 00 00 00 00 00"
+          },
+          {
+            "name": "Resist",
+            "value": "None"
+          },
+          {
+            "name": "Unknown",
+            "value": "00 00 00 00"
+          },
+          {
+            "name": "Stagger",
+            "value": "1.100000"
+          }
+        ]
+      },
+      {
+        "name": "CRDT - Critical Data",
+        "elements": [
+          {
+            "name": "Damage",
+            "value": "8"
+          },
+          {
+            "name": "Unknown",
+            "value": "12 00"
+          },
+          {
+            "name": "% Mult",
+            "value": "1.000000"
+          },
+          {
+            "name": "Flags",
+            "value": "On Death"
+          },
+          {
+            "name": "Unused",
+            "value": "00 00 00"
+          },
+          {
+            "name": "Unknown",
+            "value": "01 00 00 00"
+          },
+          {
+            "name": "Effect",
+            "value": "{Null:000000}"
+          },
+          {
+            "name": "Unknown",
+            "value": "00 00 00 00"
+          }
+        ]
+      },
+      {
+        "name": "VNAM - Detection Sound Level",
+        "value": "Loud"
+      }
+    ]
   }
 }

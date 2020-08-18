@@ -1,55 +1,186 @@
 {
   "00016FFF": {
-    "Record Header": [
-      "ARMO",
-      "298",
-      "Non-Playable",
-      "{Skyrim.esm:016FFF}",
-      "00 00 00 00",
-      "44",
-      "00 00"
-    ],
-    "EDID - Editor ID": "DremoraBoots",
-    "OBND - Object Bounds": [
-      "0",
-      "0",
-      "0",
-      "0",
-      "0",
-      "0"
-    ],
-    "FULL - Name": "Boots",
-    "Male world model": [
-      "Clothes\\Necromancer\\NecromancerBootsGND.nif",
-      "02 00 00 00 00 00 00 00 00 00 00 00"
-    ],
-    "Female world model": [
-      "Clothes\\Necromancer\\NecromancerBootsGND.nif",
-      "02 00 00 00 00 00 00 00 00 00 00 00"
-    ],
-    "BOD2 - Biped Body Template": [
-      "37 - Feet",
-      "",
-      "",
-      "Clothing"
-    ],
-    "YNAM - Sound - Pick Up": "{Skyrim.esm:03E879}",
-    "ZNAM - Sound - Put Down": "{Skyrim.esm:03E909}",
-    "RNAM - Race": "{Skyrim.esm:000019}",
-    "KSIZ - Keyword Count": "3",
-    "KWDA - Keywords": [
-      "{Skyrim.esm:06BBE8}",
-      "{Skyrim.esm:08F95B}",
-      "{Skyrim.esm:10CD12}"
-    ],
-    "DESC - Description": "",
-    "Armature": [
-      "{Skyrim.esm:0C36EB}"
-    ],
-    "DATA - Data": [
-      "4",
-      "1.000000"
-    ],
-    "DNAM - Armor Rating": "0.000000"
+    "elements": [
+      {
+        "name": "Record Header",
+        "elements": [
+          {
+            "name": "Signature",
+            "value": "ARMO"
+          },
+          {
+            "name": "Data Size",
+            "value": "298"
+          },
+          {
+            "name": "Record Flags",
+            "value": "Non-Playable"
+          },
+          {
+            "name": "FormID",
+            "value": "{Skyrim.esm:016FFF}"
+          },
+          {
+            "name": "Version Control Info 1",
+            "value": "00 00 00 00"
+          },
+          {
+            "name": "Form Version",
+            "value": "44"
+          },
+          {
+            "name": "Version Control Info 2",
+            "value": "00 00"
+          }
+        ]
+      },
+      {
+        "name": "EDID - Editor ID",
+        "value": "DremoraBoots"
+      },
+      {
+        "name": "OBND - Object Bounds",
+        "elements": [
+          {
+            "name": "X1",
+            "value": "0"
+          },
+          {
+            "name": "Y1",
+            "value": "0"
+          },
+          {
+            "name": "Z1",
+            "value": "0"
+          },
+          {
+            "name": "X2",
+            "value": "0"
+          },
+          {
+            "name": "Y2",
+            "value": "0"
+          },
+          {
+            "name": "Z2",
+            "value": "0"
+          }
+        ]
+      },
+      {
+        "name": "FULL - Name",
+        "value": "Boots"
+      },
+      {
+        "name": "Male world model",
+        "elements": [
+          {
+            "name": "MOD2 - Model FileName",
+            "value": "Clothes\\Necromancer\\NecromancerBootsGND.nif"
+          },
+          {
+            "name": "MO2T - Texture Files Hashes",
+            "value": "02 00 00 00 00 00 00 00 00 00 00 00"
+          }
+        ]
+      },
+      {
+        "name": "Female world model",
+        "elements": [
+          {
+            "name": "MOD4 - Model FileName",
+            "value": "Clothes\\Necromancer\\NecromancerBootsGND.nif"
+          },
+          {
+            "name": "MO4T - Texture Files Hashes",
+            "value": "02 00 00 00 00 00 00 00 00 00 00 00"
+          }
+        ]
+      },
+      {
+        "name": "BOD2 - Biped Body Template",
+        "elements": [
+          {
+            "name": "First Person Flags",
+            "value": "37 - Feet"
+          },
+          {
+            "name": "General Flags",
+            "value": ""
+          },
+          {
+            "name": "Unused",
+            "value": ""
+          },
+          {
+            "name": "Armor Type",
+            "value": "Clothing"
+          }
+        ]
+      },
+      {
+        "name": "YNAM - Sound - Pick Up",
+        "value": "{Skyrim.esm:03E879}"
+      },
+      {
+        "name": "ZNAM - Sound - Put Down",
+        "value": "{Skyrim.esm:03E909}"
+      },
+      {
+        "name": "RNAM - Race",
+        "value": "{Skyrim.esm:000019}"
+      },
+      {
+        "name": "KSIZ - Keyword Count",
+        "value": "3"
+      },
+      {
+        "name": "KWDA - Keywords",
+        "elements": [
+          {
+            "name": "Keyword",
+            "value": "{Skyrim.esm:06BBE8}"
+          },
+          {
+            "name": "Keyword",
+            "value": "{Skyrim.esm:08F95B}"
+          },
+          {
+            "name": "Keyword",
+            "value": "{Skyrim.esm:10CD12}"
+          }
+        ]
+      },
+      {
+        "name": "DESC - Description",
+        "value": ""
+      },
+      {
+        "name": "Armature",
+        "elements": [
+          {
+            "name": "MODL - Model FileName",
+            "value": "{Skyrim.esm:0C36EB}"
+          }
+        ]
+      },
+      {
+        "name": "DATA - Data",
+        "elements": [
+          {
+            "name": "Value",
+            "value": "4"
+          },
+          {
+            "name": "Weight",
+            "value": "1.000000"
+          }
+        ]
+      },
+      {
+        "name": "DNAM - Armor Rating",
+        "value": "0.000000"
+      }
+    ]
   }
 }

@@ -1,44 +1,145 @@
 {
   "00017045": {
-    "Record Header": [
-      "SMQN",
-      "136",
-      "",
-      "{Skyrim.esm:017045}",
-      "00 00 00 00",
-      "40",
-      "00 00"
-    ],
-    "EDID - Editor ID": "SovngardeSparringNode",
-    "PNAM - Parent ": "{Skyrim.esm:01379A}",
-    "SNAM - Child ": "{Skyrim.esm:10C044}",
-    "CITC - Condition Count": "1",
-    "Conditions": [
-      [
-        [
-          "10000000",
-          "00 00 00",
-          "1.000000",
-          "GetEventData",
-          "00 00",
-          "GetIsID:Keyword",
-          "{Skyrim.esm:017044}",
-          "Subject",
-          "0",
-          "-1"
+    "elements": [
+      {
+        "name": "Record Header",
+        "elements": [
+          {
+            "name": "Signature",
+            "value": "SMQN"
+          },
+          {
+            "name": "Data Size",
+            "value": "136"
+          },
+          {
+            "name": "Record Flags",
+            "value": ""
+          },
+          {
+            "name": "FormID",
+            "value": "{Skyrim.esm:017045}"
+          },
+          {
+            "name": "Version Control Info 1",
+            "value": "00 00 00 00"
+          },
+          {
+            "name": "Form Version",
+            "value": "40"
+          },
+          {
+            "name": "Version Control Info 2",
+            "value": "00 00"
+          }
         ]
-      ]
-    ],
-    "DNAM - Flags": [
-      "",
-      ""
-    ],
-    "XNAM - Max concurrent quests": "0",
-    "QNAM - Quest Count": "1",
-    "Quests": [
-      [
-        "{Skyrim.esm:0F0A10}"
-      ]
+      },
+      {
+        "name": "EDID - Editor ID",
+        "value": "SovngardeSparringNode"
+      },
+      {
+        "name": "PNAM - Parent ",
+        "value": "{Skyrim.esm:01379A}"
+      },
+      {
+        "name": "SNAM - Child ",
+        "value": "{Skyrim.esm:10C044}"
+      },
+      {
+        "name": "CITC - Condition Count",
+        "value": "1"
+      },
+      {
+        "name": "Conditions",
+        "elements": [
+          {
+            "name": "Condition",
+            "elements": [
+              {
+                "name": "CTDA - ",
+                "elements": [
+                  {
+                    "name": "Type",
+                    "value": "10000000"
+                  },
+                  {
+                    "name": "Unused",
+                    "value": "00 00 00"
+                  },
+                  {
+                    "name": "Comparison Value",
+                    "value": "1.000000"
+                  },
+                  {
+                    "name": "Function",
+                    "value": "GetEventData"
+                  },
+                  {
+                    "name": "Unused",
+                    "value": "00 00"
+                  },
+                  {
+                    "name": "Parameter #1",
+                    "value": "GetIsID:Keyword"
+                  },
+                  {
+                    "name": "Parameter #2",
+                    "value": "{Skyrim.esm:017044}"
+                  },
+                  {
+                    "name": "Run On",
+                    "value": "Subject"
+                  },
+                  {
+                    "name": "Reference",
+                    "value": "0"
+                  },
+                  {
+                    "name": "Parameter #3",
+                    "value": "-1"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "DNAM - Flags",
+        "elements": [
+          {
+            "name": "Node Flags",
+            "value": ""
+          },
+          {
+            "name": "Quest Flags",
+            "value": ""
+          }
+        ]
+      },
+      {
+        "name": "XNAM - Max concurrent quests",
+        "value": "0"
+      },
+      {
+        "name": "QNAM - Quest Count",
+        "value": "1"
+      },
+      {
+        "name": "Quests",
+        "elements": [
+          {
+            "name": "Quest",
+            "elements": [
+              {
+                "name": "NNAM - Quest",
+                "value": "{Skyrim.esm:0F0A10}"
+              }
+            ]
+          }
+        ]
+      }
     ]
   }
 }

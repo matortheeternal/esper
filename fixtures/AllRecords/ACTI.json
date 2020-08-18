@@ -1,29 +1,97 @@
 {
   "00000F55": {
-    "Record Header": [
-      "ACTI",
-      "62",
-      "",
-      "{Skyrim.esm:000F55}",
-      "00 00 00 00",
-      "40",
-      "00 00"
-    ],
-    "EDID - Editor ID": "defaultBlankTrigger",
-    "OBND - Object Bounds": [
-      "-5230",
-      "-5086",
-      "-257",
-      "5230",
-      "5086",
-      "257"
-    ],
-    "PNAM - Marker Color": [
-      "204",
-      "76",
-      "51",
-      "0"
-    ],
-    "FNAM - Flags": ""
+    "elements": [
+      {
+        "name": "Record Header",
+        "elements": [
+          {
+            "name": "Signature",
+            "value": "ACTI"
+          },
+          {
+            "name": "Data Size",
+            "value": "62"
+          },
+          {
+            "name": "Record Flags",
+            "value": ""
+          },
+          {
+            "name": "FormID",
+            "value": "{Skyrim.esm:000F55}"
+          },
+          {
+            "name": "Version Control Info 1",
+            "value": "00 00 00 00"
+          },
+          {
+            "name": "Form Version",
+            "value": "40"
+          },
+          {
+            "name": "Version Control Info 2",
+            "value": "00 00"
+          }
+        ]
+      },
+      {
+        "name": "EDID - Editor ID",
+        "value": "defaultBlankTrigger"
+      },
+      {
+        "name": "OBND - Object Bounds",
+        "elements": [
+          {
+            "name": "X1",
+            "value": "-5230"
+          },
+          {
+            "name": "Y1",
+            "value": "-5086"
+          },
+          {
+            "name": "Z1",
+            "value": "-257"
+          },
+          {
+            "name": "X2",
+            "value": "5230"
+          },
+          {
+            "name": "Y2",
+            "value": "5086"
+          },
+          {
+            "name": "Z2",
+            "value": "257"
+          }
+        ]
+      },
+      {
+        "name": "PNAM - Marker Color",
+        "elements": [
+          {
+            "name": "Red",
+            "value": "204"
+          },
+          {
+            "name": "Green",
+            "value": "76"
+          },
+          {
+            "name": "Blue",
+            "value": "51"
+          },
+          {
+            "name": "Unused",
+            "value": "0"
+          }
+        ]
+      },
+      {
+        "name": "FNAM - Flags",
+        "value": ""
+      }
+    ]
   }
 }

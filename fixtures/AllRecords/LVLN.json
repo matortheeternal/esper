@@ -1,54 +1,179 @@
 {
   "0010FCE5": {
-    "Record Header": [
-      "LVLN",
-      "121",
-      "",
-      "{Skyrim.esm:10FCE5}",
-      "00 00 00 00",
-      "40",
-      "00 00"
-    ],
-    "EDID - Editor ID": "LCharDwarvenCenturion",
-    "OBND - Object Bounds": [
-      "0",
-      "0",
-      "0",
-      "0",
-      "0",
-      "0"
-    ],
-    "LVLD - Chance None": "0",
-    "LVLF - Flags": "Calculate from all levels <= player's level, Calculate for each item in count",
-    "LLCT - Count": "3",
-    "Leveled List Entries": [
-      [
-        [
-          "1",
-          "00 00",
-          "{Skyrim.esm:10F9B9}",
-          "1",
-          "00 00"
+    "elements": [
+      {
+        "name": "Record Header",
+        "elements": [
+          {
+            "name": "Signature",
+            "value": "LVLN"
+          },
+          {
+            "name": "Data Size",
+            "value": "121"
+          },
+          {
+            "name": "Record Flags",
+            "value": ""
+          },
+          {
+            "name": "FormID",
+            "value": "{Skyrim.esm:10FCE5}"
+          },
+          {
+            "name": "Version Control Info 1",
+            "value": "00 00 00 00"
+          },
+          {
+            "name": "Form Version",
+            "value": "40"
+          },
+          {
+            "name": "Version Control Info 2",
+            "value": "00 00"
+          }
         ]
-      ],
-      [
-        [
-          "26",
-          "00 00",
-          "{Skyrim.esm:10E753}",
-          "1",
-          "00 00"
+      },
+      {
+        "name": "EDID - Editor ID",
+        "value": "LCharDwarvenCenturion"
+      },
+      {
+        "name": "OBND - Object Bounds",
+        "elements": [
+          {
+            "name": "X1",
+            "value": "0"
+          },
+          {
+            "name": "Y1",
+            "value": "0"
+          },
+          {
+            "name": "Z1",
+            "value": "0"
+          },
+          {
+            "name": "X2",
+            "value": "0"
+          },
+          {
+            "name": "Y2",
+            "value": "0"
+          },
+          {
+            "name": "Z2",
+            "value": "0"
+          }
         ]
-      ],
-      [
-        [
-          "32",
-          "00 00",
-          "{Skyrim.esm:023A96}",
-          "1",
-          "00 00"
+      },
+      {
+        "name": "LVLD - Chance None",
+        "value": "0"
+      },
+      {
+        "name": "LVLF - Flags",
+        "value": "Calculate from all levels <= player's level, Calculate for each item in count"
+      },
+      {
+        "name": "LLCT - Count",
+        "value": "3"
+      },
+      {
+        "name": "Leveled List Entries",
+        "elements": [
+          {
+            "name": "Leveled List Entry",
+            "elements": [
+              {
+                "name": "LVLO - Base Data",
+                "elements": [
+                  {
+                    "name": "Level",
+                    "value": "1"
+                  },
+                  {
+                    "name": "Unknown",
+                    "value": "00 00"
+                  },
+                  {
+                    "name": "Reference",
+                    "value": "{Skyrim.esm:10F9B9}"
+                  },
+                  {
+                    "name": "Count",
+                    "value": "1"
+                  },
+                  {
+                    "name": "Unknown",
+                    "value": "00 00"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "Leveled List Entry",
+            "elements": [
+              {
+                "name": "LVLO - Base Data",
+                "elements": [
+                  {
+                    "name": "Level",
+                    "value": "26"
+                  },
+                  {
+                    "name": "Unknown",
+                    "value": "00 00"
+                  },
+                  {
+                    "name": "Reference",
+                    "value": "{Skyrim.esm:10E753}"
+                  },
+                  {
+                    "name": "Count",
+                    "value": "1"
+                  },
+                  {
+                    "name": "Unknown",
+                    "value": "00 00"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "Leveled List Entry",
+            "elements": [
+              {
+                "name": "LVLO - Base Data",
+                "elements": [
+                  {
+                    "name": "Level",
+                    "value": "32"
+                  },
+                  {
+                    "name": "Unknown",
+                    "value": "00 00"
+                  },
+                  {
+                    "name": "Reference",
+                    "value": "{Skyrim.esm:023A96}"
+                  },
+                  {
+                    "name": "Count",
+                    "value": "1"
+                  },
+                  {
+                    "name": "Unknown",
+                    "value": "00 00"
+                  }
+                ]
+              }
+            ]
+          }
         ]
-      ]
+      }
     ]
   }
 }

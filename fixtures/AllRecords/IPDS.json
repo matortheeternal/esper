@@ -1,328 +1,1062 @@
 {
   "00000E02": {
-    "Record Header": [
-      "IPDS",
-      "1134",
-      "",
-      "{Skyrim.esm:000E02}",
-      "00 00 00 00",
-      "40",
-      "00 00"
-    ],
-    "EDID - Editor ID": "MAGPowerSerpentStoneImpactImpactSet",
-    "Data": [
-      [
-        "{Skyrim.esm:012F34}",
-        "{Skyrim.esm:000E01}"
-      ],
-      [
-        "{Skyrim.esm:012F35}",
-        "{Skyrim.esm:000E01}"
-      ],
-      [
-        "{Skyrim.esm:012F36}",
-        "{Skyrim.esm:000E01}"
-      ],
-      [
-        "{Skyrim.esm:012F37}",
-        "{Skyrim.esm:000E01}"
-      ],
-      [
-        "{Skyrim.esm:012F38}",
-        "{Skyrim.esm:000E01}"
-      ],
-      [
-        "{Skyrim.esm:012F39}",
-        "{Skyrim.esm:000E01}"
-      ],
-      [
-        "{Skyrim.esm:012F3A}",
-        "{Skyrim.esm:000E01}"
-      ],
-      [
-        "{Skyrim.esm:012F3B}",
-        "{Skyrim.esm:000E01}"
-      ],
-      [
-        "{Skyrim.esm:012F3C}",
-        "{Skyrim.esm:000E01}"
-      ],
-      [
-        "{Skyrim.esm:012F3D}",
-        "{Skyrim.esm:000E01}"
-      ],
-      [
-        "{Skyrim.esm:012F3E}",
-        "{Skyrim.esm:000E01}"
-      ],
-      [
-        "{Skyrim.esm:012F3F}",
-        "{Skyrim.esm:000E01}"
-      ],
-      [
-        "{Skyrim.esm:012F40}",
-        "{Skyrim.esm:000E01}"
-      ],
-      [
-        "{Skyrim.esm:012F41}",
-        "{Skyrim.esm:000E01}"
-      ],
-      [
-        "{Skyrim.esm:012F42}",
-        "{Skyrim.esm:000E01}"
-      ],
-      [
-        "{Skyrim.esm:012F43}",
-        "{Skyrim.esm:000E01}"
-      ],
-      [
-        "{Skyrim.esm:012F44}",
-        "{Skyrim.esm:000E01}"
-      ],
-      [
-        "{Skyrim.esm:012F45}",
-        "{Skyrim.esm:000E01}"
-      ],
-      [
-        "{Skyrim.esm:012F46}",
-        "{Skyrim.esm:000E01}"
-      ],
-      [
-        "{Skyrim.esm:012F47}",
-        "{Skyrim.esm:000E01}"
-      ],
-      [
-        "{Skyrim.esm:012F48}",
-        "{Skyrim.esm:000E01}"
-      ],
-      [
-        "{Skyrim.esm:01686A}",
-        "{Skyrim.esm:000E01}"
-      ],
-      [
-        "{Skyrim.esm:01686B}",
-        "{Skyrim.esm:000E01}"
-      ],
-      [
-        "{Skyrim.esm:016978}",
-        "{Skyrim.esm:000E01}"
-      ],
-      [
-        "{Skyrim.esm:016979}",
-        "{Skyrim.esm:000E01}"
-      ],
-      [
-        "{Skyrim.esm:018401}",
-        "{Skyrim.esm:000E01}"
-      ],
-      [
-        "{Skyrim.esm:01A353}",
-        "{Skyrim.esm:000E01}"
-      ],
-      [
-        "{Skyrim.esm:01C151}",
-        "{Skyrim.esm:000E01}"
-      ],
-      [
-        "{Skyrim.esm:01EFF7}",
-        "{Skyrim.esm:000E01}"
-      ],
-      [
-        "{Skyrim.esm:021340}",
-        "{Skyrim.esm:000E01}"
-      ],
-      [
-        "{Skyrim.esm:028E99}",
-        "{Skyrim.esm:000E01}"
-      ],
-      [
-        "{Skyrim.esm:02EE2C}",
-        "{Skyrim.esm:000E01}"
-      ],
-      [
-        "{Skyrim.esm:02EE2D}",
-        "{Skyrim.esm:000E01}"
-      ],
-      [
-        "{Skyrim.esm:02FD39}",
-        "{Skyrim.esm:000E01}"
-      ],
-      [
-        "{Skyrim.esm:0363B0}",
-        "{Skyrim.esm:000E01}"
-      ],
-      [
-        "{Skyrim.esm:0388FB}",
-        "{Skyrim.esm:000E01}"
-      ],
-      [
-        "{Skyrim.esm:0388FC}",
-        "{Skyrim.esm:000E01}"
-      ],
-      [
-        "{Skyrim.esm:043DCC}",
-        "{Skyrim.esm:000E01}"
-      ],
-      [
-        "{Skyrim.esm:04D2B3}",
-        "{Skyrim.esm:000E01}"
-      ],
-      [
-        "{Skyrim.esm:050AFA}",
-        "{Skyrim.esm:000E01}"
-      ],
-      [
-        "{Skyrim.esm:050DBE}",
-        "{Skyrim.esm:000E01}"
-      ],
-      [
-        "{Skyrim.esm:05178C}",
-        "{Skyrim.esm:000E01}"
-      ],
-      [
-        "{Skyrim.esm:052798}",
-        "{Skyrim.esm:000E01}"
-      ],
-      [
-        "{Skyrim.esm:052ED0}",
-        "{Skyrim.esm:000E01}"
-      ],
-      [
-        "{Skyrim.esm:05A28F}",
-        "{Skyrim.esm:000E01}"
-      ],
-      [
-        "{Skyrim.esm:05ADD4}",
-        "{Skyrim.esm:000E01}"
-      ],
-      [
-        "{Skyrim.esm:05CF14}",
-        "{Skyrim.esm:000E01}"
-      ],
-      [
-        "{Skyrim.esm:0624AE}",
-        "{Skyrim.esm:000E01}"
-      ],
-      [
-        "{Skyrim.esm:0624B4}",
-        "{Skyrim.esm:000E01}"
-      ],
-      [
-        "{Skyrim.esm:070343}",
-        "{Skyrim.esm:000E01}"
-      ],
-      [
-        "{Skyrim.esm:077251}",
-        "{Skyrim.esm:000E01}"
-      ],
-      [
-        "{Skyrim.esm:0774B6}",
-        "{Skyrim.esm:000E01}"
-      ],
-      [
-        "{Skyrim.esm:0774C0}",
-        "{Skyrim.esm:000E01}"
-      ],
-      [
-        "{Skyrim.esm:0774C1}",
-        "{Skyrim.esm:000E01}"
-      ],
-      [
-        "{Skyrim.esm:0774C2}",
-        "{Skyrim.esm:000E01}"
-      ],
-      [
-        "{Skyrim.esm:084782}",
-        "{Skyrim.esm:000E01}"
-      ],
-      [
-        "{Skyrim.esm:0876B5}",
-        "{Skyrim.esm:000E01}"
-      ],
-      [
-        "{Skyrim.esm:0876B8}",
-        "{Skyrim.esm:000E01}"
-      ],
-      [
-        "{Skyrim.esm:09150B}",
-        "{Skyrim.esm:000E01}"
-      ],
-      [
-        "{Skyrim.esm:09644C}",
-        "{Skyrim.esm:000E01}"
-      ],
-      [
-        "{Skyrim.esm:097786}",
-        "{Skyrim.esm:000E01}"
-      ],
-      [
-        "{Skyrim.esm:0AF63D}",
-        "{Skyrim.esm:000E01}"
-      ],
-      [
-        "{Skyrim.esm:0C1AD7}",
-        "{Skyrim.esm:000E01}"
-      ],
-      [
-        "{Skyrim.esm:0C6FB1}",
-        "{Skyrim.esm:000E01}"
-      ],
-      [
-        "{Skyrim.esm:0C8244}",
-        "{Skyrim.esm:000E01}"
-      ],
-      [
-        "{Skyrim.esm:0D309F}",
-        "{Skyrim.esm:000E01}"
-      ],
-      [
-        "{Skyrim.esm:0D6C11}",
-        "{Skyrim.esm:000E01}"
-      ],
-      [
-        "{Skyrim.esm:0D9B1E}",
-        "{Skyrim.esm:000E01}"
-      ],
-      [
-        "{Skyrim.esm:0E64A6}",
-        "{Skyrim.esm:000E01}"
-      ],
-      [
-        "{Skyrim.esm:0E64A9}",
-        "{Skyrim.esm:000E01}"
-      ],
-      [
-        "{Skyrim.esm:0E7527}",
-        "{Skyrim.esm:000E01}"
-      ],
-      [
-        "{Skyrim.esm:0E7530}",
-        "{Skyrim.esm:000E01}"
-      ],
-      [
-        "{Skyrim.esm:0E7714}",
-        "{Skyrim.esm:000E01}"
-      ],
-      [
-        "{Skyrim.esm:0F0EA8}",
-        "{Skyrim.esm:000E01}"
-      ],
-      [
-        "{Skyrim.esm:0F7B65}",
-        "{Skyrim.esm:000E01}"
-      ],
-      [
-        "{Skyrim.esm:0F7B68}",
-        "{Skyrim.esm:000E01}"
-      ],
-      [
-        "{Skyrim.esm:100752}",
-        "{Skyrim.esm:000E01}"
-      ],
-      [
-        "{Skyrim.esm:10D5CC}",
-        "{Skyrim.esm:000E01}"
-      ]
+    "elements": [
+      {
+        "name": "Record Header",
+        "elements": [
+          {
+            "name": "Signature",
+            "value": "IPDS"
+          },
+          {
+            "name": "Data Size",
+            "value": "1134"
+          },
+          {
+            "name": "Record Flags",
+            "value": ""
+          },
+          {
+            "name": "FormID",
+            "value": "{Skyrim.esm:000E02}"
+          },
+          {
+            "name": "Version Control Info 1",
+            "value": "00 00 00 00"
+          },
+          {
+            "name": "Form Version",
+            "value": "40"
+          },
+          {
+            "name": "Version Control Info 2",
+            "value": "00 00"
+          }
+        ]
+      },
+      {
+        "name": "EDID - Editor ID",
+        "value": "MAGPowerSerpentStoneImpactImpactSet"
+      },
+      {
+        "name": "Data",
+        "elements": [
+          {
+            "name": "PNAM - ",
+            "elements": [
+              {
+                "name": "Material",
+                "value": "{Skyrim.esm:012F34}"
+              },
+              {
+                "name": "Impact",
+                "value": "{Skyrim.esm:000E01}"
+              }
+            ]
+          },
+          {
+            "name": "PNAM - ",
+            "elements": [
+              {
+                "name": "Material",
+                "value": "{Skyrim.esm:012F35}"
+              },
+              {
+                "name": "Impact",
+                "value": "{Skyrim.esm:000E01}"
+              }
+            ]
+          },
+          {
+            "name": "PNAM - ",
+            "elements": [
+              {
+                "name": "Material",
+                "value": "{Skyrim.esm:012F36}"
+              },
+              {
+                "name": "Impact",
+                "value": "{Skyrim.esm:000E01}"
+              }
+            ]
+          },
+          {
+            "name": "PNAM - ",
+            "elements": [
+              {
+                "name": "Material",
+                "value": "{Skyrim.esm:012F37}"
+              },
+              {
+                "name": "Impact",
+                "value": "{Skyrim.esm:000E01}"
+              }
+            ]
+          },
+          {
+            "name": "PNAM - ",
+            "elements": [
+              {
+                "name": "Material",
+                "value": "{Skyrim.esm:012F38}"
+              },
+              {
+                "name": "Impact",
+                "value": "{Skyrim.esm:000E01}"
+              }
+            ]
+          },
+          {
+            "name": "PNAM - ",
+            "elements": [
+              {
+                "name": "Material",
+                "value": "{Skyrim.esm:012F39}"
+              },
+              {
+                "name": "Impact",
+                "value": "{Skyrim.esm:000E01}"
+              }
+            ]
+          },
+          {
+            "name": "PNAM - ",
+            "elements": [
+              {
+                "name": "Material",
+                "value": "{Skyrim.esm:012F3A}"
+              },
+              {
+                "name": "Impact",
+                "value": "{Skyrim.esm:000E01}"
+              }
+            ]
+          },
+          {
+            "name": "PNAM - ",
+            "elements": [
+              {
+                "name": "Material",
+                "value": "{Skyrim.esm:012F3B}"
+              },
+              {
+                "name": "Impact",
+                "value": "{Skyrim.esm:000E01}"
+              }
+            ]
+          },
+          {
+            "name": "PNAM - ",
+            "elements": [
+              {
+                "name": "Material",
+                "value": "{Skyrim.esm:012F3C}"
+              },
+              {
+                "name": "Impact",
+                "value": "{Skyrim.esm:000E01}"
+              }
+            ]
+          },
+          {
+            "name": "PNAM - ",
+            "elements": [
+              {
+                "name": "Material",
+                "value": "{Skyrim.esm:012F3D}"
+              },
+              {
+                "name": "Impact",
+                "value": "{Skyrim.esm:000E01}"
+              }
+            ]
+          },
+          {
+            "name": "PNAM - ",
+            "elements": [
+              {
+                "name": "Material",
+                "value": "{Skyrim.esm:012F3E}"
+              },
+              {
+                "name": "Impact",
+                "value": "{Skyrim.esm:000E01}"
+              }
+            ]
+          },
+          {
+            "name": "PNAM - ",
+            "elements": [
+              {
+                "name": "Material",
+                "value": "{Skyrim.esm:012F3F}"
+              },
+              {
+                "name": "Impact",
+                "value": "{Skyrim.esm:000E01}"
+              }
+            ]
+          },
+          {
+            "name": "PNAM - ",
+            "elements": [
+              {
+                "name": "Material",
+                "value": "{Skyrim.esm:012F40}"
+              },
+              {
+                "name": "Impact",
+                "value": "{Skyrim.esm:000E01}"
+              }
+            ]
+          },
+          {
+            "name": "PNAM - ",
+            "elements": [
+              {
+                "name": "Material",
+                "value": "{Skyrim.esm:012F41}"
+              },
+              {
+                "name": "Impact",
+                "value": "{Skyrim.esm:000E01}"
+              }
+            ]
+          },
+          {
+            "name": "PNAM - ",
+            "elements": [
+              {
+                "name": "Material",
+                "value": "{Skyrim.esm:012F42}"
+              },
+              {
+                "name": "Impact",
+                "value": "{Skyrim.esm:000E01}"
+              }
+            ]
+          },
+          {
+            "name": "PNAM - ",
+            "elements": [
+              {
+                "name": "Material",
+                "value": "{Skyrim.esm:012F43}"
+              },
+              {
+                "name": "Impact",
+                "value": "{Skyrim.esm:000E01}"
+              }
+            ]
+          },
+          {
+            "name": "PNAM - ",
+            "elements": [
+              {
+                "name": "Material",
+                "value": "{Skyrim.esm:012F44}"
+              },
+              {
+                "name": "Impact",
+                "value": "{Skyrim.esm:000E01}"
+              }
+            ]
+          },
+          {
+            "name": "PNAM - ",
+            "elements": [
+              {
+                "name": "Material",
+                "value": "{Skyrim.esm:012F45}"
+              },
+              {
+                "name": "Impact",
+                "value": "{Skyrim.esm:000E01}"
+              }
+            ]
+          },
+          {
+            "name": "PNAM - ",
+            "elements": [
+              {
+                "name": "Material",
+                "value": "{Skyrim.esm:012F46}"
+              },
+              {
+                "name": "Impact",
+                "value": "{Skyrim.esm:000E01}"
+              }
+            ]
+          },
+          {
+            "name": "PNAM - ",
+            "elements": [
+              {
+                "name": "Material",
+                "value": "{Skyrim.esm:012F47}"
+              },
+              {
+                "name": "Impact",
+                "value": "{Skyrim.esm:000E01}"
+              }
+            ]
+          },
+          {
+            "name": "PNAM - ",
+            "elements": [
+              {
+                "name": "Material",
+                "value": "{Skyrim.esm:012F48}"
+              },
+              {
+                "name": "Impact",
+                "value": "{Skyrim.esm:000E01}"
+              }
+            ]
+          },
+          {
+            "name": "PNAM - ",
+            "elements": [
+              {
+                "name": "Material",
+                "value": "{Skyrim.esm:01686A}"
+              },
+              {
+                "name": "Impact",
+                "value": "{Skyrim.esm:000E01}"
+              }
+            ]
+          },
+          {
+            "name": "PNAM - ",
+            "elements": [
+              {
+                "name": "Material",
+                "value": "{Skyrim.esm:01686B}"
+              },
+              {
+                "name": "Impact",
+                "value": "{Skyrim.esm:000E01}"
+              }
+            ]
+          },
+          {
+            "name": "PNAM - ",
+            "elements": [
+              {
+                "name": "Material",
+                "value": "{Skyrim.esm:016978}"
+              },
+              {
+                "name": "Impact",
+                "value": "{Skyrim.esm:000E01}"
+              }
+            ]
+          },
+          {
+            "name": "PNAM - ",
+            "elements": [
+              {
+                "name": "Material",
+                "value": "{Skyrim.esm:016979}"
+              },
+              {
+                "name": "Impact",
+                "value": "{Skyrim.esm:000E01}"
+              }
+            ]
+          },
+          {
+            "name": "PNAM - ",
+            "elements": [
+              {
+                "name": "Material",
+                "value": "{Skyrim.esm:018401}"
+              },
+              {
+                "name": "Impact",
+                "value": "{Skyrim.esm:000E01}"
+              }
+            ]
+          },
+          {
+            "name": "PNAM - ",
+            "elements": [
+              {
+                "name": "Material",
+                "value": "{Skyrim.esm:01A353}"
+              },
+              {
+                "name": "Impact",
+                "value": "{Skyrim.esm:000E01}"
+              }
+            ]
+          },
+          {
+            "name": "PNAM - ",
+            "elements": [
+              {
+                "name": "Material",
+                "value": "{Skyrim.esm:01C151}"
+              },
+              {
+                "name": "Impact",
+                "value": "{Skyrim.esm:000E01}"
+              }
+            ]
+          },
+          {
+            "name": "PNAM - ",
+            "elements": [
+              {
+                "name": "Material",
+                "value": "{Skyrim.esm:01EFF7}"
+              },
+              {
+                "name": "Impact",
+                "value": "{Skyrim.esm:000E01}"
+              }
+            ]
+          },
+          {
+            "name": "PNAM - ",
+            "elements": [
+              {
+                "name": "Material",
+                "value": "{Skyrim.esm:021340}"
+              },
+              {
+                "name": "Impact",
+                "value": "{Skyrim.esm:000E01}"
+              }
+            ]
+          },
+          {
+            "name": "PNAM - ",
+            "elements": [
+              {
+                "name": "Material",
+                "value": "{Skyrim.esm:028E99}"
+              },
+              {
+                "name": "Impact",
+                "value": "{Skyrim.esm:000E01}"
+              }
+            ]
+          },
+          {
+            "name": "PNAM - ",
+            "elements": [
+              {
+                "name": "Material",
+                "value": "{Skyrim.esm:02EE2C}"
+              },
+              {
+                "name": "Impact",
+                "value": "{Skyrim.esm:000E01}"
+              }
+            ]
+          },
+          {
+            "name": "PNAM - ",
+            "elements": [
+              {
+                "name": "Material",
+                "value": "{Skyrim.esm:02EE2D}"
+              },
+              {
+                "name": "Impact",
+                "value": "{Skyrim.esm:000E01}"
+              }
+            ]
+          },
+          {
+            "name": "PNAM - ",
+            "elements": [
+              {
+                "name": "Material",
+                "value": "{Skyrim.esm:02FD39}"
+              },
+              {
+                "name": "Impact",
+                "value": "{Skyrim.esm:000E01}"
+              }
+            ]
+          },
+          {
+            "name": "PNAM - ",
+            "elements": [
+              {
+                "name": "Material",
+                "value": "{Skyrim.esm:0363B0}"
+              },
+              {
+                "name": "Impact",
+                "value": "{Skyrim.esm:000E01}"
+              }
+            ]
+          },
+          {
+            "name": "PNAM - ",
+            "elements": [
+              {
+                "name": "Material",
+                "value": "{Skyrim.esm:0388FB}"
+              },
+              {
+                "name": "Impact",
+                "value": "{Skyrim.esm:000E01}"
+              }
+            ]
+          },
+          {
+            "name": "PNAM - ",
+            "elements": [
+              {
+                "name": "Material",
+                "value": "{Skyrim.esm:0388FC}"
+              },
+              {
+                "name": "Impact",
+                "value": "{Skyrim.esm:000E01}"
+              }
+            ]
+          },
+          {
+            "name": "PNAM - ",
+            "elements": [
+              {
+                "name": "Material",
+                "value": "{Skyrim.esm:043DCC}"
+              },
+              {
+                "name": "Impact",
+                "value": "{Skyrim.esm:000E01}"
+              }
+            ]
+          },
+          {
+            "name": "PNAM - ",
+            "elements": [
+              {
+                "name": "Material",
+                "value": "{Skyrim.esm:04D2B3}"
+              },
+              {
+                "name": "Impact",
+                "value": "{Skyrim.esm:000E01}"
+              }
+            ]
+          },
+          {
+            "name": "PNAM - ",
+            "elements": [
+              {
+                "name": "Material",
+                "value": "{Skyrim.esm:050AFA}"
+              },
+              {
+                "name": "Impact",
+                "value": "{Skyrim.esm:000E01}"
+              }
+            ]
+          },
+          {
+            "name": "PNAM - ",
+            "elements": [
+              {
+                "name": "Material",
+                "value": "{Skyrim.esm:050DBE}"
+              },
+              {
+                "name": "Impact",
+                "value": "{Skyrim.esm:000E01}"
+              }
+            ]
+          },
+          {
+            "name": "PNAM - ",
+            "elements": [
+              {
+                "name": "Material",
+                "value": "{Skyrim.esm:05178C}"
+              },
+              {
+                "name": "Impact",
+                "value": "{Skyrim.esm:000E01}"
+              }
+            ]
+          },
+          {
+            "name": "PNAM - ",
+            "elements": [
+              {
+                "name": "Material",
+                "value": "{Skyrim.esm:052798}"
+              },
+              {
+                "name": "Impact",
+                "value": "{Skyrim.esm:000E01}"
+              }
+            ]
+          },
+          {
+            "name": "PNAM - ",
+            "elements": [
+              {
+                "name": "Material",
+                "value": "{Skyrim.esm:052ED0}"
+              },
+              {
+                "name": "Impact",
+                "value": "{Skyrim.esm:000E01}"
+              }
+            ]
+          },
+          {
+            "name": "PNAM - ",
+            "elements": [
+              {
+                "name": "Material",
+                "value": "{Skyrim.esm:05A28F}"
+              },
+              {
+                "name": "Impact",
+                "value": "{Skyrim.esm:000E01}"
+              }
+            ]
+          },
+          {
+            "name": "PNAM - ",
+            "elements": [
+              {
+                "name": "Material",
+                "value": "{Skyrim.esm:05ADD4}"
+              },
+              {
+                "name": "Impact",
+                "value": "{Skyrim.esm:000E01}"
+              }
+            ]
+          },
+          {
+            "name": "PNAM - ",
+            "elements": [
+              {
+                "name": "Material",
+                "value": "{Skyrim.esm:05CF14}"
+              },
+              {
+                "name": "Impact",
+                "value": "{Skyrim.esm:000E01}"
+              }
+            ]
+          },
+          {
+            "name": "PNAM - ",
+            "elements": [
+              {
+                "name": "Material",
+                "value": "{Skyrim.esm:0624AE}"
+              },
+              {
+                "name": "Impact",
+                "value": "{Skyrim.esm:000E01}"
+              }
+            ]
+          },
+          {
+            "name": "PNAM - ",
+            "elements": [
+              {
+                "name": "Material",
+                "value": "{Skyrim.esm:0624B4}"
+              },
+              {
+                "name": "Impact",
+                "value": "{Skyrim.esm:000E01}"
+              }
+            ]
+          },
+          {
+            "name": "PNAM - ",
+            "elements": [
+              {
+                "name": "Material",
+                "value": "{Skyrim.esm:070343}"
+              },
+              {
+                "name": "Impact",
+                "value": "{Skyrim.esm:000E01}"
+              }
+            ]
+          },
+          {
+            "name": "PNAM - ",
+            "elements": [
+              {
+                "name": "Material",
+                "value": "{Skyrim.esm:077251}"
+              },
+              {
+                "name": "Impact",
+                "value": "{Skyrim.esm:000E01}"
+              }
+            ]
+          },
+          {
+            "name": "PNAM - ",
+            "elements": [
+              {
+                "name": "Material",
+                "value": "{Skyrim.esm:0774B6}"
+              },
+              {
+                "name": "Impact",
+                "value": "{Skyrim.esm:000E01}"
+              }
+            ]
+          },
+          {
+            "name": "PNAM - ",
+            "elements": [
+              {
+                "name": "Material",
+                "value": "{Skyrim.esm:0774C0}"
+              },
+              {
+                "name": "Impact",
+                "value": "{Skyrim.esm:000E01}"
+              }
+            ]
+          },
+          {
+            "name": "PNAM - ",
+            "elements": [
+              {
+                "name": "Material",
+                "value": "{Skyrim.esm:0774C1}"
+              },
+              {
+                "name": "Impact",
+                "value": "{Skyrim.esm:000E01}"
+              }
+            ]
+          },
+          {
+            "name": "PNAM - ",
+            "elements": [
+              {
+                "name": "Material",
+                "value": "{Skyrim.esm:0774C2}"
+              },
+              {
+                "name": "Impact",
+                "value": "{Skyrim.esm:000E01}"
+              }
+            ]
+          },
+          {
+            "name": "PNAM - ",
+            "elements": [
+              {
+                "name": "Material",
+                "value": "{Skyrim.esm:084782}"
+              },
+              {
+                "name": "Impact",
+                "value": "{Skyrim.esm:000E01}"
+              }
+            ]
+          },
+          {
+            "name": "PNAM - ",
+            "elements": [
+              {
+                "name": "Material",
+                "value": "{Skyrim.esm:0876B5}"
+              },
+              {
+                "name": "Impact",
+                "value": "{Skyrim.esm:000E01}"
+              }
+            ]
+          },
+          {
+            "name": "PNAM - ",
+            "elements": [
+              {
+                "name": "Material",
+                "value": "{Skyrim.esm:0876B8}"
+              },
+              {
+                "name": "Impact",
+                "value": "{Skyrim.esm:000E01}"
+              }
+            ]
+          },
+          {
+            "name": "PNAM - ",
+            "elements": [
+              {
+                "name": "Material",
+                "value": "{Skyrim.esm:09150B}"
+              },
+              {
+                "name": "Impact",
+                "value": "{Skyrim.esm:000E01}"
+              }
+            ]
+          },
+          {
+            "name": "PNAM - ",
+            "elements": [
+              {
+                "name": "Material",
+                "value": "{Skyrim.esm:09644C}"
+              },
+              {
+                "name": "Impact",
+                "value": "{Skyrim.esm:000E01}"
+              }
+            ]
+          },
+          {
+            "name": "PNAM - ",
+            "elements": [
+              {
+                "name": "Material",
+                "value": "{Skyrim.esm:097786}"
+              },
+              {
+                "name": "Impact",
+                "value": "{Skyrim.esm:000E01}"
+              }
+            ]
+          },
+          {
+            "name": "PNAM - ",
+            "elements": [
+              {
+                "name": "Material",
+                "value": "{Skyrim.esm:0AF63D}"
+              },
+              {
+                "name": "Impact",
+                "value": "{Skyrim.esm:000E01}"
+              }
+            ]
+          },
+          {
+            "name": "PNAM - ",
+            "elements": [
+              {
+                "name": "Material",
+                "value": "{Skyrim.esm:0C1AD7}"
+              },
+              {
+                "name": "Impact",
+                "value": "{Skyrim.esm:000E01}"
+              }
+            ]
+          },
+          {
+            "name": "PNAM - ",
+            "elements": [
+              {
+                "name": "Material",
+                "value": "{Skyrim.esm:0C6FB1}"
+              },
+              {
+                "name": "Impact",
+                "value": "{Skyrim.esm:000E01}"
+              }
+            ]
+          },
+          {
+            "name": "PNAM - ",
+            "elements": [
+              {
+                "name": "Material",
+                "value": "{Skyrim.esm:0C8244}"
+              },
+              {
+                "name": "Impact",
+                "value": "{Skyrim.esm:000E01}"
+              }
+            ]
+          },
+          {
+            "name": "PNAM - ",
+            "elements": [
+              {
+                "name": "Material",
+                "value": "{Skyrim.esm:0D309F}"
+              },
+              {
+                "name": "Impact",
+                "value": "{Skyrim.esm:000E01}"
+              }
+            ]
+          },
+          {
+            "name": "PNAM - ",
+            "elements": [
+              {
+                "name": "Material",
+                "value": "{Skyrim.esm:0D6C11}"
+              },
+              {
+                "name": "Impact",
+                "value": "{Skyrim.esm:000E01}"
+              }
+            ]
+          },
+          {
+            "name": "PNAM - ",
+            "elements": [
+              {
+                "name": "Material",
+                "value": "{Skyrim.esm:0D9B1E}"
+              },
+              {
+                "name": "Impact",
+                "value": "{Skyrim.esm:000E01}"
+              }
+            ]
+          },
+          {
+            "name": "PNAM - ",
+            "elements": [
+              {
+                "name": "Material",
+                "value": "{Skyrim.esm:0E64A6}"
+              },
+              {
+                "name": "Impact",
+                "value": "{Skyrim.esm:000E01}"
+              }
+            ]
+          },
+          {
+            "name": "PNAM - ",
+            "elements": [
+              {
+                "name": "Material",
+                "value": "{Skyrim.esm:0E64A9}"
+              },
+              {
+                "name": "Impact",
+                "value": "{Skyrim.esm:000E01}"
+              }
+            ]
+          },
+          {
+            "name": "PNAM - ",
+            "elements": [
+              {
+                "name": "Material",
+                "value": "{Skyrim.esm:0E7527}"
+              },
+              {
+                "name": "Impact",
+                "value": "{Skyrim.esm:000E01}"
+              }
+            ]
+          },
+          {
+            "name": "PNAM - ",
+            "elements": [
+              {
+                "name": "Material",
+                "value": "{Skyrim.esm:0E7530}"
+              },
+              {
+                "name": "Impact",
+                "value": "{Skyrim.esm:000E01}"
+              }
+            ]
+          },
+          {
+            "name": "PNAM - ",
+            "elements": [
+              {
+                "name": "Material",
+                "value": "{Skyrim.esm:0E7714}"
+              },
+              {
+                "name": "Impact",
+                "value": "{Skyrim.esm:000E01}"
+              }
+            ]
+          },
+          {
+            "name": "PNAM - ",
+            "elements": [
+              {
+                "name": "Material",
+                "value": "{Skyrim.esm:0F0EA8}"
+              },
+              {
+                "name": "Impact",
+                "value": "{Skyrim.esm:000E01}"
+              }
+            ]
+          },
+          {
+            "name": "PNAM - ",
+            "elements": [
+              {
+                "name": "Material",
+                "value": "{Skyrim.esm:0F7B65}"
+              },
+              {
+                "name": "Impact",
+                "value": "{Skyrim.esm:000E01}"
+              }
+            ]
+          },
+          {
+            "name": "PNAM - ",
+            "elements": [
+              {
+                "name": "Material",
+                "value": "{Skyrim.esm:0F7B68}"
+              },
+              {
+                "name": "Impact",
+                "value": "{Skyrim.esm:000E01}"
+              }
+            ]
+          },
+          {
+            "name": "PNAM - ",
+            "elements": [
+              {
+                "name": "Material",
+                "value": "{Skyrim.esm:100752}"
+              },
+              {
+                "name": "Impact",
+                "value": "{Skyrim.esm:000E01}"
+              }
+            ]
+          },
+          {
+            "name": "PNAM - ",
+            "elements": [
+              {
+                "name": "Material",
+                "value": "{Skyrim.esm:10D5CC}"
+              },
+              {
+                "name": "Impact",
+                "value": "{Skyrim.esm:000E01}"
+              }
+            ]
+          }
+        ]
+      }
     ]
   }
 }

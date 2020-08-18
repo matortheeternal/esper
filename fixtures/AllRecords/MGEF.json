@@ -1,96 +1,335 @@
 {
   "000173DC": {
-    "Record Header": [
-      "MGEF",
-      "307",
-      "",
-      "{Skyrim.esm:0173DC}",
-      "00 00 00 00",
-      "44",
-      "00 00"
-    ],
-    "EDID - Editor ID": "BanishDmgHealthFFTargetActor",
-    "FULL - Name": "Banish - Damage Health",
-    "MDOB - Menu Display Object": "{Skyrim.esm:0435A5}",
-    "Magic Effect Data": [
-      [
-        "Detrimental, FX Persist, Hide in UI, Power Affects Magnitude",
-        "0.000000",
-        "{Null:000000}",
-        "Destruction",
-        "None",
-        "0",
-        "00 00",
-        "{Skyrim.esm:0ABEFE}",
-        "1.000000",
-        "{Skyrim.esm:0ABEFF}",
-        "{Null:000000}",
-        "0",
-        [
-          "0",
-          "0.000000"
-        ],
-        "0.000000",
-        "0.000000",
-        "0.000000",
-        "Value Modifier",
-        "Health",
-        "{Null:000000}",
-        "{Null:000000}",
-        "Fire and Forget",
-        "Target Actor",
-        "None",
-        "{Skyrim.esm:0ABF02}",
-        "{Skyrim.esm:0ABF10}",
-        "{Null:000000}",
-        "0.000000",
-        [
-          "{Null:000000}",
-          "1.000000"
-        ],
-        "{Null:000000}",
-        "{Null:000000}",
-        "{Null:000000}",
-        "{Null:000000}",
-        "{Null:000000}",
-        "{Null:000000}",
-        "Loud",
-        [
-          "0.000000",
-          "0.000000"
+    "elements": [
+      {
+        "name": "Record Header",
+        "elements": [
+          {
+            "name": "Signature",
+            "value": "MGEF"
+          },
+          {
+            "name": "Data Size",
+            "value": "307"
+          },
+          {
+            "name": "Record Flags",
+            "value": ""
+          },
+          {
+            "name": "FormID",
+            "value": "{Skyrim.esm:0173DC}"
+          },
+          {
+            "name": "Version Control Info 1",
+            "value": "00 00 00 00"
+          },
+          {
+            "name": "Form Version",
+            "value": "44"
+          },
+          {
+            "name": "Version Control Info 2",
+            "value": "00 00"
+          }
         ]
-      ]
-    ],
-    "SNDD - Sounds": [
-      [
-        "Sheathe/Draw",
-        "{Skyrim.esm:05A017}"
-      ],
-      [
-        "Release",
-        "{Skyrim.esm:057C61}"
-      ],
-      [
-        "Concentration Cast Loop",
-        "{Skyrim.esm:03E958}"
-      ]
-    ],
-    "DNAM - Magic Item Description": "",
-    "Conditions": [
-      [
-        [
-          "10000000",
-          "00 00 00",
-          "1.000000",
-          "HasKeyword",
-          "00 00",
-          "{Skyrim.esm:013797}",
-          "00 00 00 00",
-          "Subject",
-          "0",
-          "-1"
+      },
+      {
+        "name": "EDID - Editor ID",
+        "value": "BanishDmgHealthFFTargetActor"
+      },
+      {
+        "name": "FULL - Name",
+        "value": "Banish - Damage Health"
+      },
+      {
+        "name": "MDOB - Menu Display Object",
+        "value": "{Skyrim.esm:0435A5}"
+      },
+      {
+        "name": "Magic Effect Data",
+        "elements": [
+          {
+            "name": "DATA - Data",
+            "elements": [
+              {
+                "name": "Flags",
+                "value": "Detrimental, FX Persist, Hide in UI, Power Affects Magnitude"
+              },
+              {
+                "name": "Base Cost",
+                "value": "0.000000"
+              },
+              {
+                "name": "Assoc. Item",
+                "value": "{Null:000000}"
+              },
+              {
+                "name": "Magic Skill",
+                "value": "Destruction"
+              },
+              {
+                "name": "Resist Value",
+                "value": "None"
+              },
+              {
+                "name": "Counter Effect count",
+                "value": "0"
+              },
+              {
+                "name": "Unused",
+                "value": "00 00"
+              },
+              {
+                "name": "Casting Light",
+                "value": "{Skyrim.esm:0ABEFE}"
+              },
+              {
+                "name": "Taper Weight",
+                "value": "1.000000"
+              },
+              {
+                "name": "Hit Shader",
+                "value": "{Skyrim.esm:0ABEFF}"
+              },
+              {
+                "name": "Enchant Shader",
+                "value": "{Null:000000}"
+              },
+              {
+                "name": "Minimum Skill Level",
+                "value": "0"
+              },
+              {
+                "name": "Spellmaking",
+                "elements": [
+                  {
+                    "name": "Area",
+                    "value": "0"
+                  },
+                  {
+                    "name": "Casting Time",
+                    "value": "0.000000"
+                  }
+                ]
+              },
+              {
+                "name": "Taper Curve",
+                "value": "0.000000"
+              },
+              {
+                "name": "Taper Duration",
+                "value": "0.000000"
+              },
+              {
+                "name": "Second AV Weight",
+                "value": "0.000000"
+              },
+              {
+                "name": "Archtype",
+                "value": "Value Modifier"
+              },
+              {
+                "name": "Actor Value",
+                "value": "Health"
+              },
+              {
+                "name": "Projectile",
+                "value": "{Null:000000}"
+              },
+              {
+                "name": "Explosion",
+                "value": "{Null:000000}"
+              },
+              {
+                "name": "Casting Type",
+                "value": "Fire and Forget"
+              },
+              {
+                "name": "Delivery",
+                "value": "Target Actor"
+              },
+              {
+                "name": "Second Actor Value",
+                "value": "None"
+              },
+              {
+                "name": "Casting Art",
+                "value": "{Skyrim.esm:0ABF02}"
+              },
+              {
+                "name": "Hit Effect Art",
+                "value": "{Skyrim.esm:0ABF10}"
+              },
+              {
+                "name": "Impact Data",
+                "value": "{Null:000000}"
+              },
+              {
+                "name": "Skill Usage Multiplier",
+                "value": "0.000000"
+              },
+              {
+                "name": "Dual Casting",
+                "elements": [
+                  {
+                    "name": "Art",
+                    "value": "{Null:000000}"
+                  },
+                  {
+                    "name": "Scale",
+                    "value": "1.000000"
+                  }
+                ]
+              },
+              {
+                "name": "Enchant Art",
+                "value": "{Null:000000}"
+              },
+              {
+                "name": "Unknown",
+                "value": "{Null:000000}"
+              },
+              {
+                "name": "Unknown",
+                "value": "{Null:000000}"
+              },
+              {
+                "name": "Equip Ability",
+                "value": "{Null:000000}"
+              },
+              {
+                "name": "Image Space Modifier",
+                "value": "{Null:000000}"
+              },
+              {
+                "name": "Perk to Apply",
+                "value": "{Null:000000}"
+              },
+              {
+                "name": "Casting Sound Level",
+                "value": "Loud"
+              },
+              {
+                "name": "Script Effect AI",
+                "elements": [
+                  {
+                    "name": "Score",
+                    "value": "0.000000"
+                  },
+                  {
+                    "name": "Delay Time",
+                    "value": "0.000000"
+                  }
+                ]
+              }
+            ]
+          }
         ]
-      ]
+      },
+      {
+        "name": "SNDD - Sounds",
+        "elements": [
+          {
+            "name": " #0",
+            "elements": [
+              {
+                "name": "Type",
+                "value": "Sheathe/Draw"
+              },
+              {
+                "name": "Sound",
+                "value": "{Skyrim.esm:05A017}"
+              }
+            ]
+          },
+          {
+            "name": " #1",
+            "elements": [
+              {
+                "name": "Type",
+                "value": "Release"
+              },
+              {
+                "name": "Sound",
+                "value": "{Skyrim.esm:057C61}"
+              }
+            ]
+          },
+          {
+            "name": " #2",
+            "elements": [
+              {
+                "name": "Type",
+                "value": "Concentration Cast Loop"
+              },
+              {
+                "name": "Sound",
+                "value": "{Skyrim.esm:03E958}"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "DNAM - Magic Item Description",
+        "value": ""
+      },
+      {
+        "name": "Conditions",
+        "elements": [
+          {
+            "name": "Condition",
+            "elements": [
+              {
+                "name": "CTDA - ",
+                "elements": [
+                  {
+                    "name": "Type",
+                    "value": "10000000"
+                  },
+                  {
+                    "name": "Unused",
+                    "value": "00 00 00"
+                  },
+                  {
+                    "name": "Comparison Value",
+                    "value": "1.000000"
+                  },
+                  {
+                    "name": "Function",
+                    "value": "HasKeyword"
+                  },
+                  {
+                    "name": "Unused",
+                    "value": "00 00"
+                  },
+                  {
+                    "name": "Parameter #1",
+                    "value": "{Skyrim.esm:013797}"
+                  },
+                  {
+                    "name": "Parameter #2",
+                    "value": "00 00 00 00"
+                  },
+                  {
+                    "name": "Run On",
+                    "value": "Subject"
+                  },
+                  {
+                    "name": "Reference",
+                    "value": "0"
+                  },
+                  {
+                    "name": "Parameter #3",
+                    "value": "-1"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
     ]
   }
 }

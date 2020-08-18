@@ -1,110 +1,391 @@
 {
   "000A919E": {
-    "Record Header": [
-      "BPTD",
-      "664",
-      "",
-      "{Skyrim.esm:0A919E}",
-      "00 00 00 00",
-      "44",
-      "00 00"
-    ],
-    "EDID - Editor ID": "ChickenBodyPartData",
-    "Model": [
-      "Actors\\Ambient\\Chicken\\Character Assets\\Skeleton.nif",
-      "02 00 00 00 00 00 00 00 00 00 00 00"
-    ],
-    "Body Parts": [
-      [
-        "Head",
-        "HEAD",
-        "HEAD",
-        "BASE Meshes\\Actors\\Ambient\\Chicken\\Character Assets\\Skeleton.nif",
-        [
-          "1.000000",
-          "",
-          "Head",
-          "5",
-          "None",
-          "100",
-          "0",
-          "0",
-          "{Null:000000}",
-          "{Null:000000}",
-          "0.000000",
-          "1.000000",
-          "0",
-          "{Null:000000}",
-          "{Null:000000}",
-          "1.000000",
-          [
-            [
-              "0.000000",
-              "0.000000",
-              "0.000000"
-            ],
-            [
-              "0.0000",
-              "0.0000",
-              "0.0000"
+    "elements": [
+      {
+        "name": "Record Header",
+        "elements": [
+          {
+            "name": "Signature",
+            "value": "BPTD"
+          },
+          {
+            "name": "Data Size",
+            "value": "664"
+          },
+          {
+            "name": "Record Flags",
+            "value": ""
+          },
+          {
+            "name": "FormID",
+            "value": "{Skyrim.esm:0A919E}"
+          },
+          {
+            "name": "Version Control Info 1",
+            "value": "00 00 00 00"
+          },
+          {
+            "name": "Form Version",
+            "value": "44"
+          },
+          {
+            "name": "Version Control Info 2",
+            "value": "00 00"
+          }
+        ]
+      },
+      {
+        "name": "EDID - Editor ID",
+        "value": "ChickenBodyPartData"
+      },
+      {
+        "name": "Model",
+        "elements": [
+          {
+            "name": "MODL - Model FileName",
+            "value": "Actors\\Ambient\\Chicken\\Character Assets\\Skeleton.nif"
+          },
+          {
+            "name": "MODT - Texture Files Hashes",
+            "value": "02 00 00 00 00 00 00 00 00 00 00 00"
+          }
+        ]
+      },
+      {
+        "name": "Body Parts",
+        "elements": [
+          {
+            "name": "Body Part",
+            "elements": [
+              {
+                "name": "BPTN - Part Name",
+                "value": "Head"
+              },
+              {
+                "name": "BPNN - Part Node",
+                "value": "HEAD"
+              },
+              {
+                "name": "BPNT - VATS Target",
+                "value": "HEAD"
+              },
+              {
+                "name": "BPNI - IK Data - Start Node",
+                "value": "BASE Meshes\\Actors\\Ambient\\Chicken\\Character Assets\\Skeleton.nif"
+              },
+              {
+                "name": "BPND - ",
+                "elements": [
+                  {
+                    "name": "Damage Mult",
+                    "value": "1.000000"
+                  },
+                  {
+                    "name": "Flags",
+                    "value": ""
+                  },
+                  {
+                    "name": "Part Type",
+                    "value": "Head"
+                  },
+                  {
+                    "name": "Health Percent",
+                    "value": "5"
+                  },
+                  {
+                    "name": "Actor Value",
+                    "value": "None"
+                  },
+                  {
+                    "name": "To Hit Chance",
+                    "value": "100"
+                  },
+                  {
+                    "name": "Explodable - Explosion Chance %",
+                    "value": "0"
+                  },
+                  {
+                    "name": "Explodable - Debris Count",
+                    "value": "0"
+                  },
+                  {
+                    "name": "Explodable - Debris",
+                    "value": "{Null:000000}"
+                  },
+                  {
+                    "name": "Explodable - Explosion",
+                    "value": "{Null:000000}"
+                  },
+                  {
+                    "name": "Tracking Max Angle",
+                    "value": "0.000000"
+                  },
+                  {
+                    "name": "Explodable - Debris Scale",
+                    "value": "1.000000"
+                  },
+                  {
+                    "name": "Severable - Debris Count",
+                    "value": "0"
+                  },
+                  {
+                    "name": "Severable - Debris",
+                    "value": "{Null:000000}"
+                  },
+                  {
+                    "name": "Severable - Explosion",
+                    "value": "{Null:000000}"
+                  },
+                  {
+                    "name": "Severable - Debris Scale",
+                    "value": "1.000000"
+                  },
+                  {
+                    "name": "Gore Effects Positioning",
+                    "elements": [
+                      {
+                        "name": "Translate",
+                        "elements": [
+                          {
+                            "name": "X",
+                            "value": "0.000000"
+                          },
+                          {
+                            "name": "Y",
+                            "value": "0.000000"
+                          },
+                          {
+                            "name": "Z",
+                            "value": "0.000000"
+                          }
+                        ]
+                      },
+                      {
+                        "name": "Rotation",
+                        "elements": [
+                          {
+                            "name": "X",
+                            "value": "0.0000"
+                          },
+                          {
+                            "name": "Y",
+                            "value": "0.0000"
+                          },
+                          {
+                            "name": "Z",
+                            "value": "0.0000"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "name": "Severable - Impact DataSet",
+                    "value": "{Null:000000}"
+                  },
+                  {
+                    "name": "Explodable - Impact DataSet",
+                    "value": "{Null:000000}"
+                  },
+                  {
+                    "name": "Severable - Decal Count",
+                    "value": "0"
+                  },
+                  {
+                    "name": "Explodable - Decal Count",
+                    "value": "0"
+                  },
+                  {
+                    "name": "Unknown",
+                    "value": "00 00"
+                  },
+                  {
+                    "name": "Limb Replacement Scale",
+                    "value": "1.000000"
+                  }
+                ]
+              },
+              {
+                "name": "NAM1 - Limb Replacement Model",
+                "value": ""
+              },
+              {
+                "name": "NAM4 - Gore Effects - Target Bone",
+                "value": "BASE Meshes\\Actors\\Ambient\\Chicken\\Character Assets\\Skeleton.nif"
+              },
+              {
+                "name": "NAM5 - Texture Files Hashes",
+                "value": ""
+              }
             ]
-          ],
-          "{Null:000000}",
-          "{Null:000000}",
-          "0",
-          "0",
-          "00 00",
-          "1.000000"
-        ],
-        "",
-        "BASE Meshes\\Actors\\Ambient\\Chicken\\Character Assets\\Skeleton.nif",
-        ""
-      ],
-      [
-        "Torso",
-        "Ribcage",
-        "Spine",
-        "BASE Meshes\\Actors\\Ambient\\Chicken\\Character Assets\\Skeleton.nif",
-        [
-          "1.000000",
-          "",
-          "Torso",
-          "5",
-          "None",
-          "100",
-          "0",
-          "0",
-          "{Null:000000}",
-          "{Null:000000}",
-          "0.000000",
-          "1.000000",
-          "0",
-          "{Null:000000}",
-          "{Null:000000}",
-          "1.000000",
-          [
-            [
-              "0.000000",
-              "0.000000",
-              "0.000000"
-            ],
-            [
-              "0.0000",
-              "0.0000",
-              "0.0000"
+          },
+          {
+            "name": "Body Part",
+            "elements": [
+              {
+                "name": "BPTN - Part Name",
+                "value": "Torso"
+              },
+              {
+                "name": "BPNN - Part Node",
+                "value": "Ribcage"
+              },
+              {
+                "name": "BPNT - VATS Target",
+                "value": "Spine"
+              },
+              {
+                "name": "BPNI - IK Data - Start Node",
+                "value": "BASE Meshes\\Actors\\Ambient\\Chicken\\Character Assets\\Skeleton.nif"
+              },
+              {
+                "name": "BPND - ",
+                "elements": [
+                  {
+                    "name": "Damage Mult",
+                    "value": "1.000000"
+                  },
+                  {
+                    "name": "Flags",
+                    "value": ""
+                  },
+                  {
+                    "name": "Part Type",
+                    "value": "Torso"
+                  },
+                  {
+                    "name": "Health Percent",
+                    "value": "5"
+                  },
+                  {
+                    "name": "Actor Value",
+                    "value": "None"
+                  },
+                  {
+                    "name": "To Hit Chance",
+                    "value": "100"
+                  },
+                  {
+                    "name": "Explodable - Explosion Chance %",
+                    "value": "0"
+                  },
+                  {
+                    "name": "Explodable - Debris Count",
+                    "value": "0"
+                  },
+                  {
+                    "name": "Explodable - Debris",
+                    "value": "{Null:000000}"
+                  },
+                  {
+                    "name": "Explodable - Explosion",
+                    "value": "{Null:000000}"
+                  },
+                  {
+                    "name": "Tracking Max Angle",
+                    "value": "0.000000"
+                  },
+                  {
+                    "name": "Explodable - Debris Scale",
+                    "value": "1.000000"
+                  },
+                  {
+                    "name": "Severable - Debris Count",
+                    "value": "0"
+                  },
+                  {
+                    "name": "Severable - Debris",
+                    "value": "{Null:000000}"
+                  },
+                  {
+                    "name": "Severable - Explosion",
+                    "value": "{Null:000000}"
+                  },
+                  {
+                    "name": "Severable - Debris Scale",
+                    "value": "1.000000"
+                  },
+                  {
+                    "name": "Gore Effects Positioning",
+                    "elements": [
+                      {
+                        "name": "Translate",
+                        "elements": [
+                          {
+                            "name": "X",
+                            "value": "0.000000"
+                          },
+                          {
+                            "name": "Y",
+                            "value": "0.000000"
+                          },
+                          {
+                            "name": "Z",
+                            "value": "0.000000"
+                          }
+                        ]
+                      },
+                      {
+                        "name": "Rotation",
+                        "elements": [
+                          {
+                            "name": "X",
+                            "value": "0.0000"
+                          },
+                          {
+                            "name": "Y",
+                            "value": "0.0000"
+                          },
+                          {
+                            "name": "Z",
+                            "value": "0.0000"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "name": "Severable - Impact DataSet",
+                    "value": "{Null:000000}"
+                  },
+                  {
+                    "name": "Explodable - Impact DataSet",
+                    "value": "{Null:000000}"
+                  },
+                  {
+                    "name": "Severable - Decal Count",
+                    "value": "0"
+                  },
+                  {
+                    "name": "Explodable - Decal Count",
+                    "value": "0"
+                  },
+                  {
+                    "name": "Unknown",
+                    "value": "00 00"
+                  },
+                  {
+                    "name": "Limb Replacement Scale",
+                    "value": "1.000000"
+                  }
+                ]
+              },
+              {
+                "name": "NAM1 - Limb Replacement Model",
+                "value": ""
+              },
+              {
+                "name": "NAM4 - Gore Effects - Target Bone",
+                "value": "BASE Meshes\\Actors\\Ambient\\Chicken\\Character Assets\\Skeleton.nif"
+              },
+              {
+                "name": "NAM5 - Texture Files Hashes",
+                "value": ""
+              }
             ]
-          ],
-          "{Null:000000}",
-          "{Null:000000}",
-          "0",
-          "0",
-          "00 00",
-          "1.000000"
-        ],
-        "",
-        "BASE Meshes\\Actors\\Ambient\\Chicken\\Character Assets\\Skeleton.nif",
-        ""
-      ]
+          }
+        ]
+      }
     ]
   }
 }

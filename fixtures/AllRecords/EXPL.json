@@ -1,41 +1,142 @@
 {
   "00000E04": {
-    "Record Header": [
-      "EXPL",
-      "164",
-      "",
-      "{Skyrim.esm:000E04}",
-      "00 00 00 00",
-      "40",
-      "00 00"
-    ],
-    "EDID - Editor ID": "PowerSerpentStoneExplosion",
-    "OBND - Object Bounds": [
-      "0",
-      "0",
-      "0",
-      "0",
-      "0",
-      "0"
-    ],
-    "Model": [
-      "Magic\\ShoutAreaExplosion01.nif",
-      "02 00 00 00 00 00 00 00 00 00 00 00"
-    ],
-    "DATA - Data": [
-      "{Null:000000}",
-      "{Skyrim.esm:000E00}",
-      "{Null:000000}",
-      "{Null:000000}",
-      "{Null:000000}",
-      "{Null:000000}",
-      "1.000000",
-      "0.000000",
-      "1.000000",
-      "1.000000",
-      "0.800000",
-      "Unknown 0, Ignore Image Space Swap",
-      "Loud"
+    "elements": [
+      {
+        "name": "Record Header",
+        "elements": [
+          {
+            "name": "Signature",
+            "value": "EXPL"
+          },
+          {
+            "name": "Data Size",
+            "value": "164"
+          },
+          {
+            "name": "Record Flags",
+            "value": ""
+          },
+          {
+            "name": "FormID",
+            "value": "{Skyrim.esm:000E04}"
+          },
+          {
+            "name": "Version Control Info 1",
+            "value": "00 00 00 00"
+          },
+          {
+            "name": "Form Version",
+            "value": "40"
+          },
+          {
+            "name": "Version Control Info 2",
+            "value": "00 00"
+          }
+        ]
+      },
+      {
+        "name": "EDID - Editor ID",
+        "value": "PowerSerpentStoneExplosion"
+      },
+      {
+        "name": "OBND - Object Bounds",
+        "elements": [
+          {
+            "name": "X1",
+            "value": "0"
+          },
+          {
+            "name": "Y1",
+            "value": "0"
+          },
+          {
+            "name": "Z1",
+            "value": "0"
+          },
+          {
+            "name": "X2",
+            "value": "0"
+          },
+          {
+            "name": "Y2",
+            "value": "0"
+          },
+          {
+            "name": "Z2",
+            "value": "0"
+          }
+        ]
+      },
+      {
+        "name": "Model",
+        "elements": [
+          {
+            "name": "MODL - Model FileName",
+            "value": "Magic\\ShoutAreaExplosion01.nif"
+          },
+          {
+            "name": "MODT - Texture Files Hashes",
+            "value": "02 00 00 00 00 00 00 00 00 00 00 00"
+          }
+        ]
+      },
+      {
+        "name": "DATA - Data",
+        "elements": [
+          {
+            "name": "Light",
+            "value": "{Null:000000}"
+          },
+          {
+            "name": "Sound 1",
+            "value": "{Skyrim.esm:000E00}"
+          },
+          {
+            "name": "Sound 2",
+            "value": "{Null:000000}"
+          },
+          {
+            "name": "Impact Data Set",
+            "value": "{Null:000000}"
+          },
+          {
+            "name": "Placed Object",
+            "value": "{Null:000000}"
+          },
+          {
+            "name": "Spawn Projectile",
+            "value": "{Null:000000}"
+          },
+          {
+            "name": "Force",
+            "value": "1.000000"
+          },
+          {
+            "name": "Damage",
+            "value": "0.000000"
+          },
+          {
+            "name": "Radius",
+            "value": "1.000000"
+          },
+          {
+            "name": "IS Radius",
+            "value": "1.000000"
+          },
+          {
+            "name": "Vertical Offset Mult",
+            "value": "0.800000"
+          },
+          {
+            "name": "Flags",
+            "value": "Unknown 0, Ignore Image Space Swap"
+          },
+          {
+            "name": "Sound Level",
+            "value": "Loud"
+          }
+        ]
+      }
     ]
   }
 }

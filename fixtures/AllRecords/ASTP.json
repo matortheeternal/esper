@@ -1,19 +1,63 @@
 {
   "0003F4DA": {
-    "Record Header": [
-      "ASTP",
-      "104",
-      "",
-      "{Skyrim.esm:03F4DA}",
-      "00 00 00 00",
-      "34",
-      "00 00"
-    ],
-    "EDID - Editor ID": "FavorTarget",
-    "MPRT - Male Parent Title": "Acquaintance",
-    "FPRT - Female Parent Title": "Acquaintance",
-    "MCHT - Male Child Title": "Acquaintance",
-    "FCHT - Female Child Title": "Acquaintance",
-    "DATA - Flags": ""
+    "elements": [
+      {
+        "name": "Record Header",
+        "elements": [
+          {
+            "name": "Signature",
+            "value": "ASTP"
+          },
+          {
+            "name": "Data Size",
+            "value": "104"
+          },
+          {
+            "name": "Record Flags",
+            "value": ""
+          },
+          {
+            "name": "FormID",
+            "value": "{Skyrim.esm:03F4DA}"
+          },
+          {
+            "name": "Version Control Info 1",
+            "value": "00 00 00 00"
+          },
+          {
+            "name": "Form Version",
+            "value": "34"
+          },
+          {
+            "name": "Version Control Info 2",
+            "value": "00 00"
+          }
+        ]
+      },
+      {
+        "name": "EDID - Editor ID",
+        "value": "FavorTarget"
+      },
+      {
+        "name": "MPRT - Male Parent Title",
+        "value": "Acquaintance"
+      },
+      {
+        "name": "FPRT - Female Parent Title",
+        "value": "Acquaintance"
+      },
+      {
+        "name": "MCHT - Male Child Title",
+        "value": "Acquaintance"
+      },
+      {
+        "name": "FCHT - Female Child Title",
+        "value": "Acquaintance"
+      },
+      {
+        "name": "DATA - Flags",
+        "value": ""
+      }
+    ]
   }
 }

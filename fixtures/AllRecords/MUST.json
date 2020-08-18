@@ -1,55 +1,195 @@
 {
   "00000F7E": {
-    "Record Header": [
-      "MUST",
-      "265",
-      "",
-      "{Skyrim.esm:000F7E}",
-      "00 00 00 00",
-      "40",
-      "00 00"
-    ],
-    "EDID - Editor ID": "MUSCombatBoss03CG",
-    "CNAM - Track Type": "Single Track",
-    "ANAM - Track Filename": "Data\\Music\\Combat\\MUS_Combat_Boss_CG.wav",
-    "BNAM - Finale Filename": "Data\\Music\\Combat\\MUS_Combat_Boss_03_Finale.wav",
-    "FNAM - Cue Points": [
-      "5.730000",
-      "11.394000",
-      "17.061001",
-      "22.735001",
-      "28.493000",
-      "34.155998",
-      "39.770001",
-      "45.480000",
-      "51.144001",
-      "56.823002",
-      "62.529999",
-      "68.150002",
-      "73.870003",
-      "79.489998",
-      "85.209999",
-      "90.879997",
-      "96.540001",
-      "102.220001",
-      "107.900002"
-    ],
-    "CITC - Condition Count": "1",
-    "Conditions": [
-      [
-        [
-          "10000000",
-          "00 00 00",
-          "1.000000",
-          "GetCombatTargetHasKeyword",
-          "00 00",
-          "{Skyrim.esm:035D59}",
-          "00 00 00 00",
-          "Reference",
-          "{Null:000014}",
-          "-1"
+    "elements": [
+      {
+        "name": "Record Header",
+        "elements": [
+          {
+            "name": "Signature",
+            "value": "MUST"
+          },
+          {
+            "name": "Data Size",
+            "value": "265"
+          },
+          {
+            "name": "Record Flags",
+            "value": ""
+          },
+          {
+            "name": "FormID",
+            "value": "{Skyrim.esm:000F7E}"
+          },
+          {
+            "name": "Version Control Info 1",
+            "value": "00 00 00 00"
+          },
+          {
+            "name": "Form Version",
+            "value": "40"
+          },
+          {
+            "name": "Version Control Info 2",
+            "value": "00 00"
+          }
         ]
-      ]
+      },
+      {
+        "name": "EDID - Editor ID",
+        "value": "MUSCombatBoss03CG"
+      },
+      {
+        "name": "CNAM - Track Type",
+        "value": "Single Track"
+      },
+      {
+        "name": "ANAM - Track FileName",
+        "value": "Data\\Music\\Combat\\MUS_Combat_Boss_CG.wav"
+      },
+      {
+        "name": "BNAM - Finale FileName",
+        "value": "Data\\Music\\Combat\\MUS_Combat_Boss_03_Finale.wav"
+      },
+      {
+        "name": "FNAM - Cue Points",
+        "elements": [
+          {
+            "name": "Point #0",
+            "value": "5.730000"
+          },
+          {
+            "name": "Point #1",
+            "value": "11.394000"
+          },
+          {
+            "name": "Point #2",
+            "value": "17.061001"
+          },
+          {
+            "name": "Point #3",
+            "value": "22.735001"
+          },
+          {
+            "name": "Point #4",
+            "value": "28.493000"
+          },
+          {
+            "name": "Point #5",
+            "value": "34.155998"
+          },
+          {
+            "name": "Point #6",
+            "value": "39.770001"
+          },
+          {
+            "name": "Point #7",
+            "value": "45.480000"
+          },
+          {
+            "name": "Point #8",
+            "value": "51.144001"
+          },
+          {
+            "name": "Point #9",
+            "value": "56.823002"
+          },
+          {
+            "name": "Point #10",
+            "value": "62.529999"
+          },
+          {
+            "name": "Point #11",
+            "value": "68.150002"
+          },
+          {
+            "name": "Point #12",
+            "value": "73.870003"
+          },
+          {
+            "name": "Point #13",
+            "value": "79.489998"
+          },
+          {
+            "name": "Point #14",
+            "value": "85.209999"
+          },
+          {
+            "name": "Point #15",
+            "value": "90.879997"
+          },
+          {
+            "name": "Point #16",
+            "value": "96.540001"
+          },
+          {
+            "name": "Point #17",
+            "value": "102.220001"
+          },
+          {
+            "name": "Point #18",
+            "value": "107.900002"
+          }
+        ]
+      },
+      {
+        "name": "CITC - Condition Count",
+        "value": "1"
+      },
+      {
+        "name": "Conditions",
+        "elements": [
+          {
+            "name": "Condition",
+            "elements": [
+              {
+                "name": "CTDA - ",
+                "elements": [
+                  {
+                    "name": "Type",
+                    "value": "10000000"
+                  },
+                  {
+                    "name": "Unused",
+                    "value": "00 00 00"
+                  },
+                  {
+                    "name": "Comparison Value",
+                    "value": "1.000000"
+                  },
+                  {
+                    "name": "Function",
+                    "value": "GetCombatTargetHasKeyword"
+                  },
+                  {
+                    "name": "Unused",
+                    "value": "00 00"
+                  },
+                  {
+                    "name": "Parameter #1",
+                    "value": "{Skyrim.esm:035D59}"
+                  },
+                  {
+                    "name": "Parameter #2",
+                    "value": "00 00 00 00"
+                  },
+                  {
+                    "name": "Run On",
+                    "value": "Reference"
+                  },
+                  {
+                    "name": "Reference",
+                    "value": "{Null:000014}"
+                  },
+                  {
+                    "name": "Parameter #3",
+                    "value": "-1"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
     ]
   }
 }

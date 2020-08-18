@@ -1,49 +1,174 @@
 {
   "00017008": {
-    "Record Header": [
-      "CLAS",
-      "90",
-      "",
-      "{Skyrim.esm:017008}",
-      "00 00 00 00",
-      "44",
-      "00 00"
-    ],
-    "EDID - Editor ID": "EncClassDremoraMelee",
-    "FULL - Name": "Dremora",
-    "DESC - Description": "",
-    "DATA - ": [
-      "00 00 FC FF",
-      "One Handed",
-      "0",
-      [
-        "3",
-        "3",
-        "0",
-        "2",
-        "0",
-        "2",
-        "0",
-        "0",
-        "0",
-        "1",
-        "0",
-        "0",
-        "0",
-        "0",
-        "0",
-        "0",
-        "0",
-        "0"
-      ],
-      "0.100000",
-      "0",
-      [
-        "3",
-        "0",
-        "2",
-        "0"
-      ]
+    "elements": [
+      {
+        "name": "Record Header",
+        "elements": [
+          {
+            "name": "Signature",
+            "value": "CLAS"
+          },
+          {
+            "name": "Data Size",
+            "value": "90"
+          },
+          {
+            "name": "Record Flags",
+            "value": ""
+          },
+          {
+            "name": "FormID",
+            "value": "{Skyrim.esm:017008}"
+          },
+          {
+            "name": "Version Control Info 1",
+            "value": "00 00 00 00"
+          },
+          {
+            "name": "Form Version",
+            "value": "44"
+          },
+          {
+            "name": "Version Control Info 2",
+            "value": "00 00"
+          }
+        ]
+      },
+      {
+        "name": "EDID - Editor ID",
+        "value": "EncClassDremoraMelee"
+      },
+      {
+        "name": "FULL - Name",
+        "value": "Dremora"
+      },
+      {
+        "name": "DESC - Description",
+        "value": ""
+      },
+      {
+        "name": "DATA - ",
+        "elements": [
+          {
+            "name": "Unknown",
+            "value": "00 00 FC FF"
+          },
+          {
+            "name": "Teaches",
+            "value": "One Handed"
+          },
+          {
+            "name": "Maximum training level",
+            "value": "0"
+          },
+          {
+            "name": "Skill Weights",
+            "elements": [
+              {
+                "name": "Weight #0 (One Handed)",
+                "value": "3"
+              },
+              {
+                "name": "Weight #1 (Two Handed)",
+                "value": "3"
+              },
+              {
+                "name": "Weight #2 (Archery)",
+                "value": "0"
+              },
+              {
+                "name": "Weight #3 (Block)",
+                "value": "2"
+              },
+              {
+                "name": "Weight #4 (Smithing)",
+                "value": "0"
+              },
+              {
+                "name": "Weight #5 (Heavy Armor)",
+                "value": "2"
+              },
+              {
+                "name": "Weight #6 (Light Armor)",
+                "value": "0"
+              },
+              {
+                "name": "Weight #7 (Pickpocket)",
+                "value": "0"
+              },
+              {
+                "name": "Weight #8 (Lockpicking)",
+                "value": "0"
+              },
+              {
+                "name": "Weight #9 (Sneak)",
+                "value": "1"
+              },
+              {
+                "name": "Weight #10 (Alchemy)",
+                "value": "0"
+              },
+              {
+                "name": "Weight #11 (Speech)",
+                "value": "0"
+              },
+              {
+                "name": "Weight #12 (Alteration)",
+                "value": "0"
+              },
+              {
+                "name": "Weight #13 (Conjuration)",
+                "value": "0"
+              },
+              {
+                "name": "Weight #14 (Destruction)",
+                "value": "0"
+              },
+              {
+                "name": "Weight #15 (Illusion)",
+                "value": "0"
+              },
+              {
+                "name": "Weight #16 (Restoration)",
+                "value": "0"
+              },
+              {
+                "name": "Weight #17 (Enchanting)",
+                "value": "0"
+              }
+            ]
+          },
+          {
+            "name": "Bleedout Default",
+            "value": "0.100000"
+          },
+          {
+            "name": "Voice Points",
+            "value": "0"
+          },
+          {
+            "name": "Attribute Weights",
+            "elements": [
+              {
+                "name": "Weight #0 (Health)",
+                "value": "3"
+              },
+              {
+                "name": "Weight #1 (Magicka)",
+                "value": "0"
+              },
+              {
+                "name": "Weight #2 (Stamina)",
+                "value": "2"
+              },
+              {
+                "name": "Weight #3 (Unknown)",
+                "value": "0"
+              }
+            ]
+          }
+        ]
+      }
     ]
   }
 }

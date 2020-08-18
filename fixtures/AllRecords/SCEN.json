@@ -1,99 +1,335 @@
 {
   "00017043": {
-    "Record Header": [
-      "SCEN",
-      "522",
-      "",
-      "{Skyrim.esm:017043}",
-      "00 00 00 00",
-      "40",
-      "00 00"
-    ],
-    "EDID - Editor ID": "MQSovngardeConv2SceneStarter",
-    "VMAD - Virtual Machine Adapter": [
-      "5",
-      "2",
-      [
-        [
-          "SF_MQSovngardeConv2SceneStar_015A89D9",
-          "Local",
-          [
-            [
-              "MQSovngardeSparringKeyword",
-              "Object",
-              "Edited",
-              [
-                [
-                  [
-                    "{Skyrim.esm:017044}",
-                    "None",
-                    "0"
-                  ]
-                ]
-              ]
-            ]
-          ]
+    "elements": [
+      {
+        "name": "Record Header",
+        "elements": [
+          {
+            "name": "Signature",
+            "value": "SCEN"
+          },
+          {
+            "name": "Data Size",
+            "value": "522"
+          },
+          {
+            "name": "Record Flags",
+            "value": ""
+          },
+          {
+            "name": "FormID",
+            "value": "{Skyrim.esm:017043}"
+          },
+          {
+            "name": "Version Control Info 1",
+            "value": "00 00 00 00"
+          },
+          {
+            "name": "Form Version",
+            "value": "40"
+          },
+          {
+            "name": "Version Control Info 2",
+            "value": "00 00"
+          }
         ]
-      ],
-      ""
-    ],
-    "FNAM - Flags": "Begin on Quest Start, Stop on Quest End",
-    "Phases": [
-      [
-        "",
-        "",
-        "",
-        "",
-        "200",
-        ""
-      ]
-    ],
-    "Actors": [
-      [
-        "5",
-        "",
-        "Death End, Combat End, Dialogue Pause"
-      ],
-      [
-        "6",
-        "",
-        "Death End, Combat End, Dialogue Pause"
-      ]
-    ],
-    "Actions": [
-      [
-        "Dialogue",
-        "",
-        "5",
-        "1",
-        "0",
-        "0",
-        "{Null:000000}",
-        "6",
-        "10.000000",
-        "1.000000",
-        "Neutral",
-        "0",
-        ""
-      ],
-      [
-        "Dialogue",
-        "",
-        "6",
-        "2",
-        "0",
-        "0",
-        "{Null:000000}",
-        "5",
-        "10.000000",
-        "1.000000",
-        "Neutral",
-        "0",
-        ""
-      ]
-    ],
-    "PNAM - Quest": "{Skyrim.esm:017042}",
-    "INAM - Last Action Index": "2",
-    "VNAM - Unknown": "03 00 00 00 03 00 00 00 03 00 00 00 03 00 00 00"
+      },
+      {
+        "name": "EDID - Editor ID",
+        "value": "MQSovngardeConv2SceneStarter"
+      },
+      {
+        "name": "VMAD - Virtual Machine Adapter",
+        "elements": [
+          {
+            "name": "Version",
+            "value": "5"
+          },
+          {
+            "name": "Object Format",
+            "value": "2"
+          },
+          {
+            "name": "Scripts",
+            "elements": [
+              {
+                "name": "Script",
+                "elements": [
+                  {
+                    "name": "scriptName",
+                    "value": "SF_MQSovngardeConv2SceneStar_015A89D9"
+                  },
+                  {
+                    "name": "Flags",
+                    "value": "Local"
+                  },
+                  {
+                    "name": "Properties",
+                    "elements": [
+                      {
+                        "name": "Property",
+                        "elements": [
+                          {
+                            "name": "propertyName",
+                            "value": "MQSovngardeSparringKeyword"
+                          },
+                          {
+                            "name": "Type",
+                            "value": "Object"
+                          },
+                          {
+                            "name": "Flags",
+                            "value": "Edited"
+                          },
+                          {
+                            "name": "Value",
+                            "elements": [
+                              {
+                                "name": "Object Union",
+                                "elements": [
+                                  {
+                                    "name": "Object v2",
+                                    "elements": [
+                                      {
+                                        "name": "FormID",
+                                        "value": "{Skyrim.esm:017044}"
+                                      },
+                                      {
+                                        "name": "Alias",
+                                        "value": "None"
+                                      },
+                                      {
+                                        "name": "Unused",
+                                        "value": "0"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "Script Fragments",
+            "value": ""
+          }
+        ]
+      },
+      {
+        "name": "FNAM - Flags",
+        "value": "Begin on Quest Start, Stop on Quest End"
+      },
+      {
+        "name": "Phases",
+        "elements": [
+          {
+            "name": "Phase",
+            "elements": [
+              {
+                "name": "HNAM - Marker Phase Start",
+                "value": ""
+              },
+              {
+                "name": "NAM0 - Name",
+                "value": ""
+              },
+              {
+                "name": "NEXT - Marker",
+                "value": ""
+              },
+              {
+                "name": "NEXT - Marker",
+                "value": ""
+              },
+              {
+                "name": "WNAM - Editor Width",
+                "value": "200"
+              },
+              {
+                "name": "HNAM - Marker Phase End",
+                "value": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Actors",
+        "elements": [
+          {
+            "name": "Actor",
+            "elements": [
+              {
+                "name": "ALID - Actor ID",
+                "value": "5"
+              },
+              {
+                "name": "LNAM - Flags",
+                "value": ""
+              },
+              {
+                "name": "DNAM - Behaviour Flags",
+                "value": "Death End, Combat End, Dialogue Pause"
+              }
+            ]
+          },
+          {
+            "name": "Actor",
+            "elements": [
+              {
+                "name": "ALID - Actor ID",
+                "value": "6"
+              },
+              {
+                "name": "LNAM - Flags",
+                "value": ""
+              },
+              {
+                "name": "DNAM - Behaviour Flags",
+                "value": "Death End, Combat End, Dialogue Pause"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Actions",
+        "elements": [
+          {
+            "name": "Action",
+            "elements": [
+              {
+                "name": "ANAM - Type",
+                "value": "Dialogue"
+              },
+              {
+                "name": "NAM0 - Name",
+                "value": ""
+              },
+              {
+                "name": "ALID - Actor ID",
+                "value": "5"
+              },
+              {
+                "name": "INAM - Index",
+                "value": "1"
+              },
+              {
+                "name": "SNAM - Start Phase",
+                "value": "0"
+              },
+              {
+                "name": "ENAM - End Phase",
+                "value": "0"
+              },
+              {
+                "name": "DATA - Topic",
+                "value": "{Null:000000}"
+              },
+              {
+                "name": "HTID - Headtrack Actor ID",
+                "value": "6"
+              },
+              {
+                "name": "DMAX - Looping - Max",
+                "value": "10.000000"
+              },
+              {
+                "name": "DMIN - Looping - Min",
+                "value": "1.000000"
+              },
+              {
+                "name": "DEMO - Emotion Type",
+                "value": "Neutral"
+              },
+              {
+                "name": "DEVA - Emotion Value",
+                "value": "0"
+              },
+              {
+                "name": "ANAM - End Marker",
+                "value": ""
+              }
+            ]
+          },
+          {
+            "name": "Action",
+            "elements": [
+              {
+                "name": "ANAM - Type",
+                "value": "Dialogue"
+              },
+              {
+                "name": "NAM0 - Name",
+                "value": ""
+              },
+              {
+                "name": "ALID - Actor ID",
+                "value": "6"
+              },
+              {
+                "name": "INAM - Index",
+                "value": "2"
+              },
+              {
+                "name": "SNAM - Start Phase",
+                "value": "0"
+              },
+              {
+                "name": "ENAM - End Phase",
+                "value": "0"
+              },
+              {
+                "name": "DATA - Topic",
+                "value": "{Null:000000}"
+              },
+              {
+                "name": "HTID - Headtrack Actor ID",
+                "value": "5"
+              },
+              {
+                "name": "DMAX - Looping - Max",
+                "value": "10.000000"
+              },
+              {
+                "name": "DMIN - Looping - Min",
+                "value": "1.000000"
+              },
+              {
+                "name": "DEMO - Emotion Type",
+                "value": "Neutral"
+              },
+              {
+                "name": "DEVA - Emotion Value",
+                "value": "0"
+              },
+              {
+                "name": "ANAM - End Marker",
+                "value": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "PNAM - Quest",
+        "value": "{Skyrim.esm:017042}"
+      },
+      {
+        "name": "INAM - Last Action Index",
+        "value": "2"
+      },
+      {
+        "name": "VNAM - Unknown",
+        "value": "03 00 00 00 03 00 00 00 03 00 00 00 03 00 00 00"
+      }
+    ]
   }
 }

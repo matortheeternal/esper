@@ -1,56 +1,196 @@
 {
   "0000003D": {
-    "Record Header": [
-      "CSTY",
-      "173",
-      "",
-      "{Skyrim.esm:00003D}",
-      "00 00 00 00",
-      "27",
-      "00 00"
-    ],
-    "EDID - Editor ID": "DefaultCombatstyle",
-    "CSGD - General": [
-      "0.240000",
-      "0.240000",
-      "0.510000",
-      "1.000000",
-      "1.000000",
-      "1.000000",
-      "1.000000",
-      "1.000000",
-      "1.000000",
-      "0.200000"
-    ],
-    "CSME - Melee": [
-      "0.380000",
-      "0.380000",
-      "0.720000",
-      "0.760000",
-      "0.760000",
-      "0.380000",
-      "0.380000",
-      ""
-    ],
-    "CSCR - Close Range": [
-      "0.220000",
-      "0.110000",
-      "0.200000",
-      "0.200000"
-    ],
-    "CSLR - Long Range": [
-      "0.200000"
-    ],
-    "CSFL - Flight": [
-      "0.500000",
-      "1.000000",
-      "0.500000",
-      "0.500000",
-      "0.500000",
-      "",
-      "",
-      ""
-    ],
-    "DATA - Flags": "Dueling"
+    "elements": [
+      {
+        "name": "Record Header",
+        "elements": [
+          {
+            "name": "Signature",
+            "value": "CSTY"
+          },
+          {
+            "name": "Data Size",
+            "value": "173"
+          },
+          {
+            "name": "Record Flags",
+            "value": ""
+          },
+          {
+            "name": "FormID",
+            "value": "{Skyrim.esm:00003D}"
+          },
+          {
+            "name": "Version Control Info 1",
+            "value": "00 00 00 00"
+          },
+          {
+            "name": "Form Version",
+            "value": "27"
+          },
+          {
+            "name": "Version Control Info 2",
+            "value": "00 00"
+          }
+        ]
+      },
+      {
+        "name": "EDID - Editor ID",
+        "value": "DefaultCombatstyle"
+      },
+      {
+        "name": "CSGD - General",
+        "elements": [
+          {
+            "name": "Offensive Mult",
+            "value": "0.240000"
+          },
+          {
+            "name": "Defensive Mult",
+            "value": "0.240000"
+          },
+          {
+            "name": "Group Offensive Mult",
+            "value": "0.510000"
+          },
+          {
+            "name": "Equipment Score Mult - Melee",
+            "value": "1.000000"
+          },
+          {
+            "name": "Equipment Score Mult - Magic",
+            "value": "1.000000"
+          },
+          {
+            "name": "Equipment Score Mult - Ranged",
+            "value": "1.000000"
+          },
+          {
+            "name": "Equipment Score Mult - Shout",
+            "value": "1.000000"
+          },
+          {
+            "name": "Equipment Score Mult - Unarmed",
+            "value": "1.000000"
+          },
+          {
+            "name": "Equipment Score Mult - Staff",
+            "value": "1.000000"
+          },
+          {
+            "name": "Avoid Threat Chance",
+            "value": "0.200000"
+          }
+        ]
+      },
+      {
+        "name": "CSME - Melee",
+        "elements": [
+          {
+            "name": "Attack Staggered Mult",
+            "value": "0.380000"
+          },
+          {
+            "name": "Power Attack Staggered Mult",
+            "value": "0.380000"
+          },
+          {
+            "name": "Power Attack Blocking Mult",
+            "value": "0.720000"
+          },
+          {
+            "name": "Bash Mult",
+            "value": "0.760000"
+          },
+          {
+            "name": "Bash Recoil Mult",
+            "value": "0.760000"
+          },
+          {
+            "name": "Bash Attack Mult",
+            "value": "0.380000"
+          },
+          {
+            "name": "Bash Power Attack Mult",
+            "value": "0.380000"
+          },
+          {
+            "name": "Special Attack Mult",
+            "value": ""
+          }
+        ]
+      },
+      {
+        "name": "CSCR - Close Range",
+        "elements": [
+          {
+            "name": "Circle Mult",
+            "value": "0.220000"
+          },
+          {
+            "name": "Fallback Mult",
+            "value": "0.110000"
+          },
+          {
+            "name": "Flank Distance",
+            "value": "0.200000"
+          },
+          {
+            "name": "Stalk Time",
+            "value": "0.200000"
+          }
+        ]
+      },
+      {
+        "name": "CSLR - Long Range",
+        "elements": [
+          {
+            "name": "Strafe Mult",
+            "value": "0.200000"
+          }
+        ]
+      },
+      {
+        "name": "CSFL - Flight",
+        "elements": [
+          {
+            "name": "Hover Chance",
+            "value": "0.500000"
+          },
+          {
+            "name": "Dive Bomb Chance",
+            "value": "1.000000"
+          },
+          {
+            "name": "Ground Attack Chance",
+            "value": "0.500000"
+          },
+          {
+            "name": "Hover Time",
+            "value": "0.500000"
+          },
+          {
+            "name": "Ground Attack Time",
+            "value": "0.500000"
+          },
+          {
+            "name": "Perch Attack Chance",
+            "value": ""
+          },
+          {
+            "name": "Perch Attack Time",
+            "value": ""
+          },
+          {
+            "name": "Flying Attack Chance",
+            "value": ""
+          }
+        ]
+      },
+      {
+        "name": "DATA - Flags",
+        "value": "Dueling"
+      }
+    ]
   }
 }

@@ -1,36 +1,119 @@
 {
   "0001706E": {
-    "Record Header": [
-      "LCTN",
-      "134",
-      "",
-      "{Skyrim.esm:01706E}",
-      "00 00 00 00",
-      "44",
-      "00 00"
-    ],
-    "EDID - Editor ID": "RiftenMercerHouseInteriorLocation",
-    "LCSR - Location Cell Static Reference": [
-      [
-        "{Skyrim.esm:01BDF1}",
-        "{Skyrim.esm:037CD9}",
-        "{Skyrim.esm:037CC6}",
-        "32767",
-        "32767"
-      ]
-    ],
-    "FULL - Name": "Riften Mercer's House",
-    "KSIZ - Keyword Count": "2",
-    "KWDA - Keywords": [
-      "{Skyrim.esm:0130DC}",
-      "{Skyrim.esm:01CB85}"
-    ],
-    "PNAM - Parent Location": "{Skyrim.esm:018A58}",
-    "CNAM - Color": [
-      "0",
-      "255",
-      "255",
-      "00"
+    "elements": [
+      {
+        "name": "Record Header",
+        "elements": [
+          {
+            "name": "Signature",
+            "value": "LCTN"
+          },
+          {
+            "name": "Data Size",
+            "value": "134"
+          },
+          {
+            "name": "Record Flags",
+            "value": ""
+          },
+          {
+            "name": "FormID",
+            "value": "{Skyrim.esm:01706E}"
+          },
+          {
+            "name": "Version Control Info 1",
+            "value": "00 00 00 00"
+          },
+          {
+            "name": "Form Version",
+            "value": "44"
+          },
+          {
+            "name": "Version Control Info 2",
+            "value": "00 00"
+          }
+        ]
+      },
+      {
+        "name": "EDID - Editor ID",
+        "value": "RiftenMercerHouseInteriorLocation"
+      },
+      {
+        "name": "LCSR - Location Cell Static Reference",
+        "elements": [
+          {
+            "name": " #0",
+            "elements": [
+              {
+                "name": "Loc Ref Type",
+                "value": "{Skyrim.esm:01BDF1}"
+              },
+              {
+                "name": "Marker",
+                "value": "{Skyrim.esm:037CD9}"
+              },
+              {
+                "name": "Location",
+                "value": "{Skyrim.esm:037CC6}"
+              },
+              {
+                "name": "Grid Y",
+                "value": "32767"
+              },
+              {
+                "name": "Grid X",
+                "value": "32767"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "FULL - Name",
+        "value": "Riften Mercer's House"
+      },
+      {
+        "name": "KSIZ - Keyword Count",
+        "value": "2"
+      },
+      {
+        "name": "KWDA - Keywords",
+        "elements": [
+          {
+            "name": "Keyword",
+            "value": "{Skyrim.esm:0130DC}"
+          },
+          {
+            "name": "Keyword",
+            "value": "{Skyrim.esm:01CB85}"
+          }
+        ]
+      },
+      {
+        "name": "PNAM - Parent Location",
+        "value": "{Skyrim.esm:018A58}"
+      },
+      {
+        "name": "CNAM - Color",
+        "elements": [
+          {
+            "name": "Red",
+            "value": "0"
+          },
+          {
+            "name": "Green",
+            "value": "255"
+          },
+          {
+            "name": "Blue",
+            "value": "255"
+          },
+          {
+            "name": "Unknown",
+            "value": "00"
+          }
+        ]
+      }
     ]
   }
 }

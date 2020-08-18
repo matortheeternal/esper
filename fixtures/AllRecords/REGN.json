@@ -1,61 +1,192 @@
 {
   "0010FF20": {
-    "Record Header": [
-      "REGN",
-      "126",
-      "",
-      "{Skyrim.esm:10FF20}",
-      "00 00 00 00",
-      "40",
-      "00 00"
-    ],
-    "EDID - Editor ID": "SovngardeIntWeather",
-    "RCLR - Map Color": [
-      "29",
-      "201",
-      "10",
-      "00"
-    ],
-    "WNAM - Worldspace": "{Skyrim.esm:02EE41}",
-    "Region Areas": [
-      [
-        "1024",
-        [
-          [
-            "-2980.167968",
-            "11296.921875"
-          ],
-          [
-            "-2702.945312",
-            "1594.044922"
-          ],
-          [
-            "6029.644531",
-            "1732.656250"
-          ],
-          [
-            "5891.031250",
-            "11158.308594"
-          ]
+    "elements": [
+      {
+        "name": "Record Header",
+        "elements": [
+          {
+            "name": "Signature",
+            "value": "REGN"
+          },
+          {
+            "name": "Data Size",
+            "value": "126"
+          },
+          {
+            "name": "Record Flags",
+            "value": ""
+          },
+          {
+            "name": "FormID",
+            "value": "{Skyrim.esm:10FF20}"
+          },
+          {
+            "name": "Version Control Info 1",
+            "value": "00 00 00 00"
+          },
+          {
+            "name": "Form Version",
+            "value": "40"
+          },
+          {
+            "name": "Version Control Info 2",
+            "value": "00 00"
+          }
         ]
-      ]
-    ],
-    "Region Data Entries": [
-      [
-        [
-          "Weather",
-          "",
-          "100",
-          "00 00"
-        ],
-        [
-          [
-            "{Skyrim.esm:10FEF8}",
-            "100",
-            "{Null:000000}"
-          ]
+      },
+      {
+        "name": "EDID - Editor ID",
+        "value": "SovngardeIntWeather"
+      },
+      {
+        "name": "RCLR - Map Color",
+        "elements": [
+          {
+            "name": "Red",
+            "value": "29"
+          },
+          {
+            "name": "Green",
+            "value": "201"
+          },
+          {
+            "name": "Blue",
+            "value": "10"
+          },
+          {
+            "name": "Unknown",
+            "value": "00"
+          }
         ]
-      ]
+      },
+      {
+        "name": "WNAM - Worldspace",
+        "value": "{Skyrim.esm:02EE41}"
+      },
+      {
+        "name": "Region Areas",
+        "elements": [
+          {
+            "name": "Region Area",
+            "elements": [
+              {
+                "name": "RPLI - Edge Fall-off",
+                "value": "1024"
+              },
+              {
+                "name": "RPLD - Region Point List Data",
+                "elements": [
+                  {
+                    "name": "Point #0",
+                    "elements": [
+                      {
+                        "name": "X",
+                        "value": "-2980.167968"
+                      },
+                      {
+                        "name": "Y",
+                        "value": "11296.921875"
+                      }
+                    ]
+                  },
+                  {
+                    "name": "Point #1",
+                    "elements": [
+                      {
+                        "name": "X",
+                        "value": "-2702.945312"
+                      },
+                      {
+                        "name": "Y",
+                        "value": "1594.044922"
+                      }
+                    ]
+                  },
+                  {
+                    "name": "Point #2",
+                    "elements": [
+                      {
+                        "name": "X",
+                        "value": "6029.644531"
+                      },
+                      {
+                        "name": "Y",
+                        "value": "1732.656250"
+                      }
+                    ]
+                  },
+                  {
+                    "name": "Point #3",
+                    "elements": [
+                      {
+                        "name": "X",
+                        "value": "5891.031250"
+                      },
+                      {
+                        "name": "Y",
+                        "value": "11158.308594"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Region Data Entries",
+        "elements": [
+          {
+            "name": "Region Data Entry",
+            "elements": [
+              {
+                "name": "RDAT - Data Header",
+                "elements": [
+                  {
+                    "name": "Type",
+                    "value": "Weather"
+                  },
+                  {
+                    "name": "Flags",
+                    "value": ""
+                  },
+                  {
+                    "name": "Priority",
+                    "value": "100"
+                  },
+                  {
+                    "name": "Unknown",
+                    "value": "00 00"
+                  }
+                ]
+              },
+              {
+                "name": "RDWT - Weather Types",
+                "elements": [
+                  {
+                    "name": "Weather Type",
+                    "elements": [
+                      {
+                        "name": "Weather",
+                        "value": "{Skyrim.esm:10FEF8}"
+                      },
+                      {
+                        "name": "Chance",
+                        "value": "100"
+                      },
+                      {
+                        "name": "Global",
+                        "value": "{Null:000000}"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
     ]
   }
 }

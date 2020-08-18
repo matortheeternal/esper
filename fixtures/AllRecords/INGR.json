@@ -1,73 +1,237 @@
 {
   "00106E1C": {
-    "Record Header": [
-      "INGR",
-      "334",
-      "",
-      "{Skyrim.esm:106E1C}",
-      "00 00 00 00",
-      "44",
-      "00 00"
-    ],
-    "EDID - Editor ID": "CritterPondFish01Ingredient",
-    "OBND - Object Bounds": [
-      "-3",
-      "-10",
-      "0",
-      "4",
-      "9",
-      "2"
-    ],
-    "FULL - Name": "Silverside Perch",
-    "KSIZ - Keyword Count": "1",
-    "KWDA - Keywords": [
-      "{Skyrim.esm:08CDEB}"
-    ],
-    "Model": [
-      "Clutter\\DeadAnimals\\DeadPondFish01.nif",
-      "02 00 00 00 03 00 00 00 00 00 00 00 CA 4B 52 34 64 64 73 00 D2 A8 4A D1 4A 9E 32 47 64 64 73 00 D2 A8 4A D1 CE 35 3C 09 64 64 73 00 26 2C 33 3B"
-    ],
-    "DATA - ": [
-      "15",
-      "0.250000"
-    ],
-    "ENIT - Effect Data": [
-      "37",
-      ""
-    ],
-    "Effects": [
-      [
-        "{Skyrim.esm:03EB16}",
-        [
-          "5.000000",
-          "0",
-          "0"
+    "elements": [
+      {
+        "name": "Record Header",
+        "elements": [
+          {
+            "name": "Signature",
+            "value": "INGR"
+          },
+          {
+            "name": "Data Size",
+            "value": "334"
+          },
+          {
+            "name": "Record Flags",
+            "value": ""
+          },
+          {
+            "name": "FormID",
+            "value": "{Skyrim.esm:106E1C}"
+          },
+          {
+            "name": "Version Control Info 1",
+            "value": "00 00 00 00"
+          },
+          {
+            "name": "Form Version",
+            "value": "44"
+          },
+          {
+            "name": "Version Control Info 2",
+            "value": "00 00"
+          }
         ]
-      ],
-      [
-        "{Skyrim.esm:073F2C}",
-        [
-          "100.000000",
-          "0",
-          "5"
+      },
+      {
+        "name": "EDID - Editor ID",
+        "value": "CritterPondFish01Ingredient"
+      },
+      {
+        "name": "OBND - Object Bounds",
+        "elements": [
+          {
+            "name": "X1",
+            "value": "-3"
+          },
+          {
+            "name": "Y1",
+            "value": "-10"
+          },
+          {
+            "name": "Z1",
+            "value": "0"
+          },
+          {
+            "name": "X2",
+            "value": "4"
+          },
+          {
+            "name": "Y2",
+            "value": "9"
+          },
+          {
+            "name": "Z2",
+            "value": "2"
+          }
         ]
-      ],
-      [
-        "{Skyrim.esm:073F26}",
-        [
-          "2.000000",
-          "0",
-          "10"
+      },
+      {
+        "name": "FULL - Name",
+        "value": "Silverside Perch"
+      },
+      {
+        "name": "KSIZ - Keyword Count",
+        "value": "1"
+      },
+      {
+        "name": "KWDA - Keywords",
+        "elements": [
+          {
+            "name": "Keyword",
+            "value": "{Skyrim.esm:08CDEB}"
+          }
         ]
-      ],
-      [
-        "{Skyrim.esm:03EAEB}",
-        [
-          "3.000000",
-          "0",
-          "60"
+      },
+      {
+        "name": "Model",
+        "elements": [
+          {
+            "name": "MODL - Model FileName",
+            "value": "Clutter\\DeadAnimals\\DeadPondFish01.nif"
+          },
+          {
+            "name": "MODT - Texture Files Hashes",
+            "value": "02 00 00 00 03 00 00 00 00 00 00 00 CA 4B 52 34 64 64 73 00 D2 A8 4A D1 4A 9E 32 47 64 64 73 00 D2 A8 4A D1 CE 35 3C 09 64 64 73 00 26 2C 33 3B"
+          }
         ]
-      ]
+      },
+      {
+        "name": "DATA - ",
+        "elements": [
+          {
+            "name": "Value",
+            "value": "15"
+          },
+          {
+            "name": "Weight",
+            "value": "0.250000"
+          }
+        ]
+      },
+      {
+        "name": "ENIT - Effect Data",
+        "elements": [
+          {
+            "name": "Ingredient Value",
+            "value": "37"
+          },
+          {
+            "name": "Flags",
+            "value": ""
+          }
+        ]
+      },
+      {
+        "name": "Effects",
+        "elements": [
+          {
+            "name": "Effect",
+            "elements": [
+              {
+                "name": "EFID - Base Effect",
+                "value": "{Skyrim.esm:03EB16}"
+              },
+              {
+                "name": "EFIT - ",
+                "elements": [
+                  {
+                    "name": "Magnitude",
+                    "value": "5.000000"
+                  },
+                  {
+                    "name": "Area",
+                    "value": "0"
+                  },
+                  {
+                    "name": "Duration",
+                    "value": "0"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "Effect",
+            "elements": [
+              {
+                "name": "EFID - Base Effect",
+                "value": "{Skyrim.esm:073F2C}"
+              },
+              {
+                "name": "EFIT - ",
+                "elements": [
+                  {
+                    "name": "Magnitude",
+                    "value": "100.000000"
+                  },
+                  {
+                    "name": "Area",
+                    "value": "0"
+                  },
+                  {
+                    "name": "Duration",
+                    "value": "5"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "Effect",
+            "elements": [
+              {
+                "name": "EFID - Base Effect",
+                "value": "{Skyrim.esm:073F26}"
+              },
+              {
+                "name": "EFIT - ",
+                "elements": [
+                  {
+                    "name": "Magnitude",
+                    "value": "2.000000"
+                  },
+                  {
+                    "name": "Area",
+                    "value": "0"
+                  },
+                  {
+                    "name": "Duration",
+                    "value": "10"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "Effect",
+            "elements": [
+              {
+                "name": "EFID - Base Effect",
+                "value": "{Skyrim.esm:03EAEB}"
+              },
+              {
+                "name": "EFIT - ",
+                "elements": [
+                  {
+                    "name": "Magnitude",
+                    "value": "3.000000"
+                  },
+                  {
+                    "name": "Area",
+                    "value": "0"
+                  },
+                  {
+                    "name": "Duration",
+                    "value": "60"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
     ]
   }
 }

@@ -1,22 +1,72 @@
 {
   "0010AB5C": {
-    "Record Header": [
-      "CLFM",
-      "72",
-      "",
-      "{Skyrim.esm:10AB5C}",
-      "00 00 00 00",
-      "44",
-      "00 00"
-    ],
-    "EDID - Editor ID": "WoodElfSkinFemale05",
-    "FULL - Name": "WoodElfSkinFemale05",
-    "CNAM - Color": [
-      "114",
-      "109",
-      "84",
-      "00"
-    ],
-    "FNAM - Playable": "True"
+    "elements": [
+      {
+        "name": "Record Header",
+        "elements": [
+          {
+            "name": "Signature",
+            "value": "CLFM"
+          },
+          {
+            "name": "Data Size",
+            "value": "72"
+          },
+          {
+            "name": "Record Flags",
+            "value": ""
+          },
+          {
+            "name": "FormID",
+            "value": "{Skyrim.esm:10AB5C}"
+          },
+          {
+            "name": "Version Control Info 1",
+            "value": "00 00 00 00"
+          },
+          {
+            "name": "Form Version",
+            "value": "44"
+          },
+          {
+            "name": "Version Control Info 2",
+            "value": "00 00"
+          }
+        ]
+      },
+      {
+        "name": "EDID - Editor ID",
+        "value": "WoodElfSkinFemale05"
+      },
+      {
+        "name": "FULL - Name",
+        "value": "WoodElfSkinFemale05"
+      },
+      {
+        "name": "CNAM - Color",
+        "elements": [
+          {
+            "name": "Red",
+            "value": "114"
+          },
+          {
+            "name": "Green",
+            "value": "109"
+          },
+          {
+            "name": "Blue",
+            "value": "84"
+          },
+          {
+            "name": "Unknown",
+            "value": "00"
+          }
+        ]
+      },
+      {
+        "name": "FNAM - Playable",
+        "value": "True"
+      }
+    ]
   }
 }

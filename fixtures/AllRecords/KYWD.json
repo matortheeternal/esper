@@ -1,20 +1,64 @@
 {
   "00000F54": {
-    "Record Header": [
-      "KYWD",
-      "32",
-      "",
-      "{Skyrim.esm:000F54}",
-      "00 00 00 00",
-      "40",
-      "00 00"
-    ],
-    "EDID - Editor ID": "PowerAttackBash",
-    "CNAM - Color": [
-      "67",
-      "0",
-      "0",
-      "00"
+    "elements": [
+      {
+        "name": "Record Header",
+        "elements": [
+          {
+            "name": "Signature",
+            "value": "KYWD"
+          },
+          {
+            "name": "Data Size",
+            "value": "32"
+          },
+          {
+            "name": "Record Flags",
+            "value": ""
+          },
+          {
+            "name": "FormID",
+            "value": "{Skyrim.esm:000F54}"
+          },
+          {
+            "name": "Version Control Info 1",
+            "value": "00 00 00 00"
+          },
+          {
+            "name": "Form Version",
+            "value": "40"
+          },
+          {
+            "name": "Version Control Info 2",
+            "value": "00 00"
+          }
+        ]
+      },
+      {
+        "name": "EDID - Editor ID",
+        "value": "PowerAttackBash"
+      },
+      {
+        "name": "CNAM - Color",
+        "elements": [
+          {
+            "name": "Red",
+            "value": "67"
+          },
+          {
+            "name": "Green",
+            "value": "0"
+          },
+          {
+            "name": "Blue",
+            "value": "0"
+          },
+          {
+            "name": "Unknown",
+            "value": "00"
+          }
+        ]
+      }
     ]
   }
 }

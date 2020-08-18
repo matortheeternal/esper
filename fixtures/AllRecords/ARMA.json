@@ -1,42 +1,140 @@
 {
   "0010FCE4": {
-    "Record Header": [
-      "ARMA",
-      "255",
-      "",
-      "{Skyrim.esm:10FCE4}",
-      "00 00 00 00",
-      "40",
-      "00 00"
-    ],
-    "EDID - Editor ID": "BoneCrownKhajiitAA",
-    "BODT - Body Template": [
-      "31 - Hair, 43 - Ears",
-      "",
-      "A2 CB 00",
-      "Clothing"
-    ],
-    "RNAM - Race": "{Skyrim.esm:013745}",
-    "DNAM - Data": [
-      "10",
-      "10",
-      "",
-      "",
-      "00 00",
-      "76",
-      "17",
-      "1.000000"
-    ],
-    "Male world model": [
-      "Armor\\BoneCrown\\BoneCrownKhajiit_M.nif",
-      "02 00 00 00 02 00 00 00 00 00 00 00 9D F8 B5 6E 64 64 73 00 A6 C6 6E 01 08 ED A0 E0 64 64 73 00 A6 C6 6E 01"
-    ],
-    "Female world model": [
-      "Armor\\BoneCrown\\BoneCrownKhajiit_F.nif",
-      "02 00 00 00 02 00 00 00 00 00 00 00 9D F8 B5 6E 64 64 73 00 A6 C6 6E 01 08 ED A0 E0 64 64 73 00 A6 C6 6E 01"
-    ],
-    "Additional Races": [
-      "{Skyrim.esm:088845}"
+    "elements": [
+      {
+        "name": "Record Header",
+        "elements": [
+          {
+            "name": "Signature",
+            "value": "ARMA"
+          },
+          {
+            "name": "Data Size",
+            "value": "255"
+          },
+          {
+            "name": "Record Flags",
+            "value": ""
+          },
+          {
+            "name": "FormID",
+            "value": "{Skyrim.esm:10FCE4}"
+          },
+          {
+            "name": "Version Control Info 1",
+            "value": "00 00 00 00"
+          },
+          {
+            "name": "Form Version",
+            "value": "40"
+          },
+          {
+            "name": "Version Control Info 2",
+            "value": "00 00"
+          }
+        ]
+      },
+      {
+        "name": "EDID - Editor ID",
+        "value": "BoneCrownKhajiitAA"
+      },
+      {
+        "name": "BODT - Body Template",
+        "elements": [
+          {
+            "name": "First Person Flags",
+            "value": "31 - Hair, 43 - Ears"
+          },
+          {
+            "name": "General Flags",
+            "value": ""
+          },
+          {
+            "name": "Unused",
+            "value": "A2 CB 00"
+          },
+          {
+            "name": "Armor Type",
+            "value": "Clothing"
+          }
+        ]
+      },
+      {
+        "name": "RNAM - Race",
+        "value": "{Skyrim.esm:013745}"
+      },
+      {
+        "name": "DNAM - Data",
+        "elements": [
+          {
+            "name": "Male Priority",
+            "value": "10"
+          },
+          {
+            "name": "Female Priority",
+            "value": "10"
+          },
+          {
+            "name": "Weight slider - Male",
+            "value": ""
+          },
+          {
+            "name": "Weight slider - Female",
+            "value": ""
+          },
+          {
+            "name": "Unknown",
+            "value": "00 00"
+          },
+          {
+            "name": "Detection Sound Value",
+            "value": "76"
+          },
+          {
+            "name": "Unknown",
+            "value": "17"
+          },
+          {
+            "name": "Weapon Adjust",
+            "value": "1.000000"
+          }
+        ]
+      },
+      {
+        "name": "Male world model",
+        "elements": [
+          {
+            "name": "MOD2 - Model FileName",
+            "value": "Armor\\BoneCrown\\BoneCrownKhajiit_M.nif"
+          },
+          {
+            "name": "MO2T - Texture Files Hashes",
+            "value": "02 00 00 00 02 00 00 00 00 00 00 00 9D F8 B5 6E 64 64 73 00 A6 C6 6E 01 08 ED A0 E0 64 64 73 00 A6 C6 6E 01"
+          }
+        ]
+      },
+      {
+        "name": "Female world model",
+        "elements": [
+          {
+            "name": "MOD3 - Model FileName",
+            "value": "Armor\\BoneCrown\\BoneCrownKhajiit_F.nif"
+          },
+          {
+            "name": "MO3T - Texture Files Hashes",
+            "value": "02 00 00 00 02 00 00 00 00 00 00 00 9D F8 B5 6E 64 64 73 00 A6 C6 6E 01 08 ED A0 E0 64 64 73 00 A6 C6 6E 01"
+          }
+        ]
+      },
+      {
+        "name": "Additional Races",
+        "elements": [
+          {
+            "name": "MODL - Race",
+            "value": "{Skyrim.esm:088845}"
+          }
+        ]
+      }
     ]
   }
 }
