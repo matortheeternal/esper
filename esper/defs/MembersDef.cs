@@ -7,23 +7,25 @@ using System.Collections.ObjectModel;
 namespace esper.defs {
     public class MembersDef : ElementDef {
         public ReadOnlyCollection<ElementDef> memberDefs;
-        private readonly Dictionary<string, ElementDef> sigDefMap;
+        public List<string> signatures;
 
         public MembersDef(DefinitionManager manager, JObject src)
             : base(manager, src) {
             memberDefs = JsonHelpers.ElementDefs(src, "members", this);
-            sigDefMap = new Dictionary<string, ElementDef>();
-            foreach (var def in memberDefs)
-                def.GetSignatures().ForEach(sig => sigDefMap[sig] = def);
+            signatures = GetSignatures();
         }
 
-        public ElementDef GetMemberDef(string signature) {
-            if (!sigDefMap.ContainsKey(signature)) return null;
-            return sigDefMap[signature];
+        public ElementDef GetMemberDef(string signature, ref int defIndex) {
+            if (!signatures.Contains(signature)) return null;
+            for (; defIndex < memberDefs.Count; defIndex++) {
+                var memberDef = memberDefs[defIndex];
+                if (memberDef.ContainsSignature(signature)) return memberDef;
+            }
+            return null;
         }
 
         public override bool ContainsSignature(string signature) {
-            return sigDefMap.ContainsKey(signature);
+            return signatures.Contains(signature);
         }
 
         public override List<string> GetSignatures(List<string> sigs = null) {

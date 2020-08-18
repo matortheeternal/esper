@@ -25,7 +25,7 @@ namespace esper.data {
             MainRecord rec, PluginFileSource source
         ) {
             var headerDef = rec.mrDef.headerDef;
-            var structElement = new StructElement(rec, headerDef, true);
+            var structElement = new StructElement(rec, headerDef);
             var defs = headerDef.elementDefs;
             int i = 0;
             ValueElement.Init(structElement, defs[i++], sig);

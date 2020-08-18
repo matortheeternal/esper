@@ -2,7 +2,6 @@
 using esper.setup;
 using esper.plugins;
 using Newtonsoft.Json.Linq;
-using System;
 using System.Linq;
 
 namespace esper.defs {
@@ -21,13 +20,17 @@ namespace esper.defs {
         }
 
         public override void SubrecordFound(
-            Container container, PluginFileSource source, string sig, UInt16 size
+            Container container, PluginFileSource source
         ) {
-            var memberDef = GetMemberDef(sig);
+            int defIndex = 0;
+            var subrecord = source.currentSubrecord;
+            var memberDef = GetMemberDef(subrecord.signature, ref defIndex);
+            if (memberDef == null) return;
             if (memberDef.IsSubrecord()) {
-                memberDef.ReadElement(container, source, size);
+                memberDef.ReadElement(container, source, subrecord.dataSize);
+                source.SubrecordHandled();
             } else {
-                memberDef.SubrecordFound(container, source, sig, size);
+                memberDef.SubrecordFound(container, source);
             }
         }
 

@@ -48,8 +48,11 @@ namespace esper.defs {
             var remainingSize = dataSize;
             var pos = source.stream.Position;
             foreach (var def in elementDefs) {
+                if (remainingSize == 0) {
+                    def.NewElement(element);
+                    continue;
+                }
                 var e = def.ReadElement(element, source, remainingSize);
-                if (remainingSize == 0) return; // early struct termination
                 if (dataSize != null) {
                     var newPos = source.stream.Position;
                     var diff = newPos - pos;

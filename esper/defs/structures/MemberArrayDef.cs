@@ -3,9 +3,7 @@ using esper.helpers;
 using esper.plugins;
 using esper.setup;
 using Newtonsoft.Json.Linq;
-using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace esper.defs {
     public class MemberArrayDef : ElementDef {
@@ -28,19 +26,29 @@ namespace esper.defs {
 
         public override Element PrepareElement(Container container) {
             return container.FindElementForDef(this) ??
-                new MemberArrayElement(container, this, true);
+                new MemberArrayElement(container, this);
+        }
+
+        internal bool HandleSubrecord(Container container, PluginFileSource source) {
+            var subrecord = source.currentSubrecord;
+            if (!ContainsSignature(subrecord.signature)) return false;
+            if (memberDef.IsSubrecord()) {
+                memberDef.ReadElement(container, source, subrecord.dataSize);
+                source.SubrecordHandled();
+            } else {
+                var e = memberDef.PrepareElement(container);
+                memberDef.SubrecordFound(e as Container, source);
+            }
+            return true;
         }
 
         public override void SubrecordFound(
-            Container container, PluginFileSource source, string sig, UInt16 size
+            Container container, PluginFileSource source
         ) {
-            if (memberDef.IsSubrecord()) {
-                memberDef.ReadElement(container, source, size);
-            } else {
-                var e = container.elements.LastOrDefault();
-                if (e == null || e.HasSubrecord(sig))
-                    e = memberDef.PrepareElement(container);
-                memberDef.SubrecordFound(e as Container, source, sig, size);
+            while (true) {
+                bool handled = HandleSubrecord(container, source);
+                if (!handled) break;
+                if (!source.NextSubrecord()) break;
             }
         }
 

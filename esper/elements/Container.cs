@@ -3,7 +3,8 @@ using esper.defs;
 
 namespace esper.elements {
     public class Container : Element {
-        protected List<Element> _elements;
+        internal List<Element> _elements;
+        internal MembersDef mdef => (MembersDef) def;
 
         public virtual List<Element> elements {
             get {
@@ -11,6 +12,7 @@ namespace esper.elements {
                 return _elements;
             }
         }
+
         public int count => elements.Count;
 
         public Container(Container container = null, ElementDef def = null) 

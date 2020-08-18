@@ -11,9 +11,8 @@ namespace esper.elements {
             : name;
 
         public UnionValueElement(
-            Container container, ElementDef def, UnionDef unionDef, 
-            bool skipInit = false
-        ) : base(container, def, skipInit) {
+            Container container, ElementDef def, UnionDef unionDef
+        ) : base(container, def) {
             this.unionDef = unionDef;
         }
     }

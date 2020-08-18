@@ -30,12 +30,12 @@ namespace esper.defs {
         }
 
         public virtual void SubrecordFound(
-            Container container, PluginFileSource source, string sig, UInt16 size
+            Container container, PluginFileSource source
         ) {
             throw new NotImplementedException();
         }
 
-        public virtual Element InitElement(Container container) {
+        public virtual Element NewElement(Container container) {
             throw new NotImplementedException();
         }
 

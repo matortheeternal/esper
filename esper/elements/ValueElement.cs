@@ -30,14 +30,15 @@ namespace esper.elements {
         public static ValueElement Init(
             Container container, ElementDef def, dynamic data
         ) {
-            return new ValueElement(container, def, true) {
+            return new ValueElement(container, def) {
                 _data = data
             };
         }
 
-        public ValueElement(Container container, ElementDef def, bool skipInit = false)
-            : base(container, def) {
-            if (skipInit) return;
+        public ValueElement(Container container, ElementDef def)
+            : base(container, def) {}
+
+        public override void Initialize() {
             data = valueDef.DefaultData();
         }
     }
