@@ -14,6 +14,7 @@ namespace Tests {
         public static string FixturePath(string filename) {
             return Path.Combine(fixturesPath, filename);
         }
+
         public static void TestValue(Element element, string path, string expectedValue) {
             string value = element.GetValue(path);
             Assert.AreEqual(expectedValue, value);

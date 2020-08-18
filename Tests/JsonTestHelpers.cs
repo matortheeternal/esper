@@ -1,4 +1,5 @@
-﻿using esper.elements;
+﻿using esper.defs;
+using esper.elements;
 using Newtonsoft.Json.Linq;
 using NUnit.Framework;
 using System;
@@ -15,66 +16,65 @@ namespace Tests {
 
         private static void ExpectAllPropertiesFound(JObject json, Element element) {
             Assert.AreEqual(0, json.Count,
-                $"The following properties were not found in {element.displayName}:" +
+                $"The following properties were not found in {element.displayName}: " +
                 $"{json.Properties().Select(p => p.Name)}"
+            );
+        }
+
+        private static void TestFloatValue(ValueElement element, string value) {
+            float expectedFloat = float.Parse(value);
+            Assert.IsNotNull(element.data);
+            float actualFloat = element.data;
+            float diff = expectedFloat - actualFloat;
+            Assert.IsTrue(diff <= element.sessionOptions.epsilon,
+                $"Float values were not close {element.displayName}, diff: {diff}"
             );
         }
 
         private static void TestElementValue(Element element, string value) {
             var v = (ValueElement)element;
             Assert.IsNotNull(v,
-                $"Expected {element.displayName} to have value {value}, but it's not a value element."
+                $"Expected {element.displayName} to have value {value}, "+
+                "but it's not a value element."
             );
-            Assert.AreEqual(value, v.value, 
+            if (v.def is FloatDef floatDef && floatDef.formatDef == null) {
+                TestFloatValue(v, value);
+                return;
+            }
+            Assert.AreEqual(value, v.value,
                 $"Values did not match {element.displayName}"
             );
         }
 
-        private static void TestObjectValues(Element element, JObject obj) {
-            var c = (Container)element;
-            Assert.IsNotNull(c, $"Expected {element.displayName} to be a container");
-            c.elements.ForEach(e => TestElement(obj, e, c));
-            ExpectAllPropertiesFound(obj, c);
+        private static void TestElement(Element element, JObject json) {
+            if (json.ContainsKey("value")) {
+                TestElementValue(element, json.Value<string>("value"));
+            } else if (json.ContainsKey("elements")) {
+                TestContainerValues(element, json.Value<JArray>("elements"));
+            } else {
+                throw new Exception($"Error in JSON, {json}");
+            }
         }
 
-        private static void TestArrayValues(Element element, JArray array) {
+        private static void TestContainerValues(Element element, JArray array) {
             var c = (Container)element;
             Assert.IsNotNull(c, $"Expected {element.displayName} to be a container");
-            Assert.AreEqual(array.Count, c.count, $"Element count mismatch, {c.displayName}");
+            Assert.AreEqual(array.Count, c.count, 
+                $"Element count mismatch, {c.displayName}"
+            );
             for (int i = 0; i < c.count; i++) {
                 var e = c.elements[i];
-                var type = array[i].Type;
-                if (type == JTokenType.String) {
-                    TestElementValue(e, array.Value<string>(i));
-                } else if (type == JTokenType.Object) {
-                    TestObjectValues(e, array.Value<JObject>(i));
-                } else if (type == JTokenType.Array) {
-                    TestArrayValues(e, array.Value<JArray>(i));
-                } else {
-                    throw new Exception($"Error in JSON, {i}");
-                }
+                TestElement(e, array.Value<JObject>(i));
             }
-        }
-
-        private static void TestElement(JObject json, Element element, Container container) {
-            var key = element.displayName;
-            CheckKey(json, key, container);
-            var type = json[key].Type;
-            if (type == JTokenType.String) {
-                TestElementValue(element, json.Value<string>(key));
-            } else if (type == JTokenType.Object) {
-                TestObjectValues(element, json.Value<JObject>(key));
-            } else if (type == JTokenType.Array) {
-                TestArrayValues(element, json.Value<JArray>(key));
-            } else {
-                throw new Exception($"Error in JSON, {key}");
-            }
-            json.Remove(key);
         }
 
         private static void TestRecordValues(JObject json, MainRecord rec) {
-            rec.elements.ForEach(e => TestElement(json, e, rec));
-            ExpectAllPropertiesFound(json, rec);
+            TestContainerValues(rec, json.Value<JArray>("elements"));
+            // TODO:
+            /*if (json.ContainsKey("Child Group")) {
+                var src = json.Value<JObject>("Child Group");
+                TestGroupValues(src, rec.childGroup);
+            }*/
         }
 
         private static void TestGroupValues(JObject json, GroupRecord group) {

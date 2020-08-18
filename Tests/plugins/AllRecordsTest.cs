@@ -1,15 +1,16 @@
 ﻿using esper;
-using esper.data;
-using esper.elements;
+using esper.resolution;
 using esper.plugins;
 using esper.setup;
 using NUnit.Framework;
+using System.IO;
+using System.Linq;
 
 namespace Tests.plugins {
     public class AllRecordsTest {
         public Session session;
         public PluginManager pluginManager => session.pluginManager;
-        public PluginFile plugin;
+        public static PluginFile plugin;
 
         [OneTimeSetUp]
         public void SetUp() {
@@ -24,16 +25,17 @@ namespace Tests.plugins {
             Assert.AreEqual(112, plugin.elements.Count);
         }
 
-        [Test]
-        public void TestValues() {
-            plugin.elements.ForEach(element => {
-                if (element is MainRecord rec) {
-                    JsonTestHelpers.TestJsonValues("File Header", element);
-                } else if (element is GroupRecord group) {
-                    Signature sig = group.GetLabel();
-                    JsonTestHelpers.TestJsonValues(sig.ToString(), element);
-                }
-            });
+        public static string[] GetFixtures() {
+            var folderPath = TestHelpers.FixturePath("AllRecords");
+            return Directory.GetFiles(folderPath).Select(filePath => {
+                return Path.GetFileNameWithoutExtension(filePath);
+            }).ToArray();
+        }
+
+        [Test, TestCaseSource("GetFixtures")]
+        public void TestValues(string path) {
+            var element = plugin.GetElement(path);
+            JsonTestHelpers.TestJsonValues(path, element);
         }
     }
 }

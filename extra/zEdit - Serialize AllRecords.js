@@ -1,18 +1,18 @@
-let serializeArray = function(array) {
-  let output = [];
-  xelib.GetElements(array).forEach(element => {
-    output.push(serializeElement(element));
-  });
-  return output;
+let GetName = function(element) {
+  return xelib.Name(element).replace(/Filename/g, "FileName");
 };
 
-let serializeStruct = function(struct) {
-  let output = {};
-  xelib.GetElements(struct).forEach(element => {
-    let path = xelib.Name(element);
-    if (path.includes("Filename")) 
-      path = path.replace("Filename", "FileName");
-    output[path] = serializeElement(element);
+let serializeContainer = function(container) {
+  let output = [];
+  xelib.GetElements(container).forEach(element => {
+    let a = serializeElement(element);
+    let o = { name: GetName(element) };
+    if (typeof a !== 'string') {
+      o.elements = a;
+    } else {
+      o.value = a;
+    }
+    output.push(o);
   });
   return output;
 };
@@ -20,13 +20,13 @@ let serializeStruct = function(struct) {
 let serializeElement = function(element) {
   let vt = xelib.ValueType(element);
   if (vt === xelib.vtArray) {
-    return serializeArray(element);
+    return serializeContainer(element);
   } else if (vt === xelib.vtStruct) {
-    return serializeArray(element);
+    return serializeContainer(element);
   } else if (vt === xelib.vtFlags) {
     return xelib.GetEnabledFlags(element).join(', ');
   } else if (xelib.ElementCount(element) > 0) {
-    return serializeArray(element);
+    return serializeContainer(element);
   } else if (vt === xelib.vtReference) {
     let localFid = xelib.GetUIntValue(element) & 0xFFFFFF;
     if (localFid === 0) return '{Null:000000}';
@@ -45,10 +45,7 @@ let serializeRecord = function(rec) {
     let childGroup = xelib.GetElement(rec, 'Child Group');
     output["Child Group"] = serializeGroup(childGroup);
   }
-  xelib.GetElements(rec).forEach(element => {
-    let path = xelib.LocalPath(element);
-    output[path] = serializeElement(element);
-  });
+  output.elements = serializeContainer(rec);
   return output;
 };
 
