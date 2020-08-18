@@ -82,7 +82,7 @@ namespace esper.elements {
                 GroupType.Top => labelAsSignature.ToString(),
                 GroupType.WorldChildren => $"Children of {labelAsFormId:X8}",
                 GroupType.InteriorCellBlock => $"Block {labelAsInt32}",
-                GroupType.InteriorCellSubBlock => $"Subblock {labelAsInt32}",
+                GroupType.InteriorCellSubBlock => $"Sub-Block {labelAsInt32}",
                 GroupType.ExteriorCellBlock => $"Block {coordinatesStr}",
                 GroupType.ExteriorCellSubBlock => $"Subblock {coordinatesStr}",
                 GroupType.CellChildren => $"Children of {labelAsFormId:X8}",

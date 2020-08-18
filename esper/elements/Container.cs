@@ -27,6 +27,7 @@ namespace esper.elements {
         }
 
         internal override void ElementsReady() {
+            if (_elements == null) return;
             _elements.ForEach(e => e.ElementsReady());
         }
     }

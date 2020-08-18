@@ -10,7 +10,7 @@ namespace Tests {
     public static class JsonTestHelpers {
         private static void CheckKey(JObject json, string key, Element parent) {
             Assert.IsTrue(json.ContainsKey(key), 
-                $"Element {key} not found in {parent.displayName}"
+                $"Element {key} should not be in {parent.displayName}"
             );
         }
 
@@ -70,11 +70,10 @@ namespace Tests {
 
         private static void TestRecordValues(JObject json, MainRecord rec) {
             TestContainerValues(rec, json.Value<JArray>("elements"));
-            // TODO:
-            /*if (json.ContainsKey("Child Group")) {
+            if (json.ContainsKey("Child Group")) {
                 var src = json.Value<JObject>("Child Group");
-                TestGroupValues(src, rec.childGroup);
-            }*/
+                // TODO: TestGroupValues(src, rec.childGroup);
+            }
         }
 
         private static void TestGroupValues(JObject json, GroupRecord group) {
@@ -85,7 +84,8 @@ namespace Tests {
                     TestRecordValues(json.Value<JObject>(key), rec);
                     json.Remove(key);
                 } else if (element is GroupRecord innerGroup) {
-                    var key = group.name;
+                    if (innerGroup.isChildGroup) return;
+                    var key = innerGroup.name;
                     CheckKey(json, key, group);
                     TestGroupValues(json.Value<JObject>(key), innerGroup);
                     json.Remove(key);
