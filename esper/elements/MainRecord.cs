@@ -13,8 +13,8 @@ namespace esper.elements {
         public List<Subrecord> unexpectedSubrecords;
 
         private readonly PluginFile _file;
-        private readonly long bodyOffset;
-        private byte[] decompressedData;
+        internal readonly long bodyOffset;
+        internal byte[] decompressedData;
 
         public MainRecordDef mrDef => def as MainRecordDef;
         public override MainRecord record => this;
@@ -22,12 +22,16 @@ namespace esper.elements {
 
         public UInt32 formId => header.formId;
         public UInt32 localFormId => formId & 0xFFFFFF;
-        public UInt32 dataSize => header.dataSize;
+        public UInt32 dataSize => compressed
+                    ? (uint) decompressedData.Length
+                    : header.dataSize;
+        public bool compressed => this.GetRecordFlag("Compressed");
         public string editorId => this.GetValue("EDID");
 
         public override List<Element> elements {
             get {
-                if (_elements == null) ReadElements(file.source);
+                if (_elements == null)
+                    mrDef.ReadElements(this, file.source);
                 return _elements;
             }
         }
@@ -35,13 +39,18 @@ namespace esper.elements {
         public MainRecord(Container container, ElementDef def) 
             : base(container, def) {}
 
+        public override void Initialize() {
+            mrDef.InitElement(this);
+        }
+
         public MainRecord(Container container, ElementDef def, PluginFileSource source)
             : base(container, def) {
             _file = container.file;
             header = new TES4RecordHeader(source);
             bodyOffset = source.stream.Position;
-            if (sessionOptions.readAllSubrecords) ReadElements(source);
-            source.stream.Seek(bodyOffset + dataSize, SeekOrigin.Begin);
+            if (sessionOptions.readAllSubrecords)
+                mrDef.ReadElements(this, source);
+            source.stream.Seek(bodyOffset + header.dataSize, SeekOrigin.Begin);
         }
 
         public static MainRecord Read(
@@ -54,55 +63,12 @@ namespace esper.elements {
             return record;
         }
 
-        private void UnexpectedSubrecord(
-            string sig, UInt16 size, PluginFileSource source
-        ) {
-            var subrecord = new Subrecord(sig, size, source);
-            unexpectedSubrecords.Add(subrecord);
-        }
-
-        private void ReadSubrecord(PluginFileSource source) {
-            var sig = source.ReadSignature().ToString();
-            var size = source.reader.ReadUInt16();
-            var endPos = source.stream.Position + size;
-            var def = mrDef.GetMemberDef(sig.ToString());
-            if (def == null) {
-                UnexpectedSubrecord(sig, size, source);
-            } else if (def.IsSubrecord()) {
-                def.ReadElement(this, source, size);
-            } else {
-                var container = (Container)def.PrepareElement(this);
-                def.SubrecordFound(container, source, sig, size);
-            }
-            source.stream.Position = endPos;
-        }
-
-        private bool Decompress(PluginFileSource source) {
+        internal bool Decompress(PluginFileSource source) {
             if (decompressedData == null)
-                decompressedData = source.Decompress(dataSize);
+                decompressedData = source.Decompress(header.dataSize);
             source.SetDecompressedStream(decompressedData);
             if (decompressedData != null) return true;
             return false;
-        }
-
-        public void ReadElements(PluginFileSource source) {
-            _elements = new List<Element>();
-            unexpectedSubrecords = new List<Subrecord>();
-            // TODO: get this offset from definition manager
-            source.stream.Position = bodyOffset - 24;
-            var h = header.ToStructElement(this, source);
-            var compressed = h.GetFlag("Record Flags", "Compressed");
-            if (compressed && !Decompress(source)) 
-                throw new Exception("Failed to decompress content.");
-            try {
-                var dataSize = compressed 
-                    ? (uint) decompressedData.Length 
-                    : this.dataSize;
-                source.ReadMultiple(dataSize, () => ReadSubrecord(source));
-            } finally {
-                ElementsReady();
-                source.DiscardDecompressedStream();
-            }
         }
 
         public bool IsLocal() {
