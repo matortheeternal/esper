@@ -1,9 +1,11 @@
 ﻿using System;
-using System.Text.RegularExpressions;
 
 namespace esper.helpers {
     public static class DataHelpers {
-        private static Regex numberExpr = new Regex(@"^(-?\d+)");
+        public static Int64 ParseInt64(string value, Int64 defaultValue = 0) {
+            if (Int64.TryParse(value, out Int64 n)) return n;
+            return defaultValue;
+        }
 
         public static sbyte ClampToInt8(Int64 data) {
             if (data > sbyte.MaxValue) return sbyte.MaxValue;
@@ -15,12 +17,6 @@ namespace esper.helpers {
             if (data > Int16.MaxValue) return Int16.MaxValue;
             if (data < Int16.MinValue) return Int16.MinValue;
             return (Int16)data;
-        }
-
-        public static Int64 ParseInt64(string value, Int64 defaultValue = -1) {
-            var match = numberExpr.Match(value);
-            if (match == null) return defaultValue;
-            return Int64.Parse(match.Groups[1].Value);
         }
 
         public static Int32 ClampToInt32(Int64 data) {

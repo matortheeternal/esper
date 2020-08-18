@@ -62,7 +62,7 @@ namespace esper.defs {
 
         public virtual void SetValue(ValueElement element, string value) {
             SetData(element, formatDef == null
-                ? Int64.Parse(value)
+                ? DataHelpers.ParseInt64(value)
                 : formatDef.ValueToData(element, value));
         }
 

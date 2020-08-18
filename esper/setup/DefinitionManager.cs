@@ -15,16 +15,19 @@ namespace esper.setup {
         public Game game;
         public Session session;
         internal Def groupHeaderDef;
+        internal List<string> groupOrder;
         private JObject definitions;
+
         private readonly DefMap defMap = new DefMap();
         private readonly ClassMap defClasses = new ClassMap();
         private readonly DeciderMap deciders = new DeciderMap();
         private string defsFileName => game.abbreviation + ".json";
-        public JArray groupOrder => definitions.Value<JArray>("groupOrder");
+        public CTDAFunctions ctdaFunctions => (CTDAFunctions) defMap["CTDAFunctions"];;
 
         public DefinitionManager(Game game, Session session) {
             this.game = game;
             this.session = session;
+            groupOrder = JsonHelpers.List<string>(definitions, "groupOrder");
             LoadDefinitions();
             LoadClasses();
             BuildDefs();
@@ -64,9 +67,7 @@ namespace esper.setup {
         }
 
         public bool IsTopGroup(string sig) {
-            foreach (var entry in groupOrder)
-                if (entry.Value<string>() == sig) return true;
-            return false;
+            return groupOrder.Contains(sig);
         }
 
         private void LoadDecider(Type type) {

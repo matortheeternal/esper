@@ -85,7 +85,7 @@ namespace esper.defs.TES5 {
         }
 
         public override dynamic ValueToData(ValueElement element, string value) {
-            return DataHelpers.ParseInt64(value, 0);
+            return DataHelpers.ParseInt64(value);
         }
     }
 }
