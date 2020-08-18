@@ -1,4 +1,4 @@
-﻿using esper.data;
+﻿using esper.elements;
 using esper.plugins;
 using System;
 using System.Collections.Generic;
@@ -8,12 +8,15 @@ namespace esper.setup {
     public class PluginManager {
         public Game game;
         public Session session;
+        public RootElement root;
         public bool usingLightPlugins;
         public int maxLightPluginIndex;
         public int maxFullPluginIndex;
         public List<PluginFile> plugins;
         public List<FullPluginSlot> fullPluginSlots;
         public List<LightPluginSlot> lightPluginSlots;
+
+        public Logger logger => session.logger;
 
         public int nextLightPluginIndex {
             get {
@@ -43,6 +46,7 @@ namespace esper.setup {
             plugins = new List<PluginFile>();
             fullPluginSlots = new List<FullPluginSlot>();
             lightPluginSlots = new List<LightPluginSlot>();
+            root = new RootElement(session);
         }
 
         public bool ShouldUseLightPluginSlot(PluginFile plugin) {
@@ -69,6 +73,7 @@ namespace esper.setup {
         }
 
         public PluginFile CreateDummyPlugin(string filename) {
+            logger.Info($"Using dummy plugin for {filename}");
             return new PluginFile(session, filename, new PluginFileOptions{});
         }
 
@@ -94,8 +99,10 @@ namespace esper.setup {
         public PluginFile LoadPlugin(string filePath) {
             var options = new PluginFileOptions();
             var filename = Path.GetFileName(filePath);
+            logger.Info($"Loading plugin {filename}");
             PluginFile plugin = new PluginFile(session, filename, options);
             new PluginFileSource(filePath, plugin);
+            plugin.container = root;
             plugin.ReadFileHeader();
             plugin.ReadGroups();
             return plugin;

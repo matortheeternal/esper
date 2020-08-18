@@ -15,7 +15,7 @@ namespace esper.setup {
         public Game game;
         public Session session;
         internal Def groupHeaderDef;
-        private readonly JObject definitions;
+        private JObject definitions;
         private readonly DefMap defMap = new DefMap();
         private readonly ClassMap defClasses = new ClassMap();
         private readonly DeciderMap deciders = new DeciderMap();
@@ -25,17 +25,23 @@ namespace esper.setup {
         public DefinitionManager(Game game, Session session) {
             this.game = game;
             this.session = session;
+            LoadDefinitions();
+            LoadClasses();
+            BuildDefs();
+        }
+
+        private void LoadDefinitions() {
+            session.logger.Info($"Loading definitions from {defsFileName}");
             definitions = IOHelpers.LoadResource(defsFileName);
-            LoadClasses(game);
-            if (!session.options.buildDefsOnDemand) BuildDefs();
-            var src = ResolveMetaDef("GroupRecordHeader");
-            groupHeaderDef = BuildDef(src);
         }
 
         private void BuildDefs() {
+            if (session.options.buildDefsOnDemand) return;
             var defs = definitions.Value<JObject>("defs");
             foreach (var (key, src) in defs)
                 defMap[key] = BuildDef((JObject)src);
+            var groupDefSrc = ResolveMetaDef("GroupRecordHeader");
+            groupHeaderDef = BuildDef(groupDefSrc);
             definitions.Remove("defs");
             GC.Collect();
         }
@@ -76,7 +82,7 @@ namespace esper.setup {
             }
         }
 
-        private void LoadClasses(Game game) {
+        private void LoadClasses() {
             var gameDefsNamespace = "esper.defs." + game.defsNamespace;
             var types = ReflectionHelpers.GetClasses((Type t) => {
                 return t.Namespace == "esper.defs" ||
