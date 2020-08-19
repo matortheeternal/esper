@@ -22,15 +22,15 @@ namespace esper.setup {
         private readonly ClassMap defClasses = new ClassMap();
         private readonly DeciderMap deciders = new DeciderMap();
         private string defsFileName => game.abbreviation + ".json";
-        public CTDAFunctions ctdaFunctions => (CTDAFunctions) defMap["CTDAFunctions"];;
+        public CTDAFunctions ctdaFunctions => (CTDAFunctions) defMap["CTDAFunctions"];
 
         public DefinitionManager(Game game, Session session) {
             this.game = game;
             this.session = session;
-            groupOrder = JsonHelpers.List<string>(definitions, "groupOrder");
             LoadDefinitions();
             LoadClasses();
             BuildDefs();
+            groupOrder = JsonHelpers.List<string>(definitions, "groupOrder");
         }
 
         private void LoadDefinitions() {

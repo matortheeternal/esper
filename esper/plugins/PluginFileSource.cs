@@ -80,7 +80,7 @@ namespace esper.plugins {
             do {
                 byte b = reader.ReadByte();
                 if (b == 0) break;
-                if (i > bytes.Length) {
+                if (i >= bytes.Length) {
                     var newBytes = new byte[bytes.Length * 2];
                     bytes.CopyTo(newBytes, 0);
                     bytes = newBytes;
@@ -88,7 +88,7 @@ namespace esper.plugins {
                 bytes[i++] = b;
             } while (true);
             if (i == 0) return string.Empty;
-            return stringEncoding.GetString(bytes);
+            return stringEncoding.GetString(bytes, 0, i);
         }
 
         internal string ReadString(int? size) {

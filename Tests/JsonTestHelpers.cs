@@ -22,6 +22,10 @@ namespace Tests {
         }
 
         private static void TestFloatValue(ValueElement element, string value) {
+            if (value == string.Empty) {
+                Assert.IsNull(element.data);
+                return;
+            }
             float expectedFloat = float.Parse(value);
             Assert.IsNotNull(element.data);
             float actualFloat = element.data;

@@ -22,7 +22,7 @@ namespace esper.defs {
         }
 
         private CTDAFunctionParamType? ParseParamType(JObject src, string key) {
-            var value = src.Value<string>("paramType1");
+            var value = src.Value<string>(key);
             if (value == null) return null;
             return (CTDAFunctionParamType) Enum.Parse(
                 typeof(CTDAFunctionParamType), 

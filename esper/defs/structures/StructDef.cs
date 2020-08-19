@@ -45,19 +45,12 @@ namespace esper.defs {
         public void ReadChildElements(
             StructElement element, PluginFileSource source, UInt16? dataSize
         ) {
-            var remainingSize = dataSize;
-            var pos = source.stream.Position;
+            var startPos = source.stream.Position;
             foreach (var def in elementDefs) {
-                if (remainingSize == 0) {
+                if (source.stream.Position - startPos >= dataSize) {
                     def.NewElement(element);
-                    continue;
-                }
-                var e = def.ReadElement(element, source, remainingSize);
-                if (dataSize != null) {
-                    var newPos = source.stream.Position;
-                    var diff = newPos - pos;
-                    pos = newPos;
-                    remainingSize -= (UInt16) diff;
+                } else {
+                    def.ReadElement(element, source);
                 }
             }
         }
