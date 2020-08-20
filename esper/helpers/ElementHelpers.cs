@@ -1,18 +1,17 @@
 ﻿using esper.elements;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace esper.helpers {
     public static class ElementHelpers {
         public static string StructSortKey(
             Element element, List<int> sortKeyIndices
         ) {
-            string sortKey = "";
-            if (sortKeyIndices == null) return sortKey;
+            if (sortKeyIndices == null) return "";
             var container = (Container)element;
-            sortKeyIndices.ForEach(index => {
-                sortKey += container.elements[index].sortKey;
-            });
-            return sortKey;
+            return string.Join("|", sortKeyIndices.Select(index => {
+                return container.elements[index].sortKey;
+            }).ToArray());
         }
     }
 }

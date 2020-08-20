@@ -51,7 +51,7 @@ namespace esper.defs {
         }
 
         public virtual string DataToSortKey(dynamic data) {
-            return data.ToString($"X{2 * fixedSize}");
+            return data.ToString($"X{2 * size}");
         }
 
         public virtual string GetValue(ValueElement element) {
