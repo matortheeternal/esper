@@ -49,7 +49,7 @@
                 "elements": [
                   {
                     "name": "Type",
-                    "value": "01000000"
+                    "value": "Greater than"
                   },
                   {
                     "name": "Unused",
@@ -99,7 +99,7 @@
                 "elements": [
                   {
                     "name": "Type",
-                    "value": "01000000"
+                    "value": "Greater than"
                   },
                   {
                     "name": "Unused",
@@ -149,7 +149,7 @@
                 "elements": [
                   {
                     "name": "Type",
-                    "value": "01000000"
+                    "value": "Greater than"
                   },
                   {
                     "name": "Unused",

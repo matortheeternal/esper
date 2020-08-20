@@ -127,7 +127,7 @@
                     "elements": [
                       {
                         "name": "Type",
-                        "value": "00100000"
+                        "value": "Less than"
                       },
                       {
                         "name": "Unused",
@@ -177,7 +177,7 @@
                     "elements": [
                       {
                         "name": "Type",
-                        "value": "10010000"
+                        "value": "Equal to / Or"
                       },
                       {
                         "name": "Unused",
@@ -227,7 +227,7 @@
                     "elements": [
                       {
                         "name": "Type",
-                        "value": "10010000"
+                        "value": "Equal to / Or"
                       },
                       {
                         "name": "Unused",
@@ -277,7 +277,7 @@
                     "elements": [
                       {
                         "name": "Type",
-                        "value": "10010000"
+                        "value": "Equal to / Or"
                       },
                       {
                         "name": "Unused",
@@ -327,7 +327,7 @@
                     "elements": [
                       {
                         "name": "Type",
-                        "value": "10010000"
+                        "value": "Equal to / Or"
                       },
                       {
                         "name": "Unused",

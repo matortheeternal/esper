@@ -61,7 +61,7 @@
                 "elements": [
                   {
                     "name": "Type",
-                    "value": "10000000"
+                    "value": "Equal to"
                   },
                   {
                     "name": "Unused",
@@ -111,7 +111,7 @@
                 "elements": [
                   {
                     "name": "Type",
-                    "value": "10000000"
+                    "value": "Equal to"
                   },
                   {
                     "name": "Unused",
@@ -161,7 +161,7 @@
                 "elements": [
                   {
                     "name": "Type",
-                    "value": "11000000"
+                    "value": "Greater than or equal to"
                   },
                   {
                     "name": "Unused",

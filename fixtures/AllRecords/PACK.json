@@ -115,7 +115,7 @@
                 "elements": [
                   {
                     "name": "Type",
-                    "value": "10000000"
+                    "value": "Equal to"
                   },
                   {
                     "name": "Unused",

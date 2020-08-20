@@ -1,3 +1,39 @@
+let getConditionEnum = function(element) {
+  let data = xelib.GetUIntValue(element);
+  let r = data & 0xE0;
+  if (r == 0) return "Equal to";
+  if (r == 0x20) return "Not equal to";
+  if (r == 0x40) return "Greater than";
+  if (r == 0x60) return "Greater than or equal to";
+  if (r == 0x80) return "Less than";
+  if (r == 0xA0) return "Less than or equal to";
+  return "<Unknown Compare operator>";
+};
+
+let getConditionFlags = function(element) {
+  let data = xelib.GetUIntValue(element);
+  let r = data & 0x1F;
+  let flags = [];
+  if (r & 1) flags.push("Or");
+  if (r & 2) flags.push("Use aliases");
+  if (r & 4) flags.push("Use global");
+  if (r & 8) flags.push("Use packdata");
+  if (r & 16) flags.push("Swap Subject and Target");
+  return flags.join(', ');
+};
+
+let formatConditionType = function(element) {
+  let type = getConditionEnum(element);
+  let flags = getConditionFlags(element);
+  return flags != "" ? `${type} / ${flags}` : type;
+};
+
+let isConditionType = function(element) {
+  if (xelib.Name(element) !== 'Type') return false;
+  let container = xelib.GetContainer(element);
+  return xelib.Name(container) === 'CTDA - ';
+};
+
 let GetName = function(element) {
   return xelib.Name(element).replace(/Filename/g, "FileName");
 };
@@ -35,6 +71,8 @@ let serializeElement = function(element) {
     	? xelib.Name(xelib.GetElementFile(xelib.GetMasterRecord(rec)))
         : 'Null';
     return `{${filename}:${xelib.Hex(localFid, 6)}}`;
+  } else if (isConditionType(element)) {
+    return formatConditionType(element);
   }
   return xelib.GetValue(element);
 };
