@@ -14,6 +14,7 @@ namespace esper.defs {
 
         public ReadOnlyCollection<ElementDef> elementDefs;
         private readonly List<int> sortKeyIndices;
+        private readonly List<int> elementMap;
 
         public override int? size => elementDefs.Sum(def => def.size);
 
@@ -21,6 +22,7 @@ namespace esper.defs {
             : base(manager, src) {
             elementDefs = JsonHelpers.Defs<ElementDef>(manager, src, "elements");
             sortKeyIndices = JsonHelpers.List<int>(src, "sortKey");
+            elementMap = JsonHelpers.List<int>(src, "elementMap");
         }
 
         public override Element ReadElement(
@@ -57,6 +59,13 @@ namespace esper.defs {
 
         public override string GetSortKey(Element element) {
             return ElementHelpers.StructSortKey(element, sortKeyIndices);
+        }
+
+        internal void RemapElements(StructElement se) {
+            if (elementMap == null) return;
+            se._elements = elementMap.Select(index => {
+                return se._elements[index];
+            }).ToList();
         }
     }
 }

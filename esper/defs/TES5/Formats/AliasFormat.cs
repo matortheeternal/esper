@@ -35,7 +35,7 @@ namespace esper.defs.TES5 {
         // TODO: edit info?
 
         public override string DataToValue(ValueElement element, dynamic data) {
-            if (!sessionOptions.resolveAliases) return data.ToString();
+            if (!sessionOptions.resolveAliases) return DataToValue(data);
             var questRef = ResolveQuestRec(element);
             if (questRef == null || questRef.signature != "QUST") 
                 return DataToValue(data);

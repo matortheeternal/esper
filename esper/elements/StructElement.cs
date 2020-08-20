@@ -10,5 +10,10 @@ namespace esper.elements {
         public override void Initialize() {
             structDef.InitChildElements(this);
         }
+
+        internal override void ElementsReady() {
+            base.ElementsReady();
+            structDef.RemapElements(this);
+        }
     }
 }
