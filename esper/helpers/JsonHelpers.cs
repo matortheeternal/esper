@@ -1,10 +1,12 @@
 ﻿using esper.defs;
 using esper.setup;
+using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Text;
 
 namespace esper.helpers {
     public class JsonHelpers {
@@ -21,9 +23,43 @@ namespace esper.helpers {
             return src.Value<JArray>(key).ToObject<List<T>>();
         }
 
-        public static Dictionary<T1, T2> Dictionary<T1, T2>(JObject src, string key) {
+        internal static Int64 ParseOptionKey(string key) {
+            if (Int64.TryParse(key, out Int64 n)) return n;
+            var bytes = Encoding.ASCII.GetBytes(key); 
+            return BitConverter.ToUInt32(bytes);
+        }
+
+        internal static Dictionary<Int64, string> Options(
+            JObject src
+        ) {
+            if (!src.ContainsKey("options")) return null;
+            JObject options = src.Value<JObject>("options");
+            var d = new Dictionary<Int64, string>(options.Count);
+            foreach (var (k, v) in options) {
+                Int64 n = ParseOptionKey(k);
+                d[n] = v.Value<string>();
+            }
+            return d;
+        }
+
+        internal static Dictionary<int, string> Flags(
+            JObject src, string key
+        ) {
+            if (!src.ContainsKey("flags")) return null;
+            JObject flags = src.Value<JObject>("flags");
+            var d = new Dictionary<int, string>(flags.Count);
+            foreach (var (k, v) in flags) {
+                int n = int.Parse(k);
+                d[n] = v.Value<string>();
+            }
+            return d;
+        }
+
+        public static Dictionary<string, string> Dictionary(
+            JObject src, string key
+        ) {
             if (!src.ContainsKey(key)) return null;
-            return src.Value<JObject>(key).ToObject<Dictionary<T1, T2>>();
+            return src.Value<JObject>(key).ToObject<Dictionary<string, string>>();
         }
 
         public static ElementDef ElementDef(

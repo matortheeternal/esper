@@ -14,22 +14,21 @@ namespace esper.defs {
 
         //public override bool customSortKey => true;
 
-        public Dictionary<string, string> flags;
+        public Dictionary<int, string> flags;
 
         public FlagsDef(DefinitionManager manager, JObject src)
             : base(manager, src) {
-            flags = JsonHelpers.Dictionary<string, string>(src, "flags");
+            flags = JsonHelpers.Flags(src, "flags");
         }
 
         public string GetFlagValue(int index) {
-            var indexKey = index.ToString();
-            if (!flags.ContainsKey(indexKey)) return "Unknown " + index;
-            return flags[indexKey];
+            if (!flags.ContainsKey(index)) return "Unknown " + index;
+            return flags[index];
         }
 
         public int GetFlagIndex(string flag) {
             foreach (var (key, value) in flags)
-                if (value == flag) return int.Parse(key);
+                if (value == flag) return (int)key;
             Match match = unknownFlagExpr.Match(flag);
             if (!match.Success) return -1;
             return int.Parse(match.Captures[0].Value);
