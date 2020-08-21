@@ -17,6 +17,7 @@ namespace esper.elements {
         public virtual string displayName => def?.displayName;
         public SessionOptions sessionOptions => manager?.session.options;
         public Game game => manager?.session.game;
+        public int index => container._elements.IndexOf(this);
 
         public MainRecord referencedRecord {
             get => throw new Exception("Element does not reference records.");
@@ -29,6 +30,33 @@ namespace esper.elements {
             get {
                 if (def == null) return null;
                 return def.IsSubrecord() ? this : container?.subrecord;
+            }
+        }
+
+        public virtual string pathKey {
+            get {
+                if (container is ArrayElement || container is MemberArrayElement)
+                    return $"[{index}]";
+                return signature ?? name;
+            }
+        }
+
+        public virtual string path {
+            get {
+                if (container is MainRecord) return pathKey;
+                var parentPath = container?.path;
+                return parentPath == null
+                    ? pathKey
+                    : $"{parentPath}\\{pathKey}";
+            }
+        }
+
+        public virtual string fullPath {
+            get {
+                var parentPath = container?.fullPath;
+                return parentPath == null
+                    ? pathKey
+                    : $"{parentPath}\\{pathKey}";
             }
         }
 
