@@ -10,10 +10,12 @@ namespace esper.defs {
         public static string defType = "memberStruct";
 
         private readonly List<int> sortKeyIndices;
+        private readonly bool unordered;
 
         public MemberStructDef(DefinitionManager manager, JObject src)
             : base(manager, src) {
             sortKeyIndices = JsonHelpers.List<int>(src, "sortKey");
+            unordered = src.Value<bool>("unordered");
         }
 
         public override Element PrepareElement(Container container) {
@@ -35,6 +37,11 @@ namespace esper.defs {
             }
             defIndex++;
             return true;
+        }
+
+        public override bool CanEnterWith(string signature) {
+            if (unordered) return ContainsSignature(signature);
+            return memberDefs[0].CanEnterWith(signature);
         }
 
         public override void SubrecordFound(

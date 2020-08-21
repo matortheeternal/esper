@@ -24,6 +24,10 @@ namespace esper.defs {
             return memberDef.ContainsSignature(signature);
         }
 
+        public override bool CanEnterWith(string signature) {
+            return ContainsSignature(signature);
+        }
+
         public override Element PrepareElement(Container container) {
             return container.FindElementForDef(this) ??
                 new MemberArrayElement(container, this);
@@ -31,7 +35,7 @@ namespace esper.defs {
 
         internal bool HandleSubrecord(Container container, PluginFileSource source) {
             var subrecord = source.currentSubrecord;
-            if (!ContainsSignature(subrecord.signature)) return false;
+            if (!memberDef.CanEnterWith(subrecord.signature)) return false;
             if (memberDef.IsSubrecord()) {
                 memberDef.ReadElement(container, source, subrecord.dataSize);
                 source.SubrecordHandled();

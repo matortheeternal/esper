@@ -25,6 +25,10 @@ namespace esper.defs {
             return false;
         }
 
+        public virtual bool CanEnterWith(string signature) {
+            return false;
+        }
+
         public virtual List<string> GetSignatures(List<string> sigs = null) {
             throw new NotImplementedException();
         }

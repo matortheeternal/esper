@@ -41,6 +41,10 @@ namespace esper.defs {
             return new MemberUnionElement(container, this);
         }
 
+        public override bool CanEnterWith(string signature) {
+            return ContainsSignature(signature);
+        }
+
         public override bool HasSignature(string sig) {
             return defaultDef.IsSubrecord() && 
                 memberDefs.Any(d => d.HasSignature(sig));
