@@ -53,6 +53,13 @@ let serializeContainer = function(container) {
   return output;
 };
 
+let masterNames;
+
+let getTargetFileName = function(nativeFid) {
+  let ordinal = nativeFid >> 24;
+  return masterNames[ordinal];
+};
+
 let serializeElement = function(element) {
   let vt = xelib.ValueType(element);
   if (vt === xelib.vtArray) {
@@ -64,12 +71,10 @@ let serializeElement = function(element) {
   } else if (xelib.ElementCount(element) > 0) {
     return serializeContainer(element);
   } else if (vt === xelib.vtReference) {
-    let localFid = xelib.GetUIntValue(element) & 0xFFFFFF;
-    if (localFid === 0) return '{Null:000000}';
-    let rec = xelib.GetLinksTo(element);
-    let filename = rec > 0
-    	? xelib.Name(xelib.GetElementFile(xelib.GetMasterRecord(rec)))
-        : 'Null';
+    let nativeFid = xelib.GetUIntValue(element);
+    if (nativeFid === 0) return '{Null:000000}';
+    let filename = getTargetFileName(nativeFid);
+    let localFid = nativeFid & 0xFFFFFF;
     return `{${filename}:${xelib.Hex(localFid, 6)}}`;
   } else if (isConditionType(element)) {
     return formatConditionType(element);
@@ -103,6 +108,8 @@ let serializeGroup = function(group) {
 };
 
 let serializePlugin = function(plugin) {
+  masterNames = xelib.GetElements(plugin, 'File Header\\Master Files')
+      .map(m => xelib.GetValue(m, 'MAST'));
   let output = {};
   xelib.GetElements(plugin).forEach(element => {
     let et = xelib.ElementType(element);
