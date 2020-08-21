@@ -44,15 +44,28 @@ namespace esper.defs {
             }
         }
 
+        private UInt16? GetRemainingSize(
+            PluginFileSource source, long startPos, UInt16? dataSize
+        ) {
+            if (dataSize == null) return null;
+            return (UInt16?)(dataSize - (source.stream.Position - startPos));
+        }
+
+        // TODO: rewrite this better or make it unnecessary?
         public void ReadChildElements(
             StructElement element, PluginFileSource source, UInt16? dataSize
         ) {
             var startPos = source.stream.Position;
-            foreach (var def in elementDefs) {
+            var lastDefIndex = elementDefs.Count - 1;
+            for (int i = 0; i <= lastDefIndex; i++) {
+                var def = elementDefs[i];
                 if (source.stream.Position - startPos >= dataSize) {
                     def.NewElement(element);
                 } else {
-                    def.ReadElement(element, source);
+                    UInt16? remainingSize = (i == lastDefIndex)
+                        ? GetRemainingSize(source, startPos, dataSize)
+                        : null;
+                    def.ReadElement(element, source, remainingSize);
                 }
             }
         }
