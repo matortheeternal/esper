@@ -1,5 +1,4 @@
 ﻿using esper.elements;
-using esper.resolution;
 using esper.setup;
 using Newtonsoft.Json.Linq;
 using System;
@@ -9,13 +8,21 @@ namespace esper.defs.TES5 {
 
         public static string defType = "EventFunctionAndMemberFormat";
 
+        private readonly EnumDef eventFunctionEnum;
+        private readonly EnumDef eventMemberEnum;
+
         public EventFunctionAndMemberFormat(
             DefinitionManager manager, JObject src
-        ) : base(manager, src) { }
+        ) : base(manager, src) {
+            eventFunctionEnum = (EnumDef) manager.ResolveDef("EventFunctionEnum");
+            eventMemberEnum = (EnumDef) manager.ResolveDef("EventMemberEnum");
+        }
 
         public override string DataToValue(ValueElement element, dynamic data) {
-            // TODO
-            return data.ToString();
+            Int64 n = (Int64) data;
+            var eventFunction = eventFunctionEnum.DataToValue(element, n & 0xFFFF);
+            var eventMember = eventMemberEnum.DataToValue(element, n >> 16);
+            return $"{eventFunction}:{eventMember}";
         }
 
         public override dynamic ValueToData(ValueElement element, string value) {
