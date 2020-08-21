@@ -33,6 +33,10 @@ namespace Tests {
         }
 
         private static void TestElementValue(Element element, string value) {
+            if (element is StructElement s && value == "") {
+                Assert.AreEqual(0, s.count, "Struct should have 0 children.");
+                return;
+            }
             var v = (ValueElement)element;
             Assert.IsNotNull(v,
                 $"Expected {element.path} to have value {value}, "+
