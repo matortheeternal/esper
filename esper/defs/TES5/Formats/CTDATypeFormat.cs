@@ -12,10 +12,8 @@ namespace esper.defs.TES5 {
 
         public CTDATypeFormat(DefinitionManager manager, JObject src)
             : base(manager, src) {
-            var flagsSrc = manager.ResolveDefSource("CtdaTypeFlags");
-            ctdaTypeFlags = (FlagsDef) manager.BuildDef(flagsSrc);
-            var enumSrc = manager.ResolveDefSource("CtdaTypeEnum");
-            ctdaTypeEnum = (EnumDef) manager.BuildDef(enumSrc);
+            ctdaTypeFlags = (FlagsDef) manager.ResolveDef("CtdaTypeFlags");
+            ctdaTypeEnum = (EnumDef) manager.ResolveDef("CtdaTypeEnum");
         }
 
         public override string DataToValue(ValueElement element, dynamic data) {

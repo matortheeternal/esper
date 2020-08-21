@@ -113,11 +113,8 @@ namespace esper.setup {
                 return BuildBaseDef(src);
             var id = src.Value<string>("id");
             var target = ResolveDefSource(id);
-            if (src.Properties().Count() == 1) {
-                if (!defMap.ContainsKey(id))
-                    defMap[id] = BuildDef(target);
-                return defMap[id];
-            }
+            if (src.Properties().Count() == 1) 
+                return ResolveDef(id);
             src = MergeDef(target, src);
             return BuildBaseDef(src);
         }
@@ -145,6 +142,12 @@ namespace esper.setup {
             if (!metaDefs.ContainsKey(key))
                 throw new Exception("Unknown meta def: " + key);
             return metaDefs.Value<JObject>(key);
+        }
+
+        internal Def ResolveDef(string id) {
+            if (!defMap.ContainsKey(id))
+                defMap[id] = BuildDef(ResolveDefSource(id));
+            return defMap[id];
         }
 
         public Def GetRecordDef(Signature signature) {
