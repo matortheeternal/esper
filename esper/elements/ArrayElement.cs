@@ -15,7 +15,7 @@ namespace esper.elements {
 
         internal override void ElementsReady() {
             base.ElementsReady();
-            if (!arrayDef.sorted) return;
+            if (!arrayDef.sorted || _elements == null) return;
             // we use OrderBy so sortKey is called only once per entry
             _elements = _elements.OrderBy(e => e.sortKey).ToList();
         }
