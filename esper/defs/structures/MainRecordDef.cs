@@ -28,12 +28,15 @@ namespace esper.defs {
             var def = GetMemberDef(subrecord.signature, ref defIndex);
             if (def == null) {
                 rec.unexpectedSubrecords.Add(subrecord);
+                source.SubrecordHandled();
             } else if (def.IsSubrecord()) {
                 def.ReadElement(rec, source, subrecord.dataSize);
                 source.SubrecordHandled();
+                defIndex++;
             } else {
                 var container = (Container)def.PrepareElement(rec);
                 def.SubrecordFound(container, source);
+                defIndex++;
             }
         }
 
