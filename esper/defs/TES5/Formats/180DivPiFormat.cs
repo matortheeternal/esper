@@ -11,8 +11,12 @@ namespace esper.defs.TES5 {
             : base(manager, src) { }
 
         public override string DataToValue(ValueElement element, dynamic data) {
-            // TODO
-            return data.ToString();
+            if (Single.IsNaN(data)) return "NaN";
+            if (Single.IsInfinity(data)) return "Inf";
+            if (data == Single.MaxValue) return "Default";
+            if (data == -Single.MaxValue) return "Min";
+            float fData = data * 180 / Math.PI;
+            return fData.ToString(sessionOptions.floatFormat);
         }
 
         public override dynamic ValueToData(ValueElement element, string value) {

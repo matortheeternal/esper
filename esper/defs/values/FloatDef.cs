@@ -32,6 +32,10 @@ namespace esper.defs {
         }
 
         public override string DataToString(dynamic data) {
+            if (Single.IsNaN(data)) return "NaN";
+            if (Single.IsInfinity(data)) return "Inf";
+            if (data == Single.MaxValue) return "Default";
+            if (data == -Single.MaxValue) return "Min";
             return data.ToString(sessionOptions.floatFormat);
         }
 
