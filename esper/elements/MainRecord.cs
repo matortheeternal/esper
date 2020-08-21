@@ -79,5 +79,10 @@ namespace esper.elements {
         public override bool SupportsSignature(string sig) {
             return mrDef.memberDefs.Any(d => d.HasSignature(sig));
         }
+
+        internal override void ElementsReady() {
+            base.ElementsReady();
+            Initialize();
+        }
     }
 }

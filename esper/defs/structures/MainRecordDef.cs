@@ -4,6 +4,7 @@ using esper.plugins;
 using esper.setup;
 using Newtonsoft.Json.Linq;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace esper.defs {
     public class MainRecordDef : MembersDef {
@@ -63,6 +64,7 @@ namespace esper.defs {
         internal void InitElement(MainRecord rec) {
             foreach (var def in memberDefs) {
                 if (!def.required) continue;
+                if (rec._elements.Any(e => e.def == def)) continue;
                 var e = def.NewElement(rec);
                 e.Initialize();
             }
