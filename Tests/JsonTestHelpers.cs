@@ -10,43 +10,46 @@ namespace Tests {
     public static class JsonTestHelpers {
         private static void CheckKey(JObject json, string key, Element parent) {
             Assert.IsTrue(json.ContainsKey(key), 
-                $"Element {key} should not be in {parent.displayName}"
+                $"Element {key} should not be in {parent.path}"
             );
         }
 
         private static void ExpectAllPropertiesFound(JObject json, Element element) {
             Assert.AreEqual(0, json.Count,
-                $"The following properties were not found in {element.displayName}: " +
+                $"The following properties were not found in {element.path}: " +
                 $"{json.Properties().Select(p => p.Name)}"
             );
         }
 
-        private static void TestFloatValue(ValueElement element, string value) {
-            if (value == string.Empty) {
-                Assert.IsNull(element.data);
-                return;
-            }
-            float expectedFloat = float.Parse(value);
+        private static void TestFloatValue(
+            ValueElement element, float expectedFloat
+        ) {
             Assert.IsNotNull(element.data);
             float actualFloat = element.data;
             float diff = expectedFloat - actualFloat;
             Assert.IsTrue(diff <= element.sessionOptions.epsilon,
-                $"Float values were not close {element.displayName}, diff: {diff}"
+                $"Float values were not close {element.path}, diff: {diff}"
             );
         }
 
         private static void TestElementValue(Element element, string value) {
             var v = (ValueElement)element;
             Assert.IsNotNull(v,
-                $"Expected {element.displayName} to have value {value}, "+
+                $"Expected {element.path} to have value {value}, "+
                 "but it's not a value element."
             );
             if (v.def is FloatDef floatDef && floatDef.formatDef == null) {
-                TestFloatValue(v, value);
-                return;
+                if (float.TryParse(value, out float fValue)) {
+                    TestFloatValue(v, fValue);
+                    return;
+                }
+                if (value == "") {
+                    Assert.IsNull(v.data);
+                    return;
+                }
             }
             Assert.AreEqual(value, v.value,
-                $"Values did not match {element.displayName}"
+                $"Values did not match {element.path}"
             );
         }
 
