@@ -13,7 +13,7 @@ namespace esper.defs {
         }
 
         public override string DataToValue(ValueElement element, dynamic data) {
-            float f = data / divisionValue;
+            float f = data / (float) divisionValue;
             return f.ToString(sessionOptions.floatFormat);
         }
 
