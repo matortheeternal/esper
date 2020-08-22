@@ -15,7 +15,7 @@ namespace esper.defs.TES5 {
         // TODO: warnings?
 
         public override string DataToValue(ValueElement element, dynamic data) {
-            if (data < 0) return "";
+            //if (data < 0) return "";
             return data.ToString();
         }
 
