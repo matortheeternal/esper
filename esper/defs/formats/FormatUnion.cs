@@ -15,7 +15,7 @@ namespace esper.defs {
         public FormatUnion(
             DefinitionManager manager, JObject src
         ) : base(manager, src) {
-            decider = JsonHelpers.Decider(src, this);
+            decider = JsonHelpers.Decider(manager, src);
             formatDefs = JsonHelpers.Defs<FormatDef>(manager, src, "formats");
         }
 
@@ -25,11 +25,13 @@ namespace esper.defs {
         }
 
         public override string DataToValue(ValueElement element, dynamic data) {
-            throw new NotImplementedException();
+            var resolvedDef = ResolveDef(element.container);
+            return resolvedDef.DataToValue(element, data);
         }
 
         public override dynamic ValueToData(ValueElement element, string value) {
-            throw new NotImplementedException();
+            var resolvedDef = ResolveDef(element.container);
+            return resolvedDef.ValueToData(element, value);
         }
     }
 }
