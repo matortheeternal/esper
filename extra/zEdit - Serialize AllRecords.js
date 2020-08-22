@@ -73,7 +73,6 @@ let coverFlags = [
 ];
 
 let formatCoverFlags = function(element) {
-  console.log(xelib.GetAllFlags(element));
   let flags = xelib.GetEnabledFlags(element);
   return flags.map(str => {
     return coverFlags[oldCoverFlags.indexOf(str)];  
@@ -82,7 +81,51 @@ let formatCoverFlags = function(element) {
 
 let isCoverFlags = function(element) {
   return xelib.Name(element) === 'Cover Flags';
-}
+};
+
+let formatVTXTCellPosition = function(element) {
+  let value = xelib.GetValue(element);
+  let n = Math.floor(value / 17);
+  let m = value % 17;
+  return `${value} -> ${n}:${m}`;
+};
+
+let isVTXTCellPosition = function(element) {
+  if (xelib.Name(element) !== 'Position') return false;
+  return xelib.Name(xelib.GetContainer(element)) === 'Cell';
+};
+
+let landFlags = [
+  "Vertex Normals / Height Map",
+  "Vertex Colours",
+  "Layers",
+  "Unknown 4",
+  "Unknown 5",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "MPCD"
+];
+
+let formatLandFlags = function(element) {
+  let data = xelib.GetUIntValue(element);
+  console.log(data);
+  let flags = [];
+  for (let i = 0; i < 32; i++) {
+    let n = Math.floor((32 - i - 1) / 8) * 8 + i % 8;
+    if ((data & Math.pow(2, i)) !== 0) 
+        flags.push(landFlags[n] || '');
+  }
+  return flags.join(', ');
+};
+
+let isLandFlags = function(element) {
+  if (xelib.Name(element) !== 'DATA - Unknown') return false;
+  let sig = xelib.Signature(xelib.GetContainer(element));
+  return sig === 'LAND';
+};
 
 let GetName = function(element) {
   return xelib.Name(element).replace(/Filename/g, "FileName");
@@ -132,7 +175,11 @@ let serializeElement = function(element) {
     return `{${filename}:${xelib.Hex(localFid, 6)}}`;
   } else if (isConditionType(element)) {
     return formatConditionType(element);
-  }
+  } else if (isVTXTCellPosition(element)) {
+  	return formatVTXTCellPosition(element);
+  } else if (isLandFlags(element)) { 
+    return formatLandFlags(element);
+   } 
   return xelib.GetValue(element);
 };
 
