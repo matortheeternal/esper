@@ -34,6 +34,56 @@ let isConditionType = function(element) {
   return xelib.Name(container) === 'CTDA - ';
 };
 
+let oldCoverFlags = [
+  "Edge 0-1 wall", 
+  "Edge 0-1 ledge cover", 
+  "Unknown 3", 
+  "Unknown 4", 
+  "Edge 0-1 left", 
+  "Edge 0-1 right", 
+  "Edge 1-2 wall", 
+  "Edge 1-2 ledge cover", 
+  "Unknown 9", 
+  "Unknown 10", 
+  "Edge 1-2 left", 
+  "Edge 1-2 right", 
+  "Unknown 13", 
+  "Unknown 14", 
+  "Unknown 15", 
+  "Unknown 16"
+];
+
+let coverFlags = [
+  "Edge 0-1 Cover Value 1/4",
+  "Edge 0-1 Cover Value 2/4",
+  "Edge 0-1 Cover Value 3/4",
+  "Edge 0-1 Cover Value 4/4",
+  "Edge 0-1 Left",
+  "Edge 0-1 Right",
+  "Edge 1-2 Cover Value 1/4",
+  "Edge 1-2 Cover Value 2/4",
+  "Edge 1-2 Cover Value 3/4",
+  "Edge 1-2 Cover Value 4/4",
+  "Edge 1-2 Left",
+  "Edge 1-2 Right",
+  "Unknown 13",
+  "Unknown 14",
+  "Unknown 15",
+  "Unknown 16"
+];
+
+let formatCoverFlags = function(element) {
+  console.log(xelib.GetAllFlags(element));
+  let flags = xelib.GetEnabledFlags(element);
+  return flags.map(str => {
+    return coverFlags[oldCoverFlags.indexOf(str)];  
+  }).join(', ');
+};
+
+let isCoverFlags = function(element) {
+  return xelib.Name(element) === 'Cover Flags';
+}
+
 let GetName = function(element) {
   return xelib.Name(element).replace(/Filename/g, "FileName");
 };
@@ -67,7 +117,11 @@ let serializeElement = function(element) {
   } else if (vt === xelib.vtStruct) {
     return serializeContainer(element);
   } else if (vt === xelib.vtFlags) {
-    return xelib.GetEnabledFlags(element).join(', ');
+    if (isCoverFlags(element)) {
+      return formatCoverFlags(element);
+    } else {
+      return xelib.GetEnabledFlags(element).join(', ');
+    }
   } else if (xelib.ElementCount(element) > 0) {
     return serializeContainer(element);
   } else if (vt === xelib.vtReference) {

@@ -9456,7 +9456,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 0-1 ledge cover, Unknown 4, Unknown 15"
+                              "value": "Edge 0-1 Cover Value 2/4, Edge 0-1 Cover Value 4/4, Unknown 15"
                             }
                           ]
                         },
@@ -9789,7 +9789,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 0-1 wall, Edge 0-1 ledge cover, Unknown 4, Unknown 15"
+                              "value": "Edge 0-1 Cover Value 1/4, Edge 0-1 Cover Value 2/4, Edge 0-1 Cover Value 4/4, Unknown 15"
                             }
                           ]
                         },
@@ -9937,7 +9937,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 1-2 wall, Edge 1-2 ledge cover, Unknown 9, Unknown 10, Unknown 15"
+                              "value": "Edge 1-2 Cover Value 1/4, Edge 1-2 Cover Value 2/4, Edge 1-2 Cover Value 3/4, Edge 1-2 Cover Value 4/4, Unknown 15"
                             }
                           ]
                         },
@@ -10085,7 +10085,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 0-1 wall, Edge 0-1 ledge cover, Unknown 3, Unknown 4, Unknown 15"
+                              "value": "Edge 0-1 Cover Value 1/4, Edge 0-1 Cover Value 2/4, Edge 0-1 Cover Value 3/4, Edge 0-1 Cover Value 4/4, Unknown 15"
                             }
                           ]
                         },
@@ -10270,7 +10270,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 0-1 wall, Edge 0-1 ledge cover, Unknown 3, Unknown 4, Unknown 15"
+                              "value": "Edge 0-1 Cover Value 1/4, Edge 0-1 Cover Value 2/4, Edge 0-1 Cover Value 3/4, Edge 0-1 Cover Value 4/4, Unknown 15"
                             }
                           ]
                         },
@@ -10455,7 +10455,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 0-1 wall, Edge 0-1 ledge cover, Unknown 3, Unknown 4, Unknown 15"
+                              "value": "Edge 0-1 Cover Value 1/4, Edge 0-1 Cover Value 2/4, Edge 0-1 Cover Value 3/4, Edge 0-1 Cover Value 4/4, Unknown 15"
                             }
                           ]
                         },
@@ -10677,7 +10677,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 0-1 wall, Edge 0-1 ledge cover, Unknown 3, Unknown 4, Unknown 15"
+                              "value": "Edge 0-1 Cover Value 1/4, Edge 0-1 Cover Value 2/4, Edge 0-1 Cover Value 3/4, Edge 0-1 Cover Value 4/4, Unknown 15"
                             }
                           ]
                         },
@@ -10973,7 +10973,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 0-1 wall, Edge 0-1 ledge cover, Unknown 3, Unknown 4, Unknown 15"
+                              "value": "Edge 0-1 Cover Value 1/4, Edge 0-1 Cover Value 2/4, Edge 0-1 Cover Value 3/4, Edge 0-1 Cover Value 4/4, Unknown 15"
                             }
                           ]
                         },
@@ -11047,7 +11047,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 1-2 wall, Edge 1-2 ledge cover, Unknown 9, Unknown 15"
+                              "value": "Edge 1-2 Cover Value 1/4, Edge 1-2 Cover Value 2/4, Edge 1-2 Cover Value 3/4, Unknown 15"
                             }
                           ]
                         },
@@ -11121,7 +11121,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 1-2 wall, Edge 1-2 ledge cover, Unknown 9, Unknown 15"
+                              "value": "Edge 1-2 Cover Value 1/4, Edge 1-2 Cover Value 2/4, Edge 1-2 Cover Value 3/4, Unknown 15"
                             }
                           ]
                         },
@@ -11195,7 +11195,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 0-1 wall, Edge 0-1 ledge cover, Unknown 3, Unknown 4, Edge 0-1 left, Unknown 15"
+                              "value": "Edge 0-1 Cover Value 1/4, Edge 0-1 Cover Value 2/4, Edge 0-1 Cover Value 3/4, Edge 0-1 Cover Value 4/4, Edge 0-1 Left, Unknown 15"
                             }
                           ]
                         },
@@ -11528,7 +11528,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 1-2 wall, Edge 1-2 ledge cover, Unknown 9, Unknown 10, Edge 1-2 right, Unknown 15"
+                              "value": "Edge 1-2 Cover Value 1/4, Edge 1-2 Cover Value 2/4, Edge 1-2 Cover Value 3/4, Edge 1-2 Cover Value 4/4, Edge 1-2 Right, Unknown 15"
                             }
                           ]
                         },
@@ -11824,7 +11824,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 0-1 wall, Edge 0-1 ledge cover, Unknown 3, Unknown 4, Unknown 15"
+                              "value": "Edge 0-1 Cover Value 1/4, Edge 0-1 Cover Value 2/4, Edge 0-1 Cover Value 3/4, Edge 0-1 Cover Value 4/4, Unknown 15"
                             }
                           ]
                         },
@@ -11861,7 +11861,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 0-1 wall, Edge 0-1 ledge cover, Unknown 3, Unknown 4, Unknown 15"
+                              "value": "Edge 0-1 Cover Value 1/4, Edge 0-1 Cover Value 2/4, Edge 0-1 Cover Value 3/4, Edge 0-1 Cover Value 4/4, Unknown 15"
                             }
                           ]
                         },
@@ -11898,7 +11898,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 1-2 wall, Edge 1-2 ledge cover, Unknown 9, Unknown 10, Unknown 15"
+                              "value": "Edge 1-2 Cover Value 1/4, Edge 1-2 Cover Value 2/4, Edge 1-2 Cover Value 3/4, Edge 1-2 Cover Value 4/4, Unknown 15"
                             }
                           ]
                         },
@@ -11935,7 +11935,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 0-1 wall, Edge 0-1 ledge cover, Unknown 3, Unknown 4, Unknown 15"
+                              "value": "Edge 0-1 Cover Value 1/4, Edge 0-1 Cover Value 2/4, Edge 0-1 Cover Value 3/4, Edge 0-1 Cover Value 4/4, Unknown 15"
                             }
                           ]
                         },
@@ -11972,7 +11972,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 0-1 wall, Edge 0-1 ledge cover, Unknown 3, Unknown 4, Unknown 15"
+                              "value": "Edge 0-1 Cover Value 1/4, Edge 0-1 Cover Value 2/4, Edge 0-1 Cover Value 3/4, Edge 0-1 Cover Value 4/4, Unknown 15"
                             }
                           ]
                         },
@@ -12120,7 +12120,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 1-2 wall, Edge 1-2 ledge cover, Unknown 9, Unknown 10, Unknown 15"
+                              "value": "Edge 1-2 Cover Value 1/4, Edge 1-2 Cover Value 2/4, Edge 1-2 Cover Value 3/4, Edge 1-2 Cover Value 4/4, Unknown 15"
                             }
                           ]
                         },
@@ -12157,7 +12157,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Unknown 9, Unknown 15"
+                              "value": "Edge 1-2 Cover Value 3/4, Unknown 15"
                             }
                           ]
                         },
@@ -12194,7 +12194,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 0-1 wall, Edge 0-1 ledge cover, Unknown 3, Unknown 4, Unknown 15"
+                              "value": "Edge 0-1 Cover Value 1/4, Edge 0-1 Cover Value 2/4, Edge 0-1 Cover Value 3/4, Edge 0-1 Cover Value 4/4, Unknown 15"
                             }
                           ]
                         },
@@ -12231,7 +12231,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 1-2 wall, Edge 1-2 ledge cover, Unknown 9, Unknown 10, Unknown 15"
+                              "value": "Edge 1-2 Cover Value 1/4, Edge 1-2 Cover Value 2/4, Edge 1-2 Cover Value 3/4, Edge 1-2 Cover Value 4/4, Unknown 15"
                             }
                           ]
                         },
@@ -12268,7 +12268,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 0-1 wall, Edge 0-1 ledge cover, Unknown 3, Unknown 4, Edge 0-1 left, Edge 0-1 right, Unknown 15"
+                              "value": "Edge 0-1 Cover Value 1/4, Edge 0-1 Cover Value 2/4, Edge 0-1 Cover Value 3/4, Edge 0-1 Cover Value 4/4, Edge 0-1 Left, Edge 0-1 Right, Unknown 15"
                             }
                           ]
                         },
@@ -12305,7 +12305,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 0-1 wall, Edge 0-1 ledge cover, Unknown 3, Unknown 4, Unknown 15"
+                              "value": "Edge 0-1 Cover Value 1/4, Edge 0-1 Cover Value 2/4, Edge 0-1 Cover Value 3/4, Edge 0-1 Cover Value 4/4, Unknown 15"
                             }
                           ]
                         },
@@ -12379,7 +12379,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 1-2 wall, Edge 1-2 ledge cover, Unknown 9, Unknown 10, Unknown 15"
+                              "value": "Edge 1-2 Cover Value 1/4, Edge 1-2 Cover Value 2/4, Edge 1-2 Cover Value 3/4, Edge 1-2 Cover Value 4/4, Unknown 15"
                             }
                           ]
                         },
@@ -12453,7 +12453,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Unknown 9, Unknown 15"
+                              "value": "Edge 1-2 Cover Value 3/4, Unknown 15"
                             }
                           ]
                         },
@@ -12490,7 +12490,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 1-2 wall, Edge 1-2 ledge cover, Unknown 9, Unknown 10, Unknown 15"
+                              "value": "Edge 1-2 Cover Value 1/4, Edge 1-2 Cover Value 2/4, Edge 1-2 Cover Value 3/4, Edge 1-2 Cover Value 4/4, Unknown 15"
                             }
                           ]
                         },
@@ -12564,7 +12564,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 1-2 wall, Edge 1-2 ledge cover, Unknown 9, Unknown 10, Unknown 15"
+                              "value": "Edge 1-2 Cover Value 1/4, Edge 1-2 Cover Value 2/4, Edge 1-2 Cover Value 3/4, Edge 1-2 Cover Value 4/4, Unknown 15"
                             }
                           ]
                         },
@@ -12601,7 +12601,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 1-2 wall, Edge 1-2 ledge cover, Unknown 9, Unknown 10, Unknown 15"
+                              "value": "Edge 1-2 Cover Value 1/4, Edge 1-2 Cover Value 2/4, Edge 1-2 Cover Value 3/4, Edge 1-2 Cover Value 4/4, Unknown 15"
                             }
                           ]
                         },
@@ -12638,7 +12638,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Unknown 3, Edge 0-1 right, Unknown 15"
+                              "value": "Edge 0-1 Cover Value 3/4, Edge 0-1 Right, Unknown 15"
                             }
                           ]
                         },
@@ -12675,7 +12675,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 1-2 wall, Edge 1-2 ledge cover, Unknown 9, Unknown 10, Edge 1-2 right, Unknown 15"
+                              "value": "Edge 1-2 Cover Value 1/4, Edge 1-2 Cover Value 2/4, Edge 1-2 Cover Value 3/4, Edge 1-2 Cover Value 4/4, Edge 1-2 Right, Unknown 15"
                             }
                           ]
                         },
@@ -12749,7 +12749,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 0-1 wall, Edge 0-1 ledge cover, Unknown 3, Unknown 4, Unknown 15"
+                              "value": "Edge 0-1 Cover Value 1/4, Edge 0-1 Cover Value 2/4, Edge 0-1 Cover Value 3/4, Edge 0-1 Cover Value 4/4, Unknown 15"
                             }
                           ]
                         },
@@ -12823,7 +12823,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 1-2 wall, Edge 1-2 ledge cover, Unknown 9, Unknown 10, Unknown 15"
+                              "value": "Edge 1-2 Cover Value 1/4, Edge 1-2 Cover Value 2/4, Edge 1-2 Cover Value 3/4, Edge 1-2 Cover Value 4/4, Unknown 15"
                             }
                           ]
                         },
@@ -12860,7 +12860,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 0-1 wall, Edge 0-1 ledge cover, Unknown 3, Unknown 4, Unknown 15"
+                              "value": "Edge 0-1 Cover Value 1/4, Edge 0-1 Cover Value 2/4, Edge 0-1 Cover Value 3/4, Edge 0-1 Cover Value 4/4, Unknown 15"
                             }
                           ]
                         },
@@ -12934,7 +12934,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 1-2 wall, Edge 1-2 ledge cover, Unknown 9, Unknown 10, Unknown 15"
+                              "value": "Edge 1-2 Cover Value 1/4, Edge 1-2 Cover Value 2/4, Edge 1-2 Cover Value 3/4, Edge 1-2 Cover Value 4/4, Unknown 15"
                             }
                           ]
                         },
@@ -13119,7 +13119,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 1-2 wall, Edge 1-2 ledge cover, Unknown 9, Unknown 10, Unknown 15"
+                              "value": "Edge 1-2 Cover Value 1/4, Edge 1-2 Cover Value 2/4, Edge 1-2 Cover Value 3/4, Edge 1-2 Cover Value 4/4, Unknown 15"
                             }
                           ]
                         },
@@ -13156,7 +13156,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Unknown 3, Edge 1-2 wall, Edge 1-2 ledge cover, Unknown 9, Unknown 10, Unknown 15"
+                              "value": "Edge 0-1 Cover Value 3/4, Edge 1-2 Cover Value 1/4, Edge 1-2 Cover Value 2/4, Edge 1-2 Cover Value 3/4, Edge 1-2 Cover Value 4/4, Unknown 15"
                             }
                           ]
                         },
@@ -13230,7 +13230,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 0-1 wall, Edge 0-1 ledge cover, Unknown 3, Unknown 4, Unknown 15"
+                              "value": "Edge 0-1 Cover Value 1/4, Edge 0-1 Cover Value 2/4, Edge 0-1 Cover Value 3/4, Edge 0-1 Cover Value 4/4, Unknown 15"
                             }
                           ]
                         },
@@ -13267,7 +13267,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 1-2 wall, Edge 1-2 ledge cover, Unknown 9, Unknown 10, Unknown 15"
+                              "value": "Edge 1-2 Cover Value 1/4, Edge 1-2 Cover Value 2/4, Edge 1-2 Cover Value 3/4, Edge 1-2 Cover Value 4/4, Unknown 15"
                             }
                           ]
                         },
@@ -13304,7 +13304,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 1-2 wall, Edge 1-2 ledge cover, Unknown 9, Unknown 10, Unknown 15"
+                              "value": "Edge 1-2 Cover Value 1/4, Edge 1-2 Cover Value 2/4, Edge 1-2 Cover Value 3/4, Edge 1-2 Cover Value 4/4, Unknown 15"
                             }
                           ]
                         },
@@ -13341,7 +13341,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 1-2 wall, Edge 1-2 ledge cover, Unknown 9, Unknown 10, Unknown 15"
+                              "value": "Edge 1-2 Cover Value 1/4, Edge 1-2 Cover Value 2/4, Edge 1-2 Cover Value 3/4, Edge 1-2 Cover Value 4/4, Unknown 15"
                             }
                           ]
                         },
@@ -13563,7 +13563,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 1-2 wall, Edge 1-2 ledge cover, Unknown 9, Unknown 10, Unknown 15"
+                              "value": "Edge 1-2 Cover Value 1/4, Edge 1-2 Cover Value 2/4, Edge 1-2 Cover Value 3/4, Edge 1-2 Cover Value 4/4, Unknown 15"
                             }
                           ]
                         },
@@ -13600,7 +13600,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 1-2 wall, Edge 1-2 ledge cover, Unknown 9, Unknown 10, Unknown 15"
+                              "value": "Edge 1-2 Cover Value 1/4, Edge 1-2 Cover Value 2/4, Edge 1-2 Cover Value 3/4, Edge 1-2 Cover Value 4/4, Unknown 15"
                             }
                           ]
                         },
@@ -13822,7 +13822,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Unknown 3, Unknown 15"
+                              "value": "Edge 0-1 Cover Value 3/4, Unknown 15"
                             }
                           ]
                         },
@@ -13896,7 +13896,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 1-2 wall, Edge 1-2 ledge cover, Unknown 9, Unknown 10, Unknown 15"
+                              "value": "Edge 1-2 Cover Value 1/4, Edge 1-2 Cover Value 2/4, Edge 1-2 Cover Value 3/4, Edge 1-2 Cover Value 4/4, Unknown 15"
                             }
                           ]
                         },
@@ -13970,7 +13970,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Unknown 3, Edge 0-1 left, Unknown 15"
+                              "value": "Edge 0-1 Cover Value 3/4, Edge 0-1 Left, Unknown 15"
                             }
                           ]
                         },
@@ -14044,7 +14044,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 1-2 wall, Edge 1-2 ledge cover, Unknown 9, Unknown 10, Unknown 15"
+                              "value": "Edge 1-2 Cover Value 1/4, Edge 1-2 Cover Value 2/4, Edge 1-2 Cover Value 3/4, Edge 1-2 Cover Value 4/4, Unknown 15"
                             }
                           ]
                         },
@@ -14081,7 +14081,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Unknown 3, Edge 0-1 right, Unknown 15"
+                              "value": "Edge 0-1 Cover Value 3/4, Edge 0-1 Right, Unknown 15"
                             }
                           ]
                         },
@@ -14266,7 +14266,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 0-1 wall, Edge 0-1 ledge cover, Unknown 3, Unknown 4, Edge 0-1 left, Edge 0-1 right, Unknown 15"
+                              "value": "Edge 0-1 Cover Value 1/4, Edge 0-1 Cover Value 2/4, Edge 0-1 Cover Value 3/4, Edge 0-1 Cover Value 4/4, Edge 0-1 Left, Edge 0-1 Right, Unknown 15"
                             }
                           ]
                         },
@@ -14340,7 +14340,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 1-2 wall, Edge 1-2 ledge cover, Unknown 9, Unknown 15"
+                              "value": "Edge 1-2 Cover Value 1/4, Edge 1-2 Cover Value 2/4, Edge 1-2 Cover Value 3/4, Unknown 15"
                             }
                           ]
                         },
@@ -14377,7 +14377,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 1-2 wall, Edge 1-2 ledge cover, Unknown 9, Unknown 10, Unknown 15"
+                              "value": "Edge 1-2 Cover Value 1/4, Edge 1-2 Cover Value 2/4, Edge 1-2 Cover Value 3/4, Edge 1-2 Cover Value 4/4, Unknown 15"
                             }
                           ]
                         },
@@ -14414,7 +14414,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 0-1 wall, Edge 0-1 ledge cover, Unknown 3, Unknown 4, Edge 0-1 left, Unknown 15"
+                              "value": "Edge 0-1 Cover Value 1/4, Edge 0-1 Cover Value 2/4, Edge 0-1 Cover Value 3/4, Edge 0-1 Cover Value 4/4, Edge 0-1 Left, Unknown 15"
                             }
                           ]
                         },
@@ -14451,7 +14451,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 0-1 wall, Edge 0-1 ledge cover, Unknown 3, Unknown 4, Unknown 15"
+                              "value": "Edge 0-1 Cover Value 1/4, Edge 0-1 Cover Value 2/4, Edge 0-1 Cover Value 3/4, Edge 0-1 Cover Value 4/4, Unknown 15"
                             }
                           ]
                         },
@@ -14488,7 +14488,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 0-1 wall, Edge 0-1 ledge cover, Unknown 3, Unknown 4, Unknown 15"
+                              "value": "Edge 0-1 Cover Value 1/4, Edge 0-1 Cover Value 2/4, Edge 0-1 Cover Value 3/4, Edge 0-1 Cover Value 4/4, Unknown 15"
                             }
                           ]
                         },
@@ -14599,7 +14599,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 1-2 wall, Edge 1-2 ledge cover, Unknown 9, Unknown 10, Unknown 15"
+                              "value": "Edge 1-2 Cover Value 1/4, Edge 1-2 Cover Value 2/4, Edge 1-2 Cover Value 3/4, Edge 1-2 Cover Value 4/4, Unknown 15"
                             }
                           ]
                         },
@@ -14747,7 +14747,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 1-2 wall, Edge 1-2 ledge cover, Unknown 9, Unknown 10, Edge 1-2 left, Unknown 15"
+                              "value": "Edge 1-2 Cover Value 1/4, Edge 1-2 Cover Value 2/4, Edge 1-2 Cover Value 3/4, Edge 1-2 Cover Value 4/4, Edge 1-2 Left, Unknown 15"
                             }
                           ]
                         },
@@ -14969,7 +14969,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 0-1 wall, Edge 0-1 ledge cover, Unknown 3, Unknown 4, Unknown 15"
+                              "value": "Edge 0-1 Cover Value 1/4, Edge 0-1 Cover Value 2/4, Edge 0-1 Cover Value 3/4, Edge 0-1 Cover Value 4/4, Unknown 15"
                             }
                           ]
                         },
@@ -15006,7 +15006,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 0-1 wall, Edge 0-1 ledge cover, Unknown 3, Unknown 4, Edge 0-1 right, Unknown 15"
+                              "value": "Edge 0-1 Cover Value 1/4, Edge 0-1 Cover Value 2/4, Edge 0-1 Cover Value 3/4, Edge 0-1 Cover Value 4/4, Edge 0-1 Right, Unknown 15"
                             }
                           ]
                         },
@@ -15043,7 +15043,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 0-1 wall, Edge 0-1 ledge cover, Unknown 3, Unknown 4, Unknown 15"
+                              "value": "Edge 0-1 Cover Value 1/4, Edge 0-1 Cover Value 2/4, Edge 0-1 Cover Value 3/4, Edge 0-1 Cover Value 4/4, Unknown 15"
                             }
                           ]
                         },
@@ -15117,7 +15117,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 1-2 wall, Edge 1-2 ledge cover, Unknown 9, Unknown 10, Unknown 15"
+                              "value": "Edge 1-2 Cover Value 1/4, Edge 1-2 Cover Value 2/4, Edge 1-2 Cover Value 3/4, Edge 1-2 Cover Value 4/4, Unknown 15"
                             }
                           ]
                         },
@@ -15154,7 +15154,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 1-2 wall, Edge 1-2 ledge cover, Unknown 9, Unknown 10, Unknown 15"
+                              "value": "Edge 1-2 Cover Value 1/4, Edge 1-2 Cover Value 2/4, Edge 1-2 Cover Value 3/4, Edge 1-2 Cover Value 4/4, Unknown 15"
                             }
                           ]
                         },
@@ -15228,7 +15228,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 1-2 wall, Edge 1-2 ledge cover, Unknown 9, Unknown 10, Unknown 15"
+                              "value": "Edge 1-2 Cover Value 1/4, Edge 1-2 Cover Value 2/4, Edge 1-2 Cover Value 3/4, Edge 1-2 Cover Value 4/4, Unknown 15"
                             }
                           ]
                         },
@@ -15265,7 +15265,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 1-2 wall, Edge 1-2 ledge cover, Unknown 9, Unknown 10, Unknown 15"
+                              "value": "Edge 1-2 Cover Value 1/4, Edge 1-2 Cover Value 2/4, Edge 1-2 Cover Value 3/4, Edge 1-2 Cover Value 4/4, Unknown 15"
                             }
                           ]
                         },
@@ -15450,7 +15450,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 0-1 wall, Edge 0-1 ledge cover, Unknown 3, Unknown 4, Unknown 15"
+                              "value": "Edge 0-1 Cover Value 1/4, Edge 0-1 Cover Value 2/4, Edge 0-1 Cover Value 3/4, Edge 0-1 Cover Value 4/4, Unknown 15"
                             }
                           ]
                         },
@@ -15598,7 +15598,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 0-1 wall, Edge 0-1 ledge cover, Unknown 3, Unknown 4, Unknown 15"
+                              "value": "Edge 0-1 Cover Value 1/4, Edge 0-1 Cover Value 2/4, Edge 0-1 Cover Value 3/4, Edge 0-1 Cover Value 4/4, Unknown 15"
                             }
                           ]
                         },
@@ -15709,7 +15709,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 0-1 wall, Edge 0-1 ledge cover, Unknown 3, Unknown 4, Unknown 15"
+                              "value": "Edge 0-1 Cover Value 1/4, Edge 0-1 Cover Value 2/4, Edge 0-1 Cover Value 3/4, Edge 0-1 Cover Value 4/4, Unknown 15"
                             }
                           ]
                         },
@@ -15783,7 +15783,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 0-1 wall, Edge 0-1 ledge cover, Unknown 3, Unknown 4, Unknown 15"
+                              "value": "Edge 0-1 Cover Value 1/4, Edge 0-1 Cover Value 2/4, Edge 0-1 Cover Value 3/4, Edge 0-1 Cover Value 4/4, Unknown 15"
                             }
                           ]
                         },
@@ -16116,7 +16116,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 1-2 wall, Edge 1-2 ledge cover, Unknown 9, Unknown 10, Unknown 15"
+                              "value": "Edge 1-2 Cover Value 1/4, Edge 1-2 Cover Value 2/4, Edge 1-2 Cover Value 3/4, Edge 1-2 Cover Value 4/4, Unknown 15"
                             }
                           ]
                         },
@@ -16153,7 +16153,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 0-1 ledge cover, Unknown 3, Edge 1-2 wall, Edge 1-2 ledge cover, Unknown 9, Unknown 10, Unknown 15"
+                              "value": "Edge 0-1 Cover Value 2/4, Edge 0-1 Cover Value 3/4, Edge 1-2 Cover Value 1/4, Edge 1-2 Cover Value 2/4, Edge 1-2 Cover Value 3/4, Edge 1-2 Cover Value 4/4, Unknown 15"
                             }
                           ]
                         },
@@ -16338,7 +16338,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 1-2 wall, Edge 1-2 ledge cover, Unknown 9, Unknown 10, Edge 1-2 left, Unknown 15"
+                              "value": "Edge 1-2 Cover Value 1/4, Edge 1-2 Cover Value 2/4, Edge 1-2 Cover Value 3/4, Edge 1-2 Cover Value 4/4, Edge 1-2 Left, Unknown 15"
                             }
                           ]
                         },
@@ -16523,7 +16523,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 0-1 ledge cover, Unknown 3, Edge 1-2 wall, Edge 1-2 ledge cover, Unknown 9, Unknown 10, Unknown 15"
+                              "value": "Edge 0-1 Cover Value 2/4, Edge 0-1 Cover Value 3/4, Edge 1-2 Cover Value 1/4, Edge 1-2 Cover Value 2/4, Edge 1-2 Cover Value 3/4, Edge 1-2 Cover Value 4/4, Unknown 15"
                             }
                           ]
                         },
@@ -16597,7 +16597,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 1-2 wall, Edge 1-2 ledge cover, Unknown 9, Unknown 10, Unknown 15"
+                              "value": "Edge 1-2 Cover Value 1/4, Edge 1-2 Cover Value 2/4, Edge 1-2 Cover Value 3/4, Edge 1-2 Cover Value 4/4, Unknown 15"
                             }
                           ]
                         },
@@ -16671,7 +16671,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 0-1 wall, Edge 0-1 ledge cover, Unknown 3, Unknown 4, Unknown 15"
+                              "value": "Edge 0-1 Cover Value 1/4, Edge 0-1 Cover Value 2/4, Edge 0-1 Cover Value 3/4, Edge 0-1 Cover Value 4/4, Unknown 15"
                             }
                           ]
                         },
@@ -16819,7 +16819,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 0-1 wall, Edge 0-1 ledge cover, Unknown 3, Unknown 4, Unknown 15"
+                              "value": "Edge 0-1 Cover Value 1/4, Edge 0-1 Cover Value 2/4, Edge 0-1 Cover Value 3/4, Edge 0-1 Cover Value 4/4, Unknown 15"
                             }
                           ]
                         },
@@ -17004,7 +17004,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Unknown 3, Unknown 15"
+                              "value": "Edge 0-1 Cover Value 3/4, Unknown 15"
                             }
                           ]
                         },
@@ -17041,7 +17041,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 1-2 wall, Edge 1-2 ledge cover, Unknown 9, Unknown 10, Unknown 15"
+                              "value": "Edge 1-2 Cover Value 1/4, Edge 1-2 Cover Value 2/4, Edge 1-2 Cover Value 3/4, Edge 1-2 Cover Value 4/4, Unknown 15"
                             }
                           ]
                         },
@@ -17078,7 +17078,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Unknown 9, Unknown 10, Edge 1-2 left, Unknown 15"
+                              "value": "Edge 1-2 Cover Value 3/4, Edge 1-2 Cover Value 4/4, Edge 1-2 Left, Unknown 15"
                             }
                           ]
                         },
@@ -17115,7 +17115,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 0-1 wall, Edge 0-1 ledge cover, Unknown 3, Unknown 4, Unknown 15"
+                              "value": "Edge 0-1 Cover Value 1/4, Edge 0-1 Cover Value 2/4, Edge 0-1 Cover Value 3/4, Edge 0-1 Cover Value 4/4, Unknown 15"
                             }
                           ]
                         },
@@ -17152,7 +17152,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Unknown 3, Unknown 4, Edge 0-1 right, Unknown 15"
+                              "value": "Edge 0-1 Cover Value 3/4, Edge 0-1 Cover Value 4/4, Edge 0-1 Right, Unknown 15"
                             }
                           ]
                         },
@@ -17189,7 +17189,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Unknown 3, Edge 0-1 left, Unknown 15"
+                              "value": "Edge 0-1 Cover Value 3/4, Edge 0-1 Left, Unknown 15"
                             }
                           ]
                         },
@@ -17300,7 +17300,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Unknown 9, Edge 1-2 right, Unknown 15"
+                              "value": "Edge 1-2 Cover Value 3/4, Edge 1-2 Right, Unknown 15"
                             }
                           ]
                         },
@@ -17374,7 +17374,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Unknown 3, Unknown 15"
+                              "value": "Edge 0-1 Cover Value 3/4, Unknown 15"
                             }
                           ]
                         },
@@ -17559,7 +17559,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 0-1 wall, Edge 0-1 ledge cover, Unknown 3, Unknown 4, Edge 1-2 wall, Edge 1-2 ledge cover, Unknown 9, Unknown 10, Edge 1-2 left, Unknown 15"
+                              "value": "Edge 0-1 Cover Value 1/4, Edge 0-1 Cover Value 2/4, Edge 0-1 Cover Value 3/4, Edge 0-1 Cover Value 4/4, Edge 1-2 Cover Value 1/4, Edge 1-2 Cover Value 2/4, Edge 1-2 Cover Value 3/4, Edge 1-2 Cover Value 4/4, Edge 1-2 Left, Unknown 15"
                             }
                           ]
                         },
@@ -17633,7 +17633,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 1-2 wall, Edge 1-2 ledge cover, Unknown 9, Unknown 10, Edge 1-2 left, Unknown 15"
+                              "value": "Edge 1-2 Cover Value 1/4, Edge 1-2 Cover Value 2/4, Edge 1-2 Cover Value 3/4, Edge 1-2 Cover Value 4/4, Edge 1-2 Left, Unknown 15"
                             }
                           ]
                         },
@@ -17707,7 +17707,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 1-2 wall, Edge 1-2 ledge cover, Unknown 9, Unknown 10, Unknown 15"
+                              "value": "Edge 1-2 Cover Value 1/4, Edge 1-2 Cover Value 2/4, Edge 1-2 Cover Value 3/4, Edge 1-2 Cover Value 4/4, Unknown 15"
                             }
                           ]
                         },
@@ -17781,7 +17781,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 0-1 wall, Edge 0-1 ledge cover, Unknown 3, Unknown 4, Edge 0-1 right, Unknown 15"
+                              "value": "Edge 0-1 Cover Value 1/4, Edge 0-1 Cover Value 2/4, Edge 0-1 Cover Value 3/4, Edge 0-1 Cover Value 4/4, Edge 0-1 Right, Unknown 15"
                             }
                           ]
                         },
@@ -18225,7 +18225,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Unknown 3, Edge 0-1 left, Unknown 15"
+                              "value": "Edge 0-1 Cover Value 3/4, Edge 0-1 Left, Unknown 15"
                             }
                           ]
                         },
@@ -18299,7 +18299,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 1-2 wall, Edge 1-2 ledge cover, Unknown 9, Unknown 10, Unknown 15"
+                              "value": "Edge 1-2 Cover Value 1/4, Edge 1-2 Cover Value 2/4, Edge 1-2 Cover Value 3/4, Edge 1-2 Cover Value 4/4, Unknown 15"
                             }
                           ]
                         },
@@ -18336,7 +18336,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 0-1 wall, Edge 0-1 ledge cover, Unknown 3, Unknown 4, Unknown 15"
+                              "value": "Edge 0-1 Cover Value 1/4, Edge 0-1 Cover Value 2/4, Edge 0-1 Cover Value 3/4, Edge 0-1 Cover Value 4/4, Unknown 15"
                             }
                           ]
                         },
@@ -18447,7 +18447,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 1-2 wall, Edge 1-2 ledge cover, Unknown 9, Unknown 15"
+                              "value": "Edge 1-2 Cover Value 1/4, Edge 1-2 Cover Value 2/4, Edge 1-2 Cover Value 3/4, Unknown 15"
                             }
                           ]
                         },
@@ -18780,7 +18780,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Unknown 9, Unknown 15"
+                              "value": "Edge 1-2 Cover Value 3/4, Unknown 15"
                             }
                           ]
                         },
@@ -18891,7 +18891,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Unknown 9, Edge 1-2 left, Unknown 15"
+                              "value": "Edge 1-2 Cover Value 3/4, Edge 1-2 Left, Unknown 15"
                             }
                           ]
                         },
@@ -18928,7 +18928,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 1-2 wall, Edge 1-2 ledge cover, Unknown 9, Unknown 10, Edge 1-2 right, Unknown 15"
+                              "value": "Edge 1-2 Cover Value 1/4, Edge 1-2 Cover Value 2/4, Edge 1-2 Cover Value 3/4, Edge 1-2 Cover Value 4/4, Edge 1-2 Right, Unknown 15"
                             }
                           ]
                         },
@@ -19002,7 +19002,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 0-1 wall, Edge 0-1 ledge cover, Unknown 3, Unknown 4, Unknown 15"
+                              "value": "Edge 0-1 Cover Value 1/4, Edge 0-1 Cover Value 2/4, Edge 0-1 Cover Value 3/4, Edge 0-1 Cover Value 4/4, Unknown 15"
                             }
                           ]
                         },
@@ -19113,7 +19113,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 0-1 wall, Edge 0-1 ledge cover, Unknown 3, Unknown 4, Edge 0-1 left, Edge 0-1 right, Unknown 15"
+                              "value": "Edge 0-1 Cover Value 1/4, Edge 0-1 Cover Value 2/4, Edge 0-1 Cover Value 3/4, Edge 0-1 Cover Value 4/4, Edge 0-1 Left, Edge 0-1 Right, Unknown 15"
                             }
                           ]
                         },
@@ -19150,7 +19150,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 1-2 wall, Edge 1-2 ledge cover, Unknown 9, Unknown 10, Edge 1-2 left, Edge 1-2 right, Unknown 15"
+                              "value": "Edge 1-2 Cover Value 1/4, Edge 1-2 Cover Value 2/4, Edge 1-2 Cover Value 3/4, Edge 1-2 Cover Value 4/4, Edge 1-2 Left, Edge 1-2 Right, Unknown 15"
                             }
                           ]
                         },
@@ -19372,7 +19372,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 1-2 wall, Unknown 9, Edge 1-2 right, Unknown 15"
+                              "value": "Edge 1-2 Cover Value 1/4, Edge 1-2 Cover Value 3/4, Edge 1-2 Right, Unknown 15"
                             }
                           ]
                         },
@@ -19631,7 +19631,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 1-2 ledge cover, Unknown 9, Unknown 15"
+                              "value": "Edge 1-2 Cover Value 2/4, Edge 1-2 Cover Value 3/4, Unknown 15"
                             }
                           ]
                         },
@@ -19705,7 +19705,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 1-2 wall, Edge 1-2 ledge cover, Unknown 9, Unknown 10, Edge 1-2 left, Unknown 15"
+                              "value": "Edge 1-2 Cover Value 1/4, Edge 1-2 Cover Value 2/4, Edge 1-2 Cover Value 3/4, Edge 1-2 Cover Value 4/4, Edge 1-2 Left, Unknown 15"
                             }
                           ]
                         },
@@ -19853,7 +19853,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 0-1 wall, Edge 0-1 ledge cover, Unknown 3, Unknown 4, Unknown 15"
+                              "value": "Edge 0-1 Cover Value 1/4, Edge 0-1 Cover Value 2/4, Edge 0-1 Cover Value 3/4, Edge 0-1 Cover Value 4/4, Unknown 15"
                             }
                           ]
                         },
@@ -19927,7 +19927,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 0-1 ledge cover, Unknown 3, Edge 1-2 wall, Edge 1-2 ledge cover, Unknown 9, Unknown 10, Unknown 15"
+                              "value": "Edge 0-1 Cover Value 2/4, Edge 0-1 Cover Value 3/4, Edge 1-2 Cover Value 1/4, Edge 1-2 Cover Value 2/4, Edge 1-2 Cover Value 3/4, Edge 1-2 Cover Value 4/4, Unknown 15"
                             }
                           ]
                         },
@@ -19964,7 +19964,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 1-2 wall, Edge 1-2 ledge cover, Unknown 9, Unknown 10, Edge 1-2 left, Unknown 15"
+                              "value": "Edge 1-2 Cover Value 1/4, Edge 1-2 Cover Value 2/4, Edge 1-2 Cover Value 3/4, Edge 1-2 Cover Value 4/4, Edge 1-2 Left, Unknown 15"
                             }
                           ]
                         },
@@ -20149,7 +20149,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 0-1 wall, Edge 0-1 ledge cover, Unknown 3, Unknown 4, Edge 0-1 left, Unknown 15"
+                              "value": "Edge 0-1 Cover Value 1/4, Edge 0-1 Cover Value 2/4, Edge 0-1 Cover Value 3/4, Edge 0-1 Cover Value 4/4, Edge 0-1 Left, Unknown 15"
                             }
                           ]
                         },
@@ -20223,7 +20223,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 0-1 wall, Edge 0-1 ledge cover, Unknown 3, Unknown 4, Unknown 15"
+                              "value": "Edge 0-1 Cover Value 1/4, Edge 0-1 Cover Value 2/4, Edge 0-1 Cover Value 3/4, Edge 0-1 Cover Value 4/4, Unknown 15"
                             }
                           ]
                         },
@@ -20260,7 +20260,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 0-1 ledge cover, Unknown 3, Edge 1-2 wall, Edge 1-2 ledge cover, Unknown 9, Unknown 10, Unknown 15"
+                              "value": "Edge 0-1 Cover Value 2/4, Edge 0-1 Cover Value 3/4, Edge 1-2 Cover Value 1/4, Edge 1-2 Cover Value 2/4, Edge 1-2 Cover Value 3/4, Edge 1-2 Cover Value 4/4, Unknown 15"
                             }
                           ]
                         },
@@ -20482,7 +20482,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 1-2 wall, Edge 1-2 ledge cover, Unknown 9, Unknown 10, Edge 1-2 right, Unknown 15"
+                              "value": "Edge 1-2 Cover Value 1/4, Edge 1-2 Cover Value 2/4, Edge 1-2 Cover Value 3/4, Edge 1-2 Cover Value 4/4, Edge 1-2 Right, Unknown 15"
                             }
                           ]
                         },
@@ -20593,7 +20593,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 1-2 wall, Edge 1-2 ledge cover, Unknown 9, Unknown 10, Edge 1-2 right, Unknown 15"
+                              "value": "Edge 1-2 Cover Value 1/4, Edge 1-2 Cover Value 2/4, Edge 1-2 Cover Value 3/4, Edge 1-2 Cover Value 4/4, Edge 1-2 Right, Unknown 15"
                             }
                           ]
                         },
@@ -20852,7 +20852,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 0-1 wall, Edge 0-1 ledge cover, Unknown 3, Unknown 4, Unknown 15"
+                              "value": "Edge 0-1 Cover Value 1/4, Edge 0-1 Cover Value 2/4, Edge 0-1 Cover Value 3/4, Edge 0-1 Cover Value 4/4, Unknown 15"
                             }
                           ]
                         },
@@ -20889,7 +20889,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 0-1 wall, Edge 0-1 ledge cover, Unknown 3, Unknown 4, Edge 0-1 right, Unknown 15"
+                              "value": "Edge 0-1 Cover Value 1/4, Edge 0-1 Cover Value 2/4, Edge 0-1 Cover Value 3/4, Edge 0-1 Cover Value 4/4, Edge 0-1 Right, Unknown 15"
                             }
                           ]
                         },
@@ -21111,7 +21111,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 0-1 wall, Edge 0-1 ledge cover, Unknown 3, Unknown 4, Edge 1-2 wall, Edge 1-2 ledge cover, Unknown 9, Unknown 10, Unknown 15"
+                              "value": "Edge 0-1 Cover Value 1/4, Edge 0-1 Cover Value 2/4, Edge 0-1 Cover Value 3/4, Edge 0-1 Cover Value 4/4, Edge 1-2 Cover Value 1/4, Edge 1-2 Cover Value 2/4, Edge 1-2 Cover Value 3/4, Edge 1-2 Cover Value 4/4, Unknown 15"
                             }
                           ]
                         },
@@ -21185,7 +21185,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Unknown 9, Unknown 10, Unknown 15"
+                              "value": "Edge 1-2 Cover Value 3/4, Edge 1-2 Cover Value 4/4, Unknown 15"
                             }
                           ]
                         },
@@ -21222,7 +21222,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 1-2 wall, Edge 1-2 ledge cover, Unknown 10, Edge 1-2 right, Unknown 15"
+                              "value": "Edge 1-2 Cover Value 1/4, Edge 1-2 Cover Value 2/4, Edge 1-2 Cover Value 4/4, Edge 1-2 Right, Unknown 15"
                             }
                           ]
                         },
@@ -21259,7 +21259,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 0-1 wall, Edge 0-1 ledge cover, Unknown 3, Unknown 4, Edge 1-2 wall, Edge 1-2 ledge cover, Unknown 9, Unknown 10, Unknown 15"
+                              "value": "Edge 0-1 Cover Value 1/4, Edge 0-1 Cover Value 2/4, Edge 0-1 Cover Value 3/4, Edge 0-1 Cover Value 4/4, Edge 1-2 Cover Value 1/4, Edge 1-2 Cover Value 2/4, Edge 1-2 Cover Value 3/4, Edge 1-2 Cover Value 4/4, Unknown 15"
                             }
                           ]
                         },
@@ -21333,7 +21333,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 0-1 wall, Edge 0-1 ledge cover, Unknown 3, Unknown 4, Unknown 15"
+                              "value": "Edge 0-1 Cover Value 1/4, Edge 0-1 Cover Value 2/4, Edge 0-1 Cover Value 3/4, Edge 0-1 Cover Value 4/4, Unknown 15"
                             }
                           ]
                         },
@@ -21370,7 +21370,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 1-2 wall, Edge 1-2 ledge cover, Unknown 9, Unknown 10, Unknown 15"
+                              "value": "Edge 1-2 Cover Value 1/4, Edge 1-2 Cover Value 2/4, Edge 1-2 Cover Value 3/4, Edge 1-2 Cover Value 4/4, Unknown 15"
                             }
                           ]
                         },
@@ -21518,7 +21518,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Unknown 3, Edge 0-1 right, Unknown 15"
+                              "value": "Edge 0-1 Cover Value 3/4, Edge 0-1 Right, Unknown 15"
                             }
                           ]
                         },
@@ -21592,7 +21592,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 1-2 ledge cover, Unknown 10, Unknown 15"
+                              "value": "Edge 1-2 Cover Value 2/4, Edge 1-2 Cover Value 4/4, Unknown 15"
                             }
                           ]
                         },
@@ -21629,7 +21629,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 0-1 wall, Edge 0-1 ledge cover, Unknown 3, Unknown 4, Edge 1-2 wall, Edge 1-2 ledge cover, Unknown 9, Unknown 10, Unknown 15"
+                              "value": "Edge 0-1 Cover Value 1/4, Edge 0-1 Cover Value 2/4, Edge 0-1 Cover Value 3/4, Edge 0-1 Cover Value 4/4, Edge 1-2 Cover Value 1/4, Edge 1-2 Cover Value 2/4, Edge 1-2 Cover Value 3/4, Edge 1-2 Cover Value 4/4, Unknown 15"
                             }
                           ]
                         },
@@ -21666,7 +21666,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Unknown 9, Unknown 10, Unknown 15"
+                              "value": "Edge 1-2 Cover Value 3/4, Edge 1-2 Cover Value 4/4, Unknown 15"
                             }
                           ]
                         },
@@ -21777,7 +21777,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 1-2 wall, Edge 1-2 ledge cover, Unknown 9, Unknown 10, Unknown 15"
+                              "value": "Edge 1-2 Cover Value 1/4, Edge 1-2 Cover Value 2/4, Edge 1-2 Cover Value 3/4, Edge 1-2 Cover Value 4/4, Unknown 15"
                             }
                           ]
                         },
@@ -21851,7 +21851,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 0-1 wall, Edge 0-1 ledge cover, Unknown 3, Unknown 4, Edge 0-1 left, Edge 0-1 right, Unknown 15"
+                              "value": "Edge 0-1 Cover Value 1/4, Edge 0-1 Cover Value 2/4, Edge 0-1 Cover Value 3/4, Edge 0-1 Cover Value 4/4, Edge 0-1 Left, Edge 0-1 Right, Unknown 15"
                             }
                           ]
                         },
@@ -21925,7 +21925,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 0-1 wall, Edge 0-1 ledge cover, Unknown 4, Edge 0-1 left, Unknown 15"
+                              "value": "Edge 0-1 Cover Value 1/4, Edge 0-1 Cover Value 2/4, Edge 0-1 Cover Value 4/4, Edge 0-1 Left, Unknown 15"
                             }
                           ]
                         },
@@ -21962,7 +21962,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 1-2 wall, Edge 1-2 ledge cover, Unknown 9, Unknown 10, Unknown 15"
+                              "value": "Edge 1-2 Cover Value 1/4, Edge 1-2 Cover Value 2/4, Edge 1-2 Cover Value 3/4, Edge 1-2 Cover Value 4/4, Unknown 15"
                             }
                           ]
                         },
@@ -21999,7 +21999,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 1-2 ledge cover, Unknown 10, Edge 1-2 right, Unknown 15"
+                              "value": "Edge 1-2 Cover Value 2/4, Edge 1-2 Cover Value 4/4, Edge 1-2 Right, Unknown 15"
                             }
                           ]
                         },
@@ -22110,7 +22110,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 0-1 wall, Edge 0-1 ledge cover, Unknown 3, Unknown 4, Unknown 15"
+                              "value": "Edge 0-1 Cover Value 1/4, Edge 0-1 Cover Value 2/4, Edge 0-1 Cover Value 3/4, Edge 0-1 Cover Value 4/4, Unknown 15"
                             }
                           ]
                         },
@@ -22147,7 +22147,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 0-1 wall, Edge 0-1 ledge cover, Unknown 3, Unknown 4, Edge 0-1 left, Edge 0-1 right, Unknown 15"
+                              "value": "Edge 0-1 Cover Value 1/4, Edge 0-1 Cover Value 2/4, Edge 0-1 Cover Value 3/4, Edge 0-1 Cover Value 4/4, Edge 0-1 Left, Edge 0-1 Right, Unknown 15"
                             }
                           ]
                         },
@@ -22221,7 +22221,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 1-2 wall, Edge 1-2 ledge cover, Unknown 9, Unknown 10, Unknown 15"
+                              "value": "Edge 1-2 Cover Value 1/4, Edge 1-2 Cover Value 2/4, Edge 1-2 Cover Value 3/4, Edge 1-2 Cover Value 4/4, Unknown 15"
                             }
                           ]
                         },
@@ -22258,7 +22258,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Unknown 9, Unknown 15"
+                              "value": "Edge 1-2 Cover Value 3/4, Unknown 15"
                             }
                           ]
                         },
@@ -22295,7 +22295,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 0-1 wall, Edge 0-1 ledge cover, Unknown 3, Unknown 4, Unknown 15"
+                              "value": "Edge 0-1 Cover Value 1/4, Edge 0-1 Cover Value 2/4, Edge 0-1 Cover Value 3/4, Edge 0-1 Cover Value 4/4, Unknown 15"
                             }
                           ]
                         },
@@ -22332,7 +22332,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 0-1 wall, Edge 0-1 ledge cover, Unknown 3, Unknown 4, Unknown 15"
+                              "value": "Edge 0-1 Cover Value 1/4, Edge 0-1 Cover Value 2/4, Edge 0-1 Cover Value 3/4, Edge 0-1 Cover Value 4/4, Unknown 15"
                             }
                           ]
                         },
@@ -22406,7 +22406,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Unknown 3, Unknown 15"
+                              "value": "Edge 0-1 Cover Value 3/4, Unknown 15"
                             }
                           ]
                         },
@@ -22443,7 +22443,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 1-2 wall, Edge 1-2 ledge cover, Unknown 9, Unknown 10, Unknown 15"
+                              "value": "Edge 1-2 Cover Value 1/4, Edge 1-2 Cover Value 2/4, Edge 1-2 Cover Value 3/4, Edge 1-2 Cover Value 4/4, Unknown 15"
                             }
                           ]
                         },
@@ -22517,7 +22517,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 0-1 wall, Edge 0-1 ledge cover, Unknown 3, Unknown 4, Unknown 15"
+                              "value": "Edge 0-1 Cover Value 1/4, Edge 0-1 Cover Value 2/4, Edge 0-1 Cover Value 3/4, Edge 0-1 Cover Value 4/4, Unknown 15"
                             }
                           ]
                         },
@@ -22813,7 +22813,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 0-1 wall, Edge 0-1 ledge cover, Unknown 3, Unknown 4, Unknown 15"
+                              "value": "Edge 0-1 Cover Value 1/4, Edge 0-1 Cover Value 2/4, Edge 0-1 Cover Value 3/4, Edge 0-1 Cover Value 4/4, Unknown 15"
                             }
                           ]
                         },
@@ -22924,7 +22924,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Unknown 9, Unknown 15"
+                              "value": "Edge 1-2 Cover Value 3/4, Unknown 15"
                             }
                           ]
                         },
@@ -22961,7 +22961,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 1-2 wall, Edge 1-2 ledge cover, Unknown 9, Unknown 10, Unknown 15"
+                              "value": "Edge 1-2 Cover Value 1/4, Edge 1-2 Cover Value 2/4, Edge 1-2 Cover Value 3/4, Edge 1-2 Cover Value 4/4, Unknown 15"
                             }
                           ]
                         },
@@ -23035,7 +23035,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 1-2 wall, Edge 1-2 ledge cover, Unknown 9, Unknown 10, Unknown 15"
+                              "value": "Edge 1-2 Cover Value 1/4, Edge 1-2 Cover Value 2/4, Edge 1-2 Cover Value 3/4, Edge 1-2 Cover Value 4/4, Unknown 15"
                             }
                           ]
                         },
@@ -23109,7 +23109,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 1-2 wall, Edge 1-2 ledge cover, Unknown 9, Unknown 10, Unknown 15"
+                              "value": "Edge 1-2 Cover Value 1/4, Edge 1-2 Cover Value 2/4, Edge 1-2 Cover Value 3/4, Edge 1-2 Cover Value 4/4, Unknown 15"
                             }
                           ]
                         },
@@ -23257,7 +23257,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 1-2 ledge cover, Unknown 9, Unknown 10, Unknown 15"
+                              "value": "Edge 1-2 Cover Value 2/4, Edge 1-2 Cover Value 3/4, Edge 1-2 Cover Value 4/4, Unknown 15"
                             }
                           ]
                         },
@@ -23294,7 +23294,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 0-1 wall, Edge 0-1 ledge cover, Unknown 3, Unknown 4, Unknown 15"
+                              "value": "Edge 0-1 Cover Value 1/4, Edge 0-1 Cover Value 2/4, Edge 0-1 Cover Value 3/4, Edge 0-1 Cover Value 4/4, Unknown 15"
                             }
                           ]
                         },
@@ -23331,7 +23331,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 0-1 wall, Edge 0-1 ledge cover, Unknown 3, Unknown 4, Unknown 15"
+                              "value": "Edge 0-1 Cover Value 1/4, Edge 0-1 Cover Value 2/4, Edge 0-1 Cover Value 3/4, Edge 0-1 Cover Value 4/4, Unknown 15"
                             }
                           ]
                         },
@@ -23405,7 +23405,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 1-2 wall, Edge 1-2 ledge cover, Unknown 9, Unknown 10, Edge 1-2 left, Unknown 15"
+                              "value": "Edge 1-2 Cover Value 1/4, Edge 1-2 Cover Value 2/4, Edge 1-2 Cover Value 3/4, Edge 1-2 Cover Value 4/4, Edge 1-2 Left, Unknown 15"
                             }
                           ]
                         },
@@ -23442,7 +23442,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 1-2 wall, Edge 1-2 ledge cover, Unknown 9, Unknown 10, Edge 1-2 left, Edge 1-2 right, Unknown 15"
+                              "value": "Edge 1-2 Cover Value 1/4, Edge 1-2 Cover Value 2/4, Edge 1-2 Cover Value 3/4, Edge 1-2 Cover Value 4/4, Edge 1-2 Left, Edge 1-2 Right, Unknown 15"
                             }
                           ]
                         },
@@ -23590,7 +23590,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 0-1 wall, Edge 0-1 ledge cover, Unknown 3, Unknown 4, Edge 0-1 right, Unknown 15"
+                              "value": "Edge 0-1 Cover Value 1/4, Edge 0-1 Cover Value 2/4, Edge 0-1 Cover Value 3/4, Edge 0-1 Cover Value 4/4, Edge 0-1 Right, Unknown 15"
                             }
                           ]
                         },
@@ -23849,7 +23849,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 1-2 wall, Edge 1-2 ledge cover, Unknown 9, Unknown 10, Unknown 15"
+                              "value": "Edge 1-2 Cover Value 1/4, Edge 1-2 Cover Value 2/4, Edge 1-2 Cover Value 3/4, Edge 1-2 Cover Value 4/4, Unknown 15"
                             }
                           ]
                         },
@@ -23923,7 +23923,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 0-1 wall, Edge 0-1 ledge cover, Unknown 3, Unknown 4, Edge 0-1 left, Unknown 15"
+                              "value": "Edge 0-1 Cover Value 1/4, Edge 0-1 Cover Value 2/4, Edge 0-1 Cover Value 3/4, Edge 0-1 Cover Value 4/4, Edge 0-1 Left, Unknown 15"
                             }
                           ]
                         },
@@ -23997,7 +23997,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 1-2 wall, Unknown 9, Unknown 15"
+                              "value": "Edge 1-2 Cover Value 1/4, Edge 1-2 Cover Value 3/4, Unknown 15"
                             }
                           ]
                         },
@@ -24034,7 +24034,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 1-2 wall, Edge 1-2 ledge cover, Unknown 9, Unknown 10, Unknown 15"
+                              "value": "Edge 1-2 Cover Value 1/4, Edge 1-2 Cover Value 2/4, Edge 1-2 Cover Value 3/4, Edge 1-2 Cover Value 4/4, Unknown 15"
                             }
                           ]
                         },
@@ -24145,7 +24145,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 0-1 wall, Edge 0-1 ledge cover, Unknown 3, Unknown 4, Unknown 15"
+                              "value": "Edge 0-1 Cover Value 1/4, Edge 0-1 Cover Value 2/4, Edge 0-1 Cover Value 3/4, Edge 0-1 Cover Value 4/4, Unknown 15"
                             }
                           ]
                         },
@@ -24293,7 +24293,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 0-1 wall, Edge 0-1 ledge cover, Unknown 3, Unknown 4, Unknown 15"
+                              "value": "Edge 0-1 Cover Value 1/4, Edge 0-1 Cover Value 2/4, Edge 0-1 Cover Value 3/4, Edge 0-1 Cover Value 4/4, Unknown 15"
                             }
                           ]
                         },
@@ -24367,7 +24367,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 1-2 wall, Edge 1-2 ledge cover, Unknown 9, Unknown 10, Unknown 15"
+                              "value": "Edge 1-2 Cover Value 1/4, Edge 1-2 Cover Value 2/4, Edge 1-2 Cover Value 3/4, Edge 1-2 Cover Value 4/4, Unknown 15"
                             }
                           ]
                         },
@@ -24404,7 +24404,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 0-1 wall, Edge 0-1 ledge cover, Unknown 3, Unknown 4, Edge 0-1 right, Unknown 15"
+                              "value": "Edge 0-1 Cover Value 1/4, Edge 0-1 Cover Value 2/4, Edge 0-1 Cover Value 3/4, Edge 0-1 Cover Value 4/4, Edge 0-1 Right, Unknown 15"
                             }
                           ]
                         },
@@ -24478,7 +24478,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 1-2 wall, Edge 1-2 ledge cover, Unknown 9, Unknown 10, Unknown 15"
+                              "value": "Edge 1-2 Cover Value 1/4, Edge 1-2 Cover Value 2/4, Edge 1-2 Cover Value 3/4, Edge 1-2 Cover Value 4/4, Unknown 15"
                             }
                           ]
                         },
@@ -24515,7 +24515,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 1-2 wall, Edge 1-2 ledge cover, Unknown 10, Edge 1-2 left, Unknown 15"
+                              "value": "Edge 1-2 Cover Value 1/4, Edge 1-2 Cover Value 2/4, Edge 1-2 Cover Value 4/4, Edge 1-2 Left, Unknown 15"
                             }
                           ]
                         },
@@ -24589,7 +24589,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 1-2 ledge cover, Unknown 10, Edge 1-2 right, Unknown 15"
+                              "value": "Edge 1-2 Cover Value 2/4, Edge 1-2 Cover Value 4/4, Edge 1-2 Right, Unknown 15"
                             }
                           ]
                         },
@@ -24626,7 +24626,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Unknown 3, Edge 1-2 wall, Edge 1-2 ledge cover, Unknown 9, Unknown 10, Unknown 15"
+                              "value": "Edge 0-1 Cover Value 3/4, Edge 1-2 Cover Value 1/4, Edge 1-2 Cover Value 2/4, Edge 1-2 Cover Value 3/4, Edge 1-2 Cover Value 4/4, Unknown 15"
                             }
                           ]
                         },
@@ -24663,7 +24663,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 0-1 wall, Edge 0-1 ledge cover, Unknown 3, Unknown 4, Unknown 15"
+                              "value": "Edge 0-1 Cover Value 1/4, Edge 0-1 Cover Value 2/4, Edge 0-1 Cover Value 3/4, Edge 0-1 Cover Value 4/4, Unknown 15"
                             }
                           ]
                         },
@@ -24774,7 +24774,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 1-2 ledge cover, Unknown 10, Edge 1-2 right, Unknown 15"
+                              "value": "Edge 1-2 Cover Value 2/4, Edge 1-2 Cover Value 4/4, Edge 1-2 Right, Unknown 15"
                             }
                           ]
                         },
@@ -24811,7 +24811,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 0-1 wall, Edge 0-1 ledge cover, Unknown 3, Unknown 4, Edge 1-2 ledge cover, Unknown 10, Edge 1-2 left, Unknown 15"
+                              "value": "Edge 0-1 Cover Value 1/4, Edge 0-1 Cover Value 2/4, Edge 0-1 Cover Value 3/4, Edge 0-1 Cover Value 4/4, Edge 1-2 Cover Value 2/4, Edge 1-2 Cover Value 4/4, Edge 1-2 Left, Unknown 15"
                             }
                           ]
                         },
@@ -24848,7 +24848,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 0-1 wall, Edge 0-1 ledge cover, Unknown 3, Unknown 4, Unknown 15"
+                              "value": "Edge 0-1 Cover Value 1/4, Edge 0-1 Cover Value 2/4, Edge 0-1 Cover Value 3/4, Edge 0-1 Cover Value 4/4, Unknown 15"
                             }
                           ]
                         },
@@ -24885,7 +24885,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 0-1 wall, Unknown 3, Edge 0-1 right, Unknown 9, Unknown 15"
+                              "value": "Edge 0-1 Cover Value 1/4, Edge 0-1 Cover Value 3/4, Edge 0-1 Right, Edge 1-2 Cover Value 3/4, Unknown 15"
                             }
                           ]
                         },
@@ -24959,7 +24959,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 1-2 wall, Edge 1-2 ledge cover, Unknown 9, Unknown 10, Unknown 15"
+                              "value": "Edge 1-2 Cover Value 1/4, Edge 1-2 Cover Value 2/4, Edge 1-2 Cover Value 3/4, Edge 1-2 Cover Value 4/4, Unknown 15"
                             }
                           ]
                         },
@@ -24996,7 +24996,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 1-2 wall, Edge 1-2 ledge cover, Unknown 9, Unknown 10, Unknown 15"
+                              "value": "Edge 1-2 Cover Value 1/4, Edge 1-2 Cover Value 2/4, Edge 1-2 Cover Value 3/4, Edge 1-2 Cover Value 4/4, Unknown 15"
                             }
                           ]
                         },
@@ -25107,7 +25107,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 0-1 wall, Edge 0-1 ledge cover, Unknown 3, Unknown 4, Unknown 15"
+                              "value": "Edge 0-1 Cover Value 1/4, Edge 0-1 Cover Value 2/4, Edge 0-1 Cover Value 3/4, Edge 0-1 Cover Value 4/4, Unknown 15"
                             }
                           ]
                         },
@@ -25144,7 +25144,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 0-1 wall, Edge 0-1 ledge cover, Unknown 3, Unknown 4, Edge 1-2 ledge cover, Unknown 10, Edge 1-2 left, Unknown 15"
+                              "value": "Edge 0-1 Cover Value 1/4, Edge 0-1 Cover Value 2/4, Edge 0-1 Cover Value 3/4, Edge 0-1 Cover Value 4/4, Edge 1-2 Cover Value 2/4, Edge 1-2 Cover Value 4/4, Edge 1-2 Left, Unknown 15"
                             }
                           ]
                         },
@@ -25181,7 +25181,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 0-1 wall, Edge 0-1 ledge cover, Unknown 3, Unknown 4, Edge 0-1 right, Edge 1-2 wall, Edge 1-2 ledge cover, Unknown 9, Unknown 10, Edge 1-2 left, Unknown 15"
+                              "value": "Edge 0-1 Cover Value 1/4, Edge 0-1 Cover Value 2/4, Edge 0-1 Cover Value 3/4, Edge 0-1 Cover Value 4/4, Edge 0-1 Right, Edge 1-2 Cover Value 1/4, Edge 1-2 Cover Value 2/4, Edge 1-2 Cover Value 3/4, Edge 1-2 Cover Value 4/4, Edge 1-2 Left, Unknown 15"
                             }
                           ]
                         },
@@ -25218,7 +25218,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 0-1 ledge cover, Unknown 4, Edge 0-1 left, Unknown 15"
+                              "value": "Edge 0-1 Cover Value 2/4, Edge 0-1 Cover Value 4/4, Edge 0-1 Left, Unknown 15"
                             }
                           ]
                         },
@@ -25255,7 +25255,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 1-2 wall, Edge 1-2 ledge cover, Unknown 9, Unknown 10, Unknown 15"
+                              "value": "Edge 1-2 Cover Value 1/4, Edge 1-2 Cover Value 2/4, Edge 1-2 Cover Value 3/4, Edge 1-2 Cover Value 4/4, Unknown 15"
                             }
                           ]
                         },
@@ -25403,7 +25403,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 0-1 wall, Edge 0-1 ledge cover, Unknown 3, Unknown 4, Unknown 15"
+                              "value": "Edge 0-1 Cover Value 1/4, Edge 0-1 Cover Value 2/4, Edge 0-1 Cover Value 3/4, Edge 0-1 Cover Value 4/4, Unknown 15"
                             }
                           ]
                         },
@@ -25477,7 +25477,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 1-2 wall, Edge 1-2 ledge cover, Unknown 9, Unknown 10, Unknown 15"
+                              "value": "Edge 1-2 Cover Value 1/4, Edge 1-2 Cover Value 2/4, Edge 1-2 Cover Value 3/4, Edge 1-2 Cover Value 4/4, Unknown 15"
                             }
                           ]
                         },
@@ -25551,7 +25551,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 1-2 wall, Edge 1-2 ledge cover, Unknown 9, Unknown 10, Unknown 15"
+                              "value": "Edge 1-2 Cover Value 1/4, Edge 1-2 Cover Value 2/4, Edge 1-2 Cover Value 3/4, Edge 1-2 Cover Value 4/4, Unknown 15"
                             }
                           ]
                         },
@@ -25588,7 +25588,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 1-2 wall, Edge 1-2 ledge cover, Unknown 9, Unknown 10, Unknown 15"
+                              "value": "Edge 1-2 Cover Value 1/4, Edge 1-2 Cover Value 2/4, Edge 1-2 Cover Value 3/4, Edge 1-2 Cover Value 4/4, Unknown 15"
                             }
                           ]
                         },
@@ -25625,7 +25625,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 0-1 wall, Edge 0-1 ledge cover, Unknown 3, Unknown 4, Unknown 9, Edge 1-2 left, Unknown 15"
+                              "value": "Edge 0-1 Cover Value 1/4, Edge 0-1 Cover Value 2/4, Edge 0-1 Cover Value 3/4, Edge 0-1 Cover Value 4/4, Edge 1-2 Cover Value 3/4, Edge 1-2 Left, Unknown 15"
                             }
                           ]
                         },
@@ -26291,7 +26291,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 0-1 wall, Edge 0-1 ledge cover, Unknown 3, Unknown 4, Unknown 15"
+                              "value": "Edge 0-1 Cover Value 1/4, Edge 0-1 Cover Value 2/4, Edge 0-1 Cover Value 3/4, Edge 0-1 Cover Value 4/4, Unknown 15"
                             }
                           ]
                         },
@@ -26328,7 +26328,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 1-2 wall, Edge 1-2 ledge cover, Unknown 9, Unknown 10, Unknown 15"
+                              "value": "Edge 1-2 Cover Value 1/4, Edge 1-2 Cover Value 2/4, Edge 1-2 Cover Value 3/4, Edge 1-2 Cover Value 4/4, Unknown 15"
                             }
                           ]
                         },
@@ -27882,7 +27882,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Unknown 9, Unknown 15"
+                              "value": "Edge 1-2 Cover Value 3/4, Unknown 15"
                             }
                           ]
                         },
@@ -28030,7 +28030,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Unknown 9, Unknown 15"
+                              "value": "Edge 1-2 Cover Value 3/4, Unknown 15"
                             }
                           ]
                         },
@@ -28548,7 +28548,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 0-1 wall, Edge 0-1 ledge cover, Unknown 3, Unknown 4, Unknown 15"
+                              "value": "Edge 0-1 Cover Value 1/4, Edge 0-1 Cover Value 2/4, Edge 0-1 Cover Value 3/4, Edge 0-1 Cover Value 4/4, Unknown 15"
                             }
                           ]
                         },
@@ -28659,7 +28659,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Unknown 9, Edge 1-2 left, Unknown 15"
+                              "value": "Edge 1-2 Cover Value 3/4, Edge 1-2 Left, Unknown 15"
                             }
                           ]
                         },
@@ -28955,7 +28955,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 0-1 wall, Unknown 4, Unknown 15"
+                              "value": "Edge 0-1 Cover Value 1/4, Edge 0-1 Cover Value 4/4, Unknown 15"
                             }
                           ]
                         },
@@ -29140,7 +29140,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 0-1 wall, Edge 0-1 ledge cover, Unknown 4, Unknown 15"
+                              "value": "Edge 0-1 Cover Value 1/4, Edge 0-1 Cover Value 2/4, Edge 0-1 Cover Value 4/4, Unknown 15"
                             }
                           ]
                         },
@@ -29177,7 +29177,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 0-1 wall, Edge 0-1 ledge cover, Unknown 3, Unknown 4, Unknown 15"
+                              "value": "Edge 0-1 Cover Value 1/4, Edge 0-1 Cover Value 2/4, Edge 0-1 Cover Value 3/4, Edge 0-1 Cover Value 4/4, Unknown 15"
                             }
                           ]
                         },
@@ -29288,7 +29288,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 1-2 ledge cover, Unknown 10, Edge 1-2 left, Unknown 15"
+                              "value": "Edge 1-2 Cover Value 2/4, Edge 1-2 Cover Value 4/4, Edge 1-2 Left, Unknown 15"
                             }
                           ]
                         },
@@ -29436,7 +29436,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 0-1 wall, Edge 0-1 ledge cover, Unknown 3, Unknown 4, Unknown 15"
+                              "value": "Edge 0-1 Cover Value 1/4, Edge 0-1 Cover Value 2/4, Edge 0-1 Cover Value 3/4, Edge 0-1 Cover Value 4/4, Unknown 15"
                             }
                           ]
                         },
@@ -29473,7 +29473,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 0-1 wall, Edge 0-1 ledge cover, Unknown 3, Unknown 4, Unknown 15"
+                              "value": "Edge 0-1 Cover Value 1/4, Edge 0-1 Cover Value 2/4, Edge 0-1 Cover Value 3/4, Edge 0-1 Cover Value 4/4, Unknown 15"
                             }
                           ]
                         },
@@ -29510,7 +29510,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 1-2 wall, Edge 1-2 ledge cover, Unknown 9, Unknown 10, Unknown 15"
+                              "value": "Edge 1-2 Cover Value 1/4, Edge 1-2 Cover Value 2/4, Edge 1-2 Cover Value 3/4, Edge 1-2 Cover Value 4/4, Unknown 15"
                             }
                           ]
                         },
@@ -29547,7 +29547,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 1-2 wall, Edge 1-2 ledge cover, Unknown 9, Unknown 10, Edge 1-2 right, Unknown 15"
+                              "value": "Edge 1-2 Cover Value 1/4, Edge 1-2 Cover Value 2/4, Edge 1-2 Cover Value 3/4, Edge 1-2 Cover Value 4/4, Edge 1-2 Right, Unknown 15"
                             }
                           ]
                         },
@@ -29584,7 +29584,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 0-1 wall, Edge 0-1 ledge cover, Unknown 3, Unknown 4, Edge 1-2 wall, Edge 1-2 ledge cover, Unknown 9, Unknown 10, Unknown 15"
+                              "value": "Edge 0-1 Cover Value 1/4, Edge 0-1 Cover Value 2/4, Edge 0-1 Cover Value 3/4, Edge 0-1 Cover Value 4/4, Edge 1-2 Cover Value 1/4, Edge 1-2 Cover Value 2/4, Edge 1-2 Cover Value 3/4, Edge 1-2 Cover Value 4/4, Unknown 15"
                             }
                           ]
                         },
@@ -29621,7 +29621,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Edge 1-2 wall, Edge 1-2 ledge cover, Unknown 9, Unknown 10, Unknown 15"
+                              "value": "Edge 1-2 Cover Value 1/4, Edge 1-2 Cover Value 2/4, Edge 1-2 Cover Value 3/4, Edge 1-2 Cover Value 4/4, Unknown 15"
                             }
                           ]
                         },
@@ -29658,7 +29658,7 @@
                             },
                             {
                               "name": "Cover Flags",
-                              "value": "Unknown 4, Edge 0-1 left, Unknown 15"
+                              "value": "Edge 0-1 Cover Value 4/4, Edge 0-1 Left, Unknown 15"
                             }
                           ]
                         },
