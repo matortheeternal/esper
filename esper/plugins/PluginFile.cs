@@ -13,6 +13,7 @@ namespace esper.plugins {
         public PluginFileOptions options;
         public PluginFileSource source;
 
+        public bool isDummy => source == null;
         public uint recordCount => header.GetData(@"HEDR\Number of Records");
         public Encoding stringEncoding => session.options.encoding;
 
@@ -38,10 +39,6 @@ namespace esper.plugins {
 
         public bool IsEsl() {
             return false; // TODO
-        }
-
-        public bool IsDummy() {
-            return source == null;
         }
 
         internal void ReadFileHeader() {

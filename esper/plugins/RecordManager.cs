@@ -22,6 +22,18 @@ namespace esper.plugins {
             });
         }
 
+        public static MainRecord GetRecordByLocalFormId(
+            this IRecordManager m, UInt32 localFormId
+        ) {
+            var targetOrdinal = m.file.FileToOrdinal(m.file, false);
+            return CollectionHelpers.BinarySearch(m.records, rec => {
+                var ordinalComparison = targetOrdinal.CompareTo(rec.formId >> 24);
+                return ordinalComparison < 0 
+                    ? ordinalComparison
+                    : localFormId.CompareTo(rec.localFormId);
+            });
+        }
+
         public static void IndexRecord(this IRecordManager m, MainRecord rec) {
             m.records.Add(rec);
         }
