@@ -101,6 +101,7 @@ namespace esper.setup {
 
         public Def BuildBaseDef(JObject src) {
             var defType = src.Value<string>("type");
+            if (defType == "record" && !src.ContainsKey("signature")) return null;
             if (!defClasses.ContainsKey(defType))
                 throw new Exception($"Def type not implemented: {defType}");
             var args = new object[] { this, src };

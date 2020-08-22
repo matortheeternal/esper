@@ -1,5 +1,6 @@
 ﻿using esper.data;
 using esper.elements;
+using esper.helpers;
 using esper.plugins;
 using esper.setup;
 using Newtonsoft.Json.Linq;
@@ -9,11 +10,19 @@ using System.Linq;
 namespace esper.defs {
     public class MainRecordDef : MembersDef {
         public static string defType = "record";
+
+        private readonly string _signature;
+
+        public override string signature => _signature;
         public StructDef headerDef;
+        public FormIdDef containedInDef;
 
         public MainRecordDef(DefinitionManager manager, JObject src)
             : base(manager, src) {
+            ErrorHelpers.CheckDefProperty(src, "signature");
+            _signature = src.Value<string>("signature");
             headerDef = manager.BuildMainRecordHeaderDef(src, this);
+            containedInDef = (FormIdDef) JsonHelpers.Def(manager, src, "containedInElement");
         }
 
         private void ReadHeader(MainRecord rec, PluginFileSource source) {
@@ -51,9 +60,17 @@ namespace esper.defs {
             source.EndRead();
         }
 
+        internal void InitContainedInElements(GroupRecord group, MainRecord rec) {
+            if (group == null || !group.hasRecordParent) return;
+            var parentRec = group.GetParentRecord();
+            parentRec.MakeContainedInElement(rec);
+            InitContainedInElements(parentRec.container as GroupRecord, rec);
+        }
+
         internal void ReadElements(MainRecord rec, PluginFileSource source) {
             rec._elements = new List<Element>();
             rec.unexpectedSubrecords = new List<Subrecord>();
+            InitContainedInElements(rec.container as GroupRecord, rec);
             ReadHeader(rec, source);
             source.WithRecordData(rec, () => {
                 ReadSubrecords(rec, source);
