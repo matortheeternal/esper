@@ -17,6 +17,7 @@ namespace esper.plugins {
         public static MainRecord GetRecordByFormId(
             this IRecordManager m, UInt32 formId
         ) {
+            if (m.file.isDummy) return null;
             return CollectionHelpers.BinarySearch(m.records, rec => {
                 return formId.CompareTo(rec.formId);
             });
@@ -25,6 +26,7 @@ namespace esper.plugins {
         public static MainRecord GetRecordByLocalFormId(
             this IRecordManager m, UInt32 localFormId
         ) {
+            if (m.file.isDummy) return null;
             var targetOrdinal = m.file.FileToOrdinal(m.file, false);
             return CollectionHelpers.BinarySearch(m.records, rec => {
                 var ordinalComparison = targetOrdinal.CompareTo(rec.formId >> 24);
