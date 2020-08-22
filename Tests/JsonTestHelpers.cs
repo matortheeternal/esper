@@ -3,6 +3,7 @@ using esper.elements;
 using Newtonsoft.Json.Linq;
 using NUnit.Framework;
 using System;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 
@@ -79,7 +80,16 @@ namespace Tests {
             }
         }
 
+        private static void TestElementBuildTime(MainRecord rec) {
+            var sw = Stopwatch.StartNew();
+            Assert.IsNotNull(rec.count);
+            sw.Stop();
+            var elapsedTime = sw.ElapsedTicks / (double) Stopwatch.Frequency * 1000;
+            Console.WriteLine($"Built elements for {rec.signature} in {elapsedTime:N3}ms");
+        }
+
         private static void TestRecordValues(JObject json, MainRecord rec) {
+            TestElementBuildTime(rec);
             TestContainerValues(rec, json.Value<JArray>("elements"));
             if (json.ContainsKey("Child Group")) {
                 var src = json.Value<JObject>("Child Group");
