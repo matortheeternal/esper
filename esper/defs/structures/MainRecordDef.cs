@@ -64,7 +64,6 @@ namespace esper.defs {
             if (group == null || !group.hasRecordParent) return;
             var parentRec = group.GetParentRecord();
             parentRec.MakeContainedInElement(rec);
-            InitContainedInElements(parentRec.container as GroupRecord, rec);
         }
 
         internal void ReadElements(MainRecord rec, PluginFileSource source) {

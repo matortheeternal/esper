@@ -53,7 +53,7 @@ namespace Tests {
                 }
             }
             Assert.AreEqual(value, v.value,
-                $"Values did not match {element.path}"
+                $"Values did not match {element.fullPath}"
             );
         }
 
@@ -83,7 +83,7 @@ namespace Tests {
             TestContainerValues(rec, json.Value<JArray>("elements"));
             if (json.ContainsKey("Child Group")) {
                 var src = json.Value<JObject>("Child Group");
-                // TODO: TestGroupValues(src, rec.childGroup);
+                TestGroupValues(src, rec.childGroup);
             }
         }
 

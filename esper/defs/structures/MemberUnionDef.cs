@@ -15,8 +15,7 @@ namespace esper.defs {
 
         public override Element PrepareElement(Container container) {
             if (defaultDef.IsSubrecord()) return container;
-            return container.FindElementForDef(this) ??
-                new MemberUnionElement(container, this, true);
+            return new MemberUnionElement(container, this, true);
         }
 
         public override void SubrecordFound(
@@ -48,6 +47,11 @@ namespace esper.defs {
         public override bool HasSignature(string sig) {
             return defaultDef.IsSubrecord() && 
                 memberDefs.Any(d => d.HasSignature(sig));
+        }
+
+        public override string GetSortKey(Element element) {
+            var container = (Container) element;
+            return container._elements[0].sortKey;
         }
     }
 }

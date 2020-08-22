@@ -27,6 +27,7 @@ namespace esper.elements {
 
         public override string name => GetName();
         public override string displayName => name;
+        public override string pathKey => name;
         public override string signature => header.signature.ToString();
         public override GroupRecord group => this;
 
@@ -56,16 +57,19 @@ namespace esper.elements {
         }
 
         public bool isChildGroup {
-            get => header.groupType == 1 || 
-                   header.groupType == 6 || 
-                   header.groupType == 7;
+            get => groupType == GroupType.TopicChildren || 
+                   groupType == GroupType.WorldChildren || 
+                   groupType == GroupType.CellChildren;
         }
         public bool hasRecordParent {
             get => header.groupType == 1 || header.groupType >= 4;
         }
 
         public bool isChildGroupChild {
-            get => header.groupType == 8 || header.groupType == 9;
+            get => groupType == GroupType.ExteriorCellBlock ||
+                   groupType == GroupType.ExteriorCellSubBlock ||
+                   groupType == GroupType.CellPersistentChildren || 
+                   groupType == GroupType.CellTemporaryChildren;
         }
 
         public GroupRecord(Container container, PluginFileSource source)
@@ -110,7 +114,7 @@ namespace esper.elements {
                 GroupType.InteriorCellBlock => $"Block {labelAsInt32}",
                 GroupType.InteriorCellSubBlock => $"Sub-Block {labelAsInt32}",
                 GroupType.ExteriorCellBlock => $"Block {coordinatesStr}",
-                GroupType.ExteriorCellSubBlock => $"Subblock {coordinatesStr}",
+                GroupType.ExteriorCellSubBlock => $"Sub-Block {coordinatesStr}",
                 GroupType.CellChildren => $"Children of {labelAsFormId:X8}",
                 GroupType.TopicChildren => $"Children of {labelAsFormId:X8}",
                 GroupType.CellPersistentChildren => "Persistent",
