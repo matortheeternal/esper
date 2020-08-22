@@ -86,5 +86,11 @@ namespace esper.elements {
             base.ElementsReady();
             Initialize();
         }
+
+        internal void MakeContainedInElement(MainRecord targetRec) {
+            if (mrDef.containedInDef == null) return;
+            var element = (ValueElement) mrDef.containedInDef.NewElement(targetRec);
+            element._data = FormId.FromSource(_file, formId);
+        }
     }
 }

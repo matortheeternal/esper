@@ -63,6 +63,7 @@ namespace esper.elements {
         public bool hasRecordParent {
             get => header.groupType == 1 || header.groupType >= 4;
         }
+
         public bool isChildGroupChild {
             get => header.groupType == 8 || header.groupType == 9;
         }

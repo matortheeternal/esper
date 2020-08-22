@@ -7,7 +7,6 @@ using System.Collections.Generic;
 
 namespace esper.defs {
     public class ElementDef : Def {
-        internal int sortOrder;
         public readonly string name;
         public readonly bool required;
 
