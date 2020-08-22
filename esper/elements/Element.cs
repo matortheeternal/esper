@@ -19,8 +19,9 @@ namespace esper.elements {
         public Game game => manager?.session.game;
         public int index => container._elements.IndexOf(this);
 
-        public MainRecord referencedRecord {
+        public virtual MainRecord referencedRecord {
             get => throw new Exception("Element does not reference records.");
+            set => throw new Exception("Element does not reference records.");
         }
 
         public virtual PluginFile file => container?.file;

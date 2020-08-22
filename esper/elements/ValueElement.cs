@@ -1,4 +1,5 @@
-﻿using esper.defs;
+﻿using esper.data;
+using esper.defs;
 
 namespace esper.elements {
     public class ValueElement : Element {
@@ -25,6 +26,20 @@ namespace esper.elements {
         public string value {
             get => valueDef.GetValue(this);
             set => valueDef.SetValue(this, value);
+        }
+
+        public override MainRecord referencedRecord {
+            get {
+                if (valueDef is FormIdDef) {
+                    return data is FormId fid
+                        ? fid.ResolveRecord() 
+                        : null;
+                }
+                return base.referencedRecord;
+            }
+            set {
+                data = FormId.FromSource(value.file, value.formId);
+            }
         }
 
         public static ValueElement Init(

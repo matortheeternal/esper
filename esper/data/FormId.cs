@@ -33,6 +33,11 @@ namespace esper.data {
             return new FormId(targetPlugin, fileFormId);
         }
 
+        public MainRecord ResolveRecord() {
+            if (targetPlugin == null) return null;
+            return targetPlugin.GetRecordByLocalFormId(localFormId);
+        }
+
         public override string ToString() {
             return formats[0].ToString(this);
         }
