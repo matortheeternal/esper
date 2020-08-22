@@ -23,6 +23,7 @@ namespace esper.elements {
 
         public readonly TES4GroupHeader header;
         public EditorIdMap recordsByEditorID;
+        private MainRecord _parentRecord;
 
         public override string name => GetName();
         public override string displayName => name;
@@ -45,19 +46,43 @@ namespace esper.elements {
         };
         private string coordinatesStr => string.Join(", ", labelAsInt16x2);
 
+        public MainRecord parentRecord {
+            get => _parentRecord;
+            set {
+                if (value == null) return;
+                _parentRecord = value;
+                _parentRecord.childGroup = this;
+            }
+        }
+
         public bool isChildGroup {
+            get => header.groupType == 1 || 
+                   header.groupType == 6 || 
+                   header.groupType == 7;
+        }
+        public bool hasRecordParent {
             get => header.groupType == 1 || header.groupType >= 4;
         }
         public bool isChildGroupChild {
             get => header.groupType == 8 || header.groupType == 9;
         }
 
-
         public GroupRecord(Container container, PluginFileSource source)
             : base(container) {
             header = new TES4GroupHeader(source);
             if (signature != "GRUP")
                 throw new Exception("Expected GRUP record");
+            if (isChildGroup) SetParentRecord();
+        }
+
+        private void SetParentRecord() {
+            var previousSibling = container.elements[index - 1];
+            if (previousSibling is MainRecord rec && rec.formId == labelAsUInt32) {
+                parentRecord = rec;
+            } else {
+                // this doesn't seem to happen at all in Skyrim.esm, but it's here just in case
+                parentRecord = file.GetRecordByFormId(labelAsUInt32);
+            }
         }
 
         public static GroupRecord Read(Container container, PluginFileSource source) {
@@ -110,10 +135,10 @@ namespace esper.elements {
         }
 
         public MainRecord GetParentRecord() {
+            if (!hasRecordParent) return null;
             if (isChildGroupChild && container is GroupRecord group)
                 return group.GetParentRecord();
-            if (!isChildGroup) return null;
-            return file.GetRecordByFormId(labelAsUInt32);
+            return _parentRecord;
         }
 
         public override bool SupportsSignature(string sig) {

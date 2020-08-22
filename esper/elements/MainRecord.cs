@@ -15,6 +15,7 @@ namespace esper.elements {
         private readonly PluginFile _file;
         internal readonly long bodyOffset;
         internal byte[] decompressedData;
+        public GroupRecord childGroup;
 
         public MainRecordDef mrDef => def as MainRecordDef;
         public override MainRecord record => this;
@@ -22,6 +23,7 @@ namespace esper.elements {
 
         public UInt32 formId => header.formId;
         public UInt32 localFormId => formId & 0xFFFFFF;
+
         public UInt32 dataSize => compressed
                     ? (uint) decompressedData.Length
                     : header.dataSize;
