@@ -1,6 +1,5 @@
 ﻿using esper.defs;
 using esper.setup;
-using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
@@ -63,11 +62,11 @@ namespace esper.helpers {
         }
 
         public static ElementDef ElementDef(
-            JObject src, string key, Def parent
+            DefinitionManager manager, JObject src, string key
         ) {
             ErrorHelpers.CheckDefProperty(src, key);
             var defSrc = src.Value<JObject>(key);
-            return (ElementDef) parent.manager.BuildDef(defSrc);
+            return (ElementDef) manager.BuildDef(defSrc);
         }
 
         public static ReadOnlyCollection<T> Defs<T>(
@@ -81,21 +80,21 @@ namespace esper.helpers {
             }).ToList().AsReadOnly();
         }
 
-        public static Def Def(JObject src, string key, Def parent) {
+        public static Def Def(DefinitionManager manager, JObject src, string key) {
             if (!src.ContainsKey(key)) return null;
             var defSrc = src.Value<JObject>(key);
-            return parent.manager.BuildDef(defSrc);
+            return manager.BuildDef(defSrc);
         }
 
-        public static FormatDef FormatDef(JObject src, Def parent) {
+        public static FormatDef FormatDef(DefinitionManager manager, JObject src) {
             if (!src.ContainsKey("format")) return null;
             var formatSrc = src.Value<JObject>("format");
-            return (FormatDef)parent.manager.BuildDef(formatSrc);
+            return (FormatDef)manager.BuildDef(formatSrc);
         }
 
-        public static Decider Decider(JObject src, Def parent) {
+        public static Decider Decider(DefinitionManager manager, JObject src) {
             ErrorHelpers.CheckDefProperty(src, "decider");
-            return parent.manager.GetDecider(src.Value<string>("decider"));
+            return manager.GetDecider(src.Value<string>("decider"));
         }
     }
 }

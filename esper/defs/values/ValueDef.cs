@@ -16,7 +16,7 @@ namespace esper.defs {
 
         public ValueDef(DefinitionManager manager, JObject src)
             : base(manager, src) {
-            formatDef = JsonHelpers.FormatDef(src, this);
+            formatDef = JsonHelpers.FormatDef(manager, src);
             fixedSize = src.Value<int?>("size");
             zeroSortKey = src.Value<bool>("zeroSortKey");
         }

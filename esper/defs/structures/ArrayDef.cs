@@ -18,8 +18,8 @@ namespace esper.defs {
 
         public ArrayDef(DefinitionManager manager, JObject src)
             : base(manager, src) {
-            elementDef = JsonHelpers.ElementDef(src, "element", this);
-            counterDef = (CounterDef)JsonHelpers.Def(src, "counter", this);
+            elementDef = JsonHelpers.ElementDef(manager, src, "element");
+            counterDef = (CounterDef)JsonHelpers.Def(manager, src, "counter");
             count = src.Value<uint?>("count");
             prefix = src.Value<int?>("prefix");
             padding = src.Value<int?>("padding");
