@@ -8,7 +8,7 @@ using System.Linq;
 
 namespace esper.defs.TES5 {
     public class CTDAParam2QuestStageFormat : FormatDef {
-        public static string defType = "CTDAParam2QuestStageFormat";
+        public static readonly string defType = "CTDAParam2QuestStageFormat";
 
         public CTDAParam2QuestStageFormat(DefinitionManager manager, JObject src)
             : base(manager, src) {}

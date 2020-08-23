@@ -6,7 +6,7 @@ using System;
 
 namespace esper.defs.TES5 {
     public class CTDAFunctionFormat : FormatDef {
-        public static string defType = "CTDAFunctionFormat";
+        public static readonly string defType = "CTDAFunctionFormat";
 
         public CTDAFunctionFormat(DefinitionManager manager, JObject src)
             : base(manager, src) {}

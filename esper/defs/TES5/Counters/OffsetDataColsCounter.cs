@@ -6,7 +6,7 @@ using System;
 
 namespace esper.defs.TES5 {
     public class OffsetDataColsCounter : CounterDef {
-        public static string defType = "OffsetDataColsCounter";
+        public static readonly string defType = "OffsetDataColsCounter";
 
         public OffsetDataColsCounter(
             DefinitionManager manager, JObject src

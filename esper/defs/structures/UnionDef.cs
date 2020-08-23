@@ -8,7 +8,7 @@ using System.Collections.ObjectModel;
 
 namespace esper.defs {
     public class UnionDef : MaybeSubrecordDef {
-        public static string defType = "union";
+        public static readonly string defType = "union";
 
         public ReadOnlyCollection<ElementDef> elementDefs;
         private readonly Decider decider;

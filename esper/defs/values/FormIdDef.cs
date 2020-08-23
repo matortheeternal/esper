@@ -7,7 +7,7 @@ using Newtonsoft.Json.Linq;
 
 namespace esper.defs {
     public class FormIdDef : ValueDef {
-        public static string defType = "formId";
+        public static readonly string defType = "formId";
         public override int? size => 4;
 
         public FormIdDef(DefinitionManager manager, JObject src)

@@ -5,7 +5,7 @@ using System;
 
 namespace esper.defs.TES5 {
     public class AtxtPositionFormat : FormatDef {
-        public static string defType = "AtxtPositionFormat";
+        public static readonly string defType = "AtxtPositionFormat";
         public override bool customSortKey => true;
 
         public AtxtPositionFormat(DefinitionManager manager, JObject src)

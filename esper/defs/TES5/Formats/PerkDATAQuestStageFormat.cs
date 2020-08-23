@@ -5,7 +5,7 @@ using System;
 
 namespace esper.defs.TES5 {
     public class PerkDATAQuestStageFormat : FormatDef {
-        public static string defType = "PerkDATAQuestStageFormat";
+        public static readonly string defType = "PerkDATAQuestStageFormat";
 
         public PerkDATAQuestStageFormat(DefinitionManager manager, JObject src)
             : base(manager, src) { }

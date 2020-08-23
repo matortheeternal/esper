@@ -32,7 +32,7 @@ namespace esper.defs.TES5 {
     }
 
     public class CTDAParam2StringFormat : CTDAParamStringFormat {
-        public static string defType = "CTDAParam2StringFormat";
+        public static readonly string defType = "CTDAParam2StringFormat";
         public override string path => @"..\CIS2";
 
         public CTDAParam2StringFormat(DefinitionManager manager, JObject src)

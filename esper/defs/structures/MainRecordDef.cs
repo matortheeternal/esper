@@ -9,7 +9,7 @@ using System.Linq;
 
 namespace esper.defs {
     public class MainRecordDef : MembersDef {
-        public static string defType = "record";
+        public static readonly string defType = "record";
 
         private readonly string _signature;
 

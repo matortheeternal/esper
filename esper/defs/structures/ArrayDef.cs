@@ -7,7 +7,7 @@ using System;
 
 namespace esper.defs {
     public class ArrayDef : MaybeSubrecordDef {
-        public static string defType = "array";
+        public static readonly string defType = "array";
 
         public readonly ElementDef elementDef;
         public readonly CounterDef counterDef;

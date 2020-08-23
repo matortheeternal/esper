@@ -7,7 +7,7 @@ using System;
 
 namespace esper.defs {
     public class StringDef : ValueDef {
-        public static string defType = "string";
+        public static readonly string defType = "string";
 
         private readonly int? prefix;
         private readonly int? padding;

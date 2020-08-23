@@ -5,7 +5,7 @@ using Newtonsoft.Json.Linq;
 
 namespace esper.defs.TES5 {
     public class ScriptObjectAliasFormat : AliasFormat {
-        public static string defType = "ScriptObjectAliasFormat";
+        public static readonly string defType = "ScriptObjectAliasFormat";
 
         public ScriptObjectAliasFormat(DefinitionManager manager, JObject src)
             : base(manager, src) {}

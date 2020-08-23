@@ -9,7 +9,7 @@ using System.Text.RegularExpressions;
 namespace esper.defs {
     public class EnumDef : FormatDef {
         public static Regex unknownOptionExpr = new Regex(@"^<(?:Unknown )?(-?\d+)>$");
-        public static string defType = "enum"; 
+        public static readonly string defType = "enum"; 
 
         public Dictionary<Int64, string> options;
         public string unknownOption;

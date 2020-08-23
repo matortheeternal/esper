@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace esper.defs {
     public class MemberUnionDef : MembersDef {
-        public static string defType = "memberUnion";
+        public static readonly string defType = "memberUnion";
 
         public ElementDef defaultDef => memberDefs[0];
 

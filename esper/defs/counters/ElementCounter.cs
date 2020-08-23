@@ -6,7 +6,7 @@ using System;
 
 namespace esper.defs {
     public class ElementCounter : CounterDef {
-        public static string defType = "elementCounter";
+        public static readonly string defType = "elementCounter";
 
         private readonly string _path;
 

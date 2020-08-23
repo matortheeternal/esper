@@ -6,7 +6,7 @@ using System;
 
 namespace esper.defs.TES5 {
     public class ScriptFragmentsPackCounter : CounterDef {
-        public static string defType = "ScriptFragmentsPackCounter";
+        public static readonly string defType = "ScriptFragmentsPackCounter";
 
         public ScriptFragmentsPackCounter(
             DefinitionManager manager, JObject src

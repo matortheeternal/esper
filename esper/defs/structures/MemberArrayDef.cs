@@ -7,7 +7,7 @@ using System.Collections.Generic;
 
 namespace esper.defs {
     public class MemberArrayDef : ElementDef {
-        public static string defType = "memberArray";
+        public static readonly string defType = "memberArray";
 
         public readonly ElementDef memberDef;
         public readonly CounterDef counterDef;

@@ -4,7 +4,7 @@ using Newtonsoft.Json.Linq;
 
 namespace esper.defs {
     public class DivideDef : FormatDef {
-        public static string defType = "divide";
+        public static readonly string defType = "divide";
         public int divisionValue;
 
         public DivideDef(DefinitionManager manager, JObject src)

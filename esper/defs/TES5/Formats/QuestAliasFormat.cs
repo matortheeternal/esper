@@ -5,7 +5,7 @@ using Newtonsoft.Json.Linq;
 
 namespace esper.defs.TES5 {
     public class QuestAliasFormat : AliasFormat {
-        public static string defType = "QuestAliasFormat";
+        public static readonly string defType = "QuestAliasFormat";
 
         public QuestAliasFormat(
             DefinitionManager manager, JObject src

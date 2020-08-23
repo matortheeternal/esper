@@ -5,7 +5,7 @@ using System;
 
 namespace esper.defs.TES5 {
     public class ActorValueFormat : FormatDef {
-        public static string defType = "EPFDActorValueFormat";
+        public static readonly string defType = "EPFDActorValueFormat";
         public override bool customSortKey => true;
 
         private static EnumDef actorValueEnum;

@@ -5,7 +5,7 @@ using Newtonsoft.Json.Linq;
 
 namespace esper.defs.TES5 {
     public class PackageLocationAliasFormat : AliasFormat {
-        public static string defType = "PackageLocationAliasFormat";
+        public static readonly string defType = "PackageLocationAliasFormat";
 
         public PackageLocationAliasFormat(
             DefinitionManager manager, JObject src

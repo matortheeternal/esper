@@ -5,7 +5,7 @@ using Newtonsoft.Json.Linq;
 
 namespace esper.defs.TES5 {
     public class ConditionAliasFormat : AliasFormat {
-        public static string defType = "ConditionAliasFormat";
+        public static readonly string defType = "ConditionAliasFormat";
 
         public ConditionAliasFormat(DefinitionManager manager, JObject src)
             : base(manager, src) { }

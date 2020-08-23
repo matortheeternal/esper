@@ -10,7 +10,7 @@ namespace esper.defs.TES5 {
             @"^([0-1][0-9]|2[0-3]):([0-5][0-9])$"
         );
 
-        public static string defType = "ClmtTimeFormat";
+        public static readonly string defType = "ClmtTimeFormat";
 
         public TimeFormat(DefinitionManager manager, JObject src)
             : base(manager, src) {}

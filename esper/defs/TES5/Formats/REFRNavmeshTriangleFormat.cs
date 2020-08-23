@@ -8,7 +8,7 @@ using System.Collections.Generic;
 
 namespace esper.defs.TES5 {
     public class REFRNavmeshTriangleFormat : FormatDef {
-        public static string defType = "REFRNavmeshTriangleFormat";
+        public static readonly string defType = "REFRNavmeshTriangleFormat";
 
         public REFRNavmeshTriangleFormat(DefinitionManager manager, JObject src)
             : base(manager, src) {}

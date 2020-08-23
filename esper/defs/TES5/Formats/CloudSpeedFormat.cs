@@ -5,7 +5,7 @@ using System;
 
 namespace esper.defs.TES5 {
     public class CloudSpeedFormat : FormatDef {
-        public static string defType = "CloudSpeedFormat";
+        public static readonly string defType = "CloudSpeedFormat";
 
         public CloudSpeedFormat(DefinitionManager manager, JObject src)
             : base(manager, src) {}
