@@ -5,8 +5,7 @@ using System;
 
 namespace esper.defs.TES5 {
     public class EventFunctionAndMemberFormat : FormatDef {
-
-        public static string defType = "EventFunctionAndMemberFormat";
+        public static readonly string defType = "EventFunctionAndMemberFormat";
 
         private readonly EnumDef eventFunctionEnum;
         private readonly EnumDef eventMemberEnum;
@@ -26,8 +25,12 @@ namespace esper.defs.TES5 {
         }
 
         public override dynamic ValueToData(ValueElement element, string value) {
-            // TODO
-            throw new NotImplementedException();
+            var n = value.IndexOf(':');
+            if (n == -1) return 0;
+            var fnString = value.Substring(0, n - 1);
+            var mbString = value.Substring(n + 1);
+            return eventMemberEnum.ValueToData(element, mbString) << 16 +
+                 eventFunctionEnum.ValueToData(element, fnString);
         }
     }
 }
