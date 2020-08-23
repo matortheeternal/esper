@@ -4,15 +4,14 @@ using Newtonsoft.Json.Linq;
 using System;
 
 namespace esper.defs.TES5 {
-    public class EventFunctionAndMemberFormat : FormatDef {
+    public class EventFormat : FormatDef {
         public static readonly string defType = "EventFunctionAndMemberFormat";
 
         private readonly EnumDef eventFunctionEnum;
         private readonly EnumDef eventMemberEnum;
 
-        public EventFunctionAndMemberFormat(
-            DefinitionManager manager, JObject src
-        ) : base(manager, src) {
+        public EventFormat (DefinitionManager manager, JObject src) 
+            : base(manager, src) {
             eventFunctionEnum = (EnumDef) manager.ResolveDef("EventFunctionEnum");
             eventMemberEnum = (EnumDef) manager.ResolveDef("EventMemberEnum");
         }
