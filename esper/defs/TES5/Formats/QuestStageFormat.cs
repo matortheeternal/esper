@@ -9,8 +9,6 @@ using System.Linq;
 
 namespace esper.defs.TES5 {
     public class QuestStageFormat : FormatDef {
-        public virtual string questRefPath => throw new NotImplementedException();
-
         public QuestStageFormat(DefinitionManager manager, JObject src)
             : base(manager, src) { }
 
@@ -20,8 +18,8 @@ namespace esper.defs.TES5 {
             });
         }
 
-        private MainRecord GetQuest(ValueElement element) {
-            return element?.container?.GetElement(questRefPath) as MainRecord;
+        internal virtual MainRecord GetQuest(ValueElement element) {
+            throw new NotImplementedException();
         }
 
         public bool GetWarnings(
@@ -62,17 +60,23 @@ namespace esper.defs.TES5 {
 
     public class PerkDATAQuestStageFormat : QuestStageFormat {
         public static readonly string defType = "PerkDATAQuestStageFormat";
-        public override string questRefPath => "@Quest";
 
         public PerkDATAQuestStageFormat(DefinitionManager manager, JObject src)
             : base(manager, src) { }
+
+        internal override MainRecord GetQuest(ValueElement element) {
+            return element?.container?.GetElement("@Quest") as MainRecord;
+        }
     }
 
     public class CTDAParam2QuestStageFormat : QuestStageFormat {
         public static readonly string defType = "CTDAParam2QuestStageFormat";
-        public override string questRefPath => "@Parameter #1";
 
         public CTDAParam2QuestStageFormat(DefinitionManager manager, JObject src)
             : base(manager, src) { }
+
+        internal override MainRecord GetQuest(ValueElement element) {
+            return element?.container?.GetElement("@Parameter #1") as MainRecord;
+        }
     }
 }
