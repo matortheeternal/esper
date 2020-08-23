@@ -1,7 +1,7 @@
 ﻿using esper.elements;
+using esper.helpers;
 using esper.setup;
 using Newtonsoft.Json.Linq;
-using System;
 
 namespace esper.defs.TES5 {
     public class HideFFFF_Format : FormatDef {
@@ -16,7 +16,8 @@ namespace esper.defs.TES5 {
         }
 
         public override dynamic ValueToData(ValueElement element, string value) {
-            return Int64.Parse(value);
+            if (value == "None") return 0xFFFF;
+            return DataHelpers.ParseInt64(value);
         }
     }
 }
