@@ -4,14 +4,15 @@ using esper.resolution;
 using esper.setup;
 using esper.warnings;
 using Newtonsoft.Json.Linq;
+using System;
 using System.Linq;
 
 namespace esper.defs.TES5 {
-    public class CTDAParam2QuestStageFormat : FormatDef {
-        public static readonly string defType = "CTDAParam2QuestStageFormat";
+    public class QuestStageFormat : FormatDef {
+        public virtual string questRefPath => throw new NotImplementedException();
 
-        public CTDAParam2QuestStageFormat(DefinitionManager manager, JObject src)
-            : base(manager, src) {}
+        public QuestStageFormat(DefinitionManager manager, JObject src)
+            : base(manager, src) { }
 
         private Element GetMatchingStage(MainRecord rec, int index) {
             return rec.GetElements("Stages").FirstOrDefault(stage => {
@@ -19,15 +20,19 @@ namespace esper.defs.TES5 {
             });
         }
 
+        private MainRecord GetQuest(ValueElement element) {
+            return element?.container?.GetElement(questRefPath) as MainRecord;
+        }
+
         public bool GetWarnings(
             ValueElement element, ElementWarnings warnings
         ) {
-            var rec = element?.container?.GetElement("@Parameter #1") as MainRecord;
-            if (rec == null) 
+            var rec = GetQuest(element);
+            if (rec == null)
                 return warnings.Add(element, "Could not resolve Parameter 1");
-            if (rec.signature != "QUST") 
+            if (rec.signature != "QUST")
                 return warnings.Add(element, $"{rec.name} is not a Quest record");
-            var stage = GetMatchingStage(rec, (int) element._data);
+            var stage = GetMatchingStage(rec, (int)element._data);
             if (stage == null)
                 return warnings.Add(element, $"Quest Stage not found in {rec.name}");
             return false;
@@ -42,9 +47,9 @@ namespace esper.defs.TES5 {
         }
 
         public override string DataToValue(ValueElement element, dynamic data) {
-            var rec = element?.container?.GetElement("@Parameter #1") as MainRecord;
+            var rec = GetQuest(element);
             if (rec == null || rec.signature != "QUST") return data.ToString();
-            var stage = GetMatchingStage(rec, (int) data);
+            var stage = GetMatchingStage(rec, (int)data);
             return stage != null
                 ? StageToValue(stage)
                 : data.ToString();
@@ -53,5 +58,21 @@ namespace esper.defs.TES5 {
         public override dynamic ValueToData(ValueElement element, string value) {
             return DataHelpers.ParseLeadingUInt(value);
         }
+    }
+
+    public class PerkDATAQuestStageFormat : QuestStageFormat {
+        public static readonly string defType = "PerkDATAQuestStageFormat";
+        public override string questRefPath => "@Quest";
+
+        public PerkDATAQuestStageFormat(DefinitionManager manager, JObject src)
+            : base(manager, src) { }
+    }
+
+    public class CTDAParam2QuestStageFormat : QuestStageFormat {
+        public static readonly string defType = "CTDAParam2QuestStageFormat";
+        public override string questRefPath => "@Parameter #1";
+
+        public CTDAParam2QuestStageFormat(DefinitionManager manager, JObject src)
+            : base(manager, src) { }
     }
 }
