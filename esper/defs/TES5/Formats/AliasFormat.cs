@@ -49,4 +49,67 @@ namespace esper.defs.TES5 {
             return DataHelpers.ParseInt64(value, -1);
         }
     }
+
+    public class ConditionAliasFormat : AliasFormat {
+        public static readonly string defType = "ConditionAliasFormat";
+
+        public ConditionAliasFormat(DefinitionManager manager, JObject src)
+            : base(manager, src) { }
+
+        public override MainRecord ResolveQuestRec(ValueElement element) {
+            var rec = element.record;
+            return (rec.signature switch
+            {
+                "QUST" => rec,
+                "SCEN" => rec.GetElement("@PNAM"),
+                "PACK" => rec.GetElement("@QNAM"),
+                "INFO" => rec.GetElement(@"..\..\@QNAM"),
+                _ => null
+            }) as MainRecord;
+        }
+    }
+
+    public class PackageLocationAliasFormat : AliasFormat {
+        public static readonly string defType = "PackageLocationAliasFormat";
+
+        public PackageLocationAliasFormat(DefinitionManager manager, JObject src)
+            : base(manager, src) { }
+
+        public override MainRecord ResolveQuestRec(ValueElement element) {
+            return element?.record?.GetElement("@QNAM") as MainRecord;
+        }
+    }
+
+    public class QuestAliasFormat : AliasFormat {
+        public static readonly string defType = "QuestAliasFormat";
+
+        public QuestAliasFormat(DefinitionManager manager, JObject src)
+            : base(manager, src) { }
+
+        public override MainRecord ResolveQuestRec(ValueElement element) {
+            return element.record;
+        }
+    }
+
+    public class QuestExternalAliasFormat : AliasFormat {
+        public static readonly string defType = "QuestExternalAliasFormat";
+
+        public QuestExternalAliasFormat(DefinitionManager manager, JObject src)
+            : base(manager, src) { }
+
+        public override MainRecord ResolveQuestRec(ValueElement element) {
+            return element.GetElement(@"..\@ALEQ") as MainRecord;
+        }
+    }
+
+    public class ScriptObjectAliasFormat : AliasFormat {
+        public static readonly string defType = "ScriptObjectAliasFormat";
+
+        public ScriptObjectAliasFormat(DefinitionManager manager, JObject src)
+            : base(manager, src) { }
+
+        public override MainRecord ResolveQuestRec(ValueElement element) {
+            return (MainRecord)element?.GetElement(@"..\@FormID");
+        }
+    }
 }
