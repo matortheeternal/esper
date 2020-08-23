@@ -1,11 +1,12 @@
 ﻿using esper.elements;
 using esper.setup;
 using Newtonsoft.Json.Linq;
-using System;
+using System.Text.RegularExpressions;
 
 namespace esper.defs.TES5 {
     public class CTDATypeFormat : FormatDef {
-        public static string defType = "CtdaTypeFormat";
+        public static readonly string defType = "CtdaTypeFormat";
+        private static readonly Regex valueExpr = new Regex(@"$([\w ]+?)(?: / ([\w ]+))?");
 
         private static FlagsDef ctdaTypeFlags;
         private static EnumDef ctdaTypeEnum;
@@ -23,8 +24,13 @@ namespace esper.defs.TES5 {
         }
 
         public override dynamic ValueToData(ValueElement element, string value) {
-            // TODO
-            throw new NotImplementedException();
+            var match = valueExpr.Match(value);
+            if (match == null) return 0;
+            var enumData = ctdaTypeEnum.ValueToData(element, match.Groups[1].Value);
+            var flagsData = match.Groups.Count > 2
+                ? ctdaTypeFlags.ValueToData(element, match.Groups[2].Value)
+                : 0;
+            return enumData + flagsData;
         }
     }
 }
