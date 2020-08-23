@@ -1,7 +1,21 @@
 ﻿using System;
+using System.Linq;
 
 namespace esper.helpers {
     public static class DataHelpers {
+        private static readonly char[] uintChars = "0123456789".ToCharArray();
+
+        public static UInt32 ParseLeadingUInt(
+            string value, UInt32 defaultValue = 0
+        ) {
+            int n = 0;
+            while (n < value.Length && uintChars.Contains(value[n])) n++;
+            if (n == 0) return defaultValue;
+            return n == value.Length
+                ? UInt32.Parse(value)
+                : UInt32.Parse(value.Substring(0, n));
+        }
+
         public static Int64 ParseInt64(string value, Int64 defaultValue = 0) {
             if (Int64.TryParse(value, out Int64 n)) return n;
             return defaultValue;
