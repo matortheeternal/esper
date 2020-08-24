@@ -1,5 +1,8 @@
-﻿using esper.setup;
+﻿using esper.elements;
+using esper.plugins;
+using esper.setup;
 using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
 
 namespace esper.defs {
@@ -28,6 +31,14 @@ namespace esper.defs {
             if (sigs == null) sigs = new List<string>();
             if (signature != null) sigs.Add(signature);
             return sigs;
+        }
+
+        internal override void WriteElement(
+            Element element, PluginFileOutput output
+        ) {
+            if (!IsSubrecord()) return;
+            output.writer.Write(_signature);
+            output.writer.Write(element.size);
         }
     }
 }

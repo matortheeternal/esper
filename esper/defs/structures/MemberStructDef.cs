@@ -3,6 +3,7 @@ using esper.helpers;
 using esper.plugins;
 using esper.setup;
 using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
 
 namespace esper.defs {
@@ -65,6 +66,12 @@ namespace esper.defs {
 
         public override string GetSortKey(Element element) {
             return ElementHelpers.StructSortKey(element, sortKeyIndices);
+        }
+
+        internal override void WriteElement(
+            Element element, PluginFileOutput output
+        ) {
+            throw new NotImplementedException();
         }
     }
 }

@@ -3,6 +3,7 @@ using esper.helpers;
 using esper.plugins;
 using esper.setup;
 using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
 
 namespace esper.defs {
@@ -62,6 +63,12 @@ namespace esper.defs {
 
         public override List<string> GetSignatures(List<string> sigs = null) {
             return memberDef.GetSignatures(sigs);
+        }
+
+        internal override void WriteElement(
+            Element element, PluginFileOutput output
+        ) {
+            throw new NotImplementedException();
         }
     }
 }

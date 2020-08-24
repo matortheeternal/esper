@@ -31,5 +31,9 @@ namespace esper.defs {
         public override string GetSortKey(Element element) {
             return "";
         }
+
+        internal override void WriteData(
+            ValueElement element, PluginFileOutput output
+        ) { }
     }
 }

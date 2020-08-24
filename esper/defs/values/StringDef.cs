@@ -65,5 +65,17 @@ namespace esper.defs {
             if (str == null) return string.Empty;
             return keepCase ? str : str.ToUpper();
         }
+
+        internal override void WriteData(
+            ValueElement element, PluginFileOutput output
+        ) {
+            if (element.data is string s) {
+                output.WriteString(s);
+            } else if (element.data is LocalizedString ls) {
+                ls.WriteTo(output);
+            } else {
+                output.WriteString(DefaultData());
+            }
+        }
     }
 }

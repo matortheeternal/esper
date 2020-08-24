@@ -12,6 +12,7 @@ namespace esper.plugins {
         public string filename;
         public PluginFileOptions options;
         public PluginFileSource source;
+        public PluginFileOutput output;
 
         public bool isDummy => source == null;
         public uint recordCount => header.GetData(@"HEDR\Number of Records");
@@ -41,6 +42,13 @@ namespace esper.plugins {
             return false; // TODO
         }
 
+        internal void Save(string filePath) {
+            new PluginFileOutput(filePath, this);
+            _elements.ForEach(element => {
+                element.WriteTo(output);
+            });
+        }
+
         internal void ReadFileHeader() {
             if (header != null) return;
             source.ReadFileHeader(this);
@@ -62,6 +70,10 @@ namespace esper.plugins {
 
         public override bool SupportsSignature(string sig) {
             return manager.IsTopGroup(sig);
+        }
+
+        internal override void WriteTo(PluginFileOutput output) {
+            throw new NotImplementedException();
         }
     }
 }

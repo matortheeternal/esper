@@ -5,11 +5,13 @@ using System.IO;
 using System.IO.MemoryMappedFiles;
 using System.Text;
 using Ionic.Zlib;
-using esper.defs;
 
 namespace esper.plugins {
     public class PluginFileSource {
         private readonly Signature TES4 = Signature.FromString("TES4");
+
+        internal readonly PluginFile plugin;
+        internal readonly string filePath;
 
         private readonly MemoryMappedFile file;
         private readonly MemoryMappedViewStream fileStream;
@@ -19,23 +21,25 @@ namespace esper.plugins {
         private UInt32 decompressedDataSize;
         private readonly FileInfo fileInfo;
         private Subrecord? _currentSubrecord;
-
-        public readonly PluginFile plugin;
-        public string filePath;
-        public Subrecord currentSubrecord => (Subrecord) _currentSubrecord;
         private long subrecordEndPos;
         private long endDataOffset;
 
-        public long fileSize => fileInfo.Length;
-
-        public bool usingDecompressedStream => decompressedStream != null;
+        internal Subrecord currentSubrecord => (Subrecord) _currentSubrecord;
+        internal long fileSize => fileInfo.Length;
+        internal bool usingDecompressedStream => decompressedStream != null;
         internal bool localized => plugin.localized;
-        internal Encoding stringEncoding { get => plugin.stringEncoding; }
-        internal Stream stream { 
-            get => decompressedStream ?? fileStream;
-        }
-        internal BinaryReader reader {
-            get => decompressedReader ?? fileReader;
+        internal Encoding stringEncoding=> plugin.stringEncoding;
+        internal Stream stream => decompressedStream ?? fileStream;
+        internal BinaryReader reader => decompressedReader ?? fileReader;
+
+        internal PluginFileSource(string filePath, PluginFile plugin) {
+            this.filePath = filePath;
+            this.plugin = plugin;
+            fileInfo = new FileInfo(filePath);
+            plugin.source = this;
+            file = MemoryMappedFile.CreateFromFile(filePath, FileMode.Open);
+            fileStream = file.CreateViewStream();
+            fileReader = new BinaryReader(stream);
         }
 
         internal UInt32? ReadPrefix(int? prefix, int? padding) {
@@ -48,16 +52,6 @@ namespace esper.plugins {
             if (padding != null && size != null)
                 reader.ReadBytes((int)padding);
             return size;
-        }
-
-        internal PluginFileSource(string filePath, PluginFile plugin) {
-            this.filePath = filePath;
-            this.plugin = plugin;
-            fileInfo = new FileInfo(filePath);
-            plugin.source = this;
-            file = MemoryMappedFile.CreateFromFile(filePath, FileMode.Open);
-            fileStream = file.CreateViewStream();
-            fileReader = new BinaryReader(stream);
         }
 
         internal Signature ReadSignature() {

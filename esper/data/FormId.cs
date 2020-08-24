@@ -45,5 +45,9 @@ namespace esper.data {
         public static FormId Parse(ValueElement element, string value) {
             return formats[0].Parse(element, value);
         }
+
+        internal void WriteTo(PluginFileOutput output) {
+            throw new NotImplementedException();
+        }
     }
 }

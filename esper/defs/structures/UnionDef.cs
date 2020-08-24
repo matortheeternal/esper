@@ -45,5 +45,12 @@ namespace esper.defs {
                 return new UnionValueElement(container, resolvedDef, this);
             return new UnionElement(container, this);
         }
+
+        internal override void WriteElement(
+            Element element, PluginFileOutput output
+        ) {
+            base.WriteElement(element, output);
+            throw new NotImplementedException();
+        }
     }
 }

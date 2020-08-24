@@ -28,5 +28,15 @@ namespace esper.defs {
                 : (byte)data;
             element.SetState(ElementState.Modified);
         }
+
+        internal override void WriteData(
+            ValueElement element, PluginFileOutput output
+        ) {
+            if (element.data is byte data) {
+                output.writer.Write(data);
+            } else {
+                output.writer.Write(DefaultData());
+            }
+        }
     }
 }

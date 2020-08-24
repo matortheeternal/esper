@@ -80,5 +80,12 @@ namespace esper.defs {
                 return se._elements[index];
             }).ToList();
         }
+
+        internal override void WriteElement(
+            Element element, PluginFileOutput output
+        ) {
+            base.WriteElement(element, output);
+            throw new NotImplementedException();
+        }
     }
 }

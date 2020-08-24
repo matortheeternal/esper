@@ -14,5 +14,9 @@ namespace esper.data {
         public override string ToString() {
             return plugin.GetString(id);
         }
+
+        internal void WriteTo(PluginFileOutput output) {
+            throw new NotImplementedException();
+        }
     }
 }

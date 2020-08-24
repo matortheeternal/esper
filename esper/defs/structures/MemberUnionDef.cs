@@ -3,6 +3,7 @@ using esper.setup;
 using esper.plugins;
 using Newtonsoft.Json.Linq;
 using System.Linq;
+using System;
 
 namespace esper.defs {
     public class MemberUnionDef : MembersDef {
@@ -52,6 +53,12 @@ namespace esper.defs {
         public override string GetSortKey(Element element) {
             var container = (Container) element;
             return container._elements[0].sortKey;
+        }
+
+        internal override void WriteElement(
+            Element element, PluginFileOutput output
+        ) {
+            throw new NotImplementedException();
         }
     }
 }

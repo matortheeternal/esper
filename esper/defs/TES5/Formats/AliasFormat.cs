@@ -45,7 +45,6 @@ namespace esper.defs.TES5 {
         }
 
         public override dynamic ValueToData(ValueElement element, string value) {
-            if (value == "None") return -1; // not necessary?
             return DataHelpers.ParseInt64(value, -1);
         }
     }
@@ -58,8 +57,7 @@ namespace esper.defs.TES5 {
 
         public override MainRecord ResolveQuestRec(ValueElement element) {
             var rec = element.record;
-            return (rec.signature switch
-            {
+            return (rec.signature switch {
                 "QUST" => rec,
                 "SCEN" => rec.GetElement("@PNAM"),
                 "PACK" => rec.GetElement("@QNAM"),

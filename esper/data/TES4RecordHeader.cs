@@ -39,5 +39,14 @@ namespace esper.data {
                 defs[i].ReadElement(structElement, source);
             return structElement;
         }
+
+        internal void WriteUpdatedSize(PluginFileOutput output, long offset) {
+            var pos = output.stream.Position;
+            UInt32 newSize = (UInt32) (pos - offset);
+            if (newSize == dataSize) return;
+            output.stream.Position = offset - 20;
+            output.writer.Write(newSize);
+            output.stream.Position = pos;
+        }
     }
 }

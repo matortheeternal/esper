@@ -43,5 +43,15 @@ namespace esper.defs {
             float data = Single.Parse(value);
             element.data = data;
         }
+
+        internal override void WriteData(
+            ValueElement element, PluginFileOutput output
+        ) {
+            if (element.data is float data) {
+                output.writer.Write(data);
+            } else {
+                output.writer.Write(DefaultData());
+            }
+        }
     }
 }

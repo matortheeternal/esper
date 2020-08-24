@@ -1,9 +1,10 @@
 ﻿using esper.defs;
+using esper.plugins;
 using System.Linq;
 
 namespace esper.elements {
     public class ArrayElement : Container {
-        public ArrayDef arrayDef => def as ArrayDef;
+        public ArrayDef arrayDef => (ArrayDef) def;
 
         public ArrayElement(Container container, ElementDef def)
             : base(container, def) {}

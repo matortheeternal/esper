@@ -33,5 +33,15 @@ namespace esper.defs {
                 : (Int16)data;
             element.SetState(ElementState.Modified);
         }
+
+        internal override void WriteData(
+            ValueElement element, PluginFileOutput output
+        ) {
+            if (element.data is Int16 data) {
+                output.writer.Write(data);
+            } else {
+                output.writer.Write(DefaultData());
+            }
+        }
     }
 }

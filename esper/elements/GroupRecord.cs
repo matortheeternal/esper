@@ -166,5 +166,11 @@ namespace esper.elements {
                 if (element is MainRecord rec) 
                     recordsByEditorID.Add(rec);
         }
+
+        internal override void WriteTo(PluginFileOutput output) {
+            long sizeOffset = header.WriteTo(output);
+            base.WriteTo(output);
+            header.WriteUpdatedSize(output, sizeOffset);
+        }
     }
 }

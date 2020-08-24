@@ -63,5 +63,11 @@ namespace esper.defs {
         public virtual string GetSortKey(Element element) {
             throw new NotImplementedException();
         }
+
+        internal virtual void WriteElement(
+            Element element, PluginFileOutput output
+        ) {
+            throw new NotImplementedException();
+        }
     }
 }

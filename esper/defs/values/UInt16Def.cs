@@ -27,5 +27,15 @@ namespace esper.defs {
                 : (UInt16)data;
             element.SetState(ElementState.Modified);
         }
+
+        internal override void WriteData(
+            ValueElement element, PluginFileOutput output
+        ) {
+            if (element.data is UInt16 data) {
+                output.writer.Write(data);
+            } else {
+                output.writer.Write(DefaultData());
+            }
+        }
     }
 }

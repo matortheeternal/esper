@@ -1,5 +1,6 @@
 ﻿using esper.data;
 using esper.defs;
+using esper.plugins;
 
 namespace esper.elements {
     public class ValueElement : Element {
@@ -55,6 +56,10 @@ namespace esper.elements {
 
         public override void Initialize() {
             data = valueDef.DefaultData();
+        }
+
+        internal override void WriteTo(PluginFileOutput output) {
+            valueDef.WriteElement(this, output);
         }
     }
 }

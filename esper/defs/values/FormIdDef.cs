@@ -36,5 +36,15 @@ namespace esper.defs {
             if (fid == null) return new string('0', 8);
             return fid.fileFormId.ToString("X8");
         }
+
+        internal override void WriteData(
+            ValueElement element, PluginFileOutput output
+        ) {
+            if (element.data is FormId data) {
+                data.WriteTo(output);
+            } else {
+                DefaultData().WriteTo(output);
+            }
+        }
     }
 }

@@ -75,5 +75,18 @@ namespace esper.defs {
                 ? new string('0', sortKey.Length)
                 : sortKey;
         }
+
+        internal virtual void WriteData(
+            ValueElement element, PluginFileOutput output
+        ) {
+            throw new NotImplementedException();
+        }
+
+        internal override void WriteElement(
+            Element element, PluginFileOutput output
+        ) {
+            base.WriteElement(element, output);
+            WriteData((ValueElement)element, output);
+        }
     }
 }

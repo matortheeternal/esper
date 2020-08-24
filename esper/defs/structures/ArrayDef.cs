@@ -51,5 +51,12 @@ namespace esper.defs {
         public override Element NewElement(Container container) {
             return new ArrayElement(container, this);
         }
+
+        internal override void WriteElement(
+            Element element, PluginFileOutput output
+        ) {
+            base.WriteElement(element, output);
+            throw new NotImplementedException();
+        }
     }
 }

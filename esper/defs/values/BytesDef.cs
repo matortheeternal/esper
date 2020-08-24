@@ -44,5 +44,12 @@ namespace esper.defs {
         public override void SetValue(ValueElement element, string value) {
             SetData(element, StringHelpers.ParseBytes(value));
         }
+
+        internal override void WriteData(
+            ValueElement element, PluginFileOutput output
+        ) {
+            var data = element.data as byte[] ?? DefaultData();
+            output.writer.Write(data);
+        }
     }
 }

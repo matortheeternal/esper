@@ -15,6 +15,7 @@ namespace esper.elements {
         public virtual string name => def?.name;
         public virtual string signature => def?.signature;
         public virtual string displayName => def?.displayName;
+        public virtual UInt16 size => 0;
         public SessionOptions sessionOptions => manager?.session.options;
         public Game game => manager?.session.game;
         public int index => container._elements.IndexOf(this);
@@ -86,6 +87,10 @@ namespace esper.elements {
             return false;
         }
 
-        internal virtual void ElementsReady() {}
+        internal virtual void ElementsReady() { }
+
+        internal virtual void WriteTo(PluginFileOutput output) {
+            def.WriteElement(this, output);
+        }
     }
 }
