@@ -3,16 +3,21 @@ using esper.setup;
 using Newtonsoft.Json.Linq;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 
 namespace esper.defs {
     public class MembersDef : ElementDef {
+        private readonly bool _canContainFormIds;
+
         public ReadOnlyCollection<ElementDef> memberDefs;
         public List<string> signatures;
+        public override bool canContainFormIds => _canContainFormIds;
 
         public MembersDef(DefinitionManager manager, JObject src)
             : base(manager, src) {
             memberDefs = JsonHelpers.Defs<ElementDef>(manager, src, "members");
             signatures = GetSignatures();
+            _canContainFormIds = memberDefs.Any(d => d.canContainFormIds);
         }
 
         public ElementDef GetMemberDef(string signature, ref int defIndex) {

@@ -4,19 +4,24 @@ using esper.plugins;
 using esper.setup;
 using Newtonsoft.Json.Linq;
 using System;
+using System.Linq;
 using System.Collections.ObjectModel;
 
 namespace esper.defs {
     public class UnionDef : MaybeSubrecordDef {
         public static readonly string defType = "union";
 
-        public ReadOnlyCollection<ElementDef> elementDefs;
+        private readonly bool _canContainFormIds;
         private readonly Decider decider;
+        public ReadOnlyCollection<ElementDef> elementDefs;
+
+        public override bool canContainFormIds => _canContainFormIds;
 
         public UnionDef(DefinitionManager manager, JObject src) 
             : base(manager, src) {
             elementDefs = JsonHelpers.Defs<ElementDef>(manager, src, "elements");
             decider = JsonHelpers.Decider(manager, src);
+            _canContainFormIds = elementDefs.Any(d => d.canContainFormIds);
         }
 
         public ElementDef ResolveDef(Container container) {

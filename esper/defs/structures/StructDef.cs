@@ -12,17 +12,20 @@ namespace esper.defs {
     public class StructDef : MaybeSubrecordDef {
         public readonly static string defType = "struct";
 
-        public ReadOnlyCollection<ElementDef> elementDefs;
-        private readonly List<int> sortKeyIndices;
-        private readonly List<int> elementMap;
+        private readonly bool _canContainFormIds;
+        internal ReadOnlyCollection<ElementDef> elementDefs;
+        internal readonly List<int> sortKeyIndices;
+        internal readonly List<int> elementMap;
 
         public override int? size => elementDefs.Sum(def => def.size);
+        public override bool canContainFormIds => _canContainFormIds;
 
         public StructDef(DefinitionManager manager, JObject src)
             : base(manager, src) {
             elementDefs = JsonHelpers.Defs<ElementDef>(manager, src, "elements");
             sortKeyIndices = JsonHelpers.List<int>(src, "sortKey");
             elementMap = JsonHelpers.List<int>(src, "elementMap");
+            _canContainFormIds = elementDefs.Any(d => d.canContainFormIds);
         }
 
         public override Element ReadElement(

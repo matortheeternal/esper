@@ -4,12 +4,14 @@ using esper.setup;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace esper.defs {
     public class ElementDef : Def {
         public readonly string name;
         public readonly bool required;
 
+        public virtual bool canContainFormIds => false;
         public virtual string signature => null;
         public virtual string displayName => name;
         public virtual int? size => 0;

@@ -14,6 +14,8 @@ namespace esper.defs {
         public readonly CounterDef counterDef;
         public readonly bool sorted;
 
+        public override bool canContainFormIds => memberDef.canContainFormIds;
+
         public MemberArrayDef(DefinitionManager manager, JObject src)
             : base(manager, src) {
             memberDef = JsonHelpers.ElementDef(manager, src, "member");

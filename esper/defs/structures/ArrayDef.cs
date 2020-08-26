@@ -16,6 +16,8 @@ namespace esper.defs {
         public readonly int? padding;
         public readonly bool sorted;
 
+        public override bool canContainFormIds => elementDef.canContainFormIds;
+
         public ArrayDef(DefinitionManager manager, JObject src)
             : base(manager, src) {
             elementDef = JsonHelpers.ElementDef(manager, src, "element");

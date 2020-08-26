@@ -9,6 +9,7 @@ namespace esper.defs {
     public class FormIdDef : ValueDef {
         public static readonly string defType = "formId";
         public override int? size => 4;
+        public override bool canContainFormIds => true;
 
         public FormIdDef(DefinitionManager manager, JObject src)
             : base(manager, src) { }
