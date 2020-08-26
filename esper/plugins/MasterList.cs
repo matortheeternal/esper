@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace esper.plugins {
     public class MasterList {
-        private List<PluginFile> _files;
+        private readonly List<PluginFile> _files;
 
         public int Count => _files.Count;
 
@@ -46,6 +46,7 @@ namespace esper.plugins {
             return _files.Contains(file);
         }
     }
+
     public class ReadOnlyMasterList : MasterList {
         public ReadOnlyMasterList(PluginFile parentFile, List<PluginFile> files)
             : base(parentFile, files) {}

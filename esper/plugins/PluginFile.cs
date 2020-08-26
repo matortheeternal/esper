@@ -24,6 +24,7 @@ namespace esper.plugins {
         PluginFile IMasterManager.file => this;
         ReadOnlyMasterList IMasterManager.originalMasters { get; set; }
         MasterList IMasterManager.masters { get; set; }
+        bool IMasterManager.mastersChanged { get; set; }
 
         PluginFile IRecordManager.file => this;
         List<MainRecord> IRecordManager.records { get; set; }
@@ -46,6 +47,8 @@ namespace esper.plugins {
         }
 
         internal void Save(string filePath) {
+            this.CheckMasters();
+            this.UpdateMastersElement();
             new PluginFileOutput(filePath, this);
             internalElements.ForEach(element => {
                 element.WriteTo(output);
