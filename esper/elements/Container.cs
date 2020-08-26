@@ -1,17 +1,24 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using esper.defs;
 using esper.plugins;
 
 namespace esper.elements {
     public class Container : Element {
-        internal List<Element> _elements;
-        internal MembersDef mdef => (MembersDef) def;
+        internal List<Element> _internalElements;
+        internal MembersDef mdef => (MembersDef)def;
 
-        public virtual List<Element> elements {
+        internal List<Element> internalElements {
             get {
-                if (_elements == null) _elements = new List<Element>();
-                return _elements;
+                if (_internalElements == null) 
+                    _internalElements = new List<Element>();
+                return _internalElements;
             }
+        }
+
+        public virtual ReadOnlyCollection<Element> elements {
+            get => internalElements.AsReadOnly();
         }
 
         public int count => elements.Count;
@@ -28,8 +35,8 @@ namespace esper.elements {
         }
 
         internal override void ElementsReady() {
-            if (_elements == null) return;
-            _elements.ForEach(e => e.ElementsReady());
+            if (_internalElements == null) return;
+            _internalElements.ForEach(e => e.ElementsReady());
         }
     }
 }

@@ -31,11 +31,15 @@ namespace esper.elements {
         public bool compressed => this.GetRecordFlag("Compressed");
         public string editorId => this.GetValue("EDID");
 
-        public override List<Element> elements {
+        public ReadOnlyCollection<Subrecord> unexpectedSubrecords {
+            get => _unexpectedSubrecords.AsReadOnly();
+        }
+
+        public override ReadOnlyCollection<Element> elements {
             get {
-                if (_elements == null)
+                if (_internalElements == null)
                     mrDef.ReadElements(this, file.source);
-                return _elements;
+                return internalElements.AsReadOnly();
             }
         }
 

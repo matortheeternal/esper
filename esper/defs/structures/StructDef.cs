@@ -74,13 +74,6 @@ namespace esper.defs {
             return ElementHelpers.StructSortKey(element, sortKeyIndices);
         }
 
-        internal void RemapElements(StructElement se) {
-            if (elementMap == null) return;
-            se._elements = elementMap.Select(index => {
-                return se._elements[index];
-            }).ToList();
-        }
-
         internal override void WriteElement(
             Element element, PluginFileOutput output
         ) {

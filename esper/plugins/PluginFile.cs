@@ -47,7 +47,7 @@ namespace esper.plugins {
 
         internal void Save(string filePath) {
             new PluginFileOutput(filePath, this);
-            _elements.ForEach(element => {
+            internalElements.ForEach(element => {
                 element.WriteTo(output);
             });
         }
@@ -63,7 +63,7 @@ namespace esper.plugins {
             var endOffset = source.fileSize - 1;
             while (source.stream.Position < endOffset)
                 GroupRecord.Read(this, source);
-            _elements.TrimExcess();
+            internalElements.TrimExcess();
             this.SortRecords();
         }
 

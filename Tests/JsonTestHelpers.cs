@@ -98,7 +98,7 @@ namespace Tests {
         }
 
         private static void TestGroupValues(JObject json, GroupRecord group) {
-            group.elements.ForEach(element => {
+            foreach (var element in group.elements) { 
                 if (element is MainRecord rec) {
                     var key = rec.formId.ToString("X8");
                     CheckKey(json, key, group);
@@ -111,7 +111,7 @@ namespace Tests {
                     TestGroupValues(json.Value<JObject>(key), innerGroup);
                     json.Remove(key);
                 }
-            });
+            }
             ExpectAllPropertiesFound(json, group);
         }
 

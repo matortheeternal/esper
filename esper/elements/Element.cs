@@ -18,7 +18,7 @@ namespace esper.elements {
         public virtual UInt16 size => 0;
         public SessionOptions sessionOptions => manager?.session.options;
         public Game game => manager?.session.game;
-        public int index => container._elements.IndexOf(this);
+        public int index => container.elements.IndexOf(this);
 
         public virtual MainRecord referencedRecord {
             get => throw new Exception("Element does not reference records.");
@@ -66,7 +66,7 @@ namespace esper.elements {
             this.def = def;
             this.container = container;
             if (container == null) return;
-            container.elements.Add(this);
+            container.internalElements.Add(this);
         }
 
         public virtual void Initialize() {}

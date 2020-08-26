@@ -4,7 +4,7 @@ using esper.resolution;
 using esper.setup;
 using Newtonsoft.Json.Linq;
 using System;
-using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace esper.defs.TES5 {
     public class AliasFormat : FormatDef {
@@ -20,7 +20,7 @@ namespace esper.defs.TES5 {
             return data.ToString();
         }
 
-        private List<Element> GetAliases(MainRecord questRef) {
+        private ReadOnlyCollection<Element> GetAliases(MainRecord questRef) {
             return questRef.GetElements("Aliases");
         }
 

@@ -106,7 +106,7 @@ namespace esper.elements {
                     file.IndexRecord(rec);
                 }
             });
-            if (group._elements != null) group._elements.TrimExcess();
+            if (group._internalElements != null) group._internalElements.TrimExcess();
             return group;
         }
 

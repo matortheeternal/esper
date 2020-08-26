@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using esper.helpers;
 using esper.defs;
+using System.Collections.ObjectModel;
 
 namespace esper.resolution {
     public interface IResolution {
@@ -55,12 +56,12 @@ namespace esper.resolution {
             return element;
         }
 
-        public static List<Element> GetElements(this IResolution r, string path = "") {
+        public static ReadOnlyCollection<Element> GetElements(this IResolution r, string path = "") {
             Container container = (Container)r.GetElement(path);
             return container?.elements;
         }
 
-        public static List<Element> GetElementsEx(this IResolution r, string path = "") {
+        public static ReadOnlyCollection<Element> GetElementsEx(this IResolution r, string path = "") {
             Container container = (Container) r.GetElementEx(path);
             if (container == null) 
                 throw new Exception("Element does not have child elements.");

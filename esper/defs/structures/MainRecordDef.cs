@@ -39,7 +39,7 @@ namespace esper.defs {
             var subrecord = source.currentSubrecord;
             var def = GetMemberDef(subrecord.signature, ref defIndex);
             if (def == null) {
-                rec.unexpectedSubrecords.Add(subrecord);
+                rec._unexpectedSubrecords.Add(subrecord);
                 source.SubrecordHandled();
             } else if (def.IsSubrecord()) {
                 def.ReadElement(rec, source, subrecord.dataSize);
@@ -69,8 +69,8 @@ namespace esper.defs {
         }
 
         internal void ReadElements(MainRecord rec, PluginFileSource source) {
-            rec._elements = new List<Element>();
-            rec.unexpectedSubrecords = new List<Subrecord>();
+            rec._internalElements = new List<Element>();
+            rec._unexpectedSubrecords = new List<Subrecord>();
             InitContainedInElements(rec.container as GroupRecord, rec);
             ReadHeader(rec, source);
             source.WithRecordData(rec, () => {
@@ -82,7 +82,7 @@ namespace esper.defs {
         internal void InitElement(MainRecord rec) {
             foreach (var def in memberDefs) {
                 if (!def.required) continue;
-                if (rec._elements.Any(e => e.def == def)) continue;
+                if (rec._internalElements.Any(e => e.def == def)) continue;
                 var e = def.NewElement(rec);
                 e.Initialize();
             }
