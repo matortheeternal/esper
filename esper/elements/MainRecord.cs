@@ -6,11 +6,12 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using esper.data.headers;
 
 namespace esper.elements {
     public class MainRecord : Container, IMainRecord {
-        public readonly TES4RecordHeader header;
-        public List<Subrecord> unexpectedSubrecords;
+        internal readonly IRecordHeader header;
+        internal List<Subrecord> _unexpectedSubrecords;
 
         private readonly PluginFile _file;
         internal readonly long bodyOffset;
@@ -48,11 +49,11 @@ namespace esper.elements {
         public MainRecord(Container container, ElementDef def, PluginFileSource source)
             : base(container, def) {
             _file = container.file;
-            header = new TES4RecordHeader(source);
+            header = manager.headerManager.ReadRecordHeader(source);
             bodyOffset = source.stream.Position;
             if (sessionOptions.readAllSubrecords)
                 mrDef.ReadElements(this, source);
-            source.stream.Seek(bodyOffset + header.dataSize, SeekOrigin.Begin);
+            source.stream.Position = bodyOffset + header.dataSize;
         }
 
         public static MainRecord Read(

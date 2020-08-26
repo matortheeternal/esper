@@ -3,6 +3,8 @@ using esper.data;
 using esper.plugins;
 using System;
 using System.IO;
+using esper.data.headers;
+using esper.setup;
 
 namespace esper.elements {
     public enum GroupType : Int32 {
@@ -21,7 +23,7 @@ namespace esper.elements {
     public class GroupRecord : Container {
         private static readonly Signature GRUP = Signature.FromString("GRUP");
 
-        public readonly TES4GroupHeader header;
+        public readonly IGroupHeader header;
         public EditorIdMap recordsByEditorID;
         private MainRecord _parentRecord;
 
@@ -36,6 +38,7 @@ namespace esper.elements {
         public byte[] label => header.label;
         public UInt32 dataSize => (UInt32)(groupSize - groupHeaderDef.size);
 
+        private HeaderManager headerManager => manager.headerManager;
         private StructDef groupHeaderDef => manager.groupHeaderDef as StructDef;
         private Signature labelAsSignature => new Signature(label);
         private Int32 labelAsInt32 => BitConverter.ToInt32(label);
@@ -74,7 +77,7 @@ namespace esper.elements {
 
         public GroupRecord(Container container, PluginFileSource source)
             : base(container) {
-            header = new TES4GroupHeader(source);
+            header = manager.headerManager.ReadGroupHeader(source);
             if (signature != "GRUP")
                 throw new Exception("Expected GRUP record");
             if (isChildGroup) SetParentRecord();
@@ -168,9 +171,9 @@ namespace esper.elements {
         }
 
         internal override void WriteTo(PluginFileOutput output) {
-            long sizeOffset = header.WriteTo(output);
+            long sizeOffset = headerManager.WriteGroupHeaderTo(header, output);
             base.WriteTo(output);
-            header.WriteUpdatedSize(output, sizeOffset);
+            headerManager.WriteUpdatedSize(group, output, sizeOffset);
         }
     }
 }

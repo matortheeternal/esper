@@ -14,6 +14,7 @@ namespace esper.setup {
     public class DefinitionManager {
         public Game game;
         public Session session;
+        internal HeaderManager headerManager;
         internal Def groupHeaderDef;
         internal List<string> groupOrder;
         private JObject definitions;
@@ -27,6 +28,7 @@ namespace esper.setup {
         public DefinitionManager(Game game, Session session) {
             this.game = game;
             this.session = session;
+            headerManager = new HeaderManager(game.headerTypeKey);
             LoadDefinitions();
             LoadClasses();
             BuildDefs();

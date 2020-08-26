@@ -4,6 +4,7 @@ using esper.helpers;
 using esper.plugins;
 using esper.setup;
 using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -12,6 +13,8 @@ namespace esper.defs {
         public static readonly string defType = "record";
 
         private readonly string _signature;
+        private HeaderManager headerManager => manager.headerManager;
+        private UInt16 recordHeaderSize => headerManager.recordHeaderSize;
 
         public override string signature => _signature;
         public StructDef headerDef;
@@ -26,9 +29,8 @@ namespace esper.defs {
         }
 
         private void ReadHeader(MainRecord rec, PluginFileSource source) {
-            // TODO: get this offset from definition manager
-            source.stream.Position = rec.bodyOffset - 24;
-            rec.header.ToStructElement(rec, source);
+            source.stream.Position = rec.bodyOffset - recordHeaderSize;
+            headerManager.HeaderToStructElement(rec, source);
         }
 
         internal void HandleSubrecord(

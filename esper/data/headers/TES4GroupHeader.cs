@@ -1,22 +1,33 @@
 ﻿using esper.plugins;
 using System;
 
-namespace esper.data {
-    public struct TES4GroupHeader {
-        public Signature signature;
-        public UInt32 groupSize;
-        public byte[] label;
-        public Int32 groupType;
-        public byte[] versionControlInfo;
-        public UInt32 unknown;
+namespace esper.data.headers {
+    public struct TES4GroupHeader : IGroupHeader {
+        public static UInt16 size => 24;
+
+        public Signature signature { get; }
+        public UInt32 groupSize { get; }
+        public byte[] label { get; }
+        public Int32 groupType { get; }
+        public byte[] versionControlInfo { get; }
+        public UInt32 unknown { get; }
 
         public TES4GroupHeader(PluginFileSource source) {
-            signature = source.ReadSignature();
+            signature = Signature.Read(source);
             groupSize = source.reader.ReadUInt32();
             label = source.reader.ReadBytes(4);
             groupType = source.reader.ReadInt32();
             versionControlInfo = source.reader.ReadBytes(4);
             unknown = source.reader.ReadUInt32();
+        }
+
+        public TES4GroupHeader(byte[] label, Int32 groupType) {
+            signature = Signature.FromString("GRUP");
+            groupSize = 0;
+            this.label = label;
+            this.groupType = groupType;
+            versionControlInfo = new byte[4];
+            unknown = 0;
         }
 
         internal long WriteTo(PluginFileOutput output) {
@@ -27,15 +38,6 @@ namespace esper.data {
             output.writer.Write(versionControlInfo);
             output.writer.Write(unknown);
             return output.stream.Position;
-        }
-
-        internal void WriteUpdatedSize(PluginFileOutput output, long offset) {
-            var pos = output.stream.Position;
-            UInt32 newSize = (UInt32) (pos - offset);
-            if (newSize == groupSize) return;
-            output.stream.Position = offset - 20;
-            output.writer.Write(newSize);
-            output.stream.Position = pos;
         }
     }
 }

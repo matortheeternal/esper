@@ -1,4 +1,4 @@
-﻿using esper.defs.TES5;
+﻿using esper.helpers;
 using System.Collections.Generic;
 
 namespace esper {
@@ -15,6 +15,7 @@ namespace esper {
         public string exeName;
         public string esmName;
         public string iniName;
+        public string headerTypeKey = "TES4";
         public string cccName = null;
         public string pluginsTxtType = "plain";
         public string archiveExtension = ".bsa";

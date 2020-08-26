@@ -4,9 +4,12 @@ using System.Text;
 using System;
 using esper.resolution;
 using System.Collections.Generic;
+using esper.data;
 
 namespace esper.plugins {
     public class PluginFile : Container, IMasterManager, IRecordManager {
+        private readonly Signature TES4 = Signature.FromString("TES4");
+
         public MainRecord header;
         public Session session;
         public string filename;
@@ -51,7 +54,7 @@ namespace esper.plugins {
 
         internal void ReadFileHeader() {
             if (header != null) return;
-            source.ReadFileHeader(this);
+            header = MainRecord.Read(this, source, TES4);
             this.InitMasters();
             this.InitRecordMaps();
         }
