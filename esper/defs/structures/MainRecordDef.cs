@@ -65,7 +65,10 @@ namespace esper.defs {
         internal void InitContainedInElements(GroupRecord group, MainRecord rec) {
             if (group == null || !group.hasRecordParent) return;
             var parentRec = group.GetParentRecord();
-            parentRec.MakeContainedInElement(rec);
+            var containedInDef = parentRec.mrDef.containedInDef;
+            if (containedInDef == null) return;
+            var element = (ValueElement)containedInDef.NewElement(rec);
+            element._data = FormId.FromSource(parentRec._file, parentRec.formId);
         }
 
         internal void ReadElements(MainRecord rec, PluginFileSource source) {
