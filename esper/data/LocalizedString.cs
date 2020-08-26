@@ -18,5 +18,10 @@ namespace esper.data {
         internal void WriteTo(PluginFileOutput output) {
             throw new NotImplementedException();
         }
+
+        internal static LocalizedString Read(PluginFileSource source) {
+            var id = source.reader.ReadUInt32();
+            return new LocalizedString(source.plugin, id);
+        }
     }
 }

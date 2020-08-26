@@ -7,7 +7,7 @@ namespace esper.data {
         public UInt16 dataSize;
 
         public Subrecord(PluginFileSource source) {
-            signature = source.ReadSignature().ToString();
+            signature = Signature.Read(source).ToString();
             dataSize = source.reader.ReadUInt16();
         }
     }

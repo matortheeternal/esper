@@ -1,4 +1,7 @@
-﻿namespace esper.data {
+﻿using esper.plugins;
+using System;
+
+namespace esper.data {
     public struct Signature {
         static readonly SignatureEncoding encoding = new SignatureEncoding();
 
@@ -50,6 +53,10 @@
 
         public override int GetHashCode() {
             return b3 << 24 | b2 << 16 | b1 << 8 | b0;
+        }
+
+        internal static Signature Read(PluginFileSource source) {
+            return new Signature(source.reader.ReadBytes(4));
         }
     }
 }

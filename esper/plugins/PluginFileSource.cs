@@ -8,8 +8,6 @@ using Ionic.Zlib;
 
 namespace esper.plugins {
     public class PluginFileSource {
-        private readonly Signature TES4 = Signature.FromString("TES4");
-
         internal readonly PluginFile plugin;
         internal readonly string filePath;
 
@@ -52,20 +50,6 @@ namespace esper.plugins {
             if (padding != null && size != null)
                 reader.ReadBytes((int)padding);
             return size;
-        }
-
-        internal Signature ReadSignature() {
-            byte[] bytes = reader.ReadBytes(4);
-            return new Signature(bytes[0], bytes[1], bytes[2], bytes[3]);
-        }
-
-        internal void ReadFileHeader(PluginFile file) {
-            file.header = MainRecord.Read(file, this, TES4);
-        }
-
-        internal LocalizedString ReadLocalizedString() {
-            var id = reader.ReadUInt32();
-            return new LocalizedString(plugin, id);
         }
 
         internal string ReadString() {

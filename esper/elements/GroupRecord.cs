@@ -97,7 +97,7 @@ namespace esper.elements {
             var group = new GroupRecord(container, source);
             var file = group.file;
             source.ReadMultiple(group.dataSize, () => {
-                var sig = source.ReadSignature();
+                var sig = Signature.Read(source);
                 source.stream.Seek(-4, SeekOrigin.Current);
                 if (sig == GRUP) {
                     Read(group, source);
