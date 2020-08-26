@@ -98,6 +98,11 @@ namespace esper.plugins {
                 throw new Exception("Critical error parsing file, read past end offset.");
         }
 
+        internal void PipeTo(BinaryWriter writer, int size) {
+            // TODO: chunks?
+            writer.Write(reader.ReadBytes(size));
+        }
+
         internal void SetDecompressedStream(byte[] decompressedData) {
             if (decompressedData == null) return;
             decompressedStream = new MemoryStream(decompressedData);
@@ -133,11 +138,11 @@ namespace esper.plugins {
             _currentSubrecord = null;
         }
 
-        internal void WithRecordData(MainRecord rec, Action action) {
+        internal void WithRecordData(MainRecord rec, Action callback) {
             if (rec.compressed && !rec.Decompress(this))
                 throw new Exception("Failed to decompress content.");
             try {
-                action();
+                callback();
             } finally {
                 DiscardDecompressedStream();
             }

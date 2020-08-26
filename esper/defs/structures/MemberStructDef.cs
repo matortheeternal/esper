@@ -71,7 +71,7 @@ namespace esper.defs {
         internal override void WriteElement(
             Element element, PluginFileOutput output
         ) {
-            throw new NotImplementedException();
+            output.WriteContainer((Container)element);
         }
     }
 }

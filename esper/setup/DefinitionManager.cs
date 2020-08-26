@@ -18,11 +18,10 @@ namespace esper.setup {
         internal Def groupHeaderDef;
         internal List<string> groupOrder;
         private JObject definitions;
-
         private readonly DefMap defMap = new DefMap();
         private readonly ClassMap defClasses = new ClassMap();
         private readonly DeciderMap deciders = new DeciderMap();
-        private string defsFileName => game.abbreviation + ".json";
+
         public CTDAFunctions ctdaFunctions => (CTDAFunctions) defMap["CTDAFunctions"];
 
         public DefinitionManager(Game game, Session session) {
@@ -36,6 +35,7 @@ namespace esper.setup {
         }
 
         private void LoadDefinitions() {
+            var defsFileName = game.abbreviation + ".json";
             session.logger.Info($"Loading definitions from {defsFileName}");
             definitions = IOHelpers.LoadResource(defsFileName);
         }
@@ -154,7 +154,6 @@ namespace esper.setup {
         }
 
         public Def GetRecordDef(Signature signature) {
-            // TODO: lookup by signature maybe?
             var sig = signature.ToString();
             if (session.options.buildDefsOnDemand && !defMap.ContainsKey(sig))
                 BuildRecordDef(sig);

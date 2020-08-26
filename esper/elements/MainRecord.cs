@@ -3,9 +3,9 @@ using esper.data;
 using esper.plugins;
 using esper.resolution;
 using System;
-using System.Collections.Generic;
-using System.IO;
 using System.Linq;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using esper.data.headers;
 
 namespace esper.elements {
@@ -13,14 +13,14 @@ namespace esper.elements {
         internal readonly IRecordHeader header;
         internal List<Subrecord> _unexpectedSubrecords;
 
-        private readonly PluginFile _file;
+        internal readonly PluginFile _file;
         internal readonly long bodyOffset;
         internal byte[] decompressedData;
-        public GroupRecord childGroup;
 
         public MainRecordDef mrDef => def as MainRecordDef;
         public override MainRecord record => this;
         public override PluginFile file => _file;
+        public GroupRecord childGroup { get; set; }
 
         public UInt32 formId => header.formId;
         public UInt32 localFormId => formId & 0xFFFFFF;
@@ -79,8 +79,8 @@ namespace esper.elements {
         }
 
         public bool IsLocal() {
-            var file = (_file as IMasterManager);
-            return (formId >> 24) >= file.originalMasters.Count;
+            var masterCount = (_file as IMasterManager).originalMasters.Count;
+            return (formId >> 24) >= masterCount;
         }
 
         public override bool SupportsSignature(string sig) {
@@ -90,15 +90,6 @@ namespace esper.elements {
         internal override void ElementsReady() {
             base.ElementsReady();
             Initialize();
-        }
-
-        internal override void WriteTo(PluginFileOutput output) {
-            int index = mrDef.containedInDef != null ? 1 : 0;
-            for (; index < count; index++) {
-                var element = _elements[index];
-                element.def.WriteElement(element, output);
-            }
-            header.WriteUpdatedSize(output, bodyOffset);
         }
     }
 }

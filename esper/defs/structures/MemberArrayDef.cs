@@ -3,7 +3,6 @@ using esper.helpers;
 using esper.plugins;
 using esper.setup;
 using Newtonsoft.Json.Linq;
-using System;
 using System.Collections.Generic;
 
 namespace esper.defs {
@@ -70,7 +69,7 @@ namespace esper.defs {
         internal override void WriteElement(
             Element element, PluginFileOutput output
         ) {
-            throw new NotImplementedException();
+            output.WriteContainer((Container)element);
         }
     }
 }

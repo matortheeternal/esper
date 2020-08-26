@@ -16,7 +16,7 @@ namespace esper.data {
         }
 
         internal void WriteTo(PluginFileOutput output) {
-            throw new NotImplementedException();
+            output.writer.Write(id);
         }
 
         internal static LocalizedString Read(PluginFileSource source) {

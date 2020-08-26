@@ -1,6 +1,7 @@
 ﻿using esper.data;
 using esper.defs;
 using esper.plugins;
+using System;
 
 namespace esper.elements {
     public class ValueElement : Element {
@@ -28,6 +29,8 @@ namespace esper.elements {
             get => valueDef.GetValue(this);
             set => valueDef.SetValue(this, value);
         }
+
+        public override UInt16 size => def.GetSize(this);
 
         public override MainRecord referencedRecord {
             get {

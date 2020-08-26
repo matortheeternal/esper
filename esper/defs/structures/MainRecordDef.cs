@@ -90,5 +90,46 @@ namespace esper.defs {
                 e.Initialize();
             }
         }
+
+        internal override ushort GetSize(Element element) {
+            var rec = (MainRecord)element;
+            int index = containedInDef != null ? 1 : 0;
+            UInt16 size = 0;
+            for (; index < rec.count; index++)
+                size += rec._internalElements[index].size;
+            return size;
+        }
+
+        internal void WriteElementsTo(MainRecord rec, PluginFileOutput output) {
+            int index = containedInDef != null ? 2 : 1;
+            rec._internalElements[0].WriteTo(output);
+            output.WriteRecordData(rec, () => {
+                for (; index < rec._internalElements.Count; index++)
+                    rec._internalElements[index].WriteTo(output);
+            });
+            headerManager.WriteUpdatedSize(rec, output);
+        }
+
+        internal void WriteSourceTo(MainRecord rec, PluginFileOutput output) {
+            var source = rec._file.source;
+            source.stream.Position = rec.bodyOffset - recordHeaderSize;
+            int size = (int)(recordHeaderSize + rec.dataSize);
+            source.PipeTo(output.writer, size);
+        }
+
+        internal override void WriteElement(
+            Element element, PluginFileOutput output
+        ) {
+            var rec = (MainRecord) element;
+            var file = rec._file;
+            if (rec._internalElements == null) {
+                if (!(file as IMasterManager).mastersChanged) {
+                    WriteSourceTo(rec, output);
+                    return;
+                }
+                ReadElements(rec, file.source);
+            }
+            WriteElementsTo(rec, output);
+        }
     }
 }

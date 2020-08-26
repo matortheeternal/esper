@@ -45,6 +45,13 @@ namespace esper.defs {
             SetData(element, StringHelpers.ParseBytes(value));
         }
 
+        internal override UInt16 GetSize(Element element) {
+            if (fixedSize != null) return (UInt16)fixedSize;
+            var v = (ValueElement)element;
+            byte[] bytes = v.data as byte[] ?? DefaultData();
+            return (UInt16) bytes.Length;
+        }
+
         internal override void WriteData(
             ValueElement element, PluginFileOutput output
         ) {

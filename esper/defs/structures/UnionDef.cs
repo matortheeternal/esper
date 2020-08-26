@@ -55,7 +55,7 @@ namespace esper.defs {
             Element element, PluginFileOutput output
         ) {
             base.WriteElement(element, output);
-            throw new NotImplementedException();
+            output.WriteContainer((Container) element);
         }
     }
 }

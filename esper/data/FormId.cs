@@ -47,7 +47,11 @@ namespace esper.data {
         }
 
         internal void WriteTo(PluginFileOutput output) {
-            throw new NotImplementedException();
+            byte ordinal = targetPlugin != null
+                ? output.plugin.FileToOrdinal(targetPlugin, true)
+                : (byte) 0;
+            fileFormId = ((UInt32) ordinal << 24) + localFormId;
+            output.writer.Write(fileFormId);
         }
     }
 }

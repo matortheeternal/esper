@@ -54,11 +54,21 @@ namespace esper.defs {
             return new ArrayElement(container, this);
         }
 
+        internal override UInt16 GetSize(Element element) {
+            UInt16 size = 0;
+            if (prefix != null) size += (UInt16) prefix;
+            if (padding != null) size += (UInt16) padding;
+            return (UInt16) (size + base.GetSize(element));
+        }
+
         internal override void WriteElement(
             Element element, PluginFileOutput output
         ) {
             base.WriteElement(element, output);
-            throw new NotImplementedException();
+            var container = (Container) element;
+            if (prefix != null) 
+                output.WritePrefix(container.count, (int) prefix, padding ?? 0);
+            output.WriteContainer((Container) element);
         }
     }
 }

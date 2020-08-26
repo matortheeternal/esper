@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using esper.defs;
-using esper.plugins;
 
 namespace esper.elements {
     public class Container : Element {
@@ -37,6 +36,14 @@ namespace esper.elements {
         internal override void ElementsReady() {
             if (_internalElements == null) return;
             _internalElements.ForEach(e => e.ElementsReady());
+        }
+
+        internal virtual void ForEachElement(Func<Element, bool> callback) {
+            internalElements.ForEach(element => {
+                bool stepInto = callback(element);
+                if (stepInto && element is Container container)
+                    container.ForEachElement(callback);
+            });
         }
     }
 }

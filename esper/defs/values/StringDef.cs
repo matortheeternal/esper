@@ -4,6 +4,7 @@ using esper.data;
 using esper.plugins;
 using esper.setup;
 using System;
+using esper.resolution;
 
 namespace esper.defs {
     public class StringDef : ValueDef {
@@ -66,15 +67,31 @@ namespace esper.defs {
             return keepCase ? str : str.ToUpper();
         }
 
+        internal override ushort GetSize(Element element) {
+            var v = (ValueElement)element;
+            if (v.data is LocalizedString) {
+                return 4;
+            } else {
+                if (fixedSize != null) return (UInt16)fixedSize;
+                var s = v.data as string ?? DefaultData();
+                int size = 0;
+                if (prefix != null) size += (int)prefix;
+                if (padding != null) size += (int)padding;
+                if (isVariableSize) size += 1;
+                return size + s.Length;
+            }
+        }
+
         internal override void WriteData(
             ValueElement element, PluginFileOutput output
         ) {
-            if (element.data is string s) {
-                output.WriteString(s);
-            } else if (element.data is LocalizedString ls) {
+            if (element.data is LocalizedString ls) {
                 ls.WriteTo(output);
             } else {
-                output.WriteString(DefaultData());
+                var s = element.data as string ?? DefaultData();
+                if (prefix != null)
+                    output.WritePrefix(s.Length, (int)prefix, padding ?? 0);
+                output.WriteString(s, isVariableSize);
             }
         }
     }

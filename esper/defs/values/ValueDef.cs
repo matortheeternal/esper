@@ -76,6 +76,10 @@ namespace esper.defs {
                 : sortKey;
         }
 
+        internal override UInt16 GetSize(Element element) {
+            return (UInt16)size;
+        }
+
         internal virtual void WriteData(
             ValueElement element, PluginFileOutput output
         ) {
