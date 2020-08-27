@@ -107,15 +107,15 @@ namespace esper.defs {
             return size;
         }
 
-        internal void UpdateDataSize(Element headerElement) {
+        internal void UpdateDataSize(Element headerElement, UInt32 newSize) {
             var element = (ValueElement) headerElement.GetElement("Data Size");
-            element._data = headerElement.container.size - recordHeaderSize;
+            element._data = newSize;
         }
 
         internal void WriteElementsTo(MainRecord rec, PluginFileOutput output) {
             int index = GetFirstRealElementIndex(rec);
             var headerElement = rec._internalElements[index++];
-            UpdateDataSize(headerElement);
+            UpdateDataSize(headerElement, rec.size - recordHeaderSize);
             headerElement.WriteTo(output);
             output.WriteRecordData(rec, () => {
                 for (; index < rec._internalElements.Count; index++)
