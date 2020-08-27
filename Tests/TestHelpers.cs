@@ -3,6 +3,7 @@ using esper.resolution;
 using NUnit.Framework;
 using System;
 using System.IO;
+using System.Linq;
 
 namespace Tests {
     public static class TestHelpers {
@@ -25,6 +26,30 @@ namespace Tests {
             Assert.AreEqual("255", c.GetValue("Red"));
             Assert.AreEqual("255", c.GetValue("Green"));
             Assert.AreEqual("255", c.GetValue("Blue"));
+        }
+
+        public static void BinaryEqual(string oldPath, string newPath) {
+            var oldStream = new FileStream(
+                oldPath, FileMode.Open,
+                FileAccess.Read, FileShare.ReadWrite
+            );
+            var oldReader = new BinaryReader(oldStream);
+            var newStream = new FileStream(
+                newPath, FileMode.Open,
+                FileAccess.Read, FileShare.ReadWrite
+            );
+            var newReader = new BinaryReader(newStream);
+            Assert.AreEqual(oldStream.Length, newStream.Length, "Length mismatch.");
+            var i = 0;
+            var len = oldStream.Length;
+            while (i < len) {
+                int bytesToRead = Math.Min(1024, (int) len - i);
+                i += bytesToRead;
+                var oldBytes = oldReader.ReadBytes(bytesToRead);
+                var newBytes = newReader.ReadBytes(bytesToRead);
+                Assert.IsTrue(oldBytes.SequenceEqual(newBytes));
+            }
+                
         }
 
         public static void TestFormId(Element element, string path) {

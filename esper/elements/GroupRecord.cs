@@ -5,6 +5,7 @@ using System;
 using System.IO;
 using esper.data.headers;
 using esper.setup;
+using System.Linq;
 
 namespace esper.elements {
     public enum GroupType : Int32 {
@@ -33,12 +34,17 @@ namespace esper.elements {
         public override string signature => header.signature.ToString();
         public override GroupRecord group => this;
 
+        public override UInt32 size {
+            get => (UInt32)(groupHeaderSize + internalElements.Sum(e => e.size));
+        }
+
         public UInt32 groupSize => header.groupSize;
         public GroupType groupType => (GroupType)header.groupType;
         public byte[] label => header.label;
         public UInt32 dataSize => (UInt32)(groupSize - groupHeaderDef.size);
 
         private HeaderManager headerManager => manager.headerManager;
+        private UInt32 groupHeaderSize => headerManager.groupHeaderSize;
         private StructDef groupHeaderDef => manager.groupHeaderDef as StructDef;
         private Signature labelAsSignature => new Signature(label);
         private Int32 labelAsInt32 => BitConverter.ToInt32(label);
@@ -171,9 +177,9 @@ namespace esper.elements {
         }
 
         internal override void WriteTo(PluginFileOutput output) {
-            long sizeOffset = headerManager.WriteGroupHeaderTo(header, output);
-            base.WriteTo(output);
-            headerManager.WriteUpdatedSize(group, output, sizeOffset);
+            header.groupSize = size;
+            headerManager.WriteGroupHeaderTo(header, output);
+            output.WriteContainer(this);
         }
     }
 }

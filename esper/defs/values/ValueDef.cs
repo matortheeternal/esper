@@ -76,8 +76,8 @@ namespace esper.defs {
                 : sortKey;
         }
 
-        internal override UInt16 GetSize(Element element) {
-            return (UInt16)size;
+        internal override UInt32 GetSize(Element element) {
+            return (UInt32) (base.GetSize(element) + (size ?? 0));
         }
 
         internal virtual void WriteData(

@@ -54,11 +54,11 @@ namespace esper.defs {
             return new ArrayElement(container, this);
         }
 
-        internal override UInt16 GetSize(Element element) {
-            UInt16 size = 0;
-            if (prefix != null) size += (UInt16) prefix;
-            if (padding != null) size += (UInt16) padding;
-            return (UInt16) (size + base.GetSize(element));
+        internal override UInt32 GetSize(Element element) {
+            UInt32 size = 0;
+            if (prefix != null) size += (UInt32) prefix;
+            if (padding != null) size += (UInt32) padding;
+            return size + base.GetSize(element);
         }
 
         internal override void WriteElement(

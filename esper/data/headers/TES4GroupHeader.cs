@@ -3,10 +3,10 @@ using System;
 
 namespace esper.data.headers {
     public struct TES4GroupHeader : IGroupHeader {
-        public static UInt16 size => 24;
+        public static UInt32 size => 24;
 
         public Signature signature { get; }
-        public UInt32 groupSize { get; }
+        public UInt32 groupSize { get; set; }
         public byte[] label { get; }
         public Int32 groupType { get; }
         public byte[] versionControlInfo { get; }
@@ -30,7 +30,7 @@ namespace esper.data.headers {
             unknown = 0;
         }
 
-        internal long WriteTo(PluginFileOutput output) {
+        public long WriteTo(PluginFileOutput output) {
             output.writer.Write(signature.bytes);
             output.writer.Write(groupSize);
             output.writer.Write(label);

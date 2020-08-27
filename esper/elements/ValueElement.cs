@@ -30,7 +30,7 @@ namespace esper.elements {
             set => valueDef.SetValue(this, value);
         }
 
-        public override UInt16 size => def.GetSize(this);
+        public override UInt32 size => def.GetSize(this);
 
         public override MainRecord referencedRecord {
             get {

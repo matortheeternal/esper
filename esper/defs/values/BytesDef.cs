@@ -45,11 +45,11 @@ namespace esper.defs {
             SetData(element, StringHelpers.ParseBytes(value));
         }
 
-        internal override UInt16 GetSize(Element element) {
-            if (fixedSize != null) return (UInt16)fixedSize;
+        internal override UInt32 GetSize(Element element) {
+            UInt32 size = (UInt32) (IsSubrecord() ? 6 : 0);
             var v = (ValueElement)element;
             byte[] bytes = v.data as byte[] ?? DefaultData();
-            return (UInt16) bytes.Length;
+            return (UInt32) (size + bytes.Length);
         }
 
         internal override void WriteData(

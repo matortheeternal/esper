@@ -14,8 +14,7 @@ namespace esper.plugins {
         public Session session;
         public string filename;
         public PluginFileOptions options;
-        public PluginFileSource source;
-        public PluginFileOutput output;
+        internal PluginFileSource source;
 
         public bool isDummy => source == null;
         public uint recordCount => header.GetData(@"HEDR\Number of Records");
@@ -46,13 +45,15 @@ namespace esper.plugins {
             return false; // TODO
         }
 
-        internal void Save(string filePath) {
+        public void Save(string filePath) {
             this.CheckMasters();
             this.UpdateMastersElement();
-            new PluginFileOutput(filePath, this);
+            var output = new PluginFileOutput(filePath, this);
             internalElements.ForEach(element => {
                 element.WriteTo(output);
             });
+            output.stream.Flush();
+            output.stream.Close();
         }
 
         internal void ReadFileHeader() {

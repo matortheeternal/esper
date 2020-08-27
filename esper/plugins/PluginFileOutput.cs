@@ -23,7 +23,6 @@ namespace esper.plugins {
         internal PluginFileOutput(string filePath, PluginFile plugin) {
             this.filePath = filePath;
             this.plugin = plugin;
-            plugin.output = this;
             fileStream = File.OpenWrite(filePath);
             fileWriter = new BinaryWriter(fileStream);
         }
@@ -32,14 +31,14 @@ namespace esper.plugins {
             fileWriter.Write(sig.bytes);
         }
 
-        internal void WriteString(string s, bool includeTerminator) {
+        internal void WriteString(string s, bool includeTerminator = false) {
             byte[] bytes = stringEncoding.GetBytes(s);
             writer.Write(bytes);
             if (includeTerminator) writer.Write(nullTerminator);
         }
 
         internal void WriteContainer(Container container) {
-            foreach (var element in container.elements)
+            foreach (var element in container._internalElements)
                 element.WriteTo(this);
         }
 

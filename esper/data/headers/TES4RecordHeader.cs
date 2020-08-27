@@ -4,7 +4,7 @@ using System;
 
 namespace esper.data.headers {
     public struct TES4RecordHeader : IRecordHeader {
-        public static UInt16 size => 24;
+        public static UInt32 size => 24;
 
         public Signature signature { get; }
         public UInt32 dataSize { get; }

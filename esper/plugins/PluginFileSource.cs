@@ -35,8 +35,17 @@ namespace esper.plugins {
             this.plugin = plugin;
             fileInfo = new FileInfo(filePath);
             plugin.source = this;
-            file = MemoryMappedFile.CreateFromFile(filePath, FileMode.Open);
-            fileStream = file.CreateViewStream();
+            var baseStream = new FileStream(
+                filePath, FileMode.Open, 
+                FileAccess.Read, FileShare.ReadWrite
+            );
+            file = MemoryMappedFile.CreateFromFile(
+                baseStream, null, 0, MemoryMappedFileAccess.Read, 
+                HandleInheritability.None, false
+            );
+            fileStream = file.CreateViewStream(
+                0, 0, MemoryMappedFileAccess.Read
+            );
             fileReader = new BinaryReader(stream);
         }
 

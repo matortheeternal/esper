@@ -2,6 +2,7 @@
 using esper.elements;
 using esper.helpers;
 using esper.plugins;
+using esper.resolution;
 using esper.setup;
 using Newtonsoft.Json.Linq;
 using System;
@@ -14,7 +15,7 @@ namespace esper.defs {
 
         private readonly string _signature;
         private HeaderManager headerManager => manager.headerManager;
-        private UInt16 recordHeaderSize => headerManager.recordHeaderSize;
+        private UInt32 recordHeaderSize => headerManager.recordHeaderSize;
 
         public override string signature => _signature;
         public StructDef headerDef;
@@ -62,6 +63,21 @@ namespace esper.defs {
             source.EndRead();
         }
 
+        internal FlagsDef GetRecordFlagsDef(MainRecord rec) {
+            var d = (ValueDef)headerDef.elementDefs.First(d => {
+                return d.name == "Record Flags";
+            });
+            if (d.formatDef is FlagsDef flagsDef)
+                return flagsDef;
+            throw new Exception("Could not resolve record flags");
+        }
+
+        internal bool GetCompressed(MainRecord rec) {
+            if (rec.signature == "REFR") return false;
+            var recordFlagsDef = GetRecordFlagsDef(rec);
+            return recordFlagsDef.FlagIsSet(rec.header.flags, "Compressed");
+        }
+
         internal void InitContainedInElements(GroupRecord group, MainRecord rec) {
             if (group == null || !group.hasRecordParent) return;
             var parentRec = group.GetParentRecord();
@@ -91,29 +107,41 @@ namespace esper.defs {
             }
         }
 
-        internal override ushort GetSize(Element element) {
+        internal int GetFirstRealElementIndex(MainRecord rec) {
+            return rec._internalElements.FindIndex(e => e.name == "Record Header");
+        }
+
+        internal override UInt32 GetSize(Element element) {
             var rec = (MainRecord)element;
-            int index = containedInDef != null ? 1 : 0;
-            UInt16 size = 0;
+            if (rec._internalElements == null)
+                return recordHeaderSize + rec.header.dataSize;
+            int index = GetFirstRealElementIndex(rec);
+            UInt32 size = 0;
             for (; index < rec.count; index++)
                 size += rec._internalElements[index].size;
             return size;
         }
 
+        internal void UpdateDataSize(Element headerElement) {
+            var element = (ValueElement) headerElement.GetElement("Data Size");
+            element._data = (UInt32) headerElement.container.size - recordHeaderSize;
+        }
+
         internal void WriteElementsTo(MainRecord rec, PluginFileOutput output) {
-            int index = containedInDef != null ? 2 : 1;
-            rec._internalElements[0].WriteTo(output);
+            int index = GetFirstRealElementIndex(rec);
+            var headerElement = rec._internalElements[index++];
+            UpdateDataSize(headerElement);
+            headerElement.WriteTo(output);
             output.WriteRecordData(rec, () => {
                 for (; index < rec._internalElements.Count; index++)
                     rec._internalElements[index].WriteTo(output);
             });
-            headerManager.WriteUpdatedSize(rec, output);
         }
 
         internal void WriteSourceTo(MainRecord rec, PluginFileOutput output) {
             var source = rec._file.source;
             source.stream.Position = rec.bodyOffset - recordHeaderSize;
-            int size = (int)(recordHeaderSize + rec.dataSize);
+            int size = (int)(recordHeaderSize + rec.header.dataSize);
             source.PipeTo(output.writer, size);
         }
 

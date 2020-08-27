@@ -33,12 +33,16 @@ namespace esper.defs {
             return sigs;
         }
 
+        internal override UInt32 GetSize(Element element) {
+            return (UInt32) ((IsSubrecord() ? 6 : 0) + base.GetSize(element));
+        }
+
         internal override void WriteElement(
             Element element, PluginFileOutput output
         ) {
             if (!IsSubrecord()) return;
-            output.writer.Write(_signature);
-            output.writer.Write(element.size);
+            output.WriteString(_signature);
+            output.writer.Write((UInt16) (element.def.GetSize(element) - 6));
         }
     }
 }

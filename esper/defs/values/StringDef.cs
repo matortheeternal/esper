@@ -67,18 +67,18 @@ namespace esper.defs {
             return keepCase ? str : str.ToUpper();
         }
 
-        internal override ushort GetSize(Element element) {
+        internal override UInt32 GetSize(Element element) {
+            UInt32 size = base.GetSize(element);
+            if (fixedSize != null) return size;
             var v = (ValueElement)element;
             if (v.data is LocalizedString) {
-                return 4;
+                return size + 4;
             } else {
-                if (fixedSize != null) return (UInt16)fixedSize;
                 var s = v.data as string ?? DefaultData();
-                int size = 0;
-                if (prefix != null) size += (int)prefix;
-                if (padding != null) size += (int)padding;
+                if (prefix != null) size += (UInt32)prefix;
+                if (padding != null) size += (UInt32)padding;
                 if (isVariableSize) size += 1;
-                return size + s.Length;
+                return (UInt32) (size + s.Length);
             }
         }
 

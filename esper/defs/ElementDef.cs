@@ -72,9 +72,9 @@ namespace esper.defs {
             throw new NotImplementedException();
         }
 
-        internal virtual UInt16 GetSize(Element element) {
-            if (element is Container container) 
-                return (UInt16) container._internalElements.Sum(e => e.size);
+        internal virtual UInt32 GetSize(Element element) {
+            if (element is Container container && container._internalElements != null) 
+                return (UInt32) container._internalElements.Sum(e => e.size);
             return 0;
         }
     }

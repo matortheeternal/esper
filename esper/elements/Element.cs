@@ -15,7 +15,7 @@ namespace esper.elements {
         public virtual string name => def?.name;
         public virtual string signature => def?.signature;
         public virtual string displayName => def?.displayName;
-        public virtual UInt16 size => 0;
+        public virtual UInt32 size => def?.GetSize(this) ?? 0;
         public SessionOptions sessionOptions => manager?.session.options;
         public Game game => manager?.session.game;
         public int index => container.elements.IndexOf(this);

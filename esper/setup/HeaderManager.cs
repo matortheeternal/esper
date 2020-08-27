@@ -7,8 +7,8 @@ namespace esper.setup {
     public class HeaderManager {
         internal Type recordHeaderType;
         internal Type groupHeaderType;
-        internal UInt16 recordHeaderSize;
-        internal UInt16 groupHeaderSize;
+        internal UInt32 recordHeaderSize;
+        internal UInt32 groupHeaderSize;
 
         public HeaderManager(string headerTypeKey) {
             LoadStructTypes(headerTypeKey);
@@ -27,9 +27,9 @@ namespace esper.setup {
 
         private void InitSizes() {
             var sizeProp = recordHeaderType.GetProperty("size");
-            recordHeaderSize = (UInt16)sizeProp.GetValue(null);
+            recordHeaderSize = (UInt32)sizeProp.GetValue(null);
             sizeProp = groupHeaderType.GetProperty("size");
-            groupHeaderSize = (UInt16)sizeProp.GetValue(null);
+            groupHeaderSize = (UInt32)sizeProp.GetValue(null);
         }
 
         internal dynamic ReadRecordHeader(PluginFileSource source) {
@@ -42,27 +42,6 @@ namespace esper.setup {
             return Activator.CreateInstance(groupHeaderType, args);
         }
 
-        internal void WriteUpdatedSize(MainRecord rec, PluginFileOutput output) {
-            var pos = output.stream.Position;
-            UInt32 newSize = (UInt32)(pos - rec.bodyOffset);
-            if (newSize == rec.header.dataSize) return;
-            var headerSize = output.plugin.manager.headerManager.recordHeaderSize;
-            output.stream.Position = rec.bodyOffset - headerSize + 4;
-            output.writer.Write(newSize);
-            output.stream.Position = pos;
-        }
-
-        internal void WriteUpdatedSize(
-            GroupRecord group, PluginFileOutput output, long offset
-        ) {
-            var pos = output.stream.Position;
-            UInt32 newSize = (UInt32)(pos - offset);
-            if (newSize == group.groupSize) return;
-            output.stream.Position = offset - 20;
-            output.writer.Write(newSize);
-            output.stream.Position = pos;
-        }
-
         internal StructElement HeaderToStructElement(
             MainRecord rec, PluginFileSource source
         ) {
@@ -71,12 +50,12 @@ namespace esper.setup {
             return (StructElement) method.Invoke(rec.header, args);
         }
 
-        internal long WriteGroupHeaderTo(
+        internal void WriteGroupHeaderTo(
             IGroupHeader header, PluginFileOutput output
         ) {
             var method = groupHeaderType.GetMethod("WriteTo");
             var args = new object[] { output };
-            return (long)method.Invoke(header, args);
+            method.Invoke(header, args);
         }
     }
 }
