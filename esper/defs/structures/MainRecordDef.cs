@@ -63,21 +63,6 @@ namespace esper.defs {
             source.EndRead();
         }
 
-        internal FlagsDef GetRecordFlagsDef(MainRecord rec) {
-            var d = (ValueDef)headerDef.elementDefs.First(d => {
-                return d.name == "Record Flags";
-            });
-            if (d.formatDef is FlagsDef flagsDef)
-                return flagsDef;
-            throw new Exception("Could not resolve record flags");
-        }
-
-        internal bool GetCompressed(MainRecord rec) {
-            if (rec.signature == "REFR") return false;
-            var recordFlagsDef = GetRecordFlagsDef(rec);
-            return recordFlagsDef.FlagIsSet(rec.header.flags, "Compressed");
-        }
-
         internal void InitContainedInElements(GroupRecord group, MainRecord rec) {
             if (group == null || !group.hasRecordParent) return;
             var parentRec = group.GetParentRecord();
@@ -124,7 +109,7 @@ namespace esper.defs {
 
         internal void UpdateDataSize(Element headerElement) {
             var element = (ValueElement) headerElement.GetElement("Data Size");
-            element._data = (UInt32) headerElement.container.size - recordHeaderSize;
+            element._data = headerElement.container.size - recordHeaderSize;
         }
 
         internal void WriteElementsTo(MainRecord rec, PluginFileOutput output) {

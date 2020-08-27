@@ -28,7 +28,7 @@ namespace esper.elements {
         public UInt32 dataSize => compressed
                     ? (uint) decompressedData.Length
                     : header.dataSize;
-        public bool compressed => mrDef.GetCompressed(this);
+        public bool compressed => this.GetRecordFlag("Compressed");
         public string editorId => this.GetValue("EDID");
 
         public ReadOnlyCollection<Subrecord> unexpectedSubrecords {
