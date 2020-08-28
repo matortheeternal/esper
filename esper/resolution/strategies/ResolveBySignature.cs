@@ -1,5 +1,7 @@
-﻿using esper.elements;
+﻿using esper.defs;
+using esper.elements;
 using System;
+using System.Linq;
 using System.Text.RegularExpressions;
 
 namespace esper.resolution.strategies {
@@ -29,8 +31,21 @@ namespace esper.resolution.strategies {
             return null;
         }
 
+        public static ElementDef ResolveDef(Container container, string sig) {
+            return container.def.childDefs.FirstOrDefault(def => {
+                return def.signature == sig;
+            });
+        }
+
         public static Element Create(MatchData match) {
-            throw new NotImplementedException();
+            ContainerMatch c = (ContainerMatch)match;
+            var sig = c.match.Groups[1].Value;
+            var targetDef = ResolveDef(c.container, sig);
+            if (targetDef == null) 
+                throw new Exception($"Failed to resolve def with signature: {sig}");
+            var element = targetDef.NewElement(c.container);
+            element.Initialize();
+            return element;
         }
     }
 }
