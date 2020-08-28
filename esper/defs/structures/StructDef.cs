@@ -19,6 +19,7 @@ namespace esper.defs {
 
         public override int? size => elementDefs.Sum(def => def.size);
         public override bool canContainFormIds => _canContainFormIds;
+        public override ReadOnlyCollection<ElementDef> childDefs => elementDefs;
 
         public StructDef(DefinitionManager manager, JObject src)
             : base(manager, src) {

@@ -4,6 +4,7 @@ using esper.setup;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 
 namespace esper.defs {
@@ -15,6 +16,8 @@ namespace esper.defs {
         public virtual string signature => null;
         public virtual string displayName => name;
         public virtual int? size => 0;
+
+        public virtual ReadOnlyCollection<ElementDef> childDefs => null;
 
         public ElementDef(DefinitionManager manager, JObject src)
             : base(manager, src) {

@@ -4,6 +4,7 @@ using esper.plugins;
 using esper.setup;
 using Newtonsoft.Json.Linq;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace esper.defs {
     public class MemberArrayDef : ElementDef {
@@ -14,6 +15,9 @@ namespace esper.defs {
         public readonly bool sorted;
 
         public override bool canContainFormIds => memberDef.canContainFormIds;
+        public override ReadOnlyCollection<ElementDef> childDefs {
+            get => new List<ElementDef>() { memberDef }.AsReadOnly();
+        }
 
         public MemberArrayDef(DefinitionManager manager, JObject src)
             : base(manager, src) {

@@ -16,6 +16,7 @@ namespace esper.defs {
         public ReadOnlyCollection<ElementDef> elementDefs;
 
         public override bool canContainFormIds => _canContainFormIds;
+        public override ReadOnlyCollection<ElementDef> childDefs => elementDefs;
 
         public UnionDef(DefinitionManager manager, JObject src) 
             : base(manager, src) {

@@ -12,6 +12,7 @@ namespace esper.defs {
         public ReadOnlyCollection<ElementDef> memberDefs;
         public List<string> signatures;
         public override bool canContainFormIds => _canContainFormIds;
+        public override ReadOnlyCollection<ElementDef> childDefs => memberDefs;
 
         public MembersDef(DefinitionManager manager, JObject src)
             : base(manager, src) {
