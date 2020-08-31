@@ -1,4 +1,6 @@
-﻿using System.Reflection;
+﻿using esper.defs;
+using esper.elements;
+using System.Reflection;
 using System.Text;
 
 namespace esper.setup {
@@ -9,7 +11,12 @@ namespace esper.setup {
         public DefinitionManager definitionManager;
         public PluginManager pluginManager;
         public string dataPath;
-        public Assembly assembly;
+        internal Assembly assembly;
+
+        public RootElement root => pluginManager.root;
+        public ElementDef pluginFileDef {
+            get => (ElementDef)definitionManager.ResolveDef("PluginFile");
+        }
 
         public Session(Game game, SessionOptions options) {
             this.game = game;

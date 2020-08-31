@@ -65,7 +65,8 @@ namespace esper.elements {
             PluginFileSource source,
             Signature signature
         ) {
-            var def = (ElementDef) container.manager.GetRecordDef(signature);
+            var sig = signature.ToString();
+            var def = (ElementDef) container.manager.GetRecordDef(sig);
             var record = new MainRecord(container, def, source);
             return record;
         }

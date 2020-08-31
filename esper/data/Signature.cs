@@ -1,5 +1,4 @@
 ﻿using esper.plugins;
-using System;
 
 namespace esper.data {
     public struct Signature {

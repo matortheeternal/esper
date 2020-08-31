@@ -25,8 +25,20 @@ namespace esper.defs {
             : base(manager, src) {
             ErrorHelpers.CheckDefProperty(src, "signature");
             _signature = src.Value<string>("signature");
-            headerDef = manager.BuildMainRecordHeaderDef(src, this);
+            headerDef = BuildHeaderDef(src.Value<JObject>("flags"));
             containedInDef = (FormIdDef) JsonHelpers.Def(manager, src, "containedInElement");
+        }
+
+        private StructDef BuildHeaderDef(JObject flagsSrc) {
+            var baseHeaderDef = manager.recordHeaderDef;
+            if (flagsSrc == null) return baseHeaderDef;
+            var headerDef = new StructDef(baseHeaderDef);
+            var elementDefs = headerDef.elementDefs.ToList();
+            elementDefs[2] = new UInt32Def((UInt32Def)elementDefs[2]) {
+                formatDef = (FormatDef)manager.BuildDef(flagsSrc)
+            };
+            headerDef.elementDefs = elementDefs.AsReadOnly();
+            return headerDef;
         }
 
         private void ReadHeader(MainRecord rec, PluginFileSource source) {

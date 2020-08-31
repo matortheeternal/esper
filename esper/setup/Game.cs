@@ -23,10 +23,6 @@ namespace esper {
             ".esp", ".esm" 
         };
         public List<string> hardcodedPlugins = new List<string>();
-        public List<string> cellChildSignatures = new List<string> {
-            "NAVM", "PGRD", "LAND", "REFR", 
-            "PGRE", "PMIS", "ACRE", "ACHR"
-        };
         public List<int> steamAppIds = new List<int>();
 
         public Game(
@@ -60,10 +56,6 @@ namespace esper {
 
         public bool SupportsLightPlugins() {
             return pluginExtensions.Contains(".esl");
-        }
-
-        public bool CellSupports(string sig) {
-            return cellChildSignatures.Contains(sig);
         }
     }
 }

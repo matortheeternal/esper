@@ -13,6 +13,8 @@ namespace esper.defs {
         public UInt32Def(DefinitionManager manager, JObject src)
             : base(manager, src) { }
 
+        public UInt32Def(UInt32Def other) : base(other) {}
+
         public override dynamic ReadData(PluginFileSource source, UInt16? size) {
             return source.reader.ReadUInt32();
         }

@@ -29,6 +29,17 @@ namespace esper.defs {
             _canContainFormIds = elementDefs.Any(d => d.canContainFormIds);
         }
 
+        public StructDef(StructDef other) : base(other) {
+            elementDefs = new ReadOnlyCollection<ElementDef>(other.elementDefs);
+            sortKeyIndices = other.sortKeyIndices == null 
+                ? null
+                : new List<int>(other.sortKeyIndices);
+            elementMap = other.elementMap == null
+                ? null
+                : new List<int>(other.elementMap);
+            _canContainFormIds = other._canContainFormIds;
+        }
+
         public override Element ReadElement(
             Container container, PluginFileSource source, UInt16? dataSize = null
         ) {
@@ -37,7 +48,7 @@ namespace esper.defs {
             return e;
         }
 
-        public override Element NewElement(Container container) {
+        public override Element NewElement(Container container = null) {
             return new StructElement(container, this);
         }
 

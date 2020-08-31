@@ -9,5 +9,9 @@ namespace esper.defs {
         public Def(DefinitionManager manager, JObject src) {
             this.manager = manager;
         }
+
+        public Def(Def other) {
+            manager = other.manager;
+        }
     }
 }

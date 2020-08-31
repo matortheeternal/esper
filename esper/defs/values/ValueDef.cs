@@ -21,6 +21,12 @@ namespace esper.defs {
             zeroSortKey = src.Value<bool>("zeroSortKey");
         }
 
+        public ValueDef(ValueDef other) : base(other) {
+            formatDef = other.formatDef;
+            fixedSize = other.fixedSize;
+            zeroSortKey = other.zeroSortKey;
+        }
+
         public override Element ReadElement(
             Container container, PluginFileSource source, UInt16? size = null
         ) {
@@ -29,7 +35,7 @@ namespace esper.defs {
             };
         }
 
-        public override Element NewElement(Container container) {
+        public override Element NewElement(Container container = null) {
             return new ValueElement(container, this);
         }
 

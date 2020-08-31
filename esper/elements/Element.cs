@@ -10,28 +10,27 @@ namespace esper.elements {
         public ElementState state;
 
         public virtual Container container { get; internal set; }
-        public virtual DefinitionManager manager => file?.manager;
-        public string sortKey => def?.GetSortKey(this);
-        public virtual string name => def?.name;
-        public virtual string signature => def?.signature;
-        public virtual string displayName => def?.displayName;
-        public virtual UInt32 size => def?.GetSize(this) ?? 0;
-        public SessionOptions sessionOptions => manager?.session.options;
-        public Game game => manager?.session.game;
-        public int index => container.elements.IndexOf(this);
+        public virtual DefinitionManager manager => file.manager;
+        public virtual string sortKey => def.GetSortKey(this);
+        public virtual string name => def.name;
+        public virtual string signature => def.signature;
+        public virtual string displayName => def.displayName;
+        public virtual UInt32 size => def.GetSize(this);
+        public SessionOptions sessionOptions => manager.session.options;
+        public Game game => manager.session.game;
+        public virtual int index => container.elements.IndexOf(this);
 
         public virtual MainRecord referencedRecord {
             get => throw new Exception("Element does not reference records.");
             set => throw new Exception("Element does not reference records.");
         }
 
-        public virtual PluginFile file => container?.file;
-        public virtual GroupRecord group => container?.group;
-        public virtual MainRecord record => container?.record;
+        public virtual PluginFile file => container.file;
+        public virtual GroupRecord group => container.group;
+        public virtual MainRecord record => container.record;
         public virtual Element subrecord {
             get {
-                if (def == null) return null;
-                return def.IsSubrecord() ? this : container?.subrecord;
+                return def.IsSubrecord() ? this : container.subrecord;
             }
         }
 
@@ -43,10 +42,28 @@ namespace esper.elements {
             }
         }
 
+        internal void MarkChildrenModified() {
+            if (!(this is Container container)) return;
+            container.internalElements.ForEach(e => {
+                e.SetState(ElementState.Modified);
+                e.MarkChildrenModified();
+            });
+        }
+
+        internal void MarkModified() {
+            SetState(ElementState.Modified);
+            MarkChildrenModified();
+            var parent = container;
+            while (parent != null) {
+                parent.SetState(ElementState.Modified);
+                parent = parent.container;
+            }
+        }
+
         public virtual string path {
             get {
                 if (container is MainRecord) return pathKey;
-                var parentPath = container?.path;
+                var parentPath = container.path;
                 return parentPath == null
                     ? pathKey
                     : $"{parentPath}\\{pathKey}";
@@ -55,7 +72,7 @@ namespace esper.elements {
 
         public virtual string fullPath {
             get {
-                var parentPath = container?.fullPath;
+                var parentPath = container.fullPath;
                 return parentPath == null
                     ? pathKey
                     : $"{parentPath}\\{pathKey}";

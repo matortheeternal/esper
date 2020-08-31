@@ -17,7 +17,7 @@ namespace esper.plugins {
 
         internal Stream stream => compressedStream ?? fileStream;
         internal BinaryWriter writer => compressedWriter ?? fileWriter;
-        internal Encoding stringEncoding => plugin.stringEncoding;
+        internal Encoding stringEncoding => plugin.sessionOptions.encoding;
         internal byte nullTerminator => 0;
 
         internal PluginFileOutput(string filePath, PluginFile plugin) {

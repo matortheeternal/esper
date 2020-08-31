@@ -55,7 +55,7 @@ namespace esper.defs {
             return e;
         }
 
-        public override Element NewElement(Container container) {
+        public override Element NewElement(Container container = null) {
             return new ArrayElement(container, this);
         }
 

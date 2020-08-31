@@ -26,7 +26,7 @@ namespace esper.plugins {
         internal long fileSize => fileInfo.Length;
         internal bool usingDecompressedStream => decompressedStream != null;
         internal bool localized => plugin.localized;
-        internal Encoding stringEncoding=> plugin.stringEncoding;
+        internal Encoding stringEncoding=> plugin.sessionOptions.encoding;
         internal Stream stream => decompressedStream ?? fileStream;
         internal BinaryReader reader => decompressedReader ?? fileReader;
 

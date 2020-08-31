@@ -1,6 +1,5 @@
 ﻿using esper.defs;
 using esper.helpers;
-using esper.data;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
@@ -15,11 +14,12 @@ namespace esper.setup {
         public Game game;
         public Session session;
         internal HeaderManager headerManager;
-        internal Def groupHeaderDef;
-        internal List<string> groupOrder;
+        internal GroupManager groupManager;
         private JObject definitions;
         private readonly DefMap defMap = new DefMap();
         private readonly ClassMap defClasses = new ClassMap();
+        internal StructDef recordHeaderDef;
+        internal StructDef groupHeaderDef;
         private readonly DeciderMap deciders = new DeciderMap();
 
         public CTDAFunctions ctdaFunctions => (CTDAFunctions) defMap["CTDAFunctions"];
@@ -28,10 +28,10 @@ namespace esper.setup {
             this.game = game;
             this.session = session;
             headerManager = new HeaderManager(game.headerTypeKey);
+            groupManager = new GroupManager(this);
             LoadDefinitions();
             LoadClasses();
             BuildDefs();
-            groupOrder = JsonHelpers.List<string>(definitions, "groupOrder");
         }
 
         private void LoadDefinitions() {
@@ -41,12 +41,11 @@ namespace esper.setup {
         }
 
         private void BuildDefs() {
-            if (session.options.buildDefsOnDemand) return;
             var defs = definitions.Value<JObject>("defs");
+            recordHeaderDef = (StructDef)BuildDef((JObject) defs["MainRecordHeader"]);
+            groupHeaderDef = (StructDef)BuildDef((JObject) defs["GroupRecordHeader"]);
             foreach (var (key, src) in defs)
                 defMap[key] = BuildDef((JObject)src);
-            var groupDefSrc = ResolveMetaDef("GroupRecordHeader");
-            groupHeaderDef = BuildDef(groupDefSrc);
             definitions.Remove("defs");
             GC.Collect();
         }
@@ -68,17 +67,15 @@ namespace esper.setup {
             defClasses[key] = type;
         }
 
-        public bool IsTopGroup(string sig) {
-            return groupOrder.Contains(sig);
-        }
-
         private void LoadDecider(Type type) {
             string key = type.Name;
             deciders[key] = (Decider) Activator.CreateInstance(type);
         }
         
         private void LoadClass(Type type) {
-            if (typeof(Def).IsAssignableFrom(type)) {
+            if (typeof(GroupDef).IsAssignableFrom(type)) {
+                groupManager.LoadGroupDefClass(type);
+            } else if (typeof(Def).IsAssignableFrom(type)) {
                 LoadDefClass(type);
             } else if (typeof(Decider).IsAssignableFrom(type)) {
                 LoadDecider(type);
@@ -104,6 +101,7 @@ namespace esper.setup {
         public Def BuildBaseDef(JObject src) {
             var defType = src.Value<string>("type");
             if (defType == "record" && !src.ContainsKey("signature")) return null;
+            if (defType == "group") return groupManager.BuildGroupDef(src);
             if (!defClasses.ContainsKey(defType))
                 throw new Exception($"Def type not implemented: {defType}");
             var args = new object[] { this, src };
@@ -122,29 +120,11 @@ namespace esper.setup {
             return BuildBaseDef(src);
         }
 
-        private void ApplyFlagsFormat(JObject headerDef, JObject src) {
-            if (!src.ContainsKey("flags")) return;
-            headerDef["elements"][2]["format"] = src["flags"];
-        }
-
-        public StructDef BuildMainRecordHeaderDef(JObject src, ElementDef recordDef) {
-            JObject def = (JObject) ResolveMetaDef("MainRecordHeader").DeepClone();
-            ApplyFlagsFormat(def, src);
-            return (StructDef) BuildDef(def);
-        }
-
         public JObject ResolveDefSource(string key) {
             var defs = definitions.Value<JObject>("defs");
             if (!defs.ContainsKey(key))
                 throw new Exception("Unknown def: " + key);
             return defs.Value<JObject>(key);
-        }
-
-        public JObject ResolveMetaDef(string key) {
-            var metaDefs = definitions.Value<JObject>("metaDefs");
-            if (!metaDefs.ContainsKey(key))
-                throw new Exception("Unknown meta def: " + key);
-            return metaDefs.Value<JObject>(key);
         }
 
         internal Def ResolveDef(string id) {
@@ -153,11 +133,8 @@ namespace esper.setup {
             return defMap[id];
         }
 
-        public Def GetRecordDef(Signature signature) {
-            var sig = signature.ToString();
-            if (session.options.buildDefsOnDemand && !defMap.ContainsKey(sig))
-                BuildRecordDef(sig);
-            return defMap[sig];
+        public MainRecordDef GetRecordDef(string sig) {
+            return (MainRecordDef) defMap[sig];
         }
 
         public Decider GetDecider(string key) {

@@ -92,7 +92,7 @@ namespace esper.setup {
             var filename = Path.GetFileName(filePath);
             PluginFile plugin = new PluginFile(session, filename, options);
             new PluginFileSource(filePath, plugin);
-            plugin.ReadFileHeader();
+            plugin.pluginDef.ReadFileHeader(plugin);
             return plugin;
         }
 
@@ -103,14 +103,18 @@ namespace esper.setup {
             PluginFile plugin = new PluginFile(session, filename, options);
             new PluginFileSource(filePath, plugin);
             plugin.container = root;
-            plugin.ReadFileHeader();
-            plugin.ReadGroups();
+            plugin.pluginDef.ReadFileHeader(plugin);
+            plugin.pluginDef.ReadGroups(plugin);
             return plugin;
         }
 
         public List<string> GetMasterFileNames(string filePath) {
             var plugin = LoadPluginHeader(filePath);
             return (plugin as IMasterManager).masters.filenames;
+        }
+
+        internal PluginFile NewFile(string name) {
+            throw new NotImplementedException();
         }
     }
 }

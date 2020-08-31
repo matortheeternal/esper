@@ -70,11 +70,14 @@ namespace esper.helpers {
         }
 
         public static ReadOnlyCollection<T> Defs<T>(
-            DefinitionManager manager, JObject src, string key
+            DefinitionManager manager, JObject src, string key, bool optional = false
         ) where T : Def {
-            ErrorHelpers.CheckDefProperty(src, key);
+            if (!optional) ErrorHelpers.CheckDefProperty(src, key);
             var sources = src.Value<JArray>(key);
-            if (sources == null) throw new Exception("No def sources found.");
+            if (sources == null) {
+                if (optional) return null;
+                throw new Exception("No def sources found.");
+            }
             return sources.Select(src => {
                 return (T) manager.BuildDef((JObject)src);
             }).ToList().AsReadOnly();

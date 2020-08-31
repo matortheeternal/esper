@@ -13,9 +13,7 @@ namespace Tests.plugins {
 
         [OneTimeSetUp]
         public void SetUp() {
-            session = new Session(Games.TES5, new SessionOptions {
-                buildDefsOnDemand = true
-            });
+            session = new Session(Games.TES5, new SessionOptions {});
             var pluginPath = TestHelpers.FixturePath("EmptyPlugin.esp");
             plugin = pluginManager.LoadPluginHeader(pluginPath);
             Assert.IsNotNull(plugin);

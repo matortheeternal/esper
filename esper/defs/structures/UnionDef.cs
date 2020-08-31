@@ -45,7 +45,7 @@ namespace esper.defs {
             }
         }
 
-        public override Element NewElement(Container container) {
+        public override Element NewElement(Container container = null) {
             var resolvedDef = ResolveDef(container);
             if (resolvedDef is ValueDef)
                 return new UnionValueElement(container, resolvedDef, this);

@@ -34,7 +34,7 @@ namespace esper.defs {
             }
         }
 
-        public override Element NewElement(Container container) {
+        public override Element NewElement(Container container = null) {
             var defaultDef = this.defaultDef;
             if (defaultDef.IsSubrecord())
                 return defaultDef.NewElement(container);

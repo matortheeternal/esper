@@ -19,6 +19,10 @@ namespace esper.defs {
             _signature = src.Value<string>("signature");
         }
 
+        public MaybeSubrecordDef(MaybeSubrecordDef other) : base(other) {
+            _signature = other._signature;
+        }
+
         public override bool ContainsSignature(string signature) {
             return this.signature == signature;
         }

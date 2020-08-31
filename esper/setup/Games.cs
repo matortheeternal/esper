@@ -35,9 +35,6 @@ namespace esper {
             abbreviation = "TES5",
             exeName = "TESV.exe",
             hardcodedPlugins = { "Update.esm" },
-            cellChildSignatures = { 
-                "PARW", "PBEA", "PFLA", "PCON", "PBAR", "PHZD" 
-            },
             steamAppIds = { 72850 }
         }.InitDefaults();
 
@@ -58,9 +55,6 @@ namespace esper {
                 "DLCNukaWorld.esm",
                 "DLCUltraHighResolution.esm"
             },
-            cellChildSignatures = {
-                "PARW", "PBEA", "PFLA", "PCON", "PBAR", "PHZD"
-            },
             steamAppIds = { 377160 }
         }.InitDefaults();
 
@@ -78,9 +72,6 @@ namespace esper {
                 "Dawnguard.esm",
                 "HeathFires.esm",
                 "Dragonborn.esm"
-            },
-            cellChildSignatures = {
-                "PARW", "PBEA", "PFLA", "PCON", "PBAR", "PHZD"
             },
             steamAppIds = { 377160 }
         }.InitDefaults();
