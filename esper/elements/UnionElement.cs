@@ -1,4 +1,5 @@
 ﻿using esper.defs;
+using System;
 
 namespace esper.elements {
     public class UnionElement : Container {
@@ -11,6 +12,11 @@ namespace esper.elements {
             var resolvedDef = unionDef.ResolveDef(container);
             var e = resolvedDef.NewElement(this);
             e.Initialize();
+        }
+
+        internal override AssignmentInfo GetAssignment(ElementDef childDef) {
+            // TODO
+            throw new NotImplementedException();
         }
     }
 }

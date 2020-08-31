@@ -1,4 +1,5 @@
 ﻿using esper.defs;
+using System;
 using System.Collections.ObjectModel;
 using System.Linq;
 
@@ -25,6 +26,14 @@ namespace esper.elements {
 
         public override bool SupportsSignature(string sig) {
             return maDef.memberDef.HasSignature(sig);
+        }
+
+        internal override AssignmentInfo GetAssignment(ElementDef childDef) {
+            if (childDef != maDef.memberDef)
+                throw new Exception($"Element {childDef.name} is not supported.");
+            return new AssignmentInfo() {
+                index = internalElements.Count
+            };
         }
     }
 }

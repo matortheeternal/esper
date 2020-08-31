@@ -95,5 +95,14 @@ namespace esper.defs {
             base.WriteElement(element, output);
             output.WriteContainer((Container)element);
         }
+
+        internal int GetInternalOrder(ElementDef childDef) {
+            var index = elementDefs.IndexOf(childDef);
+            if (index == -1) 
+                throw new Exception($"Element {childDef.name} is not supported.");
+            return elementMap != null
+                ? elementMap[index]
+                : index;
+        }
     }
 }

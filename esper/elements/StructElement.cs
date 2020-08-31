@@ -21,5 +21,18 @@ namespace esper.elements {
         public override void Initialize() {
             structDef.InitChildElements(this);
         }
+
+        internal override AssignmentInfo GetAssignment(ElementDef childDef) {
+            AssignmentInfo info = new AssignmentInfo();
+            var newOrder = structDef.GetInternalOrder(childDef);
+            while (info.index < internalElements.Count) {
+                var e = internalElements[index];
+                var order = structDef.GetInternalOrder(e.def);
+                if (order == newOrder) info.assigned = true;
+                if (order >= newOrder) return info;
+                info.index++;
+            }
+            return info;
+        }
     }
 }

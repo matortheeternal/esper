@@ -1,4 +1,5 @@
 ﻿using esper.defs;
+using System;
 using System.Linq;
 
 namespace esper.elements {
@@ -15,6 +16,11 @@ namespace esper.elements {
 
         public override bool SupportsSignature(string sig) {
             return unionDef.memberDefs.Any(d => d.HasSignature(sig));
+        }
+
+        internal override AssignmentInfo GetAssignment(ElementDef childDef) {
+            // TODO
+            throw new NotImplementedException();
         }
     }
 }

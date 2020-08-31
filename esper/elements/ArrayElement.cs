@@ -1,4 +1,5 @@
 ﻿using esper.defs;
+using System;
 using System.Collections.ObjectModel;
 using System.Linq;
 
@@ -21,6 +22,14 @@ namespace esper.elements {
         public override void Initialize() {
             var e = arrayDef.elementDef.NewElement(this);
             e.Initialize();
+        }
+
+        internal override AssignmentInfo GetAssignment(ElementDef childDef) {
+            if (childDef != arrayDef.elementDef)
+                throw new Exception($"Element {childDef.name} is not supported.");
+            return new AssignmentInfo() { 
+                index = internalElements.Count 
+            };
         }
     }
 }

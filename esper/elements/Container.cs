@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using esper.defs;
 
 namespace esper.elements {
@@ -44,6 +45,45 @@ namespace esper.elements {
                 if (stepInto && element is Container container)
                     container.ForEachElement(callback);
             });
+        }
+
+        public virtual bool DefAssigned(ElementDef elementDef) {
+            return false;
+        }
+
+        internal Element AssignDef(ElementDef def, bool replace) {
+            var info = GetAssignment(def);
+            if (info.assigned && !replace)
+                return internalElements[index]; 
+            var element = def.NewElement();
+            info.Assign(this, element, replace);
+            element.container = this;
+            element.MarkModified();
+            return element;
+        }
+
+        internal virtual AssignmentInfo GetAssignment(ElementDef childDef) {
+            throw new NotImplementedException();
+        }
+
+        internal virtual Element CreateElementByName(string name) {
+            var targetDef = def.childDefs?.FirstOrDefault(def => {
+                return def.NameMatches(name);
+            });
+            if (targetDef == null)
+                throw new Exception($"Cannot create element with name: {name}");
+            if (targetDef is GroupDef groupDef)
+                return groupDef.CreateFromName(this, name);
+            return AssignDef(targetDef, false);
+        }
+
+        internal virtual Element CreateElementBySignature(string sig) {
+            var targetDef = def.childDefs?.FirstOrDefault(def => {
+                return def.signature == sig;
+            });
+            if (targetDef == null)
+                throw new Exception($"Cannot create element with signature: {sig}");
+            return AssignDef(targetDef, false);
         }
     }
 }
