@@ -7,28 +7,36 @@ using esper.defs;
 using System.Collections.ObjectModel;
 
 namespace esper.resolution {
+    using ResolutionStrategies = List<ResolutionStrategy>;
+
     public interface IResolution {
         public Container container { get; }
     }
 
     public static class ResolutionExtensions {
-        public static List<Type> strategies = new List<Type> {
-            typeof(ResolveContainer),
-            typeof(ResolveParent),
-            typeof(ResolveReference),
-            typeof(ResolveByIndex),
-            typeof(ResolveBySignature),
-            typeof(ResolveByName)
+        public static ResolutionStrategies strategies = new ResolutionStrategies {
+            new ResolveContainer(),
+            new ResolveParent(),
+            new ResolveReference(),
+            new ResolveByIndex(),
+            new ResolveBySignature(),
+            new ResolveByName()
         };
 
         public static Element ResolveElement(this IResolution r, string pathPart) {
-            var parameters = new object[] { r, pathPart };
             foreach (var strategy in strategies) {
-                var matchMethod = strategy.GetMethod("Match");
-                MatchData match = (MatchData)matchMethod.Invoke(null, parameters);
+                MatchData match = strategy.Match((Element) r, pathPart);
                 if (match == null) continue;
-                var resolveMethod = strategy.GetMethod("Resolve");
-                return (Element)resolveMethod.Invoke(null, new object[] { match });
+                return strategy.Resolve(match);
+            }
+            return null;
+        }
+
+        public static Element CreateElement(this IResolution r, string pathPart) {
+            foreach (var strategy in strategies) {
+                MatchData match = strategy.Match((Element)r, pathPart);
+                if (match == null) continue;
+                return strategy.Resolve(match) ?? strategy.Create(match);
             }
             return null;
         }
@@ -124,6 +132,16 @@ namespace esper.resolution {
             ValueElement valueElement = (ValueElement)r.GetElement(path);
             if (valueElement == null) return;
             valueElement.data = data;
+        }
+
+        public static Element AddElement(this IResolution r, string path) {
+            Element element = (Element)r;
+            while (path.Length > 0) {
+                if (element == null) return null;
+                StringHelpers.SplitPath(path, out string pathPart, out path);
+                element = element.CreateElement(pathPart);
+            }
+            return element;
         }
     }
 }

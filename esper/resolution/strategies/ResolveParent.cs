@@ -2,14 +2,14 @@
 using System.Text.RegularExpressions;
 
 namespace esper.resolution.strategies {
-    public static class ResolveParent {
+    public class ResolveParent : ResolutionStrategy {
         private static readonly Regex refExpr = new Regex(@"^\^(.+)");
 
-        public static MatchData Match(Element element, string pathPart) {
+        public override MatchData Match(Element element, string pathPart) {
             return ElementMatch.From(element, pathPart, refExpr);
         }
 
-        public static Element Resolve(MatchData match) {
+        public override Element Resolve(MatchData match) {
             ElementMatch e = (ElementMatch)match;
             string type = e.match.Groups[0].Value;
             return type switch {
@@ -19,10 +19,6 @@ namespace esper.resolution.strategies {
                 "Subrecord" => e.element.subrecord,
                 _ => null
             };
-        }
-
-        public static Element Create(MatchData match) {
-            return Resolve(match);
         }
     }
 }
