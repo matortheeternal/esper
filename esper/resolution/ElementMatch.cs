@@ -2,22 +2,21 @@
 using System.Text.RegularExpressions;
 
 namespace esper.resolution {
-    public class ElementMatch : MatchData {
-        public Element element;
+    public class ElementMatch<T> : MatchData {
+        public T target;
 
-        public ElementMatch(Element element, Match match)
+        public ElementMatch(T element, Match match)
             : base(match) {
-            this.element = element;
+            target = element;
         }
 
-        public static ElementMatch From(
-            Element element,
-            string pathPart,
-            Regex expr
+        public static ElementMatch<T> From(
+            Element e, string pathPart, Regex expr
         ) {
             Match m = expr.Match(pathPart);
-            if (!m.Success) return null;
-            return new ElementMatch(element, m);
+            if (m.Success && e is T element)
+                return new ElementMatch<T>(element, m);
+            return null;
         }
     }
 }

@@ -25,6 +25,7 @@ namespace esper.resolution {
 
         public static Element ResolveElement(this IResolution r, string pathPart) {
             foreach (var strategy in strategies) {
+                if (!strategy.canResolve) continue;
                 MatchData match = strategy.Match((Element) r, pathPart);
                 if (match == null) continue;
                 return strategy.Resolve(match);
@@ -36,13 +37,14 @@ namespace esper.resolution {
             foreach (var strategy in strategies) {
                 MatchData match = strategy.Match((Element)r, pathPart);
                 if (match == null) continue;
+                if (!strategy.canResolve) return strategy.Create(match);
                 return strategy.Resolve(match) ?? strategy.Create(match);
             }
             return null;
         }
 
         public static Element GetElement(this IResolution r, string path = "") {
-            Element element = (Element)r;
+            var element = r as Element;
             while (path.Length > 0) {
                 if (element == null) return null;
                 StringHelpers.SplitPath(path, out string pathPart, out path);
@@ -52,7 +54,7 @@ namespace esper.resolution {
         }
 
         public static Element GetElementEx(this IResolution r, string path = "") {
-            Element element = (Element)r;
+            var element = r as Element;
             if (element == null)
                 throw new Exception("Cannot resolve element from null.");
             while (path.Length > 0) {
@@ -70,19 +72,19 @@ namespace esper.resolution {
         }
 
         public static ReadOnlyCollection<Element> GetElementsEx(this IResolution r, string path = "") {
-            Container container = (Container) r.GetElementEx(path);
+            var container = r.GetElementEx(path) as Container;
             if (container == null) 
                 throw new Exception("Element does not have child elements.");
             return container.elements;
         }
 
         public static string GetValue(this IResolution r, string path = "") {
-            ValueElement valueElement = (ValueElement) r.GetElement(path);
+            var valueElement = r.GetElement(path) as ValueElement;
             return valueElement?.value;
         }
 
         public static string GetValueEx(this IResolution r, string path = "") {
-            ValueElement valueElement = (ValueElement)r.GetElementEx(path);
+            var valueElement = r.GetElementEx(path) as ValueElement;
             if (valueElement == null)
                 throw new Exception("Element does not have a value.");
             return valueElement.value;
@@ -94,21 +96,21 @@ namespace esper.resolution {
         }
 
         public static string GetDataEx(this IResolution r, string path = "") {
-            ValueElement valueElement = (ValueElement)r.GetElementEx(path);
+            var valueElement = r.GetElementEx(path) as ValueElement;
             if (valueElement == null)
                 throw new Exception("Element does not have a value.");
             return valueElement.data;
         }
 
         public static bool GetFlag(this IResolution r, string flagsPath, string flag) {
-            ValueElement valueElement = (ValueElement)r.GetElement(flagsPath);
-            FlagsDef flagsDef = valueElement?.flagsDef;
+            var valueElement = r.GetElement(flagsPath) as ValueElement;
+            var flagsDef = valueElement?.flagsDef;
             if (flagsDef == null) return false;
             return flagsDef.FlagIsSet(valueElement.data, flag);
         }
 
         public static bool GetFlagEx(this IResolution r, string flagsPath, string flag) {
-            ValueElement valueElement = (ValueElement)r.GetElementEx(flagsPath);
+            var valueElement = r.GetElementEx(flagsPath) as ValueElement;
             if (valueElement == null)
                 throw new Exception("Element does not have a value.");
             FlagsDef flagsDef = valueElement.flagsDef;
@@ -129,9 +131,17 @@ namespace esper.resolution {
         }
 
         public static void SetData(this IResolution r, string path, dynamic data) {
-            ValueElement valueElement = (ValueElement)r.GetElement(path);
+            var valueElement = r.GetElement(path) as ValueElement;
             if (valueElement == null) return;
             valueElement.data = data;
+        }
+
+        public static void SetValue(
+            this IResolution r, string path, string value
+        ) {
+            var valueElement = r.GetElement(path) as ValueElement;
+            if (valueElement == null) return;
+            valueElement.value = value;
         }
 
         public static Element AddElement(this IResolution r, string path) {

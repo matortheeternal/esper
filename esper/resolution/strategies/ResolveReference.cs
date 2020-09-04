@@ -13,13 +13,13 @@ namespace esper.resolution.strategies {
 
         public override MatchData Match(Element element, string pathPart) {
             if (!Valid(element)) return null;
-            return ContainerMatch.From(element, pathPart, refExpr);
+            return ElementMatch<Container>.From(element, pathPart, refExpr);
         }
 
         public override Element Resolve(MatchData match) {
-            ContainerMatch c = (ContainerMatch)match;
+            var c = (ElementMatch<Container>)match;
             string path = c.match.Groups[1].Value;
-            Element element = c.container.ResolveElement(path);
+            Element element = c.target.ResolveElement(path);
             return element?.referencedRecord;
         }
     }

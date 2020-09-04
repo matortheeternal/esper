@@ -6,13 +6,13 @@ namespace esper.resolution.strategies {
         private static readonly Regex indexExpr = new Regex(@"^\[(\d+)\]$");
 
         public override MatchData Match(Element element, string pathPart) {
-            return ContainerMatch.From(element, pathPart, indexExpr);
+            return ElementMatch<Container>.From(element, pathPart, indexExpr);
         }
 
         public override Element Resolve(MatchData match) {
-            ContainerMatch c = (ContainerMatch)match;
+            var c = (ElementMatch<Container>)match;
             int index = int.Parse(c.match.Groups[1].Value);
-            return c.container.elements[index];
+            return c.target.elements[index];
         }
     }
 }

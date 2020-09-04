@@ -6,14 +6,14 @@ namespace esper.resolution.strategies {
         private static readonly Regex parentExpr = new Regex(@"^\.\.$");
 
         public override MatchData Match(Element element, string pathPart) {
-            return ElementMatch.From(element, pathPart, parentExpr);
+            return ElementMatch<Element>.From(element, pathPart, parentExpr);
         }
 
         public override Element Resolve(MatchData match) {
-            ElementMatch e = (ElementMatch)match;
-            if (e.element is GroupRecord group && group.hasRecordParent)
+            var e = (ElementMatch<Element>)match;
+            if (e.target is GroupRecord group && group.hasRecordParent)
                 return group.GetParentRecord();
-            return e.element.container;
+            return e.target.container;
         }
     }
 }

@@ -6,17 +6,17 @@ namespace esper.resolution.strategies {
         private static readonly Regex refExpr = new Regex(@"^\^(.+)");
 
         public override MatchData Match(Element element, string pathPart) {
-            return ElementMatch.From(element, pathPart, refExpr);
+            return ElementMatch<Element>.From(element, pathPart, refExpr);
         }
 
         public override Element Resolve(MatchData match) {
-            ElementMatch e = (ElementMatch)match;
+            var e = (ElementMatch<Element>)match;
             string type = e.match.Groups[0].Value;
             return type switch {
-                "File" => e.element.file,
-                "Group" => e.element.group,
-                "Record" => e.element.record,
-                "Subrecord" => e.element.subrecord,
+                "File" => e.target.file,
+                "Group" => e.target.group,
+                "Record" => e.target.record,
+                "Subrecord" => e.target.subrecord,
                 _ => null
             };
         }
