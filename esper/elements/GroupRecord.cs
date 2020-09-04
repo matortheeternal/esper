@@ -98,5 +98,12 @@ namespace esper.elements {
             headerManager.WriteGroupHeaderTo(header, output);
             output.WriteContainer(this);
         }
+
+        internal override Element CreateDefault() {
+            var targetDef = groupDef.childDefs.SingleOrDefault(def => {
+                return def is MainRecordDef;
+            });
+            return targetDef.NewElement(this);
+        }
     }
 }

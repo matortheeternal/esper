@@ -85,5 +85,9 @@ namespace esper.elements {
                 throw new Exception($"Cannot create element with signature: {sig}");
             return AssignDef(targetDef, false);
         }
+
+        internal virtual Element CreateDefault() {
+            throw new NotImplementedException();
+        }
     }
 }

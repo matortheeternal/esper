@@ -31,5 +31,9 @@ namespace esper.elements {
                 index = internalElements.Count 
             };
         }
+
+        internal override Element CreateDefault() {
+            return arrayDef.elementDef.NewElement(this);
+        }
     }
 }
