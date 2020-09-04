@@ -94,5 +94,20 @@ namespace esper.elements {
             base.ElementsReady();
             Initialize();
         }
+
+        internal GroupRecord CreateChildGroup() {
+            if (childGroup != null) return childGroup;
+            var groupDef = container.def.childDefs.FirstOrDefault(def => {
+                return def is GroupDef groupDef && groupDef.isChildGroup;
+            }) as GroupDef;
+            if (groupDef == null) 
+                throw new Exception($"Cannot create child group for {signature}");
+            var label = BitConverter.GetBytes(fileFormId);
+            childGroup = new GroupRecord(null, groupDef, label);
+            childGroup.container = container;
+            var index = container.internalElements.IndexOf(this) + 1;
+            container.internalElements.Insert(index, childGroup);
+            return childGroup;
+        }
     }
 }
