@@ -23,7 +23,7 @@ namespace esper.defs {
             return null;
         }
 
-        public override dynamic ReadData(PluginFileSource source, UInt16? dataSize) {
+        public override dynamic ReadData(PluginFileSource source, UInt32? dataSize) {
             return null;
         }
 

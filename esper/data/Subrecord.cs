@@ -4,7 +4,7 @@ using System;
 namespace esper.data {
     public struct Subrecord {
         public string signature;
-        public UInt16 dataSize;
+        public UInt32 dataSize;
 
         public Subrecord(PluginFileSource source) {
             signature = Signature.Read(source).ToString();

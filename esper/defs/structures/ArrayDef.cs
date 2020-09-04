@@ -40,7 +40,7 @@ namespace esper.defs {
         }
 
         public override Element ReadElement(
-            Container container, PluginFileSource source, UInt16? dataSize = null
+            Container container, PluginFileSource source, UInt32? dataSize = null
         ) {
             var e = new ArrayElement(container, this);
             UInt32? count = GetCount(container, source);

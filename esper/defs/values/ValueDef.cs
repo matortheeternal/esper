@@ -28,7 +28,7 @@ namespace esper.defs {
         }
 
         public override Element ReadElement(
-            Container container, PluginFileSource source, UInt16? size = null
+            Container container, PluginFileSource source, UInt32? size = null
         ) {
             return new ValueElement(container, this) {
                 _data = ReadData(source, size)
@@ -39,7 +39,7 @@ namespace esper.defs {
             return new ValueElement(container, this);
         }
 
-        public virtual dynamic ReadData(PluginFileSource source, UInt16? dataSize) {
+        public virtual dynamic ReadData(PluginFileSource source, UInt32? dataSize) {
             throw new NotImplementedException();
         }
 

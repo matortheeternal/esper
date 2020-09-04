@@ -15,7 +15,7 @@ namespace esper.defs {
 
         public UInt32Def(UInt32Def other) : base(other) {}
 
-        public override dynamic ReadData(PluginFileSource source, UInt16? size) {
+        public override dynamic ReadData(PluginFileSource source, UInt32? size) {
             return source.reader.ReadUInt32();
         }
 

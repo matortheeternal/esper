@@ -31,7 +31,7 @@ namespace esper.defs {
         }
 
         public override Element ReadElement(
-            Container container, PluginFileSource source, UInt16? dataSize = null
+            Container container, PluginFileSource source, UInt32? dataSize = null
         ) {
             var resolvedDef = ResolveDef(container);
             if (!IsSubrecord() && resolvedDef is ValueDef valueDef) {

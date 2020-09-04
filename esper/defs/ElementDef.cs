@@ -54,7 +54,7 @@ namespace esper.defs {
         }
 
         public virtual Element ReadElement(
-            Container container, PluginFileSource source, UInt16? size = null
+            Container container, PluginFileSource source, UInt32? size = null
         ) {
             throw new NotImplementedException();
         }

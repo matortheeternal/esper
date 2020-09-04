@@ -4,7 +4,6 @@ using esper.data;
 using esper.plugins;
 using esper.setup;
 using System;
-using esper.resolution;
 
 namespace esper.defs {
     public class StringDef : ValueDef {
@@ -25,13 +24,13 @@ namespace esper.defs {
             keepCase = src.Value<bool>("keepCase");
     }
 
-        public override dynamic ReadData(PluginFileSource source, UInt16? dataSize) {
+        public override dynamic ReadData(PluginFileSource source, UInt32? dataSize) {
             if (localized && source.localized)
                 return LocalizedString.Read(source);
             // dataSize - 1 because null terminator
             int? size = fixedSize ?? 
-                (int?) source.ReadPrefix(prefix, padding) ?? 
-                (dataSize != null ? dataSize - 1 : null);
+                (int?)source.ReadPrefix(prefix, padding) ?? 
+                (dataSize != null ? (int?) (dataSize - 1) : null);
             return source.ReadString(size);
         }
 

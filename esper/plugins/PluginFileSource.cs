@@ -125,6 +125,12 @@ namespace esper.plugins {
 
         internal void ReadSubrecord() {
             var subrecord = new Subrecord(this);
+            if (subrecord.signature == "XXXX") {
+                var nextSize = reader.ReadUInt32();
+                subrecord = new Subrecord(this) {
+                    dataSize = nextSize
+                };
+            }
             subrecordEndPos = stream.Position + subrecord.dataSize;
             _currentSubrecord = subrecord;
         }

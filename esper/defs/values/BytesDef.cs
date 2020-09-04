@@ -15,13 +15,13 @@ namespace esper.defs {
                 throw new Exception("Def source has invalid size" + fixedSize);
         }
 
-        public override dynamic ReadData(PluginFileSource source, UInt16? dataSize) {
+        public override dynamic ReadData(PluginFileSource source, UInt32? dataSize) {
             if (isVariableSize && dataSize == null) 
                 throw new Exception("Cannot read data of unknown size.");
             // return empty array if there are no bytes to read
             if (dataSize == null && fixedSize == 0) return new byte[0];
             // if fixedSize is not null and is not 0, use it
-            var numBytes = fixedSize != null && fixedSize > 0 ? fixedSize : dataSize;
+            var numBytes = fixedSize != null && fixedSize > 0 ? fixedSize : (int?) dataSize;
             return source.reader.ReadBytes((int) numBytes);
         }
 

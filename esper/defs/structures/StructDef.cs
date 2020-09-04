@@ -41,7 +41,7 @@ namespace esper.defs {
         }
 
         public override Element ReadElement(
-            Container container, PluginFileSource source, UInt16? dataSize = null
+            Container container, PluginFileSource source, UInt32? dataSize = null
         ) {
             var e = new StructElement(container, this);
             ReadChildElements(e, source, dataSize);
@@ -59,16 +59,16 @@ namespace esper.defs {
             }
         }
 
-        private UInt16? GetRemainingSize(
-            PluginFileSource source, long startPos, UInt16? dataSize
+        private UInt32? GetRemainingSize(
+            PluginFileSource source, long startPos, UInt32? dataSize
         ) {
             if (dataSize == null) return null;
-            return (UInt16?)(dataSize - (source.stream.Position - startPos));
+            return (UInt32?)(dataSize - (source.stream.Position - startPos));
         }
 
         // TODO: rewrite this better or make it unnecessary?
         public void ReadChildElements(
-            StructElement element, PluginFileSource source, UInt16? dataSize
+            StructElement element, PluginFileSource source, UInt32? dataSize
         ) {
             var startPos = source.stream.Position;
             var lastDefIndex = elementDefs.Count - 1;
@@ -77,7 +77,7 @@ namespace esper.defs {
                 if (source.stream.Position - startPos >= dataSize) {
                     def.NewElement(element);
                 } else {
-                    UInt16? remainingSize = (i == lastDefIndex)
+                    UInt32? remainingSize = (i == lastDefIndex)
                         ? GetRemainingSize(source, startPos, dataSize)
                         : null;
                     def.ReadElement(element, source, remainingSize);
