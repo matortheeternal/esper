@@ -7,6 +7,7 @@ using System.Linq;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using esper.data.headers;
+using esper.setup;
 
 namespace esper.elements {
     public class MainRecord : Container, IMainRecord {
@@ -20,6 +21,7 @@ namespace esper.elements {
         public MainRecordDef mrDef => def as MainRecordDef;
         public override MainRecord record => this;
         public override PluginFile file => _file;
+        internal PluginManager pluginManager => _file.session.pluginManager;
         public GroupRecord childGroup { get; set; }
 
         public FormId formId => FormId.FromSource(_file, fileFormId);
@@ -28,10 +30,19 @@ namespace esper.elements {
         public UInt32? globalFormId => formId.globalFormId;
 
         public UInt32 dataSize => compressed
-                    ? (uint) decompressedData.Length
+                    ? (UInt32) decompressedData.Length
                     : header.dataSize;
         public bool compressed => this.GetRecordFlag("Compressed");
-        public string editorId => this.GetValue("EDID");
+
+        public string editorId {
+            get => this.GetValue("EDID");
+            set => this.SetValue("EDID", value);
+        }
+
+        public string fullName {
+            get => this.GetValue("FULL");
+            set => this.SetValue("FULL", value);
+        }
 
         public ReadOnlyCollection<Subrecord> unexpectedSubrecords {
             get => _unexpectedSubrecords.AsReadOnly();
