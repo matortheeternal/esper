@@ -12,6 +12,7 @@ namespace esper.plugins {
         internal string filename;
         internal PluginFileOptions options;
         internal PluginFileSource source;
+        internal PluginSlot pluginSlot;
 
         public PluginFileDef pluginDef => (PluginFileDef)def;
         public bool isDummy => source == null;

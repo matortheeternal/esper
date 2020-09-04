@@ -7,9 +7,14 @@ namespace esper.setup {
 
         public PluginSlot(PluginFile plugin) {
             this.plugin = plugin;
+            plugin.pluginSlot = this;
         }
 
-        public int GetOrdinal() {
+        public virtual UInt32 GetOrdinal() {
+            throw new NotImplementedException();
+        }
+
+        public virtual UInt32 FormatFormId(UInt32 localFormId) {
             throw new NotImplementedException();
         }
     }

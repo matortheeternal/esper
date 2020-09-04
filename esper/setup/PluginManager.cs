@@ -1,4 +1,5 @@
-﻿using esper.elements;
+﻿using esper.data;
+using esper.elements;
 using esper.plugins;
 using System;
 using System.Collections.Generic;
@@ -115,6 +116,11 @@ namespace esper.setup {
 
         internal PluginFile NewFile(string name) {
             throw new NotImplementedException();
+        }
+
+        internal UInt32? GetGlobalFormId(PluginFile file, UInt32 fileFormId) {
+            var formId = FormId.FromSource(file, fileFormId);
+            return formId.globalFormId;
         }
     }
 }

@@ -60,7 +60,7 @@ namespace esper.elements {
             if (!(label is FormId fid)) return;
             int index = container.internalElements.Count - 2;
             if (index > -1 && container.internalElements[index] is MainRecord rec) {
-                if (rec.formId == fid.fileFormId) {
+                if (rec.fileFormId == fid.fileFormId) {
                     parentRecord = rec;
                     return;
                 }

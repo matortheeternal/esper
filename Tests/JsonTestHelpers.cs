@@ -100,7 +100,7 @@ namespace Tests {
         private static void TestGroupValues(JObject json, GroupRecord group) {
             foreach (var element in group.elements) { 
                 if (element is MainRecord rec) {
-                    var key = rec.formId.ToString("X8");
+                    var key = rec.fileFormId.ToString("X8");
                     CheckKey(json, key, group);
                     TestRecordValues(json.Value<JObject>(key), rec);
                     json.Remove(key);

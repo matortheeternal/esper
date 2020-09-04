@@ -19,7 +19,7 @@ namespace esper.plugins {
         ) {
             if (m.file.isDummy) return null;
             return CollectionHelpers.BinarySearch(m.records, rec => {
-                return formId.CompareTo(rec.formId);
+                return formId.CompareTo(rec.fileFormId);
             });
         }
 
@@ -29,7 +29,7 @@ namespace esper.plugins {
             if (m.file.isDummy) return null;
             var targetOrdinal = m.file.FileToOrdinal(m.file, false);
             return CollectionHelpers.BinarySearch(m.records, rec => {
-                var ordinalComparison = targetOrdinal.CompareTo(rec.formId >> 24);
+                var ordinalComparison = targetOrdinal.CompareTo(rec.fileFormId >> 24);
                 return ordinalComparison < 0 
                     ? ordinalComparison
                     : localFormId.CompareTo(rec.localFormId);
@@ -42,14 +42,14 @@ namespace esper.plugins {
 
         public static UInt32 GetHighObjectID(this IRecordManager m) {
             var highRecord = CollectionHelpers.BinarySearch(m.records, rec => {
-                return rec.formId > 0xFFFFFF ? -1 : 1;
+                return rec.fileFormId > 0xFFFFFF ? -1 : 1;
             }, true);
-            return highRecord.formId > 0xFFFFFF ? 0x800 : highRecord.formId;
+            return highRecord.fileFormId > 0xFFFFFF ? 0x800 : highRecord.fileFormId;
         }
 
         public static void SortRecords(this IRecordManager m) {
             m.records.Sort((rec1, rec2) => {
-                return rec1.formId.CompareTo(rec2.formId);
+                return rec1.fileFormId.CompareTo(rec2.fileFormId);
             });
         }
     }

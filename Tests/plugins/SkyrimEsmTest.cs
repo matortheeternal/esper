@@ -49,10 +49,10 @@ namespace Tests.plugins {
             var records = (plugin as IRecordManager).records;
             for (int i = 0; i < records.Count; i++) {
                 rec = records[i];
-                var r2 = plugin.GetRecordByFormId(rec.formId);
+                var r2 = plugin.GetRecordByFormId(rec.fileFormId);
                 Assert.IsNotNull(
                     r2,
-                    $"Failed to find record {rec.formId}, index: {i}"
+                    $"Failed to find record {rec.fileFormId}, index: {i}"
                 );
             }
         }
@@ -68,7 +68,7 @@ namespace Tests.plugins {
                 n++;
                 var index = random.Next(records.Count);
                 var rec = records[index];
-                var fid = rec.formId;
+                var fid = rec.fileFormId;
                 watch.Start();
                 var rec2 = plugin.GetRecordByFormId(fid);
                 watch.Stop();

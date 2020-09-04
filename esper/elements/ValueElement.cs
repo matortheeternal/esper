@@ -42,7 +42,7 @@ namespace esper.elements {
                 return base.referencedRecord;
             }
             set {
-                data = FormId.FromSource(value.file, value.formId);
+                data = FormId.FromSource(value.file, value.fileFormId);
             }
         }
 

@@ -1,17 +1,24 @@
 ﻿using esper.plugins;
+using System;
 
 namespace esper.setup {
     public class LightPluginSlot : PluginSlot {
-        public static ulong BASE_ORDINAL = 0xFE000000;
-        public ushort index;
+        public static UInt32 BASE_ORDINAL = 0xFE000000;
+        public UInt16 index;
 
         public LightPluginSlot(PluginFile plugin, int index)
             : base(plugin) {
-            this.index = (ushort) index;
+            this.index = (UInt16) index;
         }
 
-        public new ulong GetOrdinal() {
-            return BASE_ORDINAL | (ulong)index << 12;
+        public override UInt32 GetOrdinal() {
+            return BASE_ORDINAL | (UInt32)index << 12;
+        }
+
+        public override UInt32 FormatFormId(UInt32 localFormId) {
+            if ((localFormId & 0xFFFFF000) > 0)
+                throw new Exception("FormId uses reserved ordinal space.");
+            return GetOrdinal() + localFormId;
         }
     }
 }

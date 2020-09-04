@@ -81,7 +81,7 @@ namespace esper.defs {
             var containedInDef = parentRec.mrDef.containedInDef;
             if (containedInDef == null) return;
             var element = (ValueElement)containedInDef.NewElement(rec);
-            element._data = FormId.FromSource(parentRec._file, parentRec.formId);
+            element._data = FormId.FromSource(parentRec._file, parentRec.fileFormId);
         }
 
         internal void ReadElements(MainRecord rec, PluginFileSource source) {

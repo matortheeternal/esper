@@ -22,8 +22,10 @@ namespace esper.elements {
         public override PluginFile file => _file;
         public GroupRecord childGroup { get; set; }
 
-        public UInt32 formId => header.formId;
-        public UInt32 localFormId => formId & 0xFFFFFF;
+        public FormId formId => FormId.FromSource(_file, fileFormId);
+        public UInt32 fileFormId => header.formId;
+        public UInt32 localFormId => fileFormId & 0xFFFFFF;
+        public UInt32? globalFormId => formId.globalFormId;
 
         public UInt32 dataSize => compressed
                     ? (uint) decompressedData.Length
@@ -81,7 +83,7 @@ namespace esper.elements {
 
         public bool IsLocal() {
             var masterCount = (_file as IMasterManager).originalMasters.Count;
-            return (formId >> 24) >= masterCount;
+            return (fileFormId >> 24) >= masterCount;
         }
 
         public override bool SupportsSignature(string sig) {

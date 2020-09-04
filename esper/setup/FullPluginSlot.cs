@@ -1,4 +1,5 @@
 ﻿using esper.plugins;
+using System;
 
 namespace esper.setup {
     public class FullPluginSlot : PluginSlot {
@@ -9,8 +10,14 @@ namespace esper.setup {
             this.index = (byte)index;
         }
 
-        public new ulong GetOrdinal() {
-            return (ulong)index << 24;
+        public override UInt32 GetOrdinal() {
+            return (UInt32)index << 24;
+        }
+
+        public override UInt32 FormatFormId(UInt32 localFormId) {
+            if ((localFormId & 0xFF000000) > 0)
+                throw new Exception("FormId uses reserved ordinal space.");
+            return GetOrdinal() + localFormId;
         }
     }
 }

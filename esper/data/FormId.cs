@@ -13,6 +13,9 @@ namespace esper.data {
         public UInt32 fileFormId;
 
         public UInt32 localFormId => fileFormId & 0xFFFFFF;
+        public UInt32? globalFormId {
+            get => targetPlugin.pluginSlot?.FormatFormId(localFormId);
+        }
 
         public string targetFileName {
             get {
