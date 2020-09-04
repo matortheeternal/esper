@@ -19,8 +19,7 @@ namespace esper.elements {
         }
 
         internal override AssignmentInfo GetAssignment(ElementDef childDef) {
-            // TODO
-            throw new NotImplementedException();
+            throw new Exception("Cannot create MemberUnionElement child");
         }
     }
 }
