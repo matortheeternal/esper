@@ -13,6 +13,7 @@ namespace esper.defs {
         public override string signature => _signature;
         public override string name => recordDef.name;
         public override string displayName => $"{signature} - {name}";
+        public override bool isTopGroup => true;
 
         public MainRecordDef recordDef { get; }
 

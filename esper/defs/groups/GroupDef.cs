@@ -1,5 +1,4 @@
 ﻿using esper.data;
-using esper.data.headers;
 using esper.elements;
 using esper.helpers;
 using esper.plugins;
@@ -9,19 +8,6 @@ using System;
 using System.Collections.ObjectModel;
 
 namespace esper.defs {
-    public enum GroupType {
-        Top = 0,
-        WorldChildren = 1,
-        InteriorCellBlock = 2,
-        InteriorCellSubBlock = 3,
-        ExteriorCellBlock = 4,
-        ExteriorCellSubBlock = 5,
-        CellChildren = 6,
-        TopicChildren = 7,
-        CellPersistentChildren = 8,
-        CellTemporaryChildren = 9
-    }
-
     public class GroupDef : ElementDef {
         public static string defType = "group";
 
@@ -32,6 +18,7 @@ namespace esper.defs {
         public virtual bool hasRecordParent => false;
         public virtual bool isChildGroup => false;
         public virtual bool isChildGroupChild => false;
+        public virtual bool isTopGroup => false;
 
         public GroupDef(DefinitionManager manager, JObject src)
             : base(manager, src) {
@@ -60,8 +47,7 @@ namespace esper.defs {
             Container container, string name
         ) {
             var label = ParseLabel(container, name);
-            var header = new TES4GroupHeader(label, groupType);
-            return new GroupRecord(container, this, header);
+            return new GroupRecord(container, this, label);
         }
 
         internal void ReadChildren(GroupRecord group, PluginFileSource source) {

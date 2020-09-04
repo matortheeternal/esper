@@ -26,6 +26,7 @@ namespace esper.elements {
         public dynamic label => groupDef.ConvertLabel(this, header.label);
         public UInt32 dataSize => (UInt32)(groupSize - groupHeaderDef.size);
 
+        public bool isTopGroup => groupDef.isTopGroup;
         public bool hasRecordParent => groupDef.hasRecordParent;
         public bool isChildGroup => groupDef.isChildGroup;
         public bool isChildGroupChild => groupDef.isChildGroupChild;
@@ -43,9 +44,16 @@ namespace esper.elements {
             }
         }
 
-        public GroupRecord(Container container, GroupDef def, IGroupHeader header)
-            : base(container, def) {
+        public GroupRecord(
+            Container container, GroupDef def, IGroupHeader header
+        ) : base(container, def) {
             this.header = header;
+        }
+
+        public GroupRecord(
+            Container container, GroupDef def, byte[] label
+        ) : base(container, def) {
+            header = new TES4GroupHeader(label, def.groupType);
         }
 
         private void SetParentRecord() {

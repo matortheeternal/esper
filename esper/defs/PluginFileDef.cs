@@ -63,7 +63,7 @@ namespace esper.defs {
         }
 
         internal override GroupDef GetGroupDef(IGroupHeader header) {
-            if (header.groupType != (int)GroupType.Top)
+            if (header.groupType > 0)
                 throw new Exception("Expected top group.");
             var signature = new Signature(header.label);
             var sig = signature.ToString();
