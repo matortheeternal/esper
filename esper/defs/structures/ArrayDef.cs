@@ -75,5 +75,11 @@ namespace esper.defs {
                 output.WritePrefix(container.count, (int) prefix, padding ?? 0);
             output.WriteContainer((Container) element);
         }
+
+        internal void ElementRemoved(Container container) {
+            if (counterDef == null || !counterDef.canSetCount) return;
+            uint count = (uint)container.internalElements.Count;
+            counterDef.SetCount(container, count);
+        }
     }
 }

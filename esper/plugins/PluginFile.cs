@@ -59,5 +59,9 @@ namespace esper.plugins {
         public override bool SupportsSignature(string sig) {
             return pluginDef.IsTopGroup(sig);
         }
+
+        public override bool Remove() {
+            throw new Exception("Cannot remove plugin files.");
+        }
     }
 }

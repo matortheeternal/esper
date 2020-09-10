@@ -34,5 +34,9 @@ namespace esper.elements {
             }
             return info;
         }
+
+        internal override bool RemoveElement(Element element) {
+            return false;
+        }
     }
 }

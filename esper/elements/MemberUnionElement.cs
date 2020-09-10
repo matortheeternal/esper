@@ -21,5 +21,9 @@ namespace esper.elements {
         internal override AssignmentInfo GetAssignment(ElementDef childDef) {
             throw new Exception("Cannot create MemberUnionElement child");
         }
+
+        internal override bool RemoveElement(Element element) {
+            return Remove();
+        }
     }
 }

@@ -43,5 +43,9 @@ namespace esper.elements {
         internal override Element CreateElementBySignature(string name) {
             throw new NotImplementedException();
         }
+
+        public override bool Remove() {
+            throw new Exception("Cannot remove element root.");
+        }
     }
 }

@@ -89,5 +89,10 @@ namespace esper.elements {
         internal virtual Element CreateDefault() {
             throw new NotImplementedException();
         }
+
+        internal virtual bool RemoveElement(Element element) {
+            internalElements.Remove(element);
+            return true;
+        }
     }
 }

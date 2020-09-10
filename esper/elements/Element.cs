@@ -109,5 +109,10 @@ namespace esper.elements {
         internal virtual void WriteTo(PluginFileOutput output) {
             def.WriteElement(this, output);
         }
+
+        public virtual bool Remove() {
+            if (def.required) return false;
+            return container.RemoveElement(this);
+        }
     }
 }

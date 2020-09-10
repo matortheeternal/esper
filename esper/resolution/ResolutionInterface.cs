@@ -153,5 +153,10 @@ namespace esper.resolution {
             }
             return element;
         }
+
+        public static bool RemoveElement(this IResolution r, string path) {
+            var element = r.GetElement(path);
+            return element.Remove();
+        }
     }
 }

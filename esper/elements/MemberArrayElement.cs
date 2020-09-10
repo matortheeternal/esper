@@ -39,5 +39,12 @@ namespace esper.elements {
         internal override Element CreateDefault() {
             return maDef.memberDef.NewElement(this);
         }
+
+        internal override bool RemoveElement(Element element) {
+            if (internalElements.Count == 1) return Remove();
+            if (!base.RemoveElement(element)) return false;
+            maDef.ElementRemoved(this);
+            return true;
+        }
     }
 }
