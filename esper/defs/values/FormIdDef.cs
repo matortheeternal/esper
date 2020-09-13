@@ -8,6 +8,9 @@ using Newtonsoft.Json.Linq;
 namespace esper.defs {
     public class FormIdDef : ValueDef {
         public static readonly string defId = "formId";
+        public override XEDefType valueDefType => XEDefType.dtIntegerFormater;
+        public override SmashType smashType => SmashType.stInteger;
+
         public override int? size => 4;
         public override bool canContainFormIds => true;
 

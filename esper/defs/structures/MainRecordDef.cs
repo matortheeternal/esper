@@ -13,6 +13,8 @@ namespace esper.defs {
     public class MainRecordDef : MembersDef {
         public static readonly string defId = "record";
         public override string description => $"MainRecord <{signature}>";
+        public override XEDefType defType => XEDefType.dtRecord;
+        public override SmashType smashType => SmashType.stRecord;
 
         private readonly string _signature;
         private HeaderManager headerManager => manager.headerManager;

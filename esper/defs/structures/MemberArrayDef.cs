@@ -9,6 +9,15 @@ using System.Collections.ObjectModel;
 namespace esper.defs {
     public class MemberArrayDef : ElementDef {
         public static readonly string defId = "memberArray";
+        public override XEDefType defType => XEDefType.dtSubRecordArray;
+        public bool isStructArray => memberDef.smashType == SmashType.stStruct;
+        public override SmashType smashType => sorted
+            ? (isStructArray
+                ? SmashType.stSortedStructArray
+                : SmashType.stSortedArray)
+            : (isStructArray
+                ? SmashType.stUnsortedStructArray
+                : SmashType.stUnsortedArray);
 
         public readonly ElementDef memberDef;
         public readonly CounterDef counterDef;

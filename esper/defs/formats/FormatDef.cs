@@ -6,6 +6,7 @@ using System;
 namespace esper.defs {
     public class FormatDef : Def {
         public virtual bool customSortKey => false;
+        public override XEDefType defType => XEDefType.dtIntegerFormater;
 
         public FormatDef(DefinitionManager manager, JObject src)
             : base(manager, src) {}

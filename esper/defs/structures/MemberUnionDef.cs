@@ -7,6 +7,8 @@ using System.Linq;
 namespace esper.defs {
     public class MemberUnionDef : MembersDef {
         public static readonly string defId = "memberUnion";
+        public override XEDefType defType => XEDefType.dtSubRecordUnion;
+        public override SmashType smashType => SmashType.stUnion;
 
         public ElementDef defaultDef => memberDefs[0];
 

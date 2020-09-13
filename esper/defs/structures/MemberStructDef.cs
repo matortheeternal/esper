@@ -9,6 +9,8 @@ using System.Collections.Generic;
 namespace esper.defs {
     public class MemberStructDef : MembersDef {
         public static readonly string defId = "memberStruct";
+        public override XEDefType defType => XEDefType.dtStruct;
+        public override SmashType smashType => SmashType.stStruct;
 
         private readonly List<int> sortKeyIndices;
         private readonly bool unordered;

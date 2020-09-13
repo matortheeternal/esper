@@ -12,6 +12,7 @@ namespace esper.defs {
     public class ElementDef : Def {
         public readonly bool required;
 
+        public virtual SmashType smashType => SmashType.stUnknown;
         public virtual bool canContainFormIds => false;
         public virtual string signature => null;
         public virtual string name { get; }

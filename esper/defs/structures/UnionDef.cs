@@ -10,6 +10,8 @@ using System.Collections.ObjectModel;
 namespace esper.defs {
     public class UnionDef : MaybeSubrecordDef {
         public static readonly string defId = "union";
+        public override XEDefType defType => XEDefType.dtUnion;
+        public override SmashType smashType => SmashType.stUnion;
 
         private readonly bool _canContainFormIds;
         private readonly Decider decider;

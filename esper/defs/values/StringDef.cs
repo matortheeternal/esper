@@ -8,6 +8,14 @@ using System;
 namespace esper.defs {
     public class StringDef : ValueDef {
         public static readonly string defId = "string";
+        public override XEDefType valueDefType {
+            get {
+                if (localized) return XEDefType.dtLString;
+                if (prefix != null) return XEDefType.dtLenString;
+                return XEDefType.dtString;
+            }
+        }
+        public override SmashType smashType => SmashType.stString;
 
         private readonly int? prefix;
         private readonly int? padding;
