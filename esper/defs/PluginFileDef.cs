@@ -13,7 +13,7 @@ namespace esper.defs {
     using TopGroupsMap = Dictionary<string, GroupDef>;
 
     public class PluginFileDef : ElementDef {
-        public static string defType = "pluginFile";
+        public static string defId = "pluginFile";
 
         internal ReadOnlyCollection<ElementDef> childrenDefs;
         internal readonly TopGroupsMap topGroups;

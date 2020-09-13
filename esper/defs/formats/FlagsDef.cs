@@ -10,7 +10,7 @@ using System.Text.RegularExpressions;
 namespace esper.defs {
     public class FlagsDef : FormatDef {
         public static Regex unknownFlagExpr = new Regex(@"^Unknown (\d+)$");
-        public static readonly string defType = "flags";
+        public static readonly string defId = "flags";
 
         //public override bool customSortKey => true;
 

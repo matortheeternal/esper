@@ -50,7 +50,7 @@ namespace esper.defs.TES5 {
     }
 
     public class ConditionAliasFormat : AliasFormat {
-        public static readonly string defType = "ConditionAliasFormat";
+        public static readonly string defId = "ConditionAliasFormat";
 
         public ConditionAliasFormat(DefinitionManager manager, JObject src)
             : base(manager, src) { }
@@ -68,7 +68,7 @@ namespace esper.defs.TES5 {
     }
 
     public class PackageLocationAliasFormat : AliasFormat {
-        public static readonly string defType = "PackageLocationAliasFormat";
+        public static readonly string defId = "PackageLocationAliasFormat";
 
         public PackageLocationAliasFormat(DefinitionManager manager, JObject src)
             : base(manager, src) { }
@@ -79,7 +79,7 @@ namespace esper.defs.TES5 {
     }
 
     public class QuestAliasFormat : AliasFormat {
-        public static readonly string defType = "QuestAliasFormat";
+        public static readonly string defId = "QuestAliasFormat";
 
         public QuestAliasFormat(DefinitionManager manager, JObject src)
             : base(manager, src) { }
@@ -90,7 +90,7 @@ namespace esper.defs.TES5 {
     }
 
     public class QuestExternalAliasFormat : AliasFormat {
-        public static readonly string defType = "QuestExternalAliasFormat";
+        public static readonly string defId = "QuestExternalAliasFormat";
 
         public QuestExternalAliasFormat(DefinitionManager manager, JObject src)
             : base(manager, src) { }
@@ -101,7 +101,7 @@ namespace esper.defs.TES5 {
     }
 
     public class ScriptObjectAliasFormat : AliasFormat {
-        public static readonly string defType = "ScriptObjectAliasFormat";
+        public static readonly string defId = "ScriptObjectAliasFormat";
 
         public ScriptObjectAliasFormat(DefinitionManager manager, JObject src)
             : base(manager, src) { }

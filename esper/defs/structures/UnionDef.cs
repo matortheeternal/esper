@@ -9,7 +9,7 @@ using System.Collections.ObjectModel;
 
 namespace esper.defs {
     public class UnionDef : MaybeSubrecordDef {
-        public static readonly string defType = "union";
+        public static readonly string defId = "union";
 
         private readonly bool _canContainFormIds;
         private readonly Decider decider;

@@ -9,7 +9,7 @@ using System.Collections.ObjectModel;
 
 namespace esper.defs {
     public class GroupDef : ElementDef {
-        public static string defType = "group";
+        public static string defId = "group";
 
         internal ReadOnlyCollection<ElementDef> childrenDefs;
 

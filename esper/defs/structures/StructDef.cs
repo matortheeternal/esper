@@ -10,7 +10,7 @@ using System.Linq;
 
 namespace esper.defs {
     public class StructDef : MaybeSubrecordDef {
-        public readonly static string defType = "struct";
+        public readonly static string defId = "struct";
 
         private readonly bool _canContainFormIds;
         internal ReadOnlyCollection<ElementDef> elementDefs;

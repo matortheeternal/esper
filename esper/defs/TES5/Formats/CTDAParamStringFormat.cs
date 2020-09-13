@@ -26,7 +26,7 @@ namespace esper.defs.TES5 {
     }
 
     public class CTDAParam1StringFormat : CTDAParamStringFormat {
-        public static readonly string defType = "CTDAParam1StringFormat";
+        public static readonly string defId = "CTDAParam1StringFormat";
 
         public CTDAParam1StringFormat(DefinitionManager manager, JObject src)
             : base(manager, src) { }
@@ -37,7 +37,7 @@ namespace esper.defs.TES5 {
     }
 
     public class CTDAParam2StringFormat : CTDAParamStringFormat {
-        public static readonly string defType = "CTDAParam2StringFormat";
+        public static readonly string defId = "CTDAParam2StringFormat";
 
         public CTDAParam2StringFormat(DefinitionManager manager, JObject src)
             : base(manager, src) { }

@@ -7,7 +7,7 @@ using System;
 
 namespace esper.defs {
     public class BytesDef : ValueDef {
-        public static readonly string defType = "bytes";
+        public static readonly string defId = "bytes";
 
         public BytesDef(DefinitionManager manager, JObject src)
             : base(manager, src) {

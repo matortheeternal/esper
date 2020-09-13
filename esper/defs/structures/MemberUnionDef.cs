@@ -3,11 +3,10 @@ using esper.setup;
 using esper.plugins;
 using Newtonsoft.Json.Linq;
 using System.Linq;
-using System;
 
 namespace esper.defs {
     public class MemberUnionDef : MembersDef {
-        public static readonly string defType = "memberUnion";
+        public static readonly string defId = "memberUnion";
 
         public ElementDef defaultDef => memberDefs[0];
 

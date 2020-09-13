@@ -11,7 +11,7 @@ namespace esper.defs.TES5 {
             @"(?:(Masser(, Secunda)?)|(Secunda)|(No Moon)) \/ (\d+)"
         );
 
-        public static readonly string defType = "ClmtMoonsPhaseLengthFormat";
+        public static readonly string defId = "ClmtMoonsPhaseLengthFormat";
 
         public MoonPhaseFormat(DefinitionManager manager, JObject src)
             : base(manager, src) {}

@@ -5,7 +5,7 @@ using System;
 
 namespace esper.defs.TES5 {
     public class _180DivPiFormat : FormatDef {
-        public static readonly string defType = "180DivPiFormat";
+        public static readonly string defId = "180DivPiFormat";
 
         public _180DivPiFormat(DefinitionManager manager, JObject src)
             : base(manager, src) { }

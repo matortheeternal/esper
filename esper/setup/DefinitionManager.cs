@@ -61,7 +61,7 @@ namespace esper.setup {
         }
 
         private void LoadDefClass(Type type) {
-            var info = type.GetField("defType");
+            var info = type.GetField("defId");
             if (info == null) return;
             string key = (string)info.GetValue(null);
             defClasses[key] = type;
@@ -99,13 +99,13 @@ namespace esper.setup {
         }
 
         public Def BuildBaseDef(JObject src) {
-            var defType = src.Value<string>("type");
-            if (defType == "record" && !src.ContainsKey("signature")) return null;
-            if (defType == "group") return groupManager.BuildGroupDef(src);
-            if (!defClasses.ContainsKey(defType))
-                throw new Exception($"Def type not implemented: {defType}");
+            var defId = src.Value<string>("type");
+            if (defId == "record" && !src.ContainsKey("signature")) return null;
+            if (defId == "group") return groupManager.BuildGroupDef(src);
+            if (!defClasses.ContainsKey(defId))
+                throw new Exception($"Def type not implemented: {defId}");
             var args = new object[] { this, src };
-            var def = (Def)Activator.CreateInstance(defClasses[defType], args);
+            var def = (Def)Activator.CreateInstance(defClasses[defId], args);
             return def;
         }
 

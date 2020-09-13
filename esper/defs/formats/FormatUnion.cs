@@ -2,12 +2,11 @@
 using esper.helpers;
 using esper.setup;
 using Newtonsoft.Json.Linq;
-using System;
 using System.Collections.ObjectModel;
 
 namespace esper.defs {
     public class FormatUnion : FormatDef {
-        public static readonly string defType = "formatUnion";
+        public static readonly string defId = "formatUnion";
 
         public Decider decider;
         public ReadOnlyCollection<FormatDef> formatDefs;

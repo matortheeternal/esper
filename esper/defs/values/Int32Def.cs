@@ -7,7 +7,7 @@ using esper.helpers;
 
 namespace esper.defs {
     public class Int32Def : ValueDef {
-        public static readonly string defType = "int32";
+        public static readonly string defId = "int32";
         public override int? size => 4;
 
         public Int32Def(DefinitionManager manager, JObject src)

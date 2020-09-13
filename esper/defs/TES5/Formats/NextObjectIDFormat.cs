@@ -6,7 +6,7 @@ using System;
 
 namespace esper.defs.TES5 {
     public class NextObjectIDFormat : FormatDef {
-        public static readonly string defType = "NextObjectIDFormat";
+        public static readonly string defId = "NextObjectIDFormat";
 
         public NextObjectIDFormat(DefinitionManager manager, JObject src)
             : base(manager, src) { }

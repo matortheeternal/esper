@@ -5,7 +5,7 @@ using System;
 
 namespace esper.defs.TES5 {
     public class EventFormat : FormatDef {
-        public static readonly string defType = "EventFunctionAndMemberFormat";
+        public static readonly string defId = "EventFunctionAndMemberFormat";
 
         private readonly EnumDef eventFunctionEnum;
         private readonly EnumDef eventMemberEnum;

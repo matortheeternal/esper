@@ -9,7 +9,7 @@ using System.Collections.Generic;
 
 namespace esper.defs {
     public class ArrayDef : MaybeSubrecordDef {
-        public static readonly string defType = "array";
+        public static readonly string defId = "array";
 
         public readonly ElementDef elementDef;
         public readonly CounterDef counterDef;

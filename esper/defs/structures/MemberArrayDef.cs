@@ -8,7 +8,7 @@ using System.Collections.ObjectModel;
 
 namespace esper.defs {
     public class MemberArrayDef : ElementDef {
-        public static readonly string defType = "memberArray";
+        public static readonly string defId = "memberArray";
 
         public readonly ElementDef memberDef;
         public readonly CounterDef counterDef;

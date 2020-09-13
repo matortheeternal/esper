@@ -5,7 +5,7 @@ using Newtonsoft.Json.Linq;
 
 namespace esper.defs.TES5 {
     public class HideFFFF_Format : FormatDef {
-        public static readonly string defType = "HideFFFF_Format";
+        public static readonly string defId = "HideFFFF_Format";
 
         public HideFFFF_Format(DefinitionManager manager, JObject src)
             : base(manager, src) {}

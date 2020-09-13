@@ -11,7 +11,7 @@ using System.Linq;
 
 namespace esper.defs {
     public class MainRecordDef : MembersDef {
-        public static readonly string defType = "record";
+        public static readonly string defId = "record";
 
         private readonly string _signature;
         private HeaderManager headerManager => manager.headerManager;

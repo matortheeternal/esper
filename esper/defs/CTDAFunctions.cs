@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace esper.defs {
     public class CTDAFunctions : Def {
-        public static readonly string defType = "ctdaFunctions";
+        public static readonly string defId = "ctdaFunctions";
 
         public ReadOnlyCollection<CTDAFunction> ctdaFunctions;
 

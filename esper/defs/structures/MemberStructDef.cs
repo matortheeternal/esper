@@ -8,7 +8,7 @@ using System.Collections.Generic;
 
 namespace esper.defs {
     public class MemberStructDef : MembersDef {
-        public static readonly string defType = "memberStruct";
+        public static readonly string defId = "memberStruct";
 
         private readonly List<int> sortKeyIndices;
         private readonly bool unordered;

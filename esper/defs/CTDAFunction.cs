@@ -4,7 +4,7 @@ using System;
 
 namespace esper.defs {
     public class CTDAFunction : Def {
-        public static readonly string defType = "ctdaFunction";
+        public static readonly string defId = "ctdaFunction";
 
         public UInt16 index;
         public string name;

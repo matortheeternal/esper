@@ -5,7 +5,7 @@ using System.Text.RegularExpressions;
 
 namespace esper.defs.TES5 {
     public class CTDATypeFormat : FormatDef {
-        public static readonly string defType = "CtdaTypeFormat";
+        public static readonly string defId = "CtdaTypeFormat";
         private static readonly Regex valueExpr = new Regex(@"$([\w ]+?)(?: / ([\w ]+))?");
 
         private static FlagsDef ctdaTypeFlags;

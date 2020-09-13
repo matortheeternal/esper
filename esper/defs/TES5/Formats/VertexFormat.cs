@@ -30,14 +30,14 @@ namespace esper.defs.TES5 {
     }
 
     public class Vertex0Format : VertexFormat {
-        public static readonly string defType = "Vertex0Format";
+        public static readonly string defId = "Vertex0Format";
 
         public Vertex0Format(DefinitionManager manager, JObject src)
             : base(manager, src) { }
     }
 
     public class Vertex1Format : VertexFormat {
-        public static readonly string defType = "Vertex1Format";
+        public static readonly string defId = "Vertex1Format";
         protected override int vertex => 1;
 
         public Vertex1Format(DefinitionManager manager, JObject src)
@@ -45,7 +45,7 @@ namespace esper.defs.TES5 {
     }
 
     public class Vertex2Format : VertexFormat {
-        public static readonly string defType = "Vertex2Format";
+        public static readonly string defId = "Vertex2Format";
         protected override int vertex => 2;
 
         public Vertex2Format(DefinitionManager manager, JObject src)

@@ -7,7 +7,7 @@ using System;
 
 namespace esper.defs {
     public class Int8Def : ValueDef {
-        public static readonly string defType = "int8";
+        public static readonly string defId = "int8";
         public override int? size => 1;
 
         public Int8Def(DefinitionManager manager, JObject src)
