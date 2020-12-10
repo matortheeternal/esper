@@ -46,5 +46,11 @@ namespace esper.elements {
             maDef.ElementRemoved(this);
             return true;
         }
+
+        internal override Element CopyInto(Container container, CopyOptions options) {
+            var element = new MemberArrayElement(container, def);
+            CopyChildrenInto(element, options);
+            return element;
+        }
     }
 }

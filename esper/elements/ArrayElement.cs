@@ -42,5 +42,11 @@ namespace esper.elements {
             arrayDef.ElementRemoved(this);
             return true;
         }
+
+        internal override Element CopyInto(Container container, CopyOptions options) {
+            var element = new ArrayElement(container, def);
+            CopyChildrenInto(element, options);
+            return element;
+        }
     }
 }

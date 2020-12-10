@@ -12,6 +12,7 @@ using System.Linq;
 namespace esper.defs {
     public class MainRecordDef : MembersDef {
         public static readonly string defId = "record";
+        public override string description => $"MainRecord <{signature}>";
 
         private readonly string _signature;
         private HeaderManager headerManager => manager.headerManager;
@@ -81,6 +82,15 @@ namespace esper.defs {
             var containedInDef = parentRec.mrDef.containedInDef;
             if (containedInDef == null) return;
             var element = (ValueElement)containedInDef.NewElement(rec);
+            element._data = FormId.FromSource(parentRec._file, parentRec.fileFormId);
+        }
+
+        internal void UpdateContainedIn(GroupRecord group, MainRecord rec) {
+            if (group == null || !group.hasRecordParent) return;
+            var parentRec = group.GetParentRecord();
+            var containedInDef = parentRec.mrDef.containedInDef;
+            if (containedInDef == null) return;
+            var element = (ValueElement) rec.FindElementForDef(containedInDef);
             element._data = FormId.FromSource(parentRec._file, parentRec.fileFormId);
         }
 

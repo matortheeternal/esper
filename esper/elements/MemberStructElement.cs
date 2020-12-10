@@ -28,5 +28,11 @@ namespace esper.elements {
             }
             return info;
         }
+
+        internal override Element CopyInto(Container container, CopyOptions options) {
+            var element = new MemberStructElement(container, def);
+            CopyChildrenInto(element, options);
+            return element;
+        }
     }
 }

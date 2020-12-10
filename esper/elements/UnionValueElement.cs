@@ -15,5 +15,11 @@ namespace esper.elements {
         ) : base(container, def) {
             this.unionDef = unionDef;
         }
+
+        internal override Element CopyInto(Container container, CopyOptions options) {
+            return new UnionValueElement(container, def, unionDef) {
+                _data = this._data
+            };
+        }
     }
 }

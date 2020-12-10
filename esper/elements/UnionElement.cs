@@ -21,5 +21,11 @@ namespace esper.elements {
         internal override bool RemoveElement(Element element) {
             return Remove();
         }
+
+        internal override Element CopyInto(Container container, CopyOptions options) {
+            var element = new UnionElement(container, def);
+            CopyChildrenInto(element, options);
+            return element;
+        }
     }
 }

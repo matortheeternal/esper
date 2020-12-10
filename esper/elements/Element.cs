@@ -3,6 +3,7 @@ using esper.plugins;
 using esper.resolution;
 using esper.defs;
 using System;
+using System.Collections.Generic;
 
 namespace esper.elements {
     public class Element : IResolution {
@@ -113,6 +114,64 @@ namespace esper.elements {
         public virtual bool Remove() {
             if (def.required) return false;
             return container.RemoveElement(this);
+        }
+
+        internal virtual Element ResolveIn(Container container) {
+            throw new NotImplementedException();
+        }
+
+        internal virtual Element CopyInto(Container container, CopyOptions options) {
+            throw new NotImplementedException();
+        }
+
+        internal Container ForceContainer(
+            Container source, Container target, CopyOptions options, ref bool creating
+        ) {
+            if (!creating) {
+                var child = source.ResolveIn(target);
+                creating = child == null;
+                if (!creating) return (Container)child;
+            }
+            return (Container)source.CopyInto(target, options);
+        }
+        
+        public virtual Container ForceContainers(Element element, CopyOptions options) {
+            var parentContainers = new List<Container>();
+            var targetContainer = element.container;
+            while (targetContainer != null) {
+                if (def == targetContainer.def) break;
+                parentContainers.Add(targetContainer);
+                targetContainer = targetContainer.container;
+            }
+            if (targetContainer == null) 
+                throw new Exception($"{element.def.description} is not supported by {def.description}");
+            bool creating = false;
+            var ccOptions = options ^ CopyOptions.CopyChildGroups;
+            parentContainers.ForEach(parentContainer => {
+                targetContainer = ForceContainer(
+                    parentContainer, targetContainer, ccOptions, ref creating
+                );
+            });
+            return targetContainer;
+        }
+
+        internal Element AssignCopy(Element element, CopyOptions options) {
+            var container = ForceContainers(element, options);
+            return element.ResolveIn(container) ??
+                   element.CopyInto(container, options);
+        }
+
+        public virtual Element CopyTo(Element target, CopyOptions options) {
+            if (target is MainRecord) {
+                if (def is MaybeSubrecordDef)
+                    return target.AssignCopy(this, options);
+                throw new Exception($"Cannot copy ${def.displayName} into Main Record");
+            } else if (target.def is ArrayDef || target.def is MemberArrayDef) {
+                if (def is MaybeSubrecordDef && target.def.ChildDefSupported(def))
+                    return target.AssignCopy(this, options);
+                throw new Exception($"Cannot copy ${def.displayName} into array element");
+            }
+            throw new Exception($"Cannot copy elements into ${target.def.displayName}");
         }
     }
 }

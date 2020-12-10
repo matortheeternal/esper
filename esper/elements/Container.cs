@@ -94,5 +94,9 @@ namespace esper.elements {
             internalElements.Remove(element);
             return true;
         }
+
+        internal void CopyChildrenInto(Container container, CopyOptions options) {
+            internalElements.ForEach(el => el.CopyInto(container, options));
+        }
     }
 }

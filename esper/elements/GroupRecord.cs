@@ -105,5 +105,12 @@ namespace esper.elements {
             });
             return targetDef.NewElement(this);
         }
+
+        public override Element CopyTo(Element target, CopyOptions options) {
+            // TODO: copy child group into MainRecord?
+            if (target is PluginFile && target.def.ChildDefSupported(def))
+                return target.AssignCopy(this, options);
+            throw new Exception($"Cannot copy group records into ${target.def.displayName}");
+        }
     }
 }

@@ -106,6 +106,17 @@ namespace esper.elements {
             Initialize();
         }
 
+        internal override Element ResolveIn(Container container) {
+            foreach (var element in container.internalElements) {
+                if (element is MainRecord rec && rec.formId == formId) {
+                    if (rec.signature != signature)
+                        throw new Exception("Signature mismatch.");
+                    return rec;
+                }
+            }
+            return null;
+        }
+
         internal GroupRecord CreateChildGroup() {
             if (childGroup != null) return childGroup;
             var groupDef = container.def.childDefs.FirstOrDefault(def => {
@@ -114,11 +125,29 @@ namespace esper.elements {
             if (groupDef == null) 
                 throw new Exception($"Cannot create child group for {signature}");
             var label = BitConverter.GetBytes(fileFormId);
-            childGroup = new GroupRecord(null, groupDef, label);
-            childGroup.container = container;
+            childGroup = new GroupRecord(null, groupDef, label) {
+                container = container
+            };
             var index = container.internalElements.IndexOf(this) + 1;
             container.internalElements.Insert(index, childGroup);
             return childGroup;
+        }
+
+        internal override Element CopyInto(Container container, CopyOptions options) {
+            var rec = new MainRecord(container, def);
+            CopyChildrenInto(rec, options);
+            if (container is GroupRecord group)
+                mrDef.UpdateContainedIn(group, rec);
+            if ((options & CopyOptions.CopyChildGroups) > 0)
+                childGroup.CopyInto(rec, options);
+            return rec;
+        }
+
+        public override Element CopyTo(Element target, CopyOptions options) {
+            if (target is PluginFile) return target.AssignCopy(this, options);
+            if (target is GroupRecord && target.def.ChildDefSupported(def))
+                return target.AssignCopy(this, options);
+            throw new Exception($"Cannot copy records into ${target.def.displayName}");
         }
     }
 }

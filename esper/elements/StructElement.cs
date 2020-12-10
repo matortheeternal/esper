@@ -38,5 +38,11 @@ namespace esper.elements {
         internal override bool RemoveElement(Element element) {
             return false;
         }
+
+        internal override Element CopyInto(Container container, CopyOptions options) {
+            var element = new StructElement(container, def);
+            CopyChildrenInto(element, options);
+            return element;
+        }
     }
 }

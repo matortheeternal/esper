@@ -64,5 +64,9 @@ namespace esper.elements {
         internal override void WriteTo(PluginFileOutput output) {
             valueDef.WriteElement(this, output);
         }
+
+        internal override Element CopyInto(Container container, CopyOptions options) {
+            return ValueElement.Init(container, def, _data);
+        }
     }
 }

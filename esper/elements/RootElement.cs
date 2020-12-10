@@ -45,7 +45,11 @@ namespace esper.elements {
         }
 
         public override bool Remove() {
-            throw new Exception("Cannot remove element root.");
+            throw new Exception("Root elements cannot be removed.");
+        }
+
+        internal override Element CopyInto(Container container, CopyOptions options) {
+            throw new Exception("Root elements cannot be copied.");
         }
     }
 }
