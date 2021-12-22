@@ -8,6 +8,8 @@ using System;
 namespace esper.defs {
     public class UInt8Def : ValueDef {
         public static readonly string defId = "uint8";
+        public override XEDefType valueDefType => XEDefType.dtInteger;
+        public override SmashType smashType => SmashType.stInteger;
 
         public override int? size => 1;
 

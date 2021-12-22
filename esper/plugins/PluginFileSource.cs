@@ -1,4 +1,4 @@
-﻿using esper.data;
+using esper.data;
 using esper.elements;
 using System;
 using System.IO;
@@ -26,7 +26,7 @@ namespace esper.plugins {
         internal long fileSize => fileInfo.Length;
         internal bool usingDecompressedStream => decompressedStream != null;
         internal bool localized => plugin.localized;
-        internal Encoding stringEncoding=> plugin.sessionOptions.encoding;
+        internal Encoding stringEncoding => plugin.sessionOptions.encoding;
         internal Stream stream => decompressedStream ?? fileStream;
         internal BinaryReader reader => decompressedReader ?? fileReader;
 
@@ -140,6 +140,13 @@ namespace esper.plugins {
             if (_currentSubrecord != null) return true;
             ReadSubrecord();
             return true;
+        }
+
+        internal Signature PeekSignature() {
+            var pos = stream.Position;
+            var sig = Signature.Read(this);
+            stream.Position = pos;
+            return sig;
         }
 
         internal void SubrecordHandled() {

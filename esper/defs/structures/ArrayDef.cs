@@ -10,6 +10,15 @@ using System.Collections.Generic;
 namespace esper.defs {
     public class ArrayDef : MaybeSubrecordDef {
         public static readonly string defId = "array";
+        public override XEDefType defType => XEDefType.dtArray;
+        public bool isStructArray => elementDef.smashType == SmashType.stStruct;
+        public override SmashType smashType => sorted
+            ? (isStructArray
+                ? SmashType.stSortedStructArray
+                : SmashType.stSortedArray)
+            : (isStructArray
+                ? SmashType.stUnsortedStructArray
+                : SmashType.stUnsortedArray);
 
         public readonly ElementDef elementDef;
         public readonly CounterDef counterDef;

@@ -8,6 +8,7 @@ namespace esper.defs {
 
         internal SessionOptions sessionOptions => manager.session.options;
         public virtual string description => throw new NotImplementedException();
+        public virtual XEDefType defType => throw new NotImplementedException();
 
         public Def(DefinitionManager manager, JObject src) {
             this.manager = manager;

@@ -1,4 +1,4 @@
-﻿using esper.defs;
+using esper.defs;
 using esper.setup;
 using Newtonsoft.Json.Linq;
 using System;
@@ -52,6 +52,13 @@ namespace esper.helpers {
                 d[n] = v.Value<string>();
             }
             return d;
+        }
+
+        internal static ConflictType ParseConflictType(JObject src) {
+            if (!src.ContainsKey("conflictType"))
+                return ConflictType.ctNormal;
+            string key = src.Value<string>("conflictType");
+            return (ConflictType)Enum.Parse(typeof(ConflictType), $"ct{key}");
         }
 
         public static Dictionary<string, string> Dictionary(

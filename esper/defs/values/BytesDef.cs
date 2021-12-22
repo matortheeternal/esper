@@ -8,6 +8,8 @@ using System;
 namespace esper.defs {
     public class BytesDef : ValueDef {
         public static readonly string defId = "bytes";
+        public override XEDefType valueDefType => XEDefType.dtByteArray;
+        public override SmashType smashType => SmashType.stByteArray;
 
         public BytesDef(DefinitionManager manager, JObject src)
             : base(manager, src) {

@@ -7,6 +7,10 @@ using System;
 
 namespace esper.defs {
     public class ValueDef : MaybeSubrecordDef {
+        public override XEDefType defType => IsSubrecord()
+            ? XEDefType.dtSubRecord : valueDefType;
+        public virtual XEDefType valueDefType => throw new NotImplementedException();
+
         public FormatDef formatDef;
         public int? fixedSize;
         private readonly bool zeroSortKey;

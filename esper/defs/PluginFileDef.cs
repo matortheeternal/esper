@@ -42,6 +42,9 @@ namespace esper.defs {
         internal void ReadFileHeader(PluginFile plugin) {
             var source = plugin.source;
             if (plugin.header != null) return;
+            var magic = source.PeekSignature();
+            if (magic != Signatures.TES4)
+                throw new Exception($"Expected plugin file to start with TES4, found {magic}");
             plugin.header = MainRecord.Read(plugin, source, Signatures.TES4);
             plugin.InitMasters();
             plugin.InitRecordMaps();

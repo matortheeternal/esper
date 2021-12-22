@@ -7,6 +7,8 @@ using System;
 namespace esper.defs {
     public class FloatDef : ValueDef {
         public static readonly string defId = "float";
+        public override XEDefType valueDefType => XEDefType.dtFloat;
+        public override SmashType smashType => SmashType.stFloat;
 
         public override int? size => 4;
 

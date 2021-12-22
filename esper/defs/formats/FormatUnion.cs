@@ -7,6 +7,7 @@ using System.Collections.ObjectModel;
 namespace esper.defs {
     public class FormatUnion : FormatDef {
         public static readonly string defId = "formatUnion";
+        public override XEDefType defType => XEDefType.dtIntegerFormaterUnion;
 
         public Decider decider;
         public ReadOnlyCollection<FormatDef> formatDefs;

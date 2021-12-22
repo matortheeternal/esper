@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -21,6 +21,7 @@ namespace esper.setup {
         public bool readAllSubrecords = false;
         public bool clampIntegerValues = true;
         public bool resolveAliases = false;
+        public bool enforceExpectedReferences = false;
         private uint _floatDigits = 6;
         public float epsilon = GetEpsilon(6);
         public string floatFormat => $"F{floatDigits}";

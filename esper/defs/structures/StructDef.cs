@@ -11,6 +11,8 @@ using System.Linq;
 namespace esper.defs {
     public class StructDef : MaybeSubrecordDef {
         public readonly static string defId = "struct";
+        public override XEDefType defType => XEDefType.dtStruct;
+        public override SmashType smashType => SmashType.stStruct;
 
         private readonly bool _canContainFormIds;
         internal ReadOnlyCollection<ElementDef> elementDefs;

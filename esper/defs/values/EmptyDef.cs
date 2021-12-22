@@ -7,6 +7,7 @@ using System;
 namespace esper.defs {
     public class EmptyDef : ValueDef {
         public static readonly string defId = "empty";
+        public override XEDefType valueDefType => XEDefType.dtEmpty;
 
         public override int? size => 0;
 

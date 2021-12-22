@@ -8,6 +8,9 @@ using esper.helpers;
 namespace esper.defs {
     public class UInt32Def : ValueDef {
         public static readonly string defId = "uint32";
+        public override XEDefType valueDefType => XEDefType.dtInteger;
+        public override SmashType smashType => SmashType.stInteger;
+
         public override int? size => 4;
 
         public UInt32Def(DefinitionManager manager, JObject src)
