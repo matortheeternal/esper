@@ -1,5 +1,6 @@
 ﻿using esper.data.headers;
 using esper.elements;
+using esper.helpers;
 using esper.plugins;
 using esper.setup;
 using Newtonsoft.Json.Linq;
@@ -16,6 +17,7 @@ namespace esper.defs {
         public virtual bool canContainFormIds => false;
         public virtual string signature => null;
         public virtual string name { get; }
+        public virtual ConflictType conflictType { get; }
         public virtual string displayName => name;
         public virtual int? size => 0;
 
@@ -25,6 +27,7 @@ namespace esper.defs {
             : base(manager, src) {
             name = src.Value<string>("name");
             required = src.Value<bool>("required");
+            conflictType = JsonHelpers.ParseConflictType(src);
         }
 
         public ElementDef(ElementDef other) : base(other) {
