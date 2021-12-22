@@ -1,4 +1,3 @@
-﻿using esper.helpers;
 using System.Collections.Generic;
 
 namespace esper {
@@ -19,8 +18,8 @@ namespace esper {
         public string cccName = null;
         public string pluginsTxtType = "plain";
         public string archiveExtension = ".bsa";
-        public List<string> pluginExtensions = new List<string> { 
-            ".esp", ".esm" 
+        public List<string> pluginExtensions = new List<string> {
+            ".esp", ".esm"
         };
         public List<string> hardcodedPlugins = new List<string>();
         public List<int> steamAppIds = new List<int>();

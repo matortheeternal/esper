@@ -1,4 +1,4 @@
-﻿using esper.data;
+using esper.data;
 using esper.elements;
 using esper.helpers;
 using esper.plugins;
@@ -53,8 +53,7 @@ namespace esper.defs {
         internal void ReadChildren(GroupRecord group, PluginFileSource source) {
             var file = group.file;
             source.ReadMultiple(group.dataSize, () => {
-                var sig = Signature.Read(source);
-                source.stream.Position -= 4;
+                var sig = source.PeekSignature();
                 if (sig == Signatures.GRUP) {
                     GroupRecord.Read(group, source);
                 } else {
