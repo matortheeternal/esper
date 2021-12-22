@@ -4,6 +4,10 @@ using esper.plugins;
 using esper.setup;
 using System;
 using Newtonsoft.Json.Linq;
+using esper.helpers;
+using System.Collections.Generic;
+using esper.resolution;
+using System.Linq;
 
 namespace esper.defs {
     public class FormIdDef : ValueDef {
@@ -11,11 +15,22 @@ namespace esper.defs {
         public override XEDefType valueDefType => XEDefType.dtIntegerFormater;
         public override SmashType smashType => SmashType.stInteger;
 
+        internal readonly List<string> allowedSignatures = null;
+        internal readonly bool validateFlstRefs = false;
+        internal readonly bool persistent = false;
+
         public override int? size => 4;
         public override bool canContainFormIds => true;
 
         public FormIdDef(DefinitionManager manager, JObject src)
-            : base(manager, src) { }
+            : base(manager, src) {
+            if (src.ContainsKey("signatures"))
+                allowedSignatures = JsonHelpers.List<string>(src, "signatures");
+            if (src.ContainsKey("validateFlstRefs"))
+                validateFlstRefs = src.Value<bool>("validateFlstRefs");
+            if (src.ContainsKey("persistent"))
+                persistent = src.Value<bool>("persistent");
+        }
 
         public override dynamic ReadData(PluginFileSource source, UInt32? dataSize) {
             UInt32 data = source.reader.ReadUInt32();
@@ -31,8 +46,43 @@ namespace esper.defs {
             return data.ToString();
         }
 
+        internal void ValidateFormListRefs(ValueElement element, MainRecord rec) {
+            var formIdElements = rec.GetElements("FormIDs");
+            if (formIdElements == null) return;
+            foreach (ValueElement v in formIdElements) { 
+                var fid = v?.data as FormId;
+                var entryRec = fid?.ResolveRecord();
+                if (entryRec == null) continue;
+                var sig = entryRec.signature;
+                if (sig == "NULL" || sig != "FLST" || !allowedSignatures.Contains(sig))
+                    throw new Exception(
+                        $"{element.fullPath} does not allow form lists with " +
+                        $"references to {sig} records."
+                    );
+            }
+        }
+
+        public void ValidateRef(ValueElement element, MainRecord rec) {
+            var sig = rec.signature;
+            if (!allowedSignatures.Contains(sig))
+                throw new Exception(
+                    $"{element.fullPath} does not allow references " +
+                    $"with signature {sig}."
+                );
+            if (persistent && !rec.GetRecordFlag("Persistent"))
+                throw new Exception(
+                    $"{element.fullPath} does not allow references to " +
+                    "non-persistent records."
+                );
+            if (validateFlstRefs && sig == "FLST")
+                ValidateFormListRefs(element, rec);
+        }
+
         public override void SetValue(ValueElement element, string value) {
-            SetData(element, FormId.Parse(element, value));
+            var fid = FormId.Parse(element, value);
+            if (sessionOptions.enforceExpectedReferences && allowedSignatures != null)
+                ValidateRef(element, fid.ResolveRecord());
+            SetData(element, fid);
         }
 
         public override string DataToSortKey(dynamic data) {
