@@ -1,4 +1,7 @@
-﻿[*.cs]
+﻿[*]
+end_of_line = lf
+
+[*.cs]
 
 # IDE1006: Naming Styles
 dotnet_diagnostic.IDE1006.severity = none
