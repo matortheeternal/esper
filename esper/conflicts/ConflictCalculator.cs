@@ -18,6 +18,7 @@ namespace esper.conflicts {
         private bool firstElementIgnored => 
             firstDef.conflictType == ConflictType.Ignore;
         private int cellCount => row.childCells.Count;
+        private int numEmptyValues => UniqueValues.Contains("") ? 1 : 0;
 
         private ConflictType ComputeOverallConflictType() {
             if (firstElement == null) return ConflictType.Normal;
@@ -94,7 +95,9 @@ namespace esper.conflicts {
             firstElement = elements.First(e => e != null);
         }
 
-        internal CellConflictStatus Calculate(ConflictCell cell, int index) {
+        internal CellConflictStatus CalculateCellConflict(
+            ConflictCell cell, int index
+        ) {
             if (firstElement == null)
                 return CellConflictStatus.NotDefined;
             if (conflictType == ConflictType.Ignore) 
@@ -128,13 +131,6 @@ namespace esper.conflicts {
             return CellConflictStatus.Unknown;
         }
 
-        internal void CalculateCellConflicts() {
-            for (var i = 0; i < cellCount; i++) {
-                var cell = row.childCells[i];
-                cell.conflictStatus = Calculate(cell, i);
-            }
-        }
-
         internal RowConflictStatus CalculateRowConflict() {
             if (cellCount == 0) return RowConflictStatus.Unknown;
             if (cellCount == 1) return RowConflictStatus.OnlyOne;
@@ -144,11 +140,9 @@ namespace esper.conflicts {
                 return RowConflictStatus.ConflictBenign;
             if (overrideConflict)
                 return RowConflictStatus.Override;
-            if (conflictType == ConflictType.Critical) {
-                var numEmptyValues = UniqueValues.Contains("") ? 1 : 0;
-                if (valueCount - numEmptyValues > 1) 
-                    return RowConflictStatus.ConflictCritical;
-            }
+            if (conflictType == ConflictType.Critical &&
+                valueCount - numEmptyValues > 1) 
+                return RowConflictStatus.ConflictCritical;
             return RowConflictStatus.Conflict;
         }
     }
