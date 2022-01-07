@@ -17,7 +17,7 @@ namespace esper.conflicts {
         private ElementDef firstDef => firstElement.def;
         private bool firstElementIgnored => 
             firstDef.conflictType == ConflictType.Ignore;
-        private int maxIndex => row.childCells.Count - 1;
+        private int cellCount => row.childCells.Count;
 
         private ConflictType ComputeOverallConflictType() {
             if (firstElement == null) return ConflictType.Normal;
@@ -102,7 +102,7 @@ namespace esper.conflicts {
             if (conflictType == ConflictType.NormalIgnoreEmpty &&
                 cell.element == null)
                 return CellConflictStatus.Ignored;
-            if (maxIndex == 0)
+            if (cellCount == 1)
                 return CellConflictStatus.OnlyOne;
             if (index == 0)
                 return CellConflictStatus.Master;
@@ -113,7 +113,7 @@ namespace esper.conflicts {
             var cellValue = CellValues[index];
             if (cellValue == firstCellValue &&
                (conflictType <= ConflictType.Ignore || !firstElementIgnored)) {
-                if (index == maxIndex && hasConflict)
+                if (index == cellCount - 1 && hasConflict)
                     return CellConflictStatus.IdenticalToMasterWinsConflict;
                 return CellConflictStatus.IdenticalToMaster;
             }
@@ -129,18 +129,17 @@ namespace esper.conflicts {
         }
 
         internal void CalculateCellConflicts() {
-            for (var i = 0; i <= maxIndex; i++) {
+            for (var i = 0; i < cellCount; i++) {
                 var cell = row.childCells[i];
                 cell.conflictStatus = Calculate(cell, i);
             }
         }
 
         internal RowConflictStatus CalculateRowConflict() {
-            if (maxIndex == -1) return RowConflictStatus.Unknown;
-            if (maxIndex == 0) return RowConflictStatus.OnlyOne;
+            if (cellCount == 0) return RowConflictStatus.Unknown;
+            if (cellCount == 1) return RowConflictStatus.OnlyOne;
             var valueCount = UniqueValues.Count;
             if (valueCount == 1) return RowConflictStatus.NoConflict;
-            if (!hasConflict) return RowConflictStatus.Unknown;
             if (conflictType == ConflictType.Benign)
                 return RowConflictStatus.ConflictBenign;
             if (overrideConflict)
