@@ -14,10 +14,10 @@ namespace esper.conflicts {
         private HashSet<string> _uniqueValues;
         private bool? _overrideConflict;
 
-        private ElementDef firstDef => firstElement.def;
+        private ElementDef firstDef => firstElement?.def;
         private bool firstElementIgnored => 
-            firstDef.conflictType == ConflictType.Ignore;
-        private int cellCount => row.childCells.Count;
+            firstDef?.conflictType == ConflictType.Ignore;
+        private int cellCount => row.cells.Count;
         private int numEmptyValues => UniqueValues.Contains("") ? 1 : 0;
 
         private ConflictType ComputeOverallConflictType() {
@@ -38,7 +38,7 @@ namespace esper.conflicts {
         private List<string> CellValues {
             get {
                 if (_cellValues == null)
-                    _cellValues = row.childCells.Select(cell => cell.value).ToList();
+                    _cellValues = row.cells.Select(cell => cell.value).ToList();
                 return _cellValues;
             }
         }
@@ -95,38 +95,38 @@ namespace esper.conflicts {
             firstElement = elements.First(e => e != null);
         }
 
+        private bool ShouldIgnore(ConflictCell cell) {
+            return conflictType == ConflictType.Ignore ||
+                conflictType == ConflictType.NormalIgnoreEmpty &&
+                cell.element == null;
+        }
+
+        private bool IsITM(string cellValue) {
+            return cellValue == firstCellValue &&
+               (conflictType <= ConflictType.Ignore || !firstElementIgnored);
+        }
+
         internal CellConflictStatus CalculateCellConflict(
             ConflictCell cell, int index
         ) {
-            if (firstElement == null)
-                return CellConflictStatus.NotDefined;
-            if (conflictType == ConflictType.Ignore) 
-                return CellConflictStatus.Ignored;
-            if (conflictType == ConflictType.NormalIgnoreEmpty &&
-                cell.element == null)
-                return CellConflictStatus.Ignored;
-            if (cellCount == 1)
-                return CellConflictStatus.OnlyOne;
-            if (index == 0)
-                return CellConflictStatus.Master;
+            if (firstElement == null) return CellConflictStatus.NotDefined;
+            if (ShouldIgnore(cell)) return CellConflictStatus.Ignored;
+            if (cellCount == 1) return CellConflictStatus.OnlyOne;
+            if (index == 0) return CellConflictStatus.Master;
             if (hasConflict && conflictType == ConflictType.Benign)
                 return CellConflictStatus.ConflictBenign;
-            // TODO? when a cell wins a conflict but row conflict status is 
-            // NoConflict
             var cellValue = CellValues[index];
-            if (cellValue == firstCellValue &&
-               (conflictType <= ConflictType.Ignore || !firstElementIgnored)) {
-                if (index == cellCount - 1 && hasConflict)
-                    return CellConflictStatus.IdenticalToMasterWinsConflict;
-                return CellConflictStatus.IdenticalToMaster;
-            }
+            if (IsITM(cellValue))
+                return (index == cellCount - 1 && hasConflict)
+                    ? CellConflictStatus.IdenticalToMasterWinsConflict
+                    : CellConflictStatus.IdenticalToMaster;
             if (cellValue == lastCellValue && overrideConflict)
                 return CellConflictStatus.Override;
             if (hasConflict && cell.element != firstElement && !cell.ignored)
                 return cellValue == lastCellValue
                     ? CellConflictStatus.ConflictWins
                     : CellConflictStatus.ConflictLoses;
-            if (firstDef.defType == XEDefType.dtRecord)
+            if (firstDef?.defType == XEDefType.dtRecord)
                 return CellConflictStatus.HiddenByModGroup;
             return CellConflictStatus.Unknown;
         }
