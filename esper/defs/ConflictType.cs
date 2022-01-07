@@ -1,13 +1,13 @@
 ﻿namespace esper.defs {
     public enum ConflictType : byte {
-        ctIgnore,
-        ctBenignIfAdded,
-        ctBenign,
-        ctOverride,
-        ctTranslate,
-        ctNormal,
-        ctNormalIgnoreEmpty,
-        ctCritical,
-        ctFormID
+        Ignore,
+        BenignIfAdded,
+        Benign,
+        Override,
+        Translate,
+        Normal,
+        NormalIgnoreEmpty,
+        Critical,
+        FormID
     }
 }

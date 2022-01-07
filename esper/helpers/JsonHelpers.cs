@@ -55,10 +55,10 @@ namespace esper.helpers {
         }
 
         internal static ConflictType ParseConflictType(JObject src) {
-            if (!src.ContainsKey("conflictType"))
-                return ConflictType.ctNormal;
+            if (!src.ContainsKey("conflictType")) 
+                return ConflictType.Normal;
             string key = src.Value<string>("conflictType");
-            return (ConflictType)Enum.Parse(typeof(ConflictType), $"ct{key}");
+            return (ConflictType)Enum.Parse(typeof(ConflictType), key);
         }
 
         public static Dictionary<string, string> Dictionary(
