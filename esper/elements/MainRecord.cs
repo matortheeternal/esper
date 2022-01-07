@@ -11,12 +11,21 @@ using esper.setup;
 
 namespace esper.elements {
     public class MainRecord : Container, IMainRecord {
-        internal readonly IRecordHeader header;
-        internal List<Subrecord> _unexpectedSubrecords;
+        private IRecordHeader _header;
 
         internal readonly PluginFile _file;
         internal readonly long bodyOffset;
         internal byte[] decompressedData;
+        internal List<MainRecord> _overrides;
+        internal List<Subrecord> _unexpectedSubrecords;
+
+        internal IRecordHeader header {
+            get => _header;
+            set {
+                _header = value;
+                if (local) _overrides = new List<MainRecord>();
+            }
+        }
 
         public MainRecordDef mrDef => def as MainRecordDef;
         public override MainRecord record => this;
@@ -25,9 +34,12 @@ namespace esper.elements {
         public GroupRecord childGroup { get; set; }
 
         public FormId formId => FormId.FromSource(_file, fileFormId);
-        public UInt32 fileFormId => header.formId;
+        public UInt32 fileFormId => _header.formId;
         public UInt32 localFormId => fileFormId & 0xFFFFFF;
         public UInt32? globalFormId => formId.globalFormId;
+
+        public MainRecord master => local ? this : formId.ResolveRecord();
+        public List<MainRecord> overrides => local ? _overrides : master.overrides;
 
         public UInt32 dataSize => compressed
                     ? (UInt32) decompressedData.Length
@@ -42,6 +54,13 @@ namespace esper.elements {
         public string fullName {
             get => this.GetValue("FULL");
             set => this.SetValue("FULL", value);
+        }
+
+        public bool local {
+            get {
+                var masterCount = (_file as IMasterManager).originalMasters.Count;
+                return (fileFormId >> 24) >= masterCount;
+            }
         }
 
         public ReadOnlyCollection<Subrecord> unexpectedSubrecords {
@@ -61,6 +80,7 @@ namespace esper.elements {
 
         public override void Initialize() {
             mrDef.InitElement(this);
+            if (local) master.AddOverride(this);
         }
 
         public MainRecord(Container container, ElementDef def, PluginFileSource source)
@@ -92,9 +112,11 @@ namespace esper.elements {
             return false;
         }
 
-        public bool IsLocal() {
-            var masterCount = (_file as IMasterManager).originalMasters.Count;
-            return (fileFormId >> 24) >= masterCount;
+        internal void AddOverride(MainRecord ovr) {
+            if (_overrides == null)
+                throw new Exception("Internal overrides array hasn't been initialized.  "+ 
+                    "Is the record not local or did you not initialize it for a new record?");
+            _overrides.Add(ovr);
         }
 
         public override bool SupportsSignature(string sig) {
