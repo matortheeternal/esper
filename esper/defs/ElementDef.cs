@@ -12,12 +12,14 @@ using System.Linq;
 namespace esper.defs {
     public class ElementDef : Def {
         public readonly bool required;
+        public ConflictType conflictType { get; }
+        // TODO: make a property for getConflictType callback
+        public bool dynamicConflictType { get; }
 
         public virtual SmashType smashType => SmashType.stUnknown;
         public virtual bool canContainFormIds => false;
         public virtual string signature => null;
         public virtual string name { get; }
-        public virtual ConflictType conflictType { get; }
         public virtual string displayName => name;
         public virtual int? size => 0;
 
@@ -28,6 +30,7 @@ namespace esper.defs {
             name = src.Value<string>("name");
             required = src.Value<bool>("required");
             conflictType = JsonHelpers.ParseConflictType(src);
+            dynamicConflictType = src.ContainsKey("getConflictType");
         }
 
         public ElementDef(ElementDef other) : base(other) {
