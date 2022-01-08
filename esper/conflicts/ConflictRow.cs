@@ -53,8 +53,31 @@ namespace esper.conflicts {
                 AppendUnsortedRow(elementCount, counts, containers, i);
         }
 
+        private List<Element> MakeElementList(int numCells) {
+            var list = new List<Element>(numCells);
+            for (int i = 0; i < numCells; i++) list.Add(null);
+            return list;
+        }
+
+        private void SortElement(
+            Element element, SortedDictionary<string, List<Element>> rows, 
+            int numCells, int index
+        ) {
+            var sortKey = element.sortKey;
+            if (!rows.ContainsKey(sortKey))
+                rows[sortKey] = MakeElementList(numCells);
+            rows[sortKey][index] = element;
+        }
+
         private void AddSortedChildRows(List<Element> elements) {
-            throw new System.NotImplementedException();
+            var containers = elements.Select(e => e as Container).ToList();
+            var rows = new SortedDictionary<string, List<Element>>();
+            var numCells = containers.Count;
+            for (int i = 0; i < numCells; i++)
+                foreach (var element in containers[i].elements)
+                    SortElement(element, rows, numCells, i);
+            foreach (var entry in rows)
+                childRows.Add(new ConflictRow(entry.Value));
         }
 
         private void LoadChildRows(List<Element> elements) {
