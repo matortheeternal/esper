@@ -38,7 +38,7 @@ namespace esper.conflicts {
         private List<string> CellValues {
             get {
                 if (_cellValues == null)
-                    _cellValues = row.cells.Select(cell => cell.value).ToList();
+                    _cellValues = row.cells.Select(c => c.value).ToList();
                 return _cellValues;
             }
         }
