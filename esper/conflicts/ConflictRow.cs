@@ -16,6 +16,7 @@ namespace esper.conflicts {
         }
 
         private void CalculateConflicts(List<Element> elements) {
+            // TODO: calculate from child rows if present
             var calc = new ConflictCalculator(elements, this);
             for (var i = 0; i < cells.Count; i++) {
                 var cell = cells[i];
@@ -82,7 +83,7 @@ namespace esper.conflicts {
 
         private void LoadChildRows(List<Element> elements) {
             var firstElement = elements.First(e => e != null);
-            if (!(firstElement is Container container)) return;
+            if (!(firstElement is Container)) return;
             childRows = new List<ConflictRow>();
             if (firstElement.def is ArrayDef aDef && aDef.sorted) {
                 AddSortedChildRows(elements);
