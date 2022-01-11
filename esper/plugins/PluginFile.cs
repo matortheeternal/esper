@@ -32,6 +32,8 @@ namespace esper.plugins {
         public string filePath => source?.filePath;
         public new DefinitionManager manager => session.definitionManager;
         public bool localized => header.GetRecordFlag("Localized");
+        public bool esl => header.GetRecordFlag("ESL");
+        public bool esm => header.GetRecordFlag("ESM");
 
         public PluginFile(Session session, string filename, PluginFileOptions options)
             : base(session.root, session.pluginFileDef) {
@@ -48,10 +50,6 @@ namespace esper.plugins {
             WriteTo(output);
             output.stream.Flush();
             output.stream.Close();
-        }
-
-        public bool IsEsl() {
-            return false; // TODO
         }
 
         internal string GetString(UInt32 id) {

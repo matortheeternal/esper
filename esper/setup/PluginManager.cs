@@ -51,7 +51,7 @@ namespace esper.setup {
         }
 
         public bool ShouldUseLightPluginSlot(PluginFile plugin) {
-            return usingLightPlugins && plugin.IsEsl();
+            return usingLightPlugins && plugin.esl;
         }
 
         public void AssignLoadOrder(PluginFile plugin) {
