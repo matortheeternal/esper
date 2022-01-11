@@ -3,14 +3,17 @@ using System.Collections.Generic;
 using System.IO;
 using balsa.setup;
 using System.Linq;
+using balsa.stringtables;
 
 namespace esper.setup {
     public class ResourceManager {
         private readonly Session session;
-        private readonly AssetManager assetManager;
         private readonly List<string> allArchives;
         private readonly balsa.Game balsaGame;
 
+        public readonly AssetManager assetManager;
+
+        // TOOD: load archives from INI file
         public ResourceManager(Session session) {
             this.session = session;
             balsaGame = ResolveBalsaGame();
@@ -53,12 +56,32 @@ namespace esper.setup {
                 assetManager.LoadArchive(archivePath);
         }
 
+        public void LoadArchives() {
+            foreach (var plugin in session.pluginManager.plugins)
+                LoadAssociatedArchives(plugin);
+        }
+
         public void LoadData() {
             assetManager.LoadFolder(session.dataPath);
         }
 
+        public void LoadAssociatedStrings(string filePath, PluginFile plugin) {
+            var stringFile = assetManager.LoadStrings(filePath);
+            plugin.stringFiles.Add(stringFile);
+        }
+
         public void LoadStrings() {
             var stringTables = assetManager.GetStringTables();
+            var languageSuffix = session.options.language.ToLower();
+            foreach (var plugin in session.pluginManager.plugins) {
+                if (!plugin.localized) continue;
+                var key = $"{plugin.name}_{languageSuffix}";
+                if (!stringTables.ContainsKey(key)) continue;
+                var stringFilePaths = stringTables[key];
+                plugin.stringFiles = new List<StringFile>();
+                foreach (string filePath in stringFilePaths)
+                    LoadAssociatedStrings(filePath, plugin);
+            }
         }
     }
 }

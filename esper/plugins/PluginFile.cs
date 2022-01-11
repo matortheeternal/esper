@@ -4,6 +4,7 @@ using System;
 using esper.resolution;
 using System.Collections.Generic;
 using esper.defs;
+using balsa.stringtables;
 
 namespace esper.plugins {
     public class PluginFile : Container, IMasterManager, IRecordManager {
@@ -13,6 +14,7 @@ namespace esper.plugins {
         internal PluginFileOptions options;
         internal PluginFileSource source;
         internal PluginSlot pluginSlot;
+        internal List<StringFile> stringFiles;
 
         public PluginFileDef pluginDef => (PluginFileDef)def;
         public bool isDummy => source == null;
