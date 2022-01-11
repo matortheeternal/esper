@@ -12,11 +12,29 @@ namespace esper.conflicts {
         public ConflictRow(List<Element> elements) {
             InitCells(elements);
             LoadChildRows(elements);
-            CalculateConflicts(elements);
+            if (childRows != null) {
+                InheritConflictStatus();
+            } else {
+                CalculateConflicts(elements);
+            }
+        }
+
+        private CellConflictStatus InheritCellConflictStatus() {
+            var firstCell = cells.First(c => c.element != null);
+            var firstConflictType = firstCell?.element.def.conflictType;
+            if (firstConflictType == ConflictType.Ignore)
+                return CellConflictStatus.Ignored;
+            return CellConflictStatus.NotDefined;
+        }
+
+        private void InheritConflictStatus() {
+            conflictStatus = childRows.Select(r => r.conflictStatus).Max();
+            var cellConflictStatus = InheritCellConflictStatus();
+            foreach (var cell in cells)
+                cell.conflictStatus = cellConflictStatus;
         }
 
         private void CalculateConflicts(List<Element> elements) {
-            // TODO: calculate from child rows if present
             var calc = new ConflictCalculator(elements, this);
             for (var i = 0; i < cells.Count; i++) {
                 var cell = cells[i];
