@@ -18,6 +18,7 @@ namespace esper {
         public string cccName = null;
         public string pluginsTxtType = "plain";
         public string archiveExtension = ".bsa";
+        public bool extendedArchiveMatching = false;
         public List<string> pluginExtensions = new List<string> {
             ".esp", ".esm"
         };

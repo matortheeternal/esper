@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace esper {
+﻿namespace esper {
     public static class Games {
         public static Game TES4 = new Game {
             xeditId = 1,
@@ -8,7 +6,7 @@ namespace esper {
             fullName = "The Elder Scrolls IV: Oblivion",
             abbreviation = "TES4",
             steamAppIds = { 22330, 900883 }
-        }.InitDefaults();
+        }.InitDefaults(); 
 
         public static Game FO3 = new Game {
             xeditId = 2,
@@ -45,6 +43,7 @@ namespace esper {
             cccName = "Fallout4.ccc",
             pluginsTxtType = "asterisk",
             archiveExtension = ".ba2",
+            extendedArchiveMatching = true,
             pluginExtensions = { ".esl" },
             hardcodedPlugins = {
                 "DLCRobot.esm",
@@ -66,6 +65,7 @@ namespace esper {
             defsNamespace = "TES5",
             cccName = "Skyrim.ccc",
             pluginsTxtType = "asterisk",
+            extendedArchiveMatching = true,
             pluginExtensions = { ".esl" },
             hardcodedPlugins = {
                 "Update.esm",

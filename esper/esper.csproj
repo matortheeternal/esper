@@ -13,6 +13,10 @@
     <PackageReference Include="System.Text.Encoding.CodePages" Version="4.7.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\balsa\balsa\balsa.csproj" />
+  </ItemGroup>
+
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
     <Exec Command="XCOPY &quot;$(SolutionDir)data&quot; &quot;$(TargetDir)\data\&quot; /S /Y" />
   </Target>
