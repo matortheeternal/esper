@@ -1,4 +1,5 @@
 ﻿using esper.elements;
+using System.Collections.Generic;
 
 namespace esper.conflicts {
     public class ConflictView {
@@ -6,8 +7,8 @@ namespace esper.conflicts {
 
         public ConflictView(MainRecord rec) {
             var master = rec.master;
-            var records = master.overrides;
-            records.Insert(0, master);
+            var records = new List<Element>() { master };
+            records.AddRange(master.overrides);
             row = new ConflictRow(records);
         }
     }
