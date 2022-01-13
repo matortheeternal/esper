@@ -10,15 +10,16 @@ namespace esper.setup {
         private readonly Session session;
         private readonly List<string> allArchives;
         private readonly balsa.Game balsaGame;
+        private readonly GameIni gameIni;
 
         public readonly AssetManager assetManager;
 
-        // TOOD: load archives from INI file
         public ResourceManager(Session session) {
             this.session = session;
             balsaGame = ResolveBalsaGame();
             assetManager = new AssetManager(balsaGame);
             allArchives = GetAllArchives();
+            gameIni = new GameIni(session.game);
         }
 
         private balsa.Game ResolveBalsaGame() {
@@ -56,7 +57,16 @@ namespace esper.setup {
                 assetManager.LoadArchive(archivePath);
         }
 
+        private void LoadIniArchives() {
+            var iniArchives = gameIni.GetArchives();
+            foreach (string archiveFileName in iniArchives) {
+                var archivePath = Path.Combine(session.dataPath, archiveFileName);
+                assetManager.LoadArchive(archivePath);
+            }
+        }
+
         public void LoadArchives() {
+            LoadIniArchives();
             foreach (var plugin in session.pluginManager.plugins)
                 LoadAssociatedArchives(plugin);
         }
@@ -65,7 +75,7 @@ namespace esper.setup {
             assetManager.LoadFolder(session.dataPath);
         }
 
-        public void LoadAssociatedStrings(string filePath, PluginFile plugin) {
+        private void LoadAssociatedStrings(string filePath, PluginFile plugin) {
             var stringFile = assetManager.LoadStrings(filePath);
             plugin.stringFiles.Add(stringFile);
         }
