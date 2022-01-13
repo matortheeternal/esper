@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using System.IO;
 
 namespace esper {
     public class Game {
@@ -24,6 +26,16 @@ namespace esper {
         };
         public List<string> hardcodedPlugins = new List<string>();
         public List<int> steamAppIds = new List<int>();
+
+        public string myGamesPath {
+            get {
+                var docsId = Environment.SpecialFolder.MyDocuments;
+                var docsPath = Environment.GetFolderPath(docsId);
+                return Path.Combine(docsPath, "My Games", myGamesFolderName);
+            }
+        }
+
+        public string iniPath => Path.Combine(myGamesPath, $"{iniName}.ini");
 
         public Game(
             string nameOverride = null, string baseNameOverride = null
