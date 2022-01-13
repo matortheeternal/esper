@@ -53,7 +53,13 @@ namespace esper.plugins {
         }
 
         internal string GetString(UInt32 id) {
-            throw new NotImplementedException();
+            if (!localized) throw new Exception("Non-localized plugins " +
+                    "cannot have localized strings.");
+            foreach (var stringFile in stringFiles) {
+                var str = stringFile.strings[id];
+                if (str != null) return str;
+            }
+            return $"<Could not find string #{id}>";
         }
 
         public override bool SupportsSignature(string sig) {
