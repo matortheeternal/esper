@@ -58,6 +58,7 @@ namespace esper.elements {
 
         public bool local {
             get {
+                if (fileFormId == 0) return true;
                 var masterCount = (_file as IMasterManager).originalMasters.Count;
                 return (fileFormId >> 24) >= masterCount;
             }
