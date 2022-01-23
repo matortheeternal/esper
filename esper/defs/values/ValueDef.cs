@@ -53,7 +53,7 @@ namespace esper.defs {
 
         public virtual void SetData(ValueElement element, dynamic data) {
             element._data = data;
-            element.SetState(ElementState.Modified);
+            element.MarkModified();
         }
 
         public virtual string DataToString(dynamic data) {
