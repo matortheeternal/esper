@@ -139,9 +139,8 @@ namespace esper.resolution {
         public static void SetValue(
             this IResolution r, string path, string value
         ) {
-            var valueElement = r.GetElement(path) as ValueElement;
-            if (valueElement == null) return;
-            valueElement.value = value;
+            if (r.GetElement(path) is ValueElement valueElement)
+                valueElement.value = value;
         }
 
         public static Element AddElement(this IResolution r, string path) {
