@@ -53,12 +53,11 @@ namespace esper.plugins {
         }
 
         internal string GetString(UInt32 id) {
-            if (!localized) throw new Exception("Non-localized plugins " +
-                    "cannot have localized strings.");
-            foreach (var stringFile in stringFiles) {
-                var str = stringFile.strings[id];
-                if (str != null) return str;
-            }
+            if (!localized) throw new Exception("Plugin is not localized.");
+            if (stringFiles != null)
+                foreach (var stringFile in stringFiles)
+                    if (stringFile.strings.TryGetValue(id, out string str))
+                        return str;
             return $"<Could not find string #{id}>";
         }
 
