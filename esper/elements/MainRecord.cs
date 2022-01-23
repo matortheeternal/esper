@@ -141,9 +141,9 @@ namespace esper.elements {
         }
 
         internal GroupDef GetChildGroupDef() {
-            if (!(container.def is GroupDef parentGroupDef))
-                return null;
-            return parentGroupDef.GetChildGroupDef();
+            if (container.def is GroupDef parentGroupDef)
+                return parentGroupDef.GetChildGroupDef();
+            return null;
         }
 
         internal GroupRecord CreateChildGroup() {
