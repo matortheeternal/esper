@@ -6,6 +6,7 @@ using esper.setup;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.ObjectModel;
+using System.Linq;
 
 namespace esper.defs {
     public class GroupDef : ElementDef {
@@ -62,6 +63,12 @@ namespace esper.defs {
                 }
             });
             group.internalElements.TrimExcess();
+        }
+
+        internal GroupDef GetChildGroupDef() {
+            return childDefs.FirstOrDefault(childDef => {
+                return childDef is GroupDef gd && gd.isChildGroup;
+            }) as GroupDef;
         }
     }
 }

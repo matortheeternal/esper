@@ -140,15 +140,19 @@ namespace esper.elements {
             return null;
         }
 
+        internal GroupDef GetChildGroupDef() {
+            if (!(container.def is GroupDef parentGroupDef))
+                return null;
+            return parentGroupDef.GetChildGroupDef();
+        }
+
         internal GroupRecord CreateChildGroup() {
             if (childGroup != null) return childGroup;
-            var groupDef = container.def.childDefs.FirstOrDefault(def => {
-                return def is GroupDef groupDef && groupDef.isChildGroup;
-            }) as GroupDef;
-            if (groupDef == null) 
+            var childGroupDef = GetChildGroupDef();
+            if (childGroupDef == null)
                 throw new Exception($"Cannot create child group for {signature}");
             var label = BitConverter.GetBytes(fileFormId);
-            childGroup = new GroupRecord(null, groupDef, label) {
+            childGroup = new GroupRecord(null, childGroupDef, label) {
                 container = container
             };
             var index = container.internalElements.IndexOf(this) + 1;
