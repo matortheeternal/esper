@@ -1,15 +1,18 @@
 ﻿using esper;
 using esper.plugins;
 using esper.setup;
+using esper.resolution;
 using NUnit.Framework;
 using System;
 using System.Diagnostics;
 using System.IO;
+using System.Linq;
 
 namespace Tests.plugins {
     public class SkyrimEsmTest {
         public Session session;
         public PluginManager pluginManager => session.pluginManager;
+        public ResourceManager resourceManager;
         public string pluginPath;
         public PluginFile plugin;
         public Stopwatch watch = new Stopwatch();
@@ -18,13 +21,22 @@ namespace Tests.plugins {
         [OneTimeSetUp]
         public void SetUp() {
             session = new Session(Games.TES5, new SessionOptions());
+            resourceManager = new ResourceManager(session, true);
             pluginPath = TestHelpers.FixturePath("Skyrim.esm");
             Assert.IsTrue(File.Exists(pluginPath),
-                "Put Skyrim.esm in the fixtures directory to run these tests."
+                "See README.md for test fixture installation instructions."
             );
             watch.Start();
             plugin = pluginManager.LoadPlugin(pluginPath);
             watch.Stop();
+            var skyrimStringsPath = TestHelpers.FixturePath("skyrim_strings");
+            var stringFiles = Directory.GetFiles(
+                skyrimStringsPath, "skyrim_english.*"
+            ).ToList();
+            Assert.IsTrue(stringFiles.Count == 3,
+                "See README.md for test fixture installation instructions."
+            );
+            resourceManager.LoadPluginStrings(plugin, stringFiles);
         }
 
         [Test]
@@ -82,6 +94,21 @@ namespace Tests.plugins {
                 avgTime < 1,
                 "Expected to find form IDs in less than 1ms."
             );
+        }
+
+        private void TestText(UInt32 formId, string path, string expectedText) {
+            var rec = plugin.GetRecordByFormId(formId);
+            Assert.IsNotNull(rec);
+            Assert.AreEqual(expectedText, rec.GetValue(path));
+        }
+
+        [Test]
+        public void TestLocalizedStrings() {
+            TestText(0x012E46, "FULL", "Iron Gauntlets");
+            TestText(0x01360E, "FULL",
+                "That was from Brynjolf. Get the message?");
+            TestText(0x03DD30, "DESC",
+                "Client - <Client Name Goes Here>\r\nLocation - <Dungeon Name Goes Here>");
         }
     }
 }
