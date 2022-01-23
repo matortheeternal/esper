@@ -16,9 +16,9 @@ namespace esper.defs.TES5 {
 
         public override UInt32 GetCount(Container container) {
             UInt32 count = 0;
-            var flags = container.GetData("Flags");
+            UInt64 flags = container.GetData("Flags");
             for (int i = 0; i < 8; i++) {
-                if (flags & (1 << i) != 1) continue;
+                if ((flags & (UInt64)1 << i) != 1) continue;
                 count++;
                 // TODO: warn when i >= 3
             }

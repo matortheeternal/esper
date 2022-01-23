@@ -38,7 +38,7 @@ namespace esper.defs {
             var list = new List<string>();
             var numBits = 8 * element.valueDef.size;
             for (int i = 0; i < numBits; i++)
-                if ((data & ((UInt64)1 << i)) != 0) list.Add(GetFlagValue(i));
+                if (((UInt64)data & ((UInt64)1 << i)) != 0) list.Add(GetFlagValue(i));
             return list;
         }
 
