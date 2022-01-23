@@ -96,19 +96,19 @@ namespace Tests.plugins {
             );
         }
 
-        private void TestText(UInt32 formId, string path, string expectedText) {
+        private void TestText(UInt32 formId, string path, string expected) {
             var rec = plugin.GetRecordByFormId(formId);
             Assert.IsNotNull(rec);
-            Assert.AreEqual(expectedText, rec.GetValue(path));
+            Assert.AreEqual(expected, rec.GetValue(path));
         }
 
         [Test]
         public void TestLocalizedStrings() {
             TestText(0x012E46, "FULL", "Iron Gauntlets");
-            TestText(0x01360E, "FULL",
-                "That was from Brynjolf. Get the message?");
-            TestText(0x03DD30, "DESC",
-                "Client - <Client Name Goes Here>\r\nLocation - <Dungeon Name Goes Here>");
+            TestText(0x01360E, "FULL", "That was from Brynjolf. Get the message?");
+            var bookText = "Client - <Client Name Goes Here>\r\n" +
+                           "Location - <Dungeon Name Goes Here>";
+            TestText(0x03DD30, "DESC", bookText);
         }
     }
 }
