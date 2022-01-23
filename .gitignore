@@ -362,4 +362,5 @@ MigrationBackup/
 FodyWeavers.xsd
 *.bak
 fixtures/Skyrim.esm
+fixtures/skyrim_strings/
 Todos.md
