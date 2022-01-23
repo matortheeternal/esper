@@ -28,7 +28,7 @@ namespace esper.defs {
 
         public int GetFlagIndex(string flag) {
             foreach (var (key, value) in flags)
-                if (value == flag) return (int)key;
+                if (value == flag) return key;
             Match match = unknownFlagExpr.Match(flag);
             if (!match.Success) return -1;
             return int.Parse(match.Captures[0].Value);
@@ -38,7 +38,7 @@ namespace esper.defs {
             var list = new List<string>();
             var numBits = 8 * element.valueDef.size;
             for (int i = 0; i < numBits; i++)
-                if ((data & (1 << i)) != 0) list.Add(GetFlagValue(i));
+                if ((data & ((UInt64)1 << i)) != 0) list.Add(GetFlagValue(i));
             return list;
         }
 
@@ -49,21 +49,39 @@ namespace esper.defs {
         public bool FlagIsSet(dynamic data, string flag) {
             var flagIndex = GetFlagIndex(flag);
             if (flagIndex == -1) return false;
-            return (data & (1 << flagIndex)) != 0;
+            return (data & ((UInt64)1 << flagIndex)) != 0;
+        }
+
+        public void EnableFlag(ValueElement element, string flag) {
+            var flagIndex = GetFlagIndex(flag);
+            if (flagIndex == -1) throw new Exception($"Unknown flag {flag}");
+            element.data |= (UInt64)1 << flagIndex;
+        }
+
+        public void DisableFlag(ValueElement element, string flag) {
+            var flagIndex = GetFlagIndex(flag);
+            if (flagIndex == -1) throw new Exception($"Unknown flag {flag}");
+            element.data &= ~((UInt64)1 << flagIndex);
         }
 
         public override dynamic ValueToData(ValueElement element, string value) {
-            // TODO
-            throw new NotImplementedException();
+            var flags = value.Split(", ");
+            UInt64 v = 0;
+            foreach (var flag in flags) {
+                var flagIndex = GetFlagIndex(flag);
+                if (flagIndex == -1) throw new Exception($"Unknown flag {flag}");
+                v |= (UInt64)1 << flagIndex;
+            }
+            return v;
         }
 
         // I think this only existed because of the flgUnusedMask 
         // and flgDontShows in xEdit, which we may end up not having
         public override string GetSortKey(ValueElement element, dynamic data) {
-            Int64 v = data;
+            UInt64 v = data;
             StringBuilder sortKey = new StringBuilder(new string('0', 64));
             for (int i = 0; i < 64; i++)
-                if ((v & ((Int64)1 << i)) != 0)
+                if ((v & ((UInt64)1 << i)) != 0)
                     sortKey[i] = '1';
             return sortKey.ToString();
         }
