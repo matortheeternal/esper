@@ -52,16 +52,14 @@ namespace esper.defs {
             return (data & ((UInt64)1 << flagIndex)) != 0;
         }
 
-        public void EnableFlag(ValueElement element, string flag) {
+        public void SetFlag(ValueElement element, string flag, bool state) {
             var flagIndex = GetFlagIndex(flag);
             if (flagIndex == -1) throw new Exception($"Unknown flag {flag}");
-            element.data |= (UInt64)1 << flagIndex;
-        }
-
-        public void DisableFlag(ValueElement element, string flag) {
-            var flagIndex = GetFlagIndex(flag);
-            if (flagIndex == -1) throw new Exception($"Unknown flag {flag}");
-            element.data &= ~((UInt64)1 << flagIndex);
+            if (state) {
+                element.data |= (UInt64)1 << flagIndex;
+            } else {
+                element.data &= ~((UInt64)1 << flagIndex);
+            }
         }
 
         public override dynamic ValueToData(ValueElement element, string value) {

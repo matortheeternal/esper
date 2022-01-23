@@ -119,6 +119,23 @@ namespace esper.resolution {
             return flagsDef.FlagIsSet(valueElement.data, flag);
         }
 
+        public static void SetFlag(this IResolution r, string flagsPath, string flag, bool state) {
+            var valueElement = r.GetElement(flagsPath) as ValueElement;
+            var flagsDef = valueElement?.flagsDef;
+            if (flagsDef == null) return;
+            flagsDef.SetFlag(valueElement, flag, state);
+        }
+
+        public static void SetFlagEx(this IResolution r, string flagsPath, string flag, bool state) {
+            var valueElement = r.GetElementEx(flagsPath) as ValueElement;
+            if (valueElement == null)
+                throw new Exception("Element does not have a value.");
+            FlagsDef flagsDef = valueElement.flagsDef;
+            if (flagsDef == null)
+                throw new Exception("Element does not have flags.");
+            flagsDef.SetFlag(valueElement, flag, state);
+        }
+
         public static Element GetParentElement(
             this IResolution r, Func<Element, bool> test
         ) {
