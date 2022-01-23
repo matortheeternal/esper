@@ -4,6 +4,7 @@ using System.IO;
 using balsa.setup;
 using System.Linq;
 using balsa.stringtables;
+using System;
 
 namespace esper.setup {
     public class ResourceManager {
@@ -14,10 +15,11 @@ namespace esper.setup {
 
         public readonly AssetManager assetManager;
 
-        public ResourceManager(Session session) {
+        public ResourceManager(Session session, bool skipInit = false) {
             this.session = session;
             balsaGame = ResolveBalsaGame();
             assetManager = new AssetManager(balsaGame);
+            if (skipInit) return;
             allArchives = GetAllArchives();
             gameIni = new GameIni(session.game);
         }
@@ -33,6 +35,8 @@ namespace esper.setup {
 
         private List<string> GetAllArchives() {
             var searchPath = session.dataPath;
+            if (searchPath == null) 
+                throw new Exception("Session data path was not provided.");
             var search = $"*{session.game.archiveExtension}";
             return Directory.GetFiles(searchPath, search).ToList();
         }
@@ -75,9 +79,12 @@ namespace esper.setup {
             assetManager.LoadFolder(session.dataPath);
         }
 
-        private void LoadAssociatedStrings(string filePath, PluginFile plugin) {
-            var stringFile = assetManager.LoadStrings(filePath);
-            plugin.stringFiles.Add(stringFile);
+        public void LoadPluginStrings(PluginFile plugin, List<string> stringFilePaths) {
+            plugin.stringFiles = new List<StringFile>();
+            foreach (string filePath in stringFilePaths) {
+                var stringFile = assetManager.LoadStrings(filePath);
+                plugin.stringFiles.Add(stringFile);
+            }
         }
 
         public void LoadStrings() {
@@ -87,10 +94,7 @@ namespace esper.setup {
                 if (!plugin.localized) continue;
                 var key = $"{plugin.name}_{languageSuffix}";
                 if (!stringTables.ContainsKey(key)) continue;
-                var stringFilePaths = stringTables[key];
-                plugin.stringFiles = new List<StringFile>();
-                foreach (string filePath in stringFilePaths)
-                    LoadAssociatedStrings(filePath, plugin);
+                LoadPluginStrings(plugin, stringTables[key]);
             }
         }
     }

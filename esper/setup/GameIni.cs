@@ -9,9 +9,9 @@ namespace esper.setup {
         private readonly IniData iniData;
 
         public GameIni(Game game) {
-            var ini = new FileIniDataParser();
             if (!File.Exists(game.iniPath))
                 throw new Exception("Game ini file not found.  You may need to run the game launcher to initialize it.");
+            var ini = new FileIniDataParser();
             iniData = ini.ReadFile(game.iniPath);
         }
 
