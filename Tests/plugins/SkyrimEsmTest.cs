@@ -7,28 +7,18 @@ using System;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Collections.Generic;
 
 namespace Tests.plugins {
     public class SkyrimEsmTest {
         public Session session;
         public PluginManager pluginManager => session.pluginManager;
         public ResourceManager resourceManager;
-        public string pluginPath;
         public PluginFile plugin;
         public Stopwatch watch = new Stopwatch();
         public Stopwatch watch2 = new Stopwatch();
 
-        [OneTimeSetUp]
-        public void SetUp() {
-            session = new Session(Games.TES5, new SessionOptions());
-            resourceManager = new ResourceManager(session, true);
-            pluginPath = TestHelpers.FixturePath("Skyrim.esm");
-            Assert.IsTrue(File.Exists(pluginPath),
-                "See README.md for test fixture installation instructions."
-            );
-            watch.Start();
-            plugin = pluginManager.LoadPlugin(pluginPath);
-            watch.Stop();
+        private List<string> GetStringFiles() {
             var skyrimStringsPath = TestHelpers.FixturePath("skyrim_strings");
             var stringFiles = Directory.GetFiles(
                 skyrimStringsPath, "skyrim_english.*"
@@ -36,7 +26,25 @@ namespace Tests.plugins {
             Assert.IsTrue(stringFiles.Count == 3,
                 "See README.md for test fixture installation instructions."
             );
-            resourceManager.LoadPluginStrings(plugin, stringFiles);
+            return stringFiles;
+        }
+
+        private void LoadSkyrimEsm() {
+            var pluginPath = TestHelpers.FixturePath("Skyrim.esm");
+            Assert.IsTrue(File.Exists(pluginPath),
+                "See README.md for test fixture installation instructions."
+            );
+            watch.Start();
+            plugin = pluginManager.LoadPlugin(pluginPath);
+            watch.Stop();
+        }
+
+        [OneTimeSetUp]
+        public void SetUp() {
+            session = new Session(Games.TES5, new SessionOptions());
+            resourceManager = new ResourceManager(session, true);
+            LoadSkyrimEsm();
+            resourceManager.LoadPluginStrings(plugin, GetStringFiles());
         }
 
         [Test]
@@ -63,8 +71,8 @@ namespace Tests.plugins {
                 rec = records[i];
                 var r2 = plugin.GetRecordByFormId(rec.fileFormId);
                 Assert.IsNotNull(
-                    r2,
-                    $"Failed to find record {rec.fileFormId}, index: {i}"
+                  r2, 
+                  $"Failed to find record {rec.fileFormId}, index: {i}"
                 );
             }
         }
