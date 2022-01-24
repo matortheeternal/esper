@@ -18,8 +18,9 @@ namespace esper.data {
         }
 
         public static Signature FromString(string str) {
-            if (str == null) return Signatures.None;
-            return new Signature(encoding.Encode(str));
+            return str == null 
+                ? new Signature(0)
+                : new Signature(encoding.Encode(str));
         }
 
         public override string ToString() {

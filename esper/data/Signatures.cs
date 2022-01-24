@@ -7,7 +7,5 @@
         public static readonly Signature QUST = Signature.FromString("QUST");
         public static readonly Signature NAVM = Signature.FromString("NAVM");
         public static readonly Signature XXXX = Signature.FromString("XXXX");
-        public static readonly Signature NPC_ = Signature.FromString("NPC_");
-        public static readonly Signature FACT = Signature.FromString("FACT");
     }
 }
