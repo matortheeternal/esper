@@ -2,6 +2,7 @@
 using esper.helpers;
 using esper.plugins;
 using esper.setup;
+using esper.data;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
@@ -42,7 +43,7 @@ namespace esper.defs {
             return true;
         }
 
-        public override bool CanEnterWith(string signature) {
+        public override bool CanEnterWith(Signature signature) {
             if (unordered) return ContainsSignature(signature);
             return memberDefs[0].CanEnterWith(signature);
         }

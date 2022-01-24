@@ -1,4 +1,5 @@
-﻿using esper.elements;
+﻿using esper.data;
+using esper.elements;
 using System.Text.RegularExpressions;
 
 namespace esper.resolution.strategies {
@@ -8,7 +9,7 @@ namespace esper.resolution.strategies {
         public override MatchData Match(Element element, string pathPart) {
             var c = ElementMatch<Container>.From(element, pathPart, signatureExpr);
             if (c == null) return null;
-            var sig = c.match.Groups[1].Value;
+            var sig = Signature.FromString(c.match.Groups[1].Value);
             return element.SupportsSignature(sig) ? c : null;
         }
 
@@ -20,7 +21,7 @@ namespace esper.resolution.strategies {
 
         public override Element Resolve(MatchData match) {
             var c = (ElementMatch<Container>)match;
-            var sig = c.match.Groups[1].Value;
+            var sig = Signature.FromString(c.match.Groups[1].Value);
             foreach (Element element in c.target.elements) {
                 if (element.signature == sig) return element;
             }

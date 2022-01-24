@@ -1,4 +1,5 @@
-﻿using esper.elements;
+﻿using esper.data;
+using esper.elements;
 using esper.resolution;
 using esper.setup;
 using esper.warnings;
@@ -23,7 +24,7 @@ namespace esper.defs.TES5 {
             int index = element.data;
             var rec = ResolveNavmesh(element);
             if (rec == null) return;
-            if (rec.signature != "NAVM") {
+            if (rec.signature != Signatures.NAVM) {
                 warnings.Add(new ElementWarning(element) {
                     warning = $"\"{rec.name}\" is not a Navmesh record"
                 });

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using esper.data;
 using esper.defs;
 
 namespace esper.elements {
@@ -78,8 +79,9 @@ namespace esper.elements {
         }
 
         internal virtual Element CreateElementBySignature(string sig) {
+            var signature = Signature.FromString(sig);
             var targetDef = def.childDefs?.FirstOrDefault(def => {
-                return def.signature == sig;
+                return def.signature == signature;
             });
             if (targetDef == null)
                 throw new Exception($"Cannot create element with signature: {sig}");

@@ -1,5 +1,6 @@
 ﻿using esper.helpers;
 using esper.setup;
+using esper.data;
 using Newtonsoft.Json.Linq;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -10,7 +11,7 @@ namespace esper.defs {
         private readonly bool _canContainFormIds;
 
         public ReadOnlyCollection<ElementDef> memberDefs;
-        public List<string> signatures;
+        public List<Signature> signatures;
         public override bool canContainFormIds => _canContainFormIds;
         public override ReadOnlyCollection<ElementDef> childDefs => memberDefs;
 
@@ -21,7 +22,7 @@ namespace esper.defs {
             _canContainFormIds = memberDefs.Any(d => d.canContainFormIds);
         }
 
-        public ElementDef GetMemberDef(string signature, ref int defIndex) {
+        public ElementDef GetMemberDef(Signature signature, ref int defIndex) {
             if (!signatures.Contains(signature)) return null;
             for (; defIndex < memberDefs.Count; defIndex++) {
                 var memberDef = memberDefs[defIndex];
@@ -30,12 +31,12 @@ namespace esper.defs {
             return null;
         }
 
-        public override bool ContainsSignature(string signature) {
+        public override bool ContainsSignature(Signature signature) {
             return signatures.Contains(signature);
         }
 
-        public override List<string> GetSignatures(List<string> sigs = null) {
-            if (sigs == null) sigs = new List<string>();
+        public override List<Signature> GetSignatures(List<Signature> sigs = null) {
+            if (sigs == null) sigs = new List<Signature>();
             foreach (var def in memberDefs)
                 def.GetSignatures(sigs);
             return sigs;

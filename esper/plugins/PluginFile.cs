@@ -1,10 +1,11 @@
 ﻿using esper.setup;
 using esper.elements;
-using System;
 using esper.resolution;
-using System.Collections.Generic;
 using esper.defs;
+using esper.data;
 using balsa.stringtables;
+using System;
+using System.Collections.Generic;
 
 namespace esper.plugins {
     public class PluginFile : Container, IMasterManager, IRecordManager {
@@ -61,7 +62,7 @@ namespace esper.plugins {
             return $"<Could not find string #{id}>";
         }
 
-        public override bool SupportsSignature(string sig) {
+        public override bool SupportsSignature(Signature sig) {
             return pluginDef.IsTopGroup(sig);
         }
 

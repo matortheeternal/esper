@@ -2,6 +2,7 @@
 using esper.helpers;
 using esper.plugins;
 using esper.setup;
+using esper.data;
 using Newtonsoft.Json.Linq;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -35,11 +36,11 @@ namespace esper.defs {
             sorted = src.Value<bool>("sorted");
         }
 
-        public override bool ContainsSignature(string signature) {
+        public override bool ContainsSignature(Signature signature) {
             return memberDef.ContainsSignature(signature);
         }
 
-        public override bool CanEnterWith(string signature) {
+        public override bool CanEnterWith(Signature signature) {
             return ContainsSignature(signature);
         }
 
@@ -75,7 +76,7 @@ namespace esper.defs {
             return new MemberArrayElement(container, this);
         }
 
-        public override List<string> GetSignatures(List<string> sigs = null) {
+        public override List<Signature> GetSignatures(List<Signature> sigs = null) {
             return memberDef.GetSignatures(sigs);
         }
 

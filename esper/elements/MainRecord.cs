@@ -120,7 +120,7 @@ namespace esper.elements {
             _overrides.Add(ovr);
         }
 
-        public override bool SupportsSignature(string sig) {
+        public override bool SupportsSignature(Signature sig) {
             return mrDef.memberDefs.Any(d => d.HasSignature(sig));
         }
 

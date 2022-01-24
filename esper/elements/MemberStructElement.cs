@@ -1,4 +1,5 @@
 ﻿using esper.defs;
+using esper.data;
 using System.Linq;
 
 namespace esper.elements {
@@ -12,7 +13,7 @@ namespace esper.elements {
             msDef.InitChildElements(this);
         }
 
-        public override bool SupportsSignature(string sig) {
+        public override bool SupportsSignature(Signature sig) {
             return msDef.memberDefs.Any(d => d.HasSignature(sig));
         }
 

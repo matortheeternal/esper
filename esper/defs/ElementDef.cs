@@ -3,6 +3,7 @@ using esper.elements;
 using esper.helpers;
 using esper.plugins;
 using esper.setup;
+using esper.data;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
@@ -18,7 +19,7 @@ namespace esper.defs {
 
         public virtual SmashType smashType => SmashType.stUnknown;
         public virtual bool canContainFormIds => false;
-        public virtual string signature => null;
+        public virtual Signature signature => Signatures.None;
         public virtual string name { get; }
         public virtual string displayName => name;
         public virtual int? size => 0;
@@ -38,15 +39,15 @@ namespace esper.defs {
             required = other.required;
         }
 
-        public virtual bool ContainsSignature(string signature) {
+        public virtual bool ContainsSignature(Signature signature) {
             return false;
         }
 
-        public virtual bool CanEnterWith(string signature) {
+        public virtual bool CanEnterWith(Signature signature) {
             return false;
         }
 
-        public virtual List<string> GetSignatures(List<string> sigs = null) {
+        public virtual List<Signature> GetSignatures(List<Signature> sigs = null) {
             throw new NotImplementedException();
         }
 
@@ -81,10 +82,10 @@ namespace esper.defs {
         }
 
         public virtual bool IsSubrecord() {
-            return signature != null;
+            return signature != Signatures.None;
         }
 
-        public virtual bool HasSignature(string sig) {
+        public virtual bool HasSignature(Signature sig) {
             return signature == sig;
         }
 

@@ -16,18 +16,19 @@ namespace esper.defs {
         public override XEDefType defType => XEDefType.dtRecord;
         public override SmashType smashType => SmashType.stRecord;
 
-        private readonly string _signature;
+        private readonly Signature _signature;
         private HeaderManager headerManager => manager.headerManager;
         private UInt32 recordHeaderSize => headerManager.recordHeaderSize;
 
-        public override string signature => _signature;
+        public override Signature signature => _signature;
         public StructDef headerDef;
         public FormIdDef containedInDef;
 
         public MainRecordDef(DefinitionManager manager, JObject src)
             : base(manager, src) {
             ErrorHelpers.CheckDefProperty(src, "signature");
-            _signature = src.Value<string>("signature");
+            var sig = src.Value<string>("signature");
+            _signature = Signature.FromString(sig);
             headerDef = BuildHeaderDef(src.Value<JObject>("flags"));
             containedInDef = (FormIdDef) JsonHelpers.Def(manager, src, "containedInElement");
         }

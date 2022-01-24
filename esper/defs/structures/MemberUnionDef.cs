@@ -1,6 +1,7 @@
 ﻿using esper.elements;
 using esper.setup;
 using esper.plugins;
+using esper.data;
 using Newtonsoft.Json.Linq;
 using System.Linq;
 
@@ -42,11 +43,11 @@ namespace esper.defs {
             return new MemberUnionElement(container, this);
         }
 
-        public override bool CanEnterWith(string signature) {
+        public override bool CanEnterWith(Signature signature) {
             return ContainsSignature(signature);
         }
 
-        public override bool HasSignature(string sig) {
+        public override bool HasSignature(Signature sig) {
             return defaultDef.IsSubrecord() && 
                 memberDefs.Any(d => d.HasSignature(sig));
         }

@@ -1,4 +1,5 @@
 ﻿using esper.defs;
+using esper.data;
 using System;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -24,7 +25,7 @@ namespace esper.elements {
             e.Initialize();
         }
 
-        public override bool SupportsSignature(string sig) {
+        public override bool SupportsSignature(Signature sig) {
             return maDef.memberDef.HasSignature(sig);
         }
 

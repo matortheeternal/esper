@@ -1,5 +1,6 @@
 ﻿using esper.plugins;
 using esper.setup;
+using esper.data;
 using System;
 
 namespace esper.elements {
@@ -10,7 +11,7 @@ namespace esper.elements {
         public override string sortKey => null;
         public override string name => "Root";
         public override string displayName => name;
-        public override string signature => null;
+        public override Signature signature => Signatures.None;
         public override string path => null;
         public override string fullPath => null;
         public override UInt32 size => 0;

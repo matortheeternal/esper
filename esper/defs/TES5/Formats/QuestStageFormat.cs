@@ -1,4 +1,5 @@
-﻿using esper.elements;
+﻿using esper.data;
+using esper.elements;
 using esper.helpers;
 using esper.resolution;
 using esper.setup;
@@ -28,7 +29,7 @@ namespace esper.defs.TES5 {
             var rec = GetQuest(element);
             if (rec == null)
                 return warnings.Add(element, "Could not resolve Parameter 1");
-            if (rec.signature != "QUST")
+            if (rec.signature != Signatures.QUST)
                 return warnings.Add(element, $"{rec.name} is not a Quest record");
             var stage = GetMatchingStage(rec, (int)element._data);
             if (stage == null)
@@ -46,7 +47,7 @@ namespace esper.defs.TES5 {
 
         public override string DataToValue(ValueElement element, dynamic data) {
             var rec = GetQuest(element);
-            if (rec == null || rec.signature != "QUST") return data.ToString();
+            if (rec == null || rec.signature != Signatures.QUST) return data.ToString();
             var stage = GetMatchingStage(rec, (int)data);
             return stage != null
                 ? StageToValue(stage)

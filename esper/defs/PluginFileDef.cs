@@ -10,7 +10,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
 namespace esper.defs {
-    using TopGroupsMap = Dictionary<string, GroupDef>;
+    using TopGroupsMap = Dictionary<Signature, GroupDef>;
 
     public class PluginFileDef : ElementDef {
         public static string defId = "pluginFile";
@@ -35,7 +35,7 @@ namespace esper.defs {
             return map;
         }
 
-        public bool IsTopGroup(string sig) {
+        public bool IsTopGroup(Signature sig) {
             return topGroups.ContainsKey(sig);
         }
 
@@ -69,10 +69,9 @@ namespace esper.defs {
             if (header.groupType > 0)
                 throw new Exception("Expected top group.");
             var signature = new Signature(header.label);
-            var sig = signature.ToString();
-            if (!topGroups.ContainsKey(sig))
-                throw new Exception($"Unknown top group {sig}");
-            return topGroups[sig];
+            if (!topGroups.ContainsKey(signature))
+                throw new Exception($"Unknown top group {signature}");
+            return topGroups[signature];
         }
     }
 }
