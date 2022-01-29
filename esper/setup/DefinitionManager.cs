@@ -13,7 +13,6 @@ namespace esper.setup {
     public class DefinitionManager {
         public Game game;
         public Session session;
-        internal HeaderManager headerManager;
         internal GroupManager groupManager;
         private JObject definitions;
         private readonly DefMap defMap = new DefMap();
@@ -27,7 +26,6 @@ namespace esper.setup {
         public DefinitionManager(Game game, Session session) {
             this.game = game;
             this.session = session;
-            headerManager = new HeaderManager(game.headerTypeKey);
             groupManager = new GroupManager(this);
             LoadDefinitions();
             LoadClasses();
