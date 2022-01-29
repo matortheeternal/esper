@@ -11,7 +11,7 @@ using esper.setup;
 
 namespace esper.elements {
     public class MainRecord : Container, IMainRecord {
-        private IRecordHeader _header;
+        private TES4RecordHeader _header;
 
         internal readonly PluginFile _file;
         internal readonly long bodyOffset;
@@ -19,7 +19,7 @@ namespace esper.elements {
         internal List<MainRecord> _overrides;
         internal List<Subrecord> _unexpectedSubrecords;
 
-        internal IRecordHeader header {
+        internal TES4RecordHeader header {
             get => _header;
             set {
                 _header = value;
@@ -87,7 +87,7 @@ namespace esper.elements {
         public MainRecord(Container container, ElementDef def, PluginFileSource source)
             : base(container, def) {
             _file = container.file;
-            header = manager.headerManager.ReadRecordHeader(source);
+            header = new TES4RecordHeader(source);
             bodyOffset = source.stream.Position;
             if (sessionOptions.readAllSubrecords)
                 mrDef.ReadElements(this, source);

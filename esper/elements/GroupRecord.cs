@@ -2,13 +2,12 @@
 using esper.plugins;
 using System;
 using esper.data.headers;
-using esper.setup;
 using System.Linq;
 using esper.data;
 
 namespace esper.elements {
     public class GroupRecord : Container {
-        public readonly IGroupHeader header;
+        public TES4GroupHeader header;
         public EditorIdMap recordsByEditorID;
         private MainRecord _parentRecord;
 
@@ -31,8 +30,7 @@ namespace esper.elements {
         public bool isChildGroup => groupDef.isChildGroup;
         public bool isChildGroupChild => groupDef.isChildGroupChild;
 
-        private HeaderManager headerManager => manager.headerManager;
-        private UInt32 groupHeaderSize => headerManager.groupHeaderSize;
+        private UInt32 groupHeaderSize => 24;
         private StructDef groupHeaderDef => manager.groupHeaderDef;
 
         public MainRecord parentRecord {
@@ -45,7 +43,7 @@ namespace esper.elements {
         }
 
         public GroupRecord(
-            Container container, GroupDef def, IGroupHeader header
+            Container container, GroupDef def, TES4GroupHeader header
         ) : base(container, def) {
             this.header = header;
         }
@@ -70,8 +68,7 @@ namespace esper.elements {
         }
 
         public static GroupRecord Read(Container container, PluginFileSource source) {
-            var headerManager = container.manager.headerManager;
-            IGroupHeader header = headerManager.ReadGroupHeader(source);
+            TES4GroupHeader header = new TES4GroupHeader(source);
             var groupDef = container.def.GetGroupDef(header);
             var group = new GroupRecord(container, groupDef, header);
             if (group.groupDef.isChildGroup) group.SetParentRecord();
@@ -95,7 +92,7 @@ namespace esper.elements {
 
         internal override void WriteTo(PluginFileOutput output) {
             header.groupSize = size;
-            headerManager.WriteGroupHeaderTo(header, output);
+            header.WriteTo(output);
             output.WriteContainer(this);
         }
 

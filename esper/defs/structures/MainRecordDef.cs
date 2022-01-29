@@ -17,8 +17,7 @@ namespace esper.defs {
         public override SmashType smashType => SmashType.stRecord;
 
         private readonly string _signature;
-        private HeaderManager headerManager => manager.headerManager;
-        private UInt32 recordHeaderSize => headerManager.recordHeaderSize;
+        private UInt32 recordHeaderSize => 24;
 
         public override string signature => _signature;
         public StructDef headerDef;
@@ -46,7 +45,7 @@ namespace esper.defs {
 
         private void ReadHeader(MainRecord rec, PluginFileSource source) {
             source.stream.Position = rec.bodyOffset - recordHeaderSize;
-            headerManager.HeaderToStructElement(rec, source);
+            rec.header.ToStructElement(rec, source);
         }
 
         internal void HandleSubrecord(
