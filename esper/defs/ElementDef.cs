@@ -47,7 +47,7 @@ namespace esper.defs {
             return false;
         }
 
-        public virtual List<Signature> GetSignatures(List<Signature> sigs = null) {
+        public virtual HashSet<Signature> GetSignatures(HashSet<Signature> sigs = null) {
             throw new NotImplementedException();
         }
 

@@ -11,7 +11,7 @@ namespace esper.defs {
         private readonly bool _canContainFormIds;
 
         public ReadOnlyCollection<ElementDef> memberDefs;
-        public List<Signature> signatures;
+        public HashSet<Signature> signatures;
         public override bool canContainFormIds => _canContainFormIds;
         public override ReadOnlyCollection<ElementDef> childDefs => memberDefs;
 
@@ -35,8 +35,8 @@ namespace esper.defs {
             return signatures.Contains(signature);
         }
 
-        public override List<Signature> GetSignatures(List<Signature> sigs = null) {
-            if (sigs == null) sigs = new List<Signature>();
+        public override HashSet<Signature> GetSignatures(HashSet<Signature> sigs = null) {
+            if (sigs == null) sigs = new HashSet<Signature>();
             foreach (var def in memberDefs)
                 def.GetSignatures(sigs);
             return sigs;

@@ -76,7 +76,7 @@ namespace esper.defs {
             return new MemberArrayElement(container, this);
         }
 
-        public override List<Signature> GetSignatures(List<Signature> sigs = null) {
+        public override HashSet<Signature> GetSignatures(HashSet<Signature> sigs = null) {
             return memberDef.GetSignatures(sigs);
         }
 

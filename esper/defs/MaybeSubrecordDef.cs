@@ -33,8 +33,8 @@ namespace esper.defs {
             return this.signature == signature;
         }
 
-        public override List<Signature> GetSignatures(List<Signature> sigs = null) {
-            if (sigs == null) sigs = new List<Signature>();
+        public override HashSet<Signature> GetSignatures(HashSet<Signature> sigs = null) {
+            if (sigs == null) sigs = new HashSet<Signature>();
             if (signature != null) sigs.Add(signature);
             return sigs;
         }
