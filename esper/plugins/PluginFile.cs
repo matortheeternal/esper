@@ -41,7 +41,6 @@ namespace esper.plugins {
             this.session = session;
             this.filename = filename;
             this.options = options;
-            session.pluginManager.AddFile(this);
         }
 
         public void Save(string filePath) {

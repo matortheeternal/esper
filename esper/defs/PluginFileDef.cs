@@ -46,6 +46,7 @@ namespace esper.defs {
             if (magic != Signatures.TES4)
                 throw new Exception($"Expected plugin file to start with TES4, found {magic}");
             plugin.header = MainRecord.Read(plugin, source, Signatures.TES4);
+            plugin.session.pluginManager.AddFile(plugin);
             plugin.InitMasters();
             plugin.InitRecordMaps();
         }
