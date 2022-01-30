@@ -21,7 +21,7 @@ namespace esper.defs {
             : base(manager, src) {
             var sig = src.Value<string>("signature");
             _signature = Signature.FromString(sig);
-            recordDef = manager.GetRecordDef(signature);
+            recordDef = (MainRecordDef)manager.GetRecordDef(signature);
             if (childrenDefs != null) return;
             childrenDefs = new List<ElementDef>(1) { recordDef }.AsReadOnly();
         }

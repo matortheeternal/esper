@@ -10,7 +10,7 @@ namespace esper.setup {
     using DefMap = Dictionary<string, Def>;
     using ClassMap = Dictionary<string, Type>;
     using DeciderMap = Dictionary<string, Decider>;
-    using RecordDefMap = Dictionary<Signature, MainRecordDef>;
+    using RecordDefMap = Dictionary<int, ElementDef>;
 
     public class DefinitionManager {
         public Game game;
@@ -48,7 +48,7 @@ namespace esper.setup {
             foreach (var (key, src) in defs) {
                 if (src.Value<string>("type") == "record") {
                     var sig = Signature.FromString(key);
-                    recordDefMap[sig] = (MainRecordDef)BuildDef((JObject)src);
+                    recordDefMap[sig.v] = (ElementDef)BuildDef((JObject)src);
                 } else {
                     defMap[key] = BuildDef((JObject)src);
                 }
@@ -65,7 +65,7 @@ namespace esper.setup {
             if (src.Value<string>("type") != "record") 
                 throw new Exception("Target def is not a record def.");
             var sig = Signature.FromString(key);
-            recordDefMap[sig] = (MainRecordDef) BuildDef((JObject)src);
+            recordDefMap[sig.v] = (ElementDef) BuildDef((JObject)src);
         }
 
         private void LoadDefClass(Type type) {
@@ -141,8 +141,8 @@ namespace esper.setup {
             return defMap[id];
         }
 
-        public MainRecordDef GetRecordDef(Signature sig) {
-            return recordDefMap[sig];
+        public ElementDef GetRecordDef(Signature sig) {
+            return recordDefMap[sig.v];
         }
 
         public Decider GetDecider(string key) {
