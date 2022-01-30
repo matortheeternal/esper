@@ -38,7 +38,7 @@ namespace esper.setup {
         private void LoadDefinitions() {
             var defsFileName = game.abbreviation + ".json";
             session.logger.Info($"Loading definitions from {defsFileName}");
-            definitions = IOHelpers.LoadResource(defsFileName);
+            definitions = IOHelpers.LoadDefinitions(defsFileName);
         }
 
         private void BuildDefs() {

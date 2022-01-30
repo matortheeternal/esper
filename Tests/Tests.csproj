@@ -19,7 +19,7 @@
   </ItemGroup>
 
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="XCOPY &quot;$(SolutionDir)data&quot; &quot;$(TargetDir)\data\&quot; /S /Y&#xD;&#xA;XCOPY &quot;$(SolutionDir)fixtures&quot; &quot;$(TargetDir)\fixtures\&quot; /S /Y" />
+    <Exec Command="COPY &quot;$(SolutionDir)definitions.zip&quot; &quot;$(TargetDir)&quot; /Y&#xD;&#xA;XCOPY &quot;$(SolutionDir)fixtures&quot; &quot;$(TargetDir)\fixtures\&quot; /S /Y" />
   </Target>
 
 </Project>
