@@ -16,19 +16,30 @@ namespace esper.defs {
         public override XEDefType defType => XEDefType.dtRecord;
         public override SmashType smashType => SmashType.stRecord;
 
-        private readonly string _signature;
+        private readonly Signature _signature;
         private UInt32 recordHeaderSize => 24;
 
-        public override string signature => _signature;
+        public override Signature signature => _signature;
         public StructDef headerDef;
         public FormIdDef containedInDef;
+        internal FlagsDef recordFlagsDef;
 
         public MainRecordDef(DefinitionManager manager, JObject src)
             : base(manager, src) {
             ErrorHelpers.CheckDefProperty(src, "signature");
-            _signature = src.Value<string>("signature");
+            var sig = src.Value<string>("signature");
+            _signature = Signature.FromString(sig);
             headerDef = BuildHeaderDef(src.Value<JObject>("flags"));
             containedInDef = (FormIdDef) JsonHelpers.Def(manager, src, "containedInElement");
+            recordFlagsDef = GetRecordFlagsDef();
+        }
+
+        private FlagsDef GetRecordFlagsDef() {
+            foreach (var def in headerDef.elementDefs)
+                if (def.name == "Record Flags" && def is ValueDef valueDef)
+                    if (valueDef.formatDef is FlagsDef flagsDef) 
+                        return flagsDef;
+            return null;
         }
 
         private StructDef BuildHeaderDef(JObject flagsSrc) {
@@ -166,6 +177,12 @@ namespace esper.defs {
                 ReadElements(rec, file.source);
             }
             WriteElementsTo(rec, output);
+        }
+
+        internal bool RecordFlagIsSet(MainRecord rec, string flag) {
+            if (recordFlagsDef == null) 
+                return rec.GetFlag(@"Record Header\Record Flags", flag);
+            return recordFlagsDef.FlagIsSet(rec.header.flags, flag);
         }
     }
 }

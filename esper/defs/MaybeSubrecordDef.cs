@@ -1,4 +1,5 @@
-﻿using esper.elements;
+﻿using esper.data;
+using esper.elements;
 using esper.plugins;
 using esper.setup;
 using Newtonsoft.Json.Linq;
@@ -7,32 +8,33 @@ using System.Collections.Generic;
 
 namespace esper.defs {
     public class MaybeSubrecordDef : ElementDef {
-        private readonly string _signature;
+        internal readonly Signature _signature;
 
-        public override string signature => _signature;
+        public override Signature signature => _signature;
         public override string displayName => signature != null
             ? $"{signature} - {name}"
             : name;
 
         public MaybeSubrecordDef(DefinitionManager manager, JObject src) 
             : base(manager, src) {
-            _signature = src.Value<string>("signature");
+            var sig = src.Value<string>("signature");
+            _signature = Signature.FromString(sig);
         }
 
         public MaybeSubrecordDef(MaybeSubrecordDef other) : base(other) {
             _signature = other._signature;
         }
 
-        public override bool ContainsSignature(string signature) {
+        public override bool ContainsSignature(Signature signature) {
             return this.signature == signature;
         }
 
-        public override bool CanEnterWith(string signature) {
+        public override bool CanEnterWith(Signature signature) {
             return this.signature == signature;
         }
 
-        public override List<string> GetSignatures(List<string> sigs = null) {
-            if (sigs == null) sigs = new List<string>();
+        public override HashSet<Signature> GetSignatures(HashSet<Signature> sigs = null) {
+            if (sigs == null) sigs = new HashSet<Signature>();
             if (signature != null) sigs.Add(signature);
             return sigs;
         }
@@ -45,7 +47,7 @@ namespace esper.defs {
             Element element, PluginFileOutput output
         ) {
             if (!IsSubrecord()) return;
-            output.WriteString(_signature);
+            output.WriteSignature(_signature);
             output.writer.Write((UInt16) (element.def.GetSize(element) - 6));
         }
     }

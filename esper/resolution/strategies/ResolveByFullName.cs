@@ -23,7 +23,8 @@ namespace esper.resolution.strategies {
         public override Element Create(MatchData match) {
             var c = (ElementMatch<Container>)match;
             var group = (GroupRecord)c.target;
-            var rec = (MainRecord)group.CreateElementBySignature(group.signature);
+            var sig = group.signature.ToString();
+            var rec = (MainRecord)group.CreateElementBySignature(sig);
             rec.fullName = c.match.Value;
             return rec;
         }

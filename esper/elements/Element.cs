@@ -4,6 +4,7 @@ using esper.resolution;
 using esper.defs;
 using System;
 using System.Collections.Generic;
+using esper.data;
 
 namespace esper.elements {
     public class Element : IResolution {
@@ -14,7 +15,7 @@ namespace esper.elements {
         public virtual DefinitionManager manager => file.manager;
         public virtual string sortKey => def.GetSortKey(this);
         public virtual string name => def.name;
-        public virtual string signature => def.signature;
+        public virtual Signature signature => def.signature;
         public virtual string displayName => def.displayName;
         public virtual UInt32 size => def.GetSize(this);
         public SessionOptions sessionOptions => manager.session.options;
@@ -39,7 +40,7 @@ namespace esper.elements {
             get {
                 if (container is ArrayElement || container is MemberArrayElement)
                     return $"[{index}]";
-                return signature ?? name;
+                return def.IsSubrecord() ? signature.ToString() : name;
             }
         }
 
@@ -97,11 +98,11 @@ namespace esper.elements {
             this.state ^= state;
         }
 
-        public bool HasSubrecord(string sig) {
-            return signature == sig;
+        public bool HasSubrecord(Signature sig) {
+            return def.signature == sig;
         }
 
-        public virtual bool SupportsSignature(string sig) {
+        public virtual bool SupportsSignature(Signature sig) {
             return false;
         }
 

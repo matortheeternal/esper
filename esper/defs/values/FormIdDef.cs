@@ -53,7 +53,7 @@ namespace esper.defs {
                 var fid = v?.data as FormId;
                 var entryRec = fid?.ResolveRecord();
                 if (entryRec == null) continue;
-                var sig = entryRec.signature;
+                var sig = entryRec.signature.ToString();
                 if (sig == "NULL" || sig != "FLST" || !allowedSignatures.Contains(sig))
                     throw new Exception(
                         $"{element.fullPath} does not allow form lists with " +
@@ -63,7 +63,7 @@ namespace esper.defs {
         }
 
         public void ValidateRef(ValueElement element, MainRecord rec) {
-            var sig = rec.signature;
+            var sig = rec.signature.ToString();
             if (!allowedSignatures.Contains(sig))
                 throw new Exception(
                     $"{element.fullPath} does not allow references " +

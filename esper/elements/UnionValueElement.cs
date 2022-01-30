@@ -1,10 +1,11 @@
 ﻿using esper.defs;
+using esper.data;
 
 namespace esper.elements {
     public class UnionValueElement : ValueElement {
         public UnionDef unionDef;
 
-        public override string signature => unionDef.signature;
+        public override Signature signature => unionDef.signature;
         public override string name => unionDef.name;
         public override string displayName => signature != null
             ? $"{signature} - {name}"

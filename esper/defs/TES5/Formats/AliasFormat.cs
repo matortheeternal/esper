@@ -1,4 +1,5 @@
-﻿using esper.elements;
+﻿using esper.data;
+using esper.elements;
 using esper.helpers;
 using esper.resolution;
 using esper.setup;
@@ -37,7 +38,7 @@ namespace esper.defs.TES5 {
         public override string DataToValue(ValueElement element, dynamic data) {
             if (!sessionOptions.resolveAliases) return DataToValue(data);
             var questRef = ResolveQuestRec(element);
-            if (questRef == null || questRef.signature != "QUST") 
+            if (questRef == null || questRef.signature != Signatures.QUST) 
                 return DataToValue(data);
             foreach (Element alias in GetAliases(questRef))
                 if (alias.GetData("[0]") == data) return AliasToStr(alias);
@@ -57,7 +58,7 @@ namespace esper.defs.TES5 {
 
         public override MainRecord ResolveQuestRec(ValueElement element) {
             var rec = element.record;
-            return (rec.signature switch {
+            return (rec.signature.ToString() switch {
                 "QUST" => rec,
                 "SCEN" => rec.GetElement("@PNAM"),
                 "PACK" => rec.GetElement("@QNAM"),

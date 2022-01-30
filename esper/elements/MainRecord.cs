@@ -99,8 +99,7 @@ namespace esper.elements {
             PluginFileSource source,
             Signature signature
         ) {
-            var sig = signature.ToString();
-            var def = (ElementDef) container.manager.GetRecordDef(sig);
+            var def = (ElementDef) container.manager.GetRecordDef(signature);
             var record = new MainRecord(container, def, source);
             return record;
         }
@@ -120,7 +119,7 @@ namespace esper.elements {
             _overrides.Add(ovr);
         }
 
-        public override bool SupportsSignature(string sig) {
+        public override bool SupportsSignature(Signature sig) {
             return mrDef.memberDefs.Any(d => d.HasSignature(sig));
         }
 

@@ -6,11 +6,11 @@ using System.Collections.Generic;
 
 namespace esper.defs {
     public class TopGroupDef : GroupDef {
-        private readonly string _signature;
+        private readonly Signature _signature;
 
         public static int defGroupType = 0;
         public override int groupType => 0;
-        public override string signature => _signature;
+        public override Signature signature => _signature;
         public override string name => recordDef.name;
         public override string displayName => $"{signature} - {name}";
         public override bool isTopGroup => true;
@@ -19,8 +19,9 @@ namespace esper.defs {
 
         public TopGroupDef(DefinitionManager manager, JObject src)
             : base(manager, src) {
-            _signature = src.Value<string>("signature");
-            recordDef = manager.GetRecordDef(signature);
+            var sig = src.Value<string>("signature");
+            _signature = Signature.FromString(sig);
+            recordDef = (MainRecordDef)manager.GetRecordDef(signature);
             if (childrenDefs != null) return;
             childrenDefs = new List<ElementDef>(1) { recordDef }.AsReadOnly();
         }
@@ -30,8 +31,7 @@ namespace esper.defs {
         }
 
         internal override byte[] ParseLabel(Container container, string name) {
-            var label = Signature.FromString(signature);
-            return label.bytes;
+            return signature.bytes;
         }
     }
 }

@@ -5,7 +5,7 @@ namespace esper.defs.TES5 {
     public class REFRRecordFlagsDecider : Decider {
         public override int Decide(Container container) {
             var baseRec = (MainRecord) container?.GetElement(@"..\@NAME");
-            return baseRec?.signature switch {
+            return baseRec?.signature.ToString() switch {
                 "ACTI" => 1, "STAT" => 1, "TREE" => 1,
                 "CONT" => 2,
                 "DOOR" => 3,
