@@ -50,10 +50,10 @@ namespace Tests.plugins {
         [Test]
         public void TestLoadTime() {
             Assert.IsNotNull(plugin);
-            float seconds = watch.ElapsedMilliseconds / 1000.0f;
-            Console.WriteLine($"Loaded Skyrim.esm in {seconds:N2}s");
+            float ms = watch.ElapsedMilliseconds;
+            Console.WriteLine($"Loaded Skyrim.esm in {ms}ms");
             Assert.IsTrue(
-                seconds < 1.5f,
+                ms < 1500,
                 "Expected Skyrim.esm to load in under a 1.5 seconds."
             );
         }
