@@ -1,4 +1,5 @@
-﻿using esper.defs;
+﻿using esper.data;
+using esper.defs;
 using esper.helpers;
 using Newtonsoft.Json.Linq;
 using System;
@@ -9,6 +10,7 @@ namespace esper.setup {
     using DefMap = Dictionary<string, Def>;
     using ClassMap = Dictionary<string, Type>;
     using DeciderMap = Dictionary<string, Decider>;
+    using RecordDefMap = Dictionary<Signature, MainRecordDef>;
 
     public class DefinitionManager {
         public Game game;
@@ -16,6 +18,7 @@ namespace esper.setup {
         internal GroupManager groupManager;
         private JObject definitions;
         private readonly DefMap defMap = new DefMap();
+        private readonly RecordDefMap recordDefMap = new RecordDefMap();
         private readonly ClassMap defClasses = new ClassMap();
         internal StructDef recordHeaderDef;
         internal StructDef groupHeaderDef;
@@ -42,8 +45,14 @@ namespace esper.setup {
             var defs = definitions.Value<JObject>("defs");
             recordHeaderDef = (StructDef)BuildDef((JObject) defs["MainRecordHeader"]);
             groupHeaderDef = (StructDef)BuildDef((JObject) defs["GroupRecordHeader"]);
-            foreach (var (key, src) in defs)
-                defMap[key] = BuildDef((JObject)src);
+            foreach (var (key, src) in defs) {
+                if (src.Value<string>("type") == "record") {
+                    var sig = Signature.FromString(key);
+                    recordDefMap[sig] = (MainRecordDef)BuildDef((JObject)src);
+                } else {
+                    defMap[key] = BuildDef((JObject)src);
+                }
+            }
             definitions.Remove("defs");
             GC.Collect();
         }
@@ -55,7 +64,8 @@ namespace esper.setup {
             var src = defs[key];
             if (src.Value<string>("type") != "record") 
                 throw new Exception("Target def is not a record def.");
-            defMap[key] = BuildDef((JObject)src);
+            var sig = Signature.FromString(key);
+            recordDefMap[sig] = (MainRecordDef) BuildDef((JObject)src);
         }
 
         private void LoadDefClass(Type type) {
@@ -131,8 +141,8 @@ namespace esper.setup {
             return defMap[id];
         }
 
-        public MainRecordDef GetRecordDef(string sig) {
-            return (MainRecordDef) defMap[sig];
+        public MainRecordDef GetRecordDef(Signature sig) {
+            return recordDefMap[sig];
         }
 
         public Decider GetDecider(string key) {
