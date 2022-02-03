@@ -6,6 +6,8 @@ using esper;
 using esper.plugins;
 using esper.setup;
 using esper.resolution;
+using esper.elements;
+using esper.data;
 
 namespace Benchmarks {
     class Program {
@@ -49,11 +51,27 @@ namespace Benchmarks {
                 record.GetValue(path);
         }
 
+        public void BuildReferencedBy() {
+            IRecordManager m = plugin;
+            var groupedRecords = new Dictionary<Signature, List<MainRecord>>();
+            foreach (var record in m.records) {
+                var sig = record.signature;
+                if (!groupedRecords.ContainsKey(sig))
+                    groupedRecords.Add(sig, new List<MainRecord>());
+                groupedRecords[sig].Add(record);
+            }
+            foreach (var sig in groupedRecords.Keys) {
+                Console.WriteLine($"Building references for {sig} records.");
+                foreach (var rec in groupedRecords[sig]) rec.BuildRef();
+            }
+        }
+
         static void Main(string[] args) {
             var p = new Program();
             p.SetUp();
             p.TouchSubrecords("WEAP", "FULL");
             p.TouchSubrecords("NPC_", "FULL");
+            p.BuildReferencedBy();
         }
     }
 }
