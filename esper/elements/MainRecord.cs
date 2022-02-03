@@ -28,6 +28,8 @@ namespace esper.elements {
             }
         }
 
+        public override string pathKey => fileFormId.ToString("X8");
+
         public MainRecordDef mrDef => def as MainRecordDef;
         public override MainRecord record => this;
         public override PluginFile file => _file;
