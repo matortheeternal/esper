@@ -15,7 +15,7 @@ namespace esper.plugins {
         internal PluginFileOptions options;
         internal PluginFileSource source;
         internal PluginSlot pluginSlot;
-        internal List<StringFile> stringFiles;
+        internal Dictionary<StringFileType, StringFile> stringFiles;
 
         public PluginFileDef pluginDef => (PluginFileDef)def;
         public bool isDummy => source == null;
@@ -52,12 +52,31 @@ namespace esper.plugins {
             output.stream.Close();
         }
 
-        internal string GetString(UInt32 id) {
+        internal bool UseDLStrings(Signature rSig, Signature eSig) {
+            return (rSig != Signatures.LSCR && eSig == Signatures.DESC) ||
+                (rSig == Signatures.QUST && eSig == Signatures.CNAM) ||
+                (rSig == Signatures.BOOK && eSig == Signatures.CNAM);
+        }
+
+        internal bool UseILStrings(Signature rSig, Signature eSig) {
+            return rSig == Signatures.INFO && eSig == Signatures.RNAM;
+        }
+
+        internal StringFileType GetStringFileType(Element element) {
+            var elementSig = element.signature;
+            var recordSig = element.record.signature;
+            if (UseDLStrings(recordSig, elementSig)) 
+                return StringFileType.DLSTRINGS;
+            if (UseILStrings(recordSig, elementSig)) 
+                return StringFileType.ILSTRINGS;
+            return StringFileType.STRINGS;
+        }
+
+        internal string GetString(UInt32 id, Element element) {
             if (!localized) throw new Exception("Plugin is not localized.");
-            if (stringFiles != null)
-                foreach (var stringFile in stringFiles)
-                    if (stringFile.strings.TryGetValue(id, out string str))
-                        return str;
+            var sf = stringFiles[GetStringFileType(element)];
+            if (sf != null && sf.strings.TryGetValue(id, out string str))
+                return str;
             return $"<Could not find string #{id}>";
         }
 

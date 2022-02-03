@@ -58,7 +58,7 @@ namespace esper.defs {
         public override string GetValue(ValueElement element) {
             if (element.data is string str) return str;
             if (element.data is LocalizedString lstring)
-                return lstring.ToString();
+                return lstring.ToString(element);
             return null;
         }
 

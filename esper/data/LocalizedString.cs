@@ -1,4 +1,5 @@
-﻿using esper.plugins;
+﻿using esper.elements;
+using esper.plugins;
 using System;
 
 namespace esper.data {
@@ -11,8 +12,8 @@ namespace esper.data {
             this.plugin = plugin;
         }
 
-        public override string ToString() {
-            return plugin.GetString(id);
+        public string ToString(Element element) {
+            return plugin.GetString(id, element.record);
         }
 
         internal void WriteTo(PluginFileOutput output) {

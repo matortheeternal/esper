@@ -80,10 +80,10 @@ namespace esper.setup {
         }
 
         public void LoadPluginStrings(PluginFile plugin, List<string> stringFilePaths) {
-            plugin.stringFiles = new List<StringFile>();
+            plugin.stringFiles = new Dictionary<StringFileType, StringFile>();
             foreach (string filePath in stringFilePaths) {
                 var stringFile = assetManager.LoadStrings(filePath);
-                plugin.stringFiles.Add(stringFile);
+                plugin.stringFiles.Add(stringFile.stringFileType, stringFile);
             }
         }
 
