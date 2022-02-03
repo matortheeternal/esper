@@ -1,4 +1,4 @@
-﻿using esper;
+using esper;
 using esper.plugins;
 using esper.setup;
 using esper.resolution;
@@ -117,6 +117,23 @@ namespace Tests.plugins {
             var bookText = "Client - <Client Name Goes Here>\r\n" +
                            "Location - <Dungeon Name Goes Here>";
             TestText(0x03DD30, "DESC", bookText);
+        }
+
+        [Test]
+        public void TestReferencedBy() {
+            watch.Reset();
+            watch.Start();
+            plugin.BuildReferencedBy();
+            watch.Stop();
+            Assert.IsTrue(
+                watch.Elapsed.TotalMilliseconds < 40000,
+                "Expected building references to take less than 40 seconds."
+            );
+            var rec = plugin.GetRecordByFormId(0xF);
+            Assert.IsTrue(
+                rec.referencedBy.Count > 10, 
+                "Gold should be referenced more than 10 times"
+            );
         }
     }
 }
