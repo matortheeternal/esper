@@ -69,7 +69,7 @@ namespace esper.elements {
             return ValueElement.Init(container, def, _data);
         }
 
-        internal override void BuildRef() {
+        public override void BuildRef() {
             var rec = (valueDef is FormIdDef) ? referencedRecord : null;
             if (rec != null) rec.AddRef(record);
         }

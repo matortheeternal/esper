@@ -140,7 +140,7 @@ namespace esper.elements {
             Initialize();
         }
 
-        internal override void BuildRef() {
+        public override void BuildRef() {
             foreach (var element in elements)
                 if (element.def.canContainFormIds)
                     element.BuildRef();

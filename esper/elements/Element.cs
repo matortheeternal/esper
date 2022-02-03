@@ -125,7 +125,7 @@ namespace esper.elements {
             throw new NotImplementedException();
         }
 
-        internal virtual void BuildRef() {
+        public virtual void BuildRef() {
             throw new NotImplementedException();
         }
 

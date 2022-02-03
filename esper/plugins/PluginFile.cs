@@ -88,8 +88,10 @@ namespace esper.plugins {
             throw new Exception("Cannot remove plugin files.");
         }
 
-        public void BuildReferencedBy() {
-            BuildRef();
+        public override void BuildRef() {
+            IRecordManager m = this;
+            foreach (var rec in m.records)
+                rec.BuildRef();
         }
     }
 }

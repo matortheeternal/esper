@@ -101,7 +101,7 @@ namespace esper.elements {
             internalElements.ForEach(el => el.CopyInto(container, options));
         }
 
-        internal override void BuildRef() {
+        public override void BuildRef() {
             foreach (var element in internalElements)
                 if (element.def.canContainFormIds)
                     element.BuildRef();
