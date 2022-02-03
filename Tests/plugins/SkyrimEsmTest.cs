@@ -120,19 +120,19 @@ namespace Tests.plugins {
         }
 
         [Test]
+        public void TestWeirdRecords() {
+            var rec = plugin.GetRecordByFormId(0x25);
+            var v = rec.GetValue(@"XCLL\Ambient Colors\Specular");
+            Assert.AreEqual(v, null);
+        }
+
+        [Test]
         public void TestReferencedBy() {
-            watch.Reset();
-            watch.Start();
-            plugin.BuildReferencedBy();
-            watch.Stop();
-            Assert.IsTrue(
-                watch.Elapsed.TotalMilliseconds < 40000,
-                "Expected building references to take less than 40 seconds."
-            );
+            plugin.GetElement("CONT").BuildRef();
             var rec = plugin.GetRecordByFormId(0xF);
-            Assert.IsTrue(
-                rec.referencedBy.Count > 10, 
-                "Gold should be referenced more than 10 times"
+            Assert.AreEqual(
+                rec.referencedBy.Count, 16, 
+                "Gold should be referenced by 16 CONT records"
             );
         }
     }
