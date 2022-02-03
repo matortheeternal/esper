@@ -19,9 +19,10 @@ namespace esper.plugins {
         private UInt32 decompressedDataSize;
         private readonly FileInfo fileInfo;
         private Subrecord? _currentSubrecord;
-        private long subrecordEndPos;
+        private long _subrecordEndPos;
         private long endDataOffset;
 
+        internal long subrecordEndPos => _subrecordEndPos;
         internal Subrecord currentSubrecord => (Subrecord) _currentSubrecord;
         internal long fileSize => fileInfo.Length;
         internal bool usingDecompressedStream => decompressedStream != null;
@@ -131,7 +132,7 @@ namespace esper.plugins {
                     dataSize = nextSize
                 };
             }
-            subrecordEndPos = stream.Position + subrecord.dataSize;
+            _subrecordEndPos = stream.Position + subrecord.dataSize;
             _currentSubrecord = subrecord;
         }
 
@@ -150,12 +151,12 @@ namespace esper.plugins {
         }
 
         internal void SubrecordHandled() {
-            if (stream.Position > subrecordEndPos)
+            if (stream.Position > _subrecordEndPos)
                 throw new Exception("Critical error reading subrecord, read past end offset.");
-            if (stream.Position < subrecordEndPos) {
+            if (stream.Position < _subrecordEndPos) {
                 // Warn($"Warning: {subrecordEndPos - stream.Position} unread bytes on " +
                 //      $"subrecord {currentSubrecord.signature}");
-                stream.Position = subrecordEndPos;
+                stream.Position = _subrecordEndPos;
             }
             _currentSubrecord = null;
         }
