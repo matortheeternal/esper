@@ -125,6 +125,10 @@ namespace esper.elements {
             throw new NotImplementedException();
         }
 
+        internal virtual void BuildRef() {
+            throw new NotImplementedException();
+        }
+
         internal Container ForceContainer(
             Container source, Container target, CopyOptions options, ref bool creating
         ) {

@@ -68,5 +68,10 @@ namespace esper.elements {
         internal override Element CopyInto(Container container, CopyOptions options) {
             return ValueElement.Init(container, def, _data);
         }
+
+        internal override void BuildRef() {
+            var rec = (valueDef is FormIdDef) ? referencedRecord : null;
+            if (rec != null) rec.AddRef(record);
+        }
     }
 }

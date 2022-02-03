@@ -87,5 +87,9 @@ namespace esper.plugins {
         public override bool Remove() {
             throw new Exception("Cannot remove plugin files.");
         }
+
+        public void BuildReferencedBy() {
+            BuildRef();
+        }
     }
 }

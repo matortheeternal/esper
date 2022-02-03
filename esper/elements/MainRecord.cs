@@ -18,6 +18,7 @@ namespace esper.elements {
         internal byte[] decompressedData;
         internal List<MainRecord> _overrides;
         internal List<Subrecord> _unexpectedSubrecords;
+        internal List<MainRecord> _referencedBy;
 
         internal TES4RecordHeader header {
             get => _header;
@@ -39,7 +40,16 @@ namespace esper.elements {
         public UInt32? globalFormId => formId.globalFormId;
 
         public MainRecord master => local ? this : formId.ResolveRecord();
-        public List<MainRecord> overrides => local ? _overrides : master.overrides;
+        public ReadOnlyCollection<MainRecord> overrides {
+            get {
+                return local ? _overrides.AsReadOnly() : master.overrides;
+            }
+        }
+        public ReadOnlyCollection<MainRecord> referencedBy {
+            get {
+                return local ? _referencedBy.AsReadOnly() : master.referencedBy;
+            }
+        }
 
         public UInt32 dataSize => compressed
                     ? (UInt32) decompressedData.Length
@@ -126,6 +136,12 @@ namespace esper.elements {
         internal override void ElementsReady() {
             base.ElementsReady();
             Initialize();
+        }
+
+        internal void AddRef(MainRecord rec) {
+            if (_referencedBy == null) 
+                _referencedBy = new List<MainRecord>();
+            _referencedBy.Add(rec);
         }
 
         internal override Element ResolveIn(Container container) {
