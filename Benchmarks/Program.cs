@@ -62,7 +62,14 @@ namespace Benchmarks {
             }
             foreach (var sig in groupedRecords.Keys) {
                 Console.WriteLine($"Building references for {sig} records.");
-                foreach (var rec in groupedRecords[sig]) rec.BuildRef();
+                foreach (var rec in groupedRecords[sig]) {
+                    try {
+                        rec.BuildRef();
+                    } catch (Exception x) {
+                        Console.WriteLine($"Error occurred when building references for {rec.path}");
+                        throw x;
+                    }
+                }
             }
         }
 
