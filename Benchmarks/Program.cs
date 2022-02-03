@@ -53,6 +53,7 @@ namespace Benchmarks {
             var p = new Program();
             p.SetUp();
             p.TouchSubrecords("WEAP", "FULL");
+            p.TouchSubrecords("NPC_", "FULL");
         }
     }
 }
