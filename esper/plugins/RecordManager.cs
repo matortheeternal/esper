@@ -29,7 +29,8 @@ namespace esper.plugins {
             if (m.file.isDummy) return null;
             var targetOrdinal = m.file.FileToOrdinal(m.file, false);
             return CollectionHelpers.BinarySearch(m.records, rec => {
-                var ordinalComparison = targetOrdinal.CompareTo(rec.fileFormId >> 24);
+                var recOrdinal = (byte) (rec.fileFormId >> 24);
+                var ordinalComparison = targetOrdinal.CompareTo(recOrdinal);
                 return ordinalComparison < 0 
                     ? ordinalComparison
                     : localFormId.CompareTo(rec.localFormId);
