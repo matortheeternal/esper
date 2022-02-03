@@ -11,8 +11,8 @@ namespace esper.defs {
         internal readonly Signature _signature;
 
         public override Signature signature => _signature;
-        public override string displayName => signature != null
-            ? $"{signature} - {name}"
+        public override string displayName => _signature != Signatures.None
+            ? $"{_signature} - {name}"
             : name;
 
         public MaybeSubrecordDef(DefinitionManager manager, JObject src) 
