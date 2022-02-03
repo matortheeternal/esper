@@ -47,7 +47,9 @@ namespace esper.elements {
         }
         public ReadOnlyCollection<MainRecord> referencedBy {
             get {
-                return local ? _referencedBy.AsReadOnly() : master.referencedBy;
+                if (!local) return master.referencedBy;
+                if (_referencedBy == null) _referencedBy = new List<MainRecord>();
+                return _referencedBy.AsReadOnly();
             }
         }
 
@@ -136,6 +138,12 @@ namespace esper.elements {
         internal override void ElementsReady() {
             base.ElementsReady();
             Initialize();
+        }
+
+        internal override void BuildRef() {
+            foreach (var element in elements)
+                if (element.def.canContainFormIds)
+                    element.BuildRef();
         }
 
         internal void AddRef(MainRecord rec) {
