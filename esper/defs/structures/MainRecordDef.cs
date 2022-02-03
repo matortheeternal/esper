@@ -15,6 +15,7 @@ namespace esper.defs {
         public override string description => $"MainRecord <{signature}>";
         public override XEDefType defType => XEDefType.dtRecord;
         public override SmashType smashType => SmashType.stRecord;
+        public override bool canContainFormIds => true;
 
         private readonly Signature _signature;
         private UInt32 recordHeaderSize => 24;

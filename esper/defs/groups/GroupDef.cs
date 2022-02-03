@@ -15,6 +15,7 @@ namespace esper.defs {
         internal ReadOnlyCollection<ElementDef> childrenDefs;
 
         public override ReadOnlyCollection<ElementDef> childDefs => childrenDefs;
+        public override bool canContainFormIds => true;
         public virtual int groupType => throw new NotImplementedException();
         public virtual bool hasRecordParent => false;
         public virtual bool isChildGroup => false;
