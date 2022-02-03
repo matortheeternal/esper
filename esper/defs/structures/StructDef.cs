@@ -1,4 +1,4 @@
-﻿using esper.elements;
+using esper.elements;
 using esper.helpers;
 using esper.plugins;
 using esper.setup;
@@ -76,7 +76,7 @@ namespace esper.defs {
             var lastDefIndex = elementDefs.Count - 1;
             for (int i = 0; i <= lastDefIndex; i++) {
                 var def = elementDefs[i];
-                if (source.stream.Position - startPos >= dataSize) {
+                if (source.stream.Position >= source.subrecordEndPos) {
                     def.NewElement(element);
                 } else {
                     UInt32? remainingSize = (i == lastDefIndex)
