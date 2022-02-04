@@ -1,6 +1,7 @@
 ﻿using esper.defs;
 using esper.data;
 using esper.plugins;
+using esper.io;
 using esper.resolution;
 using System;
 using System.Linq;
@@ -15,7 +16,7 @@ namespace esper.elements {
 
         internal readonly PluginFile _file;
         internal readonly long bodyOffset;
-        internal byte[] decompressedData;
+        internal RecordSource recordSource;
         internal List<MainRecord> _overrides;
         internal List<Subrecord> _unexpectedSubrecords;
         internal List<MainRecord> _referencedBy;
@@ -56,7 +57,7 @@ namespace esper.elements {
         }
 
         public UInt32 dataSize => compressed
-                    ? (UInt32) decompressedData.Length
+                    ? recordSource.dataSize
                     : header.dataSize;
         public bool compressed => this.GetRecordFlag("Compressed");
 
@@ -113,17 +114,9 @@ namespace esper.elements {
             PluginFileSource source,
             Signature signature
         ) {
-            var def = (ElementDef) container.manager.GetRecordDef(signature);
+            var def = container.manager.GetRecordDef(signature);
             var record = new MainRecord(container, def, source);
             return record;
-        }
-
-        internal bool Decompress(PluginFileSource source) {
-            if (decompressedData == null)
-                decompressedData = source.Decompress(header.dataSize);
-            source.SetDecompressedStream(decompressedData);
-            if (decompressedData != null) return true;
-            return false;
         }
 
         internal void AddOverride(MainRecord ovr) {
@@ -143,9 +136,12 @@ namespace esper.elements {
         }
 
         public override void BuildRef() {
-            foreach (var element in elements)
-                if (element.def.canContainFormIds)
-                    element.BuildRef();
+            var startIndex = mrDef.GetFirstRealElementIndex(this);
+            for (int i = startIndex; i < elements.Count; i++) {
+                var element = elements[i];
+                if (element.def.canContainFormIds) element.BuildRef();
+            }
+            _internalElements = null;
         }
 
         internal void AddRef(MainRecord rec) {
@@ -188,8 +184,7 @@ namespace esper.elements {
         internal override Element CopyInto(Container container, CopyOptions options) {
             var rec = new MainRecord(container, def);
             CopyChildrenInto(rec, options);
-            if (container is GroupRecord group)
-                mrDef.UpdateContainedIn(group, rec);
+            mrDef.UpdateContainedIn(rec);
             if ((options & CopyOptions.CopyChildGroups) > 0)
                 childGroup.CopyInto(rec, options);
             return rec;

@@ -1,4 +1,4 @@
-﻿using esper.plugins;
+﻿using esper.io;
 using System;
 
 namespace esper.data {
@@ -42,7 +42,7 @@ namespace esper.data {
             return v;
         }
 
-        internal static Signature Read(PluginFileSource source) {
+        internal static Signature Read(DataSource source) {
             return new Signature(source.reader.ReadInt32());
         }
     }

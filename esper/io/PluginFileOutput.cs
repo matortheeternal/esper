@@ -1,11 +1,12 @@
 ﻿using esper.data;
 using esper.elements;
+using esper.plugins;
 using Ionic.Zlib;
 using System;
 using System.IO;
 using System.Text;
 
-namespace esper.plugins {
+namespace esper.io {
     public class PluginFileOutput {
         private readonly FileStream fileStream;
         private readonly BinaryWriter fileWriter;

@@ -1,5 +1,6 @@
 ﻿using esper.elements;
 using esper.plugins;
+using esper.io;
 using System;
 
 namespace esper.data {
@@ -13,14 +14,14 @@ namespace esper.data {
         }
 
         public string ToString(Element element) {
-            return plugin.GetString(id, element.record);
+            return plugin.GetString(id, element);
         }
 
         internal void WriteTo(PluginFileOutput output) {
             output.writer.Write(id);
         }
 
-        internal static LocalizedString Read(PluginFileSource source) {
+        internal static LocalizedString Read(DataSource source) {
             var id = source.reader.ReadUInt32();
             return new LocalizedString(source.plugin, id);
         }

@@ -1,6 +1,6 @@
 using esper.elements;
 using esper.helpers;
-using esper.plugins;
+using esper.io;
 using esper.setup;
 using Newtonsoft.Json.Linq;
 using System;
@@ -43,7 +43,7 @@ namespace esper.defs {
         }
 
         public override Element ReadElement(
-            Container container, PluginFileSource source, UInt32? dataSize = null
+            Container container, DataSource source, UInt32? dataSize = null
         ) {
             var e = new StructElement(container, this);
             ReadChildElements(e, source, dataSize);
@@ -62,7 +62,7 @@ namespace esper.defs {
         }
 
         private UInt32? GetRemainingSize(
-            PluginFileSource source, long startPos, UInt32? dataSize
+            DataSource source, long startPos, UInt32? dataSize
         ) {
             if (dataSize == null) return null;
             return (UInt32?)(dataSize - (source.stream.Position - startPos));
@@ -70,13 +70,13 @@ namespace esper.defs {
 
         // TODO: rewrite this better or make it unnecessary?
         public void ReadChildElements(
-            StructElement element, PluginFileSource source, UInt32? dataSize
+            StructElement element, DataSource source, UInt32? dataSize
         ) {
             var startPos = source.stream.Position;
             var lastDefIndex = elementDefs.Count - 1;
             for (int i = 0; i <= lastDefIndex; i++) {
                 var def = elementDefs[i];
-                if (source.stream.Position >= source.subrecordEndPos) {
+                if (source.stream.Position >= source.dataEndPos) {
                     def.NewElement(element);
                 } else {
                     UInt32? remainingSize = (i == lastDefIndex)

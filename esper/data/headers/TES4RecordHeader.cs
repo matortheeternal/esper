@@ -1,5 +1,6 @@
 ﻿using esper.elements;
 using esper.plugins;
+using esper.io;
 using System;
 
 namespace esper.data.headers {
@@ -20,7 +21,7 @@ namespace esper.data.headers {
         }
 
         public StructElement ToStructElement(
-            MainRecord rec, PluginFileSource source
+            MainRecord rec, DataSource source
         ) {
             var headerDef = rec.mrDef.headerDef;
             var structElement = new StructElement(rec, headerDef);

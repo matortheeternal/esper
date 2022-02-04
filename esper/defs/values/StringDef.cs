@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json.Linq;
 using esper.elements;
 using esper.data;
-using esper.plugins;
+using esper.io;
 using esper.setup;
 using System;
 
@@ -32,7 +32,7 @@ namespace esper.defs {
             keepCase = src.Value<bool>("keepCase");
     }
 
-        public override dynamic ReadData(PluginFileSource source, UInt32? dataSize) {
+        public override dynamic ReadData(DataSource source, UInt32? dataSize) {
             if (localized && source.localized)
                 return LocalizedString.Read(source);
             // dataSize - 1 because null terminator

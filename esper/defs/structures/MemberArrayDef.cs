@@ -1,6 +1,6 @@
 ﻿using esper.elements;
 using esper.helpers;
-using esper.plugins;
+using esper.io;
 using esper.setup;
 using esper.data;
 using Newtonsoft.Json.Linq;
@@ -49,7 +49,7 @@ namespace esper.defs {
                 new MemberArrayElement(container, this);
         }
 
-        internal bool HandleSubrecord(Container container, PluginFileSource source) {
+        internal bool HandleSubrecord(Container container, RecordSource source) {
             var subrecord = source.currentSubrecord;
             if (!memberDef.CanEnterWith(subrecord.signature)) return false;
             if (memberDef.IsSubrecord()) {
@@ -63,7 +63,7 @@ namespace esper.defs {
         }
 
         public override void SubrecordFound(
-            Container container, PluginFileSource source
+            Container container, RecordSource source
         ) {
             while (true) {
                 bool handled = HandleSubrecord(container, source);

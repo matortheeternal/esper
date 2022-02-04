@@ -1,6 +1,6 @@
 ﻿using esper.elements;
 using esper.helpers;
-using esper.plugins;
+using esper.io;
 using esper.setup;
 using Newtonsoft.Json.Linq;
 using System;
@@ -33,7 +33,7 @@ namespace esper.defs {
         }
 
         public override Element ReadElement(
-            Container container, PluginFileSource source, UInt32? dataSize = null
+            Container container, DataSource source, UInt32? dataSize = null
         ) {
             var resolvedDef = ResolveDef(container);
             if (!IsSubrecord() && resolvedDef is ValueDef valueDef) {

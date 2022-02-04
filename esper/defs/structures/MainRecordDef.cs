@@ -1,4 +1,4 @@
-﻿using esper.data;
+using esper.data;
 using esper.elements;
 using esper.helpers;
 using esper.plugins;
@@ -8,6 +8,7 @@ using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using esper.io;
 
 namespace esper.defs {
     public class MainRecordDef : MembersDef {
@@ -61,7 +62,7 @@ namespace esper.defs {
         }
 
         internal void HandleSubrecord(
-            MainRecord rec, PluginFileSource source, ref int defIndex
+            MainRecord rec, RecordSource source, ref int defIndex
         ) {
             var subrecord = source.currentSubrecord;
             var def = GetMemberDef(subrecord.signature, ref defIndex);
@@ -79,29 +80,31 @@ namespace esper.defs {
             }
         }
 
-        private void ReadSubrecords(MainRecord rec, PluginFileSource source) {
+        private void ReadSubrecords(MainRecord rec, RecordSource source) {
             int defIndex = 0;
-            source.StartRead(rec.dataSize);
             while (true) {
                 if (!source.NextSubrecord()) break;
                 HandleSubrecord(rec, source, ref defIndex);
             }
-            source.EndRead();
         }
 
-        internal void InitContainedInElements(GroupRecord group, MainRecord rec) {
-            if (group == null || !group.hasRecordParent) return;
-            var parentRec = group.GetParentRecord();
-            var containedInDef = parentRec.mrDef.containedInDef;
+        internal MainRecord GetParentRec(MainRecord rec) {
+            GroupRecord group = rec.container as GroupRecord;
+            if (group == null || !group.hasRecordParent) return null;
+            return group.GetParentRecord();
+        }
+
+        internal void InitContainedInElements(MainRecord rec) {
+            var parentRec = GetParentRec(rec);
+            var containedInDef = parentRec?.mrDef.containedInDef;
             if (containedInDef == null) return;
             var element = (ValueElement)containedInDef.NewElement(rec);
             element._data = FormId.FromSource(parentRec._file, parentRec.fileFormId);
         }
 
-        internal void UpdateContainedIn(GroupRecord group, MainRecord rec) {
-            if (group == null || !group.hasRecordParent) return;
-            var parentRec = group.GetParentRecord();
-            var containedInDef = parentRec.mrDef.containedInDef;
+        internal void UpdateContainedIn(MainRecord rec) {
+            var parentRec = GetParentRec(rec);
+            var containedInDef = parentRec?.mrDef.containedInDef;
             if (containedInDef == null) return;
             var element = (ValueElement) rec.FindElementForDef(containedInDef);
             element._data = FormId.FromSource(parentRec._file, parentRec.fileFormId);
@@ -110,10 +113,10 @@ namespace esper.defs {
         internal void ReadElements(MainRecord rec, PluginFileSource source) {
             rec._internalElements = new List<Element>();
             rec._unexpectedSubrecords = new List<Subrecord>();
-            InitContainedInElements(rec.container as GroupRecord, rec);
+            InitContainedInElements(rec);
             ReadHeader(rec, source);
             source.WithRecordData(rec, () => {
-                ReadSubrecords(rec, source);
+                ReadSubrecords(rec, rec.recordSource);
                 rec.ElementsReady();
             });
         }
@@ -128,7 +131,8 @@ namespace esper.defs {
         }
 
         internal int GetFirstRealElementIndex(MainRecord rec) {
-            return rec._internalElements.FindIndex(e => e.name == "Record Header");
+            var pRec = GetParentRec(rec);
+            return pRec?.mrDef.containedInDef != null ? 2 : 1;
         }
 
         internal override UInt32 GetSize(Element element) {

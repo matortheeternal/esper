@@ -1,7 +1,7 @@
 ﻿using esper.data.headers;
 using esper.elements;
 using esper.helpers;
-using esper.plugins;
+using esper.io;
 using esper.setup;
 using esper.data;
 using Newtonsoft.Json.Linq;
@@ -52,7 +52,7 @@ namespace esper.defs {
         }
 
         public virtual void SubrecordFound(
-            Container container, PluginFileSource source
+            Container container, RecordSource source
         ) {
             throw new NotImplementedException();
         }
@@ -62,7 +62,7 @@ namespace esper.defs {
         }
 
         public virtual Element ReadElement(
-            Container container, PluginFileSource source, UInt32? size = null
+            Container container, DataSource source, UInt32? size = null
         ) {
             throw new NotImplementedException();
         }

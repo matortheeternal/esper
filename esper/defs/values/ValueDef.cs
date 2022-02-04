@@ -1,5 +1,5 @@
 ﻿using esper.elements;
-using esper.plugins;
+using esper.io;
 using esper.setup;
 using esper.helpers;
 using Newtonsoft.Json.Linq;
@@ -32,7 +32,7 @@ namespace esper.defs {
         }
 
         public override Element ReadElement(
-            Container container, PluginFileSource source, UInt32? size = null
+            Container container, DataSource source, UInt32? size = null
         ) {
             return new ValueElement(container, this) {
                 _data = ReadData(source, size)
@@ -43,7 +43,7 @@ namespace esper.defs {
             return new ValueElement(container, this);
         }
 
-        public virtual dynamic ReadData(PluginFileSource source, UInt32? dataSize) {
+        public virtual dynamic ReadData(DataSource source, UInt32? dataSize) {
             throw new NotImplementedException();
         }
 

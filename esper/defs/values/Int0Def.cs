@@ -1,5 +1,5 @@
-﻿using esper.elements;
-using esper.plugins;
+﻿using esper.io;
+using esper.elements;
 using esper.setup;
 using Newtonsoft.Json.Linq;
 using System;
@@ -14,7 +14,7 @@ namespace esper.defs {
         public Int0Def(DefinitionManager manager, JObject src)
             : base(manager, src) { }
 
-        public override dynamic ReadData(PluginFileSource source, UInt32? dataSize) {
+        public override dynamic ReadData(DataSource source, UInt32? dataSize) {
             return null;
         }
 

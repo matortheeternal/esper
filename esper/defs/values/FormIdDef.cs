@@ -1,13 +1,12 @@
 ﻿using esper.elements;
 using esper.data;
-using esper.plugins;
+using esper.io;
 using esper.setup;
 using System;
 using Newtonsoft.Json.Linq;
 using esper.helpers;
 using System.Collections.Generic;
 using esper.resolution;
-using System.Linq;
 
 namespace esper.defs {
     public class FormIdDef : ValueDef {
@@ -32,7 +31,7 @@ namespace esper.defs {
                 persistent = src.Value<bool>("persistent");
         }
 
-        public override dynamic ReadData(PluginFileSource source, UInt32? dataSize) {
+        public override dynamic ReadData(DataSource source, UInt32? dataSize) {
             UInt32 data = source.reader.ReadUInt32();
             return FormId.FromSource(source.plugin, data);
         }

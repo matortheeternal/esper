@@ -2,7 +2,7 @@
 using esper.helpers;
 using esper.setup;
 using esper.elements;
-using esper.plugins;
+using esper.io;
 using System;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
@@ -42,14 +42,14 @@ namespace esper.defs {
             sorted = src.Value<bool>("sorted");
         }
 
-        public UInt32? GetCount(Container container, PluginFileSource source) {
+        public UInt32? GetCount(Container container, DataSource source) {
             return count ?? 
                 source.ReadPrefix(prefix, padding) ?? 
                 counterDef?.GetCount(container);
         }
 
         public override Element ReadElement(
-            Container container, PluginFileSource source, UInt32? dataSize = null
+            Container container, DataSource source, UInt32? dataSize = null
         ) {
             var e = new ArrayElement(container, this);
             UInt32? count = GetCount(container, source);

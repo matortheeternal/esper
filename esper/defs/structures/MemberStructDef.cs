@@ -1,6 +1,6 @@
 ﻿using esper.elements;
 using esper.helpers;
-using esper.plugins;
+using esper.io;
 using esper.setup;
 using esper.data;
 using Newtonsoft.Json.Linq;
@@ -27,7 +27,7 @@ namespace esper.defs {
         }
 
         internal bool HandleSubrecord(
-            Container container, PluginFileSource source, ref int defIndex
+            Container container, RecordSource source, ref int defIndex
         ) {
             var subrecord = source.currentSubrecord;
             var def = GetMemberDef(subrecord.signature, ref defIndex);
@@ -49,7 +49,7 @@ namespace esper.defs {
         }
 
         public override void SubrecordFound(
-            Container container, PluginFileSource source
+            Container container, RecordSource source
         ) {
             int defIndex = 0;
             while (defIndex < memberDefs.Count) {

@@ -1,5 +1,5 @@
 ﻿using esper.elements;
-using esper.plugins;
+using esper.io;
 using esper.setup;
 using System;
 using Newtonsoft.Json.Linq;
@@ -18,7 +18,7 @@ namespace esper.defs {
 
         public UInt32Def(UInt32Def other) : base(other) {}
 
-        public override dynamic ReadData(PluginFileSource source, UInt32? size) {
+        public override dynamic ReadData(DataSource source, UInt32? size) {
             return source.reader.ReadUInt32();
         }
 

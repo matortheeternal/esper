@@ -1,6 +1,6 @@
 ﻿using esper.elements;
 using esper.setup;
-using esper.plugins;
+using esper.io;
 using esper.data;
 using Newtonsoft.Json.Linq;
 using System.Linq;
@@ -22,7 +22,7 @@ namespace esper.defs {
         }
 
         public override void SubrecordFound(
-            Container container, PluginFileSource source
+            Container container, RecordSource source
         ) {
             int defIndex = 0;
             var subrecord = source.currentSubrecord;

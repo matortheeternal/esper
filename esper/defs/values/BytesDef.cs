@@ -1,6 +1,6 @@
 ﻿using esper.elements;
 using esper.helpers;
-using esper.plugins;
+using esper.io;
 using esper.setup;
 using Newtonsoft.Json.Linq;
 using System;
@@ -17,7 +17,7 @@ namespace esper.defs {
                 throw new Exception("Def source has invalid size" + fixedSize);
         }
 
-        public override dynamic ReadData(PluginFileSource source, UInt32? dataSize) {
+        public override dynamic ReadData(DataSource source, UInt32? dataSize) {
             if (isVariableSize && dataSize == null) 
                 throw new Exception("Cannot read data of unknown size.");
             // return empty array if there are no bytes to read
