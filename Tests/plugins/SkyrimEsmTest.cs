@@ -131,7 +131,7 @@ namespace Tests.plugins {
 
         [Test]
         public void TestReferencedBy() {
-            plugin.GetElement("CONT").BuildRef();
+            plugin.GetElement("CONT").BuildRefBy();
             var rec = plugin.GetRecordByFormId(0xF);
             Assert.AreEqual(
                 rec.referencedBy.Count, 16, 

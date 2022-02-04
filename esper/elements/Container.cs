@@ -101,10 +101,10 @@ namespace esper.elements {
             internalElements.ForEach(el => el.CopyInto(container, options));
         }
 
-        public override void BuildRef() {
+        public override void BuildRefBy() {
             foreach (var element in internalElements)
                 if (element.def.canContainFormIds)
-                    element.BuildRef();
+                    element.BuildRefBy();
         }
     }
 }

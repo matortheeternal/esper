@@ -135,11 +135,11 @@ namespace esper.elements {
             Initialize();
         }
 
-        public override void BuildRef() {
+        public override void BuildRefBy() {
             var startIndex = mrDef.GetFirstRealElementIndex(this);
             for (int i = startIndex; i < elements.Count; i++) {
                 var element = elements[i];
-                if (element.def.canContainFormIds) element.BuildRef();
+                if (element.def.canContainFormIds) element.BuildRefBy();
             }
             _internalElements = null;
         }
