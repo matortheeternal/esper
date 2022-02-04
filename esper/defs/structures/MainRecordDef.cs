@@ -153,7 +153,7 @@ namespace esper.defs {
 
         internal void WriteElementsTo(MainRecord rec, PluginFileOutput output) {
             int index = GetFirstRealElementIndex(rec);
-            var headerElement = rec._internalElements[index++];
+            var headerElement = rec._internalElements[index - 1];
             UpdateDataSize(headerElement, rec.size - recordHeaderSize);
             headerElement.WriteTo(output);
             output.WriteRecordData(rec, () => {
