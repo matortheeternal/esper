@@ -8,6 +8,7 @@ using esper.setup;
 using esper.resolution;
 using esper.elements;
 using esper.data;
+using System.Diagnostics;
 
 namespace Benchmarks {
     class Program {
@@ -61,24 +62,37 @@ namespace Benchmarks {
                 groupedRecords[sig].Add(record);
             }
             foreach (var sig in groupedRecords.Keys) {
-                Console.WriteLine($"Building references for {sig} records.");
+                //Console.WriteLine($"Building references for {sig} records.");
                 foreach (var rec in groupedRecords[sig]) {
                     try {
                         rec.BuildRef();
                     } catch (Exception x) {
                         Console.WriteLine($"Error occurred when building references for {rec.path}");
-                        throw x;
+                        Console.WriteLine(x.Message);
                     }
                 }
             }
         }
 
         static void Main(string[] args) {
+            var watch = new Stopwatch();
             var p = new Program();
+            watch.Start();
             p.SetUp();
+            watch.Stop();
+            Console.WriteLine($"{watch.ElapsedMilliseconds}ms spent setting up.");
+            watch.Reset();
+            Console.WriteLine("Building referenced by... (may take up to 30 seconds)");
+            watch.Start();
+            p.BuildReferencedBy();
+            watch.Stop();
+            Console.WriteLine($"{watch.ElapsedMilliseconds}ms spend building referenced by for Skyrim.esm");
+            watch.Reset();
+            watch.Start();
             p.TouchSubrecords("WEAP", "FULL");
             p.TouchSubrecords("NPC_", "FULL");
-            p.BuildReferencedBy();
+            watch.Stop();
+            Console.WriteLine($"{watch.ElapsedMilliseconds}ms spend getting FULL values from records in Skyrim.esm");
         }
     }
 }

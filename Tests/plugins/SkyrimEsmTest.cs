@@ -122,7 +122,11 @@ namespace Tests.plugins {
         [Test]
         public void TestWeirdRecords() {
             TestValue(0x25, @"XCLL\Ambient Colors\Specular", null);
-            TestValue(0x1B44B, "XNAM", null);
+            TestValue(0x1B44B, "XNAM", "");
+            TestValue(0x2BCD7, "XCIM", "{Skyrim.esm:0A2687}");
+            TestValue(0xE15, @"NVNM\NavMeshGrid Divisor", "12");
+            TestValue(0x15CA4, "INAM", "1");
+            TestValue(0x3C, "EDID", "Tamriel");
         }
 
         [Test]
