@@ -17,7 +17,7 @@ namespace esper.defs.TES5 {
         }
 
         public override string DataToValue(ValueElement element, dynamic data) {
-            Int64 n = (Int64) data;
+            Int64 n = data;
             var eventFunction = eventFunctionEnum.DataToValue(element, n & 0xFFFF);
             var eventMember = eventMemberEnum.DataToValue(element, n >> 16);
             return $"{eventFunction}:{eventMember}";

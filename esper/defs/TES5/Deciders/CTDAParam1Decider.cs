@@ -19,7 +19,7 @@ namespace esper.defs.TES5 {
         protected CTDAFunctionParamType? ResolveParamType(
             Container container, CTDAFunction ctdaFunction
         ) {
-            var paramFlag = container.GetData("Type");
+            long paramFlag = container.GetData("Type");
             var paramType = GetParamType(ctdaFunction);
             switch (paramType) {
                 case CTDAFunctionParamType.ptObjectReference:

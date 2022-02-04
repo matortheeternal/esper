@@ -12,7 +12,8 @@ namespace esper.defs.TES5 {
                 throw new Exception("Parent of a NVNM is not a CELL");
             var d = rec.GetElement("DATA");
             if (d == null) return 0;
-            return (d.GetData() & 1) != 0 ? 1 : 0;
+            long data = d.GetData();
+            return (data & 1) != 0 ? 1 : 0;
         }
     }
 }

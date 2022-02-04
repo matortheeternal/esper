@@ -18,8 +18,9 @@ namespace esper.defs.TES5 {
         }
 
         public override string DataToValue(ValueElement element, dynamic data) {
-            string type = ctdaTypeEnum.DataToValue(element, data & 0xE0);
-            string flags = ctdaTypeFlags.DataToValue(element, data & 0x1F);
+            long d = data;
+            string type = ctdaTypeEnum.DataToValue(element, d & 0xE0);
+            string flags = ctdaTypeFlags.DataToValue(element, d & 0x1F);
             return flags != "" ? $"{type} / {flags}" : type;
         }
 

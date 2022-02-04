@@ -13,15 +13,17 @@ namespace esper.defs.TES5 {
         ) : base(manager, src) {}
 
         public override UInt32 GetCount(Container container) {
-            return 0;
-            /*var bounds = container.GetElement(@"..\Object Bounds");
+            var bounds = container.GetElement(@"..\Object Bounds");
             float? minX = bounds?.GetData(@"NAM0\X");
             float? maxX = bounds?.GetData(@"NAM9\X");
-            if (minX == null || maxX == null) return 0;
-            if (minX >= int.MaxValue || minX <= 0) return 0;
-            var max = (int.MaxValue - minX + 1);
-            if (maxX >= max || maxX <= 1) return 1;
-            return (UInt32) (Math.Truncate((float) maxX) - minX + 1);*/
+            UInt32 result = 0;
+            if (minX == null) return result;
+            if (minX < int.MaxValue && minX > 0) 
+                result = (UInt32) Math.Truncate((float)minX);
+            if (maxX == null) return result;
+            var max = (int.MaxValue - result + 1);
+            if (maxX >= max || maxX <= 1) result = 1;
+            return (UInt32) (Math.Truncate((float)maxX) - result + 1);
         }
     }
 }
