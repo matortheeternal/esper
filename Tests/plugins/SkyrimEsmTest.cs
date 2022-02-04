@@ -146,7 +146,6 @@ namespace Tests.plugins {
                 "Tamriel", rec.GetValue(@"@Cell\@Worldspace\EDID"),
                 "Containing worldspace should be Tamriel."
             );
-
         }
     }
 }
