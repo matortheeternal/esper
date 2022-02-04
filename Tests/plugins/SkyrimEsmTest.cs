@@ -138,5 +138,15 @@ namespace Tests.plugins {
                 "Gold should be referenced by 16 CONT records"
             );
         }
+
+        [Test]
+        public void TestContainedIn() {
+            var rec = plugin.GetRecordByFormId(0x23630);
+            Assert.AreEqual(
+                "Tamriel", rec.GetValue(@"@Cell\@Worldspace\EDID"),
+                "Containing worldspace should be Tamriel."
+            );
+
+        }
     }
 }

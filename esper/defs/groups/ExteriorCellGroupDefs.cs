@@ -8,6 +8,8 @@ using System.Text.RegularExpressions;
 namespace esper.defs {
     public class ExteriorCellGroupDef : GroupDef {
         internal virtual Regex nameExpr => throw new NotImplementedException();
+        public override bool hasRecordParent => true;
+        public override bool isChildGroupChild => true;
 
         public ExteriorCellGroupDef(DefinitionManager manager, JObject src)
             : base(manager, src) { }
