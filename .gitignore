@@ -361,7 +361,7 @@ MigrationBackup/
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
 *.bak
-fixtures/Skyrim.esm
+fixtures/*.esm
 fixtures/skyrim_strings/
 Todos.md
 EsperTest/

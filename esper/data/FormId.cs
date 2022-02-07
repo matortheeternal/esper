@@ -39,7 +39,7 @@ namespace esper.data {
 
         public MainRecord ResolveRecord() {
             if (targetPlugin == null) return null;
-            return targetPlugin.GetRecordByLocalFormId(localFormId);
+            return targetPlugin.GetRecordByFormId(fileFormId);
         }
 
         public override string ToString() {
