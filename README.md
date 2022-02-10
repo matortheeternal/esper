@@ -7,6 +7,7 @@ Bethesda plugin file parsing library.  Uses [esp.json](https://github.com/matort
 The `SkyrimEsmTest` requires installing certain files in the fixtures folder:
 
 - `Skyrim.esm` - copy `Skyrim.esm` from the data folder of any PC Skyrim installation to `fixtures/Skyrim.esm`
+- `Dragonborn.esm` - copy `Dragonborn.esm` from the data folder of any PC Skyrim installation to `fixtures/Dragonborn.esm`
 - `skyrim_strings/skyrim_english.*` - extract the `strings/skyrim_english.*` files from `Skyrim - Interface.bsa` to the `fixtures/skyrim_strings` folder.  You should have three files at the following paths if you do this correctly:
   - `fixtures/skyrim_strings/skyrim_english.dlstrings`
   - `fixtures/skyrim_strings/skyrim_english.ilstrings`
