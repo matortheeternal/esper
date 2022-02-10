@@ -7,7 +7,7 @@ namespace esper.helpers {
             IList<T1> list, Func<T1, int> compare, bool returnLast = false
         ) {
             int low = 0;
-            int high = list.Count;
+            int high = list.Count - 1;
             int test = high / 2;
             T1 entry;
             while (high > low) {
