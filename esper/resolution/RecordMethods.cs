@@ -7,5 +7,9 @@ namespace esper.resolution {
         public static bool GetRecordFlag(this MainRecord m, string flag) {
             return m.mrDef.RecordFlagIsSet(m, flag);
         }
+
+        public static bool GetRecordFlag(this MainRecord m, int flagIndex) {
+            return m.mrDef.RecordFlagIsSet(m, flagIndex);
+        }
     }
 }

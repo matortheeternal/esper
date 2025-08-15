@@ -1,4 +1,4 @@
-using esper.data.headers;
+﻿using esper.data.headers;
 using esper.elements;
 using esper.helpers;
 using esper.io;
@@ -104,13 +104,37 @@ namespace esper.defs {
             return 0;
         }
 
+        internal virtual GroupDef ImproviseGroupDef(IGroupHeader header) {
+            var groupDef = manager.ImproviseGroupDef(header);
+            childDefs.Add(groupDef);
+            return groupDef;
+        }
+
+        internal virtual MainRecordDef ImproviseRecordDef(IRecordHeader header) {
+            var recordDef = manager.GetRecordDef(header.signature) ?? 
+                manager.ImproviseRecordDef(header);
+            childDefs.Add(recordDef);
+            return (MainRecordDef) recordDef;
+        }
+
         internal virtual GroupDef GetGroupDef(IGroupHeader header) {
             foreach(var childDef in childDefs) {
                 if (!(childDef is GroupDef groupDef)) continue;
                 if (groupDef.groupType == header.groupType) 
                     return groupDef;
             }
+            if (sessionOptions.improvise) return ImproviseGroupDef(header);
             throw new Exception("Valid group def not found.");
+        }
+
+        internal virtual MainRecordDef GetMainRecordDef(IRecordHeader header) {
+            foreach (var childDef in childDefs) {
+                if (!(childDef is MainRecordDef recordDef)) continue;
+                if (recordDef.signature == header.signature)
+                    return recordDef;
+            }
+            if (sessionOptions.improvise) return ImproviseRecordDef(header);
+            throw new Exception("Valid record def not found.");
         }
 
         internal JArray ChildrenToJArray() {
@@ -133,6 +157,18 @@ namespace esper.defs {
             var children = ChildrenToJArray();
             if (children.Count > 0) src.Add("children", children);
             return src;
+        }
+
+        internal virtual void UpdateDef() {
+            if (signature == Signatures.None) return;
+            var sig = signature.ToString();
+            manager.UpdateDef(sig, ToJObject());
+        }
+
+        internal virtual bool HasBaseDef() {
+            if (signature == Signatures.None) return false;
+            var sig = signature.ToString();
+            return manager.HasDefEntry(sig);
         }
     }
 }

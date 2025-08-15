@@ -1,4 +1,4 @@
-using esper.data;
+﻿using esper.data;
 using esper.data.headers;
 using esper.elements;
 using esper.helpers;
@@ -41,7 +41,7 @@ namespace esper.defs {
 
         internal void ReadFileHeader(PluginFile plugin) {
             var source = plugin.source;
-            if (plugin.header != null) return;
+            if (plugin.header != null || source == null) return;
             var magic = source.PeekSignature();
             if (magic != Signatures.TES4)
                 throw new Exception($"Expected plugin file to start with TES4, found {magic}");
@@ -53,6 +53,7 @@ namespace esper.defs {
 
         internal void ReadGroups(PluginFile plugin) {
             var source = plugin.source;
+            if (source == null) return;
             var endOffset = source.fileSize - 1;
             while (source.stream.Position < endOffset)
                 GroupRecord.Read(plugin, source);
@@ -66,13 +67,19 @@ namespace esper.defs {
             output.WriteContainer((Container)element);
         }
 
+        internal override GroupDef ImproviseGroupDef(IGroupHeader header) {
+            var groupDef = base.ImproviseGroupDef(header);
+            topGroups.Add(new Signature(header.label), groupDef);
+            return groupDef;
+        }
+
         internal override GroupDef GetGroupDef(IGroupHeader header) {
             if (header.groupType > 0)
                 throw new Exception("Expected top group.");
             var signature = new Signature(header.label);
-            if (!topGroups.ContainsKey(signature))
-                throw new Exception($"Unknown top group {signature}");
-            return topGroups[signature];
+            if (topGroups.ContainsKey(signature)) return topGroups[signature];
+            if (sessionOptions.improvise) return ImproviseGroupDef(header);
+            throw new Exception($"Unknown top group {signature}");
         }
 
         internal override JObject ToJObject(bool isBase = true) {
@@ -80,6 +87,10 @@ namespace esper.defs {
             if (!isBase) return src;
             src.Add("type", defId);
             return src;
+        }
+
+        internal override void UpdateDef() {
+            manager.UpdateDef("PluginFile", ToJObject());
         }
     }
 }

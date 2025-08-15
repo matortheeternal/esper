@@ -18,5 +18,10 @@ namespace esper.helpers {
             var reader = new StreamReader(entry.Open());
             return JObject.Load(new JsonTextReader(reader));
         }
+
+        internal static void SaveDefinitions(string filename, string definitions) {
+            var outputPath = Path.Join(Environment.CurrentDirectory, filename);
+            File.WriteAllText(outputPath, definitions);
+        }
     }
 }

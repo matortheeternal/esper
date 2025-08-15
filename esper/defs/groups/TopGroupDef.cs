@@ -11,7 +11,7 @@ namespace esper.defs {
         public static int defGroupType = 0;
         public override int groupType => 0;
         public override Signature signature => _signature;
-        public override string name => recordDef.name;
+        public override string name => recordDef?.name ?? "Unknown";
         public override string displayName => $"{signature} - {name}";
         public override bool isTopGroup => true;
 
@@ -23,7 +23,8 @@ namespace esper.defs {
             _signature = Signature.FromString(sig);
             recordDef = (MainRecordDef)manager.GetRecordDef(signature);
             if (childrenDefs != null) return;
-            childrenDefs = new List<ElementDef>(1) { recordDef }.AsReadOnly();
+            childrenDefs = new List<ElementDef>();
+            if (recordDef != null) childrenDefs.Add(recordDef);
         }
 
         public override dynamic ConvertLabel(GroupRecord group, byte[] label) {

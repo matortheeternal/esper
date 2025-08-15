@@ -154,7 +154,7 @@ namespace esper.defs {
         internal void WriteElementsTo(MainRecord rec, PluginFileOutput output) {
             int index = GetFirstRealElementIndex(rec);
             var headerElement = rec._internalElements[index - 1];
-            UpdateDataSize(headerElement, rec.size - recordHeaderSize);
+            UpdateDataSize(headerElement, rec.size);
             headerElement.WriteTo(output);
             output.WriteRecordData(rec, () => {
                 for (; index < rec._internalElements.Count; index++)
@@ -189,10 +189,19 @@ namespace esper.defs {
                 return rec.GetFlag(@"Record Header\Record Flags", flag);
             return recordFlagsDef.FlagIsSet(rec.header.flags, flag);
         }
+
+        internal bool RecordFlagIsSet(MainRecord rec, int flagIndex) {
+            return (rec.header.flags & (uint)1 << flagIndex) != 0;
+        }
+
         internal override JObject ToJObject(bool isBase = false) {
             var src = base.ToJObject(isBase);
             if (isBase) src.Add("type", "record");
             return src;
+        }
+
+        internal override void UpdateDef() {
+            manager.UpdateDef(signature.ToString(), ToJObject(true));
         }
     }
 }

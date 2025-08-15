@@ -1,4 +1,5 @@
 ﻿using esper.data;
+using esper.data.headers;
 using esper.defs;
 using esper.helpers;
 using Newtonsoft.Json.Linq;
@@ -13,8 +14,8 @@ namespace esper.setup {
     using RecordDefMap = Dictionary<int, ElementDef>;
 
     public class DefinitionManager {
-        public Game game;
         public Session session;
+        public Game game => session.game;
         internal GroupManager groupManager;
         private JObject definitions;
         private readonly DefMap defMap = new DefMap();
@@ -24,10 +25,9 @@ namespace esper.setup {
         internal StructDef groupHeaderDef;
         private readonly DeciderMap deciders = new DeciderMap();
 
-        public CTDAFunctions ctdaFunctions => (CTDAFunctions) defMap["CTDAFunctions"];
+        public CTDAFunctions ctdaFunctions => (CTDAFunctions)defMap["CTDAFunctions"];
 
-        public DefinitionManager(Game game, Session session) {
-            this.game = game;
+        public DefinitionManager(Session session) {
             this.session = session;
             groupManager = new GroupManager(this);
             LoadDefinitions();
@@ -43,8 +43,8 @@ namespace esper.setup {
 
         private void BuildDefs() {
             var defs = definitions.Value<JObject>("defs");
-            recordHeaderDef = (StructDef)BuildDef((JObject) defs["MainRecordHeader"]);
-            groupHeaderDef = (StructDef)BuildDef((JObject) defs["GroupRecordHeader"]);
+            recordHeaderDef = (StructDef)BuildDef((JObject)defs["MainRecordHeader"]);
+            groupHeaderDef = (StructDef)BuildDef((JObject)defs["GroupRecordHeader"]);
             foreach (var (key, src) in defs) {
                 if (src.Value<string>("type") == "record") {
                     var sig = Signature.FromString(key);
@@ -53,6 +53,7 @@ namespace esper.setup {
                     defMap[key] = BuildDef((JObject)src);
                 }
             }
+            if (session.options.improvise) return;
             definitions.Remove("defs");
             GC.Collect();
         }
@@ -62,10 +63,10 @@ namespace esper.setup {
             if (!defs.ContainsKey(key))
                 throw new Exception("Def " + key + " not found.");
             var src = defs[key];
-            if (src.Value<string>("type") != "record") 
+            if (src.Value<string>("type") != "record")
                 throw new Exception("Target def is not a record def.");
             var sig = Signature.FromString(key);
-            recordDefMap[sig.v] = (ElementDef) BuildDef((JObject)src);
+            recordDefMap[sig.v] = (ElementDef)BuildDef((JObject)src);
         }
 
         private void LoadDefClass(Type type) {
@@ -77,9 +78,9 @@ namespace esper.setup {
 
         private void LoadDecider(Type type) {
             string key = type.Name;
-            deciders[key] = (Decider) Activator.CreateInstance(type);
+            deciders[key] = (Decider)Activator.CreateInstance(type);
         }
-        
+
         private void LoadClass(Type type) {
             if (typeof(GroupDef).IsAssignableFrom(type)) {
                 groupManager.LoadGroupDefClass(type);
@@ -110,19 +111,19 @@ namespace esper.setup {
             var defId = src.Value<string>("type");
             if (defId == "record" && !src.ContainsKey("signature")) return null;
             if (defId == "group") return groupManager.BuildGroupDef(src);
-            if (!defClasses.ContainsKey(defId))
-                throw new Exception($"Def type not implemented: {defId}");
+            if (!defClasses.ContainsKey(defId)) return null;
+                //throw new Exception($"Def type not implemented: {defId}");
             var args = new object[] { this, src };
             var def = (Def)Activator.CreateInstance(defClasses[defId], args);
             return def;
         }
 
         public Def BuildDef(JObject src) {
-            if (!src.ContainsKey("id")) 
+            if (!src.ContainsKey("id"))
                 return BuildBaseDef(src);
             var id = src.Value<string>("id");
             var target = ResolveDefSource(id);
-            if (src.Properties().Count() == 1) 
+            if (src.Properties().Count() == 1)
                 return ResolveDef(id);
             src = MergeDef(target, src);
             return BuildBaseDef(src);
@@ -142,6 +143,7 @@ namespace esper.setup {
         }
 
         public ElementDef GetRecordDef(Signature sig) {
+            if (!recordDefMap.ContainsKey(sig.v)) return null;
             return recordDefMap[sig.v];
         }
 
@@ -149,6 +151,59 @@ namespace esper.setup {
             if (!deciders.ContainsKey(key))
                 throw new Exception("Unknown decider: " + key);
             return deciders[key];
+        }
+
+        public GroupDef ImproviseGroupDef(IGroupHeader header) {
+            var sig = new Signature(header.label);
+            var src = new JObject {
+                { "type", "group" },
+                { "signature", sig.ToString() },
+            };
+            src.Add("children", new JArray());
+            if (header.groupType != 0) src.Add("groupType", header.groupType);
+            return (GroupDef)groupManager.BuildGroupDef(src);
+        }
+
+        public MainRecordDef ImproviseRecordDef(IRecordHeader header) {
+            var sig = header.signature.ToString();
+            var src = new JObject {
+                { "signature", sig },
+                { "type", "record" },
+                { "name", "Unknown" },
+            };
+            src.Add("members", new JArray {
+                new JObject { { "id", "EDID" } }
+            });
+            var defs = definitions.Value<JObject>("defs");
+            defs.Add(sig, src);
+            var recordDef = (MainRecordDef)BuildDef(src);
+            recordDefMap[header.signature.v] = recordDef;
+            return recordDef;
+        }
+
+        public void UpdateDef(string defId, JObject src) {
+            var defs = definitions.Value<JObject>("defs");
+            defs[defId] = src;
+        }
+
+        public void UpdateDefs() {
+            session.pluginFileDef.UpdateDef();
+            foreach (var recordDef in recordDefMap.Values) 
+                recordDef.UpdateDef();
+        }
+
+        public void ExportDefinitions(string filename) {
+            IOHelpers.SaveDefinitions(filename, definitions.ToString());
+        }
+
+        public void ExportRecordSignatureList() {
+            var signatures = recordDefMap.Values.Select(v => v.signature.ToString());
+            var output = JArray.FromObject(signatures).ToString();
+            IOHelpers.SaveDefinitions("signatures.json", output);
+        }
+
+        public bool HasDefEntry(string key) {
+            return definitions.Value<JObject>("defs").ContainsKey(key);
         }
     }
 }

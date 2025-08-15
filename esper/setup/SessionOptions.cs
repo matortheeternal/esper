@@ -23,6 +23,7 @@ namespace esper.setup {
         public bool resolveAliases = false;
         public bool enforceExpectedReferences = false;
         public bool loadResources = false;
+        public bool improvise = false;
         public bool serializeNumericData = false;
         private uint _floatDigits = 6;
         public float epsilon = GetEpsilon(6);

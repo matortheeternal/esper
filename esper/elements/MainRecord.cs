@@ -36,6 +36,7 @@ namespace esper.elements {
         public override PluginFile file => _file;
         internal PluginManager pluginManager => _file.session.pluginManager;
         public GroupRecord childGroup { get; set; }
+        public Element headerElement => this.GetElement("Record Header");
 
         public FormId formId => FormId.FromSource(_file, fileFormId);
         public UInt32 fileFormId => _header.formId;
@@ -59,7 +60,9 @@ namespace esper.elements {
         public UInt32 dataSize => compressed
                     ? recordSource.dataSize
                     : header.dataSize;
-        public bool compressed => this.GetRecordFlag("Compressed");
+        public bool compressed => _file.sessionOptions.improvise 
+            ? this.GetRecordFlag(18)
+            : this.GetRecordFlag("Compressed");
 
         public string editorId {
             get => this.GetValue("EDID");
@@ -80,7 +83,11 @@ namespace esper.elements {
         }
 
         public ReadOnlyCollection<Subrecord> unexpectedSubrecords {
-            get => _unexpectedSubrecords.AsReadOnly();
+            get {
+                if (_unexpectedSubrecords == null)
+                    mrDef.ReadElements(this, file.source);
+                return _unexpectedSubrecords.AsReadOnly();
+            }
         }
 
         public override ReadOnlyCollection<Element> elements {
@@ -96,16 +103,16 @@ namespace esper.elements {
 
         public override void Initialize() {
             mrDef.InitElement(this);
-            if (local) master.AddOverride(this);
         }
 
-        public MainRecord(Container container, ElementDef def, PluginFileSource source)
+        public MainRecord(Container container, ElementDef def, PluginFileSource source, TES4RecordHeader header)
             : base(container, def) {
             _file = container.file;
-            header = new TES4RecordHeader(source);
+            this.header = header;
             bodyOffset = source.stream.Position;
             if (sessionOptions.readAllSubrecords)
                 mrDef.ReadElements(this, source);
+            if (!local && master != null) master.AddOverride(this);
             source.stream.Position = bodyOffset + header.dataSize;
         }
 
@@ -114,9 +121,9 @@ namespace esper.elements {
             PluginFileSource source,
             Signature signature
         ) {
-            var def = container.manager.GetRecordDef(signature);
-            var record = new MainRecord(container, def, source);
-            return record;
+            var header = new TES4RecordHeader(source);
+            var def = container.def.GetMainRecordDef(header);
+            return new MainRecord(container, def, source, header);
         }
 
         internal void AddOverride(MainRecord ovr) {
@@ -142,6 +149,11 @@ namespace esper.elements {
                 if (element.def.canContainFormIds) element.BuildRefBy();
             }
             _internalElements = null;
+        }
+
+        internal void DestroyRefBy(PluginFile plugin) {
+            if (_referencedBy == null) return;
+            _referencedBy.RemoveAll(r => r._file.Equals(plugin));
         }
 
         internal void AddRef(MainRecord rec) {
