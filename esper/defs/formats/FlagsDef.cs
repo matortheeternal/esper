@@ -52,6 +52,10 @@ namespace esper.defs {
         public bool FlagIsSet(dynamic data, string flag) {
             var flagIndex = GetFlagIndex(flag);
             if (flagIndex == -1) return false;
+            return FlagIsSet(data, flagIndex);
+        }
+
+        public bool FlagIsSet(dynamic data, int flagIndex) {
             return (data & ((UInt64)1 << flagIndex)) != 0;
         }
 
