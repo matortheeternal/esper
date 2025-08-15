@@ -14,7 +14,7 @@ namespace Benchmarks {
     class Program {
         public Session session;
         public PluginManager pluginManager => session.pluginManager;
-        public ResourceManager resourceManager;
+        public ResourceManager resourceManager => session.resourceManager;
         public PluginFile plugin;
 
         public static string fixturesPath = Path.Combine(
@@ -41,7 +41,6 @@ namespace Benchmarks {
 
         public void SetUp() {
             session = new Session(Games.TES5, new SessionOptions());
-            resourceManager = new ResourceManager(session, true);
             LoadSkyrimEsm();
             resourceManager.LoadPluginStrings(plugin, GetStringFiles());
         }
@@ -57,12 +56,16 @@ namespace Benchmarks {
             var groupedRecords = new Dictionary<Signature, List<MainRecord>>();
             foreach (var record in m.records) {
                 var sig = record.signature;
+                if (sig.ToString() == "NAVM") continue;
                 if (!groupedRecords.ContainsKey(sig))
                     groupedRecords.Add(sig, new List<MainRecord>());
                 groupedRecords[sig].Add(record);
             }
+            var watch = new Stopwatch();
             foreach (var sig in groupedRecords.Keys) {
-                //Console.WriteLine($"Building references for {sig} records.");
+                Console.WriteLine($"Building references for {sig} records.");
+                watch.Reset();
+                watch.Start();
                 foreach (var rec in groupedRecords[sig]) {
                     try {
                         rec.BuildRefBy();
@@ -71,6 +74,8 @@ namespace Benchmarks {
                         Console.WriteLine(x.Message);
                     }
                 }
+                watch.Stop();
+                Console.WriteLine($"{watch.ElapsedMilliseconds}ms spent building references for {sig} records.");
             }
         }
 
