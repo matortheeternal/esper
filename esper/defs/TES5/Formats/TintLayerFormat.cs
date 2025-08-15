@@ -64,6 +64,7 @@ namespace esper.defs.TES5 {
     }
 
     public class TintLayerFormat : FormatDef {
+        public override bool isNumeric => true;
         public static readonly string defId = "TintLayerFormat";
         private static readonly TintCache tintCache = new TintCache();
 

@@ -7,6 +7,7 @@ using System;
 namespace esper.defs.TES5 {
     public class NextObjectIDFormat : FormatDef {
         public static readonly string defId = "NextObjectIDFormat";
+        public override bool isNumeric => true;
 
         public NextObjectIDFormat(DefinitionManager manager, JObject src)
             : base(manager, src) { }

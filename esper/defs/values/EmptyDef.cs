@@ -35,5 +35,12 @@ namespace esper.defs {
         internal override void WriteData(
             ValueElement element, PluginFileOutput output
         ) { }
+
+        internal override JObject ToJObject(bool isBase = true) {
+            var src = base.ToJObject(isBase);
+            if (!isBase) return src;
+            src.Add("type", defId);
+            return src;
+        }
     }
 }

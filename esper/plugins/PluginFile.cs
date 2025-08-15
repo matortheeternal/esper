@@ -7,6 +7,7 @@ using esper.data;
 using balsa.stringtables;
 using System;
 using System.Collections.Generic;
+using Newtonsoft.Json.Linq;
 
 namespace esper.plugins {
     public class PluginFile : Container, IMasterManager, IRecordManager {
@@ -31,6 +32,7 @@ namespace esper.plugins {
         List<MainRecord> IRecordManager.records { get; set; }
 
         public override PluginFile file => this;
+        public override string name => filename;
         public string filePath => source?.filePath;
         public new DefinitionManager manager => session.definitionManager;
         public bool localized => header.GetRecordFlag("Localized");
@@ -93,6 +95,18 @@ namespace esper.plugins {
             IRecordManager m = this;
             foreach (var rec in m.records)
                 rec.BuildRefBy();
+        }
+
+        public override JToken ToJson() {
+            var o = new JObject {
+                { "Filename", filename },
+                { "File Header", header.ToJson() }
+            };
+            foreach (var e in elements) {
+                if (e is MainRecord) continue;
+                o[e.name] = e.ToJson();
+            }
+            return o;
         }
     }
 }

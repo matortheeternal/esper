@@ -17,6 +17,10 @@ namespace esper.defs {
                 throw new Exception("Def source has invalid size" + fixedSize);
         }
 
+        public override string DataToSortKey(dynamic data) {
+            return data.ToString();
+        }
+
         public override dynamic ReadData(DataSource source, UInt32? dataSize) {
             if (isVariableSize && dataSize == null) 
                 throw new Exception("Cannot read data of unknown size.");
@@ -59,6 +63,13 @@ namespace esper.defs {
         ) {
             var data = element.data as byte[] ?? DefaultData();
             output.writer.Write(data);
+        }
+
+        internal override JObject ToJObject(bool isBase = true) {
+            var src = base.ToJObject(isBase);
+            if (!isBase) return src;
+            src.Add("type", defId);
+            return src;
         }
     }
 }

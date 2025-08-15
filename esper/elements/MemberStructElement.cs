@@ -1,6 +1,7 @@
 ﻿using esper.defs;
 using esper.data;
 using System.Linq;
+using Newtonsoft.Json.Linq;
 
 namespace esper.elements {
     public class MemberStructElement : Container {

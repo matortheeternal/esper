@@ -101,5 +101,16 @@ namespace esper.defs {
                 output.WriteString(s, isVariableSize);
             }
         }
+
+        internal override JObject ToJObject(bool isBase = true) {
+            var src = base.ToJObject(isBase);
+            if (!isBase) return src;
+            src.Add("type", defId);
+            if (prefix != null) src.Add("prefix", prefix);
+            if (padding != null) src.Add("padding", padding);
+            if (localized) src.Add("localized", localized);
+            if (keepCase) src.Add("keepCase", keepCase);
+            return src;
+        }
     }
 }

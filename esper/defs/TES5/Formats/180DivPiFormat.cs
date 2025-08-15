@@ -6,6 +6,7 @@ using System;
 namespace esper.defs.TES5 {
     public class _180DivPiFormat : FormatDef {
         public static readonly string defId = "180DivPiFormat";
+        public override bool isNumeric => true;
 
         public _180DivPiFormat(DefinitionManager manager, JObject src)
             : base(manager, src) { }

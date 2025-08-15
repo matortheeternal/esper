@@ -74,5 +74,12 @@ namespace esper.defs {
                 throw new Exception($"Unknown top group {signature}");
             return topGroups[signature];
         }
+
+        internal override JObject ToJObject(bool isBase = true) {
+            var src = base.ToJObject(isBase);
+            if (!isBase) return src;
+            src.Add("type", defId);
+            return src;
+        }
     }
 }

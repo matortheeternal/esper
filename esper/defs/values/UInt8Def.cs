@@ -10,6 +10,7 @@ namespace esper.defs {
         public static readonly string defId = "uint8";
         public override XEDefType valueDefType => XEDefType.dtInteger;
         public override SmashType smashType => SmashType.stInteger;
+        public override bool isNumeric => formatDef == null || formatDef.isNumeric;
 
         public override int? size => 1;
 
@@ -39,6 +40,13 @@ namespace esper.defs {
             } else {
                 output.writer.Write(DefaultData());
             }
+        }
+
+        internal override JObject ToJObject(bool isBase = true) {
+            var src = base.ToJObject(isBase);
+            if (!isBase) return src;
+            src.Add("type", defId);
+            return src;
         }
     }
 }

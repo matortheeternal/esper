@@ -5,6 +5,7 @@ using System;
 using esper.data.headers;
 using System.Linq;
 using esper.data;
+using Newtonsoft.Json.Linq;
 
 namespace esper.elements {
     public class GroupRecord : Container {
@@ -109,6 +110,15 @@ namespace esper.elements {
             if (target is PluginFile && target.def.ChildDefSupported(def))
                 return target.AssignCopy(this, options);
             throw new Exception($"Cannot copy group records into ${target.def.displayName}");
+        }
+
+        public override JToken ToJson() {
+            if (!isChildGroup) return ToJsonArray();
+            return new JObject {
+                ["groupType"] = groupType,
+                ["label"] = label.ToString(),
+                ["elements"] = ToJsonArray()
+            };
         }
     }
 }

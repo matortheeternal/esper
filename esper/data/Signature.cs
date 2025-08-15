@@ -5,7 +5,7 @@ namespace esper.data {
     public struct Signature {
         static readonly SignatureEncoding encoding = new SignatureEncoding();
 
-        internal readonly int v;
+        public readonly int v;
 
         public byte[] bytes => BitConverter.GetBytes(v);
 

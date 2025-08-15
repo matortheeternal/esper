@@ -9,6 +9,7 @@ namespace esper.defs {
         public static readonly string defId = "float";
         public override XEDefType valueDefType => XEDefType.dtFloat;
         public override SmashType smashType => SmashType.stFloat;
+        public override bool isNumeric => true;
 
         public override int? size => 4;
 
@@ -54,6 +55,13 @@ namespace esper.defs {
             } else {
                 output.writer.Write(DefaultData());
             }
+        }
+
+        internal override JObject ToJObject(bool isBase = true) {
+            var src = base.ToJObject(isBase);
+            if (!isBase) return src;
+            src.Add("type", defId);
+            return src;
         }
     }
 }

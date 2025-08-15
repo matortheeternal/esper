@@ -189,5 +189,10 @@ namespace esper.defs {
                 return rec.GetFlag(@"Record Header\Record Flags", flag);
             return recordFlagsDef.FlagIsSet(rec.header.flags, flag);
         }
+        internal override JObject ToJObject(bool isBase = false) {
+            var src = base.ToJObject(isBase);
+            if (isBase) src.Add("type", "record");
+            return src;
+        }
     }
 }

@@ -17,6 +17,7 @@ namespace esper.defs {
 
         public override int? size => fixedSize;
         protected virtual bool isVariableSize => fixedSize == null;
+        public virtual bool isNumeric => false;
 
         public ValueDef(DefinitionManager manager, JObject src)
             : base(manager, src) {
@@ -101,6 +102,14 @@ namespace esper.defs {
         ) {
             base.WriteElement(element, output);
             WriteData((ValueElement)element, output);
+        }
+
+        internal override JObject ToJObject(bool isBase = true) {
+            var src = base.ToJObject(isBase);
+            if (!isBase) return src;
+            if (fixedSize != null) src.Add("size", fixedSize);
+            if (zeroSortKey) src.Add("zeroSortKey", true);
+            return src;
         }
     }
 }

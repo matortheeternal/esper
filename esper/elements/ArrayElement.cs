@@ -1,4 +1,5 @@
 ﻿using esper.defs;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -47,6 +48,10 @@ namespace esper.elements {
             var element = new ArrayElement(container, def);
             CopyChildrenInto(element, options);
             return element;
+        }
+
+        public override JToken ToJson() {
+            return ToJsonArray();
         }
     }
 }

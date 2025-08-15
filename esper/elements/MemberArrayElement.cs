@@ -3,6 +3,7 @@ using esper.data;
 using System;
 using System.Collections.ObjectModel;
 using System.Linq;
+using Newtonsoft.Json.Linq;
 
 namespace esper.elements {
     public class MemberArrayElement : Container {
@@ -52,6 +53,10 @@ namespace esper.elements {
             var element = new MemberArrayElement(container, def);
             CopyChildrenInto(element, options);
             return element;
+        }
+
+        public override JToken ToJson() {
+            return ToJsonArray();
         }
     }
 }

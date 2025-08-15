@@ -1,6 +1,7 @@
 ﻿using esper.data;
 using esper.defs;
 using esper.io;
+using Newtonsoft.Json.Linq;
 using System;
 
 namespace esper.elements {
@@ -72,6 +73,12 @@ namespace esper.elements {
         public override void BuildRefBy() {
             var rec = (valueDef is FormIdDef) ? referencedRecord : null;
             if (rec != null) rec.AddRef(record);
+        }
+
+        public override JToken ToJson() {
+            if (sessionOptions.serializeNumericData && valueDef.isNumeric)
+                return data;
+            return value;
         }
     }
 }

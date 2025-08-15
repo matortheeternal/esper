@@ -5,6 +5,7 @@ using System;
 
 namespace esper.defs.TES5 {
     public class VertexFormat : FormatDef {
+        public override bool isNumeric => true;
         protected virtual int vertex => 0;
         public override bool customSortKey => true;
 

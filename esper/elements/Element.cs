@@ -6,6 +6,7 @@ using esper.defs;
 using System;
 using System.Collections.Generic;
 using esper.data;
+using Newtonsoft.Json.Linq;
 
 namespace esper.elements {
     public class Element : IResolution {
@@ -127,6 +128,10 @@ namespace esper.elements {
         }
 
         public virtual void BuildRefBy() {
+            throw new NotImplementedException();
+        }
+
+        public virtual JToken ToJson() {
             throw new NotImplementedException();
         }
 

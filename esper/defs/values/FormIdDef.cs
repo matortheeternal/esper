@@ -1,4 +1,4 @@
-using esper.elements;
+﻿using esper.elements;
 using esper.data;
 using esper.io;
 using esper.setup;
@@ -97,6 +97,17 @@ namespace esper.defs {
             } else {
                 DefaultData().WriteTo(output);
             }
+        }
+
+        internal override JObject ToJObject(bool isBase = true) {
+            var src = base.ToJObject(isBase);
+            if (!isBase) return src;
+            if (allowedSignatures != null)
+                src.Add("signatures", JArray.FromObject(allowedSignatures));
+            if (validateFlstRefs) src.Add("validateFlstRefs", validateFlstRefs);
+            if (persistent) src.Add("persistent", persistent);
+            src.Add("type", defId);
+            return src;
         }
     }
 }

@@ -72,5 +72,17 @@ namespace esper.defs {
                 return childDef is GroupDef gd && gd.isChildGroup;
             }) as GroupDef;
         }
+
+        internal override JObject ToJObject(bool isBase = true) {
+            var src = base.ToJObject(isBase);
+            src.Add("type", "group");
+            src.Remove("name");
+            if (groupType != 0) src.Add("groupType", groupType);
+            return src;
+        }
+
+        internal override bool HasBaseDef() {
+            return false;
+        }
     }
 }

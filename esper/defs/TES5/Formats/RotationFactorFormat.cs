@@ -6,6 +6,7 @@ using System;
 namespace esper.defs.TES5 {
     public class RotationFactorFormat : FormatDef {
         public static readonly string defId = "RotationFactorFormat";
+        public override bool isNumeric => true;
 
         public RotationFactorFormat(
             DefinitionManager manager, JObject src

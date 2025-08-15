@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using esper.data;
 using esper.defs;
+using Newtonsoft.Json.Linq;
 
 namespace esper.elements {
     public class Container : Element {
@@ -105,6 +106,17 @@ namespace esper.elements {
             foreach (var element in internalElements)
                 if (element.def.canContainFormIds)
                     element.BuildRefBy();
+        }
+
+        internal JArray ToJsonArray() {
+            return new JArray(elements.Select(e => e.ToJson()).ToArray());
+        }
+
+        public override JToken ToJson() {
+            var o = new JObject();
+            foreach (var e in elements)
+                o[e.pathKey] = e.ToJson();
+            return o;
         }
     }
 }

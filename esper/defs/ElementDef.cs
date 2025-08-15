@@ -7,7 +7,6 @@ using esper.data;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
 
 namespace esper.defs {
@@ -112,6 +111,28 @@ namespace esper.defs {
                     return groupDef;
             }
             throw new Exception("Valid group def not found.");
+        }
+
+        internal JArray ChildrenToJArray() {
+            var children = new JArray();
+            foreach (var childDef in childDefs) {
+                if (this is TopGroupDef && childDef is MainRecordDef) continue;
+                var isBase = !childDef.HasBaseDef();
+                children.Add(childDef.ToJObject(isBase));
+            }
+            return children;
+        }
+
+        internal virtual JObject ToJObject(bool isBase = true) {
+            if (!isBase) return new JObject { { "id", signature.ToString() } };
+            var src = new JObject();
+            if (signature != Signatures.None) src.Add("signature", signature.ToString());
+            if (name != null) src.Add("name", name);
+            if (required) src.Add("required", true);
+            if (childDefs == null) return src;
+            var children = ChildrenToJArray();
+            if (children.Count > 0) src.Add("children", children);
+            return src;
         }
     }
 }

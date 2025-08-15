@@ -1,4 +1,4 @@
-using esper.helpers;
+﻿using esper.helpers;
 using esper.setup;
 using esper.data;
 using Newtonsoft.Json.Linq;
@@ -39,6 +39,14 @@ namespace esper.defs {
             foreach (var def in memberDefs)
                 def.GetSignatures(sigs);
             return sigs;
+        }
+
+        internal override JObject ToJObject(bool isBase = true) {
+            var src = base.ToJObject(isBase);
+            if (!isBase) return src;
+            src.Add("members", src["children"]);
+            src.Remove("children");
+            return src;
         }
     }
 }
