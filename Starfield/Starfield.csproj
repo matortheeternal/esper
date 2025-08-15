@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Collections.Specialized" Version="4.3.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\esper\esper.csproj" />
+  </ItemGroup>
+
+	<Target Name="PostBuild" AfterTargets="PostBuildEvent">
+		<Exec Command="COPY &quot;$(SolutionDir)definitions.zip&quot; &quot;$(TargetDir)&quot; /Y&#xD;&#xA;XCOPY &quot;$(SolutionDir)fixtures\Starfield.esm&quot; &quot;$(TargetDir)\fixtures\Starfield.esm&quot; /S /Y" />
+	</Target>
+
+</Project>
