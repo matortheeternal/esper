@@ -13,8 +13,4 @@
     <ProjectReference Include="..\esper\esper.csproj" />
   </ItemGroup>
 
-	<Target Name="PostBuild" AfterTargets="PostBuildEvent">
-		<Exec Command="COPY &quot;$(SolutionDir)definitions.zip&quot; &quot;$(TargetDir)&quot; /Y&#xD;&#xA;XCOPY &quot;$(SolutionDir)fixtures\Starfield.esm&quot; &quot;$(TargetDir)\fixtures\Starfield.esm&quot; /S /Y" />
-	</Target>
-
 </Project>
