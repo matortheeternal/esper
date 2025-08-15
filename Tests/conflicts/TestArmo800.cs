@@ -2,44 +2,19 @@
 using esper.conflicts;
 using esper.plugins;
 using esper.setup;
-using Newtonsoft.Json.Linq;
 using NUnit.Framework;
-using System;
-using System.IO;
-using System.Linq;
 
-namespace Tests.plugins {
-    public class ConflictTests {
+namespace Tests.conflicts {
+    public class TestArmo800 {
         public Session session;
         public PluginManager pluginManager => session.pluginManager;
         private ConflictView view1;
-        private ConflictView view2;
-        private ConflictView view3;
 
         private void LoadPlugins(string[] filenames) {
             foreach (var filename in filenames) {
                 var pluginPath = TestHelpers.FixturePath(filename);
                 pluginManager.LoadPlugin(pluginPath);
             }
-        }
-
-        private void ExportConflictRow(JArray output, ConflictRow row) {
-            var cellConflicts = row.cells.Select(cell => cell.conflictStatus.ToString());
-            var obj = new JObject {
-                { "label", row.name },
-                { "rowConflict", row.conflictStatus.ToString() },
-                { "cellConflicts", new JArray(cellConflicts) }
-            };
-            output.Add(obj);
-            if (row.childRows == null) return;
-            row.childRows.ForEach(childRow => ExportConflictRow(output, childRow));
-        }
-
-        private void ExportConflicts(ConflictView view, string filename) {
-            var output = new JArray();
-            ExportConflictRow(output, view.row);
-            var outputPath = Path.Join(Environment.CurrentDirectory, filename);
-            File.WriteAllText(outputPath, output.ToString());
         }
 
         [OneTimeSetUp]
@@ -56,9 +31,7 @@ namespace Tests.plugins {
             Assert.AreEqual(pluginManager.plugins[2].name, "ConflictTest3.esp");
             var plugin1 = pluginManager.plugins[0] as IRecordManager;
             view1 = new ConflictView(plugin1.GetRecordByFormId(0x800));
-            ExportConflicts(view1, "0x800.json");
-            view2 = new ConflictView(plugin1.GetRecordByFormId(0x801));
-            view3 = new ConflictView(plugin1.GetRecordByFormId(0x802));
+            Helpers.ExportConflicts(view1, "0x800.json");
         }
 
         private void TestConflictStates(
