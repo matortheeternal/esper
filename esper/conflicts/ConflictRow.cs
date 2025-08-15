@@ -9,6 +9,8 @@ namespace esper.conflicts {
         public RowConflictStatus conflictStatus;
         public List<ConflictRow> childRows;
         public List<ConflictCell> cells;
+        public Element firstElement => cells.First(cell => cell.element != null).element;
+        public string name => firstElement.name;
 
         public ConflictRow(List<Element> elements) {
             InitCells(elements);
@@ -20,19 +22,16 @@ namespace esper.conflicts {
             }
         }
 
-        private CellConflictStatus InheritCellConflictStatus() {
-            var firstCell = cells.First(c => c.element != null);
-            var firstConflictType = firstCell?.element.def.conflictType;
-            if (firstConflictType == ConflictType.Ignore)
-                return CellConflictStatus.Ignored;
-            return CellConflictStatus.NotDefined;
+        private CellConflictStatus InheritCellConflictStatus(int index) {
+            return childRows.Select(row => row.cells[index].conflictStatus).Max();
         }
 
         private void InheritConflictStatus() {
             conflictStatus = childRows.Select(r => r.conflictStatus).Max();
-            var cellConflictStatus = InheritCellConflictStatus();
-            foreach (var cell in cells)
-                cell.conflictStatus = cellConflictStatus;
+            for (int i = 0; i < cells.Count; i++) {
+                var cell = cells[i];
+                cell.conflictStatus = InheritCellConflictStatus(i);
+            }
         }
 
         private void CalculateConflicts(List<Element> elements) {
@@ -117,12 +116,13 @@ namespace esper.conflicts {
         }
 
         public JToken ChangesToJson(int index) {
+            var changes = new JObject();
             var cell = cells[index];
             if (cell.isItm) return null;
             foreach (var childRow in childRows) {
-
+                // TODO
             }
-            return null;
+            return changes;
         }
     }
 }

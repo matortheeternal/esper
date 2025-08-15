@@ -36,6 +36,7 @@ namespace esper.defs {
         public ElementDef(ElementDef other) : base(other) {
             name = other.name;
             required = other.required;
+            conflictType = other.conflictType;
         }
 
         public virtual bool ContainsSignature(Signature signature) {

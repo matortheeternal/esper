@@ -106,12 +106,18 @@ namespace esper.conflicts {
                (conflictType <= ConflictType.Ignore || !firstElementIgnored);
         }
 
+        internal bool IgnoreRow() {
+            return row.cells.Any(cell => 
+                cell.conflictStatus == CellConflictStatus.Ignored
+            );
+        }
+
         internal CellConflictStatus CalculateCellConflict(
             ConflictCell cell, int index
         ) {
             if (cell.element == null) return CellConflictStatus.Unknown;
-            if (index == 0) return CellConflictStatus.Master;
             if (ShouldIgnore(cell)) return CellConflictStatus.Ignored;
+            if (index == 0) return CellConflictStatus.Master;
             if (cellCount == 1) return CellConflictStatus.OnlyOne;
             if (hasConflict && conflictType == ConflictType.Benign)
                 return CellConflictStatus.ConflictBenign;
@@ -122,7 +128,7 @@ namespace esper.conflicts {
                     : CellConflictStatus.IdenticalToMaster;
             if (cellValue == lastCellValue && overrideConflict)
                 return CellConflictStatus.Override;
-            if (hasConflict && cell.element != firstElement && !cell.ignored)
+            if (hasConflict)
                 return cellValue == lastCellValue
                     ? CellConflictStatus.ConflictWins
                     : CellConflictStatus.ConflictLoses;
@@ -134,6 +140,7 @@ namespace esper.conflicts {
         internal RowConflictStatus CalculateRowConflict() {
             if (firstElement == null) return RowConflictStatus.Unknown;
             if (cellCount == 1) return RowConflictStatus.OnlyOne;
+            if (IgnoreRow()) return RowConflictStatus.NoConflict;
             var valueCount = UniqueValues.Count;
             if (valueCount == 1) return RowConflictStatus.NoConflict;
             if (conflictType == ConflictType.Benign)
