@@ -83,11 +83,16 @@ namespace esper.conflicts {
 
         private void SortElement(
             Element element, SortedDictionary<string, List<Element>> rows, 
-            int numCells, int index
+            int numCells, int index, int repeat = 1
         ) {
             var sortKey = element.sortKey;
+            if (repeat > 1) sortKey = $"{sortKey}-{repeat}";
             if (!rows.ContainsKey(sortKey))
                 rows[sortKey] = MakeElementList(numCells);
+            if (rows[sortKey][index] != null) {
+                SortElement(element, rows, numCells, index, repeat + 1);
+                return;
+            }
             rows[sortKey][index] = element;
         }
 
