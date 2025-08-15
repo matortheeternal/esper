@@ -76,7 +76,7 @@ namespace esper.helpers {
             return (ElementDef) manager.BuildDef(defSrc);
         }
 
-        public static ReadOnlyCollection<T> Defs<T>(
+        public static List<T> Defs<T>(
             DefinitionManager manager, JObject src, string key, bool optional = false
         ) where T : Def {
             if (!optional) ErrorHelpers.CheckDefProperty(src, key);
@@ -85,9 +85,9 @@ namespace esper.helpers {
                 if (optional) return null;
                 throw new Exception("No def sources found.");
             }
-            return sources.Select(src => {
-                return (T) manager.BuildDef((JObject)src);
-            }).ToList().AsReadOnly();
+            return sources.Select(source => {
+                return (T) manager.BuildDef((JObject)source);
+            }).Where(def => def != null).ToList();
         }
 
         public static Def Def(DefinitionManager manager, JObject src, string key) {
@@ -100,6 +100,16 @@ namespace esper.helpers {
             if (!src.ContainsKey("format")) return null;
             var formatSrc = src.Value<JObject>("format");
             return (FormatDef)manager.BuildDef(formatSrc);
+        }
+
+        public static SignaturesDef SignaturesDef(DefinitionManager manager, JObject src) {
+            var signaturesSrc = src["signatures"] is JObject 
+                ? src.Value<JObject>("signatures") 
+                : new JObject {
+                    { "type", "signatures" },
+                    { "signatures", src.Value<JArray>("signatures") }
+                };
+            return (SignaturesDef)manager.BuildDef(signaturesSrc);
         }
 
         public static Decider Decider(DefinitionManager manager, JObject src) {

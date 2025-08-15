@@ -5,7 +5,6 @@ using esper.setup;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
 
 namespace esper.defs {
@@ -15,13 +14,13 @@ namespace esper.defs {
         public override SmashType smashType => SmashType.stStruct;
 
         private readonly bool _canContainFormIds;
-        internal ReadOnlyCollection<ElementDef> elementDefs;
+        internal List<ElementDef> elementDefs;
         internal readonly List<int> sortKeyIndices;
         internal readonly List<int> elementMap;
 
         public override int? size => elementDefs.Sum(def => def.size);
         public override bool canContainFormIds => _canContainFormIds;
-        public override ReadOnlyCollection<ElementDef> childDefs => elementDefs;
+        public override List<ElementDef> childDefs => elementDefs;
 
         public StructDef(DefinitionManager manager, JObject src)
             : base(manager, src) {
@@ -32,7 +31,7 @@ namespace esper.defs {
         }
 
         public StructDef(StructDef other) : base(other) {
-            elementDefs = new ReadOnlyCollection<ElementDef>(other.elementDefs);
+            elementDefs = new List<ElementDef>(other.elementDefs);
             sortKeyIndices = other.sortKeyIndices == null 
                 ? null
                 : new List<int>(other.sortKeyIndices);

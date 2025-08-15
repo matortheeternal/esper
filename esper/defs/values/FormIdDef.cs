@@ -1,11 +1,10 @@
-﻿using esper.elements;
+using esper.elements;
 using esper.data;
 using esper.io;
 using esper.setup;
 using System;
 using Newtonsoft.Json.Linq;
 using esper.helpers;
-using System.Collections.Generic;
 using esper.resolution;
 
 namespace esper.defs {
@@ -14,7 +13,7 @@ namespace esper.defs {
         public override XEDefType valueDefType => XEDefType.dtIntegerFormater;
         public override SmashType smashType => SmashType.stInteger;
 
-        internal readonly List<string> allowedSignatures = null;
+        internal readonly SignaturesDef allowedSignatures = null;
         internal readonly bool validateFlstRefs = false;
         internal readonly bool persistent = false;
 
@@ -24,7 +23,7 @@ namespace esper.defs {
         public FormIdDef(DefinitionManager manager, JObject src)
             : base(manager, src) {
             if (src.ContainsKey("signatures"))
-                allowedSignatures = JsonHelpers.List<string>(src, "signatures");
+                allowedSignatures = JsonHelpers.SignaturesDef(manager, src);
             if (src.ContainsKey("validateFlstRefs"))
                 validateFlstRefs = src.Value<bool>("validateFlstRefs");
             if (src.ContainsKey("persistent"))

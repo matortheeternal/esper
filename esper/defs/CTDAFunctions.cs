@@ -2,14 +2,14 @@
 using esper.setup;
 using Newtonsoft.Json.Linq;
 using System;
-using System.Collections.ObjectModel;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace esper.defs {
     public class CTDAFunctions : Def {
         public static readonly string defId = "ctdaFunctions";
 
-        public ReadOnlyCollection<CTDAFunction> ctdaFunctions;
+        public List<CTDAFunction> ctdaFunctions;
 
         public CTDAFunctions(DefinitionManager manager, JObject src) 
             : base(manager, src) {

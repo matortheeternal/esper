@@ -52,7 +52,7 @@ namespace esper.defs {
             elementDefs[2] = new UInt32Def((UInt32Def)elementDefs[2]) {
                 formatDef = (FormatDef)manager.BuildDef(flagsSrc)
             };
-            headerDef.elementDefs = elementDefs.AsReadOnly();
+            headerDef.elementDefs = elementDefs;
             return headerDef;
         }
 

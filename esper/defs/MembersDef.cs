@@ -1,19 +1,18 @@
-﻿using esper.helpers;
+using esper.helpers;
 using esper.setup;
 using esper.data;
 using Newtonsoft.Json.Linq;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
 
 namespace esper.defs {
     public class MembersDef : ElementDef {
         private readonly bool _canContainFormIds;
 
-        public ReadOnlyCollection<ElementDef> memberDefs;
+        public List<ElementDef> memberDefs;
         public HashSet<Signature> signatures;
         public override bool canContainFormIds => _canContainFormIds;
-        public override ReadOnlyCollection<ElementDef> childDefs => memberDefs;
+        public override List<ElementDef> childDefs => memberDefs;
 
         public MembersDef(DefinitionManager manager, JObject src)
             : base(manager, src) {

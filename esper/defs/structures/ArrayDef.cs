@@ -4,7 +4,6 @@ using esper.setup;
 using esper.elements;
 using esper.io;
 using System;
-using System.Collections.ObjectModel;
 using System.Collections.Generic;
 
 namespace esper.defs {
@@ -28,8 +27,8 @@ namespace esper.defs {
         public readonly bool sorted;
 
         public override bool canContainFormIds => elementDef.canContainFormIds;
-        public override ReadOnlyCollection<ElementDef> childDefs {
-            get => new List<ElementDef>() { elementDef }.AsReadOnly();
+        public override List<ElementDef> childDefs {
+            get => new List<ElementDef>() { elementDef };
         }
 
         public ArrayDef(DefinitionManager manager, JObject src)

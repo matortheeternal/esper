@@ -5,7 +5,7 @@ using esper.setup;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Linq;
-using System.Collections.ObjectModel;
+using System.Collections.Generic;
 
 namespace esper.defs {
     public class UnionDef : MaybeSubrecordDef {
@@ -15,10 +15,10 @@ namespace esper.defs {
 
         private readonly bool _canContainFormIds;
         private readonly Decider decider;
-        public ReadOnlyCollection<ElementDef> elementDefs;
+        public List<ElementDef> elementDefs;
 
         public override bool canContainFormIds => _canContainFormIds;
-        public override ReadOnlyCollection<ElementDef> childDefs => elementDefs;
+        public override List<ElementDef> childDefs => elementDefs;
 
         public UnionDef(DefinitionManager manager, JObject src) 
             : base(manager, src) {

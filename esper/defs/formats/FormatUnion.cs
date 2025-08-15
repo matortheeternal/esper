@@ -2,7 +2,7 @@
 using esper.helpers;
 using esper.setup;
 using Newtonsoft.Json.Linq;
-using System.Collections.ObjectModel;
+using System.Collections.Generic;
 
 namespace esper.defs {
     public class FormatUnion : FormatDef {
@@ -10,7 +10,7 @@ namespace esper.defs {
         public override XEDefType defType => XEDefType.dtIntegerFormaterUnion;
 
         public Decider decider;
-        public ReadOnlyCollection<FormatDef> formatDefs;
+        public List<FormatDef> formatDefs;
 
         public FormatUnion(
             DefinitionManager manager, JObject src

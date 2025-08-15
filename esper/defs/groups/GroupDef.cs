@@ -6,16 +6,16 @@ using esper.io;
 using esper.setup;
 using Newtonsoft.Json.Linq;
 using System;
-using System.Collections.ObjectModel;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace esper.defs {
     public class GroupDef : ElementDef {
         public static string defId = "group";
 
-        internal ReadOnlyCollection<ElementDef> childrenDefs;
+        internal List<ElementDef> childrenDefs;
 
-        public override ReadOnlyCollection<ElementDef> childDefs => childrenDefs;
+        public override List<ElementDef> childDefs => childrenDefs;
         public override bool canContainFormIds => true;
         public virtual int groupType => throw new NotImplementedException();
         public virtual bool hasRecordParent => false;

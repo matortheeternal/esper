@@ -1,4 +1,4 @@
-﻿using esper.data.headers;
+using esper.data.headers;
 using esper.elements;
 using esper.helpers;
 using esper.io;
@@ -24,7 +24,7 @@ namespace esper.defs {
         public virtual string displayName => name;
         public virtual int? size => 0;
 
-        public virtual ReadOnlyCollection<ElementDef> childDefs => null;
+        public virtual List<ElementDef> childDefs => null;
 
         public ElementDef(DefinitionManager manager, JObject src)
             : base(manager, src) {

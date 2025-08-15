@@ -1,4 +1,4 @@
-﻿using esper.data;
+using esper.data;
 using esper.data.headers;
 using esper.elements;
 using esper.helpers;
@@ -8,7 +8,6 @@ using esper.setup;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 
 namespace esper.defs {
     using TopGroupsMap = Dictionary<Signature, GroupDef>;
@@ -16,10 +15,10 @@ namespace esper.defs {
     public class PluginFileDef : ElementDef {
         public static string defId = "pluginFile";
 
-        internal ReadOnlyCollection<ElementDef> childrenDefs;
+        internal List<ElementDef> childrenDefs;
         internal readonly TopGroupsMap topGroups;
 
-        public override ReadOnlyCollection<ElementDef> childDefs => childrenDefs;
+        public override List<ElementDef> childDefs => childrenDefs;
 
         public PluginFileDef(DefinitionManager manager, JObject src)
             : base(manager, src) {
