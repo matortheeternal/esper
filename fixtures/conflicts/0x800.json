@@ -1,0 +1,236 @@
+[
+  {
+    "label": "Record Header",
+    "rowConflict": "caNoConflict",
+    "cellConflicts": [
+      "ctMaster",
+      "ctIdenticalToMaster",
+      "ctIdenticalToMaster"
+    ]
+  },
+  {
+    "label": "Signature",
+    "rowConflict": "caNoConflict",
+    "cellConflicts": [
+      "ctMaster",
+      "ctIdenticalToMaster",
+      "ctIdenticalToMaster"
+    ]
+  },
+  {
+    "label": "Data Size",
+    "rowConflict": "caNoConflict",
+    "cellConflicts": [
+      "ctIgnored",
+      "ctIgnored",
+      "ctIgnored"
+    ]
+  },
+  {
+    "label": "Record Flags",
+    "rowConflict": "caNoConflict",
+    "cellConflicts": [
+      "ctMaster",
+      "ctIdenticalToMaster",
+      "ctIdenticalToMaster"
+    ]
+  },
+  {
+    "label": "FormID",
+    "rowConflict": "caNoConflict",
+    "cellConflicts": [
+      "ctMaster",
+      "ctIdenticalToMaster",
+      "ctIdenticalToMaster"
+    ]
+  },
+  {
+    "label": "Version Control Info 1",
+    "rowConflict": "caNoConflict",
+    "cellConflicts": [
+      "ctIgnored",
+      "ctIgnored",
+      "ctIgnored"
+    ]
+  },
+  {
+    "label": "Form Version",
+    "rowConflict": "caNoConflict",
+    "cellConflicts": [
+      "ctIgnored",
+      "ctIgnored",
+      "ctIgnored"
+    ]
+  },
+  {
+    "label": "Version Control Info 2",
+    "rowConflict": "caNoConflict",
+    "cellConflicts": [
+      "ctIgnored",
+      "ctIgnored",
+      "ctIgnored"
+    ]
+  },
+  {
+    "label": "EDID - Editor ID",
+    "rowConflict": "caNoConflict",
+    "cellConflicts": [
+      "ctMaster",
+      "ctIdenticalToMaster",
+      "ctIdenticalToMaster"
+    ]
+  },
+  {
+    "label": "OBND - Object Bounds",
+    "rowConflict": "caConflict",
+    "cellConflicts": [
+      "ctMaster",
+      "ctConflictLoses",
+      "ctIdenticalToMasterWinsConflict"
+    ]
+  },
+  {
+    "label": "X1",
+    "rowConflict": "caConflict",
+    "cellConflicts": [
+      "ctMaster",
+      "ctConflictLoses",
+      "ctIdenticalToMasterWinsConflict"
+    ]
+  },
+  {
+    "label": "Y1",
+    "rowConflict": "caNoConflict",
+    "cellConflicts": [
+      "ctMaster",
+      "ctIdenticalToMaster",
+      "ctIdenticalToMaster"
+    ]
+  },
+  {
+    "label": "Z1",
+    "rowConflict": "caOverride",
+    "cellConflicts": [
+      "ctMaster",
+      "ctIdenticalToMaster",
+      "ctOverride"
+    ]
+  },
+  {
+    "label": "X2",
+    "rowConflict": "caNoConflict",
+    "cellConflicts": [
+      "ctMaster",
+      "ctIdenticalToMaster",
+      "ctIdenticalToMaster"
+    ]
+  },
+  {
+    "label": "Y2",
+    "rowConflict": "caNoConflict",
+    "cellConflicts": [
+      "ctMaster",
+      "ctIdenticalToMaster",
+      "ctIdenticalToMaster"
+    ]
+  },
+  {
+    "label": "Z2",
+    "rowConflict": "caNoConflict",
+    "cellConflicts": [
+      "ctMaster",
+      "ctIdenticalToMaster",
+      "ctIdenticalToMaster"
+    ]
+  },
+  {
+    "label": "FULL - Name",
+    "rowConflict": "caOverride",
+    "cellConflicts": [
+      "ctUnknown",
+      "ctUnknown",
+      "ctOverride"
+    ]
+  },
+  {
+    "label": "KSIZ - Keyword Count",
+    "rowConflict": "caConflictBenign",
+    "cellConflicts": [
+      "ctUnknown",
+      "ctConflictBenign",
+      "ctConflictBenign"
+    ]
+  },
+  {
+    "label": "KWDA - Keywords",
+    "rowConflict": "caOverride",
+    "cellConflicts": [
+      "ctUnknown",
+      "ctOverride",
+      "ctOverride"
+    ]
+  },
+  {
+    "label": "Keyword",
+    "rowConflict": "caOverride",
+    "cellConflicts": [
+      "ctUnknown",
+      "ctOverride",
+      "ctOverride"
+    ]
+  },
+  {
+    "label": "Keyword",
+    "rowConflict": "caOverride",
+    "cellConflicts": [
+      "ctUnknown",
+      "ctUnknown",
+      "ctOverride"
+    ]
+  },
+  {
+    "label": "DATA - Data",
+    "rowConflict": "caConflict",
+    "cellConflicts": [
+      "ctMaster",
+      "ctConflictLoses",
+      "ctConflictWins"
+    ]
+  },
+  {
+    "label": "Value",
+    "rowConflict": "caConflict",
+    "cellConflicts": [
+      "ctMaster",
+      "ctConflictLoses",
+      "ctConflictWins"
+    ]
+  },
+  {
+    "label": "Weight",
+    "rowConflict": "caOverride",
+    "cellConflicts": [
+      "ctMaster",
+      "ctOverride",
+      "ctOverride"
+    ]
+  },
+  {
+    "label": "DNAM - Armor Rating",
+    "rowConflict": "caConflict",
+    "cellConflicts": [
+      "ctMaster",
+      "ctConflictLoses",
+      "ctIdenticalToMasterWinsConflict"
+    ]
+  },
+  {
+    "label": "TNAM - Template Armor",
+    "rowConflict": "caConflict",
+    "cellConflicts": [
+      "ctUnknown",
+      "ctConflictLoses",
+      "ctUnknown"
+    ]
+  }
+]

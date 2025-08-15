@@ -28,6 +28,12 @@ namespace Tests {
             Assert.AreEqual("255", c.GetValue("Blue"));
         }
 
+        private static int GetDiffOffset(byte[] oldBytes, byte[] newBytes) {
+            for (int i = 0; i < oldBytes.Length; i++)
+                if (oldBytes[i] != newBytes[i]) return i;
+            throw new Exception("No difference.");
+        }
+
         public static void BinaryEqual(string oldPath, string newPath) {
             var oldStream = new FileStream(
                 oldPath, FileMode.Open,
@@ -44,10 +50,12 @@ namespace Tests {
             var len = oldStream.Length;
             while (i < len) {
                 int bytesToRead = Math.Min(1024, (int) len - i);
-                i += bytesToRead;
                 var oldBytes = oldReader.ReadBytes(bytesToRead);
                 var newBytes = newReader.ReadBytes(bytesToRead);
-                Assert.IsTrue(oldBytes.SequenceEqual(newBytes));
+                var equal = oldBytes.SequenceEqual(newBytes);
+                var offset = equal ? 0 : i + GetDiffOffset(oldBytes, newBytes);
+                Assert.IsTrue(equal, $"Bytes not equal at offset {offset}");
+                i += bytesToRead;
             }
                 
         }

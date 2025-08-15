@@ -109,10 +109,10 @@ namespace esper.conflicts {
         internal CellConflictStatus CalculateCellConflict(
             ConflictCell cell, int index
         ) {
-            if (firstElement == null) return CellConflictStatus.NotDefined;
+            if (cell.element == null) return CellConflictStatus.Unknown;
+            if (index == 0) return CellConflictStatus.Master;
             if (ShouldIgnore(cell)) return CellConflictStatus.Ignored;
             if (cellCount == 1) return CellConflictStatus.OnlyOne;
-            if (index == 0) return CellConflictStatus.Master;
             if (hasConflict && conflictType == ConflictType.Benign)
                 return CellConflictStatus.ConflictBenign;
             var cellValue = CellValues[index];
@@ -132,7 +132,7 @@ namespace esper.conflicts {
         }
 
         internal RowConflictStatus CalculateRowConflict() {
-            if (cellCount == 0) return RowConflictStatus.Unknown;
+            if (firstElement == null) return RowConflictStatus.Unknown;
             if (cellCount == 1) return RowConflictStatus.OnlyOne;
             var valueCount = UniqueValues.Count;
             if (valueCount == 1) return RowConflictStatus.NoConflict;

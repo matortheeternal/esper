@@ -9,7 +9,7 @@ namespace Tests.plugins {
 
         [OneTimeSetUp]
         public void SetUp() {
-            session = new Session(Games.SSE, new SessionOptions { });
+            session = new Session(Games.SSE, new SessionOptions());
         }
 
         [Test]

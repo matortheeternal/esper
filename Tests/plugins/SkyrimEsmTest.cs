@@ -13,7 +13,7 @@ namespace Tests.plugins {
     public class SkyrimEsmTest {
         public Session session;
         public PluginManager pluginManager => session.pluginManager;
-        public ResourceManager resourceManager;
+        public ResourceManager resourceManager => session.resourceManager;
         public PluginFile plugin;
         public Stopwatch watch = new Stopwatch();
         public Stopwatch watch2 = new Stopwatch();
@@ -42,7 +42,6 @@ namespace Tests.plugins {
         [OneTimeSetUp]
         public void SetUp() {
             session = new Session(Games.TES5, new SessionOptions());
-            resourceManager = new ResourceManager(session, true);
             LoadSkyrimEsm();
             resourceManager.LoadPluginStrings(plugin, GetStringFiles());
         }

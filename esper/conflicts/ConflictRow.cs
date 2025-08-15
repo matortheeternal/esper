@@ -1,5 +1,6 @@
 ﻿using esper.defs;
 using esper.elements;
+using Newtonsoft.Json.Linq;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -51,25 +52,28 @@ namespace esper.conflicts {
             }
         }
 
-        private void AppendUnsortedRow(
-            int elementCount, List<int> counts, 
-            List<Container> containers, int elementIndex
+        private void AssignChildren(
+            SortedDictionary<int, Element[]> entries, 
+            int elementCount, Container container, int columnIndex
         ) {
-            var childElements = new List<Element>(elementCount);
-            for (int i = 0; i < elementCount; i++) {
-                childElements.Add(elementIndex < counts[i]
-                    ? containers[i].elements[elementIndex]
-                    : null);
+            var childDefs = container.def.childDefs;
+            foreach (var child in container.elements) {
+                var rowIndex = childDefs.IndexOf(child.def);
+                if (!entries.ContainsKey(rowIndex))
+                    entries[rowIndex] = new Element[elementCount];
+                entries[rowIndex][columnIndex] = child;
             }
-            childRows.Add(new ConflictRow(childElements));
         }
 
         private void AddUnsortedChildRows(List<Element> elements) {
             var elementCount = elements.Count;
-            var containers = elements.Select(e => e as Container).ToList();
-            var counts = containers.Select(c => c != null ? c.count : 0).ToList();
-            for (int i = 0; i < counts.Max(); i++)
-                AppendUnsortedRow(elementCount, counts, containers, i);
+            var entries = new SortedDictionary<int, Element[]>();
+            for (int i = 0; i < elementCount; i++) {
+                var container = elements[i] as Container;
+                AssignChildren(entries, elementCount, container, i);
+            }
+            foreach (var entry in entries)
+                childRows.Add(new ConflictRow(entry.Value.ToList()));
         }
 
         private List<Element> MakeElementList(int numCells) {
@@ -92,9 +96,11 @@ namespace esper.conflicts {
             var containers = elements.Select(e => e as Container).ToList();
             var rows = new SortedDictionary<string, List<Element>>();
             var numCells = containers.Count;
-            for (int i = 0; i < numCells; i++)
+            for (int i = 0; i < numCells; i++) {
+                if (containers[i] == null) continue;
                 foreach (var element in containers[i].elements)
                     SortElement(element, rows, numCells, i);
+            }
             foreach (var entry in rows)
                 childRows.Add(new ConflictRow(entry.Value));
         }
@@ -108,6 +114,15 @@ namespace esper.conflicts {
             } else {
                 AddUnsortedChildRows(elements);
             }
+        }
+
+        public JToken ChangesToJson(int index) {
+            var cell = cells[index];
+            if (cell.isItm) return null;
+            foreach (var childRow in childRows) {
+
+            }
+            return null;
         }
     }
 }
