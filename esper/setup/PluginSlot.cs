@@ -17,5 +17,10 @@ namespace esper.setup {
         public virtual UInt32 FormatFormId(UInt32 localFormId) {
             throw new NotImplementedException();
         }
+
+        public virtual void ReplaceWithDummy() {
+            plugin = new PluginFile(plugin.session, plugin.filename, new PluginFileOptions { });
+            plugin.container = plugin.session.pluginManager.root;
+        }
     }
 }

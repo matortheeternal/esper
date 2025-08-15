@@ -41,10 +41,14 @@
             name = "Fallout 4",
             abbreviation = "FO4",
             cccName = "Fallout4.ccc",
-            pluginsTxtType = "asterisk",
+            pluginsTxtType = PluginsTxtType.Asterisk,
             archiveExtension = ".ba2",
             extendedArchiveMatching = true,
-            pluginExtensions = { ".esl" },
+            pluginExtensions = { 
+                ModuleExtension.ESL,
+                ModuleExtension.ESP,
+                ModuleExtension.ESM
+            },
             hardcodedPlugins = {
                 "DLCRobot.esm",
                 "DLCworkshop01.esm",
@@ -64,14 +68,35 @@
             abbreviation = "SSE",
             defsNamespace = "TES5",
             cccName = "Skyrim.ccc",
-            pluginsTxtType = "asterisk",
+            pluginsTxtType = PluginsTxtType.Asterisk,
             extendedArchiveMatching = true,
-            pluginExtensions = { ".esl" },
+            pluginExtensions = { 
+                ModuleExtension.ESL,
+                ModuleExtension.ESP,
+                ModuleExtension.ESM
+            },
             hardcodedPlugins = {
                 "Update.esm",
                 "Dawnguard.esm",
                 "HeathFires.esm",
                 "Dragonborn.esm"
+            },
+            steamAppIds = { 377160 }
+        }.InitDefaults();
+
+        public static Game SF = new Game {
+            xeditId = 9,
+            name = "Starfield",
+            abbreviation = "SF",
+            pluginExtensions = {
+                ModuleExtension.ESL,
+                ModuleExtension.ESP,
+                ModuleExtension.ESM
+            },
+            hardcodedPlugins = {
+                "BlueprintShips-Starfield.esm",
+                "OldMars.esm",
+                "Constellation.esm",
             },
             steamAppIds = { 377160 }
         }.InitDefaults();

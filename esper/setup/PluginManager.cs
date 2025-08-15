@@ -8,8 +8,8 @@ using System.IO;
 
 namespace esper.setup {
     public class PluginManager {
-        public Game game;
         public Session session;
+        public Game game => session.game;
         public RootElement root;
         public bool usingLightPlugins;
         public int maxLightPluginIndex;
@@ -38,8 +38,7 @@ namespace esper.setup {
             }
         }
 
-        public PluginManager(Game game, Session session) {
-            this.game = game;
+        public PluginManager(Session session) {
             this.session = session;
             usingLightPlugins = session.options.allowLightPlugins &&
                 game.SupportsLightPlugins();
@@ -76,11 +75,17 @@ namespace esper.setup {
 
         public PluginFile CreateDummyPlugin(string filename) {
             logger.Info($"Using dummy plugin for {filename}");
-            return new PluginFile(session, filename, new PluginFileOptions{});
+            var dummy = new PluginFile(session, filename, new PluginFileOptions { });
+            dummy.container = root;
+            return dummy;
+        }
+
+        public bool HasPlugin(string filename) {
+            return GetFileByName(filename) != null;
         }
 
         public PluginFile GetFileByName(
-            string filename, 
+            string filename,
             bool createDummyIfMissing = false
         ) {
             foreach (var plugin in plugins)
@@ -122,6 +127,32 @@ namespace esper.setup {
         internal UInt32? GetGlobalFormId(PluginFile file, UInt32 fileFormId) {
             var formId = FormId.FromSource(file, fileFormId);
             return formId.globalFormId;
+        }
+
+        internal void DestroyRefBy(PluginFile plugin) {
+            foreach (var loadedPlugin in plugins) {
+                var recordManager = loadedPlugin as IRecordManager;
+                if (loadedPlugin.Equals(plugin)) continue;
+                foreach (var record in recordManager.records)
+                    record.DestroyRefBy(plugin);
+            }
+        }
+
+        internal void MakeSlotsDumb(PluginFile plugin) {
+            fullPluginSlots.ForEach(slot => {
+                if (!slot.plugin.Equals(plugin)) return;
+                slot.ReplaceWithDummy();
+            });
+            lightPluginSlots.ForEach(slot => {
+                if (!slot.plugin.Equals(plugin)) return;
+                slot.ReplaceWithDummy();
+            });
+        }
+
+        public void UnloadPlugin(PluginFile plugin) {
+            DestroyRefBy(plugin);
+            plugins.Remove(plugin);
+            MakeSlotsDumb(plugin);
         }
     }
 }

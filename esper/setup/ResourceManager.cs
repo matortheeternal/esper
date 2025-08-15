@@ -9,19 +9,20 @@ using System;
 namespace esper.setup {
     public class ResourceManager {
         private readonly Session session;
-        private readonly List<string> allArchives;
+        private List<string> allArchives;
         private readonly balsa.Game balsaGame;
-        private readonly GameIni gameIni;
+        private GameIni gameIni => session.gameIni;
 
         public readonly AssetManager assetManager;
 
-        public ResourceManager(Session session, bool skipInit = false) {
+        public ResourceManager(Session session) {
             this.session = session;
             balsaGame = ResolveBalsaGame();
             assetManager = new AssetManager(balsaGame);
-            if (skipInit) return;
+        }
+
+        internal void Init() {
             allArchives = GetAllArchives();
-            gameIni = new GameIni(session.game);
         }
 
         private balsa.Game ResolveBalsaGame() {

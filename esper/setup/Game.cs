@@ -1,6 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using esper.helpers;
+using IniParser;
+using IniParser.Model;
 
 namespace esper {
     public class Game {
@@ -18,11 +21,14 @@ namespace esper {
         public string iniName;
         public string headerTypeKey = "TES4";
         public string cccName = null;
-        public string pluginsTxtType = "plain";
+        public PluginsTxtType pluginsTxtType = PluginsTxtType.Plain;
         public string archiveExtension = ".bsa";
+        public UIntPtr registryRoot = RegHive.HKEY_LOCAL_MACHINE;
+        public string registryValue = "Installed Path";
+        public string registryPath = @"SOFTWARE\Bethesda Softworks";
         public bool extendedArchiveMatching = false;
-        public List<string> pluginExtensions = new List<string> {
-            ".esp", ".esm"
+        public List<ModuleExtension> pluginExtensions = new List<ModuleExtension> {
+            ModuleExtension.ESP, ModuleExtension.ESM
         };
         public List<string> hardcodedPlugins = new List<string>();
         public List<int> steamAppIds = new List<int>();
@@ -32,6 +38,17 @@ namespace esper {
                 var docsId = Environment.SpecialFolder.MyDocuments;
                 var docsPath = Environment.GetFolderPath(docsId);
                 return Path.Combine(docsPath, "My Games", myGamesFolderName);
+            }
+        }
+
+        private IniData _iniData;
+        public IniData gameIni {
+            get {
+                if (_iniData == null) {
+                    var parser = new FileIniDataParser();
+                    _iniData = parser.ReadFile(iniPath);
+                }
+                return _iniData;
             }
         }
 
@@ -50,7 +67,7 @@ namespace esper {
                 esmName = $"{baseNameOverride}.esm";
                 iniName = $"{baseNameOverride}.ini";
             }
-            hardcodedPlugins.Add(esmName);
+            hardcodedPlugins.Insert(0, esmName);
         }
 
         public Game InitDefaults() {
@@ -67,7 +84,12 @@ namespace esper {
         }
 
         public bool SupportsLightPlugins() {
-            return pluginExtensions.Contains(".esl");
+            return pluginExtensions.Contains(ModuleExtension.ESL);
+        }
+
+        public string GetInstallLocation() {
+            var keyPath = Path.Combine(registryPath, registryName);
+            return RegistryWOW6432.TryGetRegKey(registryRoot, keyPath, registryValue);
         }
     }
 }

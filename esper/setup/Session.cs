@@ -10,7 +10,9 @@ namespace esper.setup {
         public SessionOptions options;
         public DefinitionManager definitionManager;
         public PluginManager pluginManager;
+        public ResourceManager resourceManager;
         public string dataPath;
+        public GameIni gameIni;
         internal Assembly assembly;
 
         public RootElement root => pluginManager.root;
@@ -26,8 +28,11 @@ namespace esper.setup {
             assembly = Assembly.GetExecutingAssembly();
             logger.Info($"Esper v{assembly.GetName().Version}");
             logger.Info($"Starting a new session for {game.name}");
-            definitionManager = new DefinitionManager(game, this);
-            pluginManager = new PluginManager(game, this);
+            gameIni = new GameIni(this);
+            definitionManager = new DefinitionManager(this);
+            pluginManager = new PluginManager(this);
+            resourceManager = new ResourceManager(this);
+            if (options.loadResources) resourceManager.Init();
         }
     }
 }

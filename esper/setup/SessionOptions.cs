@@ -22,9 +22,12 @@ namespace esper.setup {
         public bool clampIntegerValues = true;
         public bool resolveAliases = false;
         public bool enforceExpectedReferences = false;
+        public bool loadResources = false;
+        public bool serializeNumericData = false;
         private uint _floatDigits = 6;
         public float epsilon = GetEpsilon(6);
         public string floatFormat => $"F{floatDigits}";
+        public string gamePath = "";
 
         public uint floatDigits {
             get => _floatDigits;
