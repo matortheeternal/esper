@@ -1,7 +1,7 @@
 ﻿using esper.elements;
-using System.Text.RegularExpressions;
 
 namespace esper.resolution.strategies {
+    [JSExport]
     public class CreateByDefault : ResolutionStrategy {
         private static readonly Regex expr = new Regex(@"^(?:\.|\[\+\])$");
         public override bool canResolve => false;

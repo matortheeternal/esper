@@ -1,8 +1,8 @@
 ﻿using esper.elements;
 using esper.setup;
-using Newtonsoft.Json.Linq;
 
 namespace esper.defs {
+    [JSExport]
     public class DivideDef : FormatDef {
         public static readonly string defId = "divide";
         public int divisionValue;

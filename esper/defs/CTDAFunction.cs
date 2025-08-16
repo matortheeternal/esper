@@ -1,8 +1,7 @@
 ﻿using esper.setup;
-using Newtonsoft.Json.Linq;
-using System;
 
 namespace esper.defs {
+    [JSExport]
     public class CTDAFunction : Def {
         public static readonly string defId = "ctdaFunction";
 

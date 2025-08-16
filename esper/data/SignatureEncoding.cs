@@ -1,6 +1,5 @@
-﻿using System;
-
-namespace esper {
+﻿namespace esper {
+    [JSExport]
     public class SignatureEncoding {
         public SignatureEncoding() {}
 

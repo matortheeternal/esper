@@ -1,9 +1,9 @@
 ﻿using esper.plugins;
 using esper.setup;
 using esper.data;
-using System;
 
 namespace esper.elements {
+    [JSExport]
     public class RootElement : Container {
         public readonly Session session;
 

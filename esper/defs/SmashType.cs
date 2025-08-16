@@ -1,4 +1,5 @@
 ﻿namespace esper.defs {
+    [JSExport]
     public enum SmashType : byte {
         stUnknown,
         stRecord,

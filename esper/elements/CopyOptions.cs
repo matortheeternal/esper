@@ -1,4 +1,5 @@
 ﻿namespace esper.elements {
+    [JSExport]
     public enum CopyOptions : byte {
         AsNewRecord = 1,
         CopyChildGroups = 2,

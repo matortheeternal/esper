@@ -1,7 +1,7 @@
 ﻿using esper.elements;
-using System.Text.RegularExpressions;
 
 namespace esper.resolution {
+    [JSExport]
     public class ElementMatch<T> : MatchData {
         public T target;
 

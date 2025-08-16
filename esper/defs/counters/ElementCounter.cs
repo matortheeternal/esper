@@ -1,8 +1,6 @@
 ﻿using esper.elements;
 using esper.resolution;
 using esper.setup;
-using Newtonsoft.Json.Linq;
-using System;
 
 namespace esper.defs {
     public class ElementCounter : CounterDef {

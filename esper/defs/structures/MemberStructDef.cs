@@ -3,11 +3,9 @@ using esper.helpers;
 using esper.io;
 using esper.setup;
 using esper.data;
-using Newtonsoft.Json.Linq;
-using System;
-using System.Collections.Generic;
 
 namespace esper.defs {
+    [JSExport]
     public class MemberStructDef : MembersDef {
         public static readonly string defId = "memberStruct";
         public override XEDefType defType => XEDefType.dtStruct;

@@ -1,10 +1,9 @@
-﻿using esper.io;
-using esper.elements;
+﻿using esper.elements;
+using esper.io;
 using esper.setup;
-using Newtonsoft.Json.Linq;
-using System;
 
 namespace esper.defs {
+    [JSExport]
     public class Int0Def : ValueDef {
         public static readonly string defId = "int0";
         public override XEDefType valueDefType => XEDefType.dtInteger;

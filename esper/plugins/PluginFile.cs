@@ -5,11 +5,9 @@ using esper.io;
 using esper.defs;
 using esper.data;
 using balsa.stringtables;
-using System;
-using System.Collections.Generic;
-using Newtonsoft.Json.Linq;
 
 namespace esper.plugins {
+    [JSExport]
     public class PluginFile : Container, IMasterManager, IRecordManager {
         public MainRecord header;
         internal Session session;

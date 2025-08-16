@@ -1,7 +1,5 @@
-﻿using System.Collections.Generic;
-using System.IO;
-
-namespace esper.setup {
+﻿namespace esper.setup {
+    [JSExport]
     public class LoadOrderFile {
         public Session session;
         public string filePath;

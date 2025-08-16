@@ -4,12 +4,9 @@ using esper.helpers;
 using esper.plugins;
 using esper.io;
 using esper.setup;
-using Newtonsoft.Json.Linq;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace esper.defs {
+    [JSExport]
     public class GroupDef : ElementDef {
         public static string defId = "group";
 

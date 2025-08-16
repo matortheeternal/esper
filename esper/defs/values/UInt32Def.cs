@@ -1,11 +1,10 @@
 ﻿using esper.elements;
+using esper.helpers;
 using esper.io;
 using esper.setup;
-using System;
-using Newtonsoft.Json.Linq;
-using esper.helpers;
 
 namespace esper.defs {
+    [JSExport]
     public class UInt32Def : ValueDef {
         public static readonly string defId = "uint32";
         public override XEDefType valueDefType => XEDefType.dtInteger;

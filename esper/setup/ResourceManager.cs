@@ -1,12 +1,9 @@
 ﻿using esper.plugins;
-using System.Collections.Generic;
-using System.IO;
 using balsa.setup;
-using System.Linq;
 using balsa.stringtables;
-using System;
 
 namespace esper.setup {
+    [JSExport]
     public class ResourceManager {
         private readonly Session session;
         private List<string> allArchives;

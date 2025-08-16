@@ -1,11 +1,9 @@
 ﻿using esper.defs;
-using Newtonsoft.Json.Linq;
-using System;
-using System.Collections.Generic;
 
 namespace esper.setup {
     using ClassMap = Dictionary<int, Type>;
 
+    [JSExport]
     public class GroupManager {
         private readonly DefinitionManager manager;
         private readonly ClassMap groupDefClasses = new ClassMap();

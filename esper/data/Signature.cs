@@ -1,7 +1,7 @@
 ﻿using esper.io;
-using System;
 
 namespace esper.data {
+    [JSExport]
     public struct Signature {
         static readonly SignatureEncoding encoding = new SignatureEncoding();
 

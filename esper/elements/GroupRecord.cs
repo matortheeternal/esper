@@ -1,13 +1,11 @@
 ﻿using esper.defs;
 using esper.plugins;
 using esper.io;
-using System;
 using esper.data.headers;
-using System.Linq;
 using esper.data;
-using Newtonsoft.Json.Linq;
 
 namespace esper.elements {
+    [JSExport]
     public class GroupRecord : Container {
         public TES4GroupHeader header;
         public EditorIdMap recordsByEditorID;

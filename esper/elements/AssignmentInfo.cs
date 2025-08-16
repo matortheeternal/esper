@@ -1,4 +1,5 @@
 ﻿namespace esper.elements {
+    [JSExport]
     public class AssignmentInfo {
         public int index = 0;
         public bool assigned = false;

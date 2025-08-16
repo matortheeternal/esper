@@ -1,7 +1,4 @@
-﻿using System;
-using System.Linq;
-
-namespace esper.helpers {
+﻿namespace esper.helpers {
     public static class DataHelpers {
         private static readonly char[] uintChars = "0123456789".ToCharArray();
 

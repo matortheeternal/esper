@@ -2,11 +2,9 @@
 using esper.elements;
 using esper.io;
 using esper.setup;
-using Newtonsoft.Json.Linq;
-using System;
-using System.Collections.Generic;
 
 namespace esper.defs {
+    [JSExport]
     public class MaybeSubrecordDef : ElementDef {
         internal readonly Signature _signature;
 

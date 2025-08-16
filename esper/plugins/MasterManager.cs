@@ -1,13 +1,12 @@
 ﻿using esper.elements;
 using esper.setup;
 using esper.resolution;
-using System.Collections.Generic;
-using System;
 using esper.data;
 
 namespace esper.plugins {
     using FileReferenceMap = Dictionary<string, List<Element>>;
 
+    [JSExport]
     public interface IMasterManager {
         public PluginFile file { get; }
         public ReadOnlyMasterList originalMasters { get; internal set; }
@@ -15,6 +14,7 @@ namespace esper.plugins {
         public bool mastersChanged { get; internal set; }
     }
 
+    [JSExport]
     public static class MasterManagerExtensions {
         internal static Element GetMastersElement(this IMasterManager m) {
             if (m.file.header == null) return null;

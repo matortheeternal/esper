@@ -2,10 +2,9 @@
 using esper.helpers;
 using esper.io;
 using esper.setup;
-using Newtonsoft.Json.Linq;
-using System;
 
 namespace esper.defs {
+    [JSExport]
     public class BytesDef : ValueDef {
         public static readonly string defId = "bytes";
         public override XEDefType valueDefType => XEDefType.dtByteArray;

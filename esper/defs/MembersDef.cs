@@ -1,11 +1,9 @@
-﻿using esper.helpers;
+﻿using esper.data;
+using esper.helpers;
 using esper.setup;
-using esper.data;
-using Newtonsoft.Json.Linq;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace esper.defs {
+    [JSExport]
     public class MembersDef : ElementDef {
         private readonly bool _canContainFormIds;
 

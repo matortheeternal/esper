@@ -1,7 +1,7 @@
 ﻿using esper.defs;
-using System;
 
 namespace esper.elements {
+    [JSExport]
     public class UnionElement : Container {
         public UnionDef unionDef => def as UnionDef;
 

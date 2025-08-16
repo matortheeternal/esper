@@ -1,7 +1,7 @@
 ﻿using esper.elements;
-using System.Collections.Generic;
 
 namespace esper.plugins {
+    [JSExport]
     public class EditorIdMap {
         private readonly SortedDictionary<string, MainRecord> _map;
 

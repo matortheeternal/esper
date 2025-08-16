@@ -1,10 +1,9 @@
 ﻿using esper.elements;
 using esper.plugins;
 using esper.io;
-using System;
-using System.Collections.Generic;
 
 namespace esper.data {
+    [JSExport]
     public class FormId {
         public static List<FormIdFormat> formats = new List<FormIdFormat> {
             new BraceFormat()

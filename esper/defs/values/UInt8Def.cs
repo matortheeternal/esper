@@ -2,10 +2,9 @@
 using esper.helpers;
 using esper.io;
 using esper.setup;
-using Newtonsoft.Json.Linq;
-using System;
 
 namespace esper.defs {
+    [JSExport]
     public class UInt8Def : ValueDef {
         public static readonly string defId = "uint8";
         public override XEDefType valueDefType => XEDefType.dtInteger;

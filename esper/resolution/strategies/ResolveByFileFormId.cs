@@ -1,10 +1,9 @@
 ﻿using esper.elements;
 using esper.plugins;
-using System;
 using System.Globalization;
-using System.Text.RegularExpressions;
 
 namespace esper.resolution.strategies {
+    [JSExport]
     public class ResolveByFileFormId : ResolutionStrategy {
         private static readonly Regex expr = new Regex(@"^&([0-9A-F]{8})$");
 

@@ -1,10 +1,9 @@
 ﻿using esper.data;
 using esper.elements;
 using esper.setup;
-using Newtonsoft.Json.Linq;
-using System;
 
 namespace esper.defs {
+    [JSExport]
     public class UnknownGroupDef : GroupDef {
         public static int defGroupType = 10;
         public override int groupType => 10;

@@ -1,11 +1,10 @@
-﻿using Newtonsoft.Json.Linq;
+﻿using esper.data;
 using esper.elements;
-using esper.data;
 using esper.io;
 using esper.setup;
-using System;
 
 namespace esper.defs {
+    [JSExport]
     public class StringDef : ValueDef {
         public static readonly string defId = "string";
         public override XEDefType valueDefType {

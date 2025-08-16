@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace esper.helpers {
+﻿namespace esper.helpers {
     public static class CollectionHelpers {
         public static T1 BinarySearch<T1>(
             IList<T1> list, Func<T1, int> compare, bool returnLast = false

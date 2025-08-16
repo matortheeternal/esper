@@ -1,11 +1,10 @@
 ﻿using esper.elements;
+using esper.helpers;
 using esper.io;
 using esper.setup;
-using esper.helpers;
-using Newtonsoft.Json.Linq;
-using System;
 
 namespace esper.defs {
+    [JSExport]
     public class ValueDef : MaybeSubrecordDef {
         public override XEDefType defType => IsSubrecord()
             ? XEDefType.dtSubRecord : valueDefType;

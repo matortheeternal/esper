@@ -1,10 +1,7 @@
 ﻿using esper.plugins;
-using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.IO;
 
 namespace esper.setup {
+    [JSExport]
     public class ModuleInfo {
         private static readonly int GHOST_EXT_LENGTH = 6;
 

@@ -1,7 +1,7 @@
 ﻿using esper.plugins;
-using System;
 
 namespace esper.setup {
+    [JSExport]
     public class LightPluginSlot : PluginSlot {
         public static UInt32 BASE_ORDINAL = 0xFE000000;
         public UInt16 index;

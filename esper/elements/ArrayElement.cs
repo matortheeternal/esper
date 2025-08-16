@@ -1,10 +1,8 @@
 ﻿using esper.defs;
-using Newtonsoft.Json.Linq;
-using System;
 using System.Collections.ObjectModel;
-using System.Linq;
 
 namespace esper.elements {
+    [JSExport]
     public class ArrayElement : Container {
         public ArrayDef arrayDef => (ArrayDef) def;
 

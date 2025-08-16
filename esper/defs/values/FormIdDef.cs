@@ -1,13 +1,12 @@
-﻿using esper.elements;
-using esper.data;
-using esper.io;
-using esper.setup;
-using System;
-using Newtonsoft.Json.Linq;
+﻿using esper.data;
+using esper.elements;
 using esper.helpers;
+using esper.io;
 using esper.resolution;
+using esper.setup;
 
 namespace esper.defs {
+    [JSExport]
     public class FormIdDef : ValueDef {
         public static readonly string defId = "formId";
         public override XEDefType valueDefType => XEDefType.dtIntegerFormater;

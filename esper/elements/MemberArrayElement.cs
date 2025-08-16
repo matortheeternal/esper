@@ -1,11 +1,9 @@
 ﻿using esper.defs;
 using esper.data;
-using System;
 using System.Collections.ObjectModel;
-using System.Linq;
-using Newtonsoft.Json.Linq;
 
 namespace esper.elements {
+    [JSExport]
     public class MemberArrayElement : Container {
         public MemberArrayDef maDef => def as MemberArrayDef;
 

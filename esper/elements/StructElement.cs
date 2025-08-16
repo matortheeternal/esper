@@ -1,9 +1,8 @@
 ﻿using esper.defs;
-using Newtonsoft.Json.Linq;
 using System.Collections.ObjectModel;
-using System.Linq;
 
 namespace esper.elements {
+    [JSExport]
     public class StructElement : Container {
         public StructDef structDef => (StructDef) def;
 

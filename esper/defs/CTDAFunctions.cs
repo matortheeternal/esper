@@ -1,11 +1,8 @@
 ﻿using esper.helpers;
 using esper.setup;
-using Newtonsoft.Json.Linq;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace esper.defs {
+    [JSExport]
     public class CTDAFunctions : Def {
         public static readonly string defId = "ctdaFunctions";
 

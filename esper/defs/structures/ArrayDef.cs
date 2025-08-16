@@ -1,12 +1,10 @@
-﻿using Newtonsoft.Json.Linq;
+﻿using esper.elements;
 using esper.helpers;
-using esper.setup;
-using esper.elements;
 using esper.io;
-using System;
-using System.Collections.Generic;
+using esper.setup;
 
 namespace esper.defs {
+    [JSExport]
     public class ArrayDef : MaybeSubrecordDef {
         public static readonly string defId = "array";
         public override XEDefType defType => XEDefType.dtArray;

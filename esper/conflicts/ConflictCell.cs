@@ -1,6 +1,7 @@
 ﻿using esper.elements;
 
 namespace esper.conflicts {
+    [JSExport]
     public class ConflictCell {
         public Element element;
         public CellConflictStatus conflictStatus;

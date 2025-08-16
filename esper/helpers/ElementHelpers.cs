@@ -1,6 +1,4 @@
 ﻿using esper.elements;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace esper.helpers {
     public static class ElementHelpers {

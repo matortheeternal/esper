@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using esper.data;
+﻿using esper.data;
 using esper.defs;
-using Newtonsoft.Json.Linq;
+using System.Collections.ObjectModel;
 
 namespace esper.elements {
+    [JSExport]
     public class Container : Element {
         internal List<Element> _internalElements;
         internal MembersDef mdef => (MembersDef)def;

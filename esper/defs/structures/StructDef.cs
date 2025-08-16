@@ -2,12 +2,9 @@ using esper.elements;
 using esper.helpers;
 using esper.io;
 using esper.setup;
-using Newtonsoft.Json.Linq;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace esper.defs {
+    [JSExport]
     public class StructDef : MaybeSubrecordDef {
         public readonly static string defId = "struct";
         public override XEDefType defType => XEDefType.dtStruct;

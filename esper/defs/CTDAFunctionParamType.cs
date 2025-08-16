@@ -1,4 +1,5 @@
 ﻿namespace esper.defs {
+    [JSExport]
     public enum CTDAFunctionParamType : byte {
         ptNone,
         ptInteger,

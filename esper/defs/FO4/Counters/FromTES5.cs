@@ -1,5 +1,4 @@
 ﻿using esper.setup;
-using Newtonsoft.Json.Linq;
 
 namespace esper.defs.FO4.Counters {
     public class OffsetDataColsCounter : TES5.OffsetDataColsCounter {

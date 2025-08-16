@@ -1,9 +1,7 @@
 ﻿using esper.elements;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace esper.plugins {
+    [JSExport]
     public class FormIdMap {
         private readonly SortedDictionary<UInt32, MainRecord> _map;
 

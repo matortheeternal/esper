@@ -1,8 +1,7 @@
-using System;
-using System.Collections.Generic;
 using System.Text;
 
 namespace esper.setup {
+    [JSExport]
     public class SessionOptions {
         private static Dictionary<string, Encoding> encodings =
             new Dictionary<string, Encoding> {

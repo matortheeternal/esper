@@ -1,10 +1,8 @@
 ﻿using IniParser;
 using IniParser.Model;
-using System;
-using System.Collections.Generic;
-using System.IO;
 
 namespace esper.setup {
+    [JSExport]
     public class GameIni {
         private static readonly string[] TES4Languages = {
             null, "German", "French", "Spanish", "Italian"

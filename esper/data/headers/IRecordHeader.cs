@@ -1,6 +1,8 @@
 ﻿using System;
+using Microsoft.JavaScript.NodeApi;
 
 namespace esper.data.headers {
+    [JSExport]
     public interface IRecordHeader {
         public Signature signature { get; }
         public UInt32 dataSize { get; }

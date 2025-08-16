@@ -1,8 +1,7 @@
 ﻿using esper.setup;
-using Newtonsoft.Json.Linq;
-using System;
 
 namespace esper.defs {
+    [JSExport]
     public class Def {
         internal DefinitionManager manager;
 

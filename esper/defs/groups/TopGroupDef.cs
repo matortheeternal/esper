@@ -1,10 +1,9 @@
 ﻿using esper.data;
 using esper.elements;
 using esper.setup;
-using Newtonsoft.Json.Linq;
-using System.Collections.Generic;
 
 namespace esper.defs {
+    [JSExport]
     public class TopGroupDef : GroupDef {
         private readonly Signature _signature;
 

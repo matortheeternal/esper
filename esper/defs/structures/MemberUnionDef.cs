@@ -2,10 +2,9 @@
 using esper.setup;
 using esper.io;
 using esper.data;
-using Newtonsoft.Json.Linq;
-using System.Linq;
 
 namespace esper.defs {
+    [JSExport]
     public class MemberUnionDef : MembersDef {
         public static readonly string defId = "memberUnion";
         public override XEDefType defType => XEDefType.dtSubRecordUnion;

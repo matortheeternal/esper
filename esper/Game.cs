@@ -1,11 +1,9 @@
-using System;
-using System.Collections.Generic;
-using System.IO;
 using esper.helpers;
 using IniParser;
 using IniParser.Model;
 
 namespace esper {
+    [JSExport]
     public class Game {
         public int xeditId;
         public string name;

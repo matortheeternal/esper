@@ -1,8 +1,8 @@
 ﻿using esper.data;
 using esper.elements;
-using System.Text.RegularExpressions;
 
 namespace esper.resolution.strategies {
+    [JSExport]
     public class ResolveBySignature : ResolutionStrategy {
         private static readonly Regex signatureExpr = new Regex(@"^([^\s]{4})($| - )");
 

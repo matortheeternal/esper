@@ -1,6 +1,5 @@
-﻿using System.Text.RegularExpressions;
-
-namespace esper.resolution {
+﻿namespace esper.resolution {
+    [JSExport]
     public class MatchData {
         public Match match;
 

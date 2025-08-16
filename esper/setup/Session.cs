@@ -4,6 +4,7 @@ using System.Reflection;
 using System.Text;
 
 namespace esper.setup {
+    [JSExport]
     public class Session {
         public Game game;
         public Logger logger;

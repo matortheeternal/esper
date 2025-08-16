@@ -1,7 +1,5 @@
 ﻿using esper.defs;
 using esper.elements;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace esper.conflicts {
     internal class ConflictCalculator {

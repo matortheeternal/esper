@@ -1,9 +1,9 @@
 ﻿using esper.elements;
-using esper.plugins;
 using esper.io;
-using System;
+using esper.plugins;
 
 namespace esper.data.headers {
+    [JSExport]
     public struct TES4RecordHeader : IRecordHeader {
         public static UInt32 size => 24;
 

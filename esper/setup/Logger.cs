@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace esper.setup {
+﻿namespace esper.setup {
+    [JSExport]
     public enum LogMessageType : byte {
         Debug,
         Info,
@@ -9,6 +7,7 @@ namespace esper.setup {
         Error
     }
 
+    [JSExport]
     public class LogMessage {
         public LogMessageType messageType;
         public string text;
@@ -23,6 +22,7 @@ namespace esper.setup {
         }
     }
 
+    [JSExport]
     public class Logger {
         public readonly List<LogMessage> messages;
         public readonly DateTime created;

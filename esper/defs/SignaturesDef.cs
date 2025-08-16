@@ -1,9 +1,8 @@
 ﻿using esper.helpers;
 using esper.setup;
-using Newtonsoft.Json.Linq;
-using System.Collections.Generic;
 
 namespace esper.defs {
+    [JSExport]
     public class SignaturesDef : Def {
         public static readonly string defId = "signatures";
 

@@ -1,4 +1,5 @@
 ﻿namespace esper.elements {
+    [JSExport]
     public enum ElementState {
         None = 0,
         Modified = 1,

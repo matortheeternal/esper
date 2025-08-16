@@ -2,16 +2,14 @@
 using esper.data.headers;
 using esper.elements;
 using esper.helpers;
-using esper.plugins;
 using esper.io;
+using esper.plugins;
 using esper.setup;
-using Newtonsoft.Json.Linq;
-using System;
-using System.Collections.Generic;
 
 namespace esper.defs {
     using TopGroupsMap = Dictionary<Signature, GroupDef>;
 
+    [JSExport]
     public class PluginFileDef : ElementDef {
         public static string defId = "pluginFile";
 

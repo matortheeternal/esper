@@ -1,14 +1,12 @@
-﻿using esper.setup;
-using esper.plugins;
-using esper.io;
-using esper.resolution;
+﻿using esper.data;
 using esper.defs;
-using System;
-using System.Collections.Generic;
-using esper.data;
-using Newtonsoft.Json.Linq;
+using esper.io;
+using esper.plugins;
+using esper.resolution;
+using esper.setup;
 
 namespace esper.elements {
+    [JSExport]
     public class Element : IResolution {
         public readonly ElementDef def;
         public ElementState state;

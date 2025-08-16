@@ -1,12 +1,7 @@
 ﻿using esper.plugins;
-using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text.RegularExpressions;
 
 namespace esper.setup {
+    [JSExport]
     public class LoadOrder {
         private static readonly Regex validFileNameExpr = new Regex(
             @"\.(es[mplu]|ghost)$", RegexOptions.IgnoreCase

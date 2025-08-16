@@ -1,10 +1,8 @@
 ﻿using esper.defs;
 using esper.elements;
-using Newtonsoft.Json.Linq;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace esper.conflicts {
+    [JSExport]
     public class ConflictRow {
         public RowConflictStatus conflictStatus;
         public List<ConflictRow> childRows;

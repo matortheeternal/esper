@@ -1,7 +1,7 @@
 ﻿using esper.elements;
-using System.Text.RegularExpressions;
 
 namespace esper.resolution.strategies {
+    [JSExport]
     public class ResolveParent : ResolutionStrategy {
         private static readonly Regex refExpr = new Regex(@"^\^(.+)");
 

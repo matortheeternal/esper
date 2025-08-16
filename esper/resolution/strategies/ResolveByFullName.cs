@@ -1,7 +1,7 @@
 ﻿using esper.elements;
-using System.Text.RegularExpressions;
 
 namespace esper.resolution.strategies {
+    [JSExport]
     public class ResolveByFullName : ResolutionStrategy {
         private static readonly Regex nameExpr = new Regex("^\"(.+)\"$");
 

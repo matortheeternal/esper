@@ -2,10 +2,6 @@
 using esper.data.headers;
 using esper.defs;
 using esper.helpers;
-using Newtonsoft.Json.Linq;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace esper.setup {
     using DefMap = Dictionary<string, Def>;
@@ -13,6 +9,7 @@ namespace esper.setup {
     using DeciderMap = Dictionary<string, Decider>;
     using RecordDefMap = Dictionary<int, ElementDef>;
 
+    [JSExport]
     public class DefinitionManager {
         public Session session;
         public Game game => session.game;

@@ -4,13 +4,10 @@ using esper.helpers;
 using esper.plugins;
 using esper.resolution;
 using esper.setup;
-using Newtonsoft.Json.Linq;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using esper.io;
 
 namespace esper.defs {
+    [JSExport]
     public class MainRecordDef : MembersDef {
         public static readonly string defId = "record";
         public override string description => $"MainRecord <{signature}>";

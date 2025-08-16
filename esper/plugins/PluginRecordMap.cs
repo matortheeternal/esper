@@ -1,7 +1,7 @@
 ﻿using esper.elements;
-using System.Collections.Generic;
 
 namespace esper.plugins {
+    [JSExport]
     public class PluginRecordMap {
         private readonly Dictionary<PluginFile, FormIdMap> _plugins;
 

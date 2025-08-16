@@ -1,12 +1,9 @@
 ﻿using esper.elements;
 using esper.helpers;
 using esper.setup;
-using Newtonsoft.Json.Linq;
-using System;
-using System.Collections.Generic;
-using System.Text.RegularExpressions;
 
 namespace esper.defs {
+    [JSExport]
     public class EnumDef : FormatDef {
         public static Regex unknownOptionExpr = new Regex(@"^<(?:Unknown )?(-?\d+)>$");
         public static readonly string defId = "enum";

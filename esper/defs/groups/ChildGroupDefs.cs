@@ -1,10 +1,9 @@
 ﻿using esper.data;
 using esper.elements;
 using esper.setup;
-using Newtonsoft.Json.Linq;
-using System;
 
 namespace esper.defs {
+    [JSExport]
     public class ChildGroupDef : GroupDef {
         public override bool hasRecordParent => true;
         public override bool isChildGroup => true;
@@ -30,6 +29,7 @@ namespace esper.defs {
         }
     }
 
+    [JSExport]
     public class WorldChildrenDef : ChildGroupDef {
         public static int defGroupType = 1;
         public override int groupType => 1;
@@ -38,6 +38,7 @@ namespace esper.defs {
             : base(manager, src) { }
     }
 
+    [JSExport]
     public class CellChildrenDef : ChildGroupDef {
         public static int defGroupType = 6;
         public override int groupType => 6;
@@ -46,6 +47,7 @@ namespace esper.defs {
             : base(manager, src) { }
     }
 
+    [JSExport]
     public class TopicChildrenDef : ChildGroupDef {
         public static int defGroupType = 7;
         public override int groupType => 7;

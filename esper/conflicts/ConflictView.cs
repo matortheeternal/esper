@@ -1,8 +1,7 @@
 ﻿using esper.elements;
-using Newtonsoft.Json.Linq;
-using System.Collections.Generic;
 
 namespace esper.conflicts {
+    [JSExport]
     public class ConflictView {
         public ConflictRow row;
 

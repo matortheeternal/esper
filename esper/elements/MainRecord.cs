@@ -3,14 +3,12 @@ using esper.data;
 using esper.plugins;
 using esper.io;
 using esper.resolution;
-using System;
-using System.Linq;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using esper.data.headers;
 using esper.setup;
+using System.Collections.ObjectModel;
 
 namespace esper.elements {
+    [JSExport]
     public class MainRecord : Container, IMainRecord {
         private TES4RecordHeader _header;
 

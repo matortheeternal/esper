@@ -2,11 +2,9 @@
 using esper.elements;
 using esper.plugins;
 using esper.io;
-using System;
-using System.Collections.Generic;
-using System.IO;
 
 namespace esper.setup {
+    [JSExport]
     public class PluginManager {
         public Session session;
         public Game game => session.game;
