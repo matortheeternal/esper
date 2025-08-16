@@ -1,7 +1,4 @@
-﻿using System;
-using System.Threading;
-
-namespace esperlib {
+﻿namespace esper_lib {
     public class LoaderThread {
         private static string loadOrder;
         private static bool smartLoad;

@@ -1,15 +1,8 @@
 ﻿using esper.setup;
-using System;
-using System.Collections.Generic;
 
-namespace esperlib {
-    public interface IMeta {
-
-    }
-
-    public class Meta : IMeta {
+namespace esper_lib {
+    public class Meta {
         internal static Session session;
-        internal static string resultStr;
         internal static LoaderState loaderState = LoaderState.Inactive;
         internal static List<object> store = new List<object>();
         internal static uint nextId = 0;
@@ -44,10 +37,9 @@ namespace esperlib {
             return store[(int)id];
         }
 
-        unsafe internal static void StoreIfAssigned(object obj, uint* res, ref bool success) {
-            if (obj == null) return;
-            *res = Store(obj);
-            success = true;
+        internal static uint StoreIfAssigned(object obj) {
+            if (obj == null) throw new Exception("Not assigned");
+            return Store(obj);
         }
     }
 }

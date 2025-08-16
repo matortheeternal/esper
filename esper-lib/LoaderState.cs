@@ -1,4 +1,4 @@
-﻿namespace esperlib {
+﻿namespace esper_lib {
     public enum LoaderState {
         Inactive,
         Active,

@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <RootNamespace>esper_lib</RootNamespace>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.JavaScript.NodeApi" Version="0.9.15" />
+    <PackageReference Include="Microsoft.JavaScript.NodeApi.Generator" Version="0.9.15" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\esper\esper.csproj" />
+  </ItemGroup>
+
+</Project>

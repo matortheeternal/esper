@@ -1,8 +1,6 @@
 ﻿using esper.elements;
-using System;
-using System.Threading;
 
-namespace esperlib {
+namespace esper_lib {
     public class RefThread {
         private static Thread activeThread = null;
         private static Element element;
