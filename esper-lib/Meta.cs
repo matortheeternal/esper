@@ -1,12 +1,15 @@
 ﻿using esper.setup;
+using Microsoft.JavaScript.NodeApi;
 
 namespace esper_lib {
-    public class Meta {
+    [JSExport]
+    public static class Meta {
         internal static Session session;
         internal static LoaderState loaderState = LoaderState.Inactive;
-        internal static List<object> store = new List<object>();
+        internal static List<object?> store = [];
         internal static uint nextId = 0;
 
+        // internal api
         private static void GetNextId() {
             var count = store.Count;
             nextId++;
@@ -29,7 +32,7 @@ namespace esper_lib {
             }
         }
 
-        internal static object Resolve(uint id, bool resolveRoot = false) {
+        internal static object? Resolve(uint id, bool resolveRoot = false) {
             if (id == 0) {
                 if (resolveRoot) return session.root;
                 throw new Exception("Error: Cannot resolve NULL reference.");
@@ -40,6 +43,23 @@ namespace esper_lib {
         internal static uint StoreIfAssigned(object obj) {
             if (obj == null) throw new Exception("Not assigned");
             return Store(obj);
+        }
+
+        // public api
+        [JSExport]
+        public static void EndSession() {
+            // TODO
+        }
+
+        [JSExport]
+        public static void Release(uint id) {
+            try {
+                if (id == 0 || id >= store.Count || store[(int) id] == null) 
+                    return;
+                store[(int)id] = null;
+            } catch (Exception e) {
+                throw new JSException(e.Message);
+            }
         }
     }
 }

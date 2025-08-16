@@ -1,8 +1,15 @@
 ﻿namespace esper_lib {
+    public enum LoaderState {
+        Inactive,
+        Active,
+        Done,
+        Error
+    }
+
     public class LoaderThread {
         private static string loadOrder;
         private static bool smartLoad;
-        private static Thread activeThread = null;
+        private static Thread? activeThread = null;
 
         private static void Execute() {
             try {
