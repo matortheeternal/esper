@@ -4,7 +4,6 @@ using esper.io;
 using esper.setup;
 
 namespace esper.defs {
-    [JSExport]
     public class Int8Def : ValueDef {
         public static readonly string defId = "int8";
         public override XEDefType valueDefType => XEDefType.dtInteger;

@@ -7,12 +7,10 @@ using System.Collections.ObjectModel;
 namespace esper.resolution {
     using ResolutionStrategies = List<ResolutionStrategy>;
 
-    [JSExport]
     public interface IResolution {
         public Container container { get; }
     }
 
-    [JSExport]
     public static class ResolutionExtensions {
         public static ResolutionStrategies strategies = new ResolutionStrategies {
             new ResolveContainer(),

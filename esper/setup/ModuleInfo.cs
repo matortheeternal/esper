@@ -1,7 +1,6 @@
 ﻿using esper.plugins;
 
 namespace esper.setup {
-    [JSExport]
     public class ModuleInfo {
         private static readonly int GHOST_EXT_LENGTH = 6;
 

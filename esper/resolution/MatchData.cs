@@ -1,5 +1,4 @@
 ﻿namespace esper.resolution {
-    [JSExport]
     public class MatchData {
         public Match match;
 

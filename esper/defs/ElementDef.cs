@@ -5,9 +5,7 @@ using esper.io;
 using esper.setup;
 using esper.data;
 
-namespace esper.defs {
-    [JSExport]
-    public class ElementDef : Def {
+namespace esper.defs {    public class ElementDef : Def {
         public readonly bool required;
         public ConflictType conflictType { get; }
         // TODO: make a property for getConflictType callback

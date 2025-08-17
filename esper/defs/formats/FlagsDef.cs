@@ -4,7 +4,6 @@ using esper.setup;
 using System.Text;
 
 namespace esper.defs {
-    [JSExport]
     public class FlagsDef : FormatDef {
         public static Regex unknownFlagExpr = new Regex(@"^Unknown (\d+)$");
         public static readonly string defId = "flags";

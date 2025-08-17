@@ -2,13 +2,11 @@
 using esper.helpers;
 
 namespace esper.plugins {
-    [JSExport]
     public interface IRecordManager {
         public List<MainRecord> records { get; set; }
         internal PluginFile file { get; }
     }
 
-    [JSExport]
     public static class RecordManagerExtensions {
         public static void InitRecordMaps(this IRecordManager m) {
             m.records = new List<MainRecord>((int)m.file.recordCount);

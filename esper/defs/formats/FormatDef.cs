@@ -2,7 +2,6 @@
 using esper.setup;
 
 namespace esper.defs {
-    [JSExport]
     public class FormatDef : Def {
         public virtual bool customSortKey => false;
         public virtual bool isNumeric => false;

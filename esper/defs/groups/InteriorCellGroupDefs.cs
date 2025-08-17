@@ -2,7 +2,6 @@
 using esper.setup;
 
 namespace esper.defs {
-    [JSExport]
     public class InteriorCellGroupDef : GroupDef {
         internal virtual Regex nameExpr => throw new NotImplementedException();
 
@@ -24,7 +23,6 @@ namespace esper.defs {
         }
     }
 
-    [JSExport]
     public class InteriorCellBlockDef : InteriorCellGroupDef {
         internal override Regex nameExpr => new Regex(@"^Block (\-?\d+)$");
 
@@ -39,7 +37,6 @@ namespace esper.defs {
         }
     }
 
-    [JSExport]
     public class InteriorCellSubBlockDef : InteriorCellGroupDef {
         internal override Regex nameExpr => new Regex(@"^Sub-Block (\-?\d+)$");
 

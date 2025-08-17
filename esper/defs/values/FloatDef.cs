@@ -3,7 +3,6 @@ using esper.io;
 using esper.setup;
 
 namespace esper.defs {
-    [JSExport]
     public class FloatDef : ValueDef {
         public static readonly string defId = "float";
         public override XEDefType valueDefType => XEDefType.dtFloat;

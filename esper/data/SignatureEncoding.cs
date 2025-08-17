@@ -1,5 +1,4 @@
 ﻿namespace esper {
-    [JSExport]
     public class SignatureEncoding {
         public SignatureEncoding() {}
 

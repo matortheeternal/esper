@@ -1,5 +1,4 @@
 ﻿namespace esper.defs {
-    [JSExport]
     public enum XEDefType : byte {
         dtRecord,
         dtSubRecord,

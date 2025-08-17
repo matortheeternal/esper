@@ -7,7 +7,6 @@ using esper.setup;
 using esper.io;
 
 namespace esper.defs {
-    [JSExport]
     public class MainRecordDef : MembersDef {
         public static readonly string defId = "record";
         public override string description => $"MainRecord <{signature}>";

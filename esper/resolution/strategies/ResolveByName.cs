@@ -1,7 +1,6 @@
 ﻿using esper.elements;
 
 namespace esper.resolution.strategies {
-    [JSExport]
     public class ResolveByName : ResolutionStrategy {
         private static readonly Regex nameExpr = new Regex(@".+");
 

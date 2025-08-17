@@ -1,7 +1,6 @@
 ﻿using esper.setup;
 
 namespace esper.defs {
-    [JSExport]
     public class CTDAFunction : Def {
         public static readonly string defId = "ctdaFunction";
 

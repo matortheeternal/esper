@@ -1,7 +1,6 @@
 ﻿using esper.io;
 
 namespace esper.data {
-    [JSExport]
     public struct Subrecord {
         public Signature signature;
         public UInt32 dataSize;

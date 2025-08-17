@@ -1,7 +1,6 @@
 ﻿using System.Collections.ObjectModel;
 
 namespace esper.plugins {
-    [JSExport]
     public class MasterList {
         private readonly List<PluginFile> _files;
 
@@ -45,7 +44,6 @@ namespace esper.plugins {
         }
     }
 
-    [JSExport]
     public class ReadOnlyMasterList : MasterList {
         public ReadOnlyMasterList(PluginFile parentFile, List<PluginFile> files)
             : base(parentFile, files) {}

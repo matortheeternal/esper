@@ -3,7 +3,6 @@
 namespace esper.setup {
     using ClassMap = Dictionary<int, Type>;
 
-    [JSExport]
     public class GroupManager {
         private readonly DefinitionManager manager;
         private readonly ClassMap groupDefClasses = new ClassMap();

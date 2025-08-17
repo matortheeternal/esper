@@ -5,7 +5,6 @@ using esper.data.headers;
 using esper.data;
 
 namespace esper.elements {
-    [JSExport]
     public class GroupRecord : Container {
         public TES4GroupHeader header;
         public EditorIdMap recordsByEditorID;

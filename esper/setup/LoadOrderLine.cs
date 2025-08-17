@@ -1,5 +1,4 @@
 ﻿namespace esper.setup {
-    [JSExport]
     public class LoadOrderLine {
         public string text;
         public int index;

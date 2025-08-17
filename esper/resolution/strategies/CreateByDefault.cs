@@ -1,7 +1,6 @@
 ﻿using esper.elements;
 
 namespace esper.resolution.strategies {
-    [JSExport]
     public class CreateByDefault : ResolutionStrategy {
         private static readonly Regex expr = new Regex(@"^(?:\.|\[\+\])$");
         public override bool canResolve => false;

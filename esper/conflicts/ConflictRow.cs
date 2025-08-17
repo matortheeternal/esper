@@ -2,7 +2,6 @@
 using esper.elements;
 
 namespace esper.conflicts {
-    [JSExport]
     public class ConflictRow {
         public RowConflictStatus conflictStatus;
         public List<ConflictRow> childRows;

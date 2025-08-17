@@ -1,8 +1,6 @@
 ﻿using esper.setup;
 
-namespace esper.defs {
-    [JSExport]
-    public class Def {
+namespace esper.defs {    public class Def {
         internal DefinitionManager manager;
 
         internal SessionOptions sessionOptions => manager.session.options;

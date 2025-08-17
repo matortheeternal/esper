@@ -4,7 +4,6 @@ using esper.io;
 using esper.setup;
 
 namespace esper.defs {
-    [JSExport]
     public class StringDef : ValueDef {
         public static readonly string defId = "string";
         public override XEDefType valueDefType {

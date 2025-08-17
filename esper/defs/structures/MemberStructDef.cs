@@ -5,7 +5,6 @@ using esper.setup;
 using esper.data;
 
 namespace esper.defs {
-    [JSExport]
     public class MemberStructDef : MembersDef {
         public static readonly string defId = "memberStruct";
         public override XEDefType defType => XEDefType.dtStruct;

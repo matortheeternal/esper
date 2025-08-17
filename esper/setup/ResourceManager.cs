@@ -3,7 +3,6 @@ using balsa.setup;
 using balsa.stringtables;
 
 namespace esper.setup {
-    [JSExport]
     public class ResourceManager {
         private readonly Session session;
         private List<string> allArchives;

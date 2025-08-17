@@ -1,7 +1,6 @@
 ﻿using esper.elements;
 
 namespace esper.resolution.strategies {
-    [JSExport]
     public class ResolveChildGroup : ResolutionStrategy {
         private static readonly Regex expr = new Regex(@"^Child Group$");
 

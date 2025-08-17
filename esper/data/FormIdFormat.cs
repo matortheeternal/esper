@@ -2,7 +2,6 @@
 using esper.plugins;
 
 namespace esper.data {
-    [JSExport]
     public class FormIdFormat {
         public virtual string ToString(FormId fid) {
             throw new NotImplementedException();
@@ -13,7 +12,6 @@ namespace esper.data {
         }
     }
 
-    [JSExport]
     public class BraceFormat : FormIdFormat {
         private readonly static Regex braceExpr = new Regex(
             @"^\{([^:]+):([0-9A-Fa-f]{6})\}$"

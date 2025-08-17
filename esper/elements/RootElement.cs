@@ -3,7 +3,6 @@ using esper.setup;
 using esper.data;
 
 namespace esper.elements {
-    [JSExport]
     public class RootElement : Container {
         public readonly Session session;
 

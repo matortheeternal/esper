@@ -9,7 +9,6 @@ using esper.setup;
 namespace esper.defs {
     using TopGroupsMap = Dictionary<Signature, GroupDef>;
 
-    [JSExport]
     public class PluginFileDef : ElementDef {
         public static string defId = "pluginFile";
 

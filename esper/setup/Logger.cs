@@ -1,5 +1,4 @@
 ﻿namespace esper.setup {
-    [JSExport]
     public enum LogMessageType : byte {
         Debug,
         Info,
@@ -7,7 +6,6 @@
         Error
     }
 
-    [JSExport]
     public class LogMessage {
         public LogMessageType messageType;
         public string text;
@@ -22,7 +20,6 @@
         }
     }
 
-    [JSExport]
     public class Logger {
         public readonly List<LogMessage> messages;
         public readonly DateTime created;

@@ -1,7 +1,6 @@
 ﻿using esper.elements;
 
 namespace esper.resolution.strategies {
-    [JSExport]
     public class ResolutionStrategy {
         public virtual bool canResolve => true;
 

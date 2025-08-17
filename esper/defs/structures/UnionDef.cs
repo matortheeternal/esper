@@ -4,7 +4,6 @@ using esper.io;
 using esper.setup;
 
 namespace esper.defs {
-    [JSExport]
     public class UnionDef : MaybeSubrecordDef {
         public static readonly string defId = "union";
         public override XEDefType defType => XEDefType.dtUnion;

@@ -1,5 +1,4 @@
 ﻿namespace esper.conflicts {
-    [JSExport]
     public enum RowConflictStatus {
         Unknown,
         OnlyOne,

@@ -9,7 +9,6 @@ namespace esper.setup {
     using DeciderMap = Dictionary<string, Decider>;
     using RecordDefMap = Dictionary<int, ElementDef>;
 
-    [JSExport]
     public class DefinitionManager {
         public Session session;
         public Game game => session.game;

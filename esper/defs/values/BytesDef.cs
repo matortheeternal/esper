@@ -4,7 +4,6 @@ using esper.io;
 using esper.setup;
 
 namespace esper.defs {
-    [JSExport]
     public class BytesDef : ValueDef {
         public static readonly string defId = "bytes";
         public override XEDefType valueDefType => XEDefType.dtByteArray;

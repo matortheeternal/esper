@@ -3,7 +3,6 @@ using esper.defs;
 using System.Collections.ObjectModel;
 
 namespace esper.elements {
-    [JSExport]
     public class Container : Element {
         internal List<Element> _internalElements;
         internal MembersDef mdef => (MembersDef)def;

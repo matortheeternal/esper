@@ -3,7 +3,6 @@ using esper.data;
 using System.Collections.ObjectModel;
 
 namespace esper.elements {
-    [JSExport]
     public class MemberArrayElement : Container {
         public MemberArrayDef maDef => def as MemberArrayDef;
 

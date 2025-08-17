@@ -2,7 +2,6 @@
 using esper.data;
 
 namespace esper.elements {
-    [JSExport]
     public class MemberUnionElement : Container {
         public MemberUnionDef unionDef => def as MemberUnionDef;
 

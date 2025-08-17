@@ -4,7 +4,6 @@ using esper.io;
 using esper.setup;
 
 namespace esper.defs {
-    [JSExport]
     public class StructDef : MaybeSubrecordDef {
         public readonly static string defId = "struct";
         public override XEDefType defType => XEDefType.dtStruct;

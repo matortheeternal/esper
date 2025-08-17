@@ -3,7 +3,6 @@ using esper.io;
 using esper.setup;
 
 namespace esper.defs {
-    [JSExport]
     public class Int0Def : ValueDef {
         public static readonly string defId = "int0";
         public override XEDefType valueDefType => XEDefType.dtInteger;

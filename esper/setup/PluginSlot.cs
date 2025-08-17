@@ -1,7 +1,6 @@
 ﻿using esper.plugins;
 
 namespace esper.setup {
-    [JSExport]
     public class PluginSlot {
         public PluginFile plugin;
 

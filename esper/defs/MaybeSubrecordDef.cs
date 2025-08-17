@@ -4,7 +4,6 @@ using esper.io;
 using esper.setup;
 
 namespace esper.defs {
-    [JSExport]
     public class MaybeSubrecordDef : ElementDef {
         internal readonly Signature _signature;
 

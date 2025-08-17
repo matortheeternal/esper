@@ -2,7 +2,6 @@
 using esper.data;
 
 namespace esper.elements {
-    [JSExport]
     public class MemberStructElement : Container {
         public MemberStructDef msDef => (MemberStructDef) def;
 

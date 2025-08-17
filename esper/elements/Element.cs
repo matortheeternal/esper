@@ -6,7 +6,6 @@ using esper.resolution;
 using esper.setup;
 
 namespace esper.elements {
-    [JSExport]
     public class Element : IResolution {
         public readonly ElementDef def;
         public ElementState state;

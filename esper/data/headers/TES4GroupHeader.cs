@@ -1,7 +1,6 @@
 ﻿using esper.io;
 
 namespace esper.data.headers {
-    [JSExport]
     public struct TES4GroupHeader : IGroupHeader {
         public static UInt32 size => 24;
 

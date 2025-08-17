@@ -2,7 +2,6 @@
 using esper.plugins;
 
 namespace esper.resolution.strategies {
-    [JSExport]
     public class ResolveReference : ResolutionStrategy {
         private static readonly Regex refExpr = new Regex(@"^@(.+)");
 

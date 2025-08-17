@@ -3,7 +3,6 @@ using esper.plugins;
 using esper.io;
 
 namespace esper.data {
-    [JSExport]
     public class FormId {
         public static List<FormIdFormat> formats = new List<FormIdFormat> {
             new BraceFormat()

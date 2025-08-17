@@ -6,7 +6,6 @@ using esper.io;
 using esper.setup;
 
 namespace esper.defs {
-    [JSExport]
     public class GroupDef : ElementDef {
         public static string defId = "group";
 

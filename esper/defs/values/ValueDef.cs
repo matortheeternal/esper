@@ -4,7 +4,6 @@ using esper.io;
 using esper.setup;
 
 namespace esper.defs {
-    [JSExport]
     public class ValueDef : MaybeSubrecordDef {
         public override XEDefType defType => IsSubrecord()
             ? XEDefType.dtSubRecord : valueDefType;

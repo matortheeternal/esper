@@ -3,7 +3,6 @@ using esper.helpers;
 using esper.setup;
 
 namespace esper.defs {
-    [JSExport]
     public class EnumDef : FormatDef {
         public static Regex unknownOptionExpr = new Regex(@"^<(?:Unknown )?(-?\d+)>$");
         public static readonly string defId = "enum";

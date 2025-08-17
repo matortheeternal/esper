@@ -2,7 +2,6 @@
 using System.Collections.ObjectModel;
 
 namespace esper.elements {
-    [JSExport]
     public class StructElement : Container {
         public StructDef structDef => (StructDef) def;
 

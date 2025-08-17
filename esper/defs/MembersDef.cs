@@ -3,7 +3,6 @@ using esper.helpers;
 using esper.setup;
 
 namespace esper.defs {
-    [JSExport]
     public class MembersDef : ElementDef {
         private readonly bool _canContainFormIds;
 

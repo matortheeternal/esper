@@ -3,7 +3,6 @@ using esper.helpers;
 using esper.setup;
 
 namespace esper.defs {
-    [JSExport]
     public class FormatUnion : FormatDef {
         public static readonly string defId = "formatUnion";
         public override XEDefType defType => XEDefType.dtIntegerFormaterUnion;

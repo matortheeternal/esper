@@ -8,7 +8,6 @@ using esper.setup;
 using System.Collections.ObjectModel;
 
 namespace esper.elements {
-    [JSExport]
     public class MainRecord : Container, IMainRecord {
         private TES4RecordHeader _header;
 

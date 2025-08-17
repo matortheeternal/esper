@@ -7,7 +7,6 @@ using esper.data;
 using balsa.stringtables;
 
 namespace esper.plugins {
-    [JSExport]
     public class PluginFile : Container, IMasterManager, IRecordManager {
         public MainRecord header;
         internal Session session;

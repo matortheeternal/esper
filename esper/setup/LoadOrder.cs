@@ -1,7 +1,6 @@
 ﻿using esper.plugins;
 
 namespace esper.setup {
-    [JSExport]
     public class LoadOrder {
         private static readonly Regex validFileNameExpr = new Regex(
             @"\.(es[mplu]|ghost)$", RegexOptions.IgnoreCase

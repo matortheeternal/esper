@@ -4,7 +4,6 @@ using esper.io;
 using esper.setup;
 
 namespace esper.defs {
-    [JSExport]
     public class UInt16Def : ValueDef {
         public static readonly string defId = "uint16";
         public override XEDefType valueDefType => XEDefType.dtInteger;

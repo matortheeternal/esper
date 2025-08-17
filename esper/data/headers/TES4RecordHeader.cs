@@ -3,7 +3,6 @@ using esper.io;
 using esper.plugins;
 
 namespace esper.data.headers {
-    [JSExport]
     public struct TES4RecordHeader : IRecordHeader {
         public static UInt32 size => 24;
 

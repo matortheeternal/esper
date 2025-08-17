@@ -4,7 +4,6 @@ using esper.io;
 using esper.setup;
 
 namespace esper.defs {
-    [JSExport]
     public class ArrayDef : MaybeSubrecordDef {
         public static readonly string defId = "array";
         public override XEDefType defType => XEDefType.dtArray;

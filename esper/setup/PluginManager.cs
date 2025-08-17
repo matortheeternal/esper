@@ -4,7 +4,6 @@ using esper.plugins;
 using esper.io;
 
 namespace esper.setup {
-    [JSExport]
     public class PluginManager {
         public Session session;
         public Game game => session.game;

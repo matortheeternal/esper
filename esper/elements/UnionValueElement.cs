@@ -2,7 +2,6 @@
 using esper.data;
 
 namespace esper.elements {
-    [JSExport]
     public class UnionValueElement : ValueElement {
         public UnionDef unionDef;
 

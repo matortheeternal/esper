@@ -1,7 +1,6 @@
 ﻿using esper.elements;
 
 namespace esper.resolution.strategies {
-    [JSExport]
     public class ResolveByIndex : ResolutionStrategy {
         private static readonly Regex indexExpr = new Regex(@"^\[(\d+)\]$");
 

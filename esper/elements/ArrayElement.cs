@@ -2,7 +2,6 @@
 using System.Collections.ObjectModel;
 
 namespace esper.elements {
-    [JSExport]
     public class ArrayElement : Container {
         public ArrayDef arrayDef => (ArrayDef) def;
 

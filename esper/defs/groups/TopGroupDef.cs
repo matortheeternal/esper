@@ -3,7 +3,6 @@ using esper.elements;
 using esper.setup;
 
 namespace esper.defs {
-    [JSExport]
     public class TopGroupDef : GroupDef {
         private readonly Signature _signature;
 

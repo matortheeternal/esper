@@ -1,5 +1,4 @@
 ﻿namespace esper.setup {
-    [JSExport]
     public class LoadOrderFile {
         public Session session;
         public string filePath;

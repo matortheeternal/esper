@@ -1,5 +1,4 @@
 ﻿namespace esper.setup {
-    [JSExport]
     [Flags]
     public enum ModuleFlags {
         Invalid = 1,

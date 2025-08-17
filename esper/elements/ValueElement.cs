@@ -3,7 +3,6 @@ using esper.defs;
 using esper.io;
 
 namespace esper.elements {
-    [JSExport]
     public class ValueElement : Element {
         public ValueDef valueDef => (ValueDef)def;
         public FormatDef formatDef => valueDef.formatDef;

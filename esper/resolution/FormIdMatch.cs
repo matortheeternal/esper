@@ -1,7 +1,6 @@
 ﻿using esper.elements;
 
 namespace esper.resolution {
-    [JSExport]
     public class FormIdMatch : ElementMatch<Container> {
         public MainRecord rec;
 

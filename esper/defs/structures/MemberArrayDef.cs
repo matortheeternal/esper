@@ -5,7 +5,6 @@ using esper.io;
 using esper.setup;
 
 namespace esper.defs {
-    [JSExport]
     public class MemberArrayDef : ElementDef {
         public static readonly string defId = "memberArray";
         public override XEDefType defType => XEDefType.dtSubRecordArray;

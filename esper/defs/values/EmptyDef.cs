@@ -3,7 +3,6 @@ using esper.io;
 using esper.setup;
 
 namespace esper.defs {
-    [JSExport]
     public class EmptyDef : ValueDef {
         public static readonly string defId = "empty";
         public override XEDefType valueDefType => XEDefType.dtEmpty;

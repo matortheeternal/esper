@@ -1,5 +1,4 @@
 ﻿namespace esper {
-    [JSExport]
     public static class Games {
         public static Game TES4 = new Game {
             xeditId = 1,
