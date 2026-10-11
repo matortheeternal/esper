@@ -2,7 +2,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp8.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
 
     <IsPackable>false</IsPackable>
   </PropertyGroup>
@@ -18,8 +18,19 @@
     <ProjectReference Include="..\esper\esper.csproj" />
   </ItemGroup>
 
+  <PropertyGroup>
+    <!-- $(SolutionDir) is only defined for solution builds; fall back so
+         `dotnet build Tests/Tests.csproj` works too. -->
+    <SolutionDir Condition="'$(SolutionDir)' == '' Or '$(SolutionDir)' == '*Undefined*'">$(MSBuildProjectDirectory)/../</SolutionDir>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <FixtureFiles Include="$(SolutionDir)fixtures/**/*" />
+  </ItemGroup>
+
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="COPY &quot;$(SolutionDir)definitions.zip&quot; &quot;$(TargetDir)&quot; /Y&#xD;&#xA;XCOPY &quot;$(SolutionDir)fixtures&quot; &quot;$(TargetDir)\fixtures\&quot; /S /Y" />
+    <Copy SourceFiles="$(SolutionDir)definitions.zip" DestinationFolder="$(TargetDir)" SkipUnchangedFiles="true" />
+    <Copy SourceFiles="@(FixtureFiles)" DestinationFiles="@(FixtureFiles->'$(TargetDir)fixtures/%(RecursiveDir)%(Filename)%(Extension)')" SkipUnchangedFiles="true" />
   </Target>
 
 </Project>

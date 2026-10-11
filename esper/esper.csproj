@@ -15,7 +15,9 @@
     <PackageReference Include="K4os.Compression.LZ4.Streams" Version="1.2.16" />
     <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
     <PackageReference Include="Microsoft.JavaScript.NodeApi" Version="0.9.15" />
-    <PackageReference Include="Microsoft.JavaScript.NodeApi.Generator" Version="0.9.15" />
+    <!-- NodeApi source generator hangs Roslyn on Linux (SDK 10, incl. 0.9.27);
+         run it on Windows only so Linux builds skip JS codegen. -->
+    <PackageReference Include="Microsoft.JavaScript.NodeApi.Generator" Version="0.9.15" Condition="'$(OS)' == 'Windows_NT'" />
     <PackageReference Include="Microsoft.Win32.Registry" Version="5.0.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
     <PackageReference Include="System.Text.Encoding.CodePages" Version="6.0.0" />
