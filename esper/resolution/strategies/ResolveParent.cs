@@ -10,7 +10,7 @@ namespace esper.resolution.strategies {
 
         public override Element Resolve(MatchData match) {
             var e = (ElementMatch<Element>)match;
-            string type = e.match.Groups[0].Value;
+            string type = e.match.Groups[1].Value;
             return type switch {
                 "File" => e.target.file,
                 "Group" => e.target.group,

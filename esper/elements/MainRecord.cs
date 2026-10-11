@@ -71,6 +71,9 @@ namespace esper.elements {
             get => this.GetValue("FULL");
             set => this.SetValue("FULL", value);
         }
+        public override string name {
+            get => this.GetValue("[FULL|EDID]") ?? formId.ToString();
+        }
 
         public bool local {
             get {

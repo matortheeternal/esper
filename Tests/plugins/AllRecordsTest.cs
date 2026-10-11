@@ -10,7 +10,7 @@ namespace Tests.plugins {
     public class AllRecordsTest {
         public Session session;
         public PluginManager pluginManager => session.pluginManager;
-        public static PluginFile plugin;
+        internal static PluginFile plugin;
 
         [OneTimeSetUp]
         public void SetUp() {

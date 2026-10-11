@@ -54,6 +54,10 @@ namespace esper.elements {
             header = new TES4GroupHeader(label, def.groupType);
         }
 
+        public override bool SupportsSignature(Signature sig) {
+            return groupDef.signature == sig;
+        }
+
         private void SetParentRecord() {
             if (!(label is FormId fid)) return;
             int index = container.internalElements.Count - 2;

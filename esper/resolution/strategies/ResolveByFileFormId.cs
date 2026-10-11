@@ -4,7 +4,7 @@ using System.Globalization;
 
 namespace esper.resolution.strategies {
     public class ResolveByFileFormId : ResolutionStrategy {
-        private static readonly Regex expr = new Regex(@"^&([0-9A-F]{8})$");
+        private static readonly Regex expr = new Regex(@"^(&|0x)([0-9A-F]{1,8})$");
 
         public override MatchData Match(Element element, string pathPart) {
             if (element is PluginFile || element is GroupRecord)
@@ -13,7 +13,7 @@ namespace esper.resolution.strategies {
         }
 
         private MainRecord ResolveRecord(FormIdMatch c) {
-            var hexStr = c.match.Groups[1].Value;
+            var hexStr = c.match.Groups[2].Value;
             var fileFormId = UInt32.Parse(hexStr, NumberStyles.HexNumber);
             return c.target.file.GetRecordByFormId(fileFormId);
         }

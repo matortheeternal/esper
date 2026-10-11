@@ -15,6 +15,7 @@ namespace esper.resolution {
             new ResolveByFileFormId(),
             new ResolveReference(),
             new ResolveByIndex(),
+            new ResolveFirst(),
             new ResolveBySignature(),
             new ResolveByName()
         };
