@@ -4,9 +4,8 @@ Bethesda plugin file parsing library.  Uses [esp.json](https://github.com/matort
 
 ## testing
 
-Run the managed suite with `dotnet test Tests/Tests.csproj`
-(`DOTNET_ROLL_FORWARD=LatestMajor` may be needed when only a newer
-.NET runtime is installed).
+Requires the .NET 10 SDK.  Run the managed suite with
+`dotnet test Tests/Tests.csproj`.
 
 ### fixture policy
 
@@ -38,7 +37,8 @@ The report is written under `TestResults/<guid>/coverage.cobertura.xml`.
 
 `js-tests/` smoke-tests Node interop via dynamic
 [node-api-dotnet](https://github.com/microsoft/node-api-dotnet)
-loading (`dotnet.load`), which is the cross-platform default.  Run:
+loading (`dotnet.load` on the `net10.0` host entry), which is the
+cross-platform default.  Run:
 
     cd js-tests && npm install && npm test
 

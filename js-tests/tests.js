@@ -1,6 +1,6 @@
 const assert = require('node:assert/strict');
 const path = require('path');
-const dotnet = require('node-api-dotnet');
+const dotnet = require('node-api-dotnet/net10.0');
 
 dotnet.load(path.resolve(__dirname, 'esper/esper.dll'));
 
