@@ -17,7 +17,7 @@ namespace esper.data.headers {
             dataSize = source.reader.ReadUInt32();
             flags = source.reader.ReadUInt32();
             formId = source.reader.ReadUInt32();
-            source.stream.Position += 8;
+            source.stream.Position += source.plugin.session.game.recordHeaderSize - 16;
         }
 
         public StructElement ToStructElement(

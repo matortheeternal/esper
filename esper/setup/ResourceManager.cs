@@ -43,10 +43,21 @@ namespace esper.setup {
 
         private List<string> GetAllArchives() {
             var searchPath = session.dataPath;
-            if (searchPath == null)
-                throw new Exception("Session data path was not provided.");
-            var search = $"*{session.game.archiveExtension}";
-            return Directory.GetFiles(searchPath, search).ToList();
+            if (string.IsNullOrWhiteSpace(searchPath)) {
+                session.logger.Warn("Cannot find archives without a data path.");
+                return new List<string>();
+            }
+            if (!Directory.Exists(searchPath)) {
+                session.logger.Warn($"Data path not found: {searchPath}");
+                return new List<string>();
+            }
+            return Directory.EnumerateFiles(searchPath)
+                .Where(path => string.Equals(
+                    Path.GetExtension(path), session.game.archiveExtension,
+                    StringComparison.OrdinalIgnoreCase
+                ))
+                .OrderBy(path => path, StringComparer.OrdinalIgnoreCase)
+                .ToList();
         }
 
         private string GetBaseName(string path) {
@@ -58,8 +69,13 @@ namespace esper.setup {
             return allArchives.FindAll(archivePath => {
                 var archiveName = GetBaseName(archivePath);
                 return session.game.extendedArchiveMatching
-                    ? archiveName.StartsWith(baseName)
-                    : archiveName == baseName;
+                    ? archiveName.StartsWith(
+                        baseName, StringComparison.OrdinalIgnoreCase
+                    )
+                    : string.Equals(
+                        archiveName, baseName,
+                        StringComparison.OrdinalIgnoreCase
+                    );
             });
         }
 
@@ -73,8 +89,21 @@ namespace esper.setup {
         private void LoadIniArchives() {
             var manager = EnsureAssetManager();
             var iniArchives = gameIni.GetArchives();
+            if (iniArchives.Count == 0) return;
+            if (string.IsNullOrWhiteSpace(session.dataPath) ||
+                !Directory.Exists(session.dataPath)) {
+                session.logger.Warn($"Data path not found: {session.dataPath}");
+                return;
+            }
             foreach (string archiveFileName in iniArchives) {
-                var archivePath = Path.Combine(session.dataPath, archiveFileName);
+                var relativePath = archiveFileName
+                    .Replace('\\', Path.DirectorySeparatorChar)
+                    .Replace('/', Path.DirectorySeparatorChar);
+                var archivePath = Path.Combine(session.dataPath, relativePath);
+                if (!File.Exists(archivePath)) {
+                    session.logger.Warn($"Archive not found: {archivePath}");
+                    continue;
+                }
                 manager.LoadArchive(archivePath);
             }
         }
@@ -86,7 +115,13 @@ namespace esper.setup {
         }
 
         public void LoadData() {
-            EnsureAssetManager().LoadFolder(session.dataPath);
+            var manager = EnsureAssetManager();
+            if (string.IsNullOrWhiteSpace(session.dataPath) ||
+                !Directory.Exists(session.dataPath)) {
+                session.logger.Warn($"Data path not found: {session.dataPath}");
+                return;
+            }
+            manager.LoadFolder(session.dataPath);
         }
 
         public void LoadPluginStrings(PluginFile plugin, List<string> stringFilePaths) {
@@ -100,13 +135,26 @@ namespace esper.setup {
 
         public void LoadStrings() {
             var stringTables = EnsureAssetManager().GetStringTables();
-            var languageSuffix = session.options.language.ToLower();
             foreach (var plugin in session.pluginManager.plugins) {
                 if (!plugin.localized) continue;
-                var key = $"{plugin.name}_{languageSuffix}";
-                if (!stringTables.ContainsKey(key)) continue;
-                LoadPluginStrings(plugin, stringTables[key]);
+                var key = GetStringTableKey(
+                    plugin.name, session.options.language
+                );
+                var stringFiles = stringTables.FirstOrDefault(entry =>
+                    string.Equals(
+                        entry.Key, key, StringComparison.OrdinalIgnoreCase
+                    )
+                ).Value;
+                if (stringFiles == null) continue;
+                LoadPluginStrings(plugin, stringFiles);
             }
+        }
+
+        internal static string GetStringTableKey(
+            string pluginName, string language
+        ) {
+            var pluginBaseName = Path.GetFileNameWithoutExtension(pluginName);
+            return $"{pluginBaseName}_{language}".ToLowerInvariant();
         }
     }
 }

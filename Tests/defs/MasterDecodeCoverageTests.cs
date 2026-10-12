@@ -10,10 +10,12 @@ using System.Linq;
 namespace Tests.defs {
     public class MasterDecodeCoverageTests {
         public static IEnumerable<TestCaseData> MasterCases() {
+            yield return MasterCase(Games.TES4, "Oblivion.esm");
             yield return MasterCase(Games.SSE, "Skyrim.esm");
             yield return MasterCase(Games.SSE, "Update.esm");
             yield return MasterCase(Games.SSE, "Dragonborn.esm");
             yield return MasterCase(Games.SSE, "Vigilant.esm");
+            yield return MasterCase(Games.FNV, "FalloutNV.esm");
             yield return MasterCase(Games.FO4, "Fallout4.esm");
         }
 

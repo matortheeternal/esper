@@ -3,10 +3,16 @@ using System.Text;
 namespace esper.setup {
     [JSExport]
     public class SessionOptions {
-        private static Dictionary<string, Encoding> encodings =
-            new Dictionary<string, Encoding> {
+        private static readonly Dictionary<string, Encoding> encodings;
+
+        static SessionOptions() {
+            Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
+            encodings = new Dictionary<string, Encoding>(
+                StringComparer.OrdinalIgnoreCase
+            ) {
                 { "English", Encoding.GetEncoding(1252) }
             };
+        }
 
         private static float GetEpsilon(uint digits) {
             // NOTE: digits must be cast to int: uint arithmetic would

@@ -1,11 +1,16 @@
-const dotnet = require('node-api-dotnet');
-const esper = dotnet.require('./esper/esper');
+const assert = require('node:assert/strict');
 const path = require('path');
+const dotnet = require('node-api-dotnet');
 
-const { Games, Session, SessionOptions } = esper;
+dotnet.load(path.resolve(__dirname, 'esper/esper.dll'));
 
-let session = new Session(Games.TES5, new SessionOptions());
-let pluginPath = path.resolve('../Fixtures/AllRecords.esp');
-let plugin = session.pluginManager.loadPlugin(pluginPath);
-console.log(plugin.name);
-console.log(plugin.records.length);
+const Games = dotnet.esper.Games;
+const Session = dotnet.esper.setup.Session;
+const SessionOptions = dotnet.esper.setup.SessionOptions;
+const session = new Session(Games.TES5, new SessionOptions());
+const pluginPath = path.resolve(__dirname, '../fixtures/AllRecords.esp');
+const plugin = session.pluginManager.LoadPlugin(pluginPath);
+
+assert.equal(plugin.name, 'AllRecords.esp');
+assert.equal(plugin.records.length, 122);
+console.log(`Loaded ${plugin.name}: ${plugin.records.length} records`);

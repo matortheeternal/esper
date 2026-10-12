@@ -11,11 +11,13 @@ namespace esper.setup {
         private readonly IniData iniData;
         private readonly Session session;
 
-        public GameIni(Session session) {
+        public GameIni(Session session) : this(session, session.game.iniPath) { }
+
+        internal GameIni(Session session, string iniPath) {
             this.session = session;
-            if (File.Exists(session.game.iniPath)) {
+            if (File.Exists(iniPath)) {
                 var ini = new FileIniDataParser();
-                iniData = ini.ReadFile(session.game.iniPath);
+                iniData = ini.ReadFile(iniPath);
                 return;
             }
             session.logger.Error(
@@ -24,31 +26,43 @@ namespace esper.setup {
             );
         }
 
-        private void AddArchives(List<string> archivePaths, string key) {
-            var value = iniData["Archive"][key];
+        private void AddArchives(
+            List<string> archivePaths, KeyDataCollection archiveSection,
+            string key
+        ) {
+            var value = archiveSection[key];
             if (value == null) return;
-            archivePaths.AddRange(value.Split(", "));
+            archivePaths.AddRange(
+                value.Split(',', StringSplitOptions.RemoveEmptyEntries)
+                    .Select(path => path.Trim())
+                    .Where(path => path.Length > 0)
+            );
         }
 
         public List<string> GetArchives() {
-            if (iniData["Archive"] == null)
-                throw new Exception("Archive section not found in game INI");
             var archives = new List<string>();
-            AddArchives(archives, "sResourceAchiveList");
-            AddArchives(archives, "sResourceAchiveList2");
-            AddArchives(archives, "sArchiveToLoadInMemoryList");
+            var archiveSection = iniData?["Archive"];
+            if (archiveSection == null) return archives;
+            AddArchives(archives, archiveSection, "sResourceArchiveList");
+            AddArchives(archives, archiveSection, "sResourceArchiveList2");
+            AddArchives(archives, archiveSection, "sArchiveToLoadInMemoryList");
             return archives;
         }
 
         public string GetConfiguredLanguage() {
             if (iniData == null) return null;
-            if (session.game == Games.TES4) {
-                var languageIndex = Int32.Parse(iniData["Controls"]["iLanguage"]);
+            if (string.Equals(
+                session.game.abbreviation, "TES4",
+                StringComparison.OrdinalIgnoreCase
+            )) {
+                var configuredIndex = iniData["Controls"]?["iLanguage"];
+                if (!Int32.TryParse(configuredIndex, out var languageIndex))
+                    return "English";
                 if (languageIndex > 0 && languageIndex < TES4Languages.Length) {
                     return TES4Languages[languageIndex];
                 }
             } else {
-                return iniData["General"]["sLanguage"];
+                return iniData["General"]?["sLanguage"];
             }
             return "English";
         }

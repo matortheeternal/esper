@@ -13,6 +13,7 @@ namespace esper.defs {
         internal List<ElementDef> elementDefs;
         internal readonly List<int> sortKeyIndices;
         internal readonly List<int> elementMap;
+        internal readonly int? optionalFromElement;
 
         public override int? size => elementDefs.Sum(def => def.size);
         public override bool canContainFormIds => _canContainFormIds;
@@ -23,6 +24,7 @@ namespace esper.defs {
             elementDefs = JsonHelpers.Defs<ElementDef>(manager, src, "elements");
             sortKeyIndices = JsonHelpers.List<int>(src, "sortKey");
             elementMap = JsonHelpers.List<int>(src, "elementMap");
+            optionalFromElement = src.Value<int?>("optionalFromElement");
             _canContainFormIds = elementDefs.Any(d => d.canContainFormIds);
         }
 
@@ -34,6 +36,7 @@ namespace esper.defs {
             elementMap = other.elementMap == null
                 ? null
                 : new List<int>(other.elementMap);
+            optionalFromElement = other.optionalFromElement;
             _canContainFormIds = other._canContainFormIds;
         }
 
@@ -73,13 +76,21 @@ namespace esper.defs {
             var lastDefIndex = elementDefs.Count - 1;
             for (int i = 0; i <= lastDefIndex; i++) {
                 var def = elementDefs[i];
+                UInt32? remainingSize = GetRemainingSize(
+                    source, startPos, dataSize
+                );
+                if (optionalFromElement <= i && remainingSize != null &&
+                    def.size is int defSize && defSize > remainingSize) {
+                    continue;
+                }
                 if (source.stream.Position >= source.dataEndPos) {
                     def.NewElement(element);
                 } else {
-                    UInt32? remainingSize = (i == lastDefIndex)
-                        ? GetRemainingSize(source, startPos, dataSize)
-                        : null;
-                    def.ReadElement(element, source, remainingSize);
+                    def.ReadElement(
+                        element,
+                        source,
+                        i == lastDefIndex ? remainingSize : null
+                    );
                 }
             }
         }

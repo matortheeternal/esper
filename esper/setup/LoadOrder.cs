@@ -10,8 +10,23 @@
         public List<string> creationClubPlugins {
             get {
                 if (_creationClubPlugins == null) {
+                    _creationClubPlugins = new List<string>();
+                    if (string.IsNullOrWhiteSpace(session.game.cccName))
+                        return _creationClubPlugins;
+                    if (string.IsNullOrWhiteSpace(session.dataPath)) {
+                        session.logger.Warn(
+                            "Cannot load Creation Club plugins without a data path."
+                        );
+                        return _creationClubPlugins;
+                    }
                     var cccPath = Path.Combine(session.dataPath, session.game.cccName);
-                    _creationClubPlugins = File.ReadAllLines(cccPath).ToList();
+                    if (!File.Exists(cccPath)) {
+                        session.logger.Info(
+                            $"Creation Club plugin file not found: {cccPath}"
+                        );
+                        return _creationClubPlugins;
+                    }
+                    _creationClubPlugins.AddRange(File.ReadAllLines(cccPath));
                 }
                 return _creationClubPlugins;
             }
@@ -36,15 +51,36 @@
         }
 
         private ModuleInfo GetModule(string filename) {
-            return modules.FirstOrDefault(module => module.name == filename);
+            return modules.FirstOrDefault(module => string.Equals(
+                module.name, filename, StringComparison.OrdinalIgnoreCase
+            ));
         }
 
         private void GetFiles() {
-            var filenames = Directory.GetFiles(session.dataPath);
-            foreach (var filename in filenames) {
-                if (!validFileNameExpr.IsMatch(filename)) continue;
-                var filePath = Path.Combine(session.dataPath, filename);
-                modules.Add(new ModuleInfo(session, filePath));
+            if (string.IsNullOrWhiteSpace(session.dataPath)) {
+                session.logger.Warn("Cannot build load order without a data path.");
+                return;
+            }
+            if (!Directory.Exists(session.dataPath)) {
+                session.logger.Warn(
+                    $"Cannot build load order; data path not found: {session.dataPath}"
+                );
+                return;
+            }
+
+            try {
+                foreach (var filePath in Directory.EnumerateFiles(session.dataPath)) {
+                    if (!validFileNameExpr.IsMatch(filePath)) continue;
+                    modules.Add(new ModuleInfo(session, filePath));
+                }
+            } catch (Exception exception) when (
+                exception is IOException ||
+                exception is UnauthorizedAccessException
+            ) {
+                session.logger.Error(
+                    $"Could not enumerate data path {session.dataPath}: " +
+                    exception.Message
+                );
             }
         }
 
@@ -91,7 +127,7 @@
             for (int i = 0; i < plugins.Count; i++) {
                 var filename = plugins[i];
                 var module = GetModule(filename);
-                if (module == null) return;
+                if (module == null) continue;
                 SetIndex(module, i);
                 module.flags |= ModuleFlags.Active | ModuleFlags.HasIndex;
             }

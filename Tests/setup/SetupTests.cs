@@ -5,6 +5,7 @@ using NUnit.Framework;
 using System;
 using System.IO;
 using Tests;
+using Tests.defs;
 
 namespace Tests.setup {
     public class SessionOptionsTests {
@@ -42,6 +43,12 @@ namespace Tests.setup {
             Assert.AreEqual("F2", options.floatFormat);
             Assert.AreEqual(1e-2, options.epsilon, 1e-9);
             Assert.AreNotEqual(defaultEpsilon, options.epsilon);
+        }
+
+        [Test]
+        public void TestEncodingLookupIsCaseInsensitive() {
+            var options = new SessionOptions { language = "english" };
+            Assert.AreEqual(1252, options.encoding.CodePage);
         }
     }
 
@@ -83,6 +90,31 @@ namespace Tests.setup {
             Assert.AreEqual("Skyrim Special Edition", game.registryName);
             Assert.AreEqual("Skyrim Special Edition", game.myGamesFolderName);
         }
+
+        [TestCase("TES4", "Oblivion.ini")]
+        [TestCase("FO3", "Fallout.ini")]
+        [TestCase("FNV", "Fallout.ini")]
+        [TestCase("TES5", "Skyrim.ini")]
+        [TestCase("FO4", "Fallout4.ini")]
+        [TestCase("SSE", "Skyrim.ini")]
+        [TestCase("SF", "Starfield.ini")]
+        public void TestIniPathHasOneExtension(string abbreviation, string expected) {
+            var game = RecordDefCoverageTests.games[abbreviation];
+            Assert.AreEqual(expected, Path.GetFileName(game.iniPath));
+        }
+
+        [Test]
+        public void TestAppDataPathUsesLocalApplicationData() {
+            Assert.AreEqual(
+                Path.Combine(
+                    Environment.GetFolderPath(
+                        Environment.SpecialFolder.LocalApplicationData
+                    ),
+                    Games.SSE.appDataFolderName
+                ),
+                Games.SSE.appDataPath
+            );
+        }
     }
 
     public class SessionLifecycleTests {
@@ -99,11 +131,26 @@ namespace Tests.setup {
         [Test]
         public void TestMissingGameIniLogsError() {
             var session = new Session(Games.SSE, new SessionOptions());
-            // no Skyrim.ini exists on this machine
-            Assert.IsFalse(File.Exists(Games.SSE.iniPath));
+            var missingPath = Path.Combine(
+                Path.GetTempPath(), Guid.NewGuid().ToString("N"), "Skyrim.ini"
+            );
+            var gameIni = new GameIni(session, missingPath);
+            Assert.IsFalse(File.Exists(missingPath));
             var messages = string.Join("\n", session.logger.messages);
             StringAssert.Contains("Game ini file not found", messages);
-            Assert.IsNull(session.gameIni.GetConfiguredLanguage());
+            Assert.IsNull(gameIni.GetConfiguredLanguage());
+            Assert.IsEmpty(gameIni.GetArchives());
+        }
+
+        [Test]
+        public void TestGamePathUsesInstallationRootDataFolder() {
+            var gameRoot = Path.Combine(
+                Path.GetTempPath(), Guid.NewGuid().ToString("N")
+            );
+            var session = new Session(Games.SSE, new SessionOptions {
+                gamePath = gameRoot
+            });
+            Assert.AreEqual(Path.Combine(gameRoot, "Data"), session.dataPath);
         }
     }
 
@@ -125,6 +172,16 @@ namespace Tests.setup {
             );
             session.pluginManager.UnloadPlugin(plugin);
             Assert.IsFalse(session.pluginManager.HasPlugin("Dummy.esp"));
+        }
+
+        [Test]
+        public void TestPluginLookupIsCaseInsensitive() {
+            var plugin = session.pluginManager.CreateDummyPlugin("MixedCase.ESP");
+            Assert.AreSame(
+                plugin, session.pluginManager.GetFileByName("mixedcase.esp")
+            );
+            Assert.IsTrue(session.pluginManager.HasPlugin("MIXEDCASE.ESP"));
+            session.pluginManager.UnloadPlugin(plugin);
         }
 
         [Test]
@@ -233,10 +290,23 @@ namespace Tests.setup {
         [Test]
         public void TestMissingPluginsTxtYieldsNoLines() {
             var session = new Session(Games.SSE, new SessionOptions());
-            var file = new LoadOrderFile(session);
+            var missingPath = Path.Combine(
+                Path.GetTempPath(), Guid.NewGuid().ToString("N"), "plugins.txt"
+            );
+            var file = new LoadOrderFile(session, missingPath);
             Assert.IsFalse(File.Exists(file.filePath));
             Assert.IsEmpty(file.lines);
             Assert.IsTrue(file.usesAsterisks);
+        }
+
+        [Test]
+        public void TestPluginsTxtUsesLocalAppData() {
+            var session = new Session(Games.SSE, new SessionOptions());
+            var file = new LoadOrderFile(session);
+            Assert.AreEqual(
+                Path.Combine(Games.SSE.appDataPath, "plugins.txt"),
+                file.filePath
+            );
         }
 
         [Test]
@@ -265,6 +335,186 @@ namespace Tests.setup {
         }
     }
 
+    public class LoadOrderTests {
+        [Test]
+        public void TestMissingDataPathYieldsEmptyLoadOrderAndWarning() {
+            var session = new Session(Games.TES5, new SessionOptions());
+            var loadOrder = new LoadOrder(session);
+            Assert.IsEmpty(loadOrder.modules);
+            StringAssert.Contains(
+                "without a data path",
+                string.Join("\n", session.logger.messages)
+            );
+        }
+
+        [Test]
+        public void TestMissingConfiguredDataPathYieldsEmptyLoadOrder() {
+            var root = Path.Combine(Path.GetTempPath(), Guid.NewGuid().ToString("N"));
+            var session = new Session(Games.TES5, new SessionOptions {
+                gamePath = root
+            });
+            var loadOrder = new LoadOrder(session);
+            Assert.IsEmpty(loadOrder.modules);
+            StringAssert.Contains(
+                "data path not found",
+                string.Join("\n", session.logger.messages).ToLowerInvariant()
+            );
+        }
+
+        [Test]
+        public void TestMissingCreationClubFileIsOptional() {
+            var root = Path.Combine(Path.GetTempPath(), Guid.NewGuid().ToString("N"));
+            Directory.CreateDirectory(Path.Combine(root, "Data"));
+            try {
+                var session = new Session(Games.SSE, new SessionOptions {
+                    gamePath = root
+                });
+                var loadOrder = new LoadOrder(session);
+                Assert.IsEmpty(loadOrder.creationClubPlugins);
+                StringAssert.Contains(
+                    "Creation Club plugin file not found",
+                    string.Join("\n", session.logger.messages)
+                );
+            } finally {
+                Directory.Delete(root, true);
+            }
+        }
+
+        [Test]
+        public void TestHardcodedModuleMatchingIsCaseInsensitive() {
+            var root = Path.Combine(Path.GetTempPath(), Guid.NewGuid().ToString("N"));
+            var dataPath = Path.Combine(root, "Data");
+            Directory.CreateDirectory(dataPath);
+            File.Copy(
+                TestHelpers.FixturePath("EmptyPlugin.esp"),
+                Path.Combine(dataPath, "SKYRIM.ESM")
+            );
+            Session session = null;
+            LoadOrder loadOrder = null;
+            try {
+                session = new Session(Games.TES5, new SessionOptions {
+                    gamePath = root
+                });
+                loadOrder = new LoadOrder(session);
+                Assert.AreEqual(1, loadOrder.modules.Count);
+                Assert.AreNotEqual(
+                    0,
+                    loadOrder.modules[0].flags & ModuleFlags.IsGameMaster
+                );
+            } finally {
+                if (session != null && loadOrder != null) {
+                    foreach (var module in loadOrder.modules)
+                        session.pluginManager.UnloadPlugin(module.plugin);
+                    foreach (var plugin in session.pluginManager.plugins.ToArray())
+                        session.pluginManager.UnloadPlugin(plugin);
+                }
+                Directory.Delete(root, true);
+            }
+        }
+
+        [Test]
+        public void TestMissingHardcodedModuleDoesNotSkipLaterModules() {
+            var root = Path.Combine(Path.GetTempPath(), Guid.NewGuid().ToString("N"));
+            var dataPath = Path.Combine(root, "Data");
+            Directory.CreateDirectory(dataPath);
+            File.Copy(
+                TestHelpers.FixturePath("EmptyPlugin.esp"),
+                Path.Combine(dataPath, "UPDATE.ESM")
+            );
+            Session session = null;
+            LoadOrder loadOrder = null;
+            try {
+                session = new Session(Games.TES5, new SessionOptions {
+                    gamePath = root
+                });
+                loadOrder = new LoadOrder(session);
+                Assert.AreEqual(1, loadOrder.modules.Count);
+                Assert.AreEqual(1, loadOrder.modules[0].officialIndex);
+                Assert.AreNotEqual(
+                    0, loadOrder.modules[0].flags & ModuleFlags.Active
+                );
+            } finally {
+                if (session != null && loadOrder != null) {
+                    foreach (var module in loadOrder.modules)
+                        session.pluginManager.UnloadPlugin(module.plugin);
+                    foreach (var plugin in session.pluginManager.plugins.ToArray())
+                        session.pluginManager.UnloadPlugin(plugin);
+                }
+                Directory.Delete(root, true);
+            }
+        }
+    }
+
+    public class GameIniTests {
+        private static string WriteIni(string contents) {
+            var path = Path.Combine(
+                Path.GetTempPath(), $"EsperIni{Guid.NewGuid():N}.ini"
+            );
+            File.WriteAllText(path, contents);
+            return path;
+        }
+
+        [Test]
+        public void TestArchiveListsUseCorrectKeysAndFlexibleCommas() {
+            var path = WriteIni(
+                "[Archive]\n" +
+                "sResourceArchiveList=Base.bsa, Textures.bsa\n" +
+                "sResourceArchiveList2=Voices.bsa,Interface.bsa\n" +
+                "sArchiveToLoadInMemoryList=Memory.bsa\n"
+            );
+            try {
+                var session = new Session(Games.TES5, new SessionOptions());
+                var gameIni = new GameIni(session, path);
+                CollectionAssert.AreEqual(
+                    new[] {
+                        "Base.bsa", "Textures.bsa", "Voices.bsa",
+                        "Interface.bsa", "Memory.bsa"
+                    },
+                    gameIni.GetArchives()
+                );
+            } finally {
+                File.Delete(path);
+            }
+        }
+
+        [Test]
+        public void TestMissingArchiveSectionYieldsEmptyList() {
+            var path = WriteIni("[General]\nsLanguage=English\n");
+            try {
+                var session = new Session(Games.SSE, new SessionOptions());
+                Assert.IsEmpty(new GameIni(session, path).GetArchives());
+            } finally {
+                File.Delete(path);
+            }
+        }
+
+        [Test]
+        public void TestTES4LanguageUsesGameIdentityNotObjectReference() {
+            var path = WriteIni("[Controls]\niLanguage=2\n");
+            try {
+                var session = new Session(Games.TES4, new SessionOptions());
+                Assert.AreEqual(
+                    "French", new GameIni(session, path).GetConfiguredLanguage()
+                );
+            } finally {
+                File.Delete(path);
+            }
+        }
+
+        [Test]
+        public void TestMalformedTES4LanguageFallsBackToEnglish() {
+            var path = WriteIni("[Controls]\niLanguage=invalid\n");
+            try {
+                var session = new Session(Games.TES4, new SessionOptions());
+                Assert.AreEqual(
+                    "English", new GameIni(session, path).GetConfiguredLanguage()
+                );
+            } finally {
+                File.Delete(path);
+            }
+        }
+    }
+
     public class ResourceManagerTests {
         [Test]
         public void TestNoArchivesRegisteredByDefault() {
@@ -272,19 +522,65 @@ namespace Tests.setup {
             Assert.IsEmpty(
                 session.resourceManager.GetAssociatedArchives("Skyrim.esm")
             );
+            Assert.DoesNotThrow(() => session.resourceManager.LoadArchives());
+        }
+
+        [Test]
+        public void TestArchiveDiscoveryAndAssociationIgnoreCase() {
+            var root = Path.Combine(Path.GetTempPath(), Guid.NewGuid().ToString("N"));
+            var dataPath = Path.Combine(root, "Data");
+            Directory.CreateDirectory(dataPath);
+            var archivePath = Path.Combine(dataPath, "Example - Main.BA2");
+            File.WriteAllBytes(archivePath, Array.Empty<byte>());
+            try {
+                var session = new Session(Games.FO4, new SessionOptions {
+                    gamePath = root,
+                    loadResources = true
+                });
+                CollectionAssert.AreEqual(
+                    new[] { archivePath },
+                    session.resourceManager.GetAssociatedArchives("example.esp")
+                );
+            } finally {
+                Directory.Delete(root, true);
+            }
+        }
+
+        [Test]
+        public void TestAutomaticStringTableKeyOmitsPluginExtension() {
+            Assert.AreEqual(
+                "skyrim_english",
+                ResourceManager.GetStringTableKey("SkYrIm.EsM", "ENGLISH")
+            );
+        }
+
+        [Test]
+        public void TestMissingConfiguredDataFolderDoesNotThrow() {
+            var root = Path.Combine(Path.GetTempPath(), Guid.NewGuid().ToString("N"));
+            try {
+                Directory.CreateDirectory(root);
+                var session = new Session(Games.SSE, new SessionOptions {
+                    gamePath = root,
+                    loadResources = true
+                });
+                Assert.IsEmpty(
+                    session.resourceManager.GetAssociatedArchives("Skyrim.esm")
+                );
+                StringAssert.Contains(
+                    "Data path not found",
+                    string.Join("\n", session.logger.messages)
+                );
+            } finally {
+                Directory.Delete(root, true);
+            }
         }
     }
 
     public class RegHelperTests {
         [Test]
-        public void TestTryGetRegKeyReturnsNullOnLinux() {
-            // RegOpenKeyEx is a Windows P/Invoke; on Linux the call
-            // throws and TryGetRegKey swallows it.
-            Assert.IsNull(RegistryWOW6432.TryGetRegKey(
-                RegHive.HKEY_LOCAL_MACHINE,
-                @"SOFTWARE\Bethesda Softworks\Skyrim Special Edition",
-                "Installed Path"
-            ));
+        public void TestTryGetRegKeyReturnsNullOutsideWindows() {
+            if (OperatingSystem.IsWindows()) Assert.Ignore("Non-Windows behavior");
+            Assert.IsNull(Games.SSE.GetInstallLocation());
         }
     }
 }

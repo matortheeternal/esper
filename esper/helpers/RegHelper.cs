@@ -1,68 +1,47 @@
-﻿using System.Runtime.InteropServices;
-using System.Text;
+using Microsoft.Win32;
+using System.Security;
 
 namespace esper.helpers {
-    enum RegSAM {
-        QueryValue = 0x0001,
-        SetValue = 0x0002,
-        CreateSubKey = 0x0004,
-        EnumerateSubKeys = 0x0008,
-        Notify = 0x0010,
-        CreateLink = 0x0020,
-        WOW64_32Key = 0x0200,
-        WOW64_64Key = 0x0100,
-        WOW64_Res = 0x0300,
-        Read = 0x00020019,
-        Write = 0x00020006,
-        Execute = 0x00020019,
-        AllAccess = 0x000f003f
-    }
-
-    static class RegHive {
-        public static UIntPtr HKEY_LOCAL_MACHINE = new UIntPtr(0x80000002u);
-        public static UIntPtr HKEY_CURRENT_USER = new UIntPtr(0x80000001u);
-    }
-
     static class RegistryWOW6432 {
-        [DllImport("Advapi32.dll")]
-        static extern uint RegOpenKeyEx(UIntPtr hKey, string lpSubKey, uint ulOptions, int samDesired, out int phkResult);
+        private static string GetRegKey(
+            RegistryHive hive, RegistryView view,
+            string keyName, string propertyName
+        ) {
+            if (!OperatingSystem.IsWindows()) return null;
 
-        [DllImport("Advapi32.dll")]
-        static extern uint RegCloseKey(int hKey);
-
-        [DllImport("advapi32.dll", EntryPoint = "RegQueryValueEx")]
-        public static extern int RegQueryValueEx(int hKey, string lpValueName, int lpReserved, ref uint lpType, System.Text.StringBuilder lpData, ref uint lpcbData);
-
-        static public string GetRegKey64(UIntPtr inHive, String inKeyName, string inPropertyName) {
-            return GetRegKey64(inHive, inKeyName, RegSAM.WOW64_64Key, inPropertyName);
+            using var baseKey = RegistryKey.OpenBaseKey(hive, view);
+            using var key = baseKey.OpenSubKey(keyName);
+            return key?.GetValue(propertyName) as string;
         }
 
-        static public string GetRegKey32(UIntPtr inHive, String inKeyName, string inPropertyName) {
-            return GetRegKey64(inHive, inKeyName, RegSAM.WOW64_32Key, inPropertyName);
+        public static string GetRegKey64(
+            RegistryHive hive, string keyName, string propertyName
+        ) {
+            return GetRegKey(hive, RegistryView.Registry64, keyName, propertyName);
         }
 
-        static public string GetRegKey64(UIntPtr inHive, String inKeyName, RegSAM in32or64key, string inPropertyName) {
-            int hkey = 0;
+        public static string GetRegKey32(
+            RegistryHive hive, string keyName, string propertyName
+        ) {
+            return GetRegKey(hive, RegistryView.Registry32, keyName, propertyName);
+        }
 
+        // Query 64-bit, then 32-bit registry view, returning null when the
+        // registry is unavailable or inaccessible.
+        public static string TryGetRegKey(
+            RegistryHive hive, string keyName, string propertyName
+        ) {
+            if (!OperatingSystem.IsWindows()) return null;
             try {
-                uint lResult = RegOpenKeyEx(inHive, inKeyName, 0, (int)RegSAM.QueryValue | (int)in32or64key, out hkey);
-                if (0 != lResult) return null;
-                uint lpType = 0;
-                uint lpcbData = 1024;
-                StringBuilder ValueBuffer = new StringBuilder(1024);
-                RegQueryValueEx(hkey, inPropertyName, 0, ref lpType, ValueBuffer, ref lpcbData);
-                return ValueBuffer.ToString();
-            } finally {
-                if (0 != hkey) RegCloseKey(hkey);
+                return GetRegKey64(hive, keyName, propertyName)
+                    ?? GetRegKey32(hive, keyName, propertyName);
+            } catch (Exception exception) when (
+                exception is IOException ||
+                exception is UnauthorizedAccessException ||
+                exception is SecurityException
+            ) {
+                return null;
             }
         }
-
-        // Query 64-bit, then 32-bit registry key, return null otherwise
-        static public string TryGetRegKey(UIntPtr inHive, String inKeyName, string inPropertyName) {
-            try { return GetRegKey64(inHive, inKeyName, inPropertyName); } catch { }
-            try { return GetRegKey32(inHive, inKeyName, inPropertyName); } catch { }
-            return null;
-        }
     }
-
 }

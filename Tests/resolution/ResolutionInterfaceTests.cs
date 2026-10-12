@@ -26,9 +26,15 @@ namespace Tests.resolution {
                     && g.groupDef.signature.ToString() == "ACTI";
             });
             pluginPath = TestHelpers.FixturePath("Dragonborn.esm");
-            dragonborn = pluginManager.LoadPlugin(pluginPath);
+            if (System.IO.File.Exists(pluginPath))
+                dragonborn = pluginManager.LoadPlugin(pluginPath);
             pluginPath = TestHelpers.FixturePath("ARecords.esp");
             plugin2 = pluginManager.LoadPlugin(pluginPath);
+        }
+
+        private void RequireDragonborn() {
+            if (dragonborn == null)
+                Assert.Ignore("Local master fixture not found: Dragonborn.esm");
         }
 
         [Test]
@@ -51,6 +57,7 @@ namespace Tests.resolution {
 
         [Test]
         public void TestResolution_FileFormId() {
+            RequireDragonborn();
             var rec = group.elements[0];
             Assert.AreEqual(rec, plugin.ResolveElement("0xF55"));
             Assert.AreEqual(null, plugin.ResolveElement("&0"));
@@ -60,6 +67,7 @@ namespace Tests.resolution {
 
         [Test]
         public void TestResolution_Reference() {
+            RequireDragonborn();
             var rec = group.elements[0];
             Assert.AreEqual(null, rec.GetElement("Record Header\\@FormID"));
             var rec2 = plugin2.GetElement("0x800");
@@ -100,6 +108,7 @@ namespace Tests.resolution {
 
         [Test]
         public void TestResolution_Name() {
+            RequireDragonborn();
             Assert.AreEqual(dragonborn, session.root.ResolveElement("Dragonborn.esm"));
             Assert.AreEqual(group, plugin.ResolveElement("Activator"));
             var rec = group.elements[0];

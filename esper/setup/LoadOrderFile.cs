@@ -11,7 +11,14 @@
 
         public LoadOrderFile(Session session) {
             this.session = session;
-            filePath = Path.Combine(session.game.myGamesPath, "plugins.txt");
+            filePath = Path.Combine(session.game.appDataPath, "plugins.txt");
+            lines = new List<LoadOrderLine>();
+            LoadLines();
+        }
+
+        internal LoadOrderFile(Session session, string filePath) {
+            this.session = session;
+            this.filePath = filePath;
             lines = new List<LoadOrderLine>();
             LoadLines();
         }

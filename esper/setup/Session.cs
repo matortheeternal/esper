@@ -24,6 +24,9 @@ namespace esper.setup {
         public Session(Game game, SessionOptions options) {
             this.game = game;
             this.options = options;
+            dataPath = string.IsNullOrWhiteSpace(options.gamePath)
+                ? null
+                : Path.Combine(options.gamePath, "Data");
             Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
             logger = new Logger("esper");
             assembly = Assembly.GetExecutingAssembly();

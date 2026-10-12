@@ -14,7 +14,7 @@ namespace esper.defs {
         public override bool canContainFormIds => true;
 
         private readonly Signature _signature;
-        private UInt32 recordHeaderSize => 24;
+        private UInt32 recordHeaderSize => manager.game.recordHeaderSize;
 
         public override Signature signature => _signature;
         public StructDef headerDef;

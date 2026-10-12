@@ -23,15 +23,14 @@ namespace esper.elements {
         public UInt32 groupSize => header.groupSize;
         public int groupType => header.groupType;
         internal dynamic label => groupDef.ConvertLabel(this, header.label);
-        public UInt32 dataSize => (UInt32)(groupSize - groupHeaderDef.size);
+        public UInt32 dataSize => groupSize - groupHeaderSize;
 
         public bool isTopGroup => groupDef.isTopGroup;
         public bool hasRecordParent => groupDef.hasRecordParent;
         public bool isChildGroup => groupDef.isChildGroup;
         public bool isChildGroupChild => groupDef.isChildGroupChild;
 
-        private UInt32 groupHeaderSize => 24;
-        private StructDef groupHeaderDef => manager.groupHeaderDef;
+        private UInt32 groupHeaderSize => manager.game.groupHeaderSize;
 
         public MainRecord parentRecord {
             get => _parentRecord;
@@ -51,7 +50,7 @@ namespace esper.elements {
         public GroupRecord(
             Container container, GroupDef def, byte[] label
         ) : base(container, def) {
-            header = new TES4GroupHeader(label, def.groupType);
+            header = new TES4GroupHeader(label, def.groupType, groupHeaderSize);
         }
 
         public override bool SupportsSignature(Signature sig) {

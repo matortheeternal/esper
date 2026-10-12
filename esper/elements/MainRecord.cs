@@ -58,9 +58,7 @@ namespace esper.elements {
         public UInt32 dataSize => compressed
                     ? recordSource.dataSize
                     : header.dataSize;
-        public bool compressed => _file.sessionOptions.improvise
-            ? this.GetRecordFlag(18)
-            : this.GetRecordFlag("Compressed");
+        public bool compressed => this.GetRecordFlag(18);
 
         public string editorId {
             get => this.GetValue("EDID");

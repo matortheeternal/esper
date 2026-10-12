@@ -6,6 +6,8 @@
             name = "Oblivion",
             fullName = "The Elder Scrolls IV: Oblivion",
             abbreviation = "TES4",
+            recordHeaderSize = 20,
+            groupHeaderSize = 20,
             steamAppIds = { 22330, 900883 }
         }.InitDefaults();
 

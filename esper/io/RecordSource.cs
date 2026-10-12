@@ -38,6 +38,12 @@ namespace esper.io {
         internal bool NextSubrecord() {
             if (stream.Position == stream.Length) return false;
             if (_currentSubrecord != null) return true;
+            if (stream.Length - stream.Position < 6) {
+                throw new InvalidDataException(
+                    $"Incomplete subrecord header at 0x{stream.Position:X}; " +
+                    $"record data ends at 0x{stream.Length:X}."
+                );
+            }
             ReadSubrecord();
             return true;
         }

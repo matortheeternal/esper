@@ -1,6 +1,7 @@
 using esper.helpers;
 using IniParser;
 using IniParser.Model;
+using Microsoft.Win32;
 
 namespace esper {
     [JSExport]
@@ -21,7 +22,9 @@ namespace esper {
         public string cccName { get; internal set; } = null;
         public PluginsTxtType pluginsTxtType { get; internal set; } = PluginsTxtType.Plain;
         public string archiveExtension { get; internal set; } = ".bsa";
-        internal UIntPtr registryRoot = RegHive.HKEY_LOCAL_MACHINE;
+        internal UInt32 recordHeaderSize { get; set; } = 24;
+        internal UInt32 groupHeaderSize { get; set; } = 24;
+        internal RegistryHive registryRoot = RegistryHive.LocalMachine;
         public string registryValue { get; internal set; } = "Installed Path";
         public string registryPath { get; internal set; } = @"SOFTWARE\Bethesda Softworks";
         public bool extendedArchiveMatching { get; internal set; } = false;
@@ -39,6 +42,14 @@ namespace esper {
             }
         }
 
+        public string appDataPath {
+            get {
+                var appDataId = Environment.SpecialFolder.LocalApplicationData;
+                var appDataPath = Environment.GetFolderPath(appDataId);
+                return Path.Combine(appDataPath, appDataFolderName);
+            }
+        }
+
         private IniData _iniData;
         internal IniData gameIni {
             get {
@@ -50,7 +61,7 @@ namespace esper {
             }
         }
 
-        public string iniPath => Path.Combine(myGamesPath, $"{iniName}.ini");
+        public string iniPath => Path.Combine(myGamesPath, iniName);
 
         public Game(
             string nameOverride = null, string baseNameOverride = null
@@ -92,7 +103,7 @@ namespace esper {
         }
 
         public string GetInstallLocation() {
-            var keyPath = Path.Combine(registryPath, registryName);
+            var keyPath = $@"{registryPath}\{registryName}";
             return RegistryWOW6432.TryGetRegKey(registryRoot, keyPath, registryValue);
         }
     }

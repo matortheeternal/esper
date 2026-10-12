@@ -5,7 +5,7 @@ using System.IO.Compression;
 using System.IO.MemoryMappedFiles;
 
 namespace esper.io {
-    public class PluginFileSource : DataSource {
+    public class PluginFileSource : DataSource, IDisposable {
         internal readonly PluginFile _plugin;
         internal readonly string filePath;
 
@@ -114,6 +114,12 @@ namespace esper.io {
             } finally {
                 rec.recordSource = null;
             }
+        }
+
+        public void Dispose() {
+            reader?.Dispose();
+            fileStream?.Dispose();
+            file?.Dispose();
         }
     }
 }

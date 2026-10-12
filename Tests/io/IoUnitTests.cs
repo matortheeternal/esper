@@ -1,11 +1,14 @@
 using esper;
 using esper.data;
+using esper.defs;
 using esper.elements;
 using esper.io;
 using esper.resolution;
 using esper.setup;
+using Newtonsoft.Json.Linq;
 using NUnit.Framework;
 using System;
+using System.Linq;
 
 namespace Tests.io {
     public class StructApiTests {
@@ -116,6 +119,43 @@ namespace Tests.io {
             );
             StringAssert.Contains("Read past", ex.Message);
             StringAssert.Contains("EDID", ex.Message);
+        }
+
+        [Test]
+        public void TestOptionalStructFieldsSkipValuesThatDoNotFit() {
+            var def = new StructDef(
+                session.definitionManager,
+                JObject.Parse(@"{
+                    'type': 'struct',
+                    'name': 'Versioned data',
+                    'optionalFromElement': 0,
+                    'elements': [
+                        { 'type': 'float', 'name': 'Present' },
+                        { 'type': 'float', 'name': 'Omitted' },
+                        { 'type': 'uint16', 'name': 'Damage' }
+                    ]
+                }")
+            );
+            var payload = BitConverter.GetBytes(1.5f)
+                .Concat(new byte[] { 0x34, 0x12 })
+                .ToArray();
+            var data = new byte[] {
+                (byte)'D', (byte)'A', (byte)'T', (byte)'A',
+                (byte)payload.Length, 0
+            }.Concat(payload).ToArray();
+            var source = new RecordSource(DummyRecord(), data);
+            source.ReadSubrecord();
+
+            var element = (StructElement)def.ReadElement(
+                null, source, (uint)payload.Length
+            );
+
+            CollectionAssert.AreEqual(
+                new[] { "Present", "Damage" },
+                element.elements.Select(e => e.name)
+            );
+            Assert.AreEqual(1.5f, ((ValueElement)element.elements[0]).data);
+            Assert.AreEqual(0x1234, ((ValueElement)element.elements[1]).data);
         }
     }
 }

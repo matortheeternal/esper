@@ -4,7 +4,9 @@ using esper.resolution;
 namespace esper.defs.TES5 {
     public class CTDAParam1Decider : Decider {
         protected CTDAFunction GetCTDAFunction(Container container) {
-            UInt16 index = container.GetData<UInt16>("Function");
+            var function = container?.GetElement("Function") as ValueElement;
+            if (function == null) return null;
+            UInt16 index = Convert.ToUInt16(function.data);
             var ctdaFunctions = container.manager.ctdaFunctions;
             return ctdaFunctions.FunctionByIndex(index);
         }
@@ -15,10 +17,19 @@ namespace esper.defs.TES5 {
             return ctdaFunction.paramType1;
         }
 
-        protected CTDAFunctionParamType? ResolveParamType(
+        internal virtual int GetUnionIndex(CTDAFunctionParamType paramType) {
+            return (int)paramType + 1;
+        }
+
+        protected long GetParamFlags(Container container) {
+            var type = container?.GetElement("Type") as ValueElement;
+            return type == null ? 0 : Convert.ToInt64(type.data);
+        }
+
+        protected virtual CTDAFunctionParamType? ResolveParamType(
             Container container, CTDAFunction ctdaFunction
         ) {
-            long paramFlag = container.GetData<int>("Type");
+            long paramFlag = GetParamFlags(container);
             var paramType = GetParamType(ctdaFunction);
             switch (paramType) {
                 case CTDAFunctionParamType.ptObjectReference:
@@ -40,7 +51,7 @@ namespace esper.defs.TES5 {
             if (ctdaFunction == null) return 0;
             var paramType = ResolveParamType(container, ctdaFunction);
             if (paramType == null) return 0;
-            return (int)paramType + 1;
+            return GetUnionIndex((CTDAFunctionParamType)paramType);
         }
     }
 }

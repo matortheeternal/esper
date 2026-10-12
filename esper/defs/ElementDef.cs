@@ -138,7 +138,10 @@ namespace esper.defs {
                     return recordDef;
             }
             if (sessionOptions.improvise) return ImproviseRecordDef(header);
-            throw new Exception("Valid record def not found.");
+            throw new Exception(
+                $"Valid record def not found for {header.signature} in " +
+                $"{GetType().Name} ({name ?? "unnamed"})."
+            );
         }
 
         internal JArray ChildrenToJArray() {

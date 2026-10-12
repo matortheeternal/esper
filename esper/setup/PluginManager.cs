@@ -88,7 +88,9 @@ namespace esper.setup {
             bool createDummyIfMissing = false
         ) {
             foreach (var plugin in plugins)
-                if (plugin.filename == filename) return plugin;
+                if (string.Equals(
+                    plugin.filename, filename, StringComparison.OrdinalIgnoreCase
+                )) return plugin;
             if (!createDummyIfMissing) return null;
             return CreateDummyPlugin(filename);
         }
@@ -116,7 +118,11 @@ namespace esper.setup {
 
         public List<string> GetMasterFileNames(string filePath) {
             var plugin = LoadPluginHeader(filePath);
-            return plugin.masters.filenames;
+            try {
+                return plugin.masters.filenames;
+            } finally {
+                UnloadPlugin(plugin);
+            }
         }
 
         internal PluginFile NewFile(string name) {
@@ -152,6 +158,8 @@ namespace esper.setup {
             DestroyRefBy(plugin);
             plugins.Remove(plugin);
             MakeSlotsDumb(plugin);
+            plugin.source?.Dispose();
+            plugin.source = null;
         }
     }
 }

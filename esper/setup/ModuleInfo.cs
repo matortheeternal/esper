@@ -53,7 +53,10 @@ namespace esper.setup {
             originalName = Path.GetFileName(filePath);
             name = originalName;
             lastModified = File.GetLastWriteTime(filePath);
+            masters = new List<ModuleInfo>();
+            dependents = new List<ModuleInfo>();
             plugin = session.pluginManager.LoadPluginHeader(filePath);
+            masterNames = plugin.masters.filenames;
             ProcessExtension();
             ProcessFileFlags();
         }
@@ -73,14 +76,14 @@ namespace esper.setup {
         }
 
         private void ProcessExtension() {
-            var extString = Path.GetExtension(name).ToLower();
+            var extString = Path.GetExtension(name).ToLowerInvariant();
             if (extString == ".ghost") {
                 name = name.Substring(0, name.Length - GHOST_EXT_LENGTH);
                 flags |= ModuleFlags.Ghost;
                 if (session.pluginManager.HasPlugin(name))
                     throw new Exception("Ignoring ghost plugin: original exists.");
             }
-            extension = Path.GetExtension(name).ToLower() switch {
+            extension = Path.GetExtension(name).ToLowerInvariant() switch {
                 ".esp" => ModuleExtension.ESP,
                 ".esm" => ModuleExtension.ESM,
                 ".esl" => ModuleExtension.ESL,

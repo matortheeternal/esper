@@ -63,9 +63,8 @@ namespace Tests.plugins {
 
         private void LoadDumpEsm() {
             var pluginPath = TestHelpers.FixturePath("Constellation.esm");
-            Assert.IsTrue(File.Exists(pluginPath),
-                "See README.md for test fixture installation instructions."
-            );
+            if (!File.Exists(pluginPath))
+                Assert.Ignore("Local master fixture not found: Constellation.esm");
             plugin = pluginManager.LoadPlugin(pluginPath);
         }
 
