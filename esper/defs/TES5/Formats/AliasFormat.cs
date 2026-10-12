@@ -25,8 +25,8 @@ namespace esper.defs.TES5 {
 
         private string AliasToStr(Element alias) {
             int index = alias.GetData<int>("[0]");
-            string alid = alias.GetValue("ALID");
-            return alid != "" ? $"{index:3} {alid}" : $"{index:3}";
+            string alid = alias.GetValue("Alias Name");
+            return alid != "" ? $"{index,3} {alid}" : $"{index,3}";
         }
 
         // TODO: warnings

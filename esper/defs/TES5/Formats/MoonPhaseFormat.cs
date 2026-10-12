@@ -32,7 +32,7 @@ namespace esper.defs.TES5 {
             if (masser) data += 64;
             if (secunda) data += 128;
             Int64 phase = Int64.Parse(match.Groups[5].Value);
-            return data + (byte)Math.Max(Math.Min(phase, 0), 63);
+            return data + (byte)Math.Min(Math.Max(phase, 0), 63);
         }
     }
 }
