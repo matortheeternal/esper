@@ -9,8 +9,12 @@ namespace esper.setup {
             };
 
         private static float GetEpsilon(uint digits) {
-            float shift = (float)Math.Pow(10, 0 - digits - 1);
-            return 9999999999 * shift;
+            // NOTE: digits must be cast to int: uint arithmetic would
+            // wrap 0 - digits - 1 to a huge positive exponent and yield
+            // PositiveInfinity. The 9.999999999 factor gives an epsilon
+            // just under 10^-digits (e.g. ~1e-6 for the default 6).
+            float shift = (float)Math.Pow(10, 0 - (int)digits - 1);
+            return (float)(9.999999999 * shift);
         }
 
         public bool keepMasterElementsUpdated { get; set; } = false;

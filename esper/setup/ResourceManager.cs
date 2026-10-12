@@ -6,7 +6,7 @@ namespace esper.setup {
     [JSExport]
     public class ResourceManager {
         private readonly Session session;
-        private List<string> allArchives;
+        private List<string> allArchives = new List<string>();
         private readonly balsa.Game balsaGame;
         private GameIni gameIni => session.gameIni;
 

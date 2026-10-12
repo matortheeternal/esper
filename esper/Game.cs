@@ -78,6 +78,12 @@ namespace esper {
             if (exeName == null) exeName = $"{baseName}.exe";
             if (esmName == null) esmName = $"{baseName}.esm";
             if (iniName == null) iniName = $"{baseName}.ini";
+            // The constructor inserts esmName at index 0 before object
+            // initializers run, so it is null unless baseNameOverride was
+            // given. Repair that here now that esmName is final.
+            if (hardcodedPlugins.Count == 0) hardcodedPlugins.Add(esmName);
+            else if (hardcodedPlugins[0] == null) hardcodedPlugins[0] = esmName;
+            else if (hardcodedPlugins[0] != esmName) hardcodedPlugins.Insert(0, esmName);
             return this;
         }
 

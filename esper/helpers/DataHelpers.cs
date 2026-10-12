@@ -53,5 +53,13 @@
             if (data < UInt32.MinValue) return UInt32.MinValue;
             return (UInt32)data;
         }
+
+        // FlagsDef.SetFlag promotes flag data to UInt64 via dynamic
+        // arithmetic; without this overload the dynamic call to
+        // ClampToUInt32 in UInt32Def.SetData fails to bind.
+        public static UInt32 ClampToUInt32(UInt64 data) {
+            if (data > UInt32.MaxValue) return UInt32.MaxValue;
+            return (UInt32)data;
+        }
     }
 }

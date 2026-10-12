@@ -75,6 +75,7 @@ namespace esper.setup {
             logger.Info($"Using dummy plugin for {filename}");
             var dummy = new PluginFile(session, filename, new PluginFileOptions { });
             dummy.container = root;
+            AddFile(dummy);
             return dummy;
         }
 
@@ -128,6 +129,7 @@ namespace esper.setup {
         }
 
         internal void DestroyRefBy(PluginFile plugin) {
+            if (plugin.records == null) return;
             foreach (var loadedPlugin in plugins) {
                 if (loadedPlugin.Equals(plugin)) continue;
                 foreach (var record in plugin.records)

@@ -74,31 +74,31 @@ namespace esper.setup {
 
         private void ProcessExtension() {
             var extString = Path.GetExtension(name).ToLower();
-            if (extString == "ghost") {
+            if (extString == ".ghost") {
                 name = name.Substring(0, name.Length - GHOST_EXT_LENGTH);
-                flags &= ModuleFlags.Ghost;
+                flags |= ModuleFlags.Ghost;
                 if (session.pluginManager.HasPlugin(name))
                     throw new Exception("Ignoring ghost plugin: original exists.");
             }
             extension = Path.GetExtension(name).ToLower() switch {
-                "esp" => ModuleExtension.ESP,
-                "esm" => ModuleExtension.ESM,
-                "esl" => ModuleExtension.ESL,
-                "esu" => ModuleExtension.ESU,
+                ".esp" => ModuleExtension.ESP,
+                ".esm" => ModuleExtension.ESM,
+                ".esl" => ModuleExtension.ESL,
+                ".esu" => ModuleExtension.ESU,
                 _ => ModuleExtension.Unknown
             };
             if (HasUnsupportedExtension)
                 throw new Exception("Unsupported module extension");
             if (IsAutomaticESM)
-                flags &= ModuleFlags.HasESMExtension & ModuleFlags.IsESM;
-            if (extension == ModuleExtension.ESL) flags &= ModuleFlags.HasESLFlag;
+                flags |= ModuleFlags.HasESMExtension | ModuleFlags.IsESM;
+            if (extension == ModuleExtension.ESL) flags |= ModuleFlags.HasESLFlag;
         }
 
         private void ProcessFileFlags() {
-            if (plugin.esm) flags &= ModuleFlags.HasESMFlag;
-            if (plugin.esl) flags &= ModuleFlags.HasESLFlag;
-            if (plugin.localized) flags &= ModuleFlags.HasLocalizedFlag;
-            flags &= ModuleFlags.Valid;
+            if (plugin.esm) flags |= ModuleFlags.HasESMFlag;
+            if (plugin.esl) flags |= ModuleFlags.HasESLFlag;
+            if (plugin.localized) flags |= ModuleFlags.HasLocalizedFlag;
+            flags |= ModuleFlags.Valid;
         }
     }
 }

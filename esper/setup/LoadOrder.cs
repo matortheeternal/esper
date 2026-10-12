@@ -26,7 +26,7 @@
             ProcessMasters();
             ProcessPluginsTxt();
             ProcessHardcodedModules(session.game.hardcodedPlugins, (module, index) => {
-                if (index == 0) module.flags &= ModuleFlags.IsGameMaster;
+                if (index == 0) module.flags |= ModuleFlags.IsGameMaster;
                 module.officialIndex = index;
             });
             ProcessHardcodedModules(creationClubPlugins, (module, index) => {
@@ -51,7 +51,7 @@
         private void AppendMaster(ModuleInfo module, string masterName) {
             var masterModule = GetModule(masterName);
             if (masterModule == null)
-                module.flags &= ModuleFlags.MastersMissing;
+                module.flags |= ModuleFlags.MastersMissing;
             module.masters.Add(masterModule);
             if (masterModule != null)
                 masterModule.dependents.Add(module);
@@ -60,7 +60,7 @@
         private void PropagateMissingMasters(List<ModuleInfo> modules, bool setFlag = false) {
             foreach (var module in modules) {
                 if (module.HasMastersMissingMasters) continue;
-                if (setFlag) module.flags &= ModuleFlags.MastersMissingMasters;
+                if (setFlag) module.flags |= ModuleFlags.MastersMissingMasters;
                 if (setFlag || module.HasMissingMasters)
                     PropagateMissingMasters(module.dependents, true);
             }
@@ -80,10 +80,10 @@
                 var module = line.isComment ? null : GetModule(line.moduleName);
                 if (module == null) continue;
                 module.pluginsTxtIndex = line.index;
-                module.flags &= ModuleFlags.HasIndex;
+                module.flags |= ModuleFlags.HasIndex;
                 if (!line.isActive) continue;
-                module.flags &= ModuleFlags.Active;
-                module.flags &= ModuleFlags.ActiveInPluginsTxt;
+                module.flags |= ModuleFlags.Active;
+                module.flags |= ModuleFlags.ActiveInPluginsTxt;
             }
         }
 
@@ -93,7 +93,7 @@
                 var module = GetModule(filename);
                 if (module == null) return;
                 SetIndex(module, i);
-                module.flags &= ModuleFlags.Active & ModuleFlags.HasIndex;
+                module.flags |= ModuleFlags.Active | ModuleFlags.HasIndex;
             }
         }
 

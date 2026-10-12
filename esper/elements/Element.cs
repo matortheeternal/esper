@@ -112,7 +112,7 @@ namespace esper.elements {
         }
 
         public void ClearState(ElementState state) {
-            this.state ^= state;
+            this.state &= ~state;
         }
 
         public bool HasSubrecord(Signature sig) {

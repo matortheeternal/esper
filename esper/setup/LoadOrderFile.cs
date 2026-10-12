@@ -19,7 +19,7 @@
         private void LoadLines() {
             if (!File.Exists(filePath)) return;
             var textLines = File.ReadAllLines(filePath);
-            for (int index = 0; index < lines.Count; index++)
+            for (int index = 0; index < textLines.Length; index++)
                 lines.Add(new LoadOrderLine(this, textLines[index], index));
         }
     }
