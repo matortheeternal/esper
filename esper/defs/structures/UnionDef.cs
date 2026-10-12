@@ -24,27 +24,31 @@ namespace esper.defs {
         }
 
         public ElementDef ResolveDef(Container container) {
-            var index = decider.Decide(container);
+            return ResolveDef(container, null);
+        }
+
+        public ElementDef ResolveDef(Container container, UInt32? dataSize) {
+            var index = decider.Decide(container, dataSize);
             return elementDefs[index];
         }
 
         public override Element ReadElement(
             Container container, DataSource source, UInt32? dataSize = null
         ) {
-            var resolvedDef = ResolveDef(container);
+            var resolvedDef = ResolveDef(container, dataSize);
             if (!IsSubrecord() && resolvedDef is ValueDef valueDef) {
                 return new UnionValueElement(container, valueDef, this) {
                     _data = valueDef.ReadData(source, dataSize)
                 };
             } else {
                 var e = new UnionElement(container, this);
-                resolvedDef.ReadElement(e, source);
+                resolvedDef.ReadElement(e, source, dataSize);
                 return e;
             }
         }
 
         public override Element NewElement(Container container = null) {
-            var resolvedDef = ResolveDef(container);
+            var resolvedDef = ResolveDef(container, null);
             if (resolvedDef is ValueDef)
                 return new UnionValueElement(container, resolvedDef, this);
             return new UnionElement(container, this);

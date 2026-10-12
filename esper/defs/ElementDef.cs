@@ -124,7 +124,11 @@ namespace esper.defs {
                     return groupDef;
             }
             if (sessionOptions.improvise) return ImproviseGroupDef(header);
-            throw new Exception("Valid group def not found.");
+            var label = BitConverter.ToString(header.label);
+            throw new Exception(
+                $"Valid group def not found for type {header.groupType}, " +
+                $"label {label}, parent {GetType().Name} ({name ?? "unnamed"})."
+            );
         }
 
         internal virtual MainRecordDef GetMainRecordDef(IRecordHeader header) {

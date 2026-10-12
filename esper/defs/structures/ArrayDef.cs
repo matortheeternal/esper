@@ -55,7 +55,13 @@ namespace esper.defs {
             } else if (dataSize != null) {
                 source.ReadMultiple((UInt32)dataSize, readChild);
             } else {
-                throw new Exception("Unknown array size/length.");
+                var arrayName = name ?? signature.ToString();
+                var parentName = container?.def?.name ??
+                    container?.def?.signature.ToString() ?? "unknown";
+                throw new Exception(
+                    $"Unknown array size/length for {arrayName} " +
+                    $"in {parentName} at offset 0x{source.stream.Position:X}."
+                );
             }
             return e;
         }

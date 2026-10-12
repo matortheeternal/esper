@@ -23,6 +23,10 @@ namespace esper.defs {
             return new MemberStructElement(container, this);
         }
 
+        public override Element NewElement(Container container = null) {
+            return new MemberStructElement(container, this);
+        }
+
         internal bool HandleSubrecord(
             Container container, RecordSource source, ref int defIndex
         ) {

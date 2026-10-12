@@ -21,9 +21,30 @@ namespace esper.defs {
 
         internal GroupDef(DefinitionManager manager, JObject src)
             : base(manager, src) {
+            FilterDanglingRefs(manager, src);
             childrenDefs = JsonHelpers.Defs<ElementDef>(
                 manager, src, "children", true
             );
+        }
+
+        // Upstream esp.json data can reference record/group defs that don't
+        // exist for a game (e.g. FO3 cellChildGroups list trap records like
+        // PFLA that have no record definition). Drop those refs so sessions
+        // for such games can still build; fail-loud stays for inline defs.
+        private static void FilterDanglingRefs(
+            DefinitionManager manager, JObject src
+        ) {
+            if (src["children"] is not JArray children) return;
+            foreach (var child in children.ToList()) {
+                if (
+                    child is JObject childObj &&
+                    childObj.Properties().Count() == 1 &&
+                    childObj.ContainsKey("id")
+                ) {
+                    var id = childObj.Value<string>("id");
+                    if (!manager.HasDefEntry(id)) children.Remove(child);
+                }
+            }
         }
 
         internal virtual dynamic ConvertLabel(GroupRecord group, byte[] label) {

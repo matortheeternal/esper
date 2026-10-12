@@ -4,7 +4,6 @@ using esper.setup;
 
 namespace esper.defs {
     public class UnknownGroupDef : GroupDef {
-        public static int defGroupType = 10;
         public override int groupType => 10;
 
         public override bool hasRecordParent => true;

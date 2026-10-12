@@ -43,8 +43,12 @@ namespace esper.io {
         }
 
         internal void SubrecordHandled() {
-            if (stream.Position > _subrecordEndPos)
-                throw new Exception("Critical error reading subrecord, read past end offset.");
+            if (stream.Position > _subrecordEndPos) {
+                throw new Exception(
+                    $"Read past {_currentSubrecord?.signature} subrecord end: " +
+                    $"position 0x{stream.Position:X}, end 0x{_subrecordEndPos:X}."
+                );
+            }
             if (stream.Position < _subrecordEndPos) {
                 // Warn($"Warning: {subrecordEndPos - stream.Position} unread bytes on " +
                 //      $"subrecord {currentSubrecord.signature}");

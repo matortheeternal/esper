@@ -40,7 +40,9 @@ namespace esper.defs {
         public override Element ReadElement(
             Container container, DataSource source, UInt32? dataSize = null
         ) {
-            var e = new StructElement(container, this);
+            var e = new StructElement(container, this) {
+                sourceDataSize = dataSize
+            };
             ReadChildElements(e, source, dataSize);
             return e;
         }

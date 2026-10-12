@@ -15,11 +15,21 @@ namespace esper.setup {
         public ResourceManager(Session session) {
             this.session = session;
             balsaGame = ResolveBalsaGame();
-            assetManager = new AssetManager(balsaGame);
+            if (balsaGame != null) assetManager = new AssetManager(balsaGame);
         }
 
         internal void Init() {
+            EnsureAssetManager();
             allArchives = GetAllArchives();
+        }
+
+        private AssetManager EnsureAssetManager() {
+            if (assetManager == null) {
+                throw new NotSupportedException(
+                    $"Resource loading is not supported for {session.game.name}."
+                );
+            }
+            return assetManager;
         }
 
         private balsa.Game ResolveBalsaGame() {
@@ -54,16 +64,18 @@ namespace esper.setup {
         }
 
         public void LoadAssociatedArchives(PluginFile plugin) {
+            var manager = EnsureAssetManager();
             var archivesToLoad = GetAssociatedArchives(plugin.name);
             foreach (string archivePath in archivesToLoad)
-                assetManager.LoadArchive(archivePath);
+                manager.LoadArchive(archivePath);
         }
 
         private void LoadIniArchives() {
+            var manager = EnsureAssetManager();
             var iniArchives = gameIni.GetArchives();
             foreach (string archiveFileName in iniArchives) {
                 var archivePath = Path.Combine(session.dataPath, archiveFileName);
-                assetManager.LoadArchive(archivePath);
+                manager.LoadArchive(archivePath);
             }
         }
 
@@ -74,19 +86,20 @@ namespace esper.setup {
         }
 
         public void LoadData() {
-            assetManager.LoadFolder(session.dataPath);
+            EnsureAssetManager().LoadFolder(session.dataPath);
         }
 
         public void LoadPluginStrings(PluginFile plugin, List<string> stringFilePaths) {
+            var manager = EnsureAssetManager();
             plugin.stringFiles = new Dictionary<StringFileType, StringFile>();
             foreach (string filePath in stringFilePaths) {
-                var stringFile = assetManager.LoadStrings(filePath);
+                var stringFile = manager.LoadStrings(filePath);
                 plugin.stringFiles.Add(stringFile.stringFileType, stringFile);
             }
         }
 
         public void LoadStrings() {
-            var stringTables = assetManager.GetStringTables();
+            var stringTables = EnsureAssetManager().GetStringTables();
             var languageSuffix = session.options.language.ToLower();
             foreach (var plugin in session.pluginManager.plugins) {
                 if (!plugin.localized) continue;

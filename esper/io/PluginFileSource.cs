@@ -1,7 +1,7 @@
 ﻿using esper.data;
 using esper.elements;
 using esper.plugins;
-using Ionic.Zlib;
+using System.IO.Compression;
 using System.IO.MemoryMappedFiles;
 
 namespace esper.io {
@@ -38,10 +38,57 @@ namespace esper.io {
         }
 
         internal byte[] Decompress(UInt32 dataSize) {
+            if (dataSize < sizeof(UInt32))
+                throw new InvalidDataException("Compressed record body is too small.");
+
             var decompressedDataSize = reader.ReadUInt32();
-            var zstream = new ZlibStream(fileStream, CompressionMode.Decompress);
-            var zreader = new BinaryReader(zstream);
-            return zreader.ReadBytes((int)decompressedDataSize);
+            var compressedSize = checked((int)dataSize - sizeof(UInt32));
+            var compressedData = reader.ReadBytes(compressedSize);
+            if (compressedData.Length != compressedSize)
+                throw new EndOfStreamException("Compressed record body was truncated.");
+
+            return Decompress(compressedData, decompressedDataSize);
+        }
+
+        internal static byte[] Decompress(
+            byte[] compressedData, UInt32 decompressedDataSize
+        ) {
+            var data = new byte[checked((int)decompressedDataSize)];
+            try {
+                using var compressedStream = new MemoryStream(compressedData);
+                using var zstream = new ZLibStream(
+                    compressedStream, CompressionMode.Decompress
+                );
+                ReadDecompressed(zstream, data);
+            } catch (InvalidDataException) when (HasZlibWrapper(compressedData)) {
+                // Some official plugins contain valid DEFLATE data with a bad
+                // Adler-32 trailer. Preserve compatibility with those records.
+                using var compressedStream = new MemoryStream(
+                    compressedData, 2, compressedData.Length - 6, false
+                );
+                using var dstream = new DeflateStream(
+                    compressedStream, CompressionMode.Decompress
+                );
+                ReadDecompressed(dstream, data);
+            }
+            return data;
+        }
+
+        private static void ReadDecompressed(Stream stream, byte[] data) {
+            stream.ReadExactly(data);
+            if (stream.ReadByte() != -1) {
+                throw new InvalidDataException(
+                    $"Decompressed record body exceeds {data.Length} bytes."
+                );
+            }
+        }
+
+        private static bool HasZlibWrapper(byte[] data) {
+            if (data.Length < 6) return false;
+            var cmf = data[0];
+            var flg = data[1];
+            return (cmf & 0x0F) == 8 && (cmf >> 4) <= 7 &&
+                ((cmf << 8) + flg) % 31 == 0 && (flg & 0x20) == 0;
         }
 
         internal void PipeTo(BinaryWriter writer, int size) {

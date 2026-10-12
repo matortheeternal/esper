@@ -54,4 +54,13 @@ namespace esper.defs {
         internal TopicChildrenDef(DefinitionManager manager, JObject src)
             : base(manager, src) { }
     }
+
+    //[JSExport]
+    public class QuestChildrenDef : ChildGroupDef {
+        public static int defGroupType = 10;
+        public override int groupType => 10;
+
+        internal QuestChildrenDef(DefinitionManager manager, JObject src)
+            : base(manager, src) { }
+    }
 }

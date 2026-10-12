@@ -11,6 +11,11 @@ namespace esper.elements {
         public ElementDef def { get; }
         public ElementState state { get; internal set; }
 
+        // Size of the source data this element was read from, when known.
+        // Set on struct elements read from a sized source (e.g. subrecords).
+        // Used by union deciders that branch on subrecord data size.
+        internal UInt32? sourceDataSize;
+
         public virtual Element container { get; internal set; }
         public virtual DefinitionManager manager => file.manager;
         public virtual string sortKey => def.GetSortKey(this);

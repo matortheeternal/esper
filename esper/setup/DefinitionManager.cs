@@ -89,12 +89,32 @@ namespace esper.setup {
             }
         }
 
+        private static bool InNamespace(Type t, string ns) {
+            return t.Namespace == ns ||
+                (t.Namespace != null && t.Namespace.StartsWith(ns + "."));
+        }
+
         private void LoadClasses() {
             var gameDefsNamespace = "esper.defs." + game.defsNamespace;
             var types = ReflectionHelpers.GetClasses((Type t) => {
-                return t.Namespace == "esper.defs" ||
-                    t.Namespace == gameDefsNamespace;
-            });
+                return t.Namespace == "esper.defs";
+            }).ToList();
+            // Shared implementations load first so game-specific classes can
+            // deterministically override classes with the same identifier.
+            if (game.defsNamespace != "TES5") {
+                types.AddRange(ReflectionHelpers.GetClasses((Type t) => {
+                    return InNamespace(t, "esper.defs.TES5");
+                }));
+            }
+            // FNV shares FO3 implementations unless it supplies an override.
+            if (game.defsNamespace == "FNV") {
+                types.AddRange(ReflectionHelpers.GetClasses((Type t) => {
+                    return InNamespace(t, "esper.defs.FO3");
+                }));
+            }
+            types.AddRange(ReflectionHelpers.GetClasses((Type t) => {
+                return InNamespace(t, gameDefsNamespace);
+            }));
             foreach (var type in types) LoadClass(type);
         }
 
@@ -202,7 +222,10 @@ namespace esper.setup {
         }
 
         public bool HasDefEntry(string key) {
-            return definitions.Value<JObject>("defs").ContainsKey(key);
+            // BuildDefs strips the raw "defs" object after building to free
+            // memory, so this is only meaningful during def construction.
+            var defs = definitions.Value<JObject>("defs");
+            return defs != null && defs.ContainsKey(key);
         }
     }
 }
