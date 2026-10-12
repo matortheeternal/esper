@@ -1,4 +1,6 @@
 using esper.defs.FO4;
+using esper.plugins;
+using esper.resolution;
 using Newtonsoft.Json.Linq;
 using NUnit.Framework;
 
@@ -60,6 +62,47 @@ namespace Tests.defs {
             Assert.AreEqual(123L, (object)format.ValueToData(null, "123"));
             Assert.AreEqual(0L, (object)format.ValueToData(null, "abc"));
             Assert.AreEqual("42", format.DataToValue(null, 42));
+        }
+
+        [Test]
+        public void DivPiFormatConvertsSpecialValues() {
+            var session = RecordDefCoverageTests.GetSession("SSE");
+            var format = new esper.defs.TES5._180DivPiFormat(
+                session.definitionManager, new JObject()
+            );
+            Assert.IsTrue(format.isNumeric);
+            Assert.AreEqual("NaN", format.DataToValue(null, float.NaN));
+            Assert.AreEqual(
+                "Inf", format.DataToValue(null, float.PositiveInfinity)
+            );
+            Assert.AreEqual(
+                "Inf", format.DataToValue(null, float.NegativeInfinity)
+            );
+            Assert.AreEqual(
+                "Default", format.DataToValue(null, float.MaxValue)
+            );
+            Assert.AreEqual("Min", format.DataToValue(null, -float.MaxValue));
+            Assert.AreEqual("57.295780", format.DataToValue(null, 1.0f));
+            Assert.Throws<System.NotImplementedException>(
+                () => format.ValueToData(null, "57.29578")
+            );
+        }
+
+        [Test]
+        public void MovtAnimThresholdsDecodeThroughProductionPath() {
+            var session = RecordDefCoverageTests.GetSession("SSE");
+            var path = TestHelpers.FixturePath("Skyrim.esm");
+            if (!System.IO.File.Exists(path))
+                Assert.Ignore("Skyrim.esm is not present.");
+            var skyrim = session.pluginManager.LoadPlugin(path);
+            // NPC_Default_MT stores MaxValue floats, which the format
+            // renders as Default.
+            var rec = skyrim.GetRecordByFormId(0x3580D);
+            Assert.IsNotNull(rec);
+            Assert.AreEqual("Default", rec.GetValue(@"INAM\Directional"));
+            Assert.AreEqual(
+                "Default", rec.GetValue(@"INAM\Rotation Speed")
+            );
         }
     }
 }

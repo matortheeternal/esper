@@ -1,5 +1,6 @@
 ﻿using esper.elements;
 using esper.plugins;
+using System.Globalization;
 
 namespace esper.data {
     public class FormIdFormat {
@@ -35,7 +36,9 @@ namespace esper.data {
                 ? null
                 : manager.GetFileByName(filename);
             var ordinal = element.file.FileToOrdinal(targetFile, false);
-            var localFormId = UInt32.Parse(match.Groups[2].Value);
+            var localFormId = UInt32.Parse(
+                match.Groups[2].Value, NumberStyles.HexNumber
+            );
             UInt32 fileFormId = (UInt32)((ordinal << 24) + localFormId);
             return new FormId(targetFile, fileFormId);
         }

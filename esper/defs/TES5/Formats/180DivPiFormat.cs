@@ -14,7 +14,7 @@ namespace esper.defs.TES5 {
             if (Single.IsInfinity(data)) return "Inf";
             if (data == Single.MaxValue) return "Default";
             if (data == -Single.MaxValue) return "Min";
-            float fData = data * 180 / Math.PI;
+            float fData = (float)(data * 180 / Math.PI);
             return fData.ToString(sessionOptions.floatFormat);
         }
 
