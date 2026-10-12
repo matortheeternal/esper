@@ -23,7 +23,7 @@ namespace esper.defs {
 
         internal override byte[] ParseLabel(Container container, string name) {
             if (container is GroupRecord group)
-                return group.label;
+                return group.label.bytes;
             throw new Exception("Could not determine new group label.");
         }
     }

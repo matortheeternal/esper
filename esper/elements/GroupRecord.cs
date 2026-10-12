@@ -50,7 +50,11 @@ namespace esper.elements {
         public GroupRecord(
             Container container, GroupDef def, byte[] label
         ) : base(container, def) {
-            header = new TES4GroupHeader(label, def.groupType, groupHeaderSize);
+            // Size from the def (not the container chain): new groups are
+            // constructed with a null container to skip Element's auto-add,
+            // then positioned manually by the caller.
+            var headerSize = def.manager.game.groupHeaderSize;
+            header = new TES4GroupHeader(label, def.groupType, headerSize);
         }
 
         public override bool SupportsSignature(Signature sig) {
