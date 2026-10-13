@@ -91,7 +91,7 @@ namespace Tests.plugins {
             using var fs = File.OpenRead(masterPath);
             var probe = new byte[headerSize + 10];
             fs.Seek(masterHeader.bodyOffset - headerSize, SeekOrigin.Begin);
-            fs.Read(probe, 0, probe.Length);
+            fs.ReadExactly(probe, 0, probe.Length);
             var version = BitConverter.ToSingle(probe, headerSize + 6);
             using var ms = new MemoryStream();
             using var w = new BinaryWriter(ms);

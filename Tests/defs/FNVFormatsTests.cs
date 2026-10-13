@@ -309,8 +309,7 @@ namespace Tests.defs {
 
         [Test]
         public void TestReputationResolvesRealRecord() {
-            var session = NewSession(Games.FNV);
-            var plugin = LoadOrIgnore(session, "FalloutNV.esm");
+            var plugin = LoadOrIgnore("FalloutNV.esm");
             var rec = plugin.GetRecordByFormId(0x8D0A2);
             if (rec == null) Assert.Ignore("INFO 0008D0A2 missing.");
             var param = ConditionParam1(rec, 575);
@@ -321,8 +320,7 @@ namespace Tests.defs {
 
         [Test]
         public void TestReputationFn573ResolvesRealRecord() {
-            var session = NewSession(Games.FNV);
-            var plugin = LoadOrIgnore(session, "FalloutNV.esm");
+            var plugin = LoadOrIgnore("FalloutNV.esm");
             var rec = plugin.GetRecordByFormId(0xFFAE4);
             if (rec == null) Assert.Ignore("INFO 000FFAE4 missing.");
             var param = ConditionParam1(rec, 573);
@@ -352,8 +350,7 @@ namespace Tests.defs {
 
         [Test]
         public void TestRegionResolvesRealRecord() {
-            var session = NewSession(Games.FNV);
-            var plugin = LoadOrIgnore(session, "FalloutNV.esm");
+            var plugin = LoadOrIgnore("FalloutNV.esm");
             var rec = plugin.GetRecordByFormId(0x107775);
             if (rec == null) Assert.Ignore("INFO 00107775 missing.");
             var param = FindParamByBranch(rec, "Region");
@@ -363,8 +360,7 @@ namespace Tests.defs {
 
         [Test]
         public void TestCasinoResolvesRealRecord() {
-            var session = NewSession(Games.FNV);
-            var plugin = LoadOrIgnore(session, "FalloutNV.esm");
+            var plugin = LoadOrIgnore("FalloutNV.esm");
             var rec = plugin.GetRecordByFormId(0x152325);
             if (rec == null) Assert.Ignore("INFO 00152325 missing.");
             var param = ConditionParam1(rec, 610);
