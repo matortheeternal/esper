@@ -17,12 +17,15 @@ using Tests.defs;
 namespace Tests.elements {
     [TestFixture]
     public class MemberArrayCoverageTests {
+        private static Session cachedSession;
+
         private static PluginFile LoadAllRecords() {
             var path = TestHelpers.FixturePath("AllRecords.esp");
             if (!File.Exists(path))
                 Assert.Ignore("AllRecords.esp missing.");
-            var session = new Session(Games.SSE, new SessionOptions());
-            return session.pluginManager.LoadPlugin(path);
+            if (cachedSession == null)
+                cachedSession = new Session(Games.SSE, new SessionOptions());
+            return cachedSession.pluginManager.LoadPlugin(path);
         }
 
         private static MemberArrayElement FindIn(

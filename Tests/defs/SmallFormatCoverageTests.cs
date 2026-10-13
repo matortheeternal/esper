@@ -36,8 +36,7 @@ namespace Tests.defs {
         }
 
         private static StructElement NewStruct(Game game, string json) {
-            var manager = new Session(game, new SessionOptions())
-                .definitionManager;
+            var manager = Synthetic.GetSession(game).definitionManager;
             var def = new StructDef(manager, JObject.Parse(json));
             var element = new TestStructElement(def, manager);
             element.Initialize();
@@ -157,12 +156,21 @@ namespace Tests.defs {
             Assert.AreEqual(2048L, capped);
         }
 
+        private static PluginFile cachedOblivion;
+
+        private static PluginFile LoadOblivion() {
+            var path = TestHelpers.FixturePath("Oblivion.esm");
+            if (!File.Exists(path)) return null;
+            if (cachedOblivion == null)
+                cachedOblivion = Synthetic.GetSession(Games.TES4)
+                    .pluginManager.LoadPlugin(path);
+            return cachedOblivion;
+        }
+
         [Test]
         public void NextObjectIDQuestionMarkUsesFileHighObjectId() {
-            var path = TestHelpers.FixturePath("Oblivion.esm");
-            if (!File.Exists(path)) Assert.Ignore("Oblivion.esm missing.");
-            var session = new Session(Games.TES4, new SessionOptions());
-            var plugin = session.pluginManager.LoadPlugin(path);
+            var plugin = LoadOblivion();
+            if (plugin == null) Assert.Ignore("Oblivion.esm missing.");
             var found = FindFormatElement(
                 plugin.header, typeof(NextObjectIDFormat)
             );
@@ -333,10 +341,8 @@ namespace Tests.defs {
 
         [Test]
         public void Tes4MiscActorValueDeciderMatchesRecordFlags() {
-            var session = RecordDefCoverageTests.GetSession("TES4");
-            var path = TestHelpers.FixturePath("Oblivion.esm");
-            if (!File.Exists(path)) Assert.Ignore("Oblivion.esm missing.");
-            var plugin = session.pluginManager.LoadPlugin(path);
+            var plugin = LoadOblivion();
+            if (plugin == null) Assert.Ignore("Oblivion.esm missing.");
             var decider = new MISCActorValueDecider();
             var checkedCount = 0;
             foreach (var rec in plugin.records) {

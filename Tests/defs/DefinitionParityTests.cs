@@ -155,7 +155,7 @@ namespace Tests.defs {
         };
 
         private static StructElement NewStruct(Game game, string json) {
-            var manager = new Session(game, new SessionOptions()).definitionManager;
+            var manager = Synthetic.GetSession(game).definitionManager;
             var def = new StructDef(manager, JObject.Parse(json));
             var element = new TestStructElement(def, manager);
             element.Initialize();
