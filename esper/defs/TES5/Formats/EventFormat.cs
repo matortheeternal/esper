@@ -26,8 +26,8 @@ namespace esper.defs.TES5 {
             if (n == -1) return 0;
             var fnString = value.Substring(0, n - 1);
             var mbString = value.Substring(n + 1);
-            return eventMemberEnum.ValueToData(element, mbString) << 16 +
-                 eventFunctionEnum.ValueToData(element, fnString);
+            return (eventMemberEnum.ValueToData(element, mbString) << 16) +
+                eventFunctionEnum.ValueToData(element, fnString);
         }
     }
 }
