@@ -33,8 +33,9 @@ namespace esper.defs.FNV {
             if (quest.signature.ToString() != "QUST")
                 return $"{raw} <Warning: \"{shortName}\" is not a Quest record>";
             var index = (int)data;
-            var stage = quest.GetElements("Objectives")?.FirstOrDefault(o =>
-                o.GetData<int?>(@"QOBJ") == index);
+            var stage = quest.GetElements("Objectives")?.FirstOrDefault(
+                o => o.GetData<int?>(@"QOBJ") == index
+            );
             if (stage == null)
                 return $"{raw} <Warning: Quest Objective not found in \"{shortName}\">";
             var name = (stage.GetValue("NNAM") ?? "").Trim();

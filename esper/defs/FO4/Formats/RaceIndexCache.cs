@@ -25,8 +25,7 @@ namespace esper.defs.FO4 {
         internal RaceIndexEntries Get(MainRecord race, bool? female) {
             if (race == null || female == null) return null;
             var raceId = race.editorId;
-            var found = cache.Find(e =>
-                e.raceId == raceId && e.female == female);
+            var found = cache.Find(e => e.raceId == raceId && e.female == female);
             if (found == null) {
                 found = new RaceIndexEntries(raceId, (bool)female);
                 LoadEntries(found, race);
@@ -35,7 +34,6 @@ namespace esper.defs.FO4 {
             return found;
         }
 
-        protected abstract void LoadEntries(
-            RaceIndexEntries entries, MainRecord race);
+        protected abstract void LoadEntries(RaceIndexEntries entries, MainRecord race);
     }
 }

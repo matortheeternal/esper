@@ -26,9 +26,7 @@ namespace esper.defs.FO4 {
         internal static string SafeName(Container entry, string field) {
             var ve = entry.GetElement(field) as ValueElement;
             if (ve == null) return "";
-            if (ve.data is LocalizedString &&
-                ve.file?.stringFiles == null)
-                return "";
+            if (ve.data is LocalizedString && ve.file?.stringFiles == null) return "";
             return entry.GetValue(field) ?? "";
         }
     }

@@ -18,13 +18,26 @@ namespace esper.defs.FNV {
             var hour24 = (int)(seconds / 3600) % 24;
             var hour12 = hour24 % 12;
             if (hour12 == 0) hour12 = 12;
-            return $"{hour12}:{(int)(seconds / 60) % 60:00}:{(int)seconds % 60:00} {(hour24 < 12 ? "AM" : "PM")}";
+            var minute = (int)(seconds / 60) % 60;
+            var second = (int)seconds % 60;
+            var suffix = hour24 < 12 ? "AM" : "PM";
+            return $"{hour12}:{minute:00}:{second:00} {suffix}";
         }
 
         internal override dynamic ValueToData(ValueElement element, string value) {
-            if (DateTime.TryParseExact(value.Trim(), new[] { "h:mm:ss tt", "H:mm:ss" },
-                CultureInfo.InvariantCulture, DateTimeStyles.None, out var time))
-                return (byte)Math.Clamp((int)Math.Round(time.TimeOfDay.TotalDays * 256.0), 0, 255);
+            if (DateTime.TryParseExact(
+                value.Trim(),
+                new[] { "h:mm:ss tt", "H:mm:ss" },
+                CultureInfo.InvariantCulture,
+                DateTimeStyles.None,
+                out var time
+            )) {
+                return (byte)Math.Clamp(
+                    (int)Math.Round(time.TimeOfDay.TotalDays * 256.0),
+                    0,
+                    255
+                );
+            }
             return DataHelpers.ParseInt64(value);
         }
 

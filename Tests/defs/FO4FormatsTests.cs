@@ -38,9 +38,11 @@ namespace Tests.defs {
             typeof(StringFile)
                 .GetField(
                     "_strings",
-                    BindingFlags.NonPublic | BindingFlags.Instance)
+                    BindingFlags.NonPublic | BindingFlags.Instance
+                )
                 .SetValue(
-                    stringFile, new Dictionary<uint, string>(entries));
+                    stringFile, new Dictionary<uint, string>(entries)
+                );
             plugin.stringFiles =
                 new Dictionary<StringFileType, StringFile> {
                     { StringFileType.STRINGS, stringFile },
@@ -62,56 +64,48 @@ namespace Tests.defs {
 
         [Test]
         public void IntToHexStrDisplay() {
-            var format = new IntToHexStrFormat(
-                Fo4Manager(), new JObject());
+            var format = new IntToHexStrFormat(Fo4Manager(), new JObject());
             Assert.AreEqual("00000005", format.DataToValue(null, 5u));
             Assert.AreEqual("00000000", format.DataToValue(null, 0u));
-            Assert.AreEqual(
-                "FF804020", format.DataToValue(null, 0xFF804020u));
+            Assert.AreEqual("FF804020", format.DataToValue(null, 0xFF804020u));
         }
 
         [Test]
         public void WbHexStrToIntArms() {
             Assert.AreEqual(5u, Fo4FormatHelpers.WbHexStrToInt("00000005"));
-            Assert.AreEqual(
-                5u, Fo4FormatHelpers.WbHexStrToInt("00000005 Extra Name"));
-            Assert.AreEqual(
-                5u, Fo4FormatHelpers.WbHexStrToInt("00000005:Extra"));
+            Assert.AreEqual(5u, Fo4FormatHelpers.WbHexStrToInt("00000005 Extra Name"));
+            Assert.AreEqual(5u, Fo4FormatHelpers.WbHexStrToInt("00000005:Extra"));
             Assert.AreEqual(0u, Fo4FormatHelpers.WbHexStrToInt("$5"));
             Assert.AreEqual(0u, Fo4FormatHelpers.WbHexStrToInt("ZZZ"));
             Assert.AreEqual(0u, Fo4FormatHelpers.WbHexStrToInt(""));
             Assert.AreEqual(0u, Fo4FormatHelpers.WbHexStrToInt(null));
-            var format = new IntToHexStrFormat(
-                Fo4Manager(), new JObject());
+            var format = new IntToHexStrFormat(Fo4Manager(), new JObject());
             Assert.AreEqual(5u, format.ValueToData(null, "00000005 Name"));
         }
 
         [Test]
         public void CLFMRgbaDisplayAndSortKey() {
-            var format = new CLFMColorFormat(
-                Fo4Manager(), new JObject());
+            var format = new CLFMColorFormat(Fo4Manager(), new JObject());
             Assert.AreEqual(
-                "rgba(32, 64, 128, 255)",
-                format.DataToValue(null, 0xFF804020u));
-            Assert.AreEqual(
-                "FF804020", format.GetSortKey(null, 0xFF804020u));
-            Assert.AreEqual(
-                "rgba(0, 0, 0, 0)", format.DataToValue(null, 0u));
+                "rgba(32, 64, 128, 255)", format.DataToValue(null, 0xFF804020u)
+            );
+            Assert.AreEqual("FF804020", format.GetSortKey(null, 0xFF804020u));
+            Assert.AreEqual("rgba(0, 0, 0, 0)", format.DataToValue(null, 0u));
         }
 
         [Test]
         public void CLFMValueToData() {
-            var format = new CLFMColorFormat(
-                Fo4Manager(), new JObject());
+            var format = new CLFMColorFormat(Fo4Manager(), new JObject());
             Assert.AreEqual(
-                0xFF804020u, format.ValueToData(null, "rgba(32, 64, 128, 255)"));
-            Assert.AreEqual(
-                0xFF804020u, format.ValueToData(null, "RGBA(32,64,128,255)"));
+                0xFF804020u, format.ValueToData(null, "rgba(32, 64, 128, 255)")
+            );
+            Assert.AreEqual(0xFF804020u, format.ValueToData(null, "RGBA(32,64,128,255)"));
             Assert.AreEqual(0u, format.ValueToData(null, "rgba(1, 2, 3)"));
             Assert.AreEqual(0u, format.ValueToData(null, "rgba(1, 2, 3"));
             Assert.AreEqual(
                 BitConverter.ToUInt32(BitConverter.GetBytes(1.5f), 0),
-                format.ValueToData(null, "1.5"));
+                format.ValueToData(null, "1.5")
+            );
             Assert.AreEqual(0u, format.ValueToData(null, "junk"));
         }
 
@@ -121,7 +115,8 @@ namespace Tests.defs {
                 "{\"name\":\"ColorStruct\",\"type\":\"struct\",\"elements\":[" +
                 "{\"name\":\"Color\",\"type\":\"uint32\"," +
                 "\"format\":{\"type\":\"CLFMColorFormat\"}}," +
-                "{\"name\":\"FNAM\",\"type\":\"uint32\"}]}");
+                "{\"name\":\"FNAM\",\"type\":\"uint32\"}]}"
+            );
             var color = Mage.GetElement("Color") as ValueElement;
             var fnam = Mage.GetElement("FNAM") as ValueElement;
             Assert.NotNull(color);
@@ -135,21 +130,17 @@ namespace Tests.defs {
 
         [Test]
         public void FaceMorphBareIndex() {
-            var format = new FaceMorphFormat(
-                Fo4Manager(), new JObject());
+            var format = new FaceMorphFormat(Fo4Manager(), new JObject());
             Assert.AreEqual("00000007", format.DataToValue(null, 7u));
-            Assert.AreEqual(
-                "00000007", format.GetSortKey(null, 7u));
+            Assert.AreEqual("00000007", format.GetSortKey(null, 7u));
             Assert.AreEqual(7u, format.ValueToData(null, "00000007 Name"));
         }
 
         [Test]
         public void MorphValueBareIndex() {
-            var format = new MorphValueFormat(
-                Fo4Manager(), new JObject());
+            var format = new MorphValueFormat(Fo4Manager(), new JObject());
             Assert.AreEqual("00000009", format.DataToValue(null, 9u));
-            Assert.AreEqual(
-                "00000009", format.GetSortKey(null, 9u));
+            Assert.AreEqual("00000009", format.GetSortKey(null, 9u));
             Assert.AreEqual(9u, format.ValueToData(null, "00000009:Name"));
         }
 
@@ -157,13 +148,13 @@ namespace Tests.defs {
         public void WiringCLFMColor() {
             var session = NewSession();
             var plugin = LoadOrIgnore(session, "Fallout4.esm");
-            var rec = plugin.records.FirstOrDefault(r =>
-                r.signature.ToString() == "CLFM");
+            var rec = plugin.records.FirstOrDefault(
+                r => r.signature.ToString() == "CLFM"
+            );
             Assert.NotNull(rec, "No CLFM record decoded.");
             var color = Walk(rec, "CLFMColorFormat");
             Assert.NotNull(color, "No CLFMColorFormat element decoded.");
-            var text = ((ValueDef)color.def).formatDef.DataToValue(
-                color, color.data);
+            var text = ((ValueDef)color.def).formatDef.DataToValue(color, color.data);
             var flags = color.GetData<uint?>(@"..\FNAM") ?? 0;
             if ((flags & 2) != 0)
                 Assert.That(text, Does.Match(@"^-?\d+\.\d{6}$"));
@@ -183,7 +174,9 @@ namespace Tests.defs {
             Assert.AreEqual(
                 Convert.ToUInt32(index.data).ToString("X8"),
                 ((ValueDef)index.def).formatDef.DataToValue(
-                    index, index.data));
+                    index, index.data
+                )
+            );
         }
 
         [Test]
@@ -197,12 +190,13 @@ namespace Tests.defs {
                 var morph = Walk(rec, "FaceMorphFormat");
                 if (morph == null) continue;
                 found = true;
-                var text = ((ValueDef)morph.def).formatDef.DataToValue(
-                    morph, morph.data);
+                var text = ((ValueDef)morph.def).formatDef.DataToValue(morph, morph.data);
                 Assert.That(
                     text,
                     Does.StartWith(
-                        Convert.ToUInt32(morph.data).ToString("X8")));
+                        Convert.ToUInt32(morph.data).ToString("X8")
+                    )
+                );
                 break;
             }
             Assert.IsTrue(found, "No FaceMorphFormat element decoded.");
@@ -221,9 +215,9 @@ namespace Tests.defs {
                 race = race?.overrides.LastOrDefault() ?? race;
                 if (race == null) continue;
                 var female = rec.GetFlag(@"ACBS\Flags", "Female");
-                var morphs = race.GetElement(female
-                    ? "Female Face Morphs"
-                    : "Male Face Morphs") as Container;
+                var morphs = race.GetElement(
+                    female ? "Female Face Morphs" : "Male Face Morphs"
+                ) as Container;
                 if (morphs?.elements == null) continue;
                 var index = Convert.ToUInt32(morph.data);
                 foreach (var item in morphs.elements) {
@@ -237,12 +231,15 @@ namespace Tests.defs {
                         plugin,
                         new Dictionary<uint, string> {
                             { stringId.Value, "TestMorph" },
-                        });
+                        }
+                    );
                     var name = entry.GetValue("FMRN") ?? "";
                     Assert.AreEqual(
                         index.ToString("X8") + " " + name,
                         ((ValueDef)morph.def).formatDef.DataToValue(
-                            morph, morph.data));
+                            morph, morph.data
+                        )
+                    );
                     return;
                 }
             }
@@ -260,12 +257,13 @@ namespace Tests.defs {
                 var key = Walk(rec, "MorphValueFormat");
                 if (key == null) continue;
                 found = true;
-                var text = ((ValueDef)key.def).formatDef.DataToValue(
-                    key, key.data);
+                var text = ((ValueDef)key.def).formatDef.DataToValue(key, key.data);
                 Assert.That(
                     text,
                     Does.StartWith(
-                        Convert.ToUInt32(key.data).ToString("X8")));
+                        Convert.ToUInt32(key.data).ToString("X8")
+                    )
+                );
                 break;
             }
             Assert.IsTrue(found, "No MorphValueFormat element decoded.");
@@ -284,9 +282,9 @@ namespace Tests.defs {
                 race = race?.overrides.LastOrDefault() ?? race;
                 if (race == null) continue;
                 var female = rec.GetFlag(@"ACBS\Flags", "Female");
-                var groups = race.GetElement(female
-                    ? "Female Morph Groups"
-                    : "Male Morph Groups") as Container;
+                var groups = race.GetElement(
+                    female ? "Female Morph Groups" : "Male Morph Groups"
+                ) as Container;
                 if (groups?.elements == null) continue;
                 var index = Convert.ToUInt32(key.data);
                 foreach (var item in groups.elements) {
@@ -307,13 +305,16 @@ namespace Tests.defs {
                             plugin,
                             new Dictionary<uint, string> {
                                 { presetId.Value, "TestPreset" },
-                            });
+                            }
+                        );
                         var name = groupName +
                             " - " + (preset.GetValue("MPPN") ?? "");
                         Assert.AreEqual(
                             index.ToString("X8") + " " + name,
                             ((ValueDef)key.def).formatDef.DataToValue(
-                                key, key.data));
+                                key, key.data
+                            )
+                        );
                         return;
                     }
                 }
