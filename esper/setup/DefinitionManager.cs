@@ -22,6 +22,7 @@ namespace esper.setup {
         internal StructDef recordHeaderDef;
         internal StructDef groupHeaderDef;
         private readonly DeciderMap deciders = new DeciderMap();
+        private readonly HashSet<string> warnedDefIds = new HashSet<string>();
 
         public CTDAFunctions ctdaFunctions => (CTDAFunctions)defMap["CTDAFunctions"];
 
@@ -129,8 +130,13 @@ namespace esper.setup {
             var defId = src.Value<string>("type");
             if (defId == "record" && !src.ContainsKey("signature")) return null;
             if (defId == "group") return groupManager.BuildGroupDef(src);
-            if (!defClasses.ContainsKey(defId)) return null;
-            //throw new Exception($"Def type not implemented: {defId}");
+            if (!defClasses.ContainsKey(defId)) {
+                if (session.options.strictDefinitions)
+                    throw new Exception($"Def type not implemented: {defId}");
+                if (warnedDefIds.Add(defId))
+                    session.logger.Warn($"Def type not implemented: {defId} (skipped)");
+                return null;
+            }
             var args = new object[] { this, src };
             var ctors = defClasses[defId].GetConstructors(BindingFlags.Public | BindingFlags.CreateInstance | BindingFlags.NonPublic | BindingFlags.Instance);
             var def = (Def)ctors.First(ctor => ctor.GetParameters().Length == 2).Invoke(args);

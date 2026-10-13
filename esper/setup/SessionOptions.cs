@@ -33,6 +33,10 @@ namespace esper.setup {
         public bool enforceExpectedReferences { get; set; } = false;
         public bool loadResources { get; set; } = false;
         public bool improvise { get; set; } = false;
+        // Strict mode turns unimplemented definition types into an
+        // exception at build time. Loose mode (default) logs one warning
+        // per unimplemented type and skips those definitions.
+        public bool strictDefinitions { get; set; } = false;
         public bool serializeNumericData { get; set; } = false;
         private uint _floatDigits = 6;
         public float epsilon { get; internal set; } = GetEpsilon(6);
