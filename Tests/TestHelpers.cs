@@ -1,4 +1,5 @@
 ﻿using esper.elements;
+using esper.plugins;
 using esper.resolution;
 using NUnit.Framework;
 using System;
@@ -14,6 +15,40 @@ namespace Tests {
 
         public static string FixturePath(string filename) {
             return Path.Combine(fixturesPath, filename);
+        }
+
+        public static void ScanRecords(
+            System.Collections.Generic.IEnumerable<MainRecord> records,
+            Action<MainRecord> action
+        ) {
+            foreach (var rec in records) {
+                try {
+                    action(rec);
+                } finally {
+                    rec._internalElements = null;
+                    rec._unexpectedSubrecords = null;
+                }
+            }
+        }
+
+        public static T FindRecord<T>(
+            System.Collections.Generic.IEnumerable<MainRecord> records,
+            Func<MainRecord, T> scan
+        ) where T : class {
+            foreach (var rec in records) {
+                T hit;
+                try {
+                    hit = scan(rec);
+                } catch {
+                    rec._internalElements = null;
+                    rec._unexpectedSubrecords = null;
+                    throw;
+                }
+                if (hit != null) return hit;
+                rec._internalElements = null;
+                rec._unexpectedSubrecords = null;
+            }
+            return null;
         }
 
         public static void TestValue(Element element, string path, string expectedValue) {
