@@ -15,11 +15,14 @@ using System.Linq;
 namespace Tests.elements {
     [TestFixture]
     public class UnionElementCoverageTests {
+        private static Session cachedSession;
+
         private static PluginFile LoadAllRecords() {
             var path = TestHelpers.FixturePath("AllRecords.esp");
             if (!File.Exists(path)) return null;
-            var session = new Session(Games.SSE, new SessionOptions());
-            return session.pluginManager.LoadPlugin(path);
+            if (cachedSession == null)
+                cachedSession = new Session(Games.SSE, new SessionOptions());
+            return cachedSession.pluginManager.LoadPlugin(path);
         }
 
         private static void Walk(Element element, List<Element> acc) {
@@ -175,8 +178,7 @@ namespace Tests.elements {
         }
 
         private static StructElement NewStruct(Game game, string json) {
-            var manager = new Session(game, new SessionOptions())
-                .definitionManager;
+            var manager = Synthetic.GetSession(game).definitionManager;
             var def = new StructDef(manager, JObject.Parse(json));
             var element = new TestStructElement(def, manager);
             element.Initialize();

@@ -33,8 +33,7 @@ namespace Tests.defs {
         }
 
         private static StructElement NewStruct(Game game, string json) {
-            var manager = new Session(game, new SessionOptions())
-                .definitionManager;
+            var manager = Synthetic.GetSession(game).definitionManager;
             var def = new StructDef(manager, JObject.Parse(json));
             var element = new TestStructElement(def, manager);
             element.Initialize();
@@ -44,8 +43,7 @@ namespace Tests.defs {
         private static CTDAFunction NewFunction(
             Game game, string paramType1, string paramType2
         ) {
-            var manager = new Session(game, new SessionOptions())
-                .definitionManager;
+            var manager = Synthetic.GetSession(game).definitionManager;
             return new CTDAFunction(manager, JObject.Parse(
                 "{'index':1,'name':'GetTest'," +
                 $"'paramType1':'{paramType1}'," +
