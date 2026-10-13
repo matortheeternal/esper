@@ -13,11 +13,8 @@ using Tests.defs;
 namespace Tests.defs {
     [TestFixture]
     public class CellGroupCoverageTests {
-        private static PluginFile LoadSkyrim(Session session) {
-            var path = TestHelpers.FixturePath("Skyrim.esm");
-            if (!File.Exists(path))
-                Assert.Ignore("Skyrim.esm missing.");
-            return session.pluginManager.LoadPlugin(path);
+        private static PluginFile LoadSharedSkyrim() {
+            return Synthetic.GetPlugin(Games.SSE, "Skyrim.esm");
         }
 
         private static List<GroupRecord> AncestorGroups(
@@ -79,7 +76,7 @@ namespace Tests.defs {
         [Test]
         public void CellBlockGroupsRoundTripLabels() {
             var session = RecordDefCoverageTests.GetSession("SSE");
-            var plugin = LoadSkyrim(session);
+            var plugin = LoadSharedSkyrim();
             var groups = CellChain(plugin, "InteriorCellBlockDef");
             if (groups == null)
                 Assert.Ignore("No interior CELL block chain.");
@@ -92,7 +89,7 @@ namespace Tests.defs {
         [Test]
         public void CellChildGroupsHaveReadableNames() {
             var session = RecordDefCoverageTests.GetSession("SSE");
-            var plugin = LoadSkyrim(session);
+            var plugin = LoadSharedSkyrim();
             var groups = CellChain(plugin, "InteriorCellBlockDef");
             if (groups == null)
                 Assert.Ignore("No interior CELL block chain.");
@@ -102,7 +99,7 @@ namespace Tests.defs {
         [Test]
         public void WorldspaceBlockGroupsRoundTrip() {
             var session = RecordDefCoverageTests.GetSession("SSE");
-            var plugin = LoadSkyrim(session);
+            var plugin = LoadSharedSkyrim();
             var groups = CellChain(plugin, "ExteriorCellBlockDef");
             if (groups == null)
                 Assert.Ignore("No exterior CELL block chain.");

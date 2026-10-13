@@ -1,3 +1,4 @@
+using esper;
 using esper.defs.FO4;
 using esper.plugins;
 using esper.resolution;
@@ -90,11 +91,7 @@ namespace Tests.defs {
 
         [Test]
         public void MovtAnimThresholdsDecodeThroughProductionPath() {
-            var session = RecordDefCoverageTests.GetSession("SSE");
-            var path = TestHelpers.FixturePath("Skyrim.esm");
-            if (!System.IO.File.Exists(path))
-                Assert.Ignore("Skyrim.esm is not present.");
-            var skyrim = session.pluginManager.LoadPlugin(path);
+            var skyrim = Synthetic.GetPlugin(Games.SSE, "Skyrim.esm");
             // NPC_Default_MT stores MaxValue floats, which the format
             // renders as Default.
             var rec = skyrim.GetRecordByFormId(0x3580D);

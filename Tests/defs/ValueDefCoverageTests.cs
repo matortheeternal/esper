@@ -34,6 +34,10 @@ namespace Tests.defs {
             return session.pluginManager.LoadPlugin(path);
         }
 
+        private static PluginFile LoadSharedSkyrim() {
+            return Synthetic.GetPlugin(Games.SSE, "Skyrim.esm");
+        }
+
         private static void LoadStrings(Session session, PluginFile plugin) {
             var files = new[] {
                 "skyrim_english.strings",
@@ -106,7 +110,7 @@ namespace Tests.defs {
         [Test]
         public void Int8WriteDataHandlesSbyteAndFallback() {
             var session = RecordDefCoverageTests.GetSession("SSE");
-            var plugin = LoadSkyrim(session);
+            var plugin = LoadSharedSkyrim();
             var def = new Int8Def(SseManager(), Named("I8"));
             var element = new ValueElement(null, def);
             element._data = (sbyte)5;
@@ -185,7 +189,7 @@ namespace Tests.defs {
             def.SetData(element, 999L);
             Assert.AreEqual((byte)255, element._data);
             var session = RecordDefCoverageTests.GetSession("SSE");
-            var plugin = LoadSkyrim(session);
+            var plugin = LoadSharedSkyrim();
             element._data = (byte)7;
             Assert.AreEqual(
                 "07",
@@ -284,7 +288,7 @@ namespace Tests.defs {
         [Test]
         public void FormIdPropsReadDefaultAndValue() {
             var session = RecordDefCoverageTests.GetSession("SSE");
-            var plugin = LoadSkyrim(session);
+            var plugin = LoadSharedSkyrim();
             var def = new FormIdDef(SseManager(), Named("F"));
             Assert.AreEqual(XEDefType.dtIntegerFormater, def.valueDefType);
             Assert.AreEqual(4, def.size);
@@ -310,7 +314,7 @@ namespace Tests.defs {
         [Test]
         public void FormIdSetValueSkipsValidationByDefault() {
             var session = RecordDefCoverageTests.GetSession("SSE");
-            var plugin = LoadSkyrim(session);
+            var plugin = LoadSharedSkyrim();
             var def = new FormIdDef(SseManager(), Named("F"));
             var element = new ValueElement(
                 plugin.GetRecordByFormId(0x12DFE), def
@@ -322,7 +326,7 @@ namespace Tests.defs {
         [Test]
         public void FormIdWriteDataFormIdAndFallback() {
             var session = RecordDefCoverageTests.GetSession("SSE");
-            var plugin = LoadSkyrim(session);
+            var plugin = LoadSharedSkyrim();
             var refr = plugin.GetRecordByFormId(0x12DFE);
             var navDef = (FormIdDef)((ValueElement)refr.GetElement(
                 @"XNDP\Navigation Mesh"
@@ -377,7 +381,7 @@ namespace Tests.defs {
         [Test]
         public void FormIdValidateRefMatrix() {
             var session = RecordDefCoverageTests.GetSession("SSE");
-            var plugin = LoadSkyrim(session);
+            var plugin = LoadSharedSkyrim();
             var navDef = new FormIdDef(SseManager(), JObject.Parse(
                 "{'name':'Nav','signatures':['NAVM']}"
             ));
@@ -411,16 +415,6 @@ namespace Tests.defs {
                 );
         }
 
-        private static Session ownSession;
-        private static PluginFile ownSkyrim;
-
-        private static PluginFile OwnSkyrim() {
-            if (ownSkyrim != null) return ownSkyrim;
-            ownSession = new Session(Games.SSE, new SessionOptions());
-            ownSkyrim = LoadSkyrim(ownSession);
-            return ownSkyrim;
-        }
-
         [Test]
         public void FormIdEnforceSessionValidatesOnSetValue() {
             var session = new Session(Games.SSE, new SessionOptions {
@@ -448,7 +442,7 @@ namespace Tests.defs {
 
         [Test]
         public void FormIdValidateFormListRefsMatrix() {
-            var plugin = OwnSkyrim();
+            var plugin = LoadSharedSkyrim();
             MainRecord list = null;
             foreach (var rec in plugin.records) {
                 if (rec.signature.ToString() != "FLST") continue;
@@ -471,7 +465,7 @@ namespace Tests.defs {
             }
             Assert.IsNotNull(list, "No all-FLST FormIDs list found");
             var def = new FormIdDef(
-                ownSession.definitionManager, JObject.Parse(
+                Synthetic.GetSession(Games.SSE).definitionManager, JObject.Parse(
                     "{'name':'L','signatures':['FLST']," +
                     "'validateFlstRefs':true}"
                 )
@@ -516,11 +510,11 @@ namespace Tests.defs {
 
         [Test]
         public void FormIdValidateRefDelegatesToFormListRefs() {
-            var plugin = OwnSkyrim();
+            var plugin = LoadSharedSkyrim();
             var list = CleanFlstList(plugin);
             Assert.IsNotNull(list, "No clean FLST list found");
             var def = new FormIdDef(
-                ownSession.definitionManager, JObject.Parse(
+                Synthetic.GetSession(Games.SSE).definitionManager, JObject.Parse(
                     "{'name':'L','signatures':['FLST']," +
                     "'validateFlstRefs':true}"
                 )
@@ -563,8 +557,8 @@ namespace Tests.defs {
 
         [Test]
         public void StringGetValueNullPlainAndLocalized() {
-            var plugin = OwnSkyrim();
-            LoadStrings(ownSession, plugin);
+            var plugin = LoadSharedSkyrim();
+            LoadStrings(Synthetic.GetSession(Games.SSE), plugin);
             var def = new StringDef(SseManager(), Named("S"));
             var element = new ValueElement(null, def);
             Assert.IsNull(def.GetValue(element));
@@ -587,13 +581,13 @@ namespace Tests.defs {
 
         [Test]
         public void StringGetSizeLocalizedStringArm() {
-            var plugin = OwnSkyrim();
+            var plugin = LoadSharedSkyrim();
             var int8 = new Int8Def(
-                ownSession.definitionManager, Named("I8")
+                Synthetic.GetSession(Games.SSE).definitionManager, Named("I8")
             );
             var int8Element = new ValueElement(null, int8);
             var def = new StringDef(
-                ownSession.definitionManager, Named("S")
+                Synthetic.GetSession(Games.SSE).definitionManager, Named("S")
             );
             var element = new ValueElement(null, def);
             element._data = new LocalizedString(plugin, 1);
@@ -604,9 +598,9 @@ namespace Tests.defs {
 
         [Test]
         public void StringWriteDataPlainPrefixAndLocalized() {
-            var plugin = OwnSkyrim();
+            var plugin = LoadSharedSkyrim();
             var def = new StringDef(
-                ownSession.definitionManager, Named("S")
+                Synthetic.GetSession(Games.SSE).definitionManager, Named("S")
             );
             var element = new ValueElement(null, def);
             element._data = "AB";
@@ -615,7 +609,7 @@ namespace Tests.defs {
                 WriteBytes(plugin, o => def.WriteData(element, o))
             );
             var prefixed = new StringDef(
-                ownSession.definitionManager,
+                Synthetic.GetSession(Games.SSE).definitionManager,
                 JObject.Parse("{'name':'S','prefix':1}")
             );
             var prefixedElement = new ValueElement(null, prefixed);

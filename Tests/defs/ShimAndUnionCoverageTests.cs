@@ -430,9 +430,7 @@ namespace Tests.defs {
         [Test]
         public void TintLayerFormatDrivenByRealNpc() {
             var session = RecordDefCoverageTests.GetSession("SSE");
-            var path = TestHelpers.FixturePath("Skyrim.esm");
-            if (!File.Exists(path)) Assert.Ignore("Skyrim.esm is not present.");
-            var skyrim = session.pluginManager.LoadPlugin(path);
+            var skyrim = Synthetic.GetPlugin(Games.SSE, "Skyrim.esm");
             // Localized race FULL names need the string tables; without
             // them the missing-index fallback below cannot render.
             var stringsPath = TestHelpers.FixturePath("skyrim_strings");
