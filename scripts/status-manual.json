@@ -37,6 +37,50 @@
       "detail": "Collate .ai/ notes into a defined policy in a future pass."
     }
   ],
+  "roadmap": [
+    {
+      "id": 1,
+      "title": "Signature-based resolution of subrecord elements",
+      "status": "done",
+      "detail": "Smoke tests in Tests/resolution/SignatureResolutionTests.cs (48465f5)."
+    },
+    {
+      "id": 2,
+      "title": "Coverage script with reportgenerator report",
+      "status": "done",
+      "detail": "scripts/coverage.sh (9c0a0e8)."
+    },
+    {
+      "id": 3,
+      "title": "Project status webpage",
+      "status": "done",
+      "detail": ".ai/status.html + .ai/status.json via scripts/status.py (9c0a0e8)."
+    },
+    {
+      "id": 4,
+      "title": "ChangesToJSON for ConflictView/ConflictRow",
+      "status": "ongoing",
+      "detail": "Flat per-record changes list implemented (formId/sig/changes; display-string values, ordinal statuses); zSmash consumer review pending."
+    },
+    {
+      "id": 5,
+      "title": "Test-suite flamegraph / load-time strategy",
+      "status": "done",
+      "detail": "Shared sessions + shared read-only plugin loads; suite 5m07s to 58s."
+    },
+    {
+      "id": 6,
+      "title": "xEdit on Linux",
+      "status": "open",
+      "detail": "Research running xEdit via wine or alternatives for fixtures/oracles."
+    },
+    {
+      "id": 7,
+      "title": "xEdit feature audit + zEdit migration plan",
+      "status": "open",
+      "detail": "Audit esper gaps vs xEdit; plan zEdit migration from xEdit to esper."
+    }
+  ],
   "missingDefinitions": {
     "TES4": ["recursive (ScriptPropertyStruct nested Struct)"],
     "FO3": ["recursive (ScriptPropertyStruct nested Struct)"],

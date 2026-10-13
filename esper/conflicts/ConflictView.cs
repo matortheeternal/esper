@@ -14,7 +14,14 @@ namespace esper.conflicts {
 
         internal JToken ChangesToJson(MainRecord rec) {
             var targetIndex = row.cells.FindIndex(cell => cell.element == rec);
-            return row.ChangesToJson(targetIndex);
+            if (targetIndex <= 0) return null;
+            var changes = row.ChangesToJson(targetIndex) as JArray;
+            if (changes == null || changes.Count == 0) return null;
+            var result = new JObject();
+            result["formId"] = rec.master.fileFormId.ToString("X8");
+            result["sig"] = rec.signature.ToString();
+            result["changes"] = changes;
+            return result;
         }
     }
 }

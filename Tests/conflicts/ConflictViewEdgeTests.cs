@@ -72,12 +72,10 @@ namespace Tests.conflicts {
         }
 
         [Test]
-        public void TestChangesToJsonStubsReturnEmpty() {
+        public void TestChangesToJsonReturnsNullWhenNoChanges() {
             var view = new ConflictView(rec);
-            var viewJson = view.ChangesToJson(rec);
-            Assert.AreEqual(0, viewJson.Count());
-            var rowJson = view.row.ChangesToJson(0);
-            Assert.AreEqual(0, rowJson.Count());
+            Assert.IsNull(view.ChangesToJson(rec));
+            Assert.IsNull(view.row.ChangesToJson(0));
         }
 
         [Test]
