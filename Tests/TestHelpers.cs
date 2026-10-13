@@ -17,6 +17,13 @@ namespace Tests {
             return Path.Combine(fixturesPath, filename);
         }
 
+        public static string RepoRoot() {
+            var dir = new DirectoryInfo(Environment.CurrentDirectory);
+            while (dir != null && !Directory.Exists(Path.Join(dir.FullName, ".git")))
+                dir = dir.Parent;
+            return dir.FullName;
+        }
+
         public static void ScanRecords(
             System.Collections.Generic.IEnumerable<MainRecord> records,
             Action<MainRecord> action

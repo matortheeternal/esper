@@ -15,10 +15,7 @@ namespace Tests.plugins {
     [TestFixture]
     public class FixtureGenerator {
         private static string RepoRoot() {
-            var dir = new DirectoryInfo(Environment.CurrentDirectory);
-            while (dir != null && !Directory.Exists(Path.Join(dir.FullName, ".git")))
-                dir = dir.Parent;
-            return dir.FullName;
+            return TestHelpers.RepoRoot();
         }
 
         private class Selection {
@@ -256,6 +253,56 @@ namespace Tests.plugins {
             }
         }
 
+        private static Selection[] autoSelections = new Selection[] {
+            new Selection {
+                game = Games.SSE, master = "Skyrim.esm",
+                fixture = "auto/Skyrim.esm",
+                formIds = new uint[] {
+                    0x1B, 0xDD7, 0x12DFE, 0x5820A, 0x15CC2, 0x1BAEC,
+                    0xE40, 0xEB9, 0x15F00, 0x1548E, 0x13126, 0xD1444,
+                    0x15D24, 0x5F596, 0x46EF0, 0xD6989, 0x954E1,
+                    0xEA7, 0xEE7, 0x12FB4, 0xE15, 0xDD1, 0x4C1D7,
+                    0x1FB1C,
+                },
+            },
+            new Selection {
+                game = Games.TES4, master = "Oblivion.esm",
+                fixture = "auto/Oblivion.esm",
+                formIds = new uint[] {
+                    0x856, 0x8B5, 0x8BA, 0x8C9, 0x8CA, 0x18C5,
+                    0x8F4, 0x15E, 0x12C, 0x9CA, 0x136,
+                    0x2F86B, 0x23DD9, 0x30139, 0x2D078,
+                },
+            },
+            new Selection {
+                game = Games.FNV, master = "FalloutNV.esm",
+                fixture = "auto/FalloutNV.esm",
+                formIds = new uint[] {
+                    0xE58D5, 0xEFA4D, 0xF5266, 0x54E5F, 0x89466,
+                    0x8E1C0, 0x8D0A2, 0xFFAE4, 0x107775, 0x152325,
+                    0x31DAB, 0x31DAD, 0x24D5C, 0x30FEB,
+                    0xDA115, 0xEFB3B, 0xE790F, 0x371D1,
+                    0x14E8AD, 0x14E8BD, 0x152437, 0xEDB37, 0x302CF,
+                    0x37138, 0x302CE,
+                },
+            },
+            new Selection {
+                game = Games.FO4, master = "Fallout4.esm",
+                fixture = "auto/Fallout4.esm",
+                formIds = new uint[] {
+                    0xA042C, 0x20BD1, 0x1D394, 0x1D395, 0x1F986,
+                    0x4A834, 0x58594, 0x72F3D, 0x8393, 0x83B1,
+                    0x7, 0x19, 0x13746,
+                    0x16417D, 0x17309F, 0x17F6D,
+                },
+            },
+            new Selection {
+                game = Games.SSE, master = "Dragonborn.esm",
+                fixture = "auto/Dragonborn.esm",
+                formIds = new uint[] { 0x1E2CD },
+            },
+        };
+
         private static void Generate(Selection sel, string fixturesDir) {
             var session = new Session(sel.game, new SessionOptions());
             var masterPath = TestHelpers.FixturePath(sel.master);
@@ -265,6 +312,14 @@ namespace Tests.plugins {
             LoadMasterStrings(session, plugin, sel.master);
             var headerSize = (int)sel.game.recordHeaderSize;
             var wanted = new HashSet<uint>(sel.formIds);
+            var sidecar = Path.Join(fixturesDir,
+                "auto", Path.GetFileNameWithoutExtension(sel.master) + ".missing");
+            if (File.Exists(sidecar))
+                foreach (var line in File.ReadAllLines(sidecar)) {
+                    var t = line.Trim();
+                    if (t.Length > 0)
+                        wanted.Add(Convert.ToUInt32(t, 16));
+                }
             var found = new List<MainRecord>();
             foreach (var rec in plugin.records) {
                 if (!wanted.Contains(rec.fileFormId & 0xFFFFFFu)) continue;
@@ -274,6 +329,7 @@ namespace Tests.plugins {
                 wanted.Count, found.Count,
                 $"missing records in {sel.master}");
             var outPath = Path.Join(fixturesDir, sel.fixture);
+            Directory.CreateDirectory(Path.GetDirectoryName(outPath));
             using var ms = new MemoryStream();
             var topGroups = new Dictionary<string, GenTop>();
             var rawCache = new Dictionary<string, byte[]>();
@@ -422,6 +478,7 @@ namespace Tests.plugins {
                 Assert.Ignore("fixture generation not requested.");
             var fixturesDir = Path.Join(RepoRoot(), "fixtures");
             foreach (var sel in selections) Generate(sel, fixturesDir);
+            foreach (var sel in autoSelections) Generate(sel, fixturesDir);
         }
     }
 }

@@ -367,3 +367,4 @@ Todos.md
 EsperTest/
 
 js-tests/esper/
+.env
