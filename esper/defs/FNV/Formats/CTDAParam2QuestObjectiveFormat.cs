@@ -2,24 +2,47 @@ using esper.elements;
 using esper.helpers;
 using esper.resolution;
 using esper.setup;
+using Newtonsoft.Json.Linq;
+using System.Linq;
 
 namespace esper.defs.FNV {
     public class CTDAParam2QuestObjectiveFormat : FormatDef {
         public static readonly string defId = "CTDAParam2QuestObjectiveFormat";
+        public override bool customSortKey => true;
 
         internal CTDAParam2QuestObjectiveFormat(DefinitionManager manager, JObject src)
             : base(manager, src) { }
 
+        private static MainRecord ResolveQuest(ValueElement element) {
+            var param1 = element?.GetElement(@"..\Parameter #1");
+            var paramValue = param1 as ValueElement
+                ?? (param1 as Container)?.elements?.FirstOrDefault() as ValueElement;
+            if (paramValue?.def is not esper.defs.FormIdDef) return null;
+            var quest = paramValue.referencedRecord;
+            if (quest == null) return null;
+            var target = quest.master ?? quest;
+            return target.overrides.LastOrDefault() ?? target;
+        }
+
         internal override string DataToValue(ValueElement element, dynamic data) {
-            var rec = element?.GetElement(@"..\..\CIS1") as MainRecord;
-            var quest = rec?.referencedRecord;
-            if (quest == null) return data.ToString();
+            var raw = data.ToString();
+            var quest = ResolveQuest(element);
+            if (quest == null)
+                return $"{raw} <Warning: Could not resolve Parameter 1>";
+            var shortName = quest.GetValue("EDID") ?? quest.signature.ToString();
+            if (quest.signature.ToString() != "QUST")
+                return $"{raw} <Warning: \"{shortName}\" is not a Quest record>";
             var index = (int)data;
-            var stage = quest.GetElements("Objectives").FirstOrDefault(o =>
-                o.GetData<int>(@"QOBJ\Objective Index") == index);
+            var stage = quest.GetElements("Objectives")?.FirstOrDefault(o =>
+                o.GetData<int?>(@"QOBJ") == index);
             if (stage == null)
-                return $"{data} (Objective #{data} in \"{quest.GetValue("EDID")}\")";
-            return $"{index:D3} {stage.GetValue(@"NNAM\Short Description")}";
+                return $"{raw} <Warning: Quest Objective not found in \"{shortName}\">";
+            var name = (stage.GetValue("NNAM") ?? "").Trim();
+            return name.Length == 0 ? $"{index:D3}" : $"{index:D3} {name}";
+        }
+
+        internal override string GetSortKey(ValueElement element, dynamic data) {
+            return ((int)data).ToString("X8");
         }
 
         internal override dynamic ValueToData(ValueElement element, string value) {

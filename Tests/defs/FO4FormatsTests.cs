@@ -17,7 +17,7 @@ using Tests;
 using balsa.stringtables;
 
 namespace Tests.defs {
-    public class Batch3FormatTests {
+    public class FO4FormatsTests {
         private static DefinitionManager Fo4Manager() {
             return Synthetic.GetSession(Games.FO4).definitionManager;
         }

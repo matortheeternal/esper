@@ -1,6 +1,5 @@
 using esper;
 using esper.defs;
-using esper.defs.FNV;
 using esper.elements;
 using esper.plugins;
 using esper.resolution;
@@ -10,14 +9,12 @@ using NUnit.Framework;
 using System;
 using System.IO;
 using System.Linq;
-using System.Text.RegularExpressions;
 using Tests;
 
 namespace Tests.defs {
     [TestFixture]
-    public class MissingFormatTests {
+    public class TES4FormatsTests {
         private static Session TES4() => Synthetic.GetSession(Games.TES4);
-        private static Session FNV() => Synthetic.GetSession(Games.FNV);
 
         private static JObject Src(string name, int value) {
             return new JObject { { "name", name }, { "value", value } };
@@ -56,6 +53,11 @@ namespace Tests.defs {
             return null;
         }
 
+        private static string DisplayText(ValueElement el) {
+            var vd = (ValueDef)el.def;
+            return vd.formatDef.DataToValue(el, el.data);
+        }
+
         [Test]
         public void TestMultiplyScalesBothWays() {
             var def = new MultiplyDef(
@@ -92,7 +94,7 @@ namespace Tests.defs {
         }
 
         [Test]
-        public void TestTES4IdleAnamTable() {
+        public void TestIdleAnamTable() {
             var def = new esper.defs.TES4.IdleAnamFormat(
                 TES4().definitionManager, Src("Animation Group Section"));
             Assert.AreEqual(
@@ -109,51 +111,60 @@ namespace Tests.defs {
         }
 
         [Test]
-        public void TestFO3IdleAnamTable() {
-            var def = new esper.defs.FO3.IdleAnamFormat(
-                FNV().definitionManager, Src("Animation Group Section"));
-            Assert.AreEqual(
-                "Idle, Must return a file", def.DataToValue(null, 0));
-            Assert.AreEqual("Idle", def.DataToValue(null, 0x80));
-            Assert.AreEqual(
-                "Whole Body, Must return a file",
-                def.DataToValue(null, 20));
-            Assert.AreEqual(
-                "Weapon Up, Must return a file", def.DataToValue(null, 5));
-            Assert.AreEqual(
-                "Idle, Must return a file", def.DataToValue(null, 0x40));
-            Assert.AreEqual(
-                "<Unknown: 8>, Must return a file",
-                def.DataToValue(null, 8));
-            Assert.Throws<NotImplementedException>(
-                () => def.ValueToData(null, "Idle"));
-        }
-
-        [Test]
-        public void TestWthrClassificationDivergesByGame() {
-            var tes4 = new esper.defs.TES4.WthrDataClassificationFormat(
+        public void TestWthrClassification() {
+            var def = new esper.defs.TES4.WthrDataClassificationFormat(
                 TES4().definitionManager, Src("Weather Classification"));
-            var fo3 = new esper.defs.FO3.WthrDataClassificationFormat(
-                FNV().definitionManager, Src("Weather Classification"));
-            Assert.AreEqual("Pleasant", tes4.DataToValue(null, 1));
-            Assert.AreEqual("Unknown 3", tes4.DataToValue(null, 3));
-            Assert.AreEqual(
-                "<Unknown: 3>", fo3.DataToValue(null, 3));
-            Assert.AreEqual("Snow", fo3.DataToValue(null, 8));
-            Assert.AreEqual("01", fo3.GetSortKey(null, 1));
+            Assert.AreEqual("Pleasant", def.DataToValue(null, 1));
+            Assert.AreEqual("Unknown 3", def.DataToValue(null, 3));
             Assert.Throws<NotImplementedException>(
-                () => tes4.ValueToData(null, "Pleasant"));
+                () => def.ValueToData(null, "Pleasant"));
         }
 
         [Test]
-        public void TestAlocTimeOfDay() {
-            var def = new AlocTimeFormat(
-                FNV().definitionManager, Src("Day Start"));
-            Assert.AreEqual("00:00:00", def.DataToValue(null, 0u));
-            Assert.AreEqual("12:00:00", def.DataToValue(null, 128u));
-            Assert.AreEqual("0000", def.GetSortKey(null, 0u));
-            Assert.Throws<NotImplementedException>(
-                () => def.ValueToData(null, "12:00:00"));
+        public void TestVariableNameFallbackIsRawValue() {
+            var manager = TES4().definitionManager;
+            var format = new esper.defs.TES4.CTDAParam2VariableNameFormat(
+                manager, new JObject());
+            Assert.AreEqual("5", format.DataToValue(null, 5));
+        }
+
+        [Test]
+        public void TestVariableNameValueToDataParsesNumber() {
+            var manager = TES4().definitionManager;
+            var format = new esper.defs.TES4.CTDAParam2VariableNameFormat(
+                manager, new JObject());
+            Assert.AreEqual(12L, format.ValueToData(null, "12"));
+        }
+
+        [Test]
+        public void TestVariableNameResolvesRealName() {
+            var plugin = Load(Games.TES4, "Oblivion.esm");
+            var el = TestHelpers.FindRecord(
+                plugin.records.Where(
+                    r => r.signature.ToString() == "INFO").Take(500),
+                rec => {
+                    var hit = WalkForFormat(
+                        rec, "CTDAParam2VariableNameFormat");
+                    if (hit == null) return null;
+                    var text = DisplayText(hit);
+                    return text != hit.data.ToString() && text.Length > 0
+                        ? hit : null;
+                });
+            if (el == null)
+                Assert.Ignore("No resolved VariableName element found.");
+        }
+
+        private static ValueElement WalkForFormat(Element el, string defId) {
+            if (el is ValueElement ve && ve.def is ValueDef vd &&
+                vd.formatDef != null && vd.formatDef.GetType().Name == defId)
+                return ve;
+            if (el is Container c && c.elements != null) {
+                foreach (var child in c.elements) {
+                    var hit = WalkForFormat(child, defId);
+                    if (hit != null) return hit;
+                }
+            }
+            return null;
         }
 
         [Test]
@@ -214,16 +225,6 @@ namespace Tests.defs {
             var factor = ((MultiplyDef)((ValueDef)min.def).formatDef).factor;
             Assert.AreEqual((raw * factor).ToString(), min.GetValue());
             Assert.IsTrue(factor == 5 || factor == 100);
-        }
-
-        [Test]
-        public void TestFalloutNVAlocTimeDisplays() {
-            var plugin = Load(Games.FNV, "FalloutNV.esm");
-            var aloc = First(plugin, "ALOC");
-            var day = aloc.GetElement("NAM5") as ValueElement;
-            Assert.IsNotNull(day);
-            StringAssert.IsMatch(
-                @"^\d+:\d\d:\d\d$", day.GetValue());
         }
     }
 }

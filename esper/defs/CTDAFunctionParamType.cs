@@ -56,6 +56,7 @@
         ptWardState,          // enum
         ptEvent,              // Struct
         ptEventData,          // LCTN, KYWD or FLST
-        ptKnowable            // MGEF, WOOP
+        ptKnowable,           // MGEF, WOOP
+        ptQuestObjective
     }
 }
