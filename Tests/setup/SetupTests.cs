@@ -22,6 +22,7 @@ namespace Tests.setup {
             Assert.IsFalse(options.enforceExpectedReferences);
             Assert.IsFalse(options.loadResources);
             Assert.IsFalse(options.improvise);
+            Assert.IsFalse(options.strictDefinitions);
             Assert.IsFalse(options.serializeNumericData);
             Assert.AreEqual(6u, options.floatDigits);
             Assert.AreEqual("F6", options.floatFormat);
