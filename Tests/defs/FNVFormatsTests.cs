@@ -390,5 +390,42 @@ namespace Tests.defs {
             CollectFormatted(rec, defId, found);
             return string.Join("\n", found.Select(DisplayText));
         }
+
+        [Test]
+        public void TestVariableNameResolvesRealQuestVariables() {
+            var session = NewSession(Games.FNV);
+            var plugin = LoadOrIgnore(session, "FalloutNV.esm");
+            var rec = plugin.GetRecordByFormId(0x54E5F);
+            var text = CollectDisplays(rec, "CTDAParam2VariableNameFormat");
+            StringAssert.Contains("RL3Hired", text);
+            StringAssert.Contains("RL3Fired", text);
+            StringAssert.Contains("PlayerHasFollower", text);
+        }
+
+        [Test]
+        public void TestPRKCResolvesRealCaptions() {
+            var session = NewSession(Games.FNV);
+            var plugin = LoadOrIgnore(session, "FalloutNV.esm");
+            var armed = CollectDisplays(
+                plugin.GetRecordByFormId(0x31DAB), "PRKCFormat"
+            );
+            StringAssert.Contains("Weapon", armed);
+            var owner = CollectDisplays(
+                plugin.GetRecordByFormId(0x31DAD), "PRKCFormat"
+            );
+            StringAssert.Contains("Perk Owner", owner);
+            StringAssert.Contains("Target", owner);
+        }
+
+        [Test]
+        public void TestPerkDATAFunctionAndEPFTResolveRealNames() {
+            var session = NewSession(Games.FNV);
+            var plugin = LoadOrIgnore(session, "FalloutNV.esm");
+            var rec = plugin.GetRecordByFormId(0x24D5C);
+            var func = CollectDisplays(rec, "PerkDATAFunctionFormat");
+            StringAssert.Contains("Multiply Value", func);
+            var epft = CollectDisplays(rec, "PerkEPFTFormat");
+            StringAssert.Contains("Float", epft);
+        }
     }
 }

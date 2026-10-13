@@ -223,5 +223,56 @@ namespace Tests.defs {
             Assert.AreEqual((raw * factor).ToString(), min.GetValue());
             Assert.IsTrue(factor == 5 || factor == 100);
         }
+
+        private static string MgefAssocBranch(MainRecord rec) {
+            var data = rec.GetElement("DATA") as Container;
+            var assoc = data?.GetElement("Assoc. Item") as UnionValueElement;
+            return assoc?.def.name;
+        }
+
+        [Test]
+        public void TestMgefAssocItemCoversMultipleBranches() {
+            var plugin = Load(Games.TES4, "Oblivion.esm");
+            var seen = new System.Collections.Generic.HashSet<string>();
+            foreach (var rec in plugin.records) {
+                if (rec.signature.ToString() != "MGEF") continue;
+                var branch = MgefAssocBranch(rec);
+                if (branch != null) seen.Add(branch);
+                rec._internalElements = null;
+                rec._unexpectedSubrecords = null;
+            }
+            Assert.GreaterOrEqual(seen.Count, 2);
+        }
+
+        [Test]
+        public void TestMgefAssocItemBranchesAreNamed() {
+            var plugin = Load(Games.TES4, "Oblivion.esm");
+            var names = new string[] {
+                "Unused",
+                "Assoc. Weapon",
+                "Assoc. Armor",
+                "Assoc. Creature",
+                "Assoc. Actor Value"
+            };
+            var seen = new System.Collections.Generic.HashSet<string>();
+            foreach (var rec in plugin.records) {
+                if (rec.signature.ToString() != "MGEF") continue;
+                var branch = MgefAssocBranch(rec);
+                if (branch == null) continue;
+                Assert.Contains(branch, names);
+                seen.Add(branch);
+                rec._internalElements = null;
+                rec._unexpectedSubrecords = null;
+            }
+            Assert.Greater(seen.Count, 0);
+        }
+
+        [Test]
+        public void TestMgefAssocItemNullIsZero() {
+            var decider = TES4().definitionManager.GetDecider(
+                "MGEFFAssocItemDecider"
+            );
+            Assert.AreEqual(0, decider.Decide(null));
+        }
     }
 }

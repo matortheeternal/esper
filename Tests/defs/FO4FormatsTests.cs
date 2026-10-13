@@ -321,5 +321,62 @@ namespace Tests.defs {
             }
             Assert.Ignore("No race-resolved morph value in scan cap.");
         }
+
+        [Test]
+        public void TestXcriMeshAndRefCountsAreDistinct() {
+            var session = NewSession();
+            var plugin = LoadOrIgnore(session, "Fallout4.esm");
+            var rec = plugin.GetRecordByFormId(0x8393);
+            var xcri = rec.GetElement("XCRI") as Container;
+            var meshes = (xcri.GetElement("Meshes") as Container).elements;
+            var refs = (xcri.GetElement("References") as Container).elements;
+            Assert.AreEqual(1, meshes.Count);
+            Assert.AreEqual(2, refs.Count);
+            Assert.AreEqual("4", rec.GetValue(@"XCRI\References Count"));
+        }
+
+        [Test]
+        public void TestOmodFirstPropertyIsSpeed() {
+            var session = NewSession();
+            var plugin = LoadOrIgnore(session, "Fallout4.esm");
+            var rec = plugin.GetRecordByFormId(0x20BD1);
+            var prop = Walk(rec, "ObjectModPropertyFormat");
+            Assert.IsNotNull(prop);
+            var text = ((ValueDef)prop.def).formatDef.DataToValue(
+                prop, prop.data
+            );
+            Assert.AreEqual("Speed", text);
+        }
+
+        [Test]
+        public void TestVoiceNoteResolvesSceneBranch() {
+            var session = NewSession();
+            var plugin = LoadOrIgnore(session, "Fallout4.esm");
+            var rec = plugin.GetRecordByFormId(0x1D394);
+            var snam = rec.GetElement("SNAM") as Container;
+            Assert.AreEqual("Scene", snam.elements[0].def.name);
+        }
+
+        [Test]
+        public void TestAechValueBranchMatchesType() {
+            var session = NewSession();
+            var plugin = LoadOrIgnore(session, "Fallout4.esm");
+            var rec = plugin.GetRecordByFormId(0x4A834);
+            var effect = (
+                (rec.GetElement("Effects") as Container).elements[0] as Container
+            );
+            var typeName = (effect.GetElement("Type") as ValueElement).GetValue();
+            var value = (
+                (effect.GetElement("Data") as Container).GetElement("Value")
+                as Container
+            );
+            var branch = value.elements[0].def.name;
+            var expected = new System.Collections.Generic.Dictionary<string, string> {
+                { "BSOverdrive", "Overdrive" },
+                { "BSStateVariableFilter", "State Variable Filter" },
+                { "BSDelayEffect", "Delay Effect" }
+            };
+            Assert.AreEqual(expected[typeName], branch);
+        }
     }
 }
