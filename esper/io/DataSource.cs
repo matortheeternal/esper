@@ -28,7 +28,7 @@ namespace esper.io {
             var endOffset = stream.Position + dataSize;
             while (stream.Position < endOffset) readEntity();
             if (stream.Position > endOffset)
-                throw new Exception("Critical error parsing file, read past end offset.");
+                throw new Exception($"Critical error parsing file, read past end offset. Position: 0x{stream.Position:X}, end offset: 0x{endOffset:X}, data size: {dataSize}.");
         }
 
         internal string ReadString() {

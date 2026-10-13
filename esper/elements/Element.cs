@@ -28,16 +28,16 @@ namespace esper.elements {
         public virtual int index => container.elements.IndexOf(this);
 
         internal virtual List<Element> internalElements {
-            get => throw new Exception("Element is not a container.");
+            get => throw new Exception($"Element '{def.name}' is not a container.");
         }
 
         public virtual List<Element> elements {
-            get => throw new Exception("Element is not a container.");
+            get => throw new Exception($"Element '{def.name}' is not a container.");
         }
 
         public virtual MainRecord referencedRecord {
-            get => throw new Exception("Element does not reference records.");
-            set => throw new Exception("Element does not reference records.");
+            get => throw new Exception($"Element '{def.name}' does not reference records.");
+            set => throw new Exception($"Element '{def.name}' does not reference records.");
         }
 
         public virtual PluginFile file => container.file;
