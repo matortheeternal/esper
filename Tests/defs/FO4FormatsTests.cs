@@ -22,14 +22,8 @@ namespace Tests.defs {
             return Synthetic.GetSession(Games.FO4).definitionManager;
         }
 
-        private static PluginFile LoadOrIgnore(Session session, string name) {
-            var path = TestHelpers.FixturePath(name);
-            if (!File.Exists(path)) Assert.Ignore(name + " missing.");
-            return session.pluginManager.LoadPlugin(path);
-        }
-
-        private static Session NewSession() {
-            return new Session(Games.FO4, new SessionOptions());
+        private static PluginFile LoadOrIgnore(string name) {
+            return Synthetic.GetPlugin(Games.FO4, name);
         }
 
         private static void LoadSyntheticStrings(
@@ -146,8 +140,7 @@ namespace Tests.defs {
 
         [Test]
         public void WiringCLFMColor() {
-            var session = NewSession();
-            var plugin = LoadOrIgnore(session, "Fallout4.esm");
+            var plugin = LoadOrIgnore("Fallout4.esm");
             var rec = plugin.records.FirstOrDefault(
                 r => r.signature.ToString() == "CLFM"
             );
@@ -164,8 +157,7 @@ namespace Tests.defs {
 
         [Test]
         public void WiringIntToHexStr() {
-            var session = NewSession();
-            var plugin = LoadOrIgnore(session, "Fallout4.esm");
+            var plugin = LoadOrIgnore("Fallout4.esm");
             var rec = plugin.records.FirstOrDefault(r =>
                 r.signature.ToString() == "RACE");
             Assert.NotNull(rec, "No RACE record decoded.");
@@ -181,8 +173,7 @@ namespace Tests.defs {
 
         [Test]
         public void WiringFaceMorph() {
-            var session = NewSession();
-            var plugin = LoadOrIgnore(session, "Fallout4.esm");
+            var plugin = LoadOrIgnore("Fallout4.esm");
             var found = false;
             foreach (var rec in plugin.records
                 .Where(r => r.signature.ToString() == "NPC_")
@@ -204,8 +195,7 @@ namespace Tests.defs {
 
         [Test]
         public void FaceMorphResolvedName() {
-            var session = NewSession();
-            var plugin = LoadOrIgnore(session, "Fallout4.esm");
+            var plugin = LoadOrIgnore("Fallout4.esm");
             foreach (var rec in plugin.records
                 .Where(r => r.signature.ToString() == "NPC_")
                 .Take(500)) {
@@ -248,8 +238,7 @@ namespace Tests.defs {
 
         [Test]
         public void WiringMorphValue() {
-            var session = NewSession();
-            var plugin = LoadOrIgnore(session, "Fallout4.esm");
+            var plugin = LoadOrIgnore("Fallout4.esm");
             var found = false;
             foreach (var rec in plugin.records
                 .Where(r => r.signature.ToString() == "NPC_")
@@ -271,8 +260,7 @@ namespace Tests.defs {
 
         [Test]
         public void MorphValueResolvedName() {
-            var session = NewSession();
-            var plugin = LoadOrIgnore(session, "Fallout4.esm");
+            var plugin = LoadOrIgnore("Fallout4.esm");
             foreach (var rec in plugin.records
                 .Where(r => r.signature.ToString() == "NPC_")
                 .Take(2000)) {
@@ -324,8 +312,7 @@ namespace Tests.defs {
 
         [Test]
         public void TestXcriMeshAndRefCountsAreDistinct() {
-            var session = NewSession();
-            var plugin = LoadOrIgnore(session, "Fallout4.esm");
+            var plugin = LoadOrIgnore("Fallout4.esm");
             var rec = plugin.GetRecordByFormId(0x8393);
             var xcri = rec.GetElement("XCRI") as Container;
             var meshes = (xcri.GetElement("Meshes") as Container).elements;
@@ -337,8 +324,7 @@ namespace Tests.defs {
 
         [Test]
         public void TestOmodFirstPropertyIsSpeed() {
-            var session = NewSession();
-            var plugin = LoadOrIgnore(session, "Fallout4.esm");
+            var plugin = LoadOrIgnore("Fallout4.esm");
             var rec = plugin.GetRecordByFormId(0x20BD1);
             var prop = Walk(rec, "ObjectModPropertyFormat");
             Assert.IsNotNull(prop);
@@ -350,8 +336,7 @@ namespace Tests.defs {
 
         [Test]
         public void TestVoiceNoteResolvesSceneBranch() {
-            var session = NewSession();
-            var plugin = LoadOrIgnore(session, "Fallout4.esm");
+            var plugin = LoadOrIgnore("Fallout4.esm");
             var rec = plugin.GetRecordByFormId(0x1D394);
             var snam = rec.GetElement("SNAM") as Container;
             Assert.AreEqual("Scene", snam.elements[0].def.name);
@@ -359,8 +344,7 @@ namespace Tests.defs {
 
         [Test]
         public void TestAechValueBranchMatchesType() {
-            var session = NewSession();
-            var plugin = LoadOrIgnore(session, "Fallout4.esm");
+            var plugin = LoadOrIgnore("Fallout4.esm");
             var rec = plugin.GetRecordByFormId(0x4A834);
             var effect = (
                 (rec.GetElement("Effects") as Container).elements[0] as Container

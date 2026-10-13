@@ -1,9 +1,12 @@
 using esper;
 using esper.defs;
 using esper.elements;
+using esper.plugins;
 using esper.setup;
 using Newtonsoft.Json.Linq;
+using NUnit.Framework;
 using System.Collections.Generic;
+using System.IO;
 
 namespace Tests {
     // Shared synthetic-element builders. Sessions are cached per game
@@ -43,6 +46,28 @@ namespace Tests {
             var element = new TestStructElement(def, manager);
             element.Initialize();
             return element;
+        }
+
+        private static readonly Dictionary<string, PluginFile> plugins =
+            new Dictionary<string, PluginFile>();
+
+        public static PluginFile GetPlugin(Game game, string fixture) {
+            var path = TestHelpers.FixturePath(fixture);
+            if (!File.Exists(path)) Assert.Ignore($"{fixture} missing.");
+            var key = game.abbreviation + ":" + fixture;
+            lock (plugins) {
+                if (!plugins.TryGetValue(key, out var plugin)) {
+                    plugin = GetSession(game).pluginManager.LoadPlugin(path);
+                    plugins[key] = plugin;
+                }
+                return plugin;
+            }
+        }
+
+        public static PluginFile LoadFreshPlugin(Game game, string fixture) {
+            var path = TestHelpers.FixturePath(fixture);
+            if (!File.Exists(path)) Assert.Ignore($"{fixture} missing.");
+            return GetSession(game).pluginManager.LoadPlugin(path);
         }
     }
 }

@@ -25,10 +25,7 @@ namespace Tests.defs {
         }
 
         private static PluginFile Load(Game game, string fixture) {
-            var path = TestHelpers.FixturePath(fixture);
-            if (!File.Exists(path)) Assert.Ignore($"{fixture} missing.");
-            var session = new Session(game, new SessionOptions());
-            return session.pluginManager.LoadPlugin(path);
+            return Synthetic.GetPlugin(game, fixture);
         }
 
         private static MainRecord First(PluginFile plugin, string sig) {

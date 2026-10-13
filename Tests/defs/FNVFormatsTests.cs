@@ -20,14 +20,8 @@ namespace Tests.defs {
             return new JObject { { "name", name } };
         }
 
-        private static PluginFile LoadOrIgnore(Session session, string name) {
-            var path = TestHelpers.FixturePath(name);
-            if (!File.Exists(path)) Assert.Ignore($"{name} missing.");
-            return session.pluginManager.LoadPlugin(path);
-        }
-
-        private static Session NewSession(Game game) {
-            return new Session(game, new SessionOptions());
+        private static PluginFile LoadOrIgnore(string name) {
+            return Synthetic.GetPlugin(Games.FNV, name);
         }
 
         private static ValueElement Walk(Element el, string defId) {
@@ -100,8 +94,7 @@ namespace Tests.defs {
 
         [Test]
         public void TestFalloutNVAlocTimeDisplays() {
-            var session = NewSession(Games.FNV);
-            var plugin = LoadOrIgnore(session, "FalloutNV.esm");
+            var plugin = LoadOrIgnore( "FalloutNV.esm");
             var aloc = plugin.records.FirstOrDefault(
                 r => r.signature.ToString() == "ALOC"
             );
@@ -120,8 +113,7 @@ namespace Tests.defs {
 
         [Test]
         public void TestNVTREdgeExternalEdge() {
-            var session = NewSession(Games.FNV);
-            var plugin = LoadOrIgnore(session, "FalloutNV.esm");
+            var plugin = LoadOrIgnore( "FalloutNV.esm");
             var seen = 0;
             foreach (var rec in plugin.records) {
                 if (rec.signature.ToString() != "NAVM") continue;
@@ -176,8 +168,7 @@ namespace Tests.defs {
 
         [Test]
         public void TestPRKCResolvesCaption() {
-            var session = NewSession(Games.FNV);
-            var plugin = LoadOrIgnore(session, "FalloutNV.esm");
+            var plugin = LoadOrIgnore( "FalloutNV.esm");
             var el = TestHelpers.FindRecord(
                 plugin.records.Where(r => r.signature.ToString() == "PERK").Take(50),
                 rec => {
@@ -200,8 +191,7 @@ namespace Tests.defs {
 
         [Test]
         public void TestPerkDATAFunctionResolvesName() {
-            var session = NewSession(Games.FNV);
-            var plugin = LoadOrIgnore(session, "FalloutNV.esm");
+            var plugin = LoadOrIgnore( "FalloutNV.esm");
             var el = TestHelpers.FindRecord(
                 plugin.records.Where(r => r.signature.ToString() == "PERK").Take(50),
                 rec => {
@@ -222,8 +212,7 @@ namespace Tests.defs {
 
         [Test]
         public void TestPerkEPFTResolvesName() {
-            var session = NewSession(Games.FNV);
-            var plugin = LoadOrIgnore(session, "FalloutNV.esm");
+            var plugin = LoadOrIgnore( "FalloutNV.esm");
             var el = TestHelpers.FindRecord(
                 plugin.records.Where(r => r.signature.ToString() == "PERK").Take(50),
                 rec => {
@@ -251,8 +240,7 @@ namespace Tests.defs {
 
         [Test]
         public void TestQuestObjectiveResolvesRealObjectives() {
-            var session = NewSession(Games.FNV);
-            var plugin = LoadOrIgnore(session, "FalloutNV.esm");
+            var plugin = LoadOrIgnore( "FalloutNV.esm");
             var rec = plugin.GetRecordByFormId(0xE58D5);
             if (rec == null) Assert.Ignore("INFO 000E58D5 missing.");
             var texts = CollectDisplays(rec, "CTDAParam2QuestObjectiveFormat");
@@ -393,8 +381,7 @@ namespace Tests.defs {
 
         [Test]
         public void TestVariableNameResolvesRealQuestVariables() {
-            var session = NewSession(Games.FNV);
-            var plugin = LoadOrIgnore(session, "FalloutNV.esm");
+            var plugin = LoadOrIgnore( "FalloutNV.esm");
             var rec = plugin.GetRecordByFormId(0x54E5F);
             var text = CollectDisplays(rec, "CTDAParam2VariableNameFormat");
             StringAssert.Contains("RL3Hired", text);
@@ -404,8 +391,7 @@ namespace Tests.defs {
 
         [Test]
         public void TestPRKCResolvesRealCaptions() {
-            var session = NewSession(Games.FNV);
-            var plugin = LoadOrIgnore(session, "FalloutNV.esm");
+            var plugin = LoadOrIgnore( "FalloutNV.esm");
             var armed = CollectDisplays(
                 plugin.GetRecordByFormId(0x31DAB), "PRKCFormat"
             );
@@ -419,8 +405,7 @@ namespace Tests.defs {
 
         [Test]
         public void TestPerkDATAFunctionAndEPFTResolveRealNames() {
-            var session = NewSession(Games.FNV);
-            var plugin = LoadOrIgnore(session, "FalloutNV.esm");
+            var plugin = LoadOrIgnore( "FalloutNV.esm");
             var rec = plugin.GetRecordByFormId(0x24D5C);
             var func = CollectDisplays(rec, "PerkDATAFunctionFormat");
             StringAssert.Contains("Multiply Value", func);
