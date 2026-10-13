@@ -19,6 +19,10 @@ namespace esper.setup {
             return groupDefClasses[groupType];
         }
 
+        internal bool IsGroupTypeRegistered(int groupType) {
+            return groupDefClasses.ContainsKey(groupType);
+        }
+
         internal Def BuildGroupDef(JObject src) {
             int groupType = src.Value<int?>("groupType") ?? 0;
             var defClass = ResolveDefClass(groupType);

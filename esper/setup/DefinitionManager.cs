@@ -23,6 +23,14 @@ namespace esper.setup {
         internal StructDef groupHeaderDef;
         private readonly DeciderMap deciders = new DeciderMap();
 
+        internal bool IsDefTypeRegistered(string defId) {
+            return defClasses.ContainsKey(defId);
+        }
+
+        internal bool IsDeciderRegistered(string key) {
+            return deciders.ContainsKey(key);
+        }
+
         public CTDAFunctions ctdaFunctions => (CTDAFunctions)defMap["CTDAFunctions"];
 
         public DefinitionManager(Session session) {

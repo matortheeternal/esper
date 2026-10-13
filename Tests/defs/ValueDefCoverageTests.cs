@@ -229,7 +229,8 @@ namespace Tests.defs {
             var slim = sized.ToJObject(false);
             Assert.AreEqual(1, slim.Count);
             Assert.IsNull(slim["size"]);
-            Assert.AreEqual("S", (string)slim["name"]);
+            Assert.IsNull(slim["name"]);
+            Assert.IsNotNull(slim["id"]);
             var bare = new ValueDef(SseManager(), Named("B"));
             var bareSrc = bare.ToJObject();
             Assert.AreEqual(1, bareSrc.Count);
