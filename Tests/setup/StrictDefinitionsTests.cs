@@ -8,10 +8,21 @@ using System.Linq;
 namespace Tests.setup {
     [TestFixture]
     public class StrictDefinitionsTests {
-        private static Session NewSession(bool strict) {
-            return new Session(Games.SSE, new SessionOptions {
-                strictDefinitions = strict
+        private static Session strictSession;
+        private static Session looseSession;
+
+        [OneTimeSetUp]
+        public void Setup() {
+            strictSession = new Session(Games.SSE, new SessionOptions {
+                strictDefinitions = true
             });
+            looseSession = new Session(Games.SSE, new SessionOptions {
+                strictDefinitions = false
+            });
+        }
+
+        private static Session NewSession(bool strict) {
+            return strict ? strictSession : looseSession;
         }
 
         private static JObject BogusDef() {

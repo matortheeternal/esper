@@ -277,11 +277,7 @@ namespace Tests.defs {
 
         [Test]
         public void FO4RefrFlagsDecideMatchesBaseType() {
-            var session = RecordDefCoverageTests.GetSession("FO4");
-            var path = TestHelpers.FixturePath("Fallout4.esm");
-            if (!File.Exists(path))
-                Assert.Ignore("Fallout4.esm is not present.");
-            var plugin = session.pluginManager.LoadPlugin(path);
+            var plugin = Synthetic.GetPlugin(Games.FO4, "Fallout4.esm");
             var decider =
                 new esper.defs.FO4.Deciders.REFRRecordFlagsDecider();
             int seen = 0, nonzero = 0;
@@ -321,10 +317,8 @@ namespace Tests.defs {
             // The shims only chain to those base constructors, so build
             // them with the SSE manager instead.
             var managers = new Dictionary<string, DefinitionManager> {
-                ["SF"] = new Session(Games.SSE, new SessionOptions())
-                    .definitionManager,
-                ["FO4"] = new Session(Games.FO4, new SessionOptions())
-                    .definitionManager,
+                ["SF"] = Synthetic.GetSession(Games.SSE).definitionManager,
+                ["FO4"] = Synthetic.GetSession(Games.FO4).definitionManager,
             };
             var asm = typeof(Def).Assembly;
             var argTypes = new[] {
@@ -385,10 +379,7 @@ namespace Tests.defs {
         [Test]
         public void CTDAParamStringFormatsResolveThroughCIS() {
             var session = RecordDefCoverageTests.GetSession("SSE");
-            var path = TestHelpers.FixturePath("Skyrim.esm");
-            if (!File.Exists(path))
-                Assert.Ignore("Skyrim.esm is not present.");
-            var skyrim = session.pluginManager.LoadPlugin(path);
+            var skyrim = Synthetic.GetPlugin(Games.SSE, "Skyrim.esm");
             var hits = new List<ValueElement>();
             foreach (var rec in skyrim.records) {
                 if (rec.signature.ToString() != "INFO") continue;

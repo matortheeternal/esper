@@ -78,11 +78,8 @@ namespace Tests.defs {
             );
         }
 
-        private static PluginFile LoadSkyrim(Session session) {
-            var path = TestHelpers.FixturePath("Skyrim.esm");
-            if (!File.Exists(path))
-                Assert.Ignore("Missing local fixture: Skyrim.esm");
-            return session.pluginManager.LoadPlugin(path);
+        private static PluginFile LoadSharedSkyrim() {
+            return Synthetic.GetPlugin(Games.SSE, "Skyrim.esm");
         }
 
         private static void LoadStrings(Session session, PluginFile plugin) {
@@ -164,7 +161,7 @@ namespace Tests.defs {
         [Test]
         public void ConditionAliasResolvesQuestPerRecordType() {
             var session = RecordDefCoverageTests.GetSession("SSE");
-            var plugin = LoadSkyrim(session);
+            var plugin = LoadSharedSkyrim();
             var format = new ConditionAliasFormat(
                 session.definitionManager, new JObject()
             );
@@ -206,7 +203,7 @@ namespace Tests.defs {
             var manager = RecordDefCoverageTests.GetSession("SSE")
                 .definitionManager;
             var session = RecordDefCoverageTests.GetSession("SSE");
-            var plugin = LoadSkyrim(session);
+            var plugin = LoadSharedSkyrim();
             var format = new AliasFormat(manager, new JObject());
             var header = Probe(plugin.GetRecordByFormId(0x15CC2));
             Assert.Throws<NotImplementedException>(
@@ -217,7 +214,7 @@ namespace Tests.defs {
         [Test]
         public void PackageLocationAliasFollowsRecordQuest() {
             var session = RecordDefCoverageTests.GetSession("SSE");
-            var plugin = LoadSkyrim(session);
+            var plugin = LoadSharedSkyrim();
             var format = new PackageLocationAliasFormat(
                 session.definitionManager, new JObject()
             );
@@ -231,7 +228,7 @@ namespace Tests.defs {
         [Test]
         public void ExternalAndScriptAliasesResolveUpward() {
             var session = RecordDefCoverageTests.GetSession("SSE");
-            var plugin = LoadSkyrim(session);
+            var plugin = LoadSharedSkyrim();
             var manager = session.definitionManager;
             var qust = plugin.GetRecordByFormId(0x15CC2);
             var external = new QuestExternalAliasFormat(manager, new JObject());
@@ -292,7 +289,7 @@ namespace Tests.defs {
         [Test]
         public void PerkQuestStageDecodesAndWarns() {
             var session = RecordDefCoverageTests.GetSession("SSE");
-            var plugin = LoadSkyrim(session);
+            var plugin = LoadSharedSkyrim();
             LoadStrings(session, plugin);
             var perk = plugin.GetRecordByFormId(0x5820A);
             var stage = FindFormat(perk, typeof(PerkDATAQuestStageFormat));
@@ -356,7 +353,7 @@ namespace Tests.defs {
         [Test]
         public void InfoQuestStageDecodesAndShowsLogName() {
             var session = RecordDefCoverageTests.GetSession("SSE");
-            var plugin = LoadSkyrim(session);
+            var plugin = LoadSharedSkyrim();
             LoadStrings(session, plugin);
             var info = plugin.GetRecordByFormId(0xDD7);
             var stage = FindFormat(info, typeof(CTDAParam2QuestStageFormat));
@@ -390,7 +387,7 @@ namespace Tests.defs {
         [Test]
         public void RefrNavmeshTriangleValidatesIndex() {
             var session = RecordDefCoverageTests.GetSession("SSE");
-            var plugin = LoadSkyrim(session);
+            var plugin = LoadSharedSkyrim();
             var refr = plugin.GetRecordByFormId(0x12DFE);
             var triangle = FindFormat(
                 refr, typeof(REFRNavmeshTriangleFormat)

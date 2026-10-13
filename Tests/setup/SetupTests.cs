@@ -121,7 +121,7 @@ namespace Tests.setup {
     public class SessionLifecycleTests {
         [Test]
         public void TestSessionLogsStartupMessages() {
-            var session = new Session(Games.SSE, new SessionOptions());
+            var session = Synthetic.GetSession(Games.SSE);
             var messages = string.Join("\n", session.logger.messages);
             StringAssert.Contains("Esper v", messages);
             StringAssert.Contains(
@@ -131,7 +131,7 @@ namespace Tests.setup {
 
         [Test]
         public void TestMissingGameIniLogsError() {
-            var session = new Session(Games.SSE, new SessionOptions());
+            var session = Synthetic.GetSession(Games.SSE);
             var missingPath = Path.Combine(
                 Path.GetTempPath(), Guid.NewGuid().ToString("N"), "Skyrim.ini"
             );
@@ -160,7 +160,7 @@ namespace Tests.setup {
 
         [SetUp]
         public void SetUp() {
-            session = new Session(Games.SSE, new SessionOptions());
+            session = Synthetic.GetSession(Games.SSE);
         }
 
         [Test]
@@ -215,7 +215,7 @@ namespace Tests.setup {
 
         [SetUp]
         public void SetUp() {
-            session = new Session(Games.SSE, new SessionOptions());
+            session = Synthetic.GetSession(Games.SSE);
             plugin = session.pluginManager.CreateDummyPlugin("Slot.esp");
         }
 
@@ -246,7 +246,7 @@ namespace Tests.setup {
     public class ModuleInfoTests {
         [Test]
         public void TestEmptyPluginModuleInfo() {
-            var session = new Session(Games.SSE, new SessionOptions());
+            var session = Synthetic.GetSession(Games.SSE);
             try {
                 var module = new ModuleInfo(
                     session, TestHelpers.FixturePath("EmptyPlugin.esp")
@@ -267,7 +267,7 @@ namespace Tests.setup {
 
         [Test]
         public void TestModuleInfoCompareTo() {
-            var session = new Session(Games.SSE, new SessionOptions());
+            var session = Synthetic.GetSession(Games.SSE);
             try {
                 var a = new ModuleInfo(
                     session, TestHelpers.FixturePath("EmptyPlugin.esp")
@@ -290,7 +290,7 @@ namespace Tests.setup {
     public class LoadOrderFileTests {
         [Test]
         public void TestMissingPluginsTxtYieldsNoLines() {
-            var session = new Session(Games.SSE, new SessionOptions());
+            var session = Synthetic.GetSession(Games.SSE);
             var missingPath = Path.Combine(
                 Path.GetTempPath(), Guid.NewGuid().ToString("N"), "plugins.txt"
             );
@@ -302,7 +302,7 @@ namespace Tests.setup {
 
         [Test]
         public void TestPluginsTxtUsesLocalAppData() {
-            var session = new Session(Games.SSE, new SessionOptions());
+            var session = Synthetic.GetSession(Games.SSE);
             var file = new LoadOrderFile(session);
             Assert.AreEqual(
                 Path.Combine(Games.SSE.appDataPath, "plugins.txt"),
@@ -312,7 +312,7 @@ namespace Tests.setup {
 
         [Test]
         public void TestLoadOrderLineParsing() {
-            var session = new Session(Games.SSE, new SessionOptions());
+            var session = Synthetic.GetSession(Games.SSE);
             var file = new LoadOrderFile(session);
             var active = new LoadOrderLine(file, "*Skyrim.esm", 0);
             Assert.IsTrue(active.isActive);
@@ -327,7 +327,7 @@ namespace Tests.setup {
 
         [Test]
         public void TestPlainPluginsTxtIgnoresAsterisks() {
-            var session = new Session(Games.TES5, new SessionOptions());
+            var session = Synthetic.GetSession(Games.TES5);
             var file = new LoadOrderFile(session);
             Assert.IsFalse(file.usesAsterisks);
             var line = new LoadOrderLine(file, "Skyrim.esm", 0);
@@ -339,7 +339,7 @@ namespace Tests.setup {
     public class LoadOrderTests {
         [Test]
         public void TestMissingDataPathYieldsEmptyLoadOrderAndWarning() {
-            var session = new Session(Games.TES5, new SessionOptions());
+            var session = Synthetic.GetSession(Games.TES5);
             var loadOrder = new LoadOrder(session);
             Assert.IsEmpty(loadOrder.modules);
             StringAssert.Contains(
@@ -464,7 +464,7 @@ namespace Tests.setup {
                 "sArchiveToLoadInMemoryList=Memory.bsa\n"
             );
             try {
-                var session = new Session(Games.TES5, new SessionOptions());
+                var session = Synthetic.GetSession(Games.TES5);
                 var gameIni = new GameIni(session, path);
                 CollectionAssert.AreEqual(
                     new[] {
@@ -482,7 +482,7 @@ namespace Tests.setup {
         public void TestMissingArchiveSectionYieldsEmptyList() {
             var path = WriteIni("[General]\nsLanguage=English\n");
             try {
-                var session = new Session(Games.SSE, new SessionOptions());
+                var session = Synthetic.GetSession(Games.SSE);
                 Assert.IsEmpty(new GameIni(session, path).GetArchives());
             } finally {
                 File.Delete(path);
@@ -493,7 +493,7 @@ namespace Tests.setup {
         public void TestTES4LanguageUsesGameIdentityNotObjectReference() {
             var path = WriteIni("[Controls]\niLanguage=2\n");
             try {
-                var session = new Session(Games.TES4, new SessionOptions());
+                var session = Synthetic.GetSession(Games.TES4);
                 Assert.AreEqual(
                     "French", new GameIni(session, path).GetConfiguredLanguage()
                 );
@@ -506,7 +506,7 @@ namespace Tests.setup {
         public void TestMalformedTES4LanguageFallsBackToEnglish() {
             var path = WriteIni("[Controls]\niLanguage=invalid\n");
             try {
-                var session = new Session(Games.TES4, new SessionOptions());
+                var session = Synthetic.GetSession(Games.TES4);
                 Assert.AreEqual(
                     "English", new GameIni(session, path).GetConfiguredLanguage()
                 );
@@ -519,7 +519,7 @@ namespace Tests.setup {
     public class ResourceManagerTests {
         [Test]
         public void TestNoArchivesRegisteredByDefault() {
-            var session = new Session(Games.SSE, new SessionOptions());
+            var session = Synthetic.GetSession(Games.SSE);
             Assert.IsEmpty(
                 session.resourceManager.GetAssociatedArchives("Skyrim.esm")
             );
