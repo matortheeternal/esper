@@ -51,8 +51,9 @@ namespace esper.defs {
         }
 
         public override string GetSortKey(Element element) {
-            var container = (Container)element;
-            return container._internalElements[0].sortKey;
+            var elements = ((Container)element)._internalElements;
+            if (elements == null || elements.Count == 0) return "";
+            return elements[0].sortKey;
         }
 
         internal override void WriteElement(

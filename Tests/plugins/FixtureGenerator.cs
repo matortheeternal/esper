@@ -133,14 +133,7 @@ namespace Tests.plugins {
             if (el is ValueElement ve && ve.data is LocalizedString ls)
                 ids.Add(ls.id);
             if (el is Container c) {
-                List<Element> children;
-                try {
-                    children = c.elements;
-                } catch (NotImplementedException) {
-                    TestContext.Progress.WriteLine(
-                        $"sort-key gap under {el.def.name}");
-                    return;
-                }
+                var children = c.elements;
                 if (children != null)
                     foreach (var child in children)
                         CollectStrings(child, ids);

@@ -66,7 +66,7 @@
       "id": 5,
       "title": "Test-suite flamegraph / load-time strategy",
       "status": "done",
-      "detail": "Shared sessions + shared read-only plugin loads; suite 5m07s to 58s."
+      "detail": "Shared sessions + shared read-only plugin loads + committable fixture ESPs (2dbc44d); suite 5m07s to 45s. balsa BSA archives implemented (07a001b); union sort-key gap fixed."
     },
     {
       "id": 6,

@@ -54,6 +54,12 @@ namespace esper.defs {
             return new UnionElement(container, this);
         }
 
+        public override string GetSortKey(Element element) {
+            var elements = ((Container)element)._internalElements;
+            if (elements == null || elements.Count == 0) return "";
+            return elements[0].sortKey;
+        }
+
         internal override void WriteElement(
             Element element, PluginFileOutput output
         ) {
