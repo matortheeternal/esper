@@ -262,6 +262,129 @@ namespace Tests.defs {
             StringAssert.Contains("022 With Beagle dead", texts);
         }
 
+        [Test]
+        public void TestBranchDeciderArms() {
+            var decider = new esper.defs.FNV.CTDAParam1Decider();
+            Assert.AreEqual(
+                45,
+                decider.GetUnionIndex(
+                    CTDAFunctionParamType.ptQuestObjective
+                )
+            );
+            Assert.AreEqual(
+                46,
+                decider.GetUnionIndex(CTDAFunctionParamType.ptReputation)
+            );
+            Assert.AreEqual(
+                47,
+                decider.GetUnionIndex(CTDAFunctionParamType.ptRegion)
+            );
+            Assert.AreEqual(
+                48,
+                decider.GetUnionIndex(CTDAFunctionParamType.ptChallenge)
+            );
+            Assert.AreEqual(
+                49,
+                decider.GetUnionIndex(CTDAFunctionParamType.ptCasino)
+            );
+            Assert.AreEqual(
+                50,
+                decider.GetUnionIndex(CTDAFunctionParamType.ptAnyForm)
+            );
+        }
+
+        private static StructElement FindConditionByFunction(
+            Element el, int function
+        ) {
+            if (el is StructElement se) {
+                try {
+                    if (se.GetData<int>("Function") == function) return se;
+                } catch {
+                }
+            }
+            if (el is Container c && c.elements != null) {
+                foreach (var child in c.elements) {
+                    var hit = FindConditionByFunction(child, function);
+                    if (hit != null) return hit;
+                }
+            }
+            return null;
+        }
+
+        private static ValueElement ConditionParam1(
+            MainRecord rec, int function
+        ) {
+            var cond = FindConditionByFunction(rec, function);
+            if (cond == null) return null;
+            return cond.GetElement("Parameter #1") as ValueElement;
+        }
+
+        [Test]
+        public void TestReputationResolvesRealRecord() {
+            var session = NewSession(Games.FNV);
+            var plugin = LoadOrIgnore(session, "FalloutNV.esm");
+            var rec = plugin.GetRecordByFormId(0x8D0A2);
+            if (rec == null) Assert.Ignore("INFO 0008D0A2 missing.");
+            var param = ConditionParam1(rec, 575);
+            if (param == null) Assert.Ignore("fn 575 condition missing.");
+            Assert.AreEqual("Reputation", param.def.name);
+            StringAssert.Contains("129A79", param.data.ToString());
+        }
+
+        [Test]
+        public void TestReputationFn573ResolvesRealRecord() {
+            var session = NewSession(Games.FNV);
+            var plugin = LoadOrIgnore(session, "FalloutNV.esm");
+            var rec = plugin.GetRecordByFormId(0xFFAE4);
+            if (rec == null) Assert.Ignore("INFO 000FFAE4 missing.");
+            var param = ConditionParam1(rec, 573);
+            if (param == null) Assert.Ignore("fn 573 condition missing.");
+            Assert.AreEqual("Reputation", param.def.name);
+        }
+
+        private static ValueElement FindParamByBranch(
+            Element el, string branch
+        ) {
+            if (el is StructElement se) {
+                ValueElement param = null;
+                try {
+                    param = se.GetElement("Parameter #1") as ValueElement;
+                } catch {
+                }
+                if (param != null && param.def.name == branch) return param;
+            }
+            if (el is Container c && c.elements != null) {
+                foreach (var child in c.elements) {
+                    var hit = FindParamByBranch(child, branch);
+                    if (hit != null) return hit;
+                }
+            }
+            return null;
+        }
+
+        [Test]
+        public void TestRegionResolvesRealRecord() {
+            var session = NewSession(Games.FNV);
+            var plugin = LoadOrIgnore(session, "FalloutNV.esm");
+            var rec = plugin.GetRecordByFormId(0x107775);
+            if (rec == null) Assert.Ignore("INFO 00107775 missing.");
+            var param = FindParamByBranch(rec, "Region");
+            if (param == null) Assert.Ignore("Region condition missing.");
+            StringAssert.Contains("15FF5E", param.data.ToString());
+        }
+
+        [Test]
+        public void TestCasinoResolvesRealRecord() {
+            var session = NewSession(Games.FNV);
+            var plugin = LoadOrIgnore(session, "FalloutNV.esm");
+            var rec = plugin.GetRecordByFormId(0x152325);
+            if (rec == null) Assert.Ignore("INFO 00152325 missing.");
+            var param = ConditionParam1(rec, 610);
+            if (param == null) Assert.Ignore("fn 610 condition missing.");
+            Assert.AreEqual("Casino", param.def.name);
+            StringAssert.Contains("144C3F", param.data.ToString());
+        }
+
         private static string CollectDisplays(MainRecord rec, string defId) {
             var found = new System.Collections.Generic.List<ValueElement>();
             CollectFormatted(rec, defId, found);

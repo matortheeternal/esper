@@ -3,9 +3,14 @@ using esper.elements;
 namespace esper.defs.FNV {
     public class CTDAParam1Decider : FO3.CTDAParam1Decider {
         internal override int GetUnionIndex(CTDAFunctionParamType paramType) {
-            if (paramType == CTDAFunctionParamType.ptQuestObjective)
-                return 45;
-            return base.GetUnionIndex(paramType);
+            return paramType switch {
+                CTDAFunctionParamType.ptQuestObjective => 45,
+                CTDAFunctionParamType.ptReputation => 46,
+                CTDAFunctionParamType.ptChallenge => 48,
+                CTDAFunctionParamType.ptCasino => 49,
+                CTDAFunctionParamType.ptAnyForm => 50,
+                _ => base.GetUnionIndex(paramType),
+            };
         }
     }
 

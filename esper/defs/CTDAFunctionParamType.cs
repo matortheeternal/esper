@@ -57,6 +57,10 @@
         ptEvent,              // Struct
         ptEventData,          // LCTN, KYWD or FLST
         ptKnowable,           // MGEF, WOOP
-        ptQuestObjective
+        ptQuestObjective,
+        ptReputation,
+        ptChallenge,
+        ptCasino,
+        ptAnyForm
     }
 }
