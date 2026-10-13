@@ -10,9 +10,9 @@ namespace esper.defs.FO4 {
         protected override void LoadEntries(
             RaceIndexEntries entries, MainRecord race
         ) {
-            var groups = race.GetElement(entries.female
-                ? "Female Morph Groups"
-                : "Male Morph Groups") as Container;
+            var groups = race.GetElement(
+                entries.female ? "Female Morph Groups" : "Male Morph Groups"
+            ) as Container;
             if (groups?.elements != null) {
                 foreach (var item in groups.elements) {
                     if (!(item is Container group)) break;

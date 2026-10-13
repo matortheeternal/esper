@@ -44,8 +44,13 @@ namespace esper.defs.FO3 {
             if (locals != null) {
                 foreach (var localVar in locals) {
                     var name = localVar.GetValue("SCVR");
-                    if (string.Equals(name, value.Trim(), System.StringComparison.OrdinalIgnoreCase))
+                    if (string.Equals(
+                        name,
+                        value.Trim(),
+                        System.StringComparison.OrdinalIgnoreCase
+                    )) {
                         return localVar.GetData<int>(@"SLSD\Index");
+                    }
                 }
             }
             return DataHelpers.ParseInt64(value);

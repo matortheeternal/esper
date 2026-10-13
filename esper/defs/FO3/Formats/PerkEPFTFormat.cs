@@ -33,8 +33,13 @@ namespace esper.defs.FO3 {
         internal override dynamic ValueToData(ValueElement element, string value) {
             if (long.TryParse(value.Trim(), out var number)) return number;
             for (var i = 0; i < PerkTables.FunctionParamNames.Length; i++) {
-                if (string.Equals(PerkTables.FunctionParamNames[i], value.Trim(), System.StringComparison.OrdinalIgnoreCase))
+                if (string.Equals(
+                    PerkTables.FunctionParamNames[i],
+                    value.Trim(),
+                    System.StringComparison.OrdinalIgnoreCase
+                )) {
                     return i;
+                }
             }
             return DataHelpers.ParseInt64(value);
         }

@@ -40,8 +40,13 @@ namespace esper.defs.FO3 {
                     var condition = PerkTables.EntryPointConditions[ep];
                     var captions = PerkTables.ConditionCaptions[condition];
                     for (var i = 0; i < captions.Length; i++) {
-                        if (string.Equals(captions[i], value.Trim(), System.StringComparison.OrdinalIgnoreCase))
+                        if (string.Equals(
+                            captions[i],
+                            value.Trim(),
+                            System.StringComparison.OrdinalIgnoreCase
+                        )) {
                             return i;
+                        }
                     }
                 }
             }
