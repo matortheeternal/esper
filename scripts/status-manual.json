@@ -1,0 +1,60 @@
+{
+  "todos": [
+    {
+      "id": "no-comments",
+      "title": "No-comments policy in source",
+      "status": "done",
+      "detail": "Reviewer-flagged SessionOptions.cs:38 comment removed (a5359fd). Policy holds for all new code."
+    },
+    {
+      "id": "branch-hygiene",
+      "title": "Branch hygiene (scoped PR branches)",
+      "status": "ongoing",
+      "detail": "One insight per branch, branched off update; no unrelated changes ride along."
+    },
+    {
+      "id": "recursive",
+      "title": "recursive struct support (ScriptPropertyStruct branches 6,7)",
+      "status": "open",
+      "detail": "Needs def-construction-stack threading or lazy resolution. Documented PR #8 follow-up."
+    },
+    {
+      "id": "gate-shrink",
+      "title": "Reinstate JSON-C# contract gate with shrunk allowlist",
+      "status": "open",
+      "detail": "PR #5 closed unmerged. 16 of 17 allowlisted formats now implemented; only recursive remains."
+    },
+    {
+      "id": "xedit-fixtures",
+      "title": "xEdit-authored fixture ESP + JSON-serialization oracle PR",
+      "status": "blocked",
+      "detail": "Needs xEdit on Windows; Linux-only env cannot produce the fixtures."
+    },
+    {
+      "id": "doc-policy",
+      "title": "Documentation and commenting policy pass",
+      "status": "open",
+      "detail": "Collate .ai/ notes into a defined policy in a future pass."
+    }
+  ],
+  "missingDefinitions": {
+    "TES4": ["recursive (ScriptPropertyStruct nested Struct)"],
+    "FO3": ["recursive (ScriptPropertyStruct nested Struct)"],
+    "FNV": [
+      "recursive (ScriptPropertyStruct nested Struct)",
+      "ptQuestObjective/ptReputation/ptChallenge/ptCasino/ptAnyForm + CTDA branches 45-50 (in open PR #9)"
+    ],
+    "TES5": [],
+    "FO4": ["recursive (ScriptPropertyStruct nested Struct)"],
+    "SSE": [],
+    "SF": ["full definition set (only TES4 header record shipped; out of scope)"]
+  },
+  "jsInterop": {
+    "status": "working",
+    "detail": "Dynamic loading via node-api-dotnet 0.9.27 verified on Linux; js-tests green (122 records from AllRecords.esp). Static generator kept opt-in via EnableNodeApiGenerator."
+  },
+  "prs": [
+    {"id": 8, "branch": "agent/add-missing-defs", "title": "Port missing definitions from xEdit", "status": "merged"},
+    {"id": 9, "branch": "agent/fnv-ctda-branches", "title": "FNV CTDA branches 46-50", "status": "open"}
+  ]
+}
