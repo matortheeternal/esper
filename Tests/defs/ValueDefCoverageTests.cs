@@ -28,27 +28,15 @@ namespace Tests.defs {
         }
 
         private static PluginFile LoadSkyrim(Session session) {
-            var path = TestHelpers.FixturePath("Skyrim.esm");
-            if (!File.Exists(path))
-                Assert.Ignore("Missing Skyrim.esm fixture");
-            return session.pluginManager.LoadPlugin(path);
+            return Fixture.LoadFreshInto(session, Games.SSE, "Skyrim.esm");
         }
 
         private static PluginFile LoadSharedSkyrim() {
-            return Synthetic.GetPlugin(Games.SSE, "Skyrim.esm");
+            return Fixture.Master(Games.SSE, "Skyrim.esm");
         }
 
         private static void LoadStrings(Session session, PluginFile plugin) {
-            var files = new[] {
-                "skyrim_english.strings",
-                "skyrim_english.dlstrings",
-                "skyrim_english.ilstrings",
-            }.Select(f => Path.Combine(
-                TestHelpers.FixturePath("skyrim_strings"), f
-            )).ToList();
-            if (files.Any(f => !File.Exists(f)))
-                Assert.Ignore("Missing skyrim_strings fixture");
-            session.resourceManager.LoadPluginStrings(plugin, files);
+            Fixture.LoadStrings(Games.SSE, plugin, "Skyrim.esm");
         }
 
         private static string WriteBytes(

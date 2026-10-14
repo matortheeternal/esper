@@ -20,10 +20,6 @@ namespace Tests.defs {
             return new JObject { { "name", name } };
         }
 
-        private static PluginFile LoadOrIgnore(string name) {
-            return Synthetic.GetPlugin(Games.FNV, name);
-        }
-
         private static ValueElement Walk(Element el, string defId) {
             if (el is ValueElement ve && ve.def is ValueDef vd &&
                 vd.formatDef != null && vd.formatDef.GetType().Name == defId)
@@ -94,7 +90,7 @@ namespace Tests.defs {
 
         [Test]
         public void TestFalloutNVAlocTimeDisplays() {
-            var plugin = LoadOrIgnore( "formats-fnv.esp");
+            var plugin = Fixture.Master(Games.FNV, "FalloutNV.esm");
             var aloc = plugin.records.FirstOrDefault(
                 r => r.signature.ToString() == "ALOC"
             );
@@ -113,7 +109,7 @@ namespace Tests.defs {
 
         [Test]
         public void TestNVTREdgeExternalEdge() {
-            var plugin = LoadOrIgnore( "formats-fnv.esp");
+            var plugin = Fixture.Master(Games.FNV, "FalloutNV.esm");
             var seen = 0;
             foreach (var rec in plugin.records) {
                 if (rec.signature.ToString() != "NAVM") continue;
@@ -168,7 +164,7 @@ namespace Tests.defs {
 
         [Test]
         public void TestPRKCResolvesCaption() {
-            var plugin = LoadOrIgnore( "formats-fnv.esp");
+            var plugin = Fixture.Master(Games.FNV, "FalloutNV.esm");
             var el = TestHelpers.FindRecord(
                 plugin.records.Where(r => r.signature.ToString() == "PERK").Take(50),
                 rec => {
@@ -191,7 +187,7 @@ namespace Tests.defs {
 
         [Test]
         public void TestPerkDATAFunctionResolvesName() {
-            var plugin = LoadOrIgnore( "formats-fnv.esp");
+            var plugin = Fixture.Master(Games.FNV, "FalloutNV.esm");
             var el = TestHelpers.FindRecord(
                 plugin.records.Where(r => r.signature.ToString() == "PERK").Take(50),
                 rec => {
@@ -212,7 +208,7 @@ namespace Tests.defs {
 
         [Test]
         public void TestPerkEPFTResolvesName() {
-            var plugin = LoadOrIgnore( "formats-fnv.esp");
+            var plugin = Fixture.Master(Games.FNV, "FalloutNV.esm");
             var el = TestHelpers.FindRecord(
                 plugin.records.Where(r => r.signature.ToString() == "PERK").Take(50),
                 rec => {
@@ -240,7 +236,7 @@ namespace Tests.defs {
 
         [Test]
         public void TestQuestObjectiveResolvesRealObjectives() {
-            var plugin = LoadOrIgnore( "formats-fnv.esp");
+            var plugin = Fixture.Master(Games.FNV, "FalloutNV.esm");
             var rec = plugin.GetRecordByFormId(0xE58D5);
             if (rec == null) Assert.Ignore("INFO 000E58D5 missing.");
             var texts = CollectDisplays(rec, "CTDAParam2QuestObjectiveFormat");
@@ -309,7 +305,7 @@ namespace Tests.defs {
 
         [Test]
         public void TestReputationResolvesRealRecord() {
-            var plugin = LoadOrIgnore("FalloutNV.esm");
+            var plugin = Fixture.Master(Games.FNV, "FalloutNV.esm");
             var rec = plugin.GetRecordByFormId(0x8D0A2);
             if (rec == null) Assert.Ignore("INFO 0008D0A2 missing.");
             var param = ConditionParam1(rec, 575);
@@ -320,7 +316,7 @@ namespace Tests.defs {
 
         [Test]
         public void TestReputationFn573ResolvesRealRecord() {
-            var plugin = LoadOrIgnore("FalloutNV.esm");
+            var plugin = Fixture.Master(Games.FNV, "FalloutNV.esm");
             var rec = plugin.GetRecordByFormId(0xFFAE4);
             if (rec == null) Assert.Ignore("INFO 000FFAE4 missing.");
             var param = ConditionParam1(rec, 573);
@@ -350,7 +346,7 @@ namespace Tests.defs {
 
         [Test]
         public void TestRegionResolvesRealRecord() {
-            var plugin = LoadOrIgnore("FalloutNV.esm");
+            var plugin = Fixture.Master(Games.FNV, "FalloutNV.esm");
             var rec = plugin.GetRecordByFormId(0x107775);
             if (rec == null) Assert.Ignore("INFO 00107775 missing.");
             var param = FindParamByBranch(rec, "Region");
@@ -360,7 +356,7 @@ namespace Tests.defs {
 
         [Test]
         public void TestCasinoResolvesRealRecord() {
-            var plugin = LoadOrIgnore("FalloutNV.esm");
+            var plugin = Fixture.Master(Games.FNV, "FalloutNV.esm");
             var rec = plugin.GetRecordByFormId(0x152325);
             if (rec == null) Assert.Ignore("INFO 00152325 missing.");
             var param = ConditionParam1(rec, 610);
@@ -377,7 +373,7 @@ namespace Tests.defs {
 
         [Test]
         public void TestVariableNameResolvesRealQuestVariables() {
-            var plugin = LoadOrIgnore( "formats-fnv.esp");
+            var plugin = Fixture.Master(Games.FNV, "FalloutNV.esm");
             var rec = plugin.GetRecordByFormId(0x54E5F);
             var text = CollectDisplays(rec, "CTDAParam2VariableNameFormat");
             StringAssert.Contains("RL3Hired", text);
@@ -387,7 +383,7 @@ namespace Tests.defs {
 
         [Test]
         public void TestPRKCResolvesRealCaptions() {
-            var plugin = LoadOrIgnore( "formats-fnv.esp");
+            var plugin = Fixture.Master(Games.FNV, "FalloutNV.esm");
             var armed = CollectDisplays(
                 plugin.GetRecordByFormId(0x31DAB), "PRKCFormat"
             );
@@ -401,7 +397,7 @@ namespace Tests.defs {
 
         [Test]
         public void TestPerkDATAFunctionAndEPFTResolveRealNames() {
-            var plugin = LoadOrIgnore( "formats-fnv.esp");
+            var plugin = Fixture.Master(Games.FNV, "FalloutNV.esm");
             var rec = plugin.GetRecordByFormId(0x24D5C);
             var func = CollectDisplays(rec, "PerkDATAFunctionFormat");
             StringAssert.Contains("Multiply Value", func);

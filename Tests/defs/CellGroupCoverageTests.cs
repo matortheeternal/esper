@@ -14,7 +14,7 @@ namespace Tests.defs {
     [TestFixture]
     public class CellGroupCoverageTests {
         private static PluginFile LoadSharedSkyrim() {
-            return Synthetic.GetPlugin(Games.SSE, "Skyrim.esm");
+            return Fixture.Master(Games.SSE, "Skyrim.esm");
         }
 
         private static List<GroupRecord> AncestorGroups(

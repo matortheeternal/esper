@@ -9,6 +9,7 @@ using NUnit.Framework;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using Tests;
 
 namespace Tests.defs {
     // Direct branch coverage for two switch-heavy TES5 deciders, driven
@@ -23,9 +24,7 @@ namespace Tests.defs {
         [OneTimeSetUp]
         public void SetUp() {
             session = RecordDefCoverageTests.GetSession("SSE");
-            var path = TestHelpers.FixturePath("Skyrim.esm");
-            if (!File.Exists(path)) Assert.Ignore("Skyrim.esm is not present.");
-            skyrim = session.pluginManager.LoadPlugin(path);
+            skyrim = Fixture.Master(Games.SSE, "Skyrim.esm");
         }
 
         private MainRecord SkyrimRec(uint formId) {

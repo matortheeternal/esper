@@ -156,15 +156,8 @@ namespace Tests.defs {
             Assert.AreEqual(2048L, capped);
         }
 
-        private static PluginFile cachedOblivion;
-
         private static PluginFile LoadOblivion() {
-            var path = TestHelpers.FixturePath("Oblivion.esm");
-            if (!File.Exists(path)) return null;
-            if (cachedOblivion == null)
-                cachedOblivion = Synthetic.GetSession(Games.TES4)
-                    .pluginManager.LoadPlugin(path);
-            return cachedOblivion;
+            return Fixture.Master(Games.TES4, "Oblivion.esm");
         }
 
         [Test]

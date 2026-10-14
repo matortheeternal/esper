@@ -24,10 +24,6 @@ namespace Tests.defs {
             return new JObject { { "name", name } };
         }
 
-        private static PluginFile Load(Game game, string fixture) {
-            return Synthetic.GetPlugin(game, fixture);
-        }
-
         private static MainRecord First(PluginFile plugin, string sig) {
             var rec = plugin.records.FirstOrDefault(r => r.signature.ToString() == sig);
             if (rec == null) Assert.Ignore($"No {sig} in {plugin.name}.");
@@ -129,7 +125,7 @@ namespace Tests.defs {
 
         [Test]
         public void TestVariableNameResolvesRealName() {
-            var plugin = Load(Games.TES4, "formats-tes4.esp");
+            var plugin = Fixture.Master(Games.TES4, "Oblivion.esm");
             var el = TestHelpers.FindRecord(
                 plugin.records.Where(r => r.signature.ToString() == "INFO").Take(500),
                 rec => {
@@ -158,7 +154,7 @@ namespace Tests.defs {
 
         [Test]
         public void TestOblivionIdleAnamDisplays() {
-            var plugin = Load(Games.TES4, "formats-tes4.esp");
+            var plugin = Fixture.Master(Games.TES4, "Oblivion.esm");
             var idle = First(plugin, "IDLE");
             var anam = idle.GetElement("ANAM") as ValueElement;
             Assert.IsNotNull(anam);
@@ -174,7 +170,7 @@ namespace Tests.defs {
 
         [Test]
         public void TestOblivionMgefCodeDisplays() {
-            var plugin = Load(Games.TES4, "formats-tes4.esp");
+            var plugin = Fixture.Master(Games.TES4, "Oblivion.esm");
             ValueElement code = null;
             foreach (var sig in new[] { "ENCH", "SPEL", "ALCH", "INGR" }) {
                 foreach (var r in plugin.records.Where(
@@ -196,7 +192,7 @@ namespace Tests.defs {
 
         [Test]
         public void TestOblivionWthrClassificationDisplays() {
-            var plugin = Load(Games.TES4, "formats-tes4.esp");
+            var plugin = Fixture.Master(Games.TES4, "Oblivion.esm");
             var wthr = First(plugin, "WTHR");
             var cls = FindFormatted(
                 wthr,
@@ -211,7 +207,7 @@ namespace Tests.defs {
 
         [Test]
         public void TestOblivionSoundAttenuationScales() {
-            var plugin = Load(Games.TES4, "formats-tes4.esp");
+            var plugin = Fixture.Master(Games.TES4, "Oblivion.esm");
             var soun = First(plugin, "SOUN");
             var min = FindFormatted(soun, vd => vd.formatDef is MultiplyDef);
             if (min == null) Assert.Ignore("No scaled SOUN element found.");
@@ -229,7 +225,7 @@ namespace Tests.defs {
 
         [Test]
         public void TestMgefAssocItemCoversMultipleBranches() {
-            var plugin = Load(Games.TES4, "formats-tes4.esp");
+            var plugin = Fixture.Master(Games.TES4, "Oblivion.esm");
             var seen = new System.Collections.Generic.HashSet<string>();
             foreach (var rec in plugin.records) {
                 if (rec.signature.ToString() != "MGEF") continue;
@@ -243,7 +239,7 @@ namespace Tests.defs {
 
         [Test]
         public void TestMgefAssocItemBranchesAreNamed() {
-            var plugin = Load(Games.TES4, "formats-tes4.esp");
+            var plugin = Fixture.Master(Games.TES4, "Oblivion.esm");
             var names = new string[] {
                 "Unused",
                 "Assoc. Weapon",

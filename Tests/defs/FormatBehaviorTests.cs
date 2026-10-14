@@ -91,7 +91,7 @@ namespace Tests.defs {
 
         [Test]
         public void MovtAnimThresholdsDecodeThroughProductionPath() {
-            var skyrim = Synthetic.GetPlugin(Games.SSE, "Skyrim.esm");
+            var skyrim = Fixture.Master(Games.SSE, "Skyrim.esm");
             // NPC_Default_MT stores MaxValue floats, which the format
             // renders as Default.
             var rec = skyrim.GetRecordByFormId(0x3580D);

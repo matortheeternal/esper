@@ -277,7 +277,7 @@ namespace Tests.defs {
 
         [Test]
         public void FO4RefrFlagsDecideMatchesBaseType() {
-            var plugin = Synthetic.GetPlugin(Games.FO4, "Fallout4.esm");
+            var plugin = Fixture.Master(Games.FO4, "Fallout4.esm");
             var decider =
                 new esper.defs.FO4.Deciders.REFRRecordFlagsDecider();
             int seen = 0, nonzero = 0;
@@ -379,7 +379,7 @@ namespace Tests.defs {
         [Test]
         public void CTDAParamStringFormatsResolveThroughCIS() {
             var session = RecordDefCoverageTests.GetSession("SSE");
-            var skyrim = Synthetic.GetPlugin(Games.SSE, "Skyrim.esm");
+            var skyrim = Fixture.Master(Games.SSE, "Skyrim.esm");
             var hits = new List<ValueElement>();
             foreach (var rec in skyrim.records) {
                 if (rec.signature.ToString() != "INFO") continue;
@@ -430,16 +430,12 @@ namespace Tests.defs {
         [Test]
         public void TintLayerFormatDrivenByRealNpc() {
             var session = RecordDefCoverageTests.GetSession("SSE");
-            var skyrim = Synthetic.GetPlugin(Games.SSE, "Skyrim.esm");
+            var skyrim = Fixture.Master(Games.SSE, "Skyrim.esm");
             // Localized race FULL names need the string tables; without
             // them the missing-index fallback below cannot render.
-            var stringsPath = TestHelpers.FixturePath("skyrim_strings");
-            var stringFiles = new[] {
-                "skyrim_english.strings",
-                "skyrim_english.dlstrings",
-                "skyrim_english.ilstrings"
-            }.Select(name => Path.Combine(stringsPath, name)).ToList();
-            var haveStrings = stringFiles.All(File.Exists);
+            var stringFiles = Fixture.StringFiles(Games.SSE, "Skyrim.esm");
+            var haveStrings = stringFiles.Count > 0
+                && stringFiles.All(File.Exists);
             if (haveStrings)
                 session.resourceManager.LoadPluginStrings(
                     skyrim, stringFiles

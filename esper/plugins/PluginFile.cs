@@ -2,6 +2,7 @@
 using esper.data;
 using esper.defs;
 using esper.elements;
+using esper.helpers;
 using esper.io;
 using esper.resolution;
 using esper.setup;
@@ -26,6 +27,44 @@ namespace esper.plugins {
         public bool mastersChanged { get; internal set; }
 
         public List<MainRecord> records { get; internal set; }
+
+        internal List<MainRecord> injectedRecords;
+
+        internal void RegisterInjection(MainRecord rec) {
+            var slot = (byte)(rec.fileFormId >> 24);
+            if (slot >= (originalMasters?.Count ?? 0)) return;
+            var masterFile = this.OrdinalToFile(slot, false);
+            if (masterFile == null || masterFile == this) return;
+            if (masterFile.GetRecordExact(rec.fileFormId) != null) return;
+            masterFile.AddInjected(rec);
+        }
+
+        internal void AddInjected(MainRecord rec) {
+            injectedRecords ??= new List<MainRecord>();
+            rec._overrides ??= new List<MainRecord>();
+            if (injectedRecords.Count == 0) {
+                injectedRecords.Add(rec);
+                return;
+            }
+            var existing = CollectionHelpers.BinarySearch(injectedRecords, r => {
+                return rec.fileFormId.CompareTo(r.fileFormId);
+            });
+            if (existing != null) {
+                existing.AddOverride(rec);
+                return;
+            }
+            injectedRecords.Add(rec);
+            injectedRecords.Sort((a, b) => {
+                return a.fileFormId.CompareTo(b.fileFormId);
+            });
+        }
+
+        internal MainRecord GetInjectedRecord(UInt32 formId) {
+            if (injectedRecords == null || injectedRecords.Count == 0) return null;
+            return CollectionHelpers.BinarySearch(injectedRecords, rec => {
+                return formId.CompareTo(rec.fileFormId);
+            });
+        }
 
         public override PluginFile file => this;
         public override string name => filename;

@@ -112,10 +112,9 @@ namespace Tests.resolution {
 
         [Test]
         public void TestReferencePath() {
-            // AllRecords.esp is not in load order, so its own header
-            // FormID reference resolves to null (positive case with
-            // ARecords.esp is covered by TestResolution_Reference).
-            Assert.IsNull(rec.GetElement(@"Record Header\@FormID"));
+            // the header FormID resolves to the record itself through
+            // record injection (absent master materializes as a dummy)
+            Assert.AreSame(rec, rec.GetElement(@"Record Header\@FormID"));
         }
 
         [Test]

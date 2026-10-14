@@ -62,6 +62,8 @@ namespace Tests.plugins {
         public PluginFile plugin;
 
         private void LoadDumpEsm() {
+            if (Fixture.mode != Fixture.Mode.Game)
+                Assert.Ignore("GAME-mode only: Constellation.esm has no fixture.");
             var pluginPath = TestHelpers.FixturePath("Constellation.esm");
             if (!File.Exists(pluginPath))
                 Assert.Ignore("Local master fixture not found: Constellation.esm");

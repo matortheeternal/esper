@@ -50,12 +50,23 @@ namespace Tests.plugins {
         [OneTimeSetUp]
         public void SetUp() {
             session = new Session(Games.TES5, new SessionOptions());
-            LoadSkyrimEsm();
-            resourceManager.LoadPluginStrings(plugin, GetStringFiles());
+            if (Fixture.mode == Fixture.Mode.Game) {
+                LoadSkyrimEsm();
+                resourceManager.LoadPluginStrings(plugin, GetStringFiles());
+            } else {
+                plugin = Fixture.Master(Games.TES5, "Skyrim.esm");
+                Fixture.LoadStrings(Games.TES5, plugin, "Skyrim.esm");
+            }
+        }
+
+        private void RequireGameMode() {
+            if (Fixture.mode != Fixture.Mode.Game)
+                Assert.Ignore("Master-topology test; runs in GAME mode.");
         }
 
         [Test]
         public void TestLoadTime() {
+            RequireGameMode();
             Assert.IsNotNull(plugin);
             float ms = watch.ElapsedMilliseconds;
             Console.WriteLine($"Loaded Skyrim.esm in {ms}ms");
@@ -67,6 +78,7 @@ namespace Tests.plugins {
 
         [Test]
         public void TestRecordMap() {
+            RequireGameMode();
             var rec = plugin.GetRecordByFormId(0x012E46);
             Assert.IsNotNull(rec);
             Assert.AreEqual("ArmorIronGauntlets", rec.editorId);
@@ -86,6 +98,7 @@ namespace Tests.plugins {
 
         [Test]
         public void BenchmarkRecordMap() {
+            RequireGameMode();
             watch.Reset();
             var random = new Random();
             var records = plugin.records;
@@ -138,6 +151,7 @@ namespace Tests.plugins {
 
         [Test]
         public void TestReferencedBy() {
+            RequireGameMode();
             plugin.GetElement("CONT").BuildRefBy();
             var rec = plugin.GetRecordByFormId(0xF);
             Assert.AreEqual(

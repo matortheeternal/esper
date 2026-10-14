@@ -38,7 +38,9 @@ namespace Tests {
         }
 
         public static string FixturePath(string esm) {
-            return TestHelpers.FixturePath(Path.Combine("auto", esm));
+            var stem = Path.GetFileNameWithoutExtension(esm);
+            return TestHelpers.FixturePath(
+                Path.Combine("auto", stem + ".fixture.esp"));
         }
 
         private static string SidecarPath(string esm) {
@@ -81,18 +83,35 @@ namespace Tests {
             }
         }
 
+        private static readonly HashSet<string> sortedMasters =
+            new HashSet<string>();
+
         public static PluginFile Master(Game game, string esm) {
             var path = ModePath(game, esm);
             var key = game.abbreviation + ":" + path;
-            return LoadCached(
+            var plugin = LoadCached(
                 masters, Synthetic.GetSession(game), key, path, esm
             );
+            if (path == FixturePath(esm)) {
+                lock (sortedMasters) {
+                    if (sortedMasters.Add(key)) plugin.SortRecords();
+                }
+            }
+            return plugin;
         }
 
         public static PluginFile LoadFresh(Game game, string esm) {
             var path = ModePath(game, esm);
             if (!File.Exists(path)) Assert.Ignore($"{esm} missing.");
             return Synthetic.GetSession(game).pluginManager.LoadPlugin(path);
+        }
+
+        public static PluginFile LoadFreshInto(
+            Session session, Game game, string esm
+        ) {
+            var path = ModePath(game, esm);
+            if (!File.Exists(path)) Assert.Ignore($"{esm} missing.");
+            return session.pluginManager.LoadPlugin(path);
         }
 
         private static PluginFile BuildEsm(Game game, string esm) {
@@ -193,7 +212,7 @@ namespace Tests {
             if (mode != Mode.Game) {
                 var stem = TestHelpers.FixturePath(Path.Combine(
                     "auto",
-                    Path.GetFileNameWithoutExtension(esm) + "_english"
+                    Path.GetFileNameWithoutExtension(esm) + ".fixture_english"
                 ));
                 foreach (var ext in new[] { ".strings", ".dlstrings", ".ilstrings" })
                     if (File.Exists(stem + ext)) found.Add(stem + ext);

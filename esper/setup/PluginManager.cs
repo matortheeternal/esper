@@ -75,6 +75,8 @@ namespace esper.setup {
             logger.Info($"Using dummy plugin for {filename}");
             var dummy = new PluginFile(session, filename, new PluginFileOptions { });
             dummy.container = root;
+            dummy.InitMasters();
+            dummy.records = new List<MainRecord>();
             AddFile(dummy);
             return dummy;
         }

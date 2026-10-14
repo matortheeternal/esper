@@ -23,7 +23,7 @@ namespace esper.elements {
             get => _header;
             set {
                 _header = value;
-                if (local) _overrides = new List<MainRecord>();
+                _overrides = new List<MainRecord>();
             }
         }
 
@@ -44,14 +44,19 @@ namespace esper.elements {
         public MainRecord master => local ? this : formId.ResolveRecord();
         public ReadOnlyCollection<MainRecord> overrides {
             get {
-                return local ? _overrides.AsReadOnly() : master.overrides;
+                var m = local ? this : master;
+                if (m == null || ReferenceEquals(m, this)) return _overrides.AsReadOnly();
+                return m.overrides;
             }
         }
         public ReadOnlyCollection<MainRecord> referencedBy {
             get {
-                if (!local) return master.referencedBy;
-                if (_referencedBy == null) _referencedBy = new List<MainRecord>();
-                return _referencedBy.AsReadOnly();
+                var m = local ? this : master;
+                if (m == null || ReferenceEquals(m, this)) {
+                    if (_referencedBy == null) _referencedBy = new List<MainRecord>();
+                    return _referencedBy.AsReadOnly();
+                }
+                return m.referencedBy;
             }
         }
 
@@ -76,8 +81,19 @@ namespace esper.elements {
         public bool local {
             get {
                 if (fileFormId == 0) return true;
-                var masterCount = _file.originalMasters.Count;
+                var masterCount = _file.originalMasters?.Count ?? 0;
                 return (fileFormId >> 24) >= masterCount;
+            }
+        }
+
+        public bool isInjected {
+            get {
+                if (local || fileFormId == 0) return false;
+                var slot = (byte)(fileFormId >> 24);
+                if (slot >= (_file.originalMasters?.Count ?? 0)) return false;
+                var masterFile = _file.OrdinalToFile(slot, false);
+                return masterFile != null && masterFile != _file
+                    && masterFile.GetRecordExact(fileFormId) == null;
             }
         }
 
@@ -111,7 +127,14 @@ namespace esper.elements {
             bodyOffset = source.stream.Position;
             if (sessionOptions.readAllSubrecords)
                 mrDef.ReadElements(this, source);
-            if (!local && master != null) master.AddOverride(this);
+            if (!local) {
+                var m = master;
+                if (m == null || ReferenceEquals(m, this)) {
+                    if (sessionOptions.allowInjections) _file.RegisterInjection(this);
+                } else {
+                    m.AddOverride(this);
+                }
+            }
             source.stream.Position = bodyOffset + header.dataSize;
         }
 

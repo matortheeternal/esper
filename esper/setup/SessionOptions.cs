@@ -34,6 +34,7 @@ namespace esper.setup {
         public bool loadResources { get; set; } = false;
         public bool improvise { get; set; } = false;
         public bool strictDefinitions { get; set; } = false;
+        public bool allowInjections { get; set; } = true;
         public bool serializeNumericData { get; set; } = false;
         private uint _floatDigits = 6;
         public float epsilon { get; internal set; } = GetEpsilon(6);

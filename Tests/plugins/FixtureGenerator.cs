@@ -10,6 +10,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using Tests;
 
 namespace Tests.plugins {
     [TestFixture]
@@ -24,48 +25,6 @@ namespace Tests.plugins {
             public string fixture;
             public uint[] formIds;
         }
-
-        private static readonly Selection[] selections = new Selection[] {
-            new Selection {
-                game = Games.SSE, master = "Skyrim.esm",
-                fixture = "formats-sse.esp",
-                formIds = new uint[] {
-                    0x1B, 0xDD7, 0x12DFE, 0x5820A, 0x15CC2, 0x1BAEC,
-                    0xE40, 0xEB9, 0x15F00, 0x1548E, 0x13126, 0xD1444,
-                    0x15D24, 0x5F596, 0x46EF0, 0xD6989, 0x954E1,
-                },
-            },
-            new Selection {
-                game = Games.TES4, master = "Oblivion.esm",
-                fixture = "formats-tes4.esp",
-                formIds = new uint[] {
-                    0x856, 0x8B5, 0x8BA, 0x8C9, 0x8CA, 0x18C5,
-                    0x8F4, 0x15E, 0x12C, 0x9CA, 0x136,
-                    0x2F86B, 0x23DD9, 0x30139, 0x2D078,
-                },
-            },
-            new Selection {
-                game = Games.FNV, master = "FalloutNV.esm",
-                fixture = "formats-fnv.esp",
-                formIds = new uint[] {
-                    0xE58D5, 0xEFA4D, 0xF5266, 0x54E5F, 0x89466,
-                    0x8E1C0, 0x8D0A2, 0xFFAE4, 0x107775, 0x152325,
-                    0x31DAB, 0x31DAD,             0x24D5C, 0x30FEB,
-            0xDA115, 0xEFB3B, 0xE790F, 0x371D1,
-            0x14E8AD, 0x14E8BD, 0x152437,             0xEDB37, 0x302CF, 0x37138,
-                    0x302CE,
-                },
-            },
-            new Selection {
-                game = Games.FO4, master = "Fallout4.esm",
-                fixture = "formats-fo4.esp",
-                formIds = new uint[] {
-                    0xA042C, 0x20BD1, 0x1D394, 0x1D395, 0x1F986,
-                    0x4A834, 0x58594, 0x72F3D, 0x8393, 0x83B1,
-                    0x7, 0x19, 0x13746,
-                },
-            },
-        };
 
         private static byte[] ReadRecordBytes(
             string masterPath, MainRecord rec, int headerSize
@@ -82,7 +41,7 @@ namespace Tests.plugins {
 
         private static byte[] Tes4Record(
             Game game, string masterPath, MainRecord masterHeader,
-            int recordCount, uint nextId
+            int recordCount, uint nextId, string master
         ) {
             var headerSize = (int)game.recordHeaderSize;
             using var fs = File.OpenRead(masterPath);
@@ -93,7 +52,8 @@ namespace Tests.plugins {
             using var ms = new MemoryStream();
             using var w = new BinaryWriter(ms);
             var name = "Fixture" + game.abbreviation;
-            var dataLen = 4 + 2 + 12 + 4 + 2 + (name.Length + 1);
+            var dataLen = 4 + 2 + 12 + 4 + 2 + (name.Length + 1)
+                + 4 + 2 + (master.Length + 1) + 4 + 2 + 8;
             w.Write(Encoding.ASCII.GetBytes("TES4"));
             w.Write((uint)dataLen);
             w.Write(BitConverter.ToUInt32(probe, 8));
@@ -109,6 +69,13 @@ namespace Tests.plugins {
             w.Write((ushort)(name.Length + 1));
             w.Write(Encoding.ASCII.GetBytes(name));
             w.Write((byte)0);
+            w.Write(Encoding.ASCII.GetBytes("MAST"));
+            w.Write((ushort)(master.Length + 1));
+            w.Write(Encoding.ASCII.GetBytes(master));
+            w.Write((byte)0);
+            w.Write(Encoding.ASCII.GetBytes("DATA"));
+            w.Write((ushort)8);
+            w.Write((ulong)0);
             return ms.ToArray();
         }
 
@@ -134,6 +101,32 @@ namespace Tests.plugins {
                 if (children != null)
                     foreach (var child in children)
                         CollectStrings(child, ids);
+            }
+        }
+
+        private static void CollectRefs(
+            Element el, string master, HashSet<uint> refs,
+            HashSet<string> cross, HashSet<uint> present
+        ) {
+            if (el is ValueElement ve && ve.def is FormIdDef) {
+                if (ve.data is FormId fid && fid.fileFormId != 0) {
+                    var target = fid.targetFileName ?? master;
+                    if (target.Equals(
+                        master, StringComparison.OrdinalIgnoreCase
+                    )) {
+                        var local = fid.fileFormId & 0xFFFFFFu;
+                        if (present.Contains(local)) refs.Add(local);
+                    } else
+                        cross.Add(
+                            $"{target}:{fid.fileFormId:X6}");
+                }
+                return;
+            }
+            if (el is Container c) {
+                var children = c.elements;
+                if (children != null)
+                    foreach (var child in children)
+                        CollectRefs(child, master, refs, cross, present);
             }
         }
 
@@ -210,6 +203,26 @@ namespace Tests.plugins {
                 new Dictionary<string, int>();
         }
 
+        private static void EmitKids(
+            MemoryStream ms, List<object> kids, int headerSize
+        ) {
+            var groups = kids.OfType<GenGroup>().ToList();
+            var emitted = new HashSet<GenGroup>();
+            foreach (var r in kids.OfType<GenRec>()) {
+                EmitKid(ms, r, headerSize);
+                foreach (var g in groups) {
+                    if (emitted.Contains(g)) continue;
+                    if (g.label.Length != 4) continue;
+                    if (BitConverter.ToUInt32(r.raw, 12) !=
+                        BitConverter.ToUInt32(g.label, 0)) continue;
+                    EmitKid(ms, g, headerSize);
+                    emitted.Add(g);
+                }
+            }
+            foreach (var g in groups)
+                if (!emitted.Contains(g)) EmitKid(ms, g, headerSize);
+        }
+
         private static void EmitKid(
             MemoryStream ms, object kid, int headerSize
         ) {
@@ -220,10 +233,7 @@ namespace Tests.plugins {
             }
             var g = (GenGroup)kid;
             using var inner = new MemoryStream();
-            foreach (var c in g.children.OfType<GenRec>())
-                EmitKid(inner, c, headerSize);
-            foreach (var c in g.children.OfType<GenGroup>())
-                EmitKid(inner, c, headerSize);
+            EmitKids(inner, g.children, headerSize);
             var payload = inner.ToArray();
             var gh = GroupHeader(
                 headerSize, g.type, g.label,
@@ -256,27 +266,37 @@ namespace Tests.plugins {
         private static Selection[] autoSelections = new Selection[] {
             new Selection {
                 game = Games.SSE, master = "Skyrim.esm",
-                fixture = "auto/Skyrim.esm",
+                fixture = "auto/Skyrim.fixture.esp",
                 formIds = new uint[] {
                     0x1B, 0xDD7, 0x12DFE, 0x5820A, 0x15CC2, 0x1BAEC,
                     0xE40, 0xEB9, 0x15F00, 0x1548E, 0x13126, 0xD1444,
                     0x15D24, 0x5F596, 0x46EF0, 0xD6989, 0x954E1,
                     0xEA7, 0xEE7, 0x12FB4, 0xE15, 0xDD1, 0x4C1D7,
-                    0x1FB1C,
+                    0x1FB1C, 0xE0E, 0xCDE01, 0x7, 0x13255, 0x1325C,
+                    0x1325F, 0x13260, 0x13261, 0x13262, 0x13264,
+                    0x3580D, 0x1EA6C, 0x1CE9E, 0x1CEAA, 0x2113F,
+                    0x16D44, 0x3AE9E, 0x6E1DD, 0x2C56F, 0x17120,
+                    0x12F03, 0xDDA, 0x12DEE, 0x12DF8, 0xE10, 0x1389C,
+                    0x1704F, 0xE1A, 0x157C1, 0xDD9, 0xE32, 0x174E8,
+                    0xE18, 0x15B9C, 0xE2F, 0xE1D, 0xDEE, 0x136A5,
+                    0x12F83, 0xDD6, 0xB3D8A, 0x1711C, 0x153CD,
+                    0xA725C, 0xF8D, 0x15F09, 0xE41, 0x15EC7, 0x1951F, 0x1362F,
+                    0x12E46, 0x1360E, 0x3DD30, 0x25, 0x1B44B, 0x2BCD7, 0x15CA4, 0x3C, 0x23630,
+                    0x1741,
                 },
             },
             new Selection {
                 game = Games.TES4, master = "Oblivion.esm",
-                fixture = "auto/Oblivion.esm",
+                fixture = "auto/Oblivion.fixture.esp",
                 formIds = new uint[] {
                     0x856, 0x8B5, 0x8BA, 0x8C9, 0x8CA, 0x18C5,
                     0x8F4, 0x15E, 0x12C, 0x9CA, 0x136,
-                    0x2F86B, 0x23DD9, 0x30139, 0x2D078,
+                    0x2F86B, 0x23DD9, 0x30139, 0x2D078, 0xA,
                 },
             },
             new Selection {
                 game = Games.FNV, master = "FalloutNV.esm",
-                fixture = "auto/FalloutNV.esm",
+                fixture = "auto/FalloutNV.fixture.esp",
                 formIds = new uint[] {
                     0xE58D5, 0xEFA4D, 0xF5266, 0x54E5F, 0x89466,
                     0x8E1C0, 0x8D0A2, 0xFFAE4, 0x107775, 0x152325,
@@ -288,24 +308,25 @@ namespace Tests.plugins {
             },
             new Selection {
                 game = Games.FO4, master = "Fallout4.esm",
-                fixture = "auto/Fallout4.esm",
+                fixture = "auto/Fallout4.fixture.esp",
                 formIds = new uint[] {
                     0xA042C, 0x20BD1, 0x1D394, 0x1D395, 0x1F986,
                     0x4A834, 0x58594, 0x72F3D, 0x8393, 0x83B1,
                     0x7, 0x19, 0x13746,
                     0x16417D, 0x17309F, 0x17F6D,
+                    0x122D, 0x136A, 0x1934,
                 },
             },
             new Selection {
                 game = Games.SSE, master = "Dragonborn.esm",
-                fixture = "auto/Dragonborn.esm",
-                formIds = new uint[] { 0x1E2CD },
+                fixture = "auto/Dragonborn.fixture.esp",
+                formIds = new uint[] { 0x1E2CD, 0x3C, 0x800, 0x290FF },
             },
         };
 
         private static void Generate(Selection sel, string fixturesDir) {
             var session = new Session(sel.game, new SessionOptions());
-            var masterPath = TestHelpers.FixturePath(sel.master);
+            var masterPath = Fixture.EsmPath(sel.game, sel.master);
             if (!File.Exists(masterPath))
                 Assert.Ignore($"{sel.master} missing.");
             var plugin = session.pluginManager.LoadPlugin(masterPath);
@@ -321,10 +342,41 @@ namespace Tests.plugins {
                         wanted.Add(Convert.ToUInt32(t, 16));
                 }
             var found = new List<MainRecord>();
+            var present = new HashSet<uint>();
             foreach (var rec in plugin.records) {
+                present.Add(rec.fileFormId & 0xFFFFFFu);
                 if (!wanted.Contains(rec.fileFormId & 0xFFFFFFu)) continue;
                 found.Add(rec);
             }
+            var crossRefs = new HashSet<string>();
+            foreach (var rec in found) {
+                try {
+                    var _ = rec.elements;
+                    var refs = new HashSet<uint>();
+                    CollectRefs(rec, sel.master, refs, crossRefs, present);
+                    if (refs.Count > 1000)
+                        TestContext.Progress.WriteLine(
+                            $"hub refs skipped in {sel.master} " +
+                            $"{rec.signature}:{rec.fileFormId & 0xFFFFFFu:X6} " +
+                            $"({refs.Count} refs)");
+                    else
+                        wanted.UnionWith(refs);
+                } finally {
+                    rec._internalElements = null;
+                    rec._unexpectedSubrecords = null;
+                }
+            }
+            var foundSet = new HashSet<MainRecord>(found);
+            foreach (var rec in plugin.records) {
+                var local = rec.fileFormId & 0xFFFFFFu;
+                if (!wanted.Contains(local)) continue;
+                if (!foundSet.Add(rec)) continue;
+                found.Add(rec);
+            }
+            if (crossRefs.Count > 0)
+                TestContext.Progress.WriteLine(
+                    $"cross-ESM refs in {sel.master}: " +
+                    string.Join(", ", crossRefs));
             Assert.AreEqual(
                 wanted.Count, found.Count,
                 $"missing records in {sel.master}");
@@ -427,14 +479,12 @@ namespace Tests.plugins {
             }
             using var w = new BinaryWriter(ms);
             var tes4 = Tes4Record(
-                sel.game, masterPath, plugin.header, found.Count, maxId + 1);
+                sel.game, masterPath, plugin.header, found.Count, maxId + 1,
+                sel.master);
             w.Write(tes4);
             foreach (var kv in topGroups.OrderBy(kv => kv.Key)) {
                 using var pm = new MemoryStream();
-                foreach (var kid in kv.Value.children.OfType<GenRec>())
-                    EmitKid(pm, kid, headerSize);
-                foreach (var kid in kv.Value.children.OfType<GenGroup>())
-                    EmitKid(pm, kid, headerSize);
+                EmitKids(pm, kv.Value.children, headerSize);
                 var payload = pm.ToArray();
                 w.Write(GroupHeader(
                     headerSize, 0, Encoding.ASCII.GetBytes(kv.Key),
@@ -472,12 +522,11 @@ namespace Tests.plugins {
         }
 
         [Test]
-        public void GenerateFormatFixtures() {
+        public void GenerateAutoFixtures() {
             if (Environment.GetEnvironmentVariable(
                     "ESPER_GENERATE_FIXTURES") != "1")
                 Assert.Ignore("fixture generation not requested.");
             var fixturesDir = Path.Join(RepoRoot(), "fixtures");
-            foreach (var sel in selections) Generate(sel, fixturesDir);
             foreach (var sel in autoSelections) Generate(sel, fixturesDir);
         }
     }

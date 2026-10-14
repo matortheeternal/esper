@@ -22,10 +22,6 @@ namespace Tests.defs {
             return Synthetic.GetSession(Games.FO4).definitionManager;
         }
 
-        private static PluginFile LoadOrIgnore(string name) {
-            return Synthetic.GetPlugin(Games.FO4, name);
-        }
-
         private static void LoadSyntheticStrings(
             PluginFile plugin, Dictionary<uint, string> entries) {
             var stringFile = new TES5StringFile("synthetic_english.strings");
@@ -140,7 +136,7 @@ namespace Tests.defs {
 
         [Test]
         public void WiringCLFMColor() {
-            var plugin = LoadOrIgnore("formats-fo4.esp");
+            var plugin = Fixture.Master(Games.FO4, "Fallout4.esm");
             var rec = plugin.records.FirstOrDefault(
                 r => r.signature.ToString() == "CLFM"
             );
@@ -157,7 +153,7 @@ namespace Tests.defs {
 
         [Test]
         public void WiringIntToHexStr() {
-            var plugin = LoadOrIgnore("formats-fo4.esp");
+            var plugin = Fixture.Master(Games.FO4, "Fallout4.esm");
             var rec = plugin.records.FirstOrDefault(r =>
                 r.signature.ToString() == "RACE");
             Assert.NotNull(rec, "No RACE record decoded.");
@@ -173,7 +169,7 @@ namespace Tests.defs {
 
         [Test]
         public void WiringFaceMorph() {
-            var plugin = LoadOrIgnore("formats-fo4.esp");
+            var plugin = Fixture.Master(Games.FO4, "Fallout4.esm");
             var found = false;
             foreach (var rec in plugin.records
                 .Where(r => r.signature.ToString() == "NPC_")
@@ -195,7 +191,7 @@ namespace Tests.defs {
 
         [Test]
         public void FaceMorphResolvedName() {
-            var plugin = LoadOrIgnore("formats-fo4.esp");
+            var plugin = Fixture.Master(Games.FO4, "Fallout4.esm");
             foreach (var rec in plugin.records
                 .Where(r => r.signature.ToString() == "NPC_")
                 .Take(500)) {
@@ -238,7 +234,7 @@ namespace Tests.defs {
 
         [Test]
         public void WiringMorphValue() {
-            var plugin = LoadOrIgnore("formats-fo4.esp");
+            var plugin = Fixture.Master(Games.FO4, "Fallout4.esm");
             var found = false;
             foreach (var rec in plugin.records
                 .Where(r => r.signature.ToString() == "NPC_")
@@ -260,7 +256,7 @@ namespace Tests.defs {
 
         [Test]
         public void MorphValueResolvedName() {
-            var plugin = LoadOrIgnore("formats-fo4.esp");
+            var plugin = Fixture.Master(Games.FO4, "Fallout4.esm");
             foreach (var rec in plugin.records
                 .Where(r => r.signature.ToString() == "NPC_")
                 .Take(2000)) {
@@ -312,7 +308,7 @@ namespace Tests.defs {
 
         [Test]
         public void TestXcriMeshAndRefCountsAreDistinct() {
-            var plugin = LoadOrIgnore("formats-fo4.esp");
+            var plugin = Fixture.Master(Games.FO4, "Fallout4.esm");
             var rec = plugin.GetRecordByFormId(0x8393);
             var xcri = rec.GetElement("XCRI") as Container;
             var meshes = (xcri.GetElement("Meshes") as Container).elements;
@@ -324,7 +320,7 @@ namespace Tests.defs {
 
         [Test]
         public void TestOmodFirstPropertyIsSpeed() {
-            var plugin = LoadOrIgnore("formats-fo4.esp");
+            var plugin = Fixture.Master(Games.FO4, "Fallout4.esm");
             var rec = plugin.GetRecordByFormId(0x20BD1);
             var prop = Walk(rec, "ObjectModPropertyFormat");
             Assert.IsNotNull(prop);
@@ -336,7 +332,7 @@ namespace Tests.defs {
 
         [Test]
         public void TestVoiceNoteResolvesSceneBranch() {
-            var plugin = LoadOrIgnore("formats-fo4.esp");
+            var plugin = Fixture.Master(Games.FO4, "Fallout4.esm");
             var rec = plugin.GetRecordByFormId(0x1D394);
             var snam = rec.GetElement("SNAM") as Container;
             Assert.AreEqual("Scene", snam.elements[0].def.name);
@@ -344,7 +340,7 @@ namespace Tests.defs {
 
         [Test]
         public void TestAechValueBranchMatchesType() {
-            var plugin = LoadOrIgnore("formats-fo4.esp");
+            var plugin = Fixture.Master(Games.FO4, "Fallout4.esm");
             var rec = plugin.GetRecordByFormId(0x4A834);
             var effect = (
                 (rec.GetElement("Effects") as Container).elements[0] as Container

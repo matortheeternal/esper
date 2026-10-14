@@ -79,15 +79,12 @@ namespace Tests.defs {
         }
 
         private static PluginFile LoadSharedSkyrim() {
-            return Synthetic.GetPlugin(Games.SSE, "formats-sse.esp");
+            return Fixture.Master(Games.SSE, "Skyrim.esm");
         }
 
         private static void LoadStrings(Session session, PluginFile plugin) {
-            var files = new[] {
-                "formats-sse_english.strings",
-                "formats-sse_english.dlstrings",
-            }.Select(f => TestHelpers.FixturePath(f)).ToList();
-            if (files.Any(f => !File.Exists(f)))
+            var files = Fixture.StringFiles(Games.SSE, "Skyrim.esm");
+            if (files.Count == 0)
                 Assert.Ignore("Missing skyrim_strings fixture");
             session.resourceManager.LoadPluginStrings(plugin, files);
         }
@@ -249,13 +246,10 @@ namespace Tests.defs {
 
         [Test]
         public void QuestAliasResolvesAgainstAliasList() {
-            var skyPath = TestHelpers.FixturePath("formats-sse.esp");
-            if (!File.Exists(skyPath))
-                Assert.Ignore("Missing local fixture: formats-sse.esp");
             var session = new Session(Games.SSE, new SessionOptions {
                 resolveAliases = true,
             });
-            var plugin = session.pluginManager.LoadPlugin(skyPath);
+            var plugin = Fixture.LoadFreshInto(session, Games.SSE, "Skyrim.esm");
             var format = new QuestAliasFormat(
                 session.definitionManager, new JObject()
             );

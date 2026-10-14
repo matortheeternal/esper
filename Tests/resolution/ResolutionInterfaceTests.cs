@@ -25,9 +25,11 @@ namespace Tests.resolution {
                 return e is GroupRecord g && g.isTopGroup
                     && g.groupDef.signature.ToString() == "ACTI";
             });
-            pluginPath = TestHelpers.FixturePath("Dragonborn.esm");
-            if (System.IO.File.Exists(pluginPath))
-                dragonborn = pluginManager.LoadPlugin(pluginPath);
+            try {
+                dragonborn = Fixture.LoadFreshInto(session, Games.SSE, "Dragonborn.esm");
+            } catch (IgnoreException) {
+                dragonborn = null;
+            }
             pluginPath = TestHelpers.FixturePath("ARecords.esp");
             plugin2 = pluginManager.LoadPlugin(pluginPath);
         }
@@ -69,7 +71,7 @@ namespace Tests.resolution {
         public void TestResolution_Reference() {
             RequireDragonborn();
             var rec = group.elements[0];
-            Assert.AreEqual(null, rec.GetElement("Record Header\\@FormID"));
+            Assert.AreEqual(rec, rec.GetElement("Record Header\\@FormID"));
             var rec2 = plugin2.GetElement("0x800");
             Assert.AreEqual(rec2, rec2.GetElement("Record Header\\@FormID"));
             Assert.AreEqual(
@@ -109,7 +111,10 @@ namespace Tests.resolution {
         [Test]
         public void TestResolution_Name() {
             RequireDragonborn();
-            Assert.AreEqual(dragonborn, session.root.ResolveElement("Dragonborn.esm"));
+            var esmName = Fixture.mode == Fixture.Mode.Game
+                ? "Dragonborn.esm"
+                : "Dragonborn.fixture.esp";
+            Assert.AreEqual(dragonborn, session.root.ResolveElement(esmName));
             Assert.AreEqual(group, plugin.ResolveElement("Activator"));
             var rec = group.elements[0];
             Assert.AreEqual(rec, group.ResolveElement("defaultBlankTrigger"));

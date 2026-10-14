@@ -11,7 +11,7 @@ namespace Tests.defs {
     [TestFixture]
     public class UnionSortKeyTests {
         private static PluginFile LoadSharedSkyrim() {
-            return Synthetic.GetPlugin(Games.SSE, "Skyrim.esm");
+            return Fixture.Master(Games.SSE, "Skyrim.esm");
         }
 
         private static void Walk(Element el, List<Element> found) {

@@ -56,3 +56,33 @@ The `SkyrimEsmTest` requires installing certain files in the fixtures folder:
   - `fixtures/skyrim_strings/skyrim_english.dlstrings`
   - `fixtures/skyrim_strings/skyrim_english.ilstrings`
   - `fixtures/skyrim_strings/skyrim_english.strings`
+
+### Local game data folders (optional)
+
+Tests resolve game masters in this order: the `ESPER_<GAME>_DATA` folder
+(`TES4`, `FO3`, `FNV`, `TES5`, `SSE`, `FO4`, `SF`), then `fixtures/`.
+Copy `.env.example` to `.env` and set the folders you have, e.g.
+`ESPER_TES5_DATA=/mnt/elements/SteamLibrary/.../Skyrim/Data`. Real
+environment variables take precedence over `.env`. `.env` is git-ignored;
+only `.env.example` is committed. Tests that need a missing master skip
+themselves with the filename.
+
+### Test modes (default: fixture)
+
+`ESPER_TEST_MODE` selects how tests access game masters:
+
+- unset (default): `fixture` — tests use the small checked-in plugins in
+  `fixtures/auto/` (`<Base>.fixture.esp`, mastered to the real ESM name).
+  Absent masters auto-materialize as in-session dummies, and missing
+  records resolve through them via record injection (see below).
+- `game`: tests load the real ESMs from the folders above (or `fixtures/`).
+- `build`: like `game`, but each fixture-missing record is appended to
+  `fixtures/auto/<Base>.missing`; run the gated generator test with
+  `ESPER_GENERATE_FIXTURES=1` to bake them into `fixtures/auto/`.
+
+Record injection (xEdit semantics): a record whose file-ID slot has no
+loaded master registers into that slot's plugin as an injected record, and
+`GetRecordByFormId` falls back to it after the exact search misses. This is
+what lets mastered fixture plugins resolve references against dummy
+masters. Disable per session with
+`new SessionOptions { allowInjections = false }`.
