@@ -22,7 +22,15 @@ namespace esper.setup {
         internal StructDef recordHeaderDef;
         internal StructDef groupHeaderDef;
         private readonly DeciderMap deciders = new DeciderMap();
-        private readonly HashSet<string> warnedDefIds = new HashSet<string>();
+        private readonly HashSet<string> definitionGaps = new HashSet<string>();
+
+        internal void ReportDefinitionGap(string gap) {
+            definitionGaps.Add(gap);
+        }
+
+        public IReadOnlyCollection<string> GetDefinitionGaps() {
+            return definitionGaps.OrderBy(gap => gap).ToList().AsReadOnly();
+        }
 
         public CTDAFunctions ctdaFunctions => (CTDAFunctions)defMap["CTDAFunctions"];
 
@@ -133,9 +141,12 @@ namespace esper.setup {
             if (!defClasses.ContainsKey(defId)) {
                 if (session.options.strictDefinitions)
                     throw new Exception($"Def type not implemented: {defId}");
-                if (warnedDefIds.Add(defId))
-                    session.logger.Warn($"Def type not implemented: {defId} (skipped)");
-                return null;
+                ReportDefinitionGap($"Def type not implemented: {defId}");
+                var fallbackSrc = new JObject(src) {
+                    ["type"] = BytesDef.defId,
+                    ["name"] = "Unknown"
+                };
+                return (Def)new BytesDef(this, fallbackSrc);
             }
             var args = new object[] { this, src };
             var ctors = defClasses[defId].GetConstructors(BindingFlags.Public | BindingFlags.CreateInstance | BindingFlags.NonPublic | BindingFlags.Instance);
@@ -173,8 +184,12 @@ namespace esper.setup {
         }
 
         public Decider GetDecider(string key) {
-            if (!deciders.ContainsKey(key))
-                throw new Exception("Unknown decider: " + key);
+            if (!deciders.ContainsKey(key)) {
+                // Graceful: build succeeds; the placeholder only throws if
+                // data actually routes through the missing decider.
+                ReportDefinitionGap($"Unknown decider: {key}");
+                return new UnknownDecider(key);
+            }
             return deciders[key];
         }
 

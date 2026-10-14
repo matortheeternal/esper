@@ -1,4 +1,5 @@
 using esper;
+using esper.defs;
 using esper.setup;
 using Newtonsoft.Json.Linq;
 using NUnit.Framework;
@@ -43,15 +44,41 @@ namespace Tests.setup {
         }
 
         [Test]
-        public void TestLooseModeSkipsWithOneWarning() {
+        public void TestLooseModeFallsBackToUnknownBytes() {
+            // Unknown def types degrade to a byte-array def named
+            // "Unknown" instead of being skipped with a warning.
             var session = NewSession(false);
-            Assert.IsNull(session.definitionManager.BuildDef(BogusDef()));
-            Assert.IsNull(session.definitionManager.BuildDef(BogusDef()));
+            var manager = session.definitionManager;
+            var def = manager.BuildDef(BogusDef());
+            Assert.IsInstanceOf<BytesDef>(def);
+            Assert.AreEqual("Unknown", ((BytesDef)def).name);
+            // Idempotent: repeated builds report the gap only once,
+            // and no warnings are surfaced.
+            _ = manager.BuildDef(BogusDef());
             var warnings = session.logger.messages
                 .Where(m => m.messageType == LogMessageType.Warning)
-                .Where(m => m.text.Contains("bogusDefType"))
                 .ToList();
-            Assert.AreEqual(1, warnings.Count);
+            Assert.IsEmpty(warnings);
+            CollectionAssert.Contains(
+                manager.GetDefinitionGaps(),
+                "Def type not implemented: bogusDefType"
+            );
+        }
+
+        [Test]
+        public void TestUnknownDeciderDegradesGracefully() {
+            // GetDecider stays graceful at build time; the placeholder
+            // only throws if data actually routes through it.
+            var session = NewSession(false);
+            var manager = session.definitionManager;
+            var decider = manager.GetDecider("BogusDecider");
+            Assert.IsInstanceOf<UnknownDecider>(decider);
+            var exception = Assert.Throws<Exception>(() =>
+                decider.Decide(null));
+            StringAssert.Contains("BogusDecider", exception.Message);
+            CollectionAssert.Contains(
+                manager.GetDefinitionGaps(), "Unknown decider: BogusDecider"
+            );
         }
 
         [Test]
