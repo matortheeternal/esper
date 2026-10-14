@@ -86,6 +86,9 @@ namespace Tests {
         private static readonly HashSet<string> sortedMasters =
             new HashSet<string>();
 
+        private static readonly HashSet<string> loadedStrings =
+            new HashSet<string>();
+
         public static PluginFile Master(Game game, string esm) {
             var path = ModePath(game, esm);
             var key = game.abbreviation + ":" + path;
@@ -95,6 +98,16 @@ namespace Tests {
             if (path == FixturePath(esm)) {
                 lock (sortedMasters) {
                     if (sortedMasters.Add(key)) plugin.SortRecords();
+                }
+            }
+            lock (loadedStrings) {
+                if (!loadedStrings.Contains(key)) {
+                    var files = StringFiles(game, esm);
+                    if (files.Count > 0) {
+                        Synthetic.GetSession(game).resourceManager
+                            .LoadPluginStrings(plugin, files);
+                        loadedStrings.Add(key);
+                    }
                 }
             }
             return plugin;
@@ -216,7 +229,8 @@ namespace Tests {
                 ));
                 foreach (var ext in new[] { ".strings", ".dlstrings", ".ilstrings" })
                     if (File.Exists(stem + ext)) found.Add(stem + ext);
-            } else if (game.abbreviation == "SSE") {
+            }
+            if (found.Count == 0 && game.abbreviation == "SSE") {
                 var dir = TestHelpers.FixturePath("skyrim_strings");
                 foreach (var name in new[] {
                     "skyrim_english.strings",
