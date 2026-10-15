@@ -42,7 +42,7 @@ namespace esper.defs.TES5 {
                 : $"{index:D3}";
         }
 
-        internal override string DataToValue(ValueElement element, ValueData data) {
+        internal override string DataToValue(ValueElement element, VariantData data) {
             var rec = GetQuest(element);
             if (rec == null || rec.signature != Signatures.QUST) return data.ToDisplayString();
             var stage = GetMatchingStage(rec, (int)data.ToInt64());
@@ -51,7 +51,7 @@ namespace esper.defs.TES5 {
                 : data.ToDisplayString();
         }
 
-        internal override ValueData ValueToData(ValueElement element, string value) {
+        internal override VariantData ValueToData(ValueElement element, string value) {
             return DataHelpers.ParseLeadingUInt(value);
         }
     }

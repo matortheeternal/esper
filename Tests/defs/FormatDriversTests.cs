@@ -293,7 +293,7 @@ namespace Tests.defs {
             Assert.AreEqual(30, Convert.ToInt32(format.ValueToData(stage, "030")?.ToInt64() ?? 0));
             var quest = WalkElements(perk)
                 .OfType<ValueElement>()
-                .FirstOrDefault(v => v.data is esper.defs.ValueData.Form f &&
+                .FirstOrDefault(v => v.data is VariantData.Form f &&
                     f.V.fileFormId == 0x5F596);
             Assert.IsNotNull(quest);
             var questData = quest.data;
@@ -389,7 +389,7 @@ namespace Tests.defs {
             Assert.AreEqual(557L, format.ValueToData(triangle, "557").ToInt64());
             var nav = ((Container)triangle.container).elements[0] as ValueElement;
             Assert.IsNotNull(nav);
-            Assert.AreEqual(0xD6989, ((esper.defs.ValueData.Form)nav.data).V.fileFormId);
+            Assert.AreEqual(0xD6989, ((VariantData.Form)nav.data).V.fileFormId);
             var clean = new List<ElementWarning>();
             format.GetWarnings(triangle, clean);
             Assert.IsEmpty(clean);

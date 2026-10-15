@@ -70,7 +70,7 @@ namespace esper.defs.TES5 {
 
         // TODO: sortKey, warnings
 
-        internal override string DataToValue(ValueElement element, ValueData data) {
+        internal override string DataToValue(ValueElement element, VariantData data) {
             int index = (int)data.ToInt64();
             var actor = element?.GetElement("^Record");
             var female = actor?.GetFlag(@"ACBS\Flags", "Female");
@@ -82,7 +82,7 @@ namespace esper.defs.TES5 {
             return $"{index} {entryName}";
         }
 
-        internal override ValueData ValueToData(ValueElement element, string value) {
+        internal override VariantData ValueToData(ValueElement element, string value) {
             return DataHelpers.ParseInt64(value);
         }
     }

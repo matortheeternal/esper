@@ -42,24 +42,24 @@ namespace esper.defs {
             return new ValueElement(container, this);
         }
 
-        internal virtual ValueData ReadData(DataSource source, UInt32? dataSize) {
+        internal virtual VariantData ReadData(DataSource source, UInt32? dataSize) {
             throw new NotImplementedException();
         }
 
-        internal virtual ValueData DefaultData() {
+        internal virtual VariantData DefaultData() {
             throw new NotImplementedException();
         }
 
-        internal virtual void SetData(ValueElement element, ValueData data) {
+        internal virtual void SetData(ValueElement element, VariantData data) {
             element._data = data;
             element.MarkModified();
         }
 
-        internal virtual string DataToString(ValueData data) {
+        internal virtual string DataToString(VariantData data) {
             return data.ToDisplayString();
         }
 
-        internal virtual string DataToSortKey(ValueData data) {
+        internal virtual string DataToSortKey(VariantData data) {
             return data.ToHex($"X{2 * size}");
         }
 

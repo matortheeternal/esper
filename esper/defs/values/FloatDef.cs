@@ -14,15 +14,15 @@ namespace esper.defs {
         internal FloatDef(DefinitionManager manager, JObject src)
             : base(manager, src) { }
 
-        internal override ValueData ReadData(DataSource source, UInt32? dataSize) {
+        internal override VariantData ReadData(DataSource source, UInt32? dataSize) {
             return source.reader.ReadSingle();
         }
 
-        internal override ValueData DefaultData() {
+        internal override VariantData DefaultData() {
             return 0.0f;
         }
 
-        internal override string DataToSortKey(ValueData data) {
+        internal override string DataToSortKey(VariantData data) {
             if (Single.IsNaN(data.ToSingle())) return new string(' ', 23);
             if (data.ToSingle() == Single.MaxValue) return "+" + new string('9', 22);
             string sortKey = Math.Abs(data.ToSingle())
@@ -32,7 +32,7 @@ namespace esper.defs {
             return (isNegative ? '-' : '+') + sortKey;
         }
 
-        internal override string DataToString(ValueData data) {
+        internal override string DataToString(VariantData data) {
             if (Single.IsNaN(data.ToSingle())) return "NaN";
             if (Single.IsInfinity(data.ToSingle())) return "Inf";
             if (data.ToSingle() == Single.MaxValue) return "Default";
@@ -48,7 +48,7 @@ namespace esper.defs {
         internal override void WriteData(
             ValueElement element, PluginFileOutput output
         ) {
-            if (element.data is ValueData.F32 data) {
+            if (element.data is VariantData.F32 data) {
                 output.writer.Write(data.V);
             } else {
                 output.writer.Write(0.0f);

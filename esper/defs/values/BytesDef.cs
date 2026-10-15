@@ -15,11 +15,11 @@ namespace esper.defs {
                 throw new Exception("Def source has invalid size" + fixedSize);
         }
 
-        internal override string DataToSortKey(ValueData data) {
+        internal override string DataToSortKey(VariantData data) {
             return data.ToDisplayString();
         }
 
-        internal override ValueData ReadData(DataSource source, UInt32? dataSize) {
+        internal override VariantData ReadData(DataSource source, UInt32? dataSize) {
             if (isVariableSize && dataSize == null)
                 throw new Exception("Cannot read data of unknown size.");
             // return empty array if there are no bytes to read
@@ -29,13 +29,13 @@ namespace esper.defs {
             return source.reader.ReadBytes((int)numBytes);
         }
 
-        internal override ValueData DefaultData() {
+        internal override VariantData DefaultData() {
             if (isVariableSize) return new byte[0];
             return new byte[(int)fixedSize];
         }
 
-        internal override void SetData(ValueElement element, ValueData data) {
-            if (data is not ValueData.Bytes bytes)
+        internal override void SetData(ValueElement element, VariantData data) {
+            if (data is not VariantData.Bytes bytes)
                 throw new InvalidOperationException("Data must be a byte array.");
             if (!isVariableSize && bytes.Raw.Length != fixedSize)
                 throw new Exception("Bytes size mismatch");
@@ -43,7 +43,7 @@ namespace esper.defs {
         }
 
         public override string GetValue(ValueElement element) {
-            if (element.data is not ValueData.Bytes bytes)
+            if (element.data is not VariantData.Bytes bytes)
                 throw new InvalidOperationException("Data must be a byte array.");
             return StringHelpers.FormatBytes(bytes.Raw);
         }
@@ -55,16 +55,16 @@ namespace esper.defs {
         internal override UInt32 GetSize(Element element) {
             UInt32 size = (UInt32)(IsSubrecord() ? 6 : 0);
             var v = (ValueElement)element;
-            byte[] bytes = v.data is ValueData.Bytes b
-                ? b.Raw : ((ValueData.Bytes)DefaultData()).Raw;
+            byte[] bytes = v.data is VariantData.Bytes b
+                ? b.Raw : ((VariantData.Bytes)DefaultData()).Raw;
             return (UInt32)(size + bytes.Length);
         }
 
         internal override void WriteData(
             ValueElement element, PluginFileOutput output
         ) {
-            byte[] data = element.data is ValueData.Bytes b
-                ? b.Raw : ((ValueData.Bytes)DefaultData()).Raw;
+            byte[] data = element.data is VariantData.Bytes b
+                ? b.Raw : ((VariantData.Bytes)DefaultData()).Raw;
             output.writer.Write(data);
         }
 

@@ -14,23 +14,23 @@ namespace esper.defs.TES5 {
             actorValueEnum = (EnumDef)manager.BuildDef(enumSrc);
         }
 
-        private long GetIndex(ValueData data) {
+        private long GetIndex(VariantData data) {
             float fData = BitConverter.ToSingle(data.ToBytes());
             return (long)Math.Round(fData);
         }
 
-        internal override string DataToValue(ValueElement element, ValueData data) {
+        internal override string DataToValue(ValueElement element, VariantData data) {
             long index = GetIndex(data);
             return actorValueEnum.DataToValue(element, index);
         }
 
-        internal override ValueData ValueToData(ValueElement element, string value) {
+        internal override VariantData ValueToData(ValueElement element, string value) {
             float fData = actorValueEnum.ValueToData(element, value).ToSingle();
             byte[] bytes = BitConverter.GetBytes(fData);
             return BitConverter.ToUInt32(bytes);
         }
 
-        internal override string GetSortKey(ValueElement element, ValueData data) {
+        internal override string GetSortKey(ValueElement element, VariantData data) {
             long index = GetIndex(data);
             return actorValueEnum.GetSortKey(element, index);
         }

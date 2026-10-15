@@ -15,15 +15,15 @@ namespace esper.defs {
         internal UInt8Def(DefinitionManager manager, JObject src)
             : base(manager, src) { }
 
-        internal override ValueData ReadData(DataSource source, UInt32? dataSize) {
+        internal override VariantData ReadData(DataSource source, UInt32? dataSize) {
             return source.reader.ReadByte();
         }
 
-        internal override ValueData DefaultData() {
+        internal override VariantData DefaultData() {
             return (byte)0;
         }
 
-        internal override void SetData(ValueElement element, ValueData data) {
+        internal override void SetData(ValueElement element, VariantData data) {
             element._data = sessionOptions.clampIntegerValues
                 ? DataHelpers.ClampToUInt8(data.ToInt64())
                 : data.ToByte();
@@ -33,7 +33,7 @@ namespace esper.defs {
         internal override void WriteData(
             ValueElement element, PluginFileOutput output
         ) {
-            if (element.data is ValueData.U8 data) {
+            if (element.data is VariantData.U8 data) {
                 output.writer.Write(data.V);
             } else {
                 output.writer.Write((byte)0);

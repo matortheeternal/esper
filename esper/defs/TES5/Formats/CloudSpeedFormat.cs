@@ -8,12 +8,12 @@ namespace esper.defs.TES5 {
         internal CloudSpeedFormat(DefinitionManager manager, JObject src)
             : base(manager, src) { }
 
-        internal override string DataToValue(ValueElement element, ValueData data) {
+        internal override string DataToValue(ValueElement element, VariantData data) {
             float v = (data.ToSingle() - 127) / 1270.0f;
             return v.ToString("F4");
         }
 
-        internal override ValueData ValueToData(ValueElement element, string value) {
+        internal override VariantData ValueToData(ValueElement element, string value) {
             float v = float.Parse(value);
             return (byte)Math.Min(Math.Round(v * 1270 + 127), 254);
         }

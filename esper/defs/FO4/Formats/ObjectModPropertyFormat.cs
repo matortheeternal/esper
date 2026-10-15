@@ -32,7 +32,7 @@ namespace esper.defs.FO4 {
             if (signature == OMOD) {
                 var formType = record.GetElement(@"DATA\Form Type")
                     as ValueElement;
-                if (!(formType?.data is ValueData.U32 u)) return null;
+                if (!(formType?.data is VariantData.U32 u)) return null;
                 signature = new Signature(unchecked((int)u.V));
             }
             if (signature == ARMO) return armorPropertyEnum;
@@ -42,7 +42,7 @@ namespace esper.defs.FO4 {
         }
 
         internal override string DataToValue(
-            ValueElement element, ValueData data
+            ValueElement element, VariantData data
         ) {
             var propertyEnum = GetPropertyEnum(element);
             return propertyEnum == null
@@ -50,7 +50,7 @@ namespace esper.defs.FO4 {
                 : propertyEnum.DataToValue(element, data);
         }
 
-        internal override ValueData ValueToData(
+        internal override VariantData ValueToData(
             ValueElement element, string value
         ) {
             var propertyEnum = GetPropertyEnum(element);

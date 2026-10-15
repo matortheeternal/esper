@@ -11,7 +11,7 @@ namespace esper.defs.FO3 {
         internal PerkDATAFunctionFormat(DefinitionManager manager, JObject src)
             : base(manager, src) { }
 
-        internal override string DataToValue(ValueElement element, ValueData data) {
+        internal override string DataToValue(ValueElement element, VariantData data) {
             var entryPoint = element?.container?.GetData<int?>("Entry Point");
             if (entryPoint == null) return data.ToDisplayString();
             var ep = (int)entryPoint;
@@ -25,11 +25,11 @@ namespace esper.defs.FO3 {
             return text;
         }
 
-        internal override string GetSortKey(ValueElement element, ValueData data) {
+        internal override string GetSortKey(ValueElement element, VariantData data) {
             return data.ToInt64().ToString("X2");
         }
 
-        internal override ValueData ValueToData(ValueElement element, string value) {
+        internal override VariantData ValueToData(ValueElement element, string value) {
             if (long.TryParse(value.Trim(), out var number)) return number;
             for (var i = 0; i < PerkTables.FunctionNames.Length; i++) {
                 if (string.Equals(

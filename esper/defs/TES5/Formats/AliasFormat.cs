@@ -14,7 +14,7 @@ namespace esper.defs.TES5 {
             throw new NotImplementedException();
         }
 
-        private string DataToValue(ValueData data) {
+        private string DataToValue(VariantData data) {
             if (data.ToInt64() == -1) return "None";
             return data.ToDisplayString();
         }
@@ -33,7 +33,7 @@ namespace esper.defs.TES5 {
         // TODO: sort key
         // TODO: edit info?
 
-        internal override string DataToValue(ValueElement element, ValueData data) {
+        internal override string DataToValue(ValueElement element, VariantData data) {
             if (!sessionOptions.resolveAliases) return DataToValue(data);
             var questRef = ResolveQuestRec(element);
             if (questRef == null || questRef.signature != Signatures.QUST)
@@ -43,7 +43,7 @@ namespace esper.defs.TES5 {
             return DataToValue(data);
         }
 
-        internal override ValueData ValueToData(ValueElement element, string value) {
+        internal override VariantData ValueToData(ValueElement element, string value) {
             return DataHelpers.ParseInt64(value, -1);
         }
     }

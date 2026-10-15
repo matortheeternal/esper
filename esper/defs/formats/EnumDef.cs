@@ -16,7 +16,7 @@ namespace esper.defs {
             unknownOption = src.Value<string>("unknownOption");
         }
 
-        internal override string DataToValue(ValueElement element, ValueData data) {
+        internal override string DataToValue(ValueElement element, VariantData data) {
             var options = this.options;
             Int64 indexKey = data.ToInt64();
             if (!options.ContainsKey(indexKey))
@@ -24,7 +24,7 @@ namespace esper.defs {
             return options[indexKey];
         }
 
-        internal override ValueData ValueToData(ValueElement element, string value) {
+        internal override VariantData ValueToData(ValueElement element, string value) {
             var options = this.options;
             foreach (var (key, option) in options)
                 if (option == value) return key;

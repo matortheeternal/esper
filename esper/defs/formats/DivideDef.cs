@@ -11,12 +11,12 @@ namespace esper.defs {
             divisionValue = src.Value<int>("value");
         }
 
-        internal override string DataToValue(ValueElement element, ValueData data) {
+        internal override string DataToValue(ValueElement element, VariantData data) {
             float f = data.ToSingle() / (float)divisionValue;
             return f.ToString(sessionOptions.floatFormat);
         }
 
-        internal override ValueData ValueToData(ValueElement element, string value) {
+        internal override VariantData ValueToData(ValueElement element, string value) {
             return float.Parse(value) * divisionValue;
         }
     }

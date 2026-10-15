@@ -20,7 +20,7 @@ namespace Tests.plugins {
             var line = pad + el.def.name + " [" + el.def.GetType().Name + "]";
             if (el is ValueElement ve) {
                 var d = ve.data;
-                if (d is esper.defs.ValueData.Bytes b) line += " bytes[" + b.Raw.Length + "]";
+                if (d is VariantData.Bytes b) line += " bytes[" + b.Raw.Length + "]";
                 else if (d == null) line += " null";
                 else line += " " + d.ToPrimitive().GetType().Name + "=" + d.ToDisplayString();
             }

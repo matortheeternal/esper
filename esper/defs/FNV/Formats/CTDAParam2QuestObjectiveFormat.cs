@@ -24,7 +24,7 @@ namespace esper.defs.FNV {
             return target.overrides.LastOrDefault() ?? target;
         }
 
-        internal override string DataToValue(ValueElement element, ValueData data) {
+        internal override string DataToValue(ValueElement element, VariantData data) {
             var raw = data.ToDisplayString();
             var quest = ResolveQuest(element);
             if (quest == null)
@@ -42,11 +42,11 @@ namespace esper.defs.FNV {
             return name.Length == 0 ? $"{index:D3}" : $"{index:D3} {name}";
         }
 
-        internal override string GetSortKey(ValueElement element, ValueData data) {
+        internal override string GetSortKey(ValueElement element, VariantData data) {
             return ((int)data.ToInt64()).ToString("X8");
         }
 
-        internal override ValueData ValueToData(ValueElement element, string value) {
+        internal override VariantData ValueToData(ValueElement element, string value) {
             return DataHelpers.ParseLeadingUInt(value);
         }
     }

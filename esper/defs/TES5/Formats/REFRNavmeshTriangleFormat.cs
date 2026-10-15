@@ -34,11 +34,11 @@ namespace esper.defs.TES5 {
             });
         }
 
-        internal override string DataToValue(ValueElement element, ValueData data) {
+        internal override string DataToValue(ValueElement element, VariantData data) {
             return data.ToDisplayString();
         }
 
-        internal override ValueData ValueToData(ValueElement element, string value) {
+        internal override VariantData ValueToData(ValueElement element, string value) {
             return Int64.Parse(value);
         }
     }

@@ -13,11 +13,11 @@ namespace esper.defs {
         internal Int0Def(DefinitionManager manager, JObject src)
             : base(manager, src) { }
 
-        internal override ValueData ReadData(DataSource source, UInt32? dataSize) {
+        internal override VariantData ReadData(DataSource source, UInt32? dataSize) {
             return null;
         }
 
-        internal override ValueData DefaultData() {
+        internal override VariantData DefaultData() {
             return null;
         }
 

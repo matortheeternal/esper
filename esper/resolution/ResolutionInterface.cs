@@ -151,7 +151,7 @@ namespace esper.resolution {
         public static void SetData<T>(this Element r, string path, T data) {
             var valueElement = r.GetElement(path) as ValueElement;
             if (valueElement == null) return;
-            valueElement.data = ValueData.From(data);
+            valueElement.data = VariantData.From(data);
         }
 
         public static void SetValue(

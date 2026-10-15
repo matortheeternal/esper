@@ -11,12 +11,12 @@ namespace esper.defs.TES5 {
         ) : base(manager, src) { }
 
         // TODO: normalize
-        internal override string DataToValue(ValueElement element, ValueData data) {
+        internal override string DataToValue(ValueElement element, VariantData data) {
             float fData = data.ToSingle();
             return (fData * 180 / Math.PI).ToString("F4");
         }
 
-        internal override ValueData ValueToData(ValueElement element, string value) {
+        internal override VariantData ValueToData(ValueElement element, string value) {
             float fData = float.Parse(value);
             return (float)(fData * Math.PI / 180);
         }

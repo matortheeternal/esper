@@ -11,7 +11,7 @@ namespace esper.defs.FO3 {
         internal NVTREdgeFormat(DefinitionManager manager, JObject src)
             : base(manager, src) { }
 
-        internal override string DataToValue(ValueElement element, ValueData data) {
+        internal override string DataToValue(ValueElement element, VariantData data) {
             var name = element?.def?.name;
             var index = name != null && name.Length > 0 ? name[0] - '0' : -1;
             if (index < 0 || index > 2) return data.ToDisplayString();
@@ -30,11 +30,11 @@ namespace esper.defs.FO3 {
                     triangle + " in \"" + target.GetValue("EDID") + "\")";
         }
 
-        internal override string GetSortKey(ValueElement element, ValueData data) {
+        internal override string GetSortKey(ValueElement element, VariantData data) {
             return "";
         }
 
-        internal override ValueData ValueToData(ValueElement element, string value) {
+        internal override VariantData ValueToData(ValueElement element, string value) {
             return DataHelpers.ParseLeadingUInt(value);
         }
     }
