@@ -15,14 +15,7 @@ namespace esper.defs.TES5 {
         }
 
         private long GetIndex(ValueData data) {
-            byte[] bytes = data switch {
-                ValueData.F32 f => BitConverter.GetBytes(f.V),
-                ValueData.I32 i => BitConverter.GetBytes(i.V),
-                ValueData.U32 u => BitConverter.GetBytes(u.V),
-                ValueData.I64 l => BitConverter.GetBytes(l.V),
-                _ => throw new InvalidOperationException("Expected a numeric value."),
-            };
-            float fData = BitConverter.ToSingle(bytes);
+            float fData = BitConverter.ToSingle(data.ToBytes());
             return (long)Math.Round(fData);
         }
 

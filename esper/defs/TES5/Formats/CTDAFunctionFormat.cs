@@ -10,7 +10,7 @@ namespace esper.defs.TES5 {
             : base(manager, src) { }
 
         internal override string DataToValue(ValueElement element, ValueData data) {
-            UInt16 index = data is ValueData.U16 u ? u.V : (UInt16)data.ToUInt64();
+            UInt16 index = data.ToUInt16();
             var ctdaFunction = manager.ctdaFunctions.FunctionByIndex(index);
             if (ctdaFunction != null) return ctdaFunction.name;
             return $"<Unknown: {data.ToDisplayString()}>";

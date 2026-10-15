@@ -23,7 +23,7 @@ namespace esper.defs.TES5 {
         }
 
         internal override string GetSortKey(ValueElement element, ValueData data) {
-            UInt16 v = data is ValueData.U16 u ? u.V : (UInt16)data.ToUInt64();
+            UInt16 v = data.ToUInt16();
             return $"{v:X4}";
         }
     }
@@ -44,7 +44,8 @@ namespace esper.defs.TES5 {
     }
 
     public class Vertex2Format : VertexFormat {
-        public static readonly string defId = "Vertex2Format";
+        public static readonly string defId = "Vertex2Format";
+
         protected override int vertex => 2;
 
         internal Vertex2Format(DefinitionManager manager, JObject src)

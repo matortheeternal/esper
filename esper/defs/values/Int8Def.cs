@@ -24,7 +24,7 @@ namespace esper.defs {
         }
 
         internal override string DataToSortKey(ValueData data) {
-            Int32 v = data is ValueData.I8 i8 ? i8.V : (Int32)data.ToInt64();
+            Int32 v = data.ToInt32();
             v += Math.Abs((Int32)sbyte.MinValue);
             return v.ToString("X2");
         }
@@ -32,7 +32,7 @@ namespace esper.defs {
         internal override void SetData(ValueElement element, ValueData data) {
             element._data = sessionOptions.clampIntegerValues
                 ? DataHelpers.ClampToInt8(data.ToInt64())
-                : data is ValueData.I8 i8 ? i8.V : (sbyte)data.ToInt64();
+                : data.ToSByte();
             element.SetState(ElementState.Modified);
         }
 

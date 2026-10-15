@@ -65,14 +65,15 @@ namespace esper.defs {
         }
 
         internal override string DataToSortKey(ValueData data) {
-            string str = data switch {
-                null => null,
-                ValueData.LString l => l.V.ToString(),
-                ValueData.Text t => t.V,
-                _ => throw new InvalidOperationException("Data must be a string."),
-            };
+            var str = SortText(data);
             if (str == null) return string.Empty;
             return keepCase ? str : str.ToUpper();
+        }
+
+        private static string SortText(ValueData data) {
+            if (data is ValueData.LString l) return l.V.ToString();
+            if (data is ValueData.Text t) return t.V;
+            throw new InvalidOperationException("Data must be a string.");
         }
 
         internal override UInt32 GetSize(Element element) {

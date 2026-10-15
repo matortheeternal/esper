@@ -10,7 +10,7 @@ namespace esper.defs.TES5 {
             : base(manager, src) { }
 
         internal override string DataToValue(ValueElement element, ValueData data) {
-            UInt16 v = data is ValueData.U16 u ? u.V : (UInt16)data.ToUInt64();
+            UInt16 v = data.ToUInt16();
             return $"{v} -> {v / 17}:{v % 17}";
         }
 
@@ -19,7 +19,7 @@ namespace esper.defs.TES5 {
         }
 
         internal override string GetSortKey(ValueElement element, ValueData data) {
-            UInt16 v = data is ValueData.U16 u ? u.V : (UInt16)data.ToUInt64();
+            UInt16 v = data.ToUInt16();
             return $"{v / 17:X2}{v % 17:X2}";
         }
     }

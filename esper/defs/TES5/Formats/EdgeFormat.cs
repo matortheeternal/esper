@@ -23,7 +23,7 @@ namespace esper.defs.TES5 {
         }
 
         internal override string GetSortKey(ValueElement element, ValueData data) {
-            UInt16 v = data is ValueData.U16 u ? u.V : (UInt16)data.ToUInt64();
+            UInt16 v = data.ToUInt16();
             return $"00000000{v:X4}";
         }
     }
