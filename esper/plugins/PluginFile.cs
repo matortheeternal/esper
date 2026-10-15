@@ -84,10 +84,34 @@ namespace esper.plugins {
         public void Save(string filePath) {
             this.CheckMasters();
             this.UpdateMastersElement();
+            this.UpdateHeaderRecordCount();
             var output = new PluginFileOutput(filePath, this);
             WriteTo(output);
             output.stream.Flush();
             output.stream.Close();
+        }
+
+        internal void UpdateHeaderRecordCount() {
+            header.SetData<UInt32>(
+                @"HEDR\Number of Records", CountedRecordCount() - 1);
+        }
+
+        private UInt32 CountedRecordCount() {
+            UInt32 total = 0;
+            foreach (var element in internalElements)
+                total += CountedRecords(element);
+            return total;
+        }
+
+        private static UInt32 CountedRecords(Element element) {
+            if (element is MainRecord) return 1;
+            if (element is Container container) {
+                UInt32 total = element is GroupRecord ? 1u : 0u;
+                foreach (var child in container.internalElements)
+                    total += CountedRecords(child);
+                return total;
+            }
+            return 0;
         }
 
         internal bool UseDLStrings(Signature rSig, Signature eSig) {

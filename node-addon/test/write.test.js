@@ -28,4 +28,49 @@ describe("write", () => {
       });
     });
   });
+
+  it("recounts HEDR record count at save time, not removal time", () => {
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), "esper-hedr-"));
+    const out = path.join(dir, "AllRecords.esp");
+    let before = 0;
+    let beforeRecords = 0;
+    try {
+      withSession("TES5", gamePath, session => {
+        withPlugin(session, fixture("AllRecords.esp"), plugin => {
+          const hdr = esp.getChild(plugin, 0);
+          try {
+            before = esp.getUIntValue(hdr, "HEDR\\Number of Records");
+            beforeRecords = esp.pluginRecordCount(plugin);
+            const rec = esp.getRecordByFormId(plugin, 0xEB4);
+            try {
+              assert.equal(esp.removeElement(rec, ""), true);
+            } finally {
+              esp.free(rec);
+            }
+            assert.equal(
+              esp.getUIntValue(hdr, "HEDR\\Number of Records"), before);
+            assert.equal(esp.savePlugin(plugin, out), true);
+            assert.equal(
+              esp.getUIntValue(hdr, "HEDR\\Number of Records"), before - 1);
+          } finally {
+            esp.free(hdr);
+          }
+        });
+      });
+      withSession("TES5", gamePath, session => {
+        withPlugin(session, out, plugin => {
+          assert.equal(esp.pluginRecordCount(plugin), beforeRecords - 1);
+          const hdr = esp.getChild(plugin, 0);
+          try {
+            assert.equal(
+              esp.getUIntValue(hdr, "HEDR\\Number of Records"), before - 1);
+          } finally {
+            esp.free(hdr);
+          }
+        });
+      });
+    } finally {
+      fs.rmSync(dir, { recursive: true });
+    }
+  });
 });
