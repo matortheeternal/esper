@@ -45,15 +45,11 @@ namespace Tests.setup {
 
         [Test]
         public void TestLooseModeFallsBackToUnknownBytes() {
-            // Unknown def types degrade to a byte-array def named
-            // "Unknown" instead of being skipped with a warning.
             var session = NewSession(false);
             var manager = session.definitionManager;
             var def = manager.BuildDef(BogusDef());
             Assert.IsInstanceOf<BytesDef>(def);
             Assert.AreEqual("Unknown", ((BytesDef)def).name);
-            // Idempotent: repeated builds report the gap only once,
-            // and no warnings are surfaced.
             _ = manager.BuildDef(BogusDef());
             var warnings = session.logger.messages
                 .Where(m => m.messageType == LogMessageType.Warning)
@@ -67,8 +63,6 @@ namespace Tests.setup {
 
         [Test]
         public void TestUnknownDeciderDegradesGracefully() {
-            // GetDecider stays graceful at build time; the placeholder
-            // only throws if data actually routes through it.
             var session = NewSession(false);
             var manager = session.definitionManager;
             var decider = manager.GetDecider("BogusDecider");

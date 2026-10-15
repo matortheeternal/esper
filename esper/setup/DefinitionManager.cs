@@ -185,8 +185,6 @@ namespace esper.setup {
 
         public Decider GetDecider(string key) {
             if (!deciders.ContainsKey(key)) {
-                // Graceful: build succeeds; the placeholder only throws if
-                // data actually routes through the missing decider.
                 ReportDefinitionGap($"Unknown decider: {key}");
                 return new UnknownDecider(key);
             }

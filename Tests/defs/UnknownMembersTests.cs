@@ -35,8 +35,6 @@ namespace Tests.defs {
                 var output = new PluginFileOutput(tmp, plugin);
                 mrDef.WriteElementsTo(record, output);
                 output.writer.Close();
-                // PluginFileOutput has no in-memory mode; skip its
-                // 24-byte file header to get at the record body.
                 return File.ReadAllBytes(tmp).Skip(24).ToArray();
             } finally {
                 File.Delete(tmp);
@@ -54,11 +52,6 @@ namespace Tests.defs {
             var warningsBefore = session.logger.messages.Count(
                 m => m.messageType == LogMessageType.Warning);
 
-            // Unknown subrecords now decode as elements named "Unknown"
-            // and round-trip through the element-write path (which used
-            // to drop unexpected subrecords). Other pre-existing write
-            // gaps (LEN-DIFF/NRE classes) are out of scope: the first
-            // candidate that round-trips cleanly proves the point.
             MainRecord proven = null;
             Element provenUnknown = null;
             string lastVerdict = "no candidate with unknown subrecords found";
@@ -67,9 +60,6 @@ namespace Tests.defs {
                 if (record.compressed) continue;
                 Element unknown = null;
                 try {
-                    // Declared typed members can also be named "Unknown"
-                    // (e.g. DEST); only a BytesDef paired with a gap entry
-                    // is a synthesized unknown.
                     unknown = record.elements.FirstOrDefault(el =>
                         el.name == "Unknown" && el.def is BytesDef &&
                         session.definitionManager.GetDefinitionGaps().Any(
@@ -86,7 +76,6 @@ namespace Tests.defs {
                         $"{record.signature}:{record.fileFormId:X8} " +
                         $"raw={raw.Length} written={written.Length}";
                 } catch {
-                    // Unrelated decode/write failures belong to other tests.
                 } finally {
                     if (proven == null) {
                         record._internalElements = null;
@@ -99,9 +88,6 @@ namespace Tests.defs {
                 Assert.IsInstanceOf<BytesDef>(provenUnknown.def);
                 Assert.IsEmpty(proven.unexpectedSubrecords);
 
-                // The gap is reported for dev tooling, with no new warnings.
-                // (The unknown may surface nested in a struct/union rather
-                // than at record top level, so match on signature only.)
                 var unknownSig = provenUnknown.def.signature.ToString();
                 Assert.IsTrue(
                     session.definitionManager.GetDefinitionGaps().Any(
