@@ -24,10 +24,21 @@ Session: `detectGames()`, `openSession(gameKey, gamePath)`, `free`.
 Plugins: `loadOrder(session)`, `loadPlugin(session, path)`,
 `pluginName`, `pluginPath`, `pluginRecordCount`, `pluginMasters`,
 `pluginLocalized`, `pluginModified`, `associatedArchives(session, name)`.
-Records: `getRecord(plugin, index)`, `recordFormId`, `recordEditorId`,
-`recordSignature`. Tree: `childCount`, `getChild`,
+Records: `getRecord(plugin, index)`, `getRecordByFormId(plugin, formId)`,
+`recordFormId`, `recordEditorId` (`editorID` alias), `recordSignature`.
+Tree: `childCount`, `getChild`,
 `elementKind` (`file/group/record/struct/value/element`),
 `elementLabel`, `elementValue`. Write: `savePlugin(plugin, path)`.
+
+xEdit parity tier: `hasElement`, `getElement` (missing resolves to `0n`),
+`getElementEx` (missing throws), `getElements`, `getContainer`,
+`elementPath`, `addElement` (get-or-create), `removeElement`
+(idempotent: missing returns `false`), `fileByName`,
+`getValue`/`setValue`, `getIntValue`/`setIntValue`,
+`getUIntValue`/`setUIntValue`, `getFloatValue`/`setFloatValue`,
+`getSignature`, `getIsModified`, `defType` (integer `XEDefType` index).
+`xelib-compat.js` layers xelib naming, handle groups, and enum names
+over these; see `PARITY.md` for coverage and intentional divergences.
 
 Metadata crossings (`detectGames`, `loadOrder`, `pluginMasters`,
 `associatedArchives`) return JSON strings; hot paths return handles,
