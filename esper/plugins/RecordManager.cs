@@ -47,6 +47,11 @@ namespace esper.plugins {
             m.records.Add(rec);
         }
 
+        public static bool UnindexRecord(this PluginFile m, MainRecord rec) {
+            if (m.records == null) return false;
+            return m.records.Remove(rec);
+        }
+
         public static UInt32 GetHighObjectID(this PluginFile m) {
             var highRecord = CollectionHelpers.BinarySearch(m.records, rec => {
                 return rec.fileFormId > 0xFFFFFF ? -1 : 1;

@@ -173,6 +173,7 @@ namespace esper.resolution {
 
         public static bool RemoveElement(this Element r, string path) {
             var element = r.GetElement(path);
+            if (element == null) return false;
             return element.Remove();
         }
     }

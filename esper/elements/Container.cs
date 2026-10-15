@@ -91,7 +91,8 @@ namespace esper.elements {
         }
 
         internal virtual bool RemoveElement(Element element) {
-            internalElements.Remove(element);
+            if (!internalElements.Remove(element)) return false;
+            MarkModified();
             return true;
         }
 

@@ -61,6 +61,15 @@ namespace esper.elements {
             return groupDef.signature == sig;
         }
 
+        internal override bool RemoveElement(Element element) {
+            if (!base.RemoveElement(element)) return false;
+            if (element is MainRecord rec) {
+                if (file != null) file.UnindexRecord(rec);
+                recordsByEditorID?.Remove(rec);
+            }
+            return true;
+        }
+
         private void SetParentRecord() {
             if (!(label is FormId fid)) return;
             int index = container.internalElements.Count - 2;
