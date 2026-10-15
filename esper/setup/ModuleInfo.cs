@@ -2,7 +2,7 @@
 
 namespace esper.setup {
     [JSExport]
-    public class ModuleInfo {
+    public class ModuleInfo : IComparable<ModuleInfo> {
         private static readonly int GHOST_EXT_LENGTH = 6;
 
         [JsonIgnore]
