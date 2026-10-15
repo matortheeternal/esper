@@ -26,7 +26,7 @@ namespace esper.defs {
         internal override void SetData(ValueElement element, ValueData data) {
             element._data = sessionOptions.clampIntegerValues
                 ? DataHelpers.ClampToUInt8(data.ToInt64())
-                : data is ValueData.U8 u8 ? u8.V : (byte)data.ToUInt64();
+                : data.ToByte();
             element.SetState(ElementState.Modified);
         }
 

@@ -60,19 +60,7 @@ namespace esper.defs {
         }
 
         internal virtual string DataToSortKey(ValueData data) {
-            var hex = $"X{2 * size}";
-            return data switch {
-                ValueData.I8 v => v.V.ToString(hex),
-                ValueData.U8 v => v.V.ToString(hex),
-                ValueData.I16 v => v.V.ToString(hex),
-                ValueData.U16 v => v.V.ToString(hex),
-                ValueData.I32 v => v.V.ToString(hex),
-                ValueData.U32 v => v.V.ToString(hex),
-                ValueData.I64 v => v.V.ToString(hex),
-                ValueData.F32 v => v.V.ToString(),
-                _ => throw new InvalidOperationException(
-                    "No default sort key for this value."),
-            };
+            return data.ToHex($"X{2 * size}");
         }
 
         public virtual string GetValue(ValueElement element) {
