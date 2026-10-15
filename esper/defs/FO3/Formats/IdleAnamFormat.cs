@@ -9,7 +9,7 @@ namespace esper.defs.FO3 {
         internal IdleAnamFormat(DefinitionManager manager, JObject src)
             : base(manager, src) { }
 
-        internal override string DataToValue(ValueElement element, ValueData data) {
+        internal override string DataToValue(ValueElement element, VariantData data) {
             long v = data.ToInt64();
             string s;
             switch (v & ~0xC0L) {
@@ -30,11 +30,11 @@ namespace esper.defs.FO3 {
             return s;
         }
 
-        internal override ValueData ValueToData(ValueElement element, string value) {
+        internal override VariantData ValueToData(ValueElement element, string value) {
             throw new NotImplementedException();
         }
 
-        internal override string GetSortKey(ValueElement element, ValueData data) {
+        internal override string GetSortKey(ValueElement element, VariantData data) {
             return data.ToInt64().ToString("X2");
         }
     }

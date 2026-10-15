@@ -15,21 +15,21 @@ namespace esper.defs {
         internal Int32Def(DefinitionManager manager, JObject src)
             : base(manager, src) { }
 
-        internal override ValueData ReadData(DataSource source, UInt32? dataSize) {
+        internal override VariantData ReadData(DataSource source, UInt32? dataSize) {
             return source.reader.ReadInt32();
         }
 
-        internal override ValueData DefaultData() {
+        internal override VariantData DefaultData() {
             return 0;
         }
 
-        internal override string DataToSortKey(ValueData data) {
-            UInt32 v = (UInt32)data.ToUInt64();
+        internal override string DataToSortKey(VariantData data) {
+            UInt32 v = (UInt32)data.ToInt64();
             v += (UInt32)Math.Abs((Int64)Int32.MinValue);
             return v.ToString("X8");
         }
 
-        internal override void SetData(ValueElement element, ValueData data) {
+        internal override void SetData(ValueElement element, VariantData data) {
             element._data = sessionOptions.clampIntegerValues
                 ? DataHelpers.ClampToInt32(data.ToInt64())
                 : data.ToInt32();
@@ -39,7 +39,7 @@ namespace esper.defs {
         internal override void WriteData(
             ValueElement element, PluginFileOutput output
         ) {
-            if (element.data is ValueData.I32 data) {
+            if (element.data is VariantData.I32 data) {
                 output.writer.Write(data.V);
             } else {
                 output.writer.Write(0);

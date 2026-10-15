@@ -88,7 +88,7 @@ namespace esper.plugins {
         ) {
             var refs = new FileReferenceMap();
             ForEachFormIdElement(m.file, (ValueElement element) => {
-                if (!(element.data is ValueData.Form form)) return;
+                if (!(element.data is VariantData.Form form)) return;
                 var filename = form.V.targetFileName;
                 if (!refs.ContainsKey(filename))
                     refs[filename] = new List<Element>();
@@ -102,7 +102,7 @@ namespace esper.plugins {
         ) {
             var counts = new Dictionary<string, int>();
             ForEachFormIdElement(m.file, (ValueElement element) => {
-                if (!(element.data is ValueData.Form form)) return;
+                if (!(element.data is VariantData.Form form)) return;
                 var filename = form.V.targetFileName;
                 if (!counts.ContainsKey(filename))
                     counts[filename] = 0;

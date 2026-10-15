@@ -15,14 +15,14 @@ namespace esper.defs.TES5 {
             ctdaTypeEnum = (EnumDef)manager.ResolveDef("CtdaTypeEnum");
         }
 
-        internal override string DataToValue(ValueElement element, ValueData data) {
+        internal override string DataToValue(ValueElement element, VariantData data) {
             long d = data.ToInt64();
             string type = ctdaTypeEnum.DataToValue(element, d & 0xE0);
             string flags = ctdaTypeFlags.DataToValue(element, d & 0x1F);
             return flags != "" ? $"{type} / {flags}" : type;
         }
 
-        internal override ValueData ValueToData(ValueElement element, string value) {
+        internal override VariantData ValueToData(ValueElement element, string value) {
             var match = valueExpr.Match(value);
             if (match == null) return 0;
             var enumData = ctdaTypeEnum.ValueToData(element, match.Groups[1].Value);

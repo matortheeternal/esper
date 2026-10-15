@@ -1,4 +1,5 @@
 using esper;
+using esper.defs;
 using esper.defs.FO4;
 using esper.plugins;
 using esper.resolution;
@@ -18,11 +19,11 @@ namespace Tests.defs {
             );
             Assert.AreEqual(
                 0x89ABCDEFu,
-                ((esper.defs.ValueData.U32)format.ValueToData(null, @"Precombined\00012345_89ABCDEF_OC.nif")).V
+                ((VariantData.U32)format.ValueToData(null, @"Precombined\00012345_89ABCDEF_OC.nif")).V
             );
             Assert.AreEqual(
                 0x89ABCDEFu,
-                ((esper.defs.ValueData.U32)format.ValueToData(
+                ((VariantData.U32)format.ValueToData(
                     null, @"Precombined\Fallout4.esm\00012345_89abcdef_OC.nif"
                 )).V
             );
@@ -37,20 +38,20 @@ namespace Tests.defs {
             var format = new CombinedMeshIDFormat(
                 session.definitionManager, new JObject()
             );
-            Assert.AreEqual(0u, ((esper.defs.ValueData.U32)format.ValueToData(null, null)).V);
-            Assert.AreEqual(0u, ((esper.defs.ValueData.U32)format.ValueToData(null, "")).V);
-            Assert.AreEqual(0u, ((esper.defs.ValueData.U32)format.ValueToData(null, "foo.nif")).V);
+            Assert.AreEqual(0u, ((VariantData.U32)format.ValueToData(null, null)).V);
+            Assert.AreEqual(0u, ((VariantData.U32)format.ValueToData(null, "")).V);
+            Assert.AreEqual(0u, ((VariantData.U32)format.ValueToData(null, "foo.nif")).V);
             Assert.AreEqual(
-                0u, ((esper.defs.ValueData.U32)format.ValueToData(null, @"Precombined\00012345_OC.nif")).V
+                0u, ((VariantData.U32)format.ValueToData(null, @"Precombined\00012345_OC.nif")).V
             );
             Assert.AreEqual(
-                0u, ((esper.defs.ValueData.U32)format.ValueToData(null, @"Precombined\00012345_89ABCDE_OC.nif")).V
+                0u, ((VariantData.U32)format.ValueToData(null, @"Precombined\00012345_89ABCDE_OC.nif")).V
             );
             Assert.AreEqual(
-                0u, ((esper.defs.ValueData.U32)format.ValueToData(null, @"Precombined\00012345_89ABCDEFQ_OC.nif")).V
+                0u, ((VariantData.U32)format.ValueToData(null, @"Precombined\00012345_89ABCDEFQ_OC.nif")).V
             );
             Assert.AreEqual(
-                0u, ((esper.defs.ValueData.U32)format.ValueToData(null, @"Precombined\00012345_ZZZZZZZZ_OC.nif")).V
+                0u, ((VariantData.U32)format.ValueToData(null, @"Precombined\00012345_ZZZZZZZZ_OC.nif")).V
             );
         }
 

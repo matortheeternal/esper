@@ -94,7 +94,7 @@ namespace Tests.plugins {
         }
 
         private static void CollectStrings(Element el, HashSet<uint> ids) {
-            if (el is ValueElement ve && ve.data is esper.defs.ValueData.LString ls)
+            if (el is ValueElement ve && ve.data is VariantData.LString ls)
                 ids.Add(ls.V.id);
             if (el is Container c) {
                 var children = c.elements;
@@ -109,7 +109,7 @@ namespace Tests.plugins {
             HashSet<string> cross, HashSet<uint> present
         ) {
             if (el is ValueElement ve && ve.def is FormIdDef) {
-                if (ve.data is esper.defs.ValueData.Form fid && fid.V.fileFormId != 0) {
+                if (ve.data is VariantData.Form fid && fid.V.fileFormId != 0) {
                     var target = fid.V.targetFileName ?? master;
                     if (target.Equals(
                         master, StringComparison.OrdinalIgnoreCase

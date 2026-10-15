@@ -9,7 +9,7 @@ namespace esper.defs.TES5 {
         internal _180DivPiFormat(DefinitionManager manager, JObject src)
             : base(manager, src) { }
 
-        internal override string DataToValue(ValueElement element, ValueData data) {
+        internal override string DataToValue(ValueElement element, VariantData data) {
             if (Single.IsNaN(data.ToSingle())) return "NaN";
             if (Single.IsInfinity(data.ToSingle())) return "Inf";
             if (data.ToSingle() == Single.MaxValue) return "Default";
@@ -18,7 +18,7 @@ namespace esper.defs.TES5 {
             return fData.ToString(sessionOptions.floatFormat);
         }
 
-        internal override ValueData ValueToData(ValueElement element, string value) {
+        internal override VariantData ValueToData(ValueElement element, string value) {
             // TODO
             throw new NotImplementedException();
         }

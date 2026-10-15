@@ -10,11 +10,11 @@ namespace esper.defs.TES5 {
         internal NextObjectIDFormat(DefinitionManager manager, JObject src)
             : base(manager, src) { }
 
-        internal override string DataToValue(ValueElement element, ValueData data) {
+        internal override string DataToValue(ValueElement element, VariantData data) {
             return data.ToUInt64().ToString("X6");
         }
 
-        internal override ValueData ValueToData(ValueElement element, string value) {
+        internal override VariantData ValueToData(ValueElement element, string value) {
             if (value.Length == 0) return 2048;
             UInt32 target = value == "?"
                 ? element.file.GetHighObjectID() + 1

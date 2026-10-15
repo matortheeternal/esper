@@ -12,7 +12,7 @@ namespace esper.defs.TES5 {
         internal MoonPhaseFormat(DefinitionManager manager, JObject src)
             : base(manager, src) { }
 
-        internal override string DataToValue(ValueElement element, ValueData data) {
+        internal override string DataToValue(ValueElement element, VariantData data) {
             Int64 n = data.ToInt64();
             var phaseLength = n % 64;
             var masser = (n & 64) > 0;
@@ -23,7 +23,7 @@ namespace esper.defs.TES5 {
             return $"{phase} / {phaseLength}";
         }
 
-        internal override ValueData ValueToData(ValueElement element, string value) {
+        internal override VariantData ValueToData(ValueElement element, string value) {
             byte data = 0;
             var match = phaseExpr.Match(value);
             if (match == null) return data;

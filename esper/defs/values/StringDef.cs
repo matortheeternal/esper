@@ -30,7 +30,7 @@ namespace esper.defs {
             keepCase = src.Value<bool>("keepCase");
         }
 
-        internal override ValueData ReadData(DataSource source, UInt32? dataSize) {
+        internal override VariantData ReadData(DataSource source, UInt32? dataSize) {
             if (localized && source.localized)
                 return LocalizedString.Read(source);
             // dataSize - 1 because null terminator
@@ -40,12 +40,12 @@ namespace esper.defs {
             return source.ReadString(size);
         }
 
-        internal override ValueData DefaultData() {
+        internal override VariantData DefaultData() {
             return string.Empty;
         }
 
-        internal override void SetData(ValueElement element, ValueData data) {
-            string str = (data as ValueData.Text)?.V;
+        internal override void SetData(ValueElement element, VariantData data) {
+            string str = (data as VariantData.Text)?.V;
             if (str == null)
                 throw new Exception("Data must be a string");
             if (!isVariableSize && str.Length != fixedSize)
@@ -54,8 +54,8 @@ namespace esper.defs {
         }
 
         public override string GetValue(ValueElement element) {
-            if (element.data is ValueData.Text text) return text.V;
-            if (element.data is ValueData.LString lstring)
+            if (element.data is VariantData.Text text) return text.V;
+            if (element.data is VariantData.LString lstring)
                 return lstring.V.ToString(element);
             return null;
         }
@@ -64,15 +64,15 @@ namespace esper.defs {
             SetData(element, value);
         }
 
-        internal override string DataToSortKey(ValueData data) {
+        internal override string DataToSortKey(VariantData data) {
             var str = SortText(data);
             if (str == null) return string.Empty;
             return keepCase ? str : str.ToUpper();
         }
 
-        private static string SortText(ValueData data) {
-            if (data is ValueData.LString l) return l.V.ToString();
-            if (data is ValueData.Text t) return t.V;
+        private static string SortText(VariantData data) {
+            if (data is VariantData.LString l) return l.V.ToString();
+            if (data is VariantData.Text t) return t.V;
             throw new InvalidOperationException("Data must be a string.");
         }
 
@@ -80,10 +80,10 @@ namespace esper.defs {
             UInt32 size = base.GetSize(element);
             if (fixedSize != null) return size;
             var v = (ValueElement)element;
-            if (v.data is ValueData.LString) {
+            if (v.data is VariantData.LString) {
                 return size + 4;
             } else {
-                var s = v.data is ValueData.Text t ? t.V : string.Empty;
+                var s = v.data is VariantData.Text t ? t.V : string.Empty;
                 if (prefix != null) size += (UInt32)prefix;
                 if (padding != null) size += (UInt32)padding;
                 if (isVariableSize) size += 1;
@@ -94,10 +94,10 @@ namespace esper.defs {
         internal override void WriteData(
             ValueElement element, PluginFileOutput output
         ) {
-            if (element.data is ValueData.LString l) {
+            if (element.data is VariantData.LString l) {
                 l.V.WriteTo(output);
             } else {
-                var s = element.data is ValueData.Text t ? t.V : string.Empty;
+                var s = element.data is VariantData.Text t ? t.V : string.Empty;
                 if (prefix != null)
                     output.WritePrefix(s.Length, (int)prefix, padding ?? 0);
                 output.WriteString(s, isVariableSize);

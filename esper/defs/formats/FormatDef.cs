@@ -10,15 +10,15 @@ namespace esper.defs {
         internal FormatDef(DefinitionManager manager, JObject src)
             : base(manager, src) { }
 
-        internal virtual string DataToValue(ValueElement element, ValueData data) {
+        internal virtual string DataToValue(ValueElement element, VariantData data) {
             throw new NotImplementedException();
         }
 
-        internal virtual ValueData ValueToData(ValueElement element, string value) {
+        internal virtual VariantData ValueToData(ValueElement element, string value) {
             throw new NotImplementedException();
         }
 
-        internal virtual string GetSortKey(ValueElement element, ValueData data) {
+        internal virtual string GetSortKey(ValueElement element, VariantData data) {
             return DataToValue(element, data);
         }
     }

@@ -14,14 +14,14 @@ namespace esper.defs.TES5 {
             eventMemberEnum = (EnumDef)manager.ResolveDef("EventMemberEnum");
         }
 
-        internal override string DataToValue(ValueElement element, ValueData data) {
+        internal override string DataToValue(ValueElement element, VariantData data) {
             Int64 n = data.ToInt64();
             var eventFunction = eventFunctionEnum.DataToValue(element, n & 0xFFFF);
             var eventMember = eventMemberEnum.DataToValue(element, n >> 16);
             return $"{eventFunction}:{eventMember}";
         }
 
-        internal override ValueData ValueToData(ValueElement element, string value) {
+        internal override VariantData ValueToData(ValueElement element, string value) {
             var n = value.IndexOf(':');
             if (n == -1) return 0;
             var fnString = value.Substring(0, n - 1);

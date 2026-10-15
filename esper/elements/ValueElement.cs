@@ -18,9 +18,9 @@ namespace esper.elements {
             }
         }
 
-        internal ValueData _data;
+        internal VariantData _data;
 
-        internal ValueData data {
+        internal VariantData data {
             get => _data;
             set => valueDef.SetData(this, value);
         }
@@ -35,7 +35,7 @@ namespace esper.elements {
         public override MainRecord referencedRecord {
             get {
                 if (valueDef is FormIdDef) {
-                    return data is ValueData.Form form
+                    return data is VariantData.Form form
                         ? form.V.ResolveRecord()
                         : null;
                 }
@@ -47,7 +47,7 @@ namespace esper.elements {
         }
 
         internal static ValueElement Init(
-            Container container, ElementDef def, ValueData data
+            Container container, ElementDef def, VariantData data
         ) {
             return new ValueElement(container, def) {
                 _data = data

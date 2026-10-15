@@ -18,11 +18,11 @@ namespace esper.defs {
 
         public override void SetValue(ValueElement element, string value) { }
 
-        internal override ValueData DefaultData() {
+        internal override VariantData DefaultData() {
             return null;
         }
 
-        internal override ValueData ReadData(DataSource source, UInt32? dataSize) {
+        internal override VariantData ReadData(DataSource source, UInt32? dataSize) {
             return null;
         }
 

@@ -109,7 +109,7 @@ namespace esper.defs.FO4.Deciders {
         public override int Decide(Container container) {
             var parent = container?.GetElement("Parent Worldspace")
                 as ValueElement;
-            if (!(parent?.data is ValueData.Form form)) return 0;
+            if (!(parent?.data is VariantData.Form form)) return 0;
             return form.V.fileFormId == 0 ? 1 : 0;
         }
     }

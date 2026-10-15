@@ -11,7 +11,7 @@ namespace esper.defs.FO3 {
         internal PRKCFormat(DefinitionManager manager, JObject src)
             : base(manager, src) { }
 
-        internal override string DataToValue(ValueElement element, ValueData data) {
+        internal override string DataToValue(ValueElement element, VariantData data) {
             var entryPoint = element?.container?.container?.container
                 ?.GetData<int?>(@"DATA\Entry Point\Entry Point");
             if (entryPoint == null) return data.ToDisplayString();
@@ -25,11 +25,11 @@ namespace esper.defs.FO3 {
             return captions[(int)data.ToInt64()];
         }
 
-        internal override string GetSortKey(ValueElement element, ValueData data) {
+        internal override string GetSortKey(ValueElement element, VariantData data) {
             return data.ToInt64().ToString("X2");
         }
 
-        internal override ValueData ValueToData(ValueElement element, string value) {
+        internal override VariantData ValueToData(ValueElement element, string value) {
             if (long.TryParse(value.Trim(), out var number)) return number;
             if (value.Trim() == "") return 0;
             var entryPoint = element?.container?.container?.container
