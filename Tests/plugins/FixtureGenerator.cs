@@ -94,8 +94,8 @@ namespace Tests.plugins {
         }
 
         private static void CollectStrings(Element el, HashSet<uint> ids) {
-            if (el is ValueElement ve && ve.data is LocalizedString ls)
-                ids.Add(ls.id);
+            if (el is ValueElement ve && ve.data is esper.defs.ValueData.LString ls)
+                ids.Add(ls.V.id);
             if (el is Container c) {
                 var children = c.elements;
                 if (children != null)
@@ -109,16 +109,16 @@ namespace Tests.plugins {
             HashSet<string> cross, HashSet<uint> present
         ) {
             if (el is ValueElement ve && ve.def is FormIdDef) {
-                if (ve.data is FormId fid && fid.fileFormId != 0) {
-                    var target = fid.targetFileName ?? master;
+                if (ve.data is esper.defs.ValueData.Form fid && fid.V.fileFormId != 0) {
+                    var target = fid.V.targetFileName ?? master;
                     if (target.Equals(
                         master, StringComparison.OrdinalIgnoreCase
                     )) {
-                        var local = fid.fileFormId & 0xFFFFFFu;
+                        var local = fid.V.fileFormId & 0xFFFFFFu;
                         if (present.Contains(local)) refs.Add(local);
                     } else
                         cross.Add(
-                            $"{target}:{fid.fileFormId:X6}");
+                            $"{target}:{fid.V.fileFormId:X6}");
                 }
                 return;
             }

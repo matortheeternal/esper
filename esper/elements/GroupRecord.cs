@@ -22,7 +22,7 @@ namespace esper.elements {
 
         public UInt32 groupSize => header.groupSize;
         public int groupType => header.groupType;
-        internal dynamic label => groupDef.ConvertLabel(this, header.label);
+        internal object label => groupDef.ConvertLabel(this, header.label);
         public UInt32 dataSize => groupSize - groupHeaderSize;
 
         public bool isTopGroup => groupDef.isTopGroup;

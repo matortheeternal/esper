@@ -53,7 +53,7 @@ namespace Tests.defs {
         public void TestMultiplyScalesBothWays() {
             var def = new MultiplyDef(TES4().definitionManager, Src("Factor5", 5));
             Assert.AreEqual("100", def.DataToValue(null, 20));
-            Assert.AreEqual(20L, (long)def.ValueToData(null, "100"));
+            Assert.AreEqual(20L, def.ValueToData(null, "100").ToInt64());
             var def100 = new MultiplyDef(TES4().definitionManager, Src("Factor100", 100));
             Assert.AreEqual("2500", def100.DataToValue(null, 25));
         }
@@ -63,7 +63,7 @@ namespace Tests.defs {
             var def = new ScaledInt4Format(TES4().definitionManager, Src("Chance"));
             Assert.AreEqual("0.5000", def.DataToValue(null, 5000));
             Assert.AreEqual("-1.2500", def.DataToValue(null, -12500));
-            Assert.AreEqual(5000L, (long)def.ValueToData(null, "0.5000"));
+            Assert.AreEqual(5000L, def.ValueToData(null, "0.5000").ToInt64());
             Assert.AreEqual("+00000000000000000.5000", def.GetSortKey(null, 5000));
         }
 
@@ -73,8 +73,8 @@ namespace Tests.defs {
                 TES4().definitionManager, Src("Magic effect name")
             );
             Assert.AreEqual("ABCD", def.DataToValue(null, 0x44434241u));
-            Assert.AreEqual(0x44434241u, (uint)def.ValueToData(null, "ABCD"));
-            Assert.AreEqual(0x20202020u, (uint)def.ValueToData(null, ""));
+            Assert.AreEqual(0x44434241u, (uint)def.ValueToData(null, "ABCD").ToUInt64());
+            Assert.AreEqual(0x20202020u, (uint)def.ValueToData(null, "").ToUInt64());
             Assert.Throws<Exception>(() => def.ValueToData(null, "ABC"));
         }
 
@@ -120,7 +120,7 @@ namespace Tests.defs {
             var format = new esper.defs.TES4.CTDAParam2VariableNameFormat(
                 manager, new JObject()
             );
-            Assert.AreEqual(12L, format.ValueToData(null, "12"));
+            Assert.AreEqual(12L, format.ValueToData(null, "12").ToInt64());
         }
 
         [Test]
@@ -211,7 +211,7 @@ namespace Tests.defs {
             var soun = First(plugin, "SOUN");
             var min = FindFormatted(soun, vd => vd.formatDef is MultiplyDef);
             if (min == null) Assert.Ignore("No scaled SOUN element found.");
-            var raw = Convert.ToInt64(min.data);
+            var raw = min.data?.ToInt64() ?? 0;
             var factor = ((MultiplyDef)((ValueDef)min.def).formatDef).factor;
             Assert.AreEqual((raw * factor).ToString(), min.GetValue());
             Assert.IsTrue(factor == 5 || factor == 100);

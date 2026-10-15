@@ -403,7 +403,7 @@ namespace Tests.defs {
                 Assert.AreEqual(
                     expected, format.DataToValue(element, element.data)
                 );
-                Assert.AreEqual(0, format.ValueToData(element, "1"));
+                Assert.AreEqual(0, format.ValueToData(element, "1").ToInt64());
             }
             Assert.Throws<NotImplementedException>(() =>
                 new CTDAParamStringFormat(manager, new JObject())
@@ -453,7 +453,7 @@ namespace Tests.defs {
             var first = hits[0];
             var firstFormat =
                 (TintLayerFormat)((ValueDef)first.def).formatDef;
-            var index = Convert.ToInt32(first.data);
+            var index = Convert.ToInt32(first.data?.ToInt64() ?? 0);
             var value = firstFormat.DataToValue(first, first.data);
             Assert.IsTrue(
                 value.StartsWith(index.ToString()),
@@ -476,7 +476,7 @@ namespace Tests.defs {
             foreach (var element in hits.Skip(1)) {
                 var format = (TintLayerFormat)((ValueDef)element.def)
                     .formatDef;
-                var elementIndex = Convert.ToInt32(element.data);
+                var elementIndex = Convert.ToInt32(element.data?.ToInt64() ?? 0);
                 var elementValue = format.DataToValue(
                     element, element.data
                 );
@@ -488,7 +488,7 @@ namespace Tests.defs {
             var manager = session.definitionManager;
             var bare = new TintLayerFormat(manager, new JObject());
             Assert.IsTrue(bare.isNumeric);
-            Assert.AreEqual(5, bare.ValueToData(null, "5"));
+            Assert.AreEqual(5, bare.ValueToData(null, "5").ToInt64());
             // Null container: no actor, race, or tint entries to resolve.
             Assert.AreEqual("5", bare.DataToValue(null, 5));
         }

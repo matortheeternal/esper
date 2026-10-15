@@ -70,7 +70,7 @@ namespace Tests.defs {
             Assert.AreEqual(0u, Fo4FormatHelpers.WbHexStrToInt(""));
             Assert.AreEqual(0u, Fo4FormatHelpers.WbHexStrToInt(null));
             var format = new IntToHexStrFormat(Fo4Manager(), new JObject());
-            Assert.AreEqual(5u, format.ValueToData(null, "00000005 Name"));
+            Assert.AreEqual(5u, format.ValueToData(null, "00000005 Name").ToInt64());
         }
 
         [Test]
@@ -87,16 +87,16 @@ namespace Tests.defs {
         public void CLFMValueToData() {
             var format = new CLFMColorFormat(Fo4Manager(), new JObject());
             Assert.AreEqual(
-                0xFF804020u, format.ValueToData(null, "rgba(32, 64, 128, 255)")
+                0xFF804020u, ((esper.defs.ValueData.U32)format.ValueToData(null, "rgba(32, 64, 128, 255)")).V
             );
-            Assert.AreEqual(0xFF804020u, format.ValueToData(null, "RGBA(32,64,128,255)"));
-            Assert.AreEqual(0u, format.ValueToData(null, "rgba(1, 2, 3)"));
-            Assert.AreEqual(0u, format.ValueToData(null, "rgba(1, 2, 3"));
+            Assert.AreEqual(0xFF804020u, format.ValueToData(null, "RGBA(32,64,128,255)").ToInt64());
+            Assert.AreEqual(0u, format.ValueToData(null, "rgba(1, 2, 3)").ToInt64());
+            Assert.AreEqual(0u, format.ValueToData(null, "rgba(1, 2, 3").ToInt64());
             Assert.AreEqual(
                 BitConverter.ToUInt32(BitConverter.GetBytes(1.5f), 0),
-                format.ValueToData(null, "1.5")
+                ((esper.defs.ValueData.U32)format.ValueToData(null, "1.5")).V
             );
-            Assert.AreEqual(0u, format.ValueToData(null, "junk"));
+            Assert.AreEqual(0u, format.ValueToData(null, "junk").ToInt64());
         }
 
         [Test]
@@ -123,7 +123,7 @@ namespace Tests.defs {
             var format = new FaceMorphFormat(Fo4Manager(), new JObject());
             Assert.AreEqual("00000007", format.DataToValue(null, 7u));
             Assert.AreEqual("00000007", format.GetSortKey(null, 7u));
-            Assert.AreEqual(7u, format.ValueToData(null, "00000007 Name"));
+            Assert.AreEqual(7u, format.ValueToData(null, "00000007 Name").ToInt64());
         }
 
         [Test]
@@ -131,7 +131,7 @@ namespace Tests.defs {
             var format = new MorphValueFormat(Fo4Manager(), new JObject());
             Assert.AreEqual("00000009", format.DataToValue(null, 9u));
             Assert.AreEqual("00000009", format.GetSortKey(null, 9u));
-            Assert.AreEqual(9u, format.ValueToData(null, "00000009:Name"));
+            Assert.AreEqual(9u, format.ValueToData(null, "00000009:Name").ToInt64());
         }
 
         [Test]
@@ -160,7 +160,7 @@ namespace Tests.defs {
             var index = Walk(rec, "IntToHexStrFormat");
             Assert.NotNull(index, "No IntToHexStrFormat element decoded.");
             Assert.AreEqual(
-                Convert.ToUInt32(index.data).ToString("X8"),
+                Convert.ToUInt32(index.data?.ToInt64() ?? 0).ToString("X8"),
                 ((ValueDef)index.def).formatDef.DataToValue(
                     index, index.data
                 )
@@ -181,7 +181,7 @@ namespace Tests.defs {
                 Assert.That(
                     text,
                     Does.StartWith(
-                        Convert.ToUInt32(morph.data).ToString("X8")
+                        Convert.ToUInt32(morph.data?.ToInt64() ?? 0).ToString("X8")
                     )
                 );
                 break;
@@ -205,13 +205,13 @@ namespace Tests.defs {
                     female ? "Female Face Morphs" : "Male Face Morphs"
                 ) as Container;
                 if (morphs?.elements == null) continue;
-                var index = Convert.ToUInt32(morph.data);
+                var index = Convert.ToUInt32(morph.data?.ToInt64() ?? 0);
                 foreach (var item in morphs.elements) {
                     if (!(item is Container entry)) continue;
                     if (entry.GetData<uint>("FMRI") != index) continue;
                     var nameElem = entry.GetElement("FMRN") as ValueElement;
                     var stringId =
-                        (nameElem?.data as LocalizedString)?.id;
+                        ((nameElem?.data as esper.defs.ValueData.LString)?.V.id);
                     if (!stringId.HasValue) continue;
                     LoadSyntheticStrings(
                         plugin,
@@ -246,7 +246,7 @@ namespace Tests.defs {
                 Assert.That(
                     text,
                     Does.StartWith(
-                        Convert.ToUInt32(key.data).ToString("X8")
+                        Convert.ToUInt32(key.data?.ToInt64() ?? 0).ToString("X8")
                     )
                 );
                 break;
@@ -270,7 +270,7 @@ namespace Tests.defs {
                     female ? "Female Morph Groups" : "Male Morph Groups"
                 ) as Container;
                 if (groups?.elements == null) continue;
-                var index = Convert.ToUInt32(key.data);
+                var index = Convert.ToUInt32(key.data?.ToInt64() ?? 0);
                 foreach (var item in groups.elements) {
                     if (!(item is Container group)) break;
                     var presets =
@@ -283,7 +283,7 @@ namespace Tests.defs {
                         var presetNameElem =
                             preset.GetElement("MPPN") as ValueElement;
                         var presetId =
-                            (presetNameElem?.data as LocalizedString)?.id;
+                            ((presetNameElem?.data as esper.defs.ValueData.LString)?.V.id);
                         if (!presetId.HasValue) continue;
                         LoadSyntheticStrings(
                             plugin,

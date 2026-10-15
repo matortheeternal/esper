@@ -107,13 +107,13 @@ namespace Tests.defs {
             var manager = RecordDefCoverageTests.GetSession("SSE")
                 .definitionManager;
             var format = new MoonPhaseFormat(manager, new JObject());
-            Assert.AreEqual(69, format.ValueToData(null, "Masser / 5"));
-            Assert.AreEqual(138, format.ValueToData(null, "Secunda / 10"));
+            Assert.AreEqual(69, format.ValueToData(null, "Masser / 5").ToInt64());
+            Assert.AreEqual(138, format.ValueToData(null, "Secunda / 10").ToInt64());
             Assert.AreEqual(
-                195, format.ValueToData(null, "Masser, Secunda / 3")
+                195, format.ValueToData(null, "Masser, Secunda / 3").ToInt64()
             );
-            Assert.AreEqual(7, format.ValueToData(null, "No Moon / 7"));
-            Assert.AreEqual(127, format.ValueToData(null, "Masser / 999"));
+            Assert.AreEqual(7, format.ValueToData(null, "No Moon / 7").ToInt64());
+            Assert.AreEqual(127, format.ValueToData(null, "Masser / 999").ToInt64());
             Assert.AreEqual(
                 "Masser / 5",
                 format.DataToValue(null, format.ValueToData(null, "Masser / 5"))
@@ -133,7 +133,7 @@ namespace Tests.defs {
             Assert.IsNotNull(actorValue, "No ActorValueFormat in PERK def");
             uint bits = 0x3F800000;
             var name = actorValue.DataToValue(null, bits);
-            Assert.AreEqual(bits, actorValue.ValueToData(null, name));
+            Assert.AreEqual(bits, (uint)actorValue.ValueToData(null, name).ToUInt64());
             var actorValueEnum = (EnumDef)manager.ResolveDef("ActorValueEnum");
             Assert.AreEqual(
                 actorValueEnum.GetSortKey(null, 1L),
@@ -148,8 +148,8 @@ namespace Tests.defs {
             var format = new ConditionAliasFormat(manager, new JObject());
             Assert.AreEqual("None", format.DataToValue(null, -1));
             Assert.AreEqual("4", format.DataToValue(null, 4));
-            Assert.AreEqual(123L, format.ValueToData(null, "123"));
-            Assert.AreEqual(-1L, format.ValueToData(null, "not a number"));
+            Assert.AreEqual(123L, format.ValueToData(null, "123").ToInt64());
+            Assert.AreEqual(-1L, format.ValueToData(null, "not a number").ToInt64());
         }
 
         [Test]
@@ -290,11 +290,11 @@ namespace Tests.defs {
             Assert.IsFalse(format.GetWarnings(stage, warnings));
             Assert.IsEmpty(warnings);
             Assert.AreEqual("030", format.DataToValue(stage, 30));
-            Assert.AreEqual(30, Convert.ToInt32(format.ValueToData(stage, "030")));
+            Assert.AreEqual(30, Convert.ToInt32(format.ValueToData(stage, "030")?.ToInt64() ?? 0));
             var quest = WalkElements(perk)
                 .OfType<ValueElement>()
-                .FirstOrDefault(v => v.data is FormId f &&
-                    f.fileFormId == 0x5F596);
+                .FirstOrDefault(v => v.data is esper.defs.ValueData.Form f &&
+                    f.V.fileFormId == 0x5F596);
             Assert.IsNotNull(quest);
             var questData = quest.data;
             var stageData = stage.data;
@@ -386,10 +386,10 @@ namespace Tests.defs {
             Assert.IsNotNull(triangle);
             var format = (REFRNavmeshTriangleFormat)triangle.valueDef.formatDef;
             Assert.AreEqual("557", format.DataToValue(triangle, 557));
-            Assert.AreEqual(557L, format.ValueToData(triangle, "557"));
+            Assert.AreEqual(557L, format.ValueToData(triangle, "557").ToInt64());
             var nav = ((Container)triangle.container).elements[0] as ValueElement;
             Assert.IsNotNull(nav);
-            Assert.AreEqual(0xD6989, ((FormId)nav.data).fileFormId);
+            Assert.AreEqual(0xD6989, ((esper.defs.ValueData.Form)nav.data).V.fileFormId);
             var clean = new List<ElementWarning>();
             format.GetWarnings(triangle, clean);
             Assert.IsEmpty(clean);

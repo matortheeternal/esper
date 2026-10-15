@@ -32,8 +32,8 @@ namespace esper.defs.FO4 {
             if (signature == OMOD) {
                 var formType = record.GetElement(@"DATA\Form Type")
                     as ValueElement;
-                if (!(formType?.data is UInt32 value)) return null;
-                signature = new Signature(unchecked((int)value));
+                if (!(formType?.data is ValueData.U32 u)) return null;
+                signature = new Signature(unchecked((int)u.V));
             }
             if (signature == ARMO) return armorPropertyEnum;
             if (signature == WEAP) return weaponPropertyEnum;
@@ -42,15 +42,15 @@ namespace esper.defs.FO4 {
         }
 
         internal override string DataToValue(
-            ValueElement element, dynamic data
+            ValueElement element, ValueData data
         ) {
             var propertyEnum = GetPropertyEnum(element);
             return propertyEnum == null
-                ? data.ToString()
+                ? data.ToDisplayString()
                 : propertyEnum.DataToValue(element, data);
         }
 
-        internal override dynamic ValueToData(
+        internal override ValueData ValueToData(
             ValueElement element, string value
         ) {
             var propertyEnum = GetPropertyEnum(element);

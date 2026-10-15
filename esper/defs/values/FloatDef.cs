@@ -14,30 +14,30 @@ namespace esper.defs {
         internal FloatDef(DefinitionManager manager, JObject src)
             : base(manager, src) { }
 
-        internal override dynamic ReadData(DataSource source, UInt32? dataSize) {
+        internal override ValueData ReadData(DataSource source, UInt32? dataSize) {
             return source.reader.ReadSingle();
         }
 
-        internal override dynamic DefaultData() {
+        internal override ValueData DefaultData() {
             return 0.0f;
         }
 
-        internal override string DataToSortKey(dynamic data) {
-            if (Single.IsNaN(data)) return new string(' ', 23);
-            if (data == Single.MaxValue) return "+" + new string('9', 22);
-            string sortKey = Math.Abs(data)
+        internal override string DataToSortKey(ValueData data) {
+            if (Single.IsNaN(data.ToSingle())) return new string(' ', 23);
+            if (data.ToSingle() == Single.MaxValue) return "+" + new string('9', 22);
+            string sortKey = Math.Abs(data.ToSingle())
                 .ToString(sessionOptions.floatFormat)
                 .PadLeft(22, '0');
-            bool isNegative = (data < 0) && (Math.Abs(data) > sessionOptions.epsilon);
+            bool isNegative = (data.ToSingle() < 0) && (Math.Abs(data.ToSingle()) > sessionOptions.epsilon);
             return (isNegative ? '-' : '+') + sortKey;
         }
 
-        internal override string DataToString(dynamic data) {
-            if (Single.IsNaN(data)) return "NaN";
-            if (Single.IsInfinity(data)) return "Inf";
-            if (data == Single.MaxValue) return "Default";
-            if (data == -Single.MaxValue) return "Min";
-            return data.ToString(sessionOptions.floatFormat);
+        internal override string DataToString(ValueData data) {
+            if (Single.IsNaN(data.ToSingle())) return "NaN";
+            if (Single.IsInfinity(data.ToSingle())) return "Inf";
+            if (data.ToSingle() == Single.MaxValue) return "Default";
+            if (data.ToSingle() == -Single.MaxValue) return "Min";
+            return data.ToSingle().ToString(sessionOptions.floatFormat);
         }
 
         public override void SetValue(ValueElement element, string value) {
@@ -48,10 +48,10 @@ namespace esper.defs {
         internal override void WriteData(
             ValueElement element, PluginFileOutput output
         ) {
-            if (element.data is float data) {
-                output.writer.Write(data);
+            if (element.data is ValueData.F32 data) {
+                output.writer.Write(data.V);
             } else {
-                output.writer.Write(DefaultData());
+                output.writer.Write(0.0f);
             }
         }
 

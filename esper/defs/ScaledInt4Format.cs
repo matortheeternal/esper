@@ -11,19 +11,19 @@ namespace esper.defs {
         internal ScaledInt4Format(DefinitionManager manager, JObject src)
             : base(manager, src) { }
 
-        internal override string DataToValue(ValueElement element, dynamic data) {
-            double f = Convert.ToInt64(data) / 10000.0;
+        internal override string DataToValue(ValueElement element, ValueData data) {
+            double f = data.ToInt64() / 10000.0;
             return f.ToString("F4", CultureInfo.InvariantCulture);
         }
 
-        internal override dynamic ValueToData(ValueElement element, string value) {
+        internal override ValueData ValueToData(ValueElement element, string value) {
             double f = double.Parse(value, CultureInfo.InvariantCulture);
             return (long)Math.Round(f * 10000);
         }
 
-        internal override string GetSortKey(ValueElement element, dynamic data) {
+        internal override string GetSortKey(ValueElement element, ValueData data) {
             var s = DataToValue(element, data).PadLeft(22, '0');
-            return (Convert.ToInt64(data) < 0 ? "-" : "+") + s;
+            return (data.ToInt64() < 0 ? "-" : "+") + s;
         }
     }
 }

@@ -15,21 +15,21 @@ namespace esper.defs.TES5 {
             ctdaTypeEnum = (EnumDef)manager.ResolveDef("CtdaTypeEnum");
         }
 
-        internal override string DataToValue(ValueElement element, dynamic data) {
-            long d = data;
+        internal override string DataToValue(ValueElement element, ValueData data) {
+            long d = data.ToInt64();
             string type = ctdaTypeEnum.DataToValue(element, d & 0xE0);
             string flags = ctdaTypeFlags.DataToValue(element, d & 0x1F);
             return flags != "" ? $"{type} / {flags}" : type;
         }
 
-        internal override dynamic ValueToData(ValueElement element, string value) {
+        internal override ValueData ValueToData(ValueElement element, string value) {
             var match = valueExpr.Match(value);
             if (match == null) return 0;
             var enumData = ctdaTypeEnum.ValueToData(element, match.Groups[1].Value);
             var flagsData = match.Groups.Count > 2
                 ? ctdaTypeFlags.ValueToData(element, match.Groups[2].Value)
                 : 0;
-            return enumData + flagsData;
+            return enumData.ToInt64() + flagsData.ToInt64();
         }
     }
 }

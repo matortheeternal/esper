@@ -15,34 +15,34 @@ namespace esper.defs {
         internal Int8Def(DefinitionManager manager, JObject src)
             : base(manager, src) { }
 
-        internal override dynamic ReadData(DataSource source, UInt32? dataSize) {
+        internal override ValueData ReadData(DataSource source, UInt32? dataSize) {
             return source.reader.ReadSByte();
         }
 
-        internal override dynamic DefaultData() {
+        internal override ValueData DefaultData() {
             return (sbyte)0;
         }
 
-        internal override string DataToSortKey(dynamic data) {
-            Int32 v = (Int32)data;
+        internal override string DataToSortKey(ValueData data) {
+            Int32 v = data is ValueData.I8 i8 ? i8.V : (Int32)data.ToInt64();
             v += Math.Abs((Int32)sbyte.MinValue);
             return v.ToString("X2");
         }
 
-        internal override void SetData(ValueElement element, dynamic data) {
+        internal override void SetData(ValueElement element, ValueData data) {
             element._data = sessionOptions.clampIntegerValues
-                ? DataHelpers.ClampToInt8(data)
-                : (sbyte)data;
+                ? DataHelpers.ClampToInt8(data.ToInt64())
+                : data is ValueData.I8 i8 ? i8.V : (sbyte)data.ToInt64();
             element.SetState(ElementState.Modified);
         }
 
         internal override void WriteData(
             ValueElement element, PluginFileOutput output
         ) {
-            if (element.data is sbyte data) {
-                output.writer.Write(data);
+            if (element.data is ValueData.I8 data) {
+                output.writer.Write(data.V);
             } else {
-                output.writer.Write(DefaultData());
+                output.writer.Write((sbyte)0);
             }
         }
 

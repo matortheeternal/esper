@@ -11,12 +11,12 @@ namespace esper.defs.TES5 {
             throw new NotImplementedException();
         }
 
-        internal override string DataToValue(ValueElement element, dynamic data) {
+        internal override string DataToValue(ValueElement element, ValueData data) {
             var paramElement = GetParamElement(element);
             return paramElement?.value ?? "";
         }
 
-        internal override dynamic ValueToData(ValueElement element, string value) {
+        internal override ValueData ValueToData(ValueElement element, string value) {
             var paramElement = GetParamElement(element);
             if (paramElement != null) paramElement.value = value;
             return 0;

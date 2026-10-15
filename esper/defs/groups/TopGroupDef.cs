@@ -25,7 +25,7 @@ namespace esper.defs {
             if (recordDef != null) childrenDefs.Add(recordDef);
         }
 
-        internal override dynamic ConvertLabel(GroupRecord group, byte[] label) {
+        internal override object ConvertLabel(GroupRecord group, byte[] label) {
             return new Signature(label);
         }
 

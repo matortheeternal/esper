@@ -17,28 +17,28 @@ namespace esper.defs {
 
         public UInt32Def(UInt32Def other) : base(other) { }
 
-        internal override dynamic ReadData(DataSource source, UInt32? size) {
+        internal override ValueData ReadData(DataSource source, UInt32? size) {
             return source.reader.ReadUInt32();
         }
 
-        internal override dynamic DefaultData() {
+        internal override ValueData DefaultData() {
             return 0;
         }
 
-        internal override void SetData(ValueElement element, dynamic data) {
+        internal override void SetData(ValueElement element, ValueData data) {
             element._data = sessionOptions.clampIntegerValues
-                ? DataHelpers.ClampToUInt32(data)
-                : (UInt32)data;
+                ? DataHelpers.ClampToUInt32(data.ToUInt64())
+                : data is ValueData.U32 u32 ? u32.V : (UInt32)data.ToUInt64();
             element.SetState(ElementState.Modified);
         }
 
         internal override void WriteData(
             ValueElement element, PluginFileOutput output
         ) {
-            if (element.data is UInt32 data) {
-                output.writer.Write(data);
+            if (element.data is ValueData.U32 data) {
+                output.writer.Write(data.V);
             } else {
-                output.writer.Write(DefaultData());
+                output.writer.Write(0u);
             }
         }
 

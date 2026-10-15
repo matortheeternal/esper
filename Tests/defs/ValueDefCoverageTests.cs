@@ -63,8 +63,8 @@ namespace Tests.defs {
             Assert.IsTrue(def.isNumeric);
             Assert.AreEqual(1, def.size);
             var source = new RecordSource(null, new byte[] { 0xFF });
-            Assert.AreEqual((sbyte)-1, def.ReadData(source, null));
-            Assert.AreEqual((sbyte)0, def.DefaultData());
+            Assert.AreEqual((sbyte)-1, ((esper.defs.ValueData.I8)def.ReadData(source, null)).V);
+            Assert.AreEqual((sbyte)0, ((esper.defs.ValueData.I8)def.DefaultData()).V);
             Assert.AreEqual("7F", def.DataToSortKey((sbyte)-1));
             Assert.AreEqual("00", def.DataToSortKey((sbyte)-128));
             Assert.AreEqual("FF", def.DataToSortKey((sbyte)127));
@@ -75,11 +75,11 @@ namespace Tests.defs {
             var def = new Int8Def(SseManager(), Named("I8"));
             var element = new ValueElement(null, def);
             def.SetData(element, 999L);
-            Assert.AreEqual((sbyte)127, element._data);
+            Assert.AreEqual((sbyte)127, ((esper.defs.ValueData.I8)element._data).V);
             def.SetData(element, -999L);
-            Assert.AreEqual((sbyte)-128, element._data);
+            Assert.AreEqual((sbyte)-128, ((esper.defs.ValueData.I8)element._data).V);
             def.SetData(element, 5L);
-            Assert.AreEqual((sbyte)5, element._data);
+            Assert.AreEqual((sbyte)5, ((esper.defs.ValueData.I8)element._data).V);
         }
 
         [Test]
@@ -92,7 +92,7 @@ namespace Tests.defs {
             );
             var element = new ValueElement(null, def);
             def.SetData(element, 999L);
-            Assert.AreEqual((sbyte)-25, element._data);
+            Assert.AreEqual((sbyte)-25, ((esper.defs.ValueData.I8)element._data).V);
         }
 
         [Test]
@@ -119,7 +119,7 @@ namespace Tests.defs {
             element._data = (sbyte)5;
             Assert.AreEqual("5", def.GetValue(element));
             def.SetValue(element, "42");
-            Assert.AreEqual((sbyte)42, element._data);
+            Assert.AreEqual((sbyte)42, ((esper.defs.ValueData.I8)element._data).V);
         }
 
         [Test]
@@ -169,13 +169,13 @@ namespace Tests.defs {
             Assert.AreEqual(XEDefType.dtInteger, def.valueDefType);
             Assert.AreEqual(1, def.size);
             var source = new RecordSource(null, new byte[] { 0xFF });
-            Assert.AreEqual((byte)255, def.ReadData(source, null));
-            Assert.AreEqual((byte)0, def.DefaultData());
+            Assert.AreEqual((byte)255, ((esper.defs.ValueData.U8)def.ReadData(source, null)).V);
+            Assert.AreEqual((byte)0, ((esper.defs.ValueData.U8)def.DefaultData()).V);
             Assert.AreEqual("FF", def.DataToSortKey((byte)255));
             Assert.AreEqual("00", def.DataToSortKey((byte)0));
             var element = new ValueElement(null, def);
             def.SetData(element, 999L);
-            Assert.AreEqual((byte)255, element._data);
+            Assert.AreEqual((byte)255, ((esper.defs.ValueData.U8)element._data).V);
             var session = RecordDefCoverageTests.GetSession("SSE");
             var plugin = LoadSharedSkyrim();
             element._data = (byte)7;
@@ -235,7 +235,7 @@ namespace Tests.defs {
             var element = new ValueElement(null, def);
             Assert.AreEqual("", def.GetValue(element));
             def.SetValue(element, "42");
-            Assert.AreEqual(42L, element._data);
+            Assert.AreEqual(42L, element._data.ToInt64());
             Assert.AreEqual("42", def.GetValue(element));
             var formatted = new ValueDef(SseManager(), JObject.Parse(
                 "{'name':'F','format':{'type':'enum','options':" +
@@ -286,9 +286,9 @@ namespace Tests.defs {
                 refr, new byte[] { 0xEA, 0x06, 0x00, 0x00 }
             );
             var fid = def.ReadData(source, null);
-            Assert.AreEqual(0x6EAu, fid.fileFormId);
+            Assert.AreEqual(0x6EAu, ((esper.defs.ValueData.Form)fid).V.fileFormId);
             var empty = def.DefaultData();
-            Assert.AreEqual(0u, empty.fileFormId);
+            Assert.AreEqual(0u, ((esper.defs.ValueData.Form)empty).V.fileFormId);
             var nav = (ValueElement)refr.GetElement(
                 @"XNDP\Navigation Mesh"
             );
@@ -308,7 +308,7 @@ namespace Tests.defs {
                 plugin.GetRecordByFormId(0x12DFE), def
             );
             def.SetValue(element, "{Skyrim.esm:000EA6}");
-            Assert.AreEqual(0xEA6u, ((FormId)element._data).fileFormId);
+            Assert.AreEqual(0xEA6u, ((esper.defs.ValueData.Form)element._data).V.fileFormId);
         }
 
         [Test]
@@ -321,7 +321,7 @@ namespace Tests.defs {
             )).valueDef;
             var nav = (ValueElement)refr.GetElement(@"XNDP\Navigation Mesh");
             var expected = BitConverter.ToString(
-                BitConverter.GetBytes(nav.data.fileFormId)
+                BitConverter.GetBytes(((esper.defs.ValueData.Form)nav.data).V.fileFormId)
             ).Replace("-", "");
             Assert.AreEqual(
                 expected,
@@ -422,7 +422,7 @@ namespace Tests.defs {
             var target = "{Skyrim.esm:" +
                 navm.fileFormId.ToString("X6") + "}";
             def.SetValue(element, target);
-            Assert.AreEqual(navm.fileFormId, ((FormId)element._data).fileFormId);
+            Assert.AreEqual(navm.fileFormId, ((esper.defs.ValueData.Form)element._data).V.fileFormId);
             Assert.Throws<Exception>(
                 () => def.SetValue(element, "{Skyrim.esm:00001B}")
             );
@@ -438,9 +438,9 @@ namespace Tests.defs {
                 if (found == null || found.Count == 0) continue;
                 var clean = true;
                 foreach (var item in found) {
-                    var fid = ((ValueElement)item)._data as FormId;
+                    var fid = ((ValueElement)item)._data as esper.defs.ValueData.Form;
                     if (fid == null) continue;
-                    var target = plugin.GetRecordByFormId(fid.fileFormId);
+                    var target = plugin.GetRecordByFormId(fid.V.fileFormId);
                     if (target == null) continue;
                     if (target.signature.ToString() != "FLST") {
                         clean = false;
@@ -482,9 +482,9 @@ namespace Tests.defs {
                 if (found == null || found.Count == 0) continue;
                 var clean = true;
                 foreach (var item in found) {
-                    var fid = ((ValueElement)item)._data as FormId;
+                    var fid = ((ValueElement)item)._data as esper.defs.ValueData.Form;
                     if (fid == null) continue;
-                    var target = plugin.GetRecordByFormId(fid.fileFormId);
+                    var target = plugin.GetRecordByFormId(fid.V.fileFormId);
                     if (target != null &&
                         target.signature.ToString() != "FLST") {
                         clean = false;
@@ -524,7 +524,7 @@ namespace Tests.defs {
             Assert.AreEqual(XEDefType.dtLenString, prefixed.valueDefType);
             Assert.AreEqual(XEDefType.dtLString, localized.valueDefType);
             Assert.AreEqual(SmashType.stString, plain.smashType);
-            Assert.AreEqual(string.Empty, plain.DefaultData());
+            Assert.AreEqual(string.Empty, ((esper.defs.ValueData.Text)plain.DefaultData()).V);
         }
 
         [Test]
@@ -540,7 +540,7 @@ namespace Tests.defs {
                 () => fixed4.SetData(fixedElement, "ABC")
             );
             fixed4.SetData(fixedElement, "ABCD");
-            Assert.AreEqual("ABCD", fixedElement._data);
+            Assert.AreEqual("ABCD", ((esper.defs.ValueData.Text)fixedElement._data).V);
         }
 
         [Test]
@@ -556,7 +556,7 @@ namespace Tests.defs {
             foreach (var rec in plugin.records) {
                 if (rec.signature.ToString() != "NPC_") continue;
                 var full = rec.GetElement("FULL");
-                if (full is ValueElement v && v._data is LocalizedString) {
+                if (full is ValueElement v && v._data is ValueData.LString) {
                     named = rec;
                     break;
                 }

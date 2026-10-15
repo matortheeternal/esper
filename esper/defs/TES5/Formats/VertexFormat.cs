@@ -14,16 +14,16 @@ namespace esper.defs.TES5 {
         // TODO: warnings?
         // TODO: display value?
 
-        internal override string DataToValue(ValueElement element, dynamic data) {
-            return data.ToString();
+        internal override string DataToValue(ValueElement element, ValueData data) {
+            return data.ToDisplayString();
         }
 
-        internal override dynamic ValueToData(ValueElement element, string value) {
+        internal override ValueData ValueToData(ValueElement element, string value) {
             return Int64.Parse(value);
         }
 
-        internal override string GetSortKey(ValueElement element, dynamic data) {
-            UInt16 v = data;
+        internal override string GetSortKey(ValueElement element, ValueData data) {
+            UInt16 v = data is ValueData.U16 u ? u.V : (UInt16)data.ToUInt64();
             return $"{v:X4}";
         }
     }

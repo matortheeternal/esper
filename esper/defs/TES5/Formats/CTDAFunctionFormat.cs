@@ -9,14 +9,14 @@ namespace esper.defs.TES5 {
         internal CTDAFunctionFormat(DefinitionManager manager, JObject src)
             : base(manager, src) { }
 
-        internal override string DataToValue(ValueElement element, dynamic data) {
-            UInt16 index = data;
+        internal override string DataToValue(ValueElement element, ValueData data) {
+            UInt16 index = data is ValueData.U16 u ? u.V : (UInt16)data.ToUInt64();
             var ctdaFunction = manager.ctdaFunctions.FunctionByIndex(index);
             if (ctdaFunction != null) return ctdaFunction.name;
-            return $"<Unknown: {data.ToString()}>";
+            return $"<Unknown: {data.ToDisplayString()}>";
         }
 
-        internal override dynamic ValueToData(ValueElement element, string value) {
+        internal override ValueData ValueToData(ValueElement element, string value) {
             var ctdaFunction = manager.ctdaFunctions.FunctionByName(value);
             if (ctdaFunction != null) return ctdaFunction.index;
             return DataHelpers.ParseInt64(value);

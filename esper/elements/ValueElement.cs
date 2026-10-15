@@ -18,9 +18,9 @@ namespace esper.elements {
             }
         }
 
-        internal dynamic _data;
+        internal ValueData _data;
 
-        internal dynamic data {
+        internal ValueData data {
             get => _data;
             set => valueDef.SetData(this, value);
         }
@@ -35,8 +35,8 @@ namespace esper.elements {
         public override MainRecord referencedRecord {
             get {
                 if (valueDef is FormIdDef) {
-                    return data is FormId fid
-                        ? fid.ResolveRecord()
+                    return data is ValueData.Form form
+                        ? form.V.ResolveRecord()
                         : null;
                 }
                 return base.referencedRecord;
@@ -47,7 +47,7 @@ namespace esper.elements {
         }
 
         internal static ValueElement Init(
-            Container container, ElementDef def, dynamic data
+            Container container, ElementDef def, ValueData data
         ) {
             return new ValueElement(container, def) {
                 _data = data
@@ -76,7 +76,7 @@ namespace esper.elements {
 
         internal override JToken ToJson() {
             if (sessionOptions.serializeNumericData && valueDef.isNumeric)
-                return data;
+                return data?.ToJToken();
             return value;
         }
     }

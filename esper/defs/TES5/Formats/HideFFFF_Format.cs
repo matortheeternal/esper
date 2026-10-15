@@ -9,12 +9,12 @@ namespace esper.defs.TES5 {
         internal HideFFFF_Format(DefinitionManager manager, JObject src)
             : base(manager, src) { }
 
-        internal override string DataToValue(ValueElement element, dynamic data) {
-            if (data == 0xFFFF) return "None";
-            return data.ToString();
+        internal override string DataToValue(ValueElement element, ValueData data) {
+            if (data.ToInt64() == 0xFFFF) return "None";
+            return data.ToDisplayString();
         }
 
-        internal override dynamic ValueToData(ValueElement element, string value) {
+        internal override ValueData ValueToData(ValueElement element, string value) {
             if (value == "None") return 0xFFFF;
             return DataHelpers.ParseInt64(value);
         }

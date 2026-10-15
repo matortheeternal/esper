@@ -10,9 +10,9 @@ namespace esper.defs.FO4 {
         ) : base(manager, src) { }
 
         internal override string DataToValue(
-            ValueElement element, dynamic data
+            ValueElement element, ValueData data
         ) {
-            var meshId = Convert.ToUInt32(data).ToString("X8");
+            var meshId = Convert.ToUInt32(data.ToInt64()).ToString("X8");
             var cell = element?.record?.master;
             if (cell == null) return meshId;
 
@@ -22,7 +22,7 @@ namespace esper.defs.FO4 {
             return $@"Precombined\{folder}{cell.localFormId:X8}_{meshId}_OC.nif";
         }
 
-        internal override dynamic ValueToData(
+        internal override ValueData ValueToData(
             ValueElement element, string value
         ) {
             var filename = Path.GetFileName((value ?? "").Replace('\\', '/'));

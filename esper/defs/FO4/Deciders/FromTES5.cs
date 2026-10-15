@@ -7,7 +7,7 @@ namespace esper.defs.FO4.Deciders {
         public override int Decide(Container container) {
             var flagsElement = container?.GetElement("Flags") as ValueElement;
             if (flagsElement == null) return 0;
-            long flags = Convert.ToInt64(flagsElement.data);
+            long flags = flagsElement.data?.ToInt64() ?? 0;
             if ((flags & 0x01) != 0) return 1;
             if ((flags & 0x04) != 0) return 2;
             return (flags & 0x10) != 0 ? 3 : 0;
@@ -86,7 +86,7 @@ namespace esper.defs.FO4.Deciders {
         ) {
             var runOn = container?.GetElement("Run On") as ValueElement;
             if (ctdaFunction.name == "GetIsCurrentPackage" &&
-                runOn != null && Convert.ToUInt32(runOn.data) == 5 &&
+                runOn != null && Convert.ToUInt32(runOn.data?.ToInt64() ?? 0) == 5 &&
                 (GetParamFlags(container) & 0x02) != 0) {
                 return ctdaFunction.paramType1;
             }
@@ -109,8 +109,8 @@ namespace esper.defs.FO4.Deciders {
         public override int Decide(Container container) {
             var parent = container?.GetElement("Parent Worldspace")
                 as ValueElement;
-            if (!(parent?.data is FormId formId)) return 0;
-            return formId.fileFormId == 0 ? 1 : 0;
+            if (!(parent?.data is ValueData.Form form)) return 0;
+            return form.V.fileFormId == 0 ? 1 : 0;
         }
     }
     public class PerkDATADecider : TES5.PerkDATADecider { }

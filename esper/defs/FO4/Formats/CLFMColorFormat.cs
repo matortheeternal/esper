@@ -13,9 +13,9 @@ namespace esper.defs.FO4 {
         internal CLFMColorFormat(DefinitionManager manager, JObject src)
             : base(manager, src) { }
 
-        internal override string DataToValue(ValueElement element, dynamic data) {
+        internal override string DataToValue(ValueElement element, ValueData data) {
             var flags = element?.GetData<uint?>(@"..\FNAM") ?? 0;
-            var raw = Convert.ToUInt32(data);
+            var raw = Convert.ToUInt32(data.ToInt64());
             if ((flags & 2) != 0)
                 return BitConverter.ToSingle(
                     BitConverter.GetBytes(raw), 0
@@ -26,11 +26,11 @@ namespace esper.defs.FO4 {
                 ", " + ((raw >> 24) & 0xFF) + ")";
         }
 
-        internal override string GetSortKey(ValueElement element, dynamic data) {
-            return Convert.ToUInt32(data).ToString("X8");
+        internal override string GetSortKey(ValueElement element, ValueData data) {
+            return Convert.ToUInt32(data.ToInt64()).ToString("X8");
         }
 
-        internal override dynamic ValueToData(ValueElement element, string value) {
+        internal override ValueData ValueToData(ValueElement element, string value) {
             value ??= "";
             if (value.StartsWith("rgba(", StringComparison.OrdinalIgnoreCase)) {
                 var end = value.IndexOf(')');

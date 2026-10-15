@@ -11,25 +11,25 @@ namespace esper.defs.FO3 {
         internal PRKCFormat(DefinitionManager manager, JObject src)
             : base(manager, src) { }
 
-        internal override string DataToValue(ValueElement element, dynamic data) {
+        internal override string DataToValue(ValueElement element, ValueData data) {
             var entryPoint = element?.container?.container?.container
                 ?.GetData<int?>(@"DATA\Entry Point\Entry Point");
-            if (entryPoint == null) return data.ToString();
+            if (entryPoint == null) return data.ToDisplayString();
             var ep = (int)entryPoint;
             if (ep < 0 || ep >= PerkTables.EntryPointConditions.Length)
-                return data.ToString();
+                return data.ToDisplayString();
             var condition = PerkTables.EntryPointConditions[ep];
             var count = PerkTables.ConditionCounts[condition];
             var captions = PerkTables.ConditionCaptions[condition];
-            if (data < 0 || data >= count) return data.ToString();
-            return captions[data];
+            if (data.ToInt64() < 0 || data.ToInt64() >= count) return data.ToDisplayString();
+            return captions[(int)data.ToInt64()];
         }
 
-        internal override string GetSortKey(ValueElement element, dynamic data) {
-            return ((long)data).ToString("X2");
+        internal override string GetSortKey(ValueElement element, ValueData data) {
+            return data.ToInt64().ToString("X2");
         }
 
-        internal override dynamic ValueToData(ValueElement element, string value) {
+        internal override ValueData ValueToData(ValueElement element, string value) {
             if (long.TryParse(value.Trim(), out var number)) return number;
             if (value.Trim() == "") return 0;
             var entryPoint = element?.container?.container?.container
