@@ -18,5 +18,12 @@ namespace esper.plugins {
             if (editorId == null) return;
             _map[editorId] = rec;
         }
+
+        public void Remove(MainRecord rec) {
+            var editorId = rec.editorId;
+            if (editorId == null) return;
+            if (_map.TryGetValue(editorId, out var current) && current == rec)
+                _map.Remove(editorId);
+        }
     }
 }

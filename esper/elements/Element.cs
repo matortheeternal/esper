@@ -131,7 +131,9 @@ namespace esper.elements {
 
         public virtual bool Remove() {
             if (def.required) return false;
-            return (container as Container).RemoveElement(this);
+            var parent = container as Container;
+            if (parent == null) return false;
+            return parent.RemoveElement(this);
         }
 
         internal virtual Element ResolveIn(Element container) {
