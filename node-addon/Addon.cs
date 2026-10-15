@@ -160,6 +160,13 @@ public static unsafe partial class Addon {
         internal static partial Status GetBoolean(
             nint env, byte value, out nint result);
 
+        [LibraryImport("node", EntryPoint = "napi_create_array")]
+        internal static partial Status CreateArray(nint env, out nint result);
+
+        [LibraryImport("node", EntryPoint = "napi_set_element")]
+        internal static partial Status SetElement(
+            nint env, nint obj, uint index, nint value);
+
         [LibraryImport("node", EntryPoint = "napi_throw_error")]
         internal static partial Status ThrowError(
             nint env, byte* code, byte* msg);

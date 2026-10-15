@@ -2,6 +2,7 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using esper.elements;
 using esper.plugins;
+using esper.resolution;
 using esper.setup;
 
 internal static unsafe class Api {
@@ -28,6 +29,28 @@ internal static unsafe class Api {
         Addon.RegisterFunction(env, exports, "elementLabel", &ElementLabel);
         Addon.RegisterFunction(env, exports, "elementValue", &ElementValue);
         Addon.RegisterFunction(env, exports, "savePlugin", &SavePlugin);
+        Addon.RegisterFunction(env, exports, "editorID", &RecordEditorId);
+        Addon.RegisterFunction(env, exports, "getElement", &GetElement);
+        Addon.RegisterFunction(env, exports, "getElementEx", &GetElementEx);
+        Addon.RegisterFunction(env, exports, "hasElement", &HasElement);
+        Addon.RegisterFunction(env, exports, "getElements", &GetElements);
+        Addon.RegisterFunction(env, exports, "addElement", &AddElement);
+        Addon.RegisterFunction(env, exports, "fileByName", &FileByName);
+        Addon.RegisterFunction(env, exports, "getRecordByFormId", &GetRecordByFormId);
+        Addon.RegisterFunction(env, exports, "getValue", &GetValue);
+        Addon.RegisterFunction(env, exports, "setValue", &SetValue);
+        Addon.RegisterFunction(env, exports, "getIntValue", &GetIntValue);
+        Addon.RegisterFunction(env, exports, "setIntValue", &SetIntValue);
+        Addon.RegisterFunction(env, exports, "getUIntValue", &GetUIntValue);
+        Addon.RegisterFunction(env, exports, "setUIntValue", &SetUIntValue);
+        Addon.RegisterFunction(env, exports, "getFloatValue", &GetFloatValue);
+        Addon.RegisterFunction(env, exports, "setFloatValue", &SetFloatValue);
+        Addon.RegisterFunction(env, exports, "getSignature", &GetSignature);
+        Addon.RegisterFunction(env, exports, "getIsModified", &GetIsModified);
+        Addon.RegisterFunction(env, exports, "defType", &DefType);
+        Addon.RegisterFunction(env, exports, "getContainer", &GetContainer);
+        Addon.RegisterFunction(env, exports, "elementPath", &ElementPath);
+        Addon.RegisterFunction(env, exports, "removeElement", &RemoveElement);
     }
 
     private static ulong Pin(object target) =>
@@ -40,8 +63,9 @@ internal static unsafe class Api {
         nint env, nint info, Func<nint, nint[], nint> body
     ) {
         try {
-            nuint argc = 2;
-            var argv = stackalloc nint[2];
+            nuint argc = 0;
+            Addon.NApi.GetCallbackInfo(env, info, &argc, null, null, null);
+            var argv = stackalloc nint[(int)argc];
             Addon.NApi.GetCallbackInfo(env, info, &argc, argv, null, null);
             var args = new nint[argc];
             for (var i = 0; i < args.Length; i++)
@@ -61,6 +85,9 @@ internal static unsafe class Api {
 
     private static Element ElementOf(nint env, nint[] args, int at = 0) =>
         Unpin<Element>(Addon.GetBigInt(env, args[at]));
+
+    private static string PathArg(nint env, nint[] args) =>
+        args.Length > 1 ? Addon.GetString(env, args[1]) : "";
 
     [UnmanagedCallersOnly(CallConvs = [typeof(CallConvCdecl)])]
     private static nint DetectGames(nint env, nint info) =>
@@ -199,7 +226,160 @@ internal static unsafe class Api {
     [UnmanagedCallersOnly(CallConvs = [typeof(CallConvCdecl)])]
     private static nint SavePlugin(nint env, nint info) =>
         Run(env, info, (env, args) => {
-            PluginOf(env, args).Save(Addon.GetString(env, args[1]));
+            var plugin = PluginOf(env, args);
+            var path = args.Length > 1 ? Addon.GetString(env, args[1]) : "";
+            if (string.IsNullOrWhiteSpace(path)) path = plugin.filePath;
+            if (string.IsNullOrWhiteSpace(path))
+                throw new Exception("no path to save to");
+            plugin.Save(path);
             return Addon.JsBool(env, true);
         });
+
+    private static nint ResolveOrZero(
+        nint env, nint[] args, Func<Element, Element> resolve
+    ) {
+        var target = resolve(ElementOf(env, args));
+        return target == null
+            ? Addon.JsBigInt(env, 0)
+            : Addon.JsBigInt(env, Pin(target));
+    }
+
+    [UnmanagedCallersOnly(CallConvs = [typeof(CallConvCdecl)])]
+    private static nint GetElement(nint env, nint info) =>
+        Run(env, info, (env, args) => ResolveOrZero(env, args,
+            el => el.GetElement(PathArg(env, args))));
+
+    [UnmanagedCallersOnly(CallConvs = [typeof(CallConvCdecl)])]
+    private static nint GetElementEx(nint env, nint info) =>
+        Run(env, info, (env, args) => Addon.JsBigInt(env, Pin(
+            ElementOf(env, args).GetElementEx(PathArg(env, args)))));
+
+    [UnmanagedCallersOnly(CallConvs = [typeof(CallConvCdecl)])]
+    private static nint HasElement(nint env, nint info) =>
+        Run(env, info, (env, args) => Addon.JsBool(env,
+            ElementOf(env, args).GetElement(PathArg(env, args)) != null));
+
+    [UnmanagedCallersOnly(CallConvs = [typeof(CallConvCdecl)])]
+    private static nint GetElements(nint env, nint info) =>
+        Run(env, info, (env, args) => {
+            var el = ElementOf(env, args);
+            var path = PathArg(env, args);
+            var target = string.IsNullOrEmpty(path) ? el : el.GetElement(path);
+            if (target is not Container c)
+                throw new Exception("not a container");
+            Addon.NApi.CreateArray(env, out var arr);
+            uint i = 0;
+            foreach (var child in c.elements) {
+                Addon.NApi.CreateBigintUint64(env, Pin(child), out var h);
+                Addon.NApi.SetElement(env, arr, i++, h);
+            }
+            return arr;
+        });
+
+    [UnmanagedCallersOnly(CallConvs = [typeof(CallConvCdecl)])]
+    private static nint AddElement(nint env, nint info) =>
+        Run(env, info, (env, args) => ResolveOrZero(env, args,
+            el => el.AddElement(PathArg(env, args))));
+
+    [UnmanagedCallersOnly(CallConvs = [typeof(CallConvCdecl)])]
+    private static nint FileByName(nint env, nint info) =>
+        Run(env, info, (env, args) => {
+            var plugin = SessionOf(env, args).pluginManager
+                .GetFileByName(Addon.GetString(env, args[1]));
+            return plugin == null
+                ? Addon.JsBigInt(env, 0)
+                : Addon.JsBigInt(env, Pin(plugin));
+        });
+
+    [UnmanagedCallersOnly(CallConvs = [typeof(CallConvCdecl)])]
+    private static nint GetRecordByFormId(nint env, nint info) =>
+        Run(env, info, (env, args) => {
+            var rec = PluginOf(env, args).GetRecordByFormId(
+                (uint)Addon.GetNumber(env, args[1]));
+            return rec == null
+                ? Addon.JsBigInt(env, 0)
+                : Addon.JsBigInt(env, Pin(rec));
+        });
+
+    [UnmanagedCallersOnly(CallConvs = [typeof(CallConvCdecl)])]
+    private static nint GetValue(nint env, nint info) =>
+        Run(env, info, (env, args) => Addon.JsString(env,
+            ElementOf(env, args).GetValue(PathArg(env, args)) ?? ""));
+
+    [UnmanagedCallersOnly(CallConvs = [typeof(CallConvCdecl)])]
+    private static nint SetValue(nint env, nint info) =>
+        Run(env, info, (env, args) => {
+            ElementOf(env, args).SetValue(
+                Addon.GetString(env, args[1]), Addon.GetString(env, args[2]));
+            return Addon.JsBool(env, true);
+        });
+
+    [UnmanagedCallersOnly(CallConvs = [typeof(CallConvCdecl)])]
+    private static nint GetIntValue(nint env, nint info) =>
+        Run(env, info, (env, args) => Addon.JsInt(env,
+            ElementOf(env, args).GetData<int>(PathArg(env, args))));
+
+    [UnmanagedCallersOnly(CallConvs = [typeof(CallConvCdecl)])]
+    private static nint SetIntValue(nint env, nint info) =>
+        Run(env, info, (env, args) => {
+            ElementOf(env, args).SetData<int>(
+                Addon.GetString(env, args[1]), (int)Addon.GetNumber(env, args[2]));
+            return Addon.JsBool(env, true);
+        });
+
+    [UnmanagedCallersOnly(CallConvs = [typeof(CallConvCdecl)])]
+    private static nint GetUIntValue(nint env, nint info) =>
+        Run(env, info, (env, args) => Addon.JsNumber(env,
+            ElementOf(env, args).GetData<uint>(PathArg(env, args))));
+
+    [UnmanagedCallersOnly(CallConvs = [typeof(CallConvCdecl)])]
+    private static nint SetUIntValue(nint env, nint info) =>
+        Run(env, info, (env, args) => {
+            ElementOf(env, args).SetData<uint>(
+                Addon.GetString(env, args[1]), (uint)Addon.GetNumber(env, args[2]));
+            return Addon.JsBool(env, true);
+        });
+
+    [UnmanagedCallersOnly(CallConvs = [typeof(CallConvCdecl)])]
+    private static nint GetFloatValue(nint env, nint info) =>
+        Run(env, info, (env, args) => Addon.JsNumber(env,
+            ElementOf(env, args).GetData<float>(PathArg(env, args))));
+
+    [UnmanagedCallersOnly(CallConvs = [typeof(CallConvCdecl)])]
+    private static nint SetFloatValue(nint env, nint info) =>
+        Run(env, info, (env, args) => {
+            ElementOf(env, args).SetData<float>(
+                Addon.GetString(env, args[1]), (float)Addon.GetNumber(env, args[2]));
+            return Addon.JsBool(env, true);
+        });
+
+    [UnmanagedCallersOnly(CallConvs = [typeof(CallConvCdecl)])]
+    private static nint GetSignature(nint env, nint info) =>
+        Run(env, info, (env, args) => Addon.JsString(env, Backend.CleanSig(
+            Backend.Safe(() => ElementOf(env, args).signature.ToString()))));
+
+    [UnmanagedCallersOnly(CallConvs = [typeof(CallConvCdecl)])]
+    private static nint GetIsModified(nint env, nint info) =>
+        Run(env, info, (env, args) => Addon.JsBool(env, ElementOf(env, args)
+            .state.HasFlag(ElementState.Modified)));
+
+    [UnmanagedCallersOnly(CallConvs = [typeof(CallConvCdecl)])]
+    private static nint DefType(nint env, nint info) =>
+        Run(env, info, (env, args) => Addon.JsInt(env,
+            (int)ElementOf(env, args).def.defType));
+
+    [UnmanagedCallersOnly(CallConvs = [typeof(CallConvCdecl)])]
+    private static nint GetContainer(nint env, nint info) =>
+        Run(env, info, (env, args) => ResolveOrZero(env, args,
+            el => el.container));
+
+    [UnmanagedCallersOnly(CallConvs = [typeof(CallConvCdecl)])]
+    private static nint ElementPath(nint env, nint info) =>
+        Run(env, info, (env, args) => Addon.JsString(env,
+            Backend.Safe(() => ElementOf(env, args).path)));
+
+    [UnmanagedCallersOnly(CallConvs = [typeof(CallConvCdecl)])]
+    private static nint RemoveElement(nint env, nint info) =>
+        Run(env, info, (env, args) => Addon.JsBool(env,
+            ElementOf(env, args).RemoveElement(PathArg(env, args))));
 }
