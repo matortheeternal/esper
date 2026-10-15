@@ -150,6 +150,40 @@ namespace esper.defs {
         public static implicit operator VariantData(ulong v) => new U64(v);
         public static implicit operator VariantData(float v) => new F32(v);
 
+        public static explicit operator sbyte(VariantData d) => d.ToSByte();
+        public static explicit operator byte(VariantData d) => d.ToByte();
+        public static explicit operator short(VariantData d) => d.ToInt16();
+        public static explicit operator ushort(VariantData d) => d.ToUInt16();
+        public static explicit operator int(VariantData d) => d.ToInt32();
+        public static explicit operator uint(VariantData d) => d.ToUInt32();
+        public static explicit operator long(VariantData d) => d.ToInt64();
+        public static explicit operator ulong(VariantData d) => d.ToUInt64();
+        public static explicit operator float(VariantData d) => d.ToSingle();
+        public static explicit operator double(VariantData d) {
+            if (d is F32 f) return f.V;
+            return Convert.ToDouble(d.ToInt64());
+        }
+
+        public static explicit operator string(VariantData d) {
+            if (d is Text t) return t.V;
+            throw d.CannotConvert("string");
+        }
+
+        public static explicit operator byte[](VariantData d) {
+            if (d is Bytes b) return b.Raw;
+            throw d.CannotConvert("byte[]");
+        }
+
+        public static explicit operator FormId(VariantData d) {
+            if (d is Form f) return f.V;
+            throw d.CannotConvert("FormId");
+        }
+
+        public static explicit operator LocalizedString(VariantData d) {
+            if (d is LString l) return l.V;
+            throw d.CannotConvert("LocalizedString");
+        }
+
         private static readonly Dictionary<Type, Func<object, VariantData>> factories = new() {
             [typeof(byte[])] = v => new Bytes((byte[])v),
             [typeof(string)] = v => new Text((string)v),

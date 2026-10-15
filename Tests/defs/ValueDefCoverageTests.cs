@@ -63,8 +63,8 @@ namespace Tests.defs {
             Assert.IsTrue(def.isNumeric);
             Assert.AreEqual(1, def.size);
             var source = new RecordSource(null, new byte[] { 0xFF });
-            Assert.AreEqual((sbyte)-1, ((VariantData.I8)def.ReadData(source, null)).V);
-            Assert.AreEqual((sbyte)0, ((VariantData.I8)def.DefaultData()).V);
+            Assert.AreEqual((sbyte)-1, def.ReadData(source, null).As<sbyte>());
+            Assert.AreEqual((sbyte)0, def.DefaultData().As<sbyte>());
             Assert.AreEqual("7F", def.DataToSortKey((sbyte)-1));
             Assert.AreEqual("00", def.DataToSortKey((sbyte)-128));
             Assert.AreEqual("FF", def.DataToSortKey((sbyte)127));
@@ -75,11 +75,11 @@ namespace Tests.defs {
             var def = new Int8Def(SseManager(), Named("I8"));
             var element = new ValueElement(null, def);
             def.SetData(element, 999L);
-            Assert.AreEqual((sbyte)127, ((VariantData.I8)element._data).V);
+            Assert.AreEqual((sbyte)127, element._data.As<sbyte>());
             def.SetData(element, -999L);
-            Assert.AreEqual((sbyte)-128, ((VariantData.I8)element._data).V);
+            Assert.AreEqual((sbyte)-128, element._data.As<sbyte>());
             def.SetData(element, 5L);
-            Assert.AreEqual((sbyte)5, ((VariantData.I8)element._data).V);
+            Assert.AreEqual((sbyte)5, element._data.As<sbyte>());
         }
 
         [Test]
@@ -92,7 +92,7 @@ namespace Tests.defs {
             );
             var element = new ValueElement(null, def);
             def.SetData(element, 42L);
-            Assert.AreEqual((sbyte)42, ((VariantData.I8)element._data).V);
+            Assert.AreEqual((sbyte)42, element._data.As<sbyte>());
             Assert.Throws<OverflowException>(() => def.SetData(element, 999L));
         }
 
@@ -120,7 +120,7 @@ namespace Tests.defs {
             element._data = (sbyte)5;
             Assert.AreEqual("5", def.GetValue(element));
             def.SetValue(element, "42");
-            Assert.AreEqual((sbyte)42, ((VariantData.I8)element._data).V);
+            Assert.AreEqual((sbyte)42, element._data.As<sbyte>());
         }
 
         [Test]
@@ -170,13 +170,13 @@ namespace Tests.defs {
             Assert.AreEqual(XEDefType.dtInteger, def.valueDefType);
             Assert.AreEqual(1, def.size);
             var source = new RecordSource(null, new byte[] { 0xFF });
-            Assert.AreEqual((byte)255, ((VariantData.U8)def.ReadData(source, null)).V);
-            Assert.AreEqual((byte)0, ((VariantData.U8)def.DefaultData()).V);
+            Assert.AreEqual((byte)255, def.ReadData(source, null).As<byte>());
+            Assert.AreEqual((byte)0, def.DefaultData().As<byte>());
             Assert.AreEqual("FF", def.DataToSortKey((byte)255));
             Assert.AreEqual("00", def.DataToSortKey((byte)0));
             var element = new ValueElement(null, def);
             def.SetData(element, 999L);
-            Assert.AreEqual((byte)255, ((VariantData.U8)element._data).V);
+            Assert.AreEqual((byte)255, element._data.As<byte>());
             var session = RecordDefCoverageTests.GetSession("SSE");
             var plugin = LoadSharedSkyrim();
             element._data = (byte)7;
@@ -287,9 +287,9 @@ namespace Tests.defs {
                 refr, new byte[] { 0xEA, 0x06, 0x00, 0x00 }
             );
             var fid = def.ReadData(source, null);
-            Assert.AreEqual(0x6EAu, ((VariantData.Form)fid).V.fileFormId);
+            Assert.AreEqual(0x6EAu, fid.As<esper.data.FormId>().fileFormId);
             var empty = def.DefaultData();
-            Assert.AreEqual(0u, ((VariantData.Form)empty).V.fileFormId);
+            Assert.AreEqual(0u, empty.As<esper.data.FormId>().fileFormId);
             var nav = (ValueElement)refr.GetElement(
                 @"XNDP\Navigation Mesh"
             );
@@ -309,7 +309,7 @@ namespace Tests.defs {
                 plugin.GetRecordByFormId(0x12DFE), def
             );
             def.SetValue(element, "{Skyrim.esm:000EA6}");
-            Assert.AreEqual(0xEA6u, ((VariantData.Form)element._data).V.fileFormId);
+            Assert.AreEqual(0xEA6u, element._data.As<esper.data.FormId>().fileFormId);
         }
 
         [Test]
@@ -322,7 +322,7 @@ namespace Tests.defs {
             )).valueDef;
             var nav = (ValueElement)refr.GetElement(@"XNDP\Navigation Mesh");
             var expected = BitConverter.ToString(
-                BitConverter.GetBytes(((VariantData.Form)nav.data).V.fileFormId)
+                BitConverter.GetBytes(nav.data.As<esper.data.FormId>().fileFormId)
             ).Replace("-", "");
             Assert.AreEqual(
                 expected,
@@ -423,7 +423,7 @@ namespace Tests.defs {
             var target = "{Skyrim.esm:" +
                 navm.fileFormId.ToString("X6") + "}";
             def.SetValue(element, target);
-            Assert.AreEqual(navm.fileFormId, ((VariantData.Form)element._data).V.fileFormId);
+            Assert.AreEqual(navm.fileFormId, element._data.As<esper.data.FormId>().fileFormId);
             Assert.Throws<Exception>(
                 () => def.SetValue(element, "{Skyrim.esm:00001B}")
             );
@@ -525,7 +525,7 @@ namespace Tests.defs {
             Assert.AreEqual(XEDefType.dtLenString, prefixed.valueDefType);
             Assert.AreEqual(XEDefType.dtLString, localized.valueDefType);
             Assert.AreEqual(SmashType.stString, plain.smashType);
-            Assert.AreEqual(string.Empty, ((VariantData.Text)plain.DefaultData()).V);
+            Assert.AreEqual(string.Empty, plain.DefaultData().As<string>());
         }
 
         [Test]
@@ -541,7 +541,7 @@ namespace Tests.defs {
                 () => fixed4.SetData(fixedElement, "ABC")
             );
             fixed4.SetData(fixedElement, "ABCD");
-            Assert.AreEqual("ABCD", ((VariantData.Text)fixedElement._data).V);
+            Assert.AreEqual("ABCD", fixedElement._data.As<string>());
         }
 
         [Test]

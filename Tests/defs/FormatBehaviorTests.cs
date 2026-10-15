@@ -19,7 +19,7 @@ namespace Tests.defs {
             );
             Assert.AreEqual(
                 0x89ABCDEFu,
-                ((VariantData.U32)format.ValueToData(null, @"Precombined\00012345_89ABCDEF_OC.nif")).V
+                format.ValueToData(null, @"Precombined\00012345_89ABCDEF_OC.nif").As<uint>()
             );
             Assert.AreEqual(
                 0x89ABCDEFu,
@@ -38,20 +38,20 @@ namespace Tests.defs {
             var format = new CombinedMeshIDFormat(
                 session.definitionManager, new JObject()
             );
-            Assert.AreEqual(0u, ((VariantData.U32)format.ValueToData(null, null)).V);
-            Assert.AreEqual(0u, ((VariantData.U32)format.ValueToData(null, "")).V);
-            Assert.AreEqual(0u, ((VariantData.U32)format.ValueToData(null, "foo.nif")).V);
+            Assert.AreEqual(0u, format.ValueToData(null, null).As<uint>());
+            Assert.AreEqual(0u, format.ValueToData(null, "").As<uint>());
+            Assert.AreEqual(0u, format.ValueToData(null, "foo.nif").As<uint>());
             Assert.AreEqual(
-                0u, ((VariantData.U32)format.ValueToData(null, @"Precombined\00012345_OC.nif")).V
+                0u, format.ValueToData(null, @"Precombined\00012345_OC.nif").As<uint>()
             );
             Assert.AreEqual(
-                0u, ((VariantData.U32)format.ValueToData(null, @"Precombined\00012345_89ABCDE_OC.nif")).V
+                0u, format.ValueToData(null, @"Precombined\00012345_89ABCDE_OC.nif").As<uint>()
             );
             Assert.AreEqual(
-                0u, ((VariantData.U32)format.ValueToData(null, @"Precombined\00012345_89ABCDEFQ_OC.nif")).V
+                0u, format.ValueToData(null, @"Precombined\00012345_89ABCDEFQ_OC.nif").As<uint>()
             );
             Assert.AreEqual(
-                0u, ((VariantData.U32)format.ValueToData(null, @"Precombined\00012345_ZZZZZZZZ_OC.nif")).V
+                0u, format.ValueToData(null, @"Precombined\00012345_ZZZZZZZZ_OC.nif").As<uint>()
             );
         }
 

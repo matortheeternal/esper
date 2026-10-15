@@ -91,7 +91,7 @@ namespace Tests.defs {
             var fmt = new RotationFactorFormat(mgr, Named("R"));
             Assert.IsTrue(fmt.isNumeric);
             Assert.AreEqual("180.0000", fmt.DataToValue(null, (float)Math.PI));
-            double back = ((VariantData.F32)fmt.ValueToData(null, "180")).V;
+            double back = fmt.ValueToData(null, "180").As<float>();
             Assert.AreEqual(Math.PI, back, 1e-6);
         }
 
@@ -100,7 +100,7 @@ namespace Tests.defs {
             var mgr = SseManager();
             var fmt = new CloudSpeedFormat(mgr, Named("C"));
             Assert.AreEqual("0.0000", fmt.DataToValue(null, 127));
-            double back = ((VariantData.U8)fmt.ValueToData(null, "0")).V;
+            double back = fmt.ValueToData(null, "0").As<byte>();
             Assert.AreEqual(127.0, back);
         }
 
@@ -110,7 +110,7 @@ namespace Tests.defs {
             var fmt = new HideFFFF_Format(mgr, Named("H"));
             Assert.AreEqual("None", fmt.DataToValue(null, 0xFFFF));
             Assert.AreEqual("42", fmt.DataToValue(null, 42));
-            int none = ((VariantData.I32)fmt.ValueToData(null, "None")).V;
+            int none = fmt.ValueToData(null, "None").As<int>();
             Assert.AreEqual(0xFFFF, none);
             long plain = fmt.ValueToData(null, "42").ToInt64();
             Assert.AreEqual(42L, plain);

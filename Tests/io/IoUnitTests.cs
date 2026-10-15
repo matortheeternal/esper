@@ -154,8 +154,8 @@ namespace Tests.io {
                 new[] { "Present", "Damage" },
                 element.elements.Select(e => e.name)
             );
-            Assert.AreEqual(1.5f, ((VariantData.F32)((ValueElement)element.elements[0]).data).V);
-            Assert.AreEqual(0x1234, ((VariantData.U16)((ValueElement)element.elements[1]).data).V);
+            Assert.AreEqual(1.5f, ((ValueElement)element.elements[0]).data.As<float>());
+            Assert.AreEqual(0x1234, ((ValueElement)element.elements[1]).data.As<ushort>());
         }
     }
 }
