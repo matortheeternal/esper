@@ -9,8 +9,8 @@ namespace esper.defs.TES4 {
         internal IdleAnamFormat(DefinitionManager manager, JObject src)
             : base(manager, src) { }
 
-        internal override string DataToValue(ValueElement element, dynamic data) {
-            long v = Convert.ToInt64(data);
+        internal override string DataToValue(ValueElement element, ValueData data) {
+            long v = data.ToInt64();
             string s;
             switch (v & ~0x80L) {
                 case 0: s = "Lower Body"; break;
@@ -26,12 +26,12 @@ namespace esper.defs.TES4 {
             return s;
         }
 
-        internal override dynamic ValueToData(ValueElement element, string value) {
+        internal override ValueData ValueToData(ValueElement element, string value) {
             throw new NotImplementedException();
         }
 
-        internal override string GetSortKey(ValueElement element, dynamic data) {
-            return Convert.ToInt64(data).ToString("X2");
+        internal override string GetSortKey(ValueElement element, ValueData data) {
+            return data.ToInt64().ToString("X2");
         }
     }
 }

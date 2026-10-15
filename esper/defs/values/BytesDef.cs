@@ -15,11 +15,11 @@ namespace esper.defs {
                 throw new Exception("Def source has invalid size" + fixedSize);
         }
 
-        internal override string DataToSortKey(dynamic data) {
-            return data.ToString();
+        internal override string DataToSortKey(ValueData data) {
+            return data.ToDisplayString();
         }
 
-        internal override dynamic ReadData(DataSource source, UInt32? dataSize) {
+        internal override ValueData ReadData(DataSource source, UInt32? dataSize) {
             if (isVariableSize && dataSize == null)
                 throw new Exception("Cannot read data of unknown size.");
             // return empty array if there are no bytes to read
@@ -29,20 +29,23 @@ namespace esper.defs {
             return source.reader.ReadBytes((int)numBytes);
         }
 
-        internal override dynamic DefaultData() {
+        internal override ValueData DefaultData() {
             if (isVariableSize) return new byte[0];
             return new byte[(int)fixedSize];
         }
 
-        internal override void SetData(ValueElement element, dynamic data) {
-            if (!isVariableSize && data.Length != fixedSize)
+        internal override void SetData(ValueElement element, ValueData data) {
+            if (data is not ValueData.Bytes bytes)
+                throw new InvalidOperationException("Data must be a byte array.");
+            if (!isVariableSize && bytes.Raw.Length != fixedSize)
                 throw new Exception("Bytes size mismatch");
-            element._data = data;
+            element._data = bytes;
         }
 
         public override string GetValue(ValueElement element) {
-            byte[] data = element.data;
-            return StringHelpers.FormatBytes(data);
+            if (element.data is not ValueData.Bytes bytes)
+                throw new InvalidOperationException("Data must be a byte array.");
+            return StringHelpers.FormatBytes(bytes.Raw);
         }
 
         public override void SetValue(ValueElement element, string value) {
@@ -52,14 +55,16 @@ namespace esper.defs {
         internal override UInt32 GetSize(Element element) {
             UInt32 size = (UInt32)(IsSubrecord() ? 6 : 0);
             var v = (ValueElement)element;
-            byte[] bytes = v.data as byte[] ?? DefaultData();
+            byte[] bytes = v.data is ValueData.Bytes b
+                ? b.Raw : ((ValueData.Bytes)DefaultData()).Raw;
             return (UInt32)(size + bytes.Length);
         }
 
         internal override void WriteData(
             ValueElement element, PluginFileOutput output
         ) {
-            var data = element.data as byte[] ?? DefaultData();
+            byte[] data = element.data is ValueData.Bytes b
+                ? b.Raw : ((ValueData.Bytes)DefaultData()).Raw;
             output.writer.Write(data);
         }
 

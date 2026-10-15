@@ -89,14 +89,16 @@ namespace esper.resolution {
 
         public static T GetData<T>(this Element r, string path = "") {
             ValueElement valueElement = (ValueElement)r.GetElement(path);
-            return (T)valueElement?.data;
+            var data = valueElement?.data;
+            return data == null ? (T)(object)null : data.As<T>();
         }
 
         public static T GetDataEx<T>(this Element r, string path = "") {
             var valueElement = r.GetElementEx(path) as ValueElement;
             if (valueElement == null)
                 throw new Exception("Element does not have a value.");
-            return (T)valueElement.data;
+            return valueElement.data == null
+                ? (T)(object)null : valueElement.data.As<T>();
         }
 
         public static bool GetFlag(this Element r, string flagsPath, string flag) {
@@ -147,7 +149,7 @@ namespace esper.resolution {
         public static void SetData<T>(this Element r, string path, T data) {
             var valueElement = r.GetElement(path) as ValueElement;
             if (valueElement == null) return;
-            valueElement.data = data;
+            valueElement.data = ValueData.From(data);
         }
 
         public static void SetValue(

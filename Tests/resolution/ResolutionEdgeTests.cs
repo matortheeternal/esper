@@ -339,7 +339,7 @@ namespace Tests.resolution {
             el.data = "TempName";
             Assert.AreEqual("TempName", el.value);
             el.data = original;
-            Assert.AreEqual(original, el.value);
+            Assert.AreEqual(original.ToDisplayString(), el.value);
         }
 
         [Test]

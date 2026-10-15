@@ -9,16 +9,16 @@ namespace esper.defs.TES5 {
         internal _180DivPiFormat(DefinitionManager manager, JObject src)
             : base(manager, src) { }
 
-        internal override string DataToValue(ValueElement element, dynamic data) {
-            if (Single.IsNaN(data)) return "NaN";
-            if (Single.IsInfinity(data)) return "Inf";
-            if (data == Single.MaxValue) return "Default";
-            if (data == -Single.MaxValue) return "Min";
-            float fData = (float)(data * 180 / Math.PI);
+        internal override string DataToValue(ValueElement element, ValueData data) {
+            if (Single.IsNaN(data.ToSingle())) return "NaN";
+            if (Single.IsInfinity(data.ToSingle())) return "Inf";
+            if (data.ToSingle() == Single.MaxValue) return "Default";
+            if (data.ToSingle() == -Single.MaxValue) return "Min";
+            float fData = (float)(data.ToSingle() * 180 / Math.PI);
             return fData.ToString(sessionOptions.floatFormat);
         }
 
-        internal override dynamic ValueToData(ValueElement element, string value) {
+        internal override ValueData ValueToData(ValueElement element, string value) {
             // TODO
             throw new NotImplementedException();
         }

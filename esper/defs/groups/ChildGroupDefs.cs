@@ -10,7 +10,7 @@ namespace esper.defs {
         internal ChildGroupDef(DefinitionManager manager, JObject src)
             : base(manager, src) { }
 
-        internal override dynamic ConvertLabel(GroupRecord group, byte[] label) {
+        internal override object ConvertLabel(GroupRecord group, byte[] label) {
             return FormId.FromSource(
                 group.file,
                 BitConverter.ToUInt32(label)
@@ -18,7 +18,7 @@ namespace esper.defs {
         }
 
         public override string GetName(GroupRecord group) {
-            FormId label = ConvertLabel(group, group.header.label);
+            FormId label = (FormId)ConvertLabel(group, group.header.label);
             return $"Children of {label.fileFormId:X8}";
         }
 

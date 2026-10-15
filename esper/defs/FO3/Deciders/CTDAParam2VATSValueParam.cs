@@ -9,7 +9,7 @@ namespace esper.defs.FO3 {
         public override int Decide(Container container) {
             var param1 = container?.GetElement("Parameter #1") as ValueElement;
             if (param1 == null) return 0;
-            return Convert.ToInt32(param1.data);
+            return Convert.ToInt32(param1.data?.ToInt64() ?? 0);
         }
     }
 }

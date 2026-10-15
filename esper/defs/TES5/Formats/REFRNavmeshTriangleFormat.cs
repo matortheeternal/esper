@@ -18,7 +18,7 @@ namespace esper.defs.TES5 {
         public void GetWarnings(
             ValueElement element, List<ElementWarning> warnings
         ) {
-            int index = element.data;
+            int index = (int)element.data.ToInt64();
             var rec = ResolveNavmesh(element);
             if (rec == null) return;
             if (rec.signature != Signatures.NAVM) {
@@ -34,11 +34,11 @@ namespace esper.defs.TES5 {
             });
         }
 
-        internal override string DataToValue(ValueElement element, dynamic data) {
-            return data.ToString();
+        internal override string DataToValue(ValueElement element, ValueData data) {
+            return data.ToDisplayString();
         }
 
-        internal override dynamic ValueToData(ValueElement element, string value) {
+        internal override ValueData ValueToData(ValueElement element, string value) {
             return Int64.Parse(value);
         }
     }

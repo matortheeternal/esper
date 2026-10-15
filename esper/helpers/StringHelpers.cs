@@ -1,4 +1,6 @@
-﻿namespace esper.helpers {
+﻿using esper.defs;
+
+namespace esper.helpers {
     public static class StringHelpers {
         static readonly Regex signatureExpr = new Regex(@"^([^\\s]{4}) - ");
         static readonly char[] digits = new char[] {
@@ -59,7 +61,7 @@
             remainingPath = path.Substring(separatorIndex + 1);
         }
 
-        internal static dynamic DynamicParse(string value) {
+        internal static ValueData DynamicParse(string value) {
             if (Int64.TryParse(value, out long n)) return n;
             if (UInt64.TryParse(value, out ulong m)) return m;
             throw new Exception("Could not parse " + value);

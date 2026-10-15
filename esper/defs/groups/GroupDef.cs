@@ -47,7 +47,7 @@ namespace esper.defs {
             }
         }
 
-        internal virtual dynamic ConvertLabel(GroupRecord group, byte[] label) {
+        internal virtual object ConvertLabel(GroupRecord group, byte[] label) {
             throw new NotImplementedException();
         }
 

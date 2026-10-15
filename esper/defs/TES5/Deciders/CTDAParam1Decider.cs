@@ -6,7 +6,7 @@ namespace esper.defs.TES5 {
         protected CTDAFunction GetCTDAFunction(Container container) {
             var function = container?.GetElement("Function") as ValueElement;
             if (function == null) return null;
-            UInt16 index = Convert.ToUInt16(function.data);
+            UInt16 index = Convert.ToUInt16(function.data?.ToInt64() ?? 0);
             var ctdaFunctions = container.manager.ctdaFunctions;
             return ctdaFunctions.FunctionByIndex(index);
         }
@@ -23,7 +23,7 @@ namespace esper.defs.TES5 {
 
         protected long GetParamFlags(Container container) {
             var type = container?.GetElement("Type") as ValueElement;
-            return type == null ? 0 : Convert.ToInt64(type.data);
+            return type == null ? 0 : type.data?.ToInt64() ?? 0;
         }
 
         protected virtual CTDAFunctionParamType? ResolveParamType(

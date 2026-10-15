@@ -38,7 +38,8 @@ namespace esper.defs {
 
         public override UInt32 GetCount(Container container) {
             var e = FindCounter(container);
-            return (UInt32)(e == null ? 0 : e.data);
+            if (e == null) return 0;
+            return (UInt32)e.data.ToUInt64();
         }
     }
 }

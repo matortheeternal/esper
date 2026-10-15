@@ -1,4 +1,5 @@
 ﻿using esper.data;
+using esper.defs;
 using esper.elements;
 using esper.resolution;
 using esper.setup;
@@ -87,8 +88,8 @@ namespace esper.plugins {
         ) {
             var refs = new FileReferenceMap();
             ForEachFormIdElement(m.file, (ValueElement element) => {
-                if (!(element.data is FormId formId)) return;
-                var filename = formId.targetFileName;
+                if (!(element.data is ValueData.Form form)) return;
+                var filename = form.V.targetFileName;
                 if (!refs.ContainsKey(filename))
                     refs[filename] = new List<Element>();
                 refs[filename].Add(element);
@@ -101,8 +102,8 @@ namespace esper.plugins {
         ) {
             var counts = new Dictionary<string, int>();
             ForEachFormIdElement(m.file, (ValueElement element) => {
-                if (!(element.data is FormId formId)) return;
-                var filename = formId.targetFileName;
+                if (!(element.data is ValueData.Form form)) return;
+                var filename = form.V.targetFileName;
                 if (!counts.ContainsKey(filename))
                     counts[filename] = 0;
                 counts[filename]++;

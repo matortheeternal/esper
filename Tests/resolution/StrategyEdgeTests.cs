@@ -220,11 +220,11 @@ namespace Tests.resolution {
             Assert.IsTrue(def.hasRecordParent);
             Assert.IsTrue(def.isChildGroup);
             Assert.AreEqual("Unknown", def.name);
-            Assert.AreEqual(group.label.bytes, def.ParseLabel(group, "x"));
+            Assert.AreEqual(((esper.data.Signature)group.label).bytes, def.ParseLabel(group, "x"));
             Assert.Throws<Exception>(() => def.ParseLabel(rec, "x"));
-            var formId = def.ConvertLabel(group, group.label.bytes);
+            var formId = (esper.data.FormId)def.ConvertLabel(group, ((esper.data.Signature)group.label).bytes);
             Assert.AreEqual(
-                BitConverter.ToUInt32(group.label.bytes), formId.fileFormId
+                BitConverter.ToUInt32(((esper.data.Signature)group.label).bytes), formId.fileFormId
             );
         }
     }

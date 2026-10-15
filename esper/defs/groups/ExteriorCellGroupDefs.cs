@@ -10,7 +10,7 @@ namespace esper.defs {
         internal ExteriorCellGroupDef(DefinitionManager manager, JObject src)
             : base(manager, src) { }
 
-        internal override dynamic ConvertLabel(GroupRecord group, byte[] label) {
+        internal override object ConvertLabel(GroupRecord group, byte[] label) {
             return new Int16[2] {
                 BitConverter.ToInt16(label),
                 BitConverter.ToInt16(label, 2)
@@ -18,7 +18,7 @@ namespace esper.defs {
         }
 
         public string GetCoordinatesStr(GroupRecord group) {
-            return string.Join(", ", group.label);
+            return string.Join(", ", (short[])group.label);
         }
 
         public override bool NameMatches(string name) {

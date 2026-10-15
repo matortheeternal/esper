@@ -76,16 +76,16 @@ namespace Tests.defs {
             var def = new esper.defs.FNV.AlocTimeFormat(
                 FNV().definitionManager, Src("Day Start")
             );
-            Assert.AreEqual(128, def.ValueToData(null, "12:00:00 PM"));
-            Assert.AreEqual(0, def.ValueToData(null, "12:00:00 AM"));
+            Assert.AreEqual(128, def.ValueToData(null, "12:00:00 PM").ToInt64());
+            Assert.AreEqual(0, def.ValueToData(null, "12:00:00 AM").ToInt64());
             Assert.AreEqual(
                 128,
                 def.ValueToData(
                     null,
                     (string)def.DataToValue(null, 128u)
-                )
+                ).ToInt64()
             );
-            Assert.AreEqual(64L, (long)def.ValueToData(null, "64"));
+            Assert.AreEqual(64L, def.ValueToData(null, "64").ToInt64());
         }
 
         [Test]
@@ -231,7 +231,7 @@ namespace Tests.defs {
                 format.DataToValue(null, 7)
             );
             Assert.AreEqual("00000007", format.GetSortKey(null, 7));
-            Assert.AreEqual(34, format.ValueToData(null, "034 Hayes"));
+            Assert.AreEqual(34, format.ValueToData(null, "034 Hayes").ToInt64());
         }
 
         [Test]

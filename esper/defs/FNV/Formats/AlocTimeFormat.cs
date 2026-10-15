@@ -13,8 +13,8 @@ namespace esper.defs.FNV {
         internal AlocTimeFormat(DefinitionManager manager, JObject src)
             : base(manager, src) { }
 
-        internal override string DataToValue(ValueElement element, dynamic data) {
-            var seconds = (long)Math.Round(Convert.ToDouble(data) / 256.0 * 86400.0);
+        internal override string DataToValue(ValueElement element, ValueData data) {
+            var seconds = (long)Math.Round(Convert.ToDouble(data.ToInt64()) / 256.0 * 86400.0);
             var hour24 = (int)(seconds / 3600) % 24;
             var hour12 = hour24 % 12;
             if (hour12 == 0) hour12 = 12;
@@ -24,7 +24,7 @@ namespace esper.defs.FNV {
             return $"{hour12}:{minute:00}:{second:00} {suffix}";
         }
 
-        internal override dynamic ValueToData(ValueElement element, string value) {
+        internal override ValueData ValueToData(ValueElement element, string value) {
             if (DateTime.TryParseExact(
                 value.Trim(),
                 new[] { "h:mm:ss tt", "H:mm:ss" },
@@ -41,8 +41,8 @@ namespace esper.defs.FNV {
             return DataHelpers.ParseInt64(value);
         }
 
-        internal override string GetSortKey(ValueElement element, dynamic data) {
-            return Convert.ToInt64(data).ToString("X4");
+        internal override string GetSortKey(ValueElement element, ValueData data) {
+            return data.ToInt64().ToString("X4");
         }
     }
 }
