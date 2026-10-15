@@ -25,9 +25,6 @@ namespace esper.defs {
             int defIndex = 0;
             var subrecord = source.currentSubrecord;
             var memberDef = GetMemberDef(subrecord.signature, ref defIndex);
-            // Union entry is only reached when the current signature
-            // matched a member, so null means "not ours": leave the
-            // subrecord for the outer level (original behavior).
             if (memberDef == null) return;
             if (memberDef.IsSubrecord()) {
                 memberDef.ReadElement(container, source, subrecord.dataSize);

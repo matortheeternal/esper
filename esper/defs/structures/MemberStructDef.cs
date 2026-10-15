@@ -32,10 +32,6 @@ namespace esper.defs {
         ) {
             var subrecord = source.currentSubrecord;
             var def = GetMemberDef(subrecord.signature, ref defIndex);
-            // Unknown subrecord: end the struct WITHOUT consuming it, so
-            // the outer level re-dispatches it (at record level it becomes
-            // an "Unknown" byte-array element). Absorbing it here would
-            // swallow all following siblings into the struct.
             if (def == null) return false;
             if (def.IsSubrecord()) {
                 def.ReadElement(container, source, subrecord.dataSize);

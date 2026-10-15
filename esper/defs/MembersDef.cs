@@ -30,13 +30,6 @@ namespace esper.defs {
             return null;
         }
 
-        // Builds (and caches) a variable-size byte-array def for a member
-        // signature with no definition, so unknown subrecords still decode
-        // as elements named "Unknown" and round-trip byte-identical instead
-        // of being sidelined as unexpected subrecords (which are dropped
-        // on the element-write path). Deliberately kept out of memberDefs
-        // and signatures so export, ordering, and lookup semantics stay
-        // driven by real definitions only.
         internal ElementDef GetUnknownMemberDef(
             Signature signature, string context
         ) {

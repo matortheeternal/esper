@@ -62,9 +62,6 @@ namespace esper.defs {
             var subrecord = source.currentSubrecord;
             var def = GetMemberDef(subrecord.signature, ref defIndex);
             if (def == null) {
-                // Unknown subrecord: decode as opaque bytes without
-                // advancing defIndex, so following known members still
-                // resolve positionally.
                 def = GetUnknownMemberDef(
                     subrecord.signature, $"record {signature}");
                 def.ReadElement(rec, source, subrecord.dataSize);
