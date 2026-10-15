@@ -368,3 +368,7 @@ EsperTest/
 
 js-tests/esper/
 .env
+
+# node-addon build outputs
+esper-addon.node
+node-addon/definitions.zip

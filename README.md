@@ -33,18 +33,17 @@ Coverage uses coverlet.  Collect a Cobertura report with:
 
 The report is written under `TestResults/<guid>/coverage.cobertura.xml`.
 
-### js tests
+### node tests
 
-`js-tests/` smoke-tests Node interop via dynamic
-[node-api-dotnet](https://github.com/microsoft/node-api-dotnet)
-loading (`dotnet.load` on the `net10.0` host entry), which is the
-cross-platform default.  Run:
+`node-addon/` builds esper as a NativeAOT Node.js addon
+(`esper-addon.node`) and exercises it through `node:test` suites with
+no dependencies. Run:
 
-    cd js-tests && npm install && npm test
+    cd node-addon && npm test
 
-This publishes the full `esper.dll` dependency closure and asserts a
-real plugin load.  The legacy static `[JSExport]` surface is opt-in
-only: build with `-p:EnableNodeApiGenerator=true` (Windows).
+This publishes the addon for the host platform and asserts session,
+load order, plugin, tree, value, write, and scale coverage against
+real plugin data.
 
 ## fixture installation
 
