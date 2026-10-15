@@ -389,7 +389,7 @@ namespace Tests.defs {
             Assert.AreEqual(557L, format.ValueToData(triangle, "557").ToInt64());
             var nav = ((Container)triangle.container).elements[0] as ValueElement;
             Assert.IsNotNull(nav);
-            Assert.AreEqual(0xD6989, ((VariantData.Form)nav.data).V.fileFormId);
+            Assert.AreEqual(0xD6989, nav.data.As<esper.data.FormId>().fileFormId);
             var clean = new List<ElementWarning>();
             format.GetWarnings(triangle, clean);
             Assert.IsEmpty(clean);

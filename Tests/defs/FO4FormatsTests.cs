@@ -87,14 +87,14 @@ namespace Tests.defs {
         public void CLFMValueToData() {
             var format = new CLFMColorFormat(Fo4Manager(), new JObject());
             Assert.AreEqual(
-                0xFF804020u, ((VariantData.U32)format.ValueToData(null, "rgba(32, 64, 128, 255)")).V
+                0xFF804020u, format.ValueToData(null, "rgba(32, 64, 128, 255)").As<uint>()
             );
             Assert.AreEqual(0xFF804020u, format.ValueToData(null, "RGBA(32,64,128,255)").ToInt64());
             Assert.AreEqual(0u, format.ValueToData(null, "rgba(1, 2, 3)").ToInt64());
             Assert.AreEqual(0u, format.ValueToData(null, "rgba(1, 2, 3").ToInt64());
             Assert.AreEqual(
                 BitConverter.ToUInt32(BitConverter.GetBytes(1.5f), 0),
-                ((VariantData.U32)format.ValueToData(null, "1.5")).V
+                format.ValueToData(null, "1.5").As<uint>()
             );
             Assert.AreEqual(0u, format.ValueToData(null, "junk").ToInt64());
         }
