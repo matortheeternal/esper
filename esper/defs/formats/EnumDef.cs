@@ -16,15 +16,15 @@ namespace esper.defs {
             unknownOption = src.Value<string>("unknownOption");
         }
 
-        internal override string DataToValue(ValueElement element, dynamic data) {
+        internal override string DataToValue(ValueElement element, object data) {
             var options = this.options;
-            Int64 indexKey = data;
+            Int64 indexKey = data.ToInt64();
             if (!options.ContainsKey(indexKey))
                 return unknownOption ?? string.Format("<Unknown {0}>", indexKey);
             return options[indexKey];
         }
 
-        internal override dynamic ValueToData(ValueElement element, string value) {
+        internal override object ValueToData(ValueElement element, string value) {
             var options = this.options;
             foreach (var (key, option) in options)
                 if (option == value) return key;

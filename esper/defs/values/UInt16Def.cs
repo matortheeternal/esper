@@ -15,19 +15,19 @@ namespace esper.defs {
         internal UInt16Def(DefinitionManager manager, JObject src)
             : base(manager, src) { }
 
-        internal override dynamic ReadData(DataSource source, UInt32? dataSize) {
+        internal override object ReadData(DataSource source, UInt32? dataSize) {
             if (dataSize == 1) return (UInt16)source.reader.ReadByte();
             return source.reader.ReadUInt16();
         }
 
-        internal override dynamic DefaultData() {
+        internal override object DefaultData() {
             return (UInt16)0;
         }
 
-        internal override void SetData(ValueElement element, dynamic data) {
+        internal override void SetData(ValueElement element, object data) {
             element._data = sessionOptions.clampIntegerValues
-                ? DataHelpers.ClampToUInt16(data)
-                : (UInt16)data;
+                ? DataHelpers.ClampToUInt16(data.ToInt64())
+                : (UInt16)data.ToUInt64();
             element.SetState(ElementState.Modified);
         }
 
@@ -37,7 +37,7 @@ namespace esper.defs {
             if (element.data is UInt16 data) {
                 output.writer.Write(data);
             } else {
-                output.writer.Write(DefaultData());
+                output.writer.Write((ushort)0);
             }
         }
 

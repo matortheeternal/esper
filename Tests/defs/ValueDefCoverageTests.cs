@@ -286,9 +286,9 @@ namespace Tests.defs {
                 refr, new byte[] { 0xEA, 0x06, 0x00, 0x00 }
             );
             var fid = def.ReadData(source, null);
-            Assert.AreEqual(0x6EAu, fid.fileFormId);
+            Assert.AreEqual(0x6EAu, ((FormId)fid).fileFormId);
             var empty = def.DefaultData();
-            Assert.AreEqual(0u, empty.fileFormId);
+            Assert.AreEqual(0u, ((FormId)empty).fileFormId);
             var nav = (ValueElement)refr.GetElement(
                 @"XNDP\Navigation Mesh"
             );
@@ -321,7 +321,7 @@ namespace Tests.defs {
             )).valueDef;
             var nav = (ValueElement)refr.GetElement(@"XNDP\Navigation Mesh");
             var expected = BitConverter.ToString(
-                BitConverter.GetBytes(nav.data.fileFormId)
+                BitConverter.GetBytes(((FormId)nav.data).fileFormId)
             ).Replace("-", "");
             Assert.AreEqual(
                 expected,

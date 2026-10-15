@@ -30,7 +30,7 @@ namespace esper.defs.FO4 {
         internal FaceMorphFormat(DefinitionManager manager, JObject src)
             : base(manager, src) { }
 
-        internal override string DataToValue(ValueElement element, dynamic data) {
+        internal override string DataToValue(ValueElement element, object data) {
             var index = Convert.ToUInt32(data);
             var hex = index.ToString("X8");
             var actor = element?.record;
@@ -45,11 +45,11 @@ namespace esper.defs.FO4 {
             return hex + " " + name;
         }
 
-        internal override string GetSortKey(ValueElement element, dynamic data) {
+        internal override string GetSortKey(ValueElement element, object data) {
             return Convert.ToUInt32(data).ToString("X8");
         }
 
-        internal override dynamic ValueToData(ValueElement element, string value) {
+        internal override object ValueToData(ValueElement element, string value) {
             return Fo4FormatHelpers.WbHexStrToInt(value);
         }
     }

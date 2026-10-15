@@ -11,7 +11,7 @@ namespace esper.defs {
         internal CellChildrenGroupDef(DefinitionManager manager, JObject src)
             : base(manager, src) { }
 
-        internal override dynamic ConvertLabel(GroupRecord group, byte[] label) {
+        internal override object ConvertLabel(GroupRecord group, byte[] label) {
             return FormId.FromSource(
                 group.file,
                 BitConverter.ToUInt32(label)
@@ -20,7 +20,7 @@ namespace esper.defs {
 
         internal override byte[] ParseLabel(Container container, string name) {
             if (container is GroupRecord group)
-                return group.label;
+                return (byte[])group.label;
             throw new Exception("Could not determine new group label.");
         }
     }

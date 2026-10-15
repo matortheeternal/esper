@@ -16,7 +16,7 @@ namespace esper.defs.TES4 {
             int pointIndex = Math.Max(container.count - 1, 0);
             var point = points?.GetElement($"[{pointIndex}]") as Container;
             var connections = point?.GetElement("Connections") as ValueElement;
-            return connections == null ? 0 : Convert.ToUInt32(connections.data);
+            return connections == null ? 0 : Convert.ToUInt32(connections.data?.ToInt64() ?? 0);
         }
     }
 }

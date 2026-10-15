@@ -14,16 +14,16 @@ namespace esper.defs.TES5 {
         // TODO: warnings?
         // TODO: display value?
 
-        internal override string DataToValue(ValueElement element, dynamic data) {
+        internal override string DataToValue(ValueElement element, object data) {
             return data.ToString();
         }
 
-        internal override dynamic ValueToData(ValueElement element, string value) {
+        internal override object ValueToData(ValueElement element, string value) {
             return Int64.Parse(value);
         }
 
-        internal override string GetSortKey(ValueElement element, dynamic data) {
-            UInt16 v = data;
+        internal override string GetSortKey(ValueElement element, object data) {
+            UInt16 v = (UInt16)data.ToUInt64();
             return $"{v:X4}";
         }
     }
@@ -44,7 +44,8 @@ namespace esper.defs.TES5 {
     }
 
     public class Vertex2Format : VertexFormat {
-        public static readonly string defId = "Vertex2Format";
+        public static readonly string defId = "Vertex2Format";
+
         protected override int vertex => 2;
 
         internal Vertex2Format(DefinitionManager manager, JObject src)

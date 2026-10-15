@@ -15,24 +15,24 @@ namespace esper.defs {
         internal Int8Def(DefinitionManager manager, JObject src)
             : base(manager, src) { }
 
-        internal override dynamic ReadData(DataSource source, UInt32? dataSize) {
+        internal override object ReadData(DataSource source, UInt32? dataSize) {
             return source.reader.ReadSByte();
         }
 
-        internal override dynamic DefaultData() {
+        internal override object DefaultData() {
             return (sbyte)0;
         }
 
-        internal override string DataToSortKey(dynamic data) {
-            Int32 v = (Int32)data;
+        internal override string DataToSortKey(object data) {
+            Int32 v = (Int32)data.ToInt64();
             v += Math.Abs((Int32)sbyte.MinValue);
             return v.ToString("X2");
         }
 
-        internal override void SetData(ValueElement element, dynamic data) {
+        internal override void SetData(ValueElement element, object data) {
             element._data = sessionOptions.clampIntegerValues
-                ? DataHelpers.ClampToInt8(data)
-                : (sbyte)data;
+                ? DataHelpers.ClampToInt8(data.ToInt64())
+                : (sbyte)data.ToInt64();
             element.SetState(ElementState.Modified);
         }
 
@@ -42,7 +42,7 @@ namespace esper.defs {
             if (element.data is sbyte data) {
                 output.writer.Write(data);
             } else {
-                output.writer.Write(DefaultData());
+                output.writer.Write((sbyte)0);
             }
         }
 

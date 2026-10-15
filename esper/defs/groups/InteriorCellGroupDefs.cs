@@ -8,7 +8,7 @@ namespace esper.defs {
         internal InteriorCellGroupDef(DefinitionManager manager, JObject src)
             : base(manager, src) { }
 
-        internal override dynamic ConvertLabel(GroupRecord group, byte[] label) {
+        internal override object ConvertLabel(GroupRecord group, byte[] label) {
             return BitConverter.ToInt32(label);
         }
 

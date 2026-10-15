@@ -59,7 +59,7 @@
             remainingPath = path.Substring(separatorIndex + 1);
         }
 
-        internal static dynamic DynamicParse(string value) {
+        internal static object DynamicParse(string value) {
             if (Int64.TryParse(value, out long n)) return n;
             if (UInt64.TryParse(value, out ulong m)) return m;
             throw new Exception("Could not parse " + value);

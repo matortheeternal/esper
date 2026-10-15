@@ -14,24 +14,30 @@ namespace esper.defs.TES5 {
             actorValueEnum = (EnumDef)manager.BuildDef(enumSrc);
         }
 
-        private long GetIndex(dynamic data) {
-            byte[] bytes = BitConverter.GetBytes(data);
+        private long GetIndex(object data) {
+            byte[] bytes = data switch {
+                float f => BitConverter.GetBytes(f),
+                int i => BitConverter.GetBytes(i),
+                uint u => BitConverter.GetBytes(u),
+                long l => BitConverter.GetBytes(l),
+                _ => throw new InvalidOperationException("Expected a numeric value."),
+            };
             float fData = BitConverter.ToSingle(bytes);
             return (long)Math.Round(fData);
         }
 
-        internal override string DataToValue(ValueElement element, dynamic data) {
+        internal override string DataToValue(ValueElement element, object data) {
             long index = GetIndex(data);
             return actorValueEnum.DataToValue(element, index);
         }
 
-        internal override dynamic ValueToData(ValueElement element, string value) {
-            float fData = actorValueEnum.ValueToData(element, value);
+        internal override object ValueToData(ValueElement element, string value) {
+            float fData = actorValueEnum.ValueToData(element, value).ToSingle();
             byte[] bytes = BitConverter.GetBytes(fData);
             return BitConverter.ToUInt32(bytes);
         }
 
-        internal override string GetSortKey(ValueElement element, dynamic data) {
+        internal override string GetSortKey(ValueElement element, object data) {
             long index = GetIndex(data);
             return actorValueEnum.GetSortKey(element, index);
         }

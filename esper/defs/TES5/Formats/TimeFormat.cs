@@ -12,15 +12,15 @@ namespace esper.defs.TES5 {
         internal TimeFormat(DefinitionManager manager, JObject src)
             : base(manager, src) { }
 
-        internal override string DataToValue(ValueElement element, dynamic data) {
-            Int64 time = data;
+        internal override string DataToValue(ValueElement element, object data) {
+            Int64 time = data.ToInt64();
             var hours = time / 6;
             var minutes = (time % 6) * 10;
             if (hours > 23) return time.ToString();
             return $"{hours:00}:{minutes:00}";
         }
 
-        internal override dynamic ValueToData(ValueElement element, string value) {
+        internal override object ValueToData(ValueElement element, string value) {
             var match = timeExpr.Match(value);
             if (match == null) return 0;
             var hours = int.Parse(match.Groups[1].Value);

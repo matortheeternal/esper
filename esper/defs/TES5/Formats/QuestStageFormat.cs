@@ -28,7 +28,7 @@ namespace esper.defs.TES5 {
                 return warnings.Add(element, "Could not resolve Parameter 1");
             if (rec.signature != Signatures.QUST)
                 return warnings.Add(element, $"{rec.name} is not a Quest record");
-            var stage = GetMatchingStage(rec, (int)element._data);
+            var stage = GetMatchingStage(rec, (int)element._data.ToInt64());
             if (stage == null)
                 return warnings.Add(element, $"Quest Stage not found in {rec.name}");
             return false;
@@ -42,7 +42,7 @@ namespace esper.defs.TES5 {
                 : $"{index:D3}";
         }
 
-        internal override string DataToValue(ValueElement element, dynamic data) {
+        internal override string DataToValue(ValueElement element, object data) {
             var rec = GetQuest(element);
             if (rec == null || rec.signature != Signatures.QUST) return data.ToString();
             var stage = GetMatchingStage(rec, (int)data);
@@ -51,7 +51,7 @@ namespace esper.defs.TES5 {
                 : data.ToString();
         }
 
-        internal override dynamic ValueToData(ValueElement element, string value) {
+        internal override object ValueToData(ValueElement element, string value) {
             return DataHelpers.ParseLeadingUInt(value);
         }
     }

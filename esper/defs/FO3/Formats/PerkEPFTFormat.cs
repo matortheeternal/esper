@@ -11,26 +11,26 @@ namespace esper.defs.FO3 {
         internal PerkEPFTFormat(DefinitionManager manager, JObject src)
             : base(manager, src) { }
 
-        internal override string DataToValue(ValueElement element, dynamic data) {
+        internal override string DataToValue(ValueElement element, object data) {
             var function = element?.container?.container
                 ?.GetData<int?>(@"DATA\Entry Point\Function");
-            if (function == null) return data.ToString();
+            if (function == null) return data.ToDisplayString();
             var fn = (int)function;
             if (fn < 0 || fn >= PerkTables.FunctionParamTypes.Length)
-                return data.ToString();
-            if (data < 0 || data >= PerkTables.FunctionParamNames.Length)
-                return data.ToString();
-            var text = PerkTables.FunctionParamNames[data];
-            if (data != PerkTables.FunctionParamTypes[fn])
+                return data.ToDisplayString();
+            if (data.ToInt64() < 0 || data.ToInt64() >= PerkTables.FunctionParamNames.Length)
+                return data.ToDisplayString();
+            var text = PerkTables.FunctionParamNames[(int)data.ToInt64()];
+            if (data.ToInt64() != PerkTables.FunctionParamTypes[fn])
                 return text + " <Warning: Value out of Bounds for this Function>";
             return text;
         }
 
-        internal override string GetSortKey(ValueElement element, dynamic data) {
-            return ((long)data).ToString("X2");
+        internal override string GetSortKey(ValueElement element, object data) {
+            return data.ToInt64().ToString("X2");
         }
 
-        internal override dynamic ValueToData(ValueElement element, string value) {
+        internal override object ValueToData(ValueElement element, string value) {
             if (long.TryParse(value.Trim(), out var number)) return number;
             for (var i = 0; i < PerkTables.FunctionParamNames.Length; i++) {
                 if (string.Equals(

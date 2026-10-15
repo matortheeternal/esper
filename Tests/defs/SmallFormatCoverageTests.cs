@@ -51,11 +51,11 @@ namespace Tests.defs {
             var e2 = new Edge2Format(mgr, Named("E2"));
             Assert.IsTrue(e0.customSortKey);
             Assert.AreEqual("5", e0.DataToValue(null, 5));
-            int none1 = e0.ValueToData(null, "");
-            int none2 = e1.ValueToData(null, "None");
+            int none1 = Convert.ToInt32(e0.ValueToData(null, ""));
+            int none2 = Convert.ToInt32(e1.ValueToData(null, "None"));
             Assert.AreEqual(-1, none1);
             Assert.AreEqual(-1, none2);
-            long twelve = e2.ValueToData(null, "12");
+            long twelve = Convert.ToInt64(e2.ValueToData(null, "12"));
             Assert.AreEqual(12L, twelve);
             Assert.AreEqual("000000000005", e0.GetSortKey(null, (UInt16)5));
         }
@@ -69,7 +69,7 @@ namespace Tests.defs {
             Assert.IsTrue(v0.isNumeric);
             Assert.IsTrue(v0.customSortKey);
             Assert.AreEqual("7", v0.DataToValue(null, 7));
-            long seven = v1.ValueToData(null, "7");
+            long seven = Convert.ToInt64(v1.ValueToData(null, "7"));
             Assert.AreEqual(7L, seven);
             Assert.AreEqual("0007", v2.GetSortKey(null, (UInt16)7));
         }
@@ -80,7 +80,7 @@ namespace Tests.defs {
             var fmt = new AtxtPositionFormat(mgr, Named("A"));
             Assert.IsTrue(fmt.customSortKey);
             Assert.AreEqual("18 -> 1:1", fmt.DataToValue(null, (UInt16)18));
-            long back = fmt.ValueToData(null, "18");
+            long back = Convert.ToInt64(fmt.ValueToData(null, "18"));
             Assert.AreEqual(18L, back);
             Assert.AreEqual("0101", fmt.GetSortKey(null, (UInt16)18));
         }
@@ -91,7 +91,7 @@ namespace Tests.defs {
             var fmt = new RotationFactorFormat(mgr, Named("R"));
             Assert.IsTrue(fmt.isNumeric);
             Assert.AreEqual("180.0000", fmt.DataToValue(null, (float)Math.PI));
-            double back = fmt.ValueToData(null, "180");
+            double back = Convert.ToDouble(fmt.ValueToData(null, "180"));
             Assert.AreEqual(Math.PI, back, 1e-6);
         }
 
@@ -100,7 +100,7 @@ namespace Tests.defs {
             var mgr = SseManager();
             var fmt = new CloudSpeedFormat(mgr, Named("C"));
             Assert.AreEqual("0.0000", fmt.DataToValue(null, 127));
-            double back = fmt.ValueToData(null, "0");
+            double back = Convert.ToDouble(fmt.ValueToData(null, "0"));
             Assert.AreEqual(127.0, back);
         }
 
@@ -110,9 +110,9 @@ namespace Tests.defs {
             var fmt = new HideFFFF_Format(mgr, Named("H"));
             Assert.AreEqual("None", fmt.DataToValue(null, 0xFFFF));
             Assert.AreEqual("42", fmt.DataToValue(null, 42));
-            int none = fmt.ValueToData(null, "None");
+            int none = Convert.ToInt32(fmt.ValueToData(null, "None"));
             Assert.AreEqual(0xFFFF, none);
-            long plain = fmt.ValueToData(null, "42");
+            long plain = Convert.ToInt64(fmt.ValueToData(null, "42"));
             Assert.AreEqual(42L, plain);
         }
 
@@ -122,7 +122,7 @@ namespace Tests.defs {
             var fmt = new TimeFormat(mgr, Named("T"));
             Assert.AreEqual("12:00", fmt.DataToValue(null, 72L));
             Assert.AreEqual("150", fmt.DataToValue(null, 150L));
-            byte back = fmt.ValueToData(null, "12:00");
+            byte back = Convert.ToByte(fmt.ValueToData(null, "12:00"));
             Assert.AreEqual((byte)72, back);
         }
 
@@ -134,11 +134,11 @@ namespace Tests.defs {
             Assert.AreEqual(
                 "GetValue:Form", fmt.DataToValue(null, (12614 << 16) | 2)
             );
-            int noColon = fmt.ValueToData(null, "NoColonHere");
+            int noColon = Convert.ToInt32(fmt.ValueToData(null, "NoColonHere"));
             Assert.AreEqual(0, noColon);
             // The parser drops the character before ':', so a valid
             // round-trip input carries one extra character there.
-            long parsed = fmt.ValueToData(null, "GetIsIDX:None");
+            long parsed = Convert.ToInt64(fmt.ValueToData(null, "GetIsIDX:None"));
             Assert.AreEqual(0L, parsed);
         }
 
@@ -148,11 +148,11 @@ namespace Tests.defs {
             var fmt = new NextObjectIDFormat(mgr, Named("N"));
             Assert.IsTrue(fmt.isNumeric);
             Assert.AreEqual("000ABC", fmt.DataToValue(null, (UInt32)0xABC));
-            int empty = fmt.ValueToData(null, "");
+            int empty = Convert.ToInt32(fmt.ValueToData(null, ""));
             Assert.AreEqual(2048, empty);
-            long hex = fmt.ValueToData(null, "10");
+            long hex = Convert.ToInt64(fmt.ValueToData(null, "10"));
             Assert.AreEqual(16L, hex);
-            long capped = fmt.ValueToData(null, "100000");
+            long capped = Convert.ToInt64(fmt.ValueToData(null, "100000"));
             Assert.AreEqual(2048L, capped);
         }
 
@@ -172,7 +172,7 @@ namespace Tests.defs {
             var expected = Math.Min(
                 (long)found.file.GetHighObjectID() + 1, 2048L
             );
-            long actual = fmt.ValueToData(found, "?");
+            long actual = Convert.ToInt64(fmt.ValueToData(found, "?"));
             Assert.AreEqual(expected, actual);
         }
 

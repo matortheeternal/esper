@@ -31,13 +31,13 @@ namespace esper.defs.FO3 {
             return null;
         }
 
-        internal override string DataToValue(ValueElement element, dynamic data) {
+        internal override string DataToValue(ValueElement element, object data) {
             var index = element?.GetData<int?>() ?? 0;
             var name = FindVariable(ResolveScript(element), index);
             return name ?? data.ToString();
         }
 
-        internal override dynamic ValueToData(ValueElement element, string value) {
+        internal override object ValueToData(ValueElement element, string value) {
             if (long.TryParse(value.Trim(), out var number)) return number;
             var script = ResolveScript(element);
             var locals = script?.GetElements("Local Variables");

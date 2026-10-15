@@ -9,7 +9,7 @@ namespace esper.defs.FO3 {
         internal WthrDataClassificationFormat(DefinitionManager manager, JObject src)
             : base(manager, src) { }
 
-        internal override string DataToValue(ValueElement element, dynamic data) {
+        internal override string DataToValue(ValueElement element, object data) {
             long v = Convert.ToInt64(data) & ~192L;
             switch (v) {
                 case 0: return "None";
@@ -21,11 +21,11 @@ namespace esper.defs.FO3 {
             }
         }
 
-        internal override dynamic ValueToData(ValueElement element, string value) {
+        internal override object ValueToData(ValueElement element, string value) {
             throw new NotImplementedException();
         }
 
-        internal override string GetSortKey(ValueElement element, dynamic data) {
+        internal override string GetSortKey(ValueElement element, object data) {
             return Convert.ToInt64(data).ToString("X2");
         }
     }

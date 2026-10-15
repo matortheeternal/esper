@@ -15,11 +15,11 @@ namespace esper.defs {
                 throw new Exception("Def source has invalid size" + fixedSize);
         }
 
-        internal override string DataToSortKey(dynamic data) {
+        internal override string DataToSortKey(object data) {
             return data.ToString();
         }
 
-        internal override dynamic ReadData(DataSource source, UInt32? dataSize) {
+        internal override object ReadData(DataSource source, UInt32? dataSize) {
             if (isVariableSize && dataSize == null)
                 throw new Exception("Cannot read data of unknown size.");
             // return empty array if there are no bytes to read
@@ -29,19 +29,19 @@ namespace esper.defs {
             return source.reader.ReadBytes((int)numBytes);
         }
 
-        internal override dynamic DefaultData() {
+        internal override object DefaultData() {
             if (isVariableSize) return new byte[0];
             return new byte[(int)fixedSize];
         }
 
-        internal override void SetData(ValueElement element, dynamic data) {
-            if (!isVariableSize && data.Length != fixedSize)
+        internal override void SetData(ValueElement element, object data) {
+            if (!isVariableSize && ((byte[])data).Length != fixedSize)
                 throw new Exception("Bytes size mismatch");
             element._data = data;
         }
 
         public override string GetValue(ValueElement element) {
-            byte[] data = element.data;
+            byte[] data = (byte[])element.data;
             return StringHelpers.FormatBytes(data);
         }
 
@@ -52,14 +52,14 @@ namespace esper.defs {
         internal override UInt32 GetSize(Element element) {
             UInt32 size = (UInt32)(IsSubrecord() ? 6 : 0);
             var v = (ValueElement)element;
-            byte[] bytes = v.data as byte[] ?? DefaultData();
+            byte[] bytes = v.data as byte[] ?? (byte[])DefaultData();
             return (UInt32)(size + bytes.Length);
         }
 
         internal override void WriteData(
             ValueElement element, PluginFileOutput output
         ) {
-            var data = element.data as byte[] ?? DefaultData();
+            byte[] data = element.data as byte[] ?? (byte[])DefaultData();
             output.writer.Write(data);
         }
 

@@ -24,7 +24,7 @@ namespace esper.defs.FNV {
             return target.overrides.LastOrDefault() ?? target;
         }
 
-        internal override string DataToValue(ValueElement element, dynamic data) {
+        internal override string DataToValue(ValueElement element, object data) {
             var raw = data.ToString();
             var quest = ResolveQuest(element);
             if (quest == null)
@@ -32,7 +32,7 @@ namespace esper.defs.FNV {
             var shortName = quest.GetValue("EDID") ?? quest.signature.ToString();
             if (quest.signature.ToString() != "QUST")
                 return $"{raw} <Warning: \"{shortName}\" is not a Quest record>";
-            var index = (int)data;
+            var index = (int)data.ToInt64();
             var stage = quest.GetElements("Objectives")?.FirstOrDefault(
                 o => o.GetData<int?>(@"QOBJ") == index
             );
@@ -42,11 +42,11 @@ namespace esper.defs.FNV {
             return name.Length == 0 ? $"{index:D3}" : $"{index:D3} {name}";
         }
 
-        internal override string GetSortKey(ValueElement element, dynamic data) {
-            return ((int)data).ToString("X8");
+        internal override string GetSortKey(ValueElement element, object data) {
+            return ((int)data.ToInt64()).ToString("X8");
         }
 
-        internal override dynamic ValueToData(ValueElement element, string value) {
+        internal override object ValueToData(ValueElement element, string value) {
             return DataHelpers.ParseLeadingUInt(value);
         }
     }

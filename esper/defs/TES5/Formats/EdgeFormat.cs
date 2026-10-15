@@ -12,18 +12,18 @@ namespace esper.defs.TES5 {
         // TODO: resolve edge link
         // TODO: warnings?
 
-        internal override string DataToValue(ValueElement element, dynamic data) {
+        internal override string DataToValue(ValueElement element, object data) {
             //if (data < 0) return "";
             return data.ToString();
         }
 
-        internal override dynamic ValueToData(ValueElement element, string value) {
+        internal override object ValueToData(ValueElement element, string value) {
             if (value == "" || value == "None") return -1;
             return Int64.Parse(value);
         }
 
-        internal override string GetSortKey(ValueElement element, dynamic data) {
-            UInt16 v = data;
+        internal override string GetSortKey(ValueElement element, object data) {
+            UInt16 v = (UInt16)data.ToUInt64();
             return $"00000000{v:X4}";
         }
     }

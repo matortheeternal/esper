@@ -14,20 +14,20 @@ namespace esper.defs.TES5 {
             eventMemberEnum = (EnumDef)manager.ResolveDef("EventMemberEnum");
         }
 
-        internal override string DataToValue(ValueElement element, dynamic data) {
-            Int64 n = data;
+        internal override string DataToValue(ValueElement element, object data) {
+            Int64 n = data.ToInt64();
             var eventFunction = eventFunctionEnum.DataToValue(element, n & 0xFFFF);
             var eventMember = eventMemberEnum.DataToValue(element, n >> 16);
             return $"{eventFunction}:{eventMember}";
         }
 
-        internal override dynamic ValueToData(ValueElement element, string value) {
+        internal override object ValueToData(ValueElement element, string value) {
             var n = value.IndexOf(':');
             if (n == -1) return 0;
             var fnString = value.Substring(0, n - 1);
             var mbString = value.Substring(n + 1);
-            return (eventMemberEnum.ValueToData(element, mbString) << 16) +
-                eventFunctionEnum.ValueToData(element, fnString);
+            return (eventMemberEnum.ValueToData(element, mbString).ToInt64() << 16) +
+                eventFunctionEnum.ValueToData(element, fnString).ToInt64();
         }
     }
 }

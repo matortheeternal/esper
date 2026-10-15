@@ -14,9 +14,9 @@ namespace esper.defs.TES5 {
             throw new NotImplementedException();
         }
 
-        private string DataToValue(dynamic data) {
-            if (data == -1) return "None";
-            return data.ToString();
+        private string DataToValue(object data) {
+            if (data.ToInt64() == -1) return "None";
+            return data.ToDisplayString();
         }
 
         private List<Element> GetAliases(MainRecord questRef) {
@@ -33,17 +33,17 @@ namespace esper.defs.TES5 {
         // TODO: sort key
         // TODO: edit info?
 
-        internal override string DataToValue(ValueElement element, dynamic data) {
+        internal override string DataToValue(ValueElement element, object data) {
             if (!sessionOptions.resolveAliases) return DataToValue(data);
             var questRef = ResolveQuestRec(element);
             if (questRef == null || questRef.signature != Signatures.QUST)
                 return DataToValue(data);
             foreach (Element alias in GetAliases(questRef))
-                if (alias.GetData<uint>("[0]") == data) return AliasToStr(alias);
+                if (alias.GetData<long>("[0]") == data.ToInt64()) return AliasToStr(alias);
             return DataToValue(data);
         }
 
-        internal override dynamic ValueToData(ValueElement element, string value) {
+        internal override object ValueToData(ValueElement element, string value) {
             return DataHelpers.ParseInt64(value, -1);
         }
     }

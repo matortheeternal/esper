@@ -18,9 +18,9 @@ namespace esper.elements {
             }
         }
 
-        internal dynamic _data;
+        internal object _data;
 
-        internal dynamic data {
+        internal object data {
             get => _data;
             set => valueDef.SetData(this, value);
         }
@@ -47,7 +47,7 @@ namespace esper.elements {
         }
 
         internal static ValueElement Init(
-            Container container, ElementDef def, dynamic data
+            Container container, ElementDef def, object data
         ) {
             return new ValueElement(container, def) {
                 _data = data
@@ -76,7 +76,7 @@ namespace esper.elements {
 
         internal override JToken ToJson() {
             if (sessionOptions.serializeNumericData && valueDef.isNumeric)
-                return data;
+                return data?.ToJToken();
             return value;
         }
     }

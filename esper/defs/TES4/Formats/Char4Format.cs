@@ -9,12 +9,12 @@ namespace esper.defs.TES4 {
         internal Char4Format(DefinitionManager manager, JObject src)
             : base(manager, src) { }
 
-        internal override string DataToValue(ValueElement element, dynamic data) {
+        internal override string DataToValue(ValueElement element, object data) {
             var bytes = BitConverter.GetBytes(Convert.ToUInt32(data));
             return Encoding.ASCII.GetString(bytes);
         }
 
-        internal override dynamic ValueToData(ValueElement element, string value) {
+        internal override object ValueToData(ValueElement element, string value) {
             if (string.IsNullOrEmpty(value)) return (uint)0x20202020;
             if (value.Length != 4)
                 throw new Exception("The value must be exactly 4 characters");

@@ -89,14 +89,22 @@ namespace esper.resolution {
 
         public static T GetData<T>(this Element r, string path = "") {
             ValueElement valueElement = (ValueElement)r.GetElement(path);
-            return (T)valueElement?.data;
+            var data = valueElement?.data;
+            if (data == null) return (T)(object)null;
+            if (data is T match) return match;
+            return (T)Convert.ChangeType(
+                data, Nullable.GetUnderlyingType(typeof(T)) ?? typeof(T));
         }
 
         public static T GetDataEx<T>(this Element r, string path = "") {
             var valueElement = r.GetElementEx(path) as ValueElement;
             if (valueElement == null)
                 throw new Exception("Element does not have a value.");
-            return (T)valueElement.data;
+            var data = valueElement.data;
+            if (data == null) return (T)(object)null;
+            if (data is T match) return match;
+            return (T)Convert.ChangeType(
+                data, Nullable.GetUnderlyingType(typeof(T)) ?? typeof(T));
         }
 
         public static bool GetFlag(this Element r, string flagsPath, string flag) {

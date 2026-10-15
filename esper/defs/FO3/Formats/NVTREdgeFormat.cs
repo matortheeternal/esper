@@ -11,14 +11,14 @@ namespace esper.defs.FO3 {
         internal NVTREdgeFormat(DefinitionManager manager, JObject src)
             : base(manager, src) { }
 
-        internal override string DataToValue(ValueElement element, dynamic data) {
+        internal override string DataToValue(ValueElement element, object data) {
             var name = element?.def?.name;
             var index = name != null && name.Length > 0 ? name[0] - '0' : -1;
             if (index < 0 || index > 2) return data.ToString();
             var flags = element?.GetData<int?>(@"..\..\Flags");
             if (flags == null) return data.ToString();
             if ((flags & (1 << index)) == 0) return data.ToString();
-            var tri = (int)data;
+            var tri = (int)data.ToInt64();
             var navm = element?.record;
             var connection = navm?.GetElements("NVEX")?.Skip(tri).FirstOrDefault();
             var mesh = connection?.GetElement("Navigation Mesh");
@@ -29,11 +29,11 @@ namespace esper.defs.FO3 {
             return $"#{data} (Triangle #{triangle} in \"{target.GetValue("EDID")}\")";
         }
 
-        internal override string GetSortKey(ValueElement element, dynamic data) {
+        internal override string GetSortKey(ValueElement element, object data) {
             return "";
         }
 
-        internal override dynamic ValueToData(ValueElement element, string value) {
+        internal override object ValueToData(ValueElement element, string value) {
             return DataHelpers.ParseLeadingUInt(value);
         }
     }

@@ -12,11 +12,11 @@ namespace esper.defs {
             factor = src.Value<int>("value");
         }
 
-        internal override string DataToValue(ValueElement element, dynamic data) {
+        internal override string DataToValue(ValueElement element, object data) {
             return (Convert.ToInt64(data) * factor).ToString();
         }
 
-        internal override dynamic ValueToData(ValueElement element, string value) {
+        internal override object ValueToData(ValueElement element, string value) {
             return DataHelpers.ParseInt64(value) / factor;
         }
     }

@@ -28,17 +28,17 @@ namespace esper.defs {
                 persistent = src.Value<bool>("persistent");
         }
 
-        internal override dynamic ReadData(DataSource source, UInt32? dataSize) {
+        internal override object ReadData(DataSource source, UInt32? dataSize) {
             UInt32 data = source.reader.ReadUInt32();
             return FormId.FromSource(source.plugin, data);
         }
 
-        internal override dynamic DefaultData() {
+        internal override object DefaultData() {
             return new FormId(null, 0);
         }
 
         public override string GetValue(ValueElement element) {
-            FormId data = element.data;
+            FormId data = (FormId)element.data;
             return data.ToString();
         }
 
@@ -81,7 +81,7 @@ namespace esper.defs {
             SetData(element, fid);
         }
 
-        internal override string DataToSortKey(dynamic data) {
+        internal override string DataToSortKey(object data) {
             var fid = (FormId)data;
             if (fid == null) return new string('0', 8);
             return fid.fileFormId.ToString("X8");
@@ -93,7 +93,7 @@ namespace esper.defs {
             if (element.data is FormId data) {
                 data.WriteTo(output);
             } else {
-                DefaultData().WriteTo(output);
+                ((FormId)DefaultData()).WriteTo(output);
             }
         }
 

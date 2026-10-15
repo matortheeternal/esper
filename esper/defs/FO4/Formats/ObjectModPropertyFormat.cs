@@ -42,7 +42,7 @@ namespace esper.defs.FO4 {
         }
 
         internal override string DataToValue(
-            ValueElement element, dynamic data
+            ValueElement element, object data
         ) {
             var propertyEnum = GetPropertyEnum(element);
             return propertyEnum == null
@@ -50,7 +50,7 @@ namespace esper.defs.FO4 {
                 : propertyEnum.DataToValue(element, data);
         }
 
-        internal override dynamic ValueToData(
+        internal override object ValueToData(
             ValueElement element, string value
         ) {
             var propertyEnum = GetPropertyEnum(element);

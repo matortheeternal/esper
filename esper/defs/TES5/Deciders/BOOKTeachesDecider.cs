@@ -6,7 +6,7 @@ namespace esper.defs.TES5 {
         public override int Decide(Container container) {
             var flagsElement = container?.GetElement("Flags") as ValueElement;
             if (flagsElement == null) return 0;
-            long flags = Convert.ToInt64(flagsElement.data);
+            long flags = flagsElement.data?.ToInt64() ?? 0;
             return ((flags & 0x4) != 0) ? 1 : 0;
         }
     }

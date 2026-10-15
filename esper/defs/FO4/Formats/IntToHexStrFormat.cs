@@ -10,11 +10,11 @@ namespace esper.defs.FO4 {
         internal IntToHexStrFormat(DefinitionManager manager, JObject src)
             : base(manager, src) { }
 
-        internal override string DataToValue(ValueElement element, dynamic data) {
+        internal override string DataToValue(ValueElement element, object data) {
             return Convert.ToUInt32(data).ToString("X8");
         }
 
-        internal override dynamic ValueToData(ValueElement element, string value) {
+        internal override object ValueToData(ValueElement element, string value) {
             return Fo4FormatHelpers.WbHexStrToInt(value);
         }
     }

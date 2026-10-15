@@ -42,25 +42,37 @@ namespace esper.defs {
             return new ValueElement(container, this);
         }
 
-        internal virtual dynamic ReadData(DataSource source, UInt32? dataSize) {
+        internal virtual object ReadData(DataSource source, UInt32? dataSize) {
             throw new NotImplementedException();
         }
 
-        internal virtual dynamic DefaultData() {
+        internal virtual object DefaultData() {
             throw new NotImplementedException();
         }
 
-        internal virtual void SetData(ValueElement element, dynamic data) {
+        internal virtual void SetData(ValueElement element, object data) {
             element._data = data;
             element.MarkModified();
         }
 
-        internal virtual string DataToString(dynamic data) {
+        internal virtual string DataToString(object data) {
             return data.ToString();
         }
 
-        internal virtual string DataToSortKey(dynamic data) {
-            return data.ToString($"X{2 * size}");
+        internal virtual string DataToSortKey(object data) {
+            var hex = $"X{2 * size}";
+            return data switch {
+                sbyte v => v.ToString(hex),
+                byte v => v.ToString(hex),
+                short v => v.ToString(hex),
+                ushort v => v.ToString(hex),
+                int v => v.ToString(hex),
+                uint v => v.ToString(hex),
+                long v => v.ToString(hex),
+                float v => v.ToString(),
+                _ => throw new InvalidOperationException(
+                    "No default sort key for this value."),
+            };
         }
 
         public virtual string GetValue(ValueElement element) {
