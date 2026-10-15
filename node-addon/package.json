@@ -1,0 +1,13 @@
+{
+  "name": "esper-node",
+  "version": "0.1.0",
+  "private": true,
+  "description": "NativeAOT Node.js addon and tests for esper (replaces js-tests)",
+  "scripts": {
+    "build": "node build.js",
+    "test": "npm run build && node --test test/*.test.js"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

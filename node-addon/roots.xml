@@ -1,0 +1,4 @@
+<linker>
+  <assembly fullname="esper" preserve="all" />
+  <assembly fullname="balsa" preserve="all" />
+</linker>
