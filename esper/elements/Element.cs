@@ -40,6 +40,10 @@ namespace esper.elements {
             set => throw new Exception($"Element '{def.name}' does not reference records.");
         }
 
+        public virtual bool ExchangeReferences(FormId oldId, FormId newId) {
+            return false;
+        }
+
         public virtual PluginFile file => container.file;
         public virtual GroupRecord group => container.group;
         public virtual MainRecord record => container.record;

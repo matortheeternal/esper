@@ -1,6 +1,7 @@
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Text.RegularExpressions;
+using esper.data;
 using esper.elements;
 using esper.plugins;
 using esper.resolution;
@@ -53,6 +54,7 @@ internal static unsafe class Api {
         Addon.RegisterFunction(env, exports, "elementPath", &ElementPath);
         Addon.RegisterFunction(env, exports, "removeElement", &RemoveElement);
         Addon.RegisterFunction(env, exports, "copyElement", &CopyElement);
+        Addon.RegisterFunction(env, exports, "exchangeReferences", &ExchangeReferences);
         Addon.RegisterFunction(env, exports, "getRecordFlag", &GetRecordFlag);
         Addon.RegisterFunction(env, exports, "setRecordFlag", &SetRecordFlag);
         Addon.RegisterFunction(env, exports, "getMasterRecord", &GetMasterRecord);
@@ -406,6 +408,15 @@ internal static unsafe class Api {
             var asNew = args.Length > 2 && Addon.GetNumber(env, args[2]) != 0;
             var options = asNew ? CopyOptions.AsNewRecord : default;
             return Addon.JsBigInt(env, Pin(source.CopyTo(target, options)));
+        });
+
+    [UnmanagedCallersOnly(CallConvs = [typeof(CallConvCdecl)])]
+    private static nint ExchangeReferences(nint env, nint info) =>
+        Run(env, info, (env, args) => {
+            var el = ElementOf(env, args);
+            var oldId = FormId.FromSource(el.file, (uint)Addon.GetBigInt(env, args[1]));
+            var newId = FormId.FromSource(el.file, (uint)Addon.GetBigInt(env, args[2]));
+            return Addon.JsBool(env, el.ExchangeReferences(oldId, newId));
         });
 
     [UnmanagedCallersOnly(CallConvs = [typeof(CallConvCdecl)])]

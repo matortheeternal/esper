@@ -74,6 +74,15 @@ namespace esper.elements {
             if (rec != null) rec.AddRef(record);
         }
 
+        public override bool ExchangeReferences(FormId oldId, FormId newId) {
+            if (valueDef is FormIdDef && data is VariantData.Form form
+                && form.V.fileFormId == oldId.fileFormId) {
+                valueDef.SetData(this, newId);
+                return true;
+            }
+            return false;
+        }
+
         internal override JToken ToJson() {
             if (sessionOptions.serializeNumericData && valueDef.isNumeric)
                 return data?.ToJToken();

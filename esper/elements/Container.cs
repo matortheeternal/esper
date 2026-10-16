@@ -106,6 +106,14 @@ namespace esper.elements {
                     element.BuildRefBy();
         }
 
+        public override bool ExchangeReferences(FormId oldId, FormId newId) {
+            var changed = false;
+            foreach (var element in elements)
+                if (element.def.canContainFormIds)
+                    changed |= element.ExchangeReferences(oldId, newId);
+            return changed;
+        }
+
         internal JArray ToJsonArray() {
             return new JArray(elements.Select(e => e.ToJson()).ToArray());
         }

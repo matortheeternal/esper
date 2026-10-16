@@ -151,6 +151,16 @@ namespace esper.elements {
             return new MainRecord(container, def, source, header);
         }
 
+        public override bool ExchangeReferences(FormId oldId, FormId newId) {
+            var changed = false;
+            var list = elements;
+            var start = mrDef.GetFirstRealElementIndex(this);
+            for (int i = start; i < list.Count; i++)
+                if (list[i].def.canContainFormIds)
+                    changed |= list[i].ExchangeReferences(oldId, newId);
+            return changed;
+        }
+
         internal void AddOverride(MainRecord ovr) {
             if (_overrides == null)
                 throw new Exception("Internal overrides array hasn't been initialized.  " +
