@@ -119,12 +119,11 @@ namespace Tests.resolution {
 
         [Test]
         public void TestCreateElementUnsupportedThrows() {
-            // '.' matches no child def, so creation throws rather
+            // records define no default child, so creation throws rather
             // than returning null
-            var ex = Assert.Throws<Exception>(
+            Assert.Throws<NotImplementedException>(
                 () => rec.CreateElement(".")
             );
-            StringAssert.Contains("Cannot create element", ex.Message);
         }
 
         [Test]

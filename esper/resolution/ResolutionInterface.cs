@@ -10,6 +10,7 @@ namespace esper.resolution {
     [JSExport]
     public static class ResolutionExtensions {
         public static ResolutionStrategies strategies = new ResolutionStrategies {
+            new CreateByDefault(),
             new ResolveContainer(),
             new ResolveParent(),
             new ResolveByFileFormId(),

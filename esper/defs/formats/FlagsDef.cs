@@ -27,7 +27,7 @@ namespace esper.defs {
                 if (value == flag) return key;
             Match match = unknownFlagExpr.Match(flag);
             if (!match.Success) return -1;
-            return int.Parse(match.Captures[0].Value);
+            return int.Parse(match.Groups[1].Value);
         }
 
         internal List<string> DataToArray(ValueElement element, VariantData data) {

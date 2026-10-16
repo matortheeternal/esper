@@ -20,6 +20,7 @@ namespace esper.resolution.strategies {
 
         public override Element Resolve(MatchData match) {
             var c = (ElementMatch<Container>)match;
+            if (c.target is GroupRecord) return null;
             var sig = Signature.FromString(c.match.Groups[1].Value);
             foreach (Element element in c.target.elements) {
                 if (element.signature == sig) return element;

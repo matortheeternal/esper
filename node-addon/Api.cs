@@ -1,5 +1,6 @@
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
+using System.Text.RegularExpressions;
 using esper.elements;
 using esper.plugins;
 using esper.resolution;
@@ -51,6 +52,20 @@ internal static unsafe class Api {
         Addon.RegisterFunction(env, exports, "getContainer", &GetContainer);
         Addon.RegisterFunction(env, exports, "elementPath", &ElementPath);
         Addon.RegisterFunction(env, exports, "removeElement", &RemoveElement);
+        Addon.RegisterFunction(env, exports, "copyElement", &CopyElement);
+        Addon.RegisterFunction(env, exports, "getRecordFlag", &GetRecordFlag);
+        Addon.RegisterFunction(env, exports, "setRecordFlag", &SetRecordFlag);
+        Addon.RegisterFunction(env, exports, "getMasterRecord", &GetMasterRecord);
+        Addon.RegisterFunction(env, exports, "getWinningOverride", &GetWinningOverride);
+        Addon.RegisterFunction(env, exports, "isWinningOverride", &IsWinningOverride);
+        Addon.RegisterFunction(env, exports, "getReferencedBy", &GetReferencedBy);
+        Addon.RegisterFunction(env, exports, "buildReferences", &BuildReferences);
+        Addon.RegisterFunction(env, exports, "getLinksTo", &GetLinksTo);
+        Addon.RegisterFunction(env, exports, "addMaster", &AddMaster);
+        Addon.RegisterFunction(env, exports, "cleanMasters", &CleanMasters);
+        Addon.RegisterFunction(env, exports, "getIsEditable", &GetIsEditable);
+        Addon.RegisterFunction(env, exports, "getFlag", &GetElementFlag);
+        Addon.RegisterFunction(env, exports, "setFlag", &SetElementFlag);
     }
 
     private static ulong Pin(object target) =>
@@ -382,4 +397,152 @@ internal static unsafe class Api {
     private static nint RemoveElement(nint env, nint info) =>
         Run(env, info, (env, args) => Addon.JsBool(env,
             ElementOf(env, args).RemoveElement(PathArg(env, args))));
+
+    [UnmanagedCallersOnly(CallConvs = [typeof(CallConvCdecl)])]
+    private static nint CopyElement(nint env, nint info) =>
+        Run(env, info, (env, args) => {
+            var source = ElementOf(env, args);
+            var target = ElementOf(env, args, 1);
+            var asNew = args.Length > 2 && Addon.GetNumber(env, args[2]) != 0;
+            var options = asNew ? CopyOptions.AsNewRecord : default;
+            return Addon.JsBigInt(env, Pin(source.CopyTo(target, options)));
+        });
+
+    [UnmanagedCallersOnly(CallConvs = [typeof(CallConvCdecl)])]
+    private static nint GetRecordFlag(nint env, nint info) =>
+        Run(env, info, (env, args) => {
+            if (ElementOf(env, args) is not MainRecord rec)
+                throw new Exception("not a record");
+            var flag = Addon.GetString(env, args[1]);
+            return Addon.JsBool(env, int.TryParse(flag, out var index)
+                ? rec.GetRecordFlag(index)
+                : rec.GetRecordFlag(flag));
+        });
+
+    [UnmanagedCallersOnly(CallConvs = [typeof(CallConvCdecl)])]
+    private static nint SetRecordFlag(nint env, nint info) =>
+        Run(env, info, (env, args) => {
+            if (ElementOf(env, args) is not MainRecord rec)
+                throw new Exception("not a record");
+            var flag = Addon.GetString(env, args[1]);
+            var state = args.Length > 2 && Addon.GetNumber(env, args[2]) != 0;
+            if (!int.TryParse(flag, out var index)) {
+                var unknown = Regex.Match(flag, @"^Unknown (\d+)$");
+                if (unknown.Success) {
+                    index = int.Parse(unknown.Groups[1].Value);
+                } else if (rec.GetElement(@"Record Header\Record Flags") is ValueElement ve
+                    && ve.flagsDef != null) {
+                    index = ve.flagsDef.GetFlagIndex(flag);
+                } else {
+                    index = -1;
+                }
+                if (index < 0) {
+                    rec.SetFlag(@"Record Header\Record Flags", flag, state);
+                    return Addon.JsBool(env, true);
+                }
+            }
+            rec.SetRecordFlag(index, state);
+            return Addon.JsBool(env, true);
+        });
+
+    [UnmanagedCallersOnly(CallConvs = [typeof(CallConvCdecl)])]
+    private static nint GetMasterRecord(nint env, nint info) =>
+        Run(env, info, (env, args) => {
+            if (ElementOf(env, args) is not MainRecord rec)
+                throw new Exception("not a record");
+            var master = rec.master;
+            return master == null
+                ? Addon.JsBigInt(env, 0)
+                : Addon.JsBigInt(env, Pin(master));
+        });
+
+    private static MainRecord WinningOverride(MainRecord rec) {
+        var overrides = rec.overrides;
+        return overrides.Count > 0 ? overrides[^1] : rec;
+    }
+
+    [UnmanagedCallersOnly(CallConvs = [typeof(CallConvCdecl)])]
+    private static nint GetWinningOverride(nint env, nint info) =>
+        Run(env, info, (env, args) => {
+            if (ElementOf(env, args) is not MainRecord rec)
+                throw new Exception("not a record");
+            return Addon.JsBigInt(env, Pin(WinningOverride(rec)));
+        });
+
+    [UnmanagedCallersOnly(CallConvs = [typeof(CallConvCdecl)])]
+    private static nint IsWinningOverride(nint env, nint info) =>
+        Run(env, info, (env, args) => {
+            if (ElementOf(env, args) is not MainRecord rec)
+                throw new Exception("not a record");
+            return Addon.JsBool(env, ReferenceEquals(WinningOverride(rec), rec));
+        });
+
+    [UnmanagedCallersOnly(CallConvs = [typeof(CallConvCdecl)])]
+    private static nint GetReferencedBy(nint env, nint info) =>
+        Run(env, info, (env, args) => {
+            if (ElementOf(env, args) is not MainRecord rec)
+                throw new Exception("not a record");
+            Addon.NApi.CreateArray(env, out var arr);
+            uint i = 0;
+            foreach (var referrer in rec.referencedBy) {
+                Addon.NApi.CreateBigintUint64(env, Pin(referrer), out var h);
+                Addon.NApi.SetElement(env, arr, i++, h);
+            }
+            return arr;
+        });
+
+    [UnmanagedCallersOnly(CallConvs = [typeof(CallConvCdecl)])]
+    private static nint BuildReferences(nint env, nint info) =>
+        Run(env, info, (env, args) => {
+            PluginOf(env, args).BuildRefBy();
+            return Addon.JsBool(env, true);
+        });
+
+    [UnmanagedCallersOnly(CallConvs = [typeof(CallConvCdecl)])]
+    private static nint GetLinksTo(nint env, nint info) =>
+        Run(env, info, (env, args) => {
+            var target = ElementOf(env, args).referencedRecord;
+            return target == null
+                ? Addon.JsBigInt(env, 0)
+                : Addon.JsBigInt(env, Pin(target));
+        });
+
+    [UnmanagedCallersOnly(CallConvs = [typeof(CallConvCdecl)])]
+    private static nint AddMaster(nint env, nint info) =>
+        Run(env, info, (env, args) => {
+            PluginOf(env, args).AddMaster(PluginOf(env, args, 1));
+            return Addon.JsBool(env, true);
+        });
+
+    [UnmanagedCallersOnly(CallConvs = [typeof(CallConvCdecl)])]
+    private static nint CleanMasters(nint env, nint info) =>
+        Run(env, info, (env, args) => {
+            var file = PluginOf(env, args);
+            if (file.GetUnusedMasters().Count == 0)
+                return Addon.JsBool(env, false);
+            file.RemoveUnusedMasters();
+            return Addon.JsBool(env, true);
+        });
+
+    [UnmanagedCallersOnly(CallConvs = [typeof(CallConvCdecl)])]
+    private static nint GetIsEditable(nint env, nint info) =>
+        Run(env, info, (env, args) => Addon.JsBool(env,
+            !ElementOf(env, args).state.HasFlag(ElementState.Protected)));
+
+    [UnmanagedCallersOnly(CallConvs = [typeof(CallConvCdecl)])]
+    private static nint GetElementFlag(nint env, nint info) =>
+        Run(env, info, (env, args) => Addon.JsBool(env,
+            ElementOf(env, args).GetFlag(
+                Addon.GetString(env, args[1]),
+                Addon.GetString(env, args[2]))));
+
+    [UnmanagedCallersOnly(CallConvs = [typeof(CallConvCdecl)])]
+    private static nint SetElementFlag(nint env, nint info) =>
+        Run(env, info, (env, args) => {
+            ElementOf(env, args).SetFlag(
+                Addon.GetString(env, args[1]),
+                Addon.GetString(env, args[2]),
+                Addon.GetNumber(env, args[3]) != 0);
+            return Addon.JsBool(env, true);
+        });
 }

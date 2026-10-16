@@ -70,6 +70,17 @@ namespace esper.elements {
             return true;
         }
 
+        internal override AssignmentInfo GetAssignment(ElementDef childDef) {
+            var targetDef = groupDef.childDefs.SingleOrDefault(def => {
+                return def == childDef;
+            });
+            if (targetDef == null)
+                throw new Exception($"Def {childDef.name} is not supported by {name}");
+            return new AssignmentInfo() {
+                index = internalElements.Count
+            };
+        }
+
         private void SetParentRecord() {
             if (!(label is FormId fid)) return;
             int index = container.internalElements.Count - 2;

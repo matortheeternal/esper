@@ -104,7 +104,8 @@ namespace Tests.resolution {
         public void TestResolution_Signature() {
             Assert.AreEqual(group, plugin.ResolveElement("ACTI"));
             var rec = group.elements[0];
-            Assert.AreEqual(rec, group.ResolveElement("ACTI"));
+            Assert.IsNull(group.ResolveElement("ACTI"));
+            Assert.AreEqual(rec, plugin.GetElement(@"ACTI\[0]"));
             Assert.AreEqual(rec.elements[2], rec.ResolveElement("OBND"));
         }
 

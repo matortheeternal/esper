@@ -21,9 +21,8 @@ namespace Tests.resolution {
 
         private MainRecord FirstActi() {
             Container root = plugin;
-            var group = (GroupRecord)root.elements
-                .First(e => e is GroupRecord g && g.groupDef.signature.ToString() == "ACTI");
-            return (MainRecord)group.ResolveElement("ACTI");
+            var group = (GroupRecord)root.ResolveElement("ACTI");
+            return (MainRecord)group.elements[0];
         }
 
         [Test]
@@ -46,7 +45,8 @@ namespace Tests.resolution {
             Container root = plugin;
             var group = (GroupRecord)root.ResolveElement("ACTI");
             var rec = FirstActi();
-            Assert.AreSame(rec, group.ResolveElement("ACTI"));
+            Assert.IsNull(group.ResolveElement("ACTI"));
+            Assert.AreSame(rec, root.GetElement(@"ACTI\[0]"));
         }
 
         [Test]

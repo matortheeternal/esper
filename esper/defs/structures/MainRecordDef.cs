@@ -118,7 +118,14 @@ namespace esper.defs {
             });
         }
 
+        public override Element NewElement(Container container = null) {
+            var rec = new MainRecord(container, this);
+            rec.Initialize();
+            return rec;
+        }
+
         internal void InitElement(MainRecord rec) {
+            rec._internalElements ??= new List<Element>();
             foreach (var def in memberDefs) {
                 if (!def.required) continue;
                 if (rec._internalElements.Any(e => e.def == def)) continue;

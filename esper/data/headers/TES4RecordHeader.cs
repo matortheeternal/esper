@@ -9,7 +9,7 @@ namespace esper.data.headers {
 
         public Signature signature { get; }
         public UInt32 dataSize { get; }
-        public UInt32 flags { get; }
+        public UInt32 flags { get; internal set; }
         public UInt32 formId { get; }
 
         public TES4RecordHeader(PluginFileSource source) {

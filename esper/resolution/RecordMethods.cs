@@ -14,5 +14,17 @@ namespace esper.resolution {
             if (m == null) return false;
             return m.mrDef.RecordFlagIsSet(m, flagIndex);
         }
+
+        public static void SetRecordFlag(this MainRecord m, int flagIndex, bool state) {
+            if (m == null) return;
+            uint bit = (uint)1 << flagIndex;
+            var header = m.header;
+            if (state) header.flags |= bit;
+            else header.flags &= ~bit;
+            m.header = header;
+            if (m.GetElement(@"Record Header\Record Flags") is ValueElement ve)
+                ve.data = (ulong)m.header.flags;
+            m.MarkModified();
+        }
     }
 }

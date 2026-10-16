@@ -146,6 +146,17 @@ namespace esper.plugins {
             return pluginDef.IsTopGroup(sig);
         }
 
+        internal override Element CreateElementBySignature(string sig) {
+            var signature = Signature.FromString(sig);
+            if (!pluginDef.topGroups.TryGetValue(signature, out var groupDef))
+                throw new Exception($"{sig} is not a supported top group in {name}");
+            var group = elements.OfType<GroupRecord>().FirstOrDefault(g =>
+                g.groupType == 0 && g.label.ToString() == sig);
+            if (group == null)
+                group = groupDef.CreateFromName(this, sig);
+            return group;
+        }
+
         public override bool Remove() {
             throw new Exception("Cannot remove plugin files.");
         }

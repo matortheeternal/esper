@@ -75,7 +75,10 @@ namespace esper.elements {
             set => this.SetValue("FULL", value);
         }
         public override string name {
-            get => this.GetValue("[FULL|EDID]") ?? formId.ToString();
+            get {
+                if (signature == Signatures.TES4) return "File Header";
+                return this.GetValue("[FULL|EDID]") ?? formId.ToString();
+            }
         }
 
         public bool local {

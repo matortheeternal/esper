@@ -2,7 +2,7 @@
 
 namespace esper.resolution.strategies {
     public class CreateByDefault : ResolutionStrategy {
-        private static readonly Regex expr = new Regex(@"^(?:\.|\[\+\])$");
+        private static readonly Regex expr = new Regex(@"^(?:\.|\+|\[\+\])$");
         public override bool canResolve => false;
 
         public override MatchData Match(Element element, string pathPart) {

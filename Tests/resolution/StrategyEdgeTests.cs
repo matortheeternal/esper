@@ -121,6 +121,7 @@ namespace Tests.resolution {
             var s = new CreateByDefault();
             Assert.IsFalse(s.canResolve);
             Assert.IsNotNull(s.Match(rec, "."));
+            Assert.IsNotNull(s.Match(rec, "+"));
             Assert.IsNotNull(s.Match(rec, "[+]"));
             Assert.IsNull(s.Match(rec, "x"));
             var value = rec.GetElement("EDID");

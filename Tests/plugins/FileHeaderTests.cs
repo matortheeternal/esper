@@ -53,6 +53,11 @@ namespace Tests.plugins {
         }
 
         [Test]
+        public void TestFileHeaderName() {
+            Assert.AreEqual("File Header", plugin.header.name);
+        }
+
+        [Test]
         public void TestSubrecordValues() {
             var fh = plugin.header;
             var hedr = fh.GetElement("HEDR");
