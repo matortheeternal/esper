@@ -18,7 +18,7 @@ namespace Tests.resolution {
         private PluginFile plugin;
         private MainRecord rec;
 
-        [OneTimeSetUp]
+        [SetUp]
         public void SetUp() {
             session = new Session(Games.SSE, new SessionOptions());
             plugin = session.pluginManager.LoadPlugin(
@@ -238,7 +238,7 @@ namespace Tests.resolution {
         private PluginFile plugin;
         private MainRecord rec;
 
-        [OneTimeSetUp]
+        [SetUp]
         public void SetUp() {
             session = new Session(Games.SSE, new SessionOptions());
             plugin = session.pluginManager.LoadPlugin(

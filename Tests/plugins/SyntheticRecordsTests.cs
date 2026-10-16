@@ -74,7 +74,9 @@ namespace Tests.plugins {
             using (var w = new BinaryWriter(ms, Encoding.ASCII, true)) {
                 var hedr = new byte[12];
                 BitConverter.GetBytes(1.7f).CopyTo(hedr, 0);
-                BitConverter.GetBytes(14u).CopyTo(hedr, 4);
+                // xEdit counts groups as well as records, minus the
+                // TES4 header itself: 14 records + 13 groups = 27.
+                BitConverter.GetBytes(27u).CopyTo(hedr, 4);
                 BitConverter.GetBytes(0x80Eu).CopyTo(hedr, 8);
                 var header = Record("TES4", 0, new[] {
                     Subrecord("HEDR", hedr),
