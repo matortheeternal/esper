@@ -1,5 +1,9 @@
 ﻿using esper.defs;
 using esper.elements;
+using esper.queries;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
 using System.Text;
 
@@ -15,6 +19,8 @@ namespace esper.setup {
         public string dataPath { get; set; }
         public GameIni gameIni;
         internal Assembly assembly;
+        private readonly Dictionary<ulong, QuerySelection> selections = [];
+        private ulong nextSelectionId = 1;
 
         public RootElement root => pluginManager.root;
         public ElementDef pluginFileDef {
@@ -37,6 +43,39 @@ namespace esper.setup {
             pluginManager = new PluginManager(this);
             resourceManager = new ResourceManager(this);
             if (options.loadResources) resourceManager.Init();
+        }
+
+        public QuerySelection CaptureSelection(params object[] sources) {
+            ArgumentNullException.ThrowIfNull(sources);
+            Element[] elements = sources.SelectMany(CaptureElements).ToArray();
+            ValidateSelection(elements);
+            var selection = new QuerySelection(nextSelectionId, elements);
+            selections.Add(nextSelectionId, selection);
+            nextSelectionId++;
+            return selection;
+        }
+
+        internal QuerySelection GetSelection(ulong id) {
+            if (selections.TryGetValue(id, out QuerySelection selection))
+                return selection;
+            throw new InvalidOperationException($"Selection '{id}' does not exist.");
+        }
+
+        private static IEnumerable<Element> CaptureElements(object source) {
+            if (source is TreeNode node) return node.elements;
+            if (source is Element element) return [element];
+            throw new ArgumentException(
+                "Selections can only capture tree nodes and elements.",
+                nameof(source)
+            );
+        }
+
+        private void ValidateSelection(IEnumerable<Element> elements) {
+            foreach (Element element in elements)
+                if (element.manager.session != this)
+                    throw new ArgumentException(
+                        $"Element '{element.fullPath}' belongs to another session."
+                    );
         }
     }
 }

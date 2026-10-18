@@ -10,6 +10,7 @@ namespace esper.elements {
     public class Element {
         public ElementDef def { get; }
         public ElementState state { get; internal set; }
+        public bool modified { get { return (state & ElementState.Modified) != 0; } }
 
         // Size of the source data this element was read from, when known.
         // Set on struct elements read from a sized source (e.g. subrecords).
