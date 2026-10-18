@@ -15,10 +15,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "balsa", "..\balsa\balsa\bal
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Benchmarks", "Benchmarks\Benchmarks.csproj", "{D0820560-5CC3-4308-869A-E22D34F48108}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Starfield", "Starfield\Starfield.csproj", "{0DB15D84-8860-43E7-B706-64AA75487969}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fallout4", "Fallout4\Fallout4.csproj", "{7E1EE5DA-0665-4751-B9E8-06E0D372D264}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,14 +37,6 @@ Global
 		{D0820560-5CC3-4308-869A-E22D34F48108}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D0820560-5CC3-4308-869A-E22D34F48108}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D0820560-5CC3-4308-869A-E22D34F48108}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0DB15D84-8860-43E7-B706-64AA75487969}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0DB15D84-8860-43E7-B706-64AA75487969}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0DB15D84-8860-43E7-B706-64AA75487969}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0DB15D84-8860-43E7-B706-64AA75487969}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7E1EE5DA-0665-4751-B9E8-06E0D372D264}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7E1EE5DA-0665-4751-B9E8-06E0D372D264}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7E1EE5DA-0665-4751-B9E8-06E0D372D264}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7E1EE5DA-0665-4751-B9E8-06E0D372D264}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
