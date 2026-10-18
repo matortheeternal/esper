@@ -22,7 +22,6 @@ namespace Tests.plugins {
                 rec._internalElements = null;
                 rec._unexpectedSubrecords = null;
             }
-            TestContext.Progress.WriteLine($"SIGS {sigs.Count}");
             var samples = new Dictionary<string, List<MainRecord>>();
             foreach (var rec in plugin.records) {
                 var sig = rec.signature.ToString();
